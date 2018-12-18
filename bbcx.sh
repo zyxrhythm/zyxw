@@ -23,37 +23,6 @@ echo '<head>'
 echo '<link rel="icon" type="image/png" href="https://www.bigblackcactus.com/icon.png" />'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 
-# the javascript copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-</script>
-EOS2
-
 #CSS
 cat <<EOS
 <style>
@@ -641,6 +610,38 @@ echo "$whoisservergrep"
 echo "<br>"
 
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+
+# the javascript copies the contents of div to clipboard
+#this is a snippet from http://edupala.com/copy-div-content-clipboard/
+cat <<EOS2
+
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+</script>
+EOS2
+
 
 #the end of body
 echo '</body>'
