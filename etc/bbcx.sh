@@ -162,15 +162,16 @@ while IFS= read -r line
 do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
+echo "---------------"
 
 echo "<br/>"
-
 echo "<br/>"
+echo "---------------"
 echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
-
+echo "---------------"
 echo "<br/>"
 echo "[Name Servers:]";
 echo "<br/>"
@@ -190,7 +191,7 @@ do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
    echo "<br/>   $line   ---" "${ar0#*:}";
 done < <(printf '%s\n' "$ar");
-
+echo "---------------"
 echo "<br/>"
 echo "<br/>"
 echo -e '[MX records:] \n'
