@@ -148,11 +148,9 @@ echo "Domain Name: $domain";
 echo "<br/>"
 
 echo "<br/>"
-echo "$registrar";
-echo "<br/>"
+echo "$registrar <br/>";
 echo "__________________"
 
-echo "<br/>"
 echo "<br/>"
 
 echo "[Domain Status:]";
