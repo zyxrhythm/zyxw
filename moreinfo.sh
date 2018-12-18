@@ -86,10 +86,14 @@ The usual Javascript for client side scripting.
 The usual HTML and CSS for its simple looks.
 
 
-If you like the website, and wants to check the codes for improvement 
+If you like the website, and wants to check the beta codes for improvement 
 or just want to deploy it on your own server, the codes are at github:
 
 <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi</a>
+
+Or if you want to see what is live:
+<a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
+
 
 -----------------------
 For bugs and other concerns please email:
