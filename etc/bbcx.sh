@@ -151,7 +151,7 @@ echo "<br/>"
 echo "$registrar <br/>";
 echo "__________________"
 
-echo "<br/>"
+echo "<br/> <br/>"
 
 echo "[Domain Status:]";
 
