@@ -214,7 +214,7 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/>"
 done < <(printf '%s\n' "$mxr");
 echo "__________________"
 ;;
