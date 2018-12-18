@@ -583,7 +583,7 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-echo "-----------------------------------------------------------"
+echo "-----------------------------------------------------"
 echo "<br>"
 
 echo "$rese"
@@ -604,7 +604,7 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "-----------------------------------------------------------"
+echo "-----------------------------------------------------"
 
 echo "<br>"
 echo "$whoisservergrep"
