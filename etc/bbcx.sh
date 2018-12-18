@@ -612,7 +612,7 @@ echo "<pre>$tech</pre>"
 
 echo "____________________________________"
 
-echo "<br>"
+echo "<br> <br>"
 echo "$whoisservergrep"
 echo "<br>"
 
