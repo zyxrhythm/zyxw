@@ -65,12 +65,12 @@ Noted Revisions:
 -Removed extra whois result from all ccTLDs.
 -Added a domain validity check at the start of the BBC special script process.
 -.CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
--BBC special will now querry 8.8.8.8 by default instead of the localhost bind servers. 
+-BBC special will now querry 8.8.8.8 by default instead of the localhost bind server. 
 -White spaces and invalid special characters on the textfields will now be removed automatically by the javascript.
 -Added support for all gTLDs from ICANN's <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt" rel="noopener noreferrer" target="_blank">list</a> of gTLDs and ccTLDs.
--Added a simple SSL cert checker (CHECK-MATE).
--Added a function to get the raw whois data (WHOYOU).
--BBC Special will now display the Registrant Info, the Domain Tech and Admin details on the bottom of the basic check (BBC spacial)  result (queried from the whois server of the the registrar).
+-Added a simple SSL certificate checker (CHECK-MATE).
+-Added a function to get the raw whois info from whois servers (WHOYOU).
+-BBC Special will now display the Registrant Info, the domain Tech and Admin contact details on the bottom of the result (queried from the whois server of the the registrar).
 -Created a custom result for .CA .AU and .NZ domains on BBC special.
 -Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution.
 -Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results".
@@ -91,7 +91,7 @@ or just want to deploy it on your own server, the codes are at github:
 
 <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi</a>
 
-Or if you want to see what is live codes running on the server:
+Or if you want to see what is in the live codes running from the server:
 <a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
 
 
