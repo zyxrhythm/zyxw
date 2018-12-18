@@ -145,6 +145,7 @@ echo '<p>'
 #print the results with a couple of string manipulations
 echo "__________________"
 echo "<br/>"
+echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
 
