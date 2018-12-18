@@ -91,7 +91,7 @@ or just want to deploy it on your own server, the codes are at github:
 
 <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi</a>
 
-Or if you want to see what is live:
+Or if you want to see what is live codes running on the server:
 <a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
 
 
