@@ -385,9 +385,11 @@ echo '<p>'
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
+echo "<br/>"
 echo "$registrar";
 echo "<br/>"
 echo "------------------"
+echo "<br/>"
 echo "<br/>"
 echo "[Domain Status:]";
 
@@ -489,7 +491,9 @@ echo '<p>'
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
-echo "${registrar#*:}";
+echo "<br/>"
+echo "Registrar: ${registrar#*:}";
+echo "<br/>"
 echo "<br/>"
 echo "------------------"
 echo "<br/>"
