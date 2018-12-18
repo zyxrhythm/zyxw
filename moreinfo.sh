@@ -62,7 +62,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 Noted Revisions:
 
--Speed and stability fixes: (removed full url links from the codes remomving the need for browsers to do another DNS resolution for the domain and reduce and accesses to the server, added a cron that will restart apache2 every hour [to temporarily handle the 500s])
+-Speed and stability fixes: (removed full url links from the codes remomving the need for another DNS resolution and to increse speed, added a cron that will restart apache2 every hour for statibility [to temporarily handle the 500s])
 -Removed extra whois result from all ccTLDs.
 -Added a domain validity check at the start of the BBC special script process.
 -.CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
