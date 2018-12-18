@@ -20,7 +20,7 @@ echo '<title>BBC (0.05)</title>'
 
 #start of head
 echo '<head>'
-echo '<link rel="icon" type="image/png" href="https://www.bigblackcactus.com/icon.png" />'
+echo '<link rel="icon" type="image/png" href="/icon.png" />'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 
 
