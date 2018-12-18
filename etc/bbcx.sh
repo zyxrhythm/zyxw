@@ -152,7 +152,7 @@ echo "$registrar";
 
 echo "<br/>"
 
-echo "---------------"
+echo "------------------"
 
 echo "<br/>"
 echo "[Domain Status:]";
@@ -163,14 +163,13 @@ do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
-echo "---------------"
+echo "-----------------------"
 echo "<br/>"
-
 echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
-echo "---------------"
+echo "-----------------------"
 echo "<br/>"
 echo "[Name Servers:]";
 echo "<br/>"
@@ -181,7 +180,7 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 
- 
+echo "------------------"
 echo "<br/>"
 echo '[A records:]'
 echo "<br/>"
@@ -191,8 +190,7 @@ do
    echo "<br/>   $line   ---" "${ar0#*:}";
 done < <(printf '%s\n' "$ar");
 echo "<br/>"
-echo "---------------"
-echo "<br/>"
+echo "------------------"
 echo "<br/>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
