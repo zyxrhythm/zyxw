@@ -153,7 +153,7 @@ echo "$registrar";
 echo "<br/>"
 echo "<br/>"
 
-echo "------------------"
+echo "__________________"
 
 echo "<br/>"
 echo "[Domain Status:]";
@@ -388,8 +388,8 @@ echo "<br/>"
 echo "<br/>"
 echo "$registrar";
 echo "<br/>"
-echo "------------------"
 echo "<br/>"
+echo "------------------"
 echo "<br/>"
 echo "[Domain Status:]";
 
@@ -413,8 +413,6 @@ echo "<br/>"
 echo "------------------"
 echo "<br/>"
 echo "$regcontact";
-echo "<br/>"
-echo "------------------"
 echo "<br/>"
 echo "$techcontact";
 echo "<br/>"
