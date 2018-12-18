@@ -149,13 +149,12 @@ echo "<br/>"
 
 echo "<br/>"
 echo "$registrar";
-
 echo "<br/>"
-echo "<br/>"
-
 echo "__________________"
 
 echo "<br/>"
+echo "<br/>"
+
 echo "[Domain Status:]";
 
 echo "<br/>"
@@ -170,7 +169,7 @@ echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
-echo "------------------------------"
+echo "__________________"
 echo "<br/>"
 echo "[Name Servers:]";
 echo "<br/>"
