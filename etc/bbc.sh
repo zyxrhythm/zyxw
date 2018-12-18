@@ -12,7 +12,7 @@ cat <<EOT
 
 <!DOCTYPE html>
 <html>
-<link rel="icon" type="image/png" href="https://www.bigblackcactus.com/icon.png" />
+<link rel="icon" type="image/png" href="/icon.png" />
 <head>
 <title>BBC ( v 0.5 )</title>
 
