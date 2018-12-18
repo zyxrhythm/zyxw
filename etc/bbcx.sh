@@ -161,14 +161,14 @@ do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
-echo "------------------------------"
+echo "------------------"
 echo "<br/>"
 echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
 echo "__________________"
-echo "<br/>"
+echo "<br/> <br/>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -178,8 +178,8 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 
-echo "------------------"
-echo "<br/>"
+echo "__________________"
+echo "<br/> <br/>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -188,8 +188,8 @@ do
    echo "<br/>   $line   ---" "${ar0#*:}";
 done < <(printf '%s\n' "$ar");
 echo "<br/>"
-echo "------------------"
-echo "<br/>"
+echo "__________________"
+echo "<br/> <br/>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
