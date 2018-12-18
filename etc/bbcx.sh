@@ -143,6 +143,7 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the results with a couple of string manipulations
+echo "__________________"
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
@@ -214,7 +215,7 @@ fi
 
    echo "<br/> <br/>"
 done < <(printf '%s\n' "$mxr");
-
+echo "__________________"
 ;;
 
 $cctldlist)
