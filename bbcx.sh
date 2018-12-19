@@ -53,6 +53,38 @@ pre{
 
 EOS
 
+
+# the javascript copies the contents of div to clipboard
+#this is a snippet from http://edupala.com/copy-div-content-clipboard/
+cat <<EOS2
+
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+</script>
+EOS2
+
 #back button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
 
@@ -143,16 +175,18 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the results with a couple of string manipulations
+echo "__________________________"
+echo "<br/>"
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
 
 echo "<br/>"
-echo "$registrar";
+echo "$registrar <br/>";
+echo "__________________________"
 
-echo "<br/>"
+echo "<br/> <br/>"
 
-echo "<br/>"
 echo "[Domain Status:]";
 
 echo "<br/>"
@@ -160,16 +194,15 @@ while IFS= read -r line
 do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
-
 echo "<br/>"
-
+echo "--------------------------"
 echo "<br/>"
 echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
-
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br/>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -179,8 +212,8 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 
- 
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br/>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -188,9 +221,9 @@ do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
    echo "<br/>   $line   ---" "${ar0#*:}";
 done < <(printf '%s\n' "$ar");
-
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br/>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -212,9 +245,9 @@ else
    
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
-
-   echo "<br/> <br/>"
+   echo "<br/> <br>"
 done < <(printf '%s\n' "$mxr");
+echo "__________________________"
 
 ;;
 
@@ -236,6 +269,8 @@ echo '<div class="code-bg" id="divClipboard">'
 echo "<pre>$zyx</pre>";
 echo '<p>'
 echo "<br/>"
+echo "__________________________"
+echo '<br/> <br>'
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -245,7 +280,8 @@ do
 done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -268,9 +304,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/> <br>"
 done < <(printf '%s\n' "$mxr");
-
+echo "<br/>"
+echo "__________________________"
 
 echo '</p>'
 
@@ -299,6 +336,8 @@ echo "<pre>$zyxca</pre>";
 echo '<p>'
 
 echo "<br/>"
+echo "__________________________"
+echo '<br/> <br>'
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -308,7 +347,8 @@ do
 done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -331,8 +371,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/> <br>"
 done < <(printf '%s\n' "$mxr");
+echo "__________________________"
+echo "<br/>"
 
 echo '</p>'
 
@@ -373,17 +415,16 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the results with a couple of string manipulations
-
-echo "<br/>"
+echo '<br/>'
+echo "__________________________"
+echo "<br/> <br>"
 echo "Domain Name: $domain";
 echo "<br/>"
-
 echo "<br/>"
 echo "$registrar";
-
 echo "<br/>"
-
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br/>"
 echo "[Domain Status:]";
 
 echo "<br/>"
@@ -393,7 +434,8 @@ do
 done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -402,13 +444,14 @@ do
 done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo "$regcontact";
-echo "<br/>"
 echo "<br/>"
 echo "$techcontact";
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -418,7 +461,8 @@ do
 done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -441,9 +485,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/> <br>"
 done < <(printf '%s\n' "$mxr");
-
+echo "<br/>"
+echo "__________________________"
 echo '</p>'
 
 ;;
@@ -475,17 +520,16 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the results with a couple of string manipulations
-
+echo "__________________________"
+echo "<br/>"
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
-
 echo "<br/>"
-echo "${registrar#*:}";
-
+echo "Registrar: ${registrar#*:}";
 echo "<br/>"
-
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo "[Domain Status:]";
 
 echo "<br/>"
@@ -493,14 +537,14 @@ while IFS= read -r line
 do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
-
-echo "<br/>"
+echo '<br>'
+echo "--------------------------"
 
 echo "<br/>"
 echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
-
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -509,8 +553,8 @@ do
 done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
- 
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -520,7 +564,8 @@ do
 done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
-echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -543,8 +588,11 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/> <br>"
 done < <(printf '%s\n' "$mxr");
+
+echo "<br/>"
+echo "__________________________"
 
 echo '</p>'
 
@@ -582,7 +630,7 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-echo "-----------------------------------------------------------"
+echo "____________________________________"
 echo "<br>"
 
 echo "$rese"
@@ -603,52 +651,19 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "-----------------------------------------------------------"
+echo "____________________________________"
 
-echo "<br>"
+echo "<br> <br>"
 echo "$whoisservergrep"
 echo "<br>"
 
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
-
-# the javascript copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-</script>
-EOS2
-
 
 #the end of body
 echo '</body>'
 
 #the end of html
 echo '</html>'
-
 
 fi
 
