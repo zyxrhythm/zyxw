@@ -488,8 +488,8 @@ fi
 
    echo "<br/>"
 done < <(printf '%s\n' "$mxr");
-
-echo '<br>'
+echo "<br/>"
+echo "__________________________"
 echo '</p>'
 
 ;;
