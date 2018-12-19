@@ -238,7 +238,7 @@ echo "<pre>$zyx</pre>";
 echo '<p>'
 echo "<br/>"
 echo "__________________________"
-echo '<br/>'
+echo '<br/> <br>'
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -249,7 +249,7 @@ done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -304,7 +304,7 @@ echo '<p>'
 
 echo "<br/>"
 echo "__________________________"
-echo '<br/>'
+echo '<br/> <br>'
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -315,7 +315,7 @@ done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -382,12 +382,11 @@ echo '<p>'
 #print the results with a couple of string manipulations
 echo '<br/>'
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo "Domain Name: $domain";
 echo "<br/>"
 echo "<br/>"
 echo "$registrar";
-echo "<br/>"
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
@@ -401,7 +400,7 @@ done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -411,13 +410,13 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo "$regcontact";
 echo "<br/>"
 echo "$techcontact";
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -428,7 +427,7 @@ done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
@@ -493,9 +492,8 @@ echo "<br/>"
 echo "<br/>"
 echo "Registrar: ${registrar#*:}";
 echo "<br/>"
-echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo "[Domain Status:]";
 
 echo "<br/>"
@@ -509,7 +507,7 @@ echo "<br/>"
 echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo "[Name Servers:]";
 echo "<br/>"
 while IFS= read -r line
@@ -519,7 +517,7 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo '[A records:]'
 echo "<br/>"
 while IFS= read -r line
@@ -530,7 +528,7 @@ done < <(printf '%s\n' "$ar");
 
 echo "<br/>"
 echo "__________________________"
-echo "<br/>"
+echo "<br/> <br>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
 while IFS= read -r line
