@@ -217,6 +217,7 @@ fi
    echo "<br/>"
 done < <(printf '%s\n' "$mxr");
 echo "__________________________"
+
 ;;
 
 $cctldlist)
@@ -272,9 +273,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/>"
 done < <(printf '%s\n' "$mxr");
-
+echo "<br/>"
+echo "__________________________"
 
 echo '</p>'
 
