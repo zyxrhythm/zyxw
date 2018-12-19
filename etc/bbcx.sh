@@ -141,6 +141,9 @@ echo 'Not a valid domain! Sorna.'
 echo '</div>'
 echo '</p>'
 
+echo '</body>'
+echo '</html>'
+
 exit 1;
 else
 
@@ -315,6 +318,10 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+
+echo '</body>'
+
+echo '</html>'
 exit 1;
 
 ;;
@@ -382,6 +389,11 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+
+echo '</body>'
+
+echo '</html>'
+
 exit 1;
 
 ;;
@@ -600,6 +612,11 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+
+echo '</body>'
+
+echo '</html>'
+
 exit 1;
 
 ;;
@@ -610,8 +627,12 @@ exit 1;
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
+
+echo '</body>'
+
+echo '</html>'
+
 exit 1;
-echo '</p>'
 
 ;;
 esac
