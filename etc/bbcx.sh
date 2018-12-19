@@ -143,7 +143,7 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the results with a couple of string manipulations
-echo "__________________"
+echo "__________________________"
 echo "<br/>"
 echo "<br/>"
 echo "Domain Name: $domain";
@@ -151,7 +151,7 @@ echo "<br/>"
 
 echo "<br/>"
 echo "$registrar <br/>";
-echo "__________________"
+echo "__________________________"
 
 echo "<br/> <br/>"
 
@@ -163,13 +163,13 @@ do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
-echo "------------------"
+echo "--------------------------"
 echo "<br/>"
 echo "$creationdate";
 echo "<br/>"
 echo "$expd" ;
 echo "<br/>"
-echo "__________________"
+echo "__________________________"
 echo "<br/> <br/>"
 echo "[Name Servers:]";
 echo "<br/>"
@@ -180,7 +180,7 @@ done < <(printf '%s\n' "$nameservers");
 
 echo "<br/>"
 
-echo "__________________"
+echo "__________________________"
 echo "<br/> <br/>"
 echo '[A records:]'
 echo "<br/>"
@@ -190,7 +190,7 @@ do
    echo "<br/>   $line   ---" "${ar0#*:}";
 done < <(printf '%s\n' "$ar");
 echo "<br/>"
-echo "__________________"
+echo "__________________________"
 echo "<br/> <br/>"
 echo -e '[MX records:] \n'
 echo "<br/> <br/>"
@@ -216,7 +216,7 @@ fi
 
    echo "<br/>"
 done < <(printf '%s\n' "$mxr");
-echo "__________________"
+echo "__________________________"
 ;;
 
 $cctldlist)
