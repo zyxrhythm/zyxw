@@ -338,8 +338,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+echo "<br/>"
 done < <(printf '%s\n' "$mxr");
+echo "__________________________"
+echo "<br/>"
 
 echo '</p>'
 
@@ -450,9 +452,10 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/>"
 done < <(printf '%s\n' "$mxr");
 
+echo '<br>'
 echo '</p>'
 
 ;;
@@ -501,6 +504,7 @@ while IFS= read -r line
 do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
+echo '<br>'
 echo "--------------------------"
 
 echo "<br/>"
@@ -551,8 +555,11 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
 
-   echo "<br/> <br/>"
+   echo "<br/>"
 done < <(printf '%s\n' "$mxr");
+
+echo "<br/>"
+echo "__________________________"
 
 echo '</p>'
 
