@@ -138,7 +138,7 @@ echo '<br>'
 $cctldlist)
 
 echo "$DNSR $domain $qns"
-zyxccd=($dig +noall +answer $DNSR $domain $qns );
+zyxccd=$(dig +noall +answer $DNSR $domain $qns );
 
 
 echo '<div class="code-bg" id="divClipboard">'
