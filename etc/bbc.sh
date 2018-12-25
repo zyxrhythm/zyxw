@@ -87,7 +87,7 @@ function removeSpecialCharacters(string) {
 
 <p>
 <h4>
-<a href="https://www.bigblackcactus.com/cgi-bin/bbc.sh">Big Black Cactus</a>
+<a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
 </h4>
 </p>
 
@@ -183,8 +183,8 @@ function removeSpecialCharacters(string) {
 <p>
 <br>
 <br>
-<a href="https://www.bigblackcactus.com">
-<img border="0" alt="Cactus" src="https://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
+<a href="/cgi-bin/bbc.sh">
+<img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
 </a>
 </p>
 
@@ -197,11 +197,11 @@ function removeSpecialCharacters(string) {
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.369
+rev.383
 <br>
 <br>
 <br>
-<b>-> <a href=https://www.bigblackcactus.com/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b>
+<b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b>
 </footer>
 </p>
 
@@ -214,7 +214,8 @@ If you do not specify a name server for Big Nick Digger.
 <br>
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 <br>
-<a href=https://www.bigblackcactus.com/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">More Info</a>
+<br>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a>
 </article>
 </p>
 
