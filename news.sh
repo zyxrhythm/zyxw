@@ -67,6 +67,7 @@ Noted Revisions:
 -Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
 -Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
 -Added the requested "Guide Lines" for better visuals of BBC special results.
+-Fixed reported bug that the website cannot process domains with .store TLDs even though the tld is listed on the supported TLDs.
 -Restricted the access to the website, the site can only be accessed by From selected locations, because of cyber attacks.
 -Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
 -Removed extra whois result from all ccTLDs.
