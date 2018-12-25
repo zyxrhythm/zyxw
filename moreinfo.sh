@@ -61,8 +61,8 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 -----------------------
 
 Noted Revisions:
-
--Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility [to temporarily handle the 500s])
+-Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
+-Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
 -Removed extra whois result from all ccTLDs.
 -Added a domain validity check at the start of the BBC special script process.
 -.CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
