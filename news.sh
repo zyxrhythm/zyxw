@@ -62,7 +62,7 @@ pre{
 
 Noted Revisions:
 
--The website shoud now be accessible anywhere in the world - as per request.
+-The website should now be accessible anywhere in the world - as per request.
 -Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
 -Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
 -Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
