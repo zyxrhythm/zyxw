@@ -136,6 +136,8 @@ echo '<br>'
 
 #prints the dig results for cctlds
 $cctldlist)
+
+echo "$DNSR $domain $qns"
 zyxccd=($dig +noall +answer $DNSR $domain $qns );
 
 
