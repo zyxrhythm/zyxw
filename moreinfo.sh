@@ -57,29 +57,6 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 -Dig DNS records of domains and sub domains from one of Google's name server (8.8.8.8) or from particular name servers (user specified).
 -And can also check if an SSL certificate is issued for a domain/sub domain name.
 
-
------------------------
-
-Noted Revisions:
--Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
--Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
--Removed extra whois result from all ccTLDs.
--Added a domain validity check at the start of the BBC special script process.
--.CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
--BBC special will now querry 8.8.8.8 by default instead of the localhost bind server. 
--White spaces and invalid special characters on the textfields will now be removed automatically by the javascript.
--Added support for all gTLDs from ICANN's <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt" rel="noopener noreferrer" target="_blank">list</a> of gTLDs and ccTLDs.
--Added a simple SSL certificate checker (CHECK-MATE).
--Added a function to get the raw whois info from whois servers (WHOYOU).
--BBC Special will now display the Registrant Info, the domain Tech and Admin contact details on the bottom of the result (queried from the whois server of the the registrar).
--Created a custom result for .CA .AU and .NZ domains on BBC special.
--Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution.
--Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results".
--Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
-
-Origins:
--brought <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a> custom bash scripts out via CGI so the same result from kitty can be viewed on a browser.
-
 -----------------------
 
 This website uses the Bourne again shell (.sh) for server-side scripting.
