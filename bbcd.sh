@@ -72,8 +72,8 @@ echo '</head>'
 echo '<body>'
 
 #specififies the PATHs needed by the bash script
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin/UvqqraYrns"
-export $PATH
+#PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#export $PATH
 
 #stores the string from bbc.sh to a variable
 qs0=$QUERY_STRING;
