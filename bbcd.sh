@@ -124,7 +124,7 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-echo "DNS@bbc:~$ dig $DNSR $domain $qns";
+echo "DNS@BBC:~$ dig $DNSR $domain $qns";
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
@@ -138,7 +138,7 @@ $cctldlist)
 
 zyxccd=$(dig +noall +answer $DNSR $domain $qns );
 
-echo "DNS@bbc:~$ dig $DNSR $domain $qns";
+echo "DNS@BBC:~$ dig $DNSR $domain $qns";
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
