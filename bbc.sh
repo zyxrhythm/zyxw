@@ -238,3 +238,5 @@ Copyleft 2018 &copy;
 </html>
 
 EOT
+
+exit;
