@@ -128,9 +128,6 @@ echo "DNS@bbc:~$ dig  Record: $DNSR Domain: $domain @Name Server: $qns";
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-
-echo '<br>'
-echo '<br>'
 echo "<pre>$zyxgd</pre>";
 echo '<br>'
 echo '<br>'
@@ -147,9 +144,6 @@ echo "DNS@bbc:~$ dig  Record: $DNSR Domain: $domain @Name Server: $qns";
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
-
-echo '<br>'
-echo '<br>'
 echo "<pre>$zyxccd</pre>";
 echo '<br>'
 echo '<br>'
