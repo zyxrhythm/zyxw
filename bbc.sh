@@ -197,7 +197,7 @@ function removeSpecialCharacters(string) {
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.383
+rev.387
 <br>
 <br>
 <br>
@@ -215,7 +215,8 @@ If you do not specify a name server for Big Nick Digger.
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 <br>
 <br>
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ News ]</a>
 </article>
 </p>
 
