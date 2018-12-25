@@ -8,6 +8,13 @@ cat <<EOT
 <link rel="icon" type="image/png" href="/icon.png" />
 <head>
 <title>BBC ( v 0.4 )</title>
+
+<meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <center>
 <p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
 </center>
@@ -54,10 +61,13 @@ pre{
 -----------------------
 
 Noted Revisions:
+
+-The website shoud now be accessible anywhere in the world - as per request.
 -Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
 -Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
 -Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
 -Added the requested "Guide Lines" for better visuals of BBC special results.
+-Restricted the access to the website, the site can only be accessed by From selected locations, because of cyber attacks.
 -Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
 -Removed extra whois result from all ccTLDs.
 -Added a domain validity check at the start of the BBC special script process.
