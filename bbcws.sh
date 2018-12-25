@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>'
 echo '<html>'
 
 #Tab title
-echo '<title>BBC (0.05)</title>'
+echo '<title>BBC (0.06)</title>'
 
 #start of head
 echo '<head>'
