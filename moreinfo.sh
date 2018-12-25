@@ -72,7 +72,8 @@ or just want to deploy it on your own server, the codes are at github:
 Or if you want to see what is in the live codes running from the server:
 <a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
 
-
+ Origins:
+ -brought <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a> custom bash scripts out via CGI so the same result from kitty can be viewed on a browser.
 -----------------------
 For bugs and other concerns please email:
 director@bigblackcactus.com
