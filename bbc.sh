@@ -239,4 +239,4 @@ Copyleft 2018 &copy;
 
 EOT
 
-exit;
+exit 0;
