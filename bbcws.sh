@@ -269,3 +269,5 @@ fi
 #end of body and html
 echo '</body>'
 echo '</html>'
+
+exit 0;
