@@ -203,3 +203,5 @@ echo '</body>'
 echo '</html>'
 
 fi
+
+exit 0;
