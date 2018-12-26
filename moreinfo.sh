@@ -94,3 +94,5 @@ director@bigblackcactus.com
 </html>
 
 EOT
+
+exit 0;
