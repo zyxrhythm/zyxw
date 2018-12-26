@@ -38,7 +38,6 @@ cat <<EOX
 
   gtag('config', 'UA-32625644-1');
 </script>
-
 EOX
 
 # the javascript for the lazy that copies the contents of div to clipboard
