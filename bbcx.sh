@@ -141,7 +141,7 @@ echo 'Not a valid domain! Sorna.'
 echo '</div>'
 echo '</p>'
 
-exit 1;
+exit 0;
 else
 
 #cuts and extracts the TLD
@@ -315,7 +315,7 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
-exit 1;
+exit 0;
 
 ;;
 
@@ -382,7 +382,7 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
-exit 1;
+exit 0;
 
 ;;
 
@@ -600,7 +600,7 @@ echo '</div>'
 
 echo '<br>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
-exit 1;
+exit 0;
 
 ;;
 
@@ -610,7 +610,7 @@ exit 1;
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
-exit 1;
+exit 0;
 echo '</p>'
 
 ;;
@@ -669,3 +669,4 @@ fi
 
 fi
 
+exit 0;
