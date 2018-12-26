@@ -181,7 +181,7 @@ echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
-# the javascript for the lazy that copies the contents of div to clipboard
+# the javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
 cat <<EOS2
 
