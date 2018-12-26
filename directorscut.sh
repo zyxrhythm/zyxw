@@ -80,3 +80,5 @@ For testing/feedbacks/suggestions/bug reports.
 </html>
 
 EOT
+
+exit 0;
