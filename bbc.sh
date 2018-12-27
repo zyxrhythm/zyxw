@@ -221,7 +221,7 @@ function removeSpecialCharacters(string) {
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.391
+rev.397
 <br>
 <br>
 <br>
