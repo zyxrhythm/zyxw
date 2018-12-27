@@ -71,7 +71,7 @@ body {background-color:black;color:white
 }
 
 pre{
-    white-space: pre-wrap; font-size: 115%;
+    white-space: pre-wrap; font-size: 105%;
 }
 
 </style>
