@@ -94,7 +94,6 @@ thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.ht
 removes nasty white spaces on the text fields that causes alot of issue
 -->
 
-
 <script language="javascript" type="text/javascript">
 function removeSpaces(string) {
  return string.split(' ').join('');
@@ -105,10 +104,7 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-
-
 <center>
-
 <p>
 <h4>
 <a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
@@ -123,9 +119,6 @@ function removeSpecialCharacters(string) {
 
 <button id="BBCbtn" type="submit" >BBC special</button>
 </form>
-
-
-
 
 <br>
 <br>
@@ -192,7 +185,6 @@ function removeSpecialCharacters(string) {
 <!-- <label></label> -->
 <select name='dcheck'> 
 
-
 <!--
 	<option>WHOISIP</option>
 	<option>GETHOSTNAME</option>
@@ -213,7 +205,6 @@ function removeSpecialCharacters(string) {
 </p>
 
 <p>
-
 
 </body>
 
@@ -251,7 +242,6 @@ Copyleft 2018 &copy;
 </article>
 
 </center>
-
 
 </html>
 
