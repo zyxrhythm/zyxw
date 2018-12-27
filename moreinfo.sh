@@ -71,8 +71,8 @@ pre{
 <pre>
 BigBlackCactus.com (BBC) is a website you can use for the following: 
 
--Fetch the whois information of a domain directly from whois servers and/or the domain name registar's whois servers.
--Dig DNS records of domains and sub domains from one of Google's name server (8.8.8.8) or from particular name servers (user specified).
+-Do a whois lookup for a domain directly from default registry whois servers and/or the domain name registar's whois servers.
+-Dig DNS records under domains and sub domains directly from one of Google's name server (8.8.8.8) or from a particular name servers (user specified).
 -And can also check if an SSL certificate is issued for a domain/sub domain name.
 
 -----------------------
@@ -91,7 +91,7 @@ Or if you want to see what is in the codes running live from the server:
 <a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
 
 Origins:
--brought <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a> custom bash scripts out from a terminal to a browser via CGI.
+-The functions of this website is from <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a>, which are custom bash scripts for DNS digging and simplified whois info lookups, and then were decided that the scripts should go out the terminal and to a browser via CGI.
 -----------------------
 For bugs and other concerns please email:
 director@bigblackcactus.com
