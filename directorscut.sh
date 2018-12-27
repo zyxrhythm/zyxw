@@ -69,16 +69,16 @@ pre{
 <p>
 <pre>
 
-Paul
-Paul Anthony
-Mark Anthony
-Mary Genevive
-Pamela
-Clark
-Jeanne
-Raymundo
-Aries
-Walter King
+-Paul
+-Paul Anthony
+-Mark Anthony
+-Mary Genevive
+-Pamela
+-Clark Angelo
+-Jeanne
+-Raymundo
+-Aries
+-Walter King
 
 For testing/feedbacks/suggestions/bug reports.
 
