@@ -78,7 +78,6 @@ pre{
 
 EOS
 
-
 #The javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
 cat <<EOS2
