@@ -87,13 +87,10 @@ p  {
 
 h1 {font-family: verdana;
 	font-size: 70%;
-
 }
 
 
 body {background-color:black;color:white;
-
-
 }
 
 pre{
@@ -125,8 +122,6 @@ echo '<body>'
 #stores the string from bbc.sh to a variable
 qs0=$QUERY_STRING;
 
-
-
 #converts all uppercasr form qs to lowercase
 qs=$(echo $qs0 | awk '{print tolower($0)}');
 
@@ -136,7 +131,6 @@ gtldlist='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|acce
 
 #list of supported cctlds
 cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw)'
-
 
 #butchers the qs string and gets the domain and who to whois
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
@@ -155,8 +149,6 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
 #else
 
-
-
 #extracts the resitrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
@@ -174,7 +166,6 @@ echo "Taylor Swift?!?"
 
 else
 
-
 #extracts the TLD
 if [[ "$whoyou" == "whois" ]]; then
 
@@ -184,14 +175,12 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld and prints the whois result
 case $tld in
    $gtldlist)
-
    
 zyxg=$(whois $domain);
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxg</pre>";
-
 
 ;;
 #if the domain is a cctld and prints the whois result
@@ -223,11 +212,7 @@ echo '</p>'
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-
 #############################################################################
-
-
 #else the registrar whois server need to be queried 
 else
 
@@ -243,7 +228,6 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxg</pre>";
-
 
 ;;
 #checks if the domain is a cctld and prints the whois result from the registrar's whois server
@@ -279,8 +263,6 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 
 fi
 fi
-
-
 
 #end of body and html
 echo '</body>'
