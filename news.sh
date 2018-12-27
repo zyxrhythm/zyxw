@@ -25,7 +25,6 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-
 <center>
 <p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
 </center>
@@ -97,7 +96,7 @@ Noted Revisions:
 -Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
 
 -----------------------
-
+##### ZYX-Rhythm ######
 -----------------------
 For bugs and other concerns please email:
 director@bigblackcactus.com
