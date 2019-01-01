@@ -16,15 +16,31 @@ echo '<!DOCTYPE html>'
 echo '<html>'
 
 #Tab title
-echo '<title>BBC (0.05)</title>'
+echo '<title>BBC (0.06)</title>'
 
 #start of head
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
-echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 
+cat <<EOX
+<meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-# the javascript for the lazy that copies the contents of div to clipboard
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-32625644-1');
+</script>
+EOX
+
+# the javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
 cat <<EOS2
 
@@ -71,13 +87,10 @@ p  {
 
 h1 {font-family: verdana;
 	font-size: 70%;
-
 }
 
 
 body {background-color:black;color:white;
-
-
 }
 
 pre{
@@ -103,13 +116,11 @@ echo '</head>'
 echo '<body>'
 
 #specififies the PATHs needed by the bash script
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin/UvqqraYrns"
-export $PATH
+#PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+#export $PATH
 
 #stores the string from bbc.sh to a variable
 qs0=$QUERY_STRING;
-
-
 
 #converts all uppercasr form qs to lowercase
 qs=$(echo $qs0 | awk '{print tolower($0)}');
@@ -121,8 +132,7 @@ gtldlist='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|acce
 #list of supported cctlds
 cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw)'
 
-
-#butchers the qs string and gets the domain and who to whois
+#butchers the qs string and gets the domain and to whois
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
@@ -138,8 +148,6 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 #	echo "<pre>$zyxip</pre>";
 
 #else
-
-
 
 #extracts the resitrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
@@ -158,7 +166,6 @@ echo "Taylor Swift?!?"
 
 else
 
-
 #extracts the TLD
 if [[ "$whoyou" == "whois" ]]; then
 
@@ -168,14 +175,12 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld and prints the whois result
 case $tld in
    $gtldlist)
-
    
 zyxg=$(whois $domain);
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxg</pre>";
-
 
 ;;
 #if the domain is a cctld and prints the whois result
@@ -207,11 +212,7 @@ echo '</p>'
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-
 #############################################################################
-
-
 #else the registrar whois server need to be queried 
 else
 
@@ -227,7 +228,6 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxg</pre>";
-
 
 ;;
 #checks if the domain is a cctld and prints the whois result from the registrar's whois server
@@ -264,8 +264,11 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 fi
 fi
 
-
+#fi
 
 #end of body and html
 echo '</body>'
 echo '</html>'
+
+exit 0;
+
