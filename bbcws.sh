@@ -138,16 +138,16 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
 #ARIN WHOIS
 
-if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+#if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
-	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxip=$(whois $IPadd -h whois.arin.net);
-	echo '<div class="code-bg" id="divClipboard">'
-	echo '<p>'
+#	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
+#	zyxip=$(whois $IPadd -h whois.arin.net);
+#	echo '<div class="code-bg" id="divClipboard">'
+#	echo '<p>'
 
-	echo "<pre>$zyxip</pre>";
+#	echo "<pre>$zyxip</pre>";
 
-else
+#else
 
 #extracts the resitrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
@@ -264,7 +264,7 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 fi
 fi
 
-fi
+#fi
 
 #end of body and html
 echo '</body>'
