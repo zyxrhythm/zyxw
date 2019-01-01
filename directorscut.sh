@@ -79,6 +79,7 @@ pre{
 -Raymundo
 -Aries
 -Walter King
+-Christina
 
 For testing/feedbacks/suggestions/bug reports.
 
