@@ -80,6 +80,8 @@ pre{
 -Aries
 -Walter King
 -Christina
+-Raymond
+-Naits
 
 For testing/feedbacks/suggestions/bug reports.
 
