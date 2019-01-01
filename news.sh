@@ -70,7 +70,7 @@ pre{
 <pre>
 -----------------------
 
-Noted Revisions:
+History:
 
 -The website should now be accessible anywhere in the world - as per request.
 -Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
@@ -87,7 +87,7 @@ Noted Revisions:
 -White spaces and invalid special characters on the textfields will now be removed automatically by the javascript.
 -Added support for all gTLDs from ICANN's <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt" rel="noopener noreferrer" target="_blank">list</a> of gTLDs and ccTLDs.
 -Added a simple SSL certificate checker (CHECK-MATE).
--As per report that the site cannot process domains with .media TLD, added .media TLD to the supported TLDs.
+-Fixed the reported issue that the site cannot process domains with .media TLD, added .media TLD to the supported TLDs.
 -Added a function to get the raw whois info from whois servers (WHOYOU).
 -BBC Special will now display the Registrant Info, the domain Tech and Admin contact details on the bottom of the result (queried from the whois server of the the registrar).
 -Created a custom result for .CA .AU and .NZ domains on BBC special.
