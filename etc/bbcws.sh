@@ -148,8 +148,6 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 #	echo '<p>'
 
 #	echo "<pre>$zyxip</pre>";
-;;
-#else
 
 #extracts the resitrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
