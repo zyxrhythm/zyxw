@@ -114,6 +114,8 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 
 #The BBC button
 echo '<br/>'
+echo '<br>'
+echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">here</a> for more info about domain statuses.<br>"
 echo '<br/>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
@@ -219,8 +221,6 @@ do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
-echo '<br>'
-echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">here</a> for more info about domain statuses.<br>"
 echo "--------------------------"
 echo "<br/>"
 echo "$creationdate";
@@ -460,8 +460,6 @@ do
 done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
-echo '<br>'
-echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">here</a> for more info about domain statuses.<br>"
 echo "__________________________"
 echo "<br/> <br>"
 echo "[Name Servers:]";
@@ -571,7 +569,6 @@ echo "--------------------------"
 echo "<br/>"
 echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
-echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">here</a> for more info about domain statuses.<br>"
 echo "__________________________"
 echo "<br/> <br>"
 echo "[Name Servers:]";
