@@ -138,8 +138,6 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
 #ARIN WHOIS
 
-#case $whoyou in 
-#arin)
 #if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 #	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
@@ -148,6 +146,8 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 #	echo '<p>'
 
 #	echo "<pre>$zyxip</pre>";
+
+#else
 
 #extracts the resitrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
@@ -167,7 +167,7 @@ echo "Taylor Swift?!?"
 else
 
 #extracts the TLD
-if [[ "$whoyou" == "whois" || "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -263,6 +263,7 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 fi
 fi
 
+#fi
 
 #end of body and html
 echo '</body>'
