@@ -167,7 +167,7 @@ echo "Taylor Swift?!?"
 else
 
 #extracts the TLD
-if [[ "$whoyou" == "whois" ]]; then
+if [[ "$whoyou" == "whois" || "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
