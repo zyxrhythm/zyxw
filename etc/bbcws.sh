@@ -167,14 +167,14 @@ echo "Taylor Swift?!?"
 else
 
 #extracts the TLD
-if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
 #checks if the domain is a gtld and prints the whois result
 case $tld in
    $gtldlist)
-   
+if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then   
 zyxg=$(whois $domain);
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
@@ -184,6 +184,8 @@ echo "<pre>$zyxg</pre>";
 ;;
 #if the domain is a cctld and prints the whois result
 $cctldlist)
+
+if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 zyxcc=$(whois $domain);
 
 
