@@ -57,6 +57,12 @@ a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
 
+
+div a:link { color: green;  }
+div a:active { color: green;  }
+div a:hover { color: green;  }
+div a:visited { color: green;  }
+
 p  {
     font-family: verdana;
     font-size: 85%;
