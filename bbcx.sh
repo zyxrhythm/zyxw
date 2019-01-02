@@ -219,6 +219,8 @@ do
    echo  "</br>   ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
+echo '<br>'
+echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">here</a> <br> for more info about domain status.<br>"
 echo "--------------------------"
 echo "<br/>"
 echo "$creationdate";
@@ -458,6 +460,8 @@ do
 done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
+echo '<br>'
+echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">here</a> <br> for more info about domain status.<br>"
 echo "__________________________"
 echo "<br/> <br>"
 echo "[Name Servers:]";
@@ -567,6 +571,7 @@ echo "--------------------------"
 echo "<br/>"
 echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
+echo " Click <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">here</a> <br> for more info about domain status.<br>"
 echo "__________________________"
 echo "<br/> <br>"
 echo "[Name Servers:]";
