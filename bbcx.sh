@@ -227,7 +227,7 @@ echo "$expd" ;
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
-echo "[Name Servers:]";
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -238,7 +238,7 @@ echo "<br/>"
 
 echo "__________________________"
 echo "<br/> <br/>"
-echo '[A records:]'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -248,7 +248,7 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
-echo -e '[MX records:] \n'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
 while IFS= read -r line
 do
@@ -295,7 +295,7 @@ echo '<p>'
 echo "<br/>"
 echo "__________________________"
 echo '<br/> <br>'
-echo '[A records:]'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -306,7 +306,7 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo -e '[MX records:] \n'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
 while IFS= read -r line
 do
@@ -362,7 +362,7 @@ echo '<p>'
 echo "<br/>"
 echo "__________________________"
 echo '<br/> <br>'
-echo '[A records:]'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -373,7 +373,7 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo -e '[MX records:] \n'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
 while IFS= read -r line
 do
@@ -460,7 +460,7 @@ done < <(printf '%s\n' "$dstat");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo "[Name Servers:]";
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -476,7 +476,7 @@ echo "$techcontact";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo '[A records:]'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -487,7 +487,7 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo -e '[MX records:] \n'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
 while IFS= read -r line
 do
@@ -569,7 +569,7 @@ echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo "[Name Servers:]";
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -579,7 +579,7 @@ done < <(printf '%s\n' "$nameservers");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo '[A records:]'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
 while IFS= read -r line
 do
@@ -590,7 +590,7 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo -e '[MX records:] \n'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
 while IFS= read -r line
 do
