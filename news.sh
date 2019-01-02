@@ -71,6 +71,9 @@ pre{
 -----------------------
 
 History:
+-[MX records:] is now cliackable, it links to the the MX records history from https://securitytrails.com/
+-[A records:] is now cliackable, it links to the the A records history from https://securitytrails.com/
+-[Name Servers:]  is now clickable, it links to the the name server history from https://securitytrails.com/
 -[Domain Status:]  is now clickable, it links to ICANN's page for EPP Status Codes.
 -The website should now be accessible anywhere in the world - as per request.
 -Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
