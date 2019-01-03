@@ -135,12 +135,12 @@ function removeSpecialCharacters(string) {
 
 <br>
 <select name='whoyou'> 
-<option selected>WHOIS</option>
+<option selected>WhoIs</option>
 <!-- <option>ARIN</option> -->
-<option>Registrar WHOIS Server</option>
+<option>Registrar whois server</option>
 </select>
 <br/>
-<button type="submit"> W h o I s </button>
+<button type="submit"> W H O  I S </button>
 </form>
 </p>
 
@@ -212,7 +212,7 @@ function removeSpecialCharacters(string) {
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.411
+rev.417
 <br>
 <br>
 <br>
