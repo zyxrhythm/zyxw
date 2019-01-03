@@ -157,7 +157,7 @@ Is that you Taylor Swift?!?
 <br>
 OMG! - I love you will you marry me!
 <br> <br>
-If not. Sorna. Not a domain.
+If not - Please input a domain name. Sorna.
 
 EOTS
 
