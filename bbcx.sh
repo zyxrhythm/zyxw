@@ -148,8 +148,6 @@ domain=$(echo $qs | cut -f2 -d"=" );
 if [[ -z "$domain" ]]; then
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo '<br/>'
-echo '<br/>'
 echo 'Blank Space.'
 echo '<br/>'
 echo '<br/>'
