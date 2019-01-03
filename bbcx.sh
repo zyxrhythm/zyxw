@@ -164,6 +164,7 @@ if [[ "$dvcheck" = "no" ]]; then
 echo '<p>'
 echo '<br/>'
 echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
 echo 'Not a valid domain! Sorna.'
 echo '</div>'
 echo '</p>'
