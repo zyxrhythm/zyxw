@@ -124,6 +124,7 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 #The BBC button
 echo '<br/>'
 echo '<br>'
+echo '<hr>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
