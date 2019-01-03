@@ -58,6 +58,39 @@ body { background-color:black; color:white;
 </style>
 
 EOS
+
+# the javascript that copies the contents of div to clipboard
+#this is a snippet from http://edupala.com/copy-div-content-clipboard/
+cat <<EOS2
+
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+</script>
+EOS2
+
+
 #the back link
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
@@ -98,11 +131,9 @@ dcheck=$(echo $qs | sed 's/.*dcheck=//');
 echo '<br>'
 if [[ -z "$domain" ]]; then
 
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
 cat <<EOTS
-
+<div class="code-bg" id="divClipboard">
+<p>
 Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
@@ -143,7 +174,6 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 #Daysleft=$(echo $Expiry0 | cut -c 25- +%s) 
 
 #prints the result of the ssl check for gtlds
-echo "<br>"
 echo "Resolves to:      "$IP""
 echo "<br>"
 echo "Cert Issuer:      $Issuer"
@@ -183,7 +213,6 @@ echo "<br>"
 echo "Expiration :      $Expiry"
 echo "<br>"
 #echo "Days Left        $Daysleft:"
-echo "<br>"
 
 ;;
 
@@ -198,39 +227,6 @@ echo " Not a domain. Sorna."
 
 esac
 
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-</script>
-EOS2
-
-fi
-
 echo '</p>'
 
 echo '</div>'
@@ -239,5 +235,7 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 #end of body and html
 echo '</body>'
 echo '</html>'
+
+fi
 
 exit 0;
