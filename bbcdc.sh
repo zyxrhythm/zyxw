@@ -113,10 +113,9 @@ Is that you Taylor Swift?!?
 OMG! - I love you will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
-</p>
-</div>
+
 EOTS
-exit 0;
+
 
 else
 
@@ -183,7 +182,7 @@ echo "Expiration :      $Expiry"
 echo "<br>"
 #echo "Days Left        $Daysleft:"
 echo "<br>"
-
+echo '</p>'
 ;;
 
 #throws in errors for non domain input
@@ -192,17 +191,10 @@ echo "<br>"
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a domain. Sorna." 
-echo '</p>'
 
 ;;
 
 esac
-
-echo '</p>'
-
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 # the javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -235,10 +227,16 @@ function copyClipboard() {
 </script>
 EOS2
 
+echo '</p>'
+
+echo '</div>'
+
+echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+fi
+
 #end of body and html
 echo '</body>'
 echo '</html>'
-
-fi
 
 exit 0;
