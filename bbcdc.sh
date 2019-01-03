@@ -116,6 +116,7 @@ If not - Please input a domain name. Sorna.
 </p>
 </div>
 EOTS
+exit 0;
 
 else
 
