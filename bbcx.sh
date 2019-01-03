@@ -681,7 +681,7 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "____________________________________"
+echo "<figure>____________________________________</figure>"
 
 echo "<br> <br>"
 echo "$whoisservergrep"
