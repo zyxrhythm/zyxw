@@ -685,9 +685,7 @@ echo "<br>"
 echo "<pre>$tech</pre>"
 
 echo "<hr>"
-
-echo "<br>"
-echo "$whoisservergrep"
+echo " $whoisservergrep"
 echo "<br>"
 echo '<hr>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
