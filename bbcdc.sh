@@ -101,12 +101,18 @@ dcheck=$(echo $qs | sed 's/.*dcheck=//');
 echo '<br>'
 if [[ -z "$domain" && "$dcheck" = "SSL" ]]; then
 
-echo '<br/>'
-echo '<br/>'
-echo 'Blank Space.'
-echo '<br/>'
-echo '<br/>'
-echo "Taylor Swift?!?"
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
+cat <<EOTS
+
+Blank Space?!? . . .
+<br> <br>
+Is that you Taylor Swift?!?
+<br>
+OMG! - I love you will you marry me!
+<br> <br>
+If not - Please input a domain name. Sorna.
+EOTS
 
 else
 
