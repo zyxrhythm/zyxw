@@ -148,10 +148,17 @@ domain=$(echo $qs | cut -f2 -d"=" );
 if [[ -z "$domain" ]]; then
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo 'Blank Space.'
-echo '<br/>'
-echo '<br/>'
-echo "Taylor Swift?!?"
+
+cat <<EOTS
+Blank Space?!? . . .
+
+Is that you Taylor Swift?!?
+
+OMG! - I love you will you marry me!
+
+If not. Sorna.
+
+EOTS
 
 else
 
