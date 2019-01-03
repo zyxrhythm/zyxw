@@ -80,7 +80,7 @@ pre{
     white-space: pre-wrap; font-size: 109%;
 }
 
-figure.left {color:grey;
+.left figure {color:grey;
 }
 
 </style>
