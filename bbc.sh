@@ -65,6 +65,9 @@ label { font-family: Trebuchet MS; font-size: 110%;
 button { font-family: Trebuchet MS; font-size: 70%; 
 }
 
+select, option { width: __; 
+}
+
 footer { font-family: Georgia; font-size: 100%;
 }
 
