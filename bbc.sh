@@ -65,7 +65,10 @@ label { font-family: Trebuchet MS; font-size: 110%;
 button { font-family: Trebuchet MS; font-size: 70%; 
 }
 
-option { fonr-family: verdana; font-size: 65%; text-align: center;
+option { fonr-family: verdana; font-size: 100%; text-align: center;
+}
+
+select { fonr-family: verdana; font-size: 100%; text-align: center;
 }
 
 footer { font-family: Georgia; font-size: 100%;
