@@ -150,13 +150,14 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 cat <<EOTS
+
 Blank Space?!? . . .
-
+<br> <br>
 Is that you Taylor Swift?!?
-
+<br>
 OMG! - I love you will you marry me!
-
-If not. Sorna.
+<br> <br>
+If not. Sorna. Not a domain.
 
 EOTS
 
