@@ -154,6 +154,7 @@ if [[ -z "$domain" ]]; then
 
 echo '<br/>'
 echo '<br/>'
+echo '<hr>+</hr>'
 echo 'Blank Space.'
 echo '<br/>'
 echo '<br/>'
