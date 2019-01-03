@@ -94,7 +94,7 @@ body {background-color:black;color:white;
 }
 
 pre{
-    white-space: pre-wrap;font-size: 110%;
+    white-space: pre-wrap;font-size: 110%; font-family: verdana;
 }
 
 </style>
