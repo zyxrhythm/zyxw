@@ -213,7 +213,7 @@ echo "<br/>"
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
-<hr></hr>
+echo "<hr></hr>"
 echo "<br/>"
 echo "$registrar <br/>";
 echo "__________________________"
