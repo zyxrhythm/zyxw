@@ -80,7 +80,7 @@ pre{
     white-space: pre-wrap; font-size: 109%;
 }
 
-figure {color:grey; text-align: left;
+hr {color:grey; text-align: left;
 }
 
 </style>
@@ -684,7 +684,7 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "<figure>____________________________________</figure>"
+echo "<hr>____________________________________</hr>"
 
 echo "<br> <br>"
 echo "$whoisservergrep"
