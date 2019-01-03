@@ -108,13 +108,18 @@ fi
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 echo '<br>'
 if [[ -z "$domain" ]]; then
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
+cat <<EOTS
 
-echo '<br/>'
-echo '<br/>'
-echo 'Blank Space.'
-echo '<br/>'
-echo '<br/>'
-echo "Taylor Swift?!?"
+Blank Space?!? . . .
+<br> <br>
+Is that you Taylor Swift?!?
+<br>
+OMG! - I love you will you marry me!
+<br> <br>
+If not - Please input a domain name. Sorna.
+EOTS
 
 else
 
