@@ -72,12 +72,12 @@ h1 {font-family: verdana;
 	font-size: 70%;
 }
 
-body {background-color:black;color:white
+body {background-color:white;color:black
 
 }
 
 pre{
-    white-space: pre-wrap; font-size: 109%;
+    white-space: pre-wrap; font-size: 85%; font-family: verdana;
 }
 
 hr {color:grey; text-align: left;
