@@ -47,20 +47,16 @@ a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
 
-p  {
-    font-family: verdana;
-    font-size: 85%;
+p  {font-family: verdana; font-size: 85%;
 }
 
-h1 {font-family: verdana;
-	font-size: 70%;
+h1 { font-family: verdana; font-size: 70%;
 }
 
-body {background-color:black;color:white
+body { background-color:black;color:white
 }
 
-pre{
-    white-space: pre-wrap;font-size: 105%;
+pre{ white-space: pre-wrap;font-size: 85%; font-family: verdana;
 }
 
 </style>
