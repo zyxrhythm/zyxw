@@ -103,6 +103,7 @@ if [[ -z "$domain" ]]; then
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
+
 cat <<EOTS
 
 Blank Space?!? . . .
@@ -112,6 +113,8 @@ Is that you Taylor Swift?!?
 OMG! - I love you will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
+</p>
+</div>
 EOTS
 
 else
