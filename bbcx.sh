@@ -213,7 +213,6 @@ echo "<br/>"
 echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
-echo "<hr></hr>"
 echo "<br/>"
 echo "$registrar <br/>";
 echo "__________________________"
@@ -684,7 +683,7 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "<hr>____________________________________</hr>"
+echo "<hr>____________________________________0</hr>"
 
 echo "<br> <br>"
 echo "$whoisservergrep"
