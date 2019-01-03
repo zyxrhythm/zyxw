@@ -663,7 +663,7 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-echo "____________________________________"
+echo "<hr>"
 echo "<br>"
 
 echo "$rese"
@@ -684,13 +684,13 @@ echo "[ TECH: ] "
 echo "<br>"
 echo "<pre>$tech</pre>"
 
-echo "<hr>____________________________________0</hr>"
+echo "<hr>"
 
 echo "<br> <br>"
 echo "$whoisservergrep"
 echo "<br>"
 
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 
 #the end of body
 echo '</body>'
