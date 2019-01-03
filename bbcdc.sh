@@ -99,7 +99,7 @@ dcheck=$(echo $qs | sed 's/.*dcheck=//');
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 echo '<br>'
-if [[ -z "$domain" && "$dcheck" = "SSL" ]]; then
+if [[ -z "$domain" ]]; then
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
@@ -187,7 +187,7 @@ echo "<br>"
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo " Not a valid domain!." 
+echo " Not a domain. Sorna." 
 echo '</p>'
 
 ;;
