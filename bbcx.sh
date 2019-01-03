@@ -146,10 +146,10 @@ domain=$(echo $qs | cut -f2 -d"=" );
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
-
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
 echo '<br/>'
 echo '<br/>'
-echo '<hr>+</hr>'
 echo 'Blank Space.'
 echo '<br/>'
 echo '<br/>'
