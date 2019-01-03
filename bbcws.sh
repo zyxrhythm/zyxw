@@ -157,12 +157,18 @@ whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015'
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
-echo '<br/>'
-echo '<br/>'
-echo 'Blank Space.'
-echo '<br/>'
-echo '<br/>'
-echo "Taylor Swift?!?"
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
+cat <<EOTS
+
+Blank Space?!? . . .
+<br> <br>
+Is that you Taylor Swift?!?
+<br>
+OMG! - I love you will you marry me!
+<br> <br>
+If not - Please input a domain name. Sorna.
+EOTS
 
 else
 
