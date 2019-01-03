@@ -63,24 +63,19 @@ div a:active { color: green;  }
 div a:hover { color: green;  }
 div a:visited { color: green;  }
 
-p  {
-    font-family: verdana;
-    font-size: 85%;
+p  { font-family: verdana; font-size: 85%;
 }
 
-h1 {font-family: verdana;
-	font-size: 70%;
+h1 { font-family: verdana; font-size: 70%;
 }
 
-body {background-color:white;color:black
-
+body { background-color:black; color:white;
 }
 
-pre{
-    white-space: pre-wrap; font-size: 85%; font-family: verdana;
+pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
 }
 
-hr {color:grey; text-align: left;
+hr {color:grey;
 }
 
 </style>
