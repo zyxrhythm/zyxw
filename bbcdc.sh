@@ -47,15 +47,12 @@ a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
 
-p  {
-    font-family: verdana;
-    font-size: 85%;}
+p  { font-family: verdana; font-size: 85%;}
 
-h1 {font-family: verdana;
-	font-size: 70%;
+h1 { font-family: verdana; font-size: 70%;
 }
 
-body {background-color:black;color:white
+body { background-color:black; color:white;
 }
 
 </style>
@@ -113,9 +110,13 @@ Is that you Taylor Swift?!?
 OMG! - I love you will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
-
+</p>
+</div>
+</body>
+</html>
 EOTS
 
+exit 0;
 
 else
 
@@ -125,6 +126,7 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld
 case $tld in
    $gtldlist)
+
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
@@ -182,7 +184,7 @@ echo "Expiration :      $Expiry"
 echo "<br>"
 #echo "Days Left        $Daysleft:"
 echo "<br>"
-echo '</p>'
+
 ;;
 
 #throws in errors for non domain input
@@ -227,14 +229,13 @@ function copyClipboard() {
 </script>
 EOS2
 
+fi
+
 echo '</p>'
 
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-fi
-
 #end of body and html
 echo '</body>'
 echo '</html>'
