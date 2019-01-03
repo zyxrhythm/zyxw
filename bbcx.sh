@@ -689,7 +689,7 @@ echo "<hr>"
 echo "<br>"
 echo "$whoisservergrep"
 echo "<br>"
-
+echo '<hr>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 
 #the end of body
