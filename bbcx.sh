@@ -686,7 +686,7 @@ echo "<pre>$tech</pre>"
 
 echo "<hr>"
 
-echo "<br> <br>"
+echo "<br>"
 echo "$whoisservergrep"
 echo "<br>"
 
