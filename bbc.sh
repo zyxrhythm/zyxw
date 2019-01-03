@@ -47,40 +47,34 @@ a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
 
-h1	{    font-family: courier new;
-    font-size: 135%;
+h1 {font-family: courier new; font-size: 135%;
 }
 
-h4	{    font-family: courier new;
-    font-size: 160%;
+h4 { font-family: courier new; font-size: 160%;
 }
 
-body	{	background-color:black;color:green;
+body { background-color:black; color:green;
 }
 
-p	{	font-family: calibri;
-    font-size: 100%;
+p { font-family: calibri; font-size: 100%;
 }
 
-label	{	font-family: Trebuchet MS;
-	font-size: 110%;
+label { font-family: Trebuchet MS; font-size: 110%;
 }
 	
-button	{	font-family: Trebuchet MS;
-	font-size: 70%;
+button { font-family: Trebuchet MS; font-size: 70%; 
 }
 
-footer	{	font-family: Georgia;
-	font-size: 100%;
+option { fonr-family: verdana; font-size: 65%; text-align: center;
 }
 
-code	{	font-family: Arial;
-	font-size: 80%;
-
+footer { font-family: Georgia; font-size: 100%;
 }
 
-article	{	font-family: Verdana;
-	font-size: 70%;
+code { font-family: Arial; font-size: 80%;
+}
+
+article	{ font-family: Verdana; font-size: 70%;
 }
 
 </style>
@@ -137,7 +131,7 @@ function removeSpecialCharacters(string) {
 <select name='whoyou'> 
 <option selected>whois</option>
 <!-- <option>ARIN</option> -->
-<option>Registrar whois server</option>
+<option>registrar whois server</option>
 </select>
 <br/>
 <button type="submit"> W H O  I S </button>
