@@ -173,7 +173,7 @@ EOTS
 else
 
 #extracts the TLD
-if [[ "$whoyou" == "whois" ]]; then
+if [[ "$whoyou" == "regsitry+whois+server" ]]; then
 
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
