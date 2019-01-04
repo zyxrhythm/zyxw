@@ -72,9 +72,11 @@ pre{
 
 History:
 
--Fixed report about WHOYOU was not able to give raw whois reports when querying the registry whois server. (The issue seems to be with the the recent revision with the front page WHOYOU drop down the script does not recognize the new entries in the selection menu)
+-Fixed report about WHOYOU was not able to give raw whois results when querying the registry whois server. 
+(The issue seems to be with the the recent revision with the front page WHOYOU drop down the script does not recognize the new entries in the selection menu)
 
--Fixed report about WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. (.au ccTLD was somehow removed from the sourcecode.)
+-Fixed report about WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. 
+(.au ccTLD was somehow removed from the sourcecode.)
 
 -[MX records:] is now cliackable, it links to the the MX records history from https://securitytrails.com/
 
