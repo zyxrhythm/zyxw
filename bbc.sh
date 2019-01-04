@@ -129,7 +129,7 @@ function removeSpecialCharacters(string) {
 
 <br>
 <select name='whoyou'> 
-<option selected>whois</option>
+<option selected>registry whois server</option>
 <!-- <option>ARIN</option> -->
 <option>registrar whois server</option>
 </select>
