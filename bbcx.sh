@@ -110,6 +110,12 @@ function copyClipboard() {
 
   }
 }
+
+function OpenInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
 </script>
 EOS2
 
@@ -356,10 +362,7 @@ exit 0;
 
 ph)
 cat <<EOQPH
-<script>
-
-window.open('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target', '_blank');
-</script>
+<body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
 </body>
 </html>
 EOQPH
