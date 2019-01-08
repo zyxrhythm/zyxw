@@ -228,8 +228,8 @@ echo "<a href="https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh" rel="no
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#}";
-done < <(printf '%s\n' "<a href=https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#$dstat>$dstat</a>");
+   echo  "</br>   <a href=href=https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#${line#*#}>-<a>";
+done < <(printf '%s\n' "$dstat");
 echo "<br/>"
 echo "--------------------------"
 echo "<br/>"
