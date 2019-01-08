@@ -130,9 +130,6 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #specififies the PATHs needed by the bash script
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
@@ -149,6 +146,8 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
+
+echo '<body>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
