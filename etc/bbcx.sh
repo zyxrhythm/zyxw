@@ -229,7 +229,7 @@ echo "<br/>"
 while IFS= read -r line
 do
    echo  "</br>   ${line#*#}";
-done < <(printf '%s\n' "$dstat");
+done < <(printf '%s\n' "<a href='https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#$dstat'></a>");
 echo "<br/>"
 echo "--------------------------"
 echo "<br/>"
