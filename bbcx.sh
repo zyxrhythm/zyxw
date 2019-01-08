@@ -223,7 +223,7 @@ echo "__________________________"
 
 echo "<br/> <br/>"
 
-echo "<a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
+echo "<a href="https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
 echo "<br/>"
 while IFS= read -r line
@@ -488,7 +488,7 @@ echo "$registrar";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
-echo "<a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
+echo "<a href="https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
 echo "<br/>"
 while IFS= read -r line
