@@ -111,12 +111,6 @@ function copyClipboard() {
   }
 }
 
-function OpenInNewTab(url) {
-  var win = window.open(url, '_blank');
-  win.focus();
-}
-
-</script>
 EOS2
 
 #back button
@@ -147,6 +141,7 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
+#start of html body
 echo '<body>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
@@ -361,10 +356,13 @@ exit 0;
 
 ph)
 cat <<EOQPH
-<table onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
-</table>
+<p>
+<br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
+</p>
 </body>
 </html>
+
 EOQPH
 exit 0;
 
@@ -376,6 +374,8 @@ cat <<EOQSG
 <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">Click Here </a>To get the whois info of this .sg domain.
 </p>
+</body>
+</html>
 EOQSG
 exit 0;
 
