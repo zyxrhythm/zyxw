@@ -362,7 +362,8 @@ exit 0;
 
 ph)
 cat <<EOQPH
-<body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
+<table onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
+</table>
 </body>
 </html>
 EOQPH
