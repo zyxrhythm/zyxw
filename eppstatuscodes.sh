@@ -64,6 +64,8 @@ pre{
 
 <body>
 
+<table class="convey">
+<tbody>
 <tr class="dark">
 		<th>Status Code</th>
 		<th>What does it mean?</th>
@@ -197,6 +199,18 @@ pre{
 		<td><p>This is an informative status set for a limited period or your domain's transfer to a new registrar. If you did not request to transfer your domain, you should contact your original registrar.</p></td>
 	</tr>
 
+
+</tbody>
+</table>
+
+
+
+
+<table class="convey">
+<tbody>
+
+
+
 <tr>
 		<td>
 <a name="clientdeleteprohibited" id="clientdeleteprohibited"></a><a name="clientDeleteProhibited" id="clientDeleteProhibited"></a>clientDeleteProhibited</td>
@@ -227,6 +241,10 @@ pre{
 		<td><p>This status code tells your domain's registry to reject requests to update the domain.</p></td>
 		<td><p>This domain name status indicates that it is not possible to update the domain, which can help prevent unauthorized updates resulting from fraud. If you do want to update your domain, you must first contact your registrar and request that they remove this status code.</p></td>
 	</tr>
+
+</tbody>
+</table>
+
 
 
 </body>
