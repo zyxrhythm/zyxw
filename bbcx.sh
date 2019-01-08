@@ -356,7 +356,6 @@ exit 0;
 
 ph)
 cat <<EOQPH
-<iframe>
 <p><iframe src="https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain" heigth="100%" width="100%"></iframe></p>
 EOQPH
 ;;
