@@ -39,7 +39,7 @@ a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
 
-body	{background-color:black;color:green
+body	{background-color:black; color:green;
 
 }
 
@@ -59,10 +59,19 @@ pre{
     white-space: pre-wrap;font-size: 100%;
 }
 
+
+table, th, td {border: 2px solid green;
+}
+
 </style>
 </head>
 
 <body>
+
+
+<hr>
+<br>
+
 
 <table class="convey">
 <tbody>
@@ -205,6 +214,10 @@ pre{
 
 
 
+<br>
+<br>
+
+
 
 <table class="convey">
 <tbody>
@@ -245,7 +258,10 @@ pre{
 </tbody>
 </table>
 
-
+<br>
+<hr>
+The above table is from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANNS's Article</a> about EPP Status codes.
+<hr>
 
 </body>
 
@@ -254,3 +270,4 @@ pre{
 EOT
 
 exit 0;
+
