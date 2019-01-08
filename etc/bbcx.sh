@@ -223,7 +223,7 @@ echo "__________________________"
 
 echo "<br/> <br/>"
 
-echo "<a href="https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
 echo "<br/>"
 while IFS= read -r line
@@ -488,12 +488,12 @@ echo "$registrar";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
-echo "<a href="https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#}";
+   echo  "</br>   <a href=/cgi-bin/eppstatuscodes.sh#${line#*#}>${line#*#}<a>}";
 done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
@@ -598,7 +598,7 @@ echo "[Domain Status:]";
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#}";
+   echo  "</br>   <a href=/cgi-bin/eppstatuscodes.sh#${line#*#}>${line#*#}<a>";
 done < <(printf '%s\n' "$dstat");
 echo '<br>'
 echo "--------------------------"
