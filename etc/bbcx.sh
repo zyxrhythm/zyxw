@@ -228,7 +228,7 @@ echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_bl
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#} <a href=/cgi-bin/eppstatuscodes.sh#${line#*#}>[?]<a>";
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target="_blank>[?]<a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo "<br/>"
 echo "--------------------------"
@@ -493,7 +493,7 @@ echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_bl
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#} <a href=/cgi-bin/eppstatuscodes.sh#${line#*#}>[?]<a>";
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target="_blank>[?]<a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 
 echo "<br/>"
@@ -598,7 +598,7 @@ echo "[Domain Status:]";
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br>   ${line#*#} <a href=/cgi-bin/eppstatuscodes.sh#${line#*#}>[?]<a>";
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target="_blank>[?]<a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 echo '<br>'
 echo "--------------------------"
