@@ -356,8 +356,10 @@ exit 0;
 
 ph)
 cat <<EOQPH
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">The home page will open in another tab.</a>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here</a>To get the whois info of this .ph domain.
 EOQPH
+exit 0;
+
 ;;
 
 
