@@ -110,6 +110,7 @@ function copyClipboard() {
 
   }
 }
+</script>
 
 EOS2
 
@@ -362,7 +363,6 @@ cat <<EOQPH
 </p>
 </body>
 </html>
-
 EOQPH
 exit 0;
 
