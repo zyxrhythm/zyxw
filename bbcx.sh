@@ -360,6 +360,8 @@ cat <<EOQPH
 
 window.open('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target', '_blank');
 </script>
+</body>
+</html>
 EOQPH
 exit 0;
 
