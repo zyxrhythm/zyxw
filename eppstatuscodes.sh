@@ -73,7 +73,7 @@ table, th, td {border: 2px solid green;
 <br>
 
 
-<table class="convey">
+<table>
 <tbody>
 <tr class="dark">
 		<th>Status Code</th>
