@@ -149,7 +149,7 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
 #else
 
-#extracts the resitrar's whois server from the whois result
+#extracts the registrar's whois server from the whois result
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
