@@ -42,19 +42,11 @@ a:active { color: green; }
 body	{ background-color:black; color:white;
 }
 
-p	{ font-family: calibri;
-    font-size: 100%;
+p { font-family: calibri; font-size: 100%;
 }
 
-footer	{ font-family: calibri;
-	font-size: 60%;
-}
 
-article	{ font-family: arial;
-	font-size: 43%;
-}
-
-table { font-family: verdana; border: 2px solid green; 
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 
 th { border: 2px solid green;
