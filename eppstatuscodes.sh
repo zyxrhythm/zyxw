@@ -39,7 +39,7 @@ a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
 
-body	{ background-color:black; color:green;
+body	{ background-color:black; color:white;
 }
 
 p	{ font-family: calibri;
