@@ -725,7 +725,7 @@ else
 
 echo "<br> click <a href=http://api.fastdomain.com/cgi/whois?domain=$domain target=_blank>here</a> for the raw whois info from the registrar.<br>"
 
-
+fi
 #the end of body
 echo '</body>'
 
