@@ -142,11 +142,13 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
-#start of html body
-echo '<body>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
+
+#start of html body
+echo '<body>'
+
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
@@ -170,6 +172,10 @@ zyx=$(whois $domain);
 #domain validity check
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 if [[ "$dvcheck" = "no" ]]; then
+
+#start of html body
+echo '<body>'
+
 echo '<p>'
 echo '<br/>'
 echo '<div class="code-bg" id="divClipboard">'
@@ -206,6 +212,9 @@ nameservers=$(echo "$zyx" | grep -i -e "name server:");
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+
+#start of html body
+echo '<body>'
 
 #the copy button
 echo '<div class="code-bg" id="divClipboard">'
@@ -295,6 +304,9 @@ zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
+#start of html body
+echo '<body>'
+
 echo '<br>'
 echo '<h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>'
 echo '<br>'
@@ -357,6 +369,8 @@ exit 0;
 
 ph)
 cat <<EOQPH
+#start of html body
+echo '<body>'
 <p>
 <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
@@ -370,6 +384,8 @@ exit 0;
 
 sg)
 cat <<EOQSG
+#start of html body
+echo '<body>'
 <p>
 <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">Click Here </a>To get the whois info of this .sg domain.
@@ -390,6 +406,9 @@ zyxca=$(echo "$zyx" | cut -f1 -d"%");
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+
+#start of html body
+echo '<body>'
 
 #the copy button
 echo '<div class="code-bg" id="divClipboard">'
@@ -472,6 +491,9 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+
+#start of html body
+echo '<body>'
 
 #the copy button
 echo '<div class="code-bg" id="divClipboard">'
@@ -578,6 +600,9 @@ nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
+#start of html body
+echo '<body>'
+
 #the copy button
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
@@ -670,6 +695,8 @@ exit 0;
 #throw an error for anything else
    *)
 
+#start of html body
+echo '<body>'
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
