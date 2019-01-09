@@ -60,7 +60,11 @@ pre{
 }
 
 
-table, th, td {border: 2px solid green;
+table {border: 2px solid green; align= left;
+
+}
+
+th, td {border: 2px solid green;
 }
 
 </style>
