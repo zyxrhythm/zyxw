@@ -687,6 +687,7 @@ echo '</div>'
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+if [[ "$whoisserver" !== "http://api.fastdomain.com/cgi/whois" ]]; then
 semifinale=$(whois $domain -h "$whoisserver" );
 rese=$(echo "$semifinale" | grep -i -e "reseller");
 registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
@@ -719,6 +720,11 @@ echo " $whoisservergrep"
 echo "<br>"
 echo '<hr>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
+
+else
+
+echo "<br> click <a href=http://api.fastdomain.com/cgi/whois?domain=$domain target=_blank>here</a> for the raw whois info from the registrar.<br>"
+
 
 #the end of body
 echo '</body>'
