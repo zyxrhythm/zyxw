@@ -54,15 +54,10 @@ article	{ font-family: arial;
 	font-size: 43%;
 }
 
-table {border: 2px solid green; 
+table {border: 2px solid green; text-align: left;
 }
 
 th , td {border: 2px solid green;
-}
-
-td[rowspan] {
-  vertical-align: top;
-  text-align: left;
 }
 
 </style>
