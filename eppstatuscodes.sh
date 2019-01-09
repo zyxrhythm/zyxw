@@ -54,7 +54,7 @@ article	{ font-family: arial;
 	font-size: 43%;
 }
 
-table { border: 2px solid green; 
+table { font-family: verdana; border: 2px solid green; 
 }
 
 th { border: 2px solid green;
