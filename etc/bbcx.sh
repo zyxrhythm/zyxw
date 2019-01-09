@@ -732,8 +732,6 @@ echo '</body>'
 
 #the end of html
 echo '</html>'
- fi
- fi
 
 fi
 
