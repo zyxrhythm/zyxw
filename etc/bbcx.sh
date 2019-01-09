@@ -110,6 +110,11 @@ function copyClipboard() {
 
   }
 }
+
+function OpenInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
 </script>
 
 EOS2
@@ -374,10 +379,7 @@ ph)
 cat <<EOQPH
 
 <body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
-function OpenInNewTab(url) {
-  var win = window.open(url, '_blank');
-  win.focus();
-}
+
 Loading... Please wait.
 <body>
 EOQPH
