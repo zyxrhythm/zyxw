@@ -57,7 +57,10 @@ article	{ font-family: arial;
 table {border: 2px solid green; 
 }
 
-th , td {border: 2px solid green;
+th {border: 2px solid green;
+}
+
+td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
 </style>
