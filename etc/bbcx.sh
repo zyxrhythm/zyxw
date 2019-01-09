@@ -687,7 +687,8 @@ echo '</div>'
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
- if [[ "$whoisserver" !== "http://api.fastdomain.com/cgi/whois" ]]; then
+
+if [[ "$whoisserver" !== "http://api.fastdomain.com/cgi/whois" ]]; then
 
 semifinale=$(whois $domain -h "$whoisserver" );
 rese=$(echo "$semifinale" | grep -i -e "reseller");
@@ -732,9 +733,10 @@ echo '</body>'
 #the end of html
 echo '</html>'
  fi
+ fi
 
+fi
 
 fi
 
-fi
 exit 0;
