@@ -369,17 +369,28 @@ exit 0;
 
 ph)
 #start of html body
-echo '<body>'
+#echo '<body>'
 
 cat <<EOQPH
-<p>
-<br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
-</p>
-</body>
-</html>
+
+<body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
+function OpenInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+Loading... Please wait.
+<body>
 EOQPH
-exit 0;
+
+#cat <<EOQPH
+#<p>
+#<br>
+#<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph #domain.
+#</p>
+#</body>
+#</html>
+#EOQPH
+#exit 0;
 
 ;;
 
