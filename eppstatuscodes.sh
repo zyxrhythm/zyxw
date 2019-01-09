@@ -30,7 +30,7 @@ cat <<EOT
 <p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
 </center>
 <style>
-h1 {    font-family: courier new;
+h1 { font-family: courier new;
     font-size: 150%;
 }
 
@@ -39,29 +39,22 @@ a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
 
-body	{background-color:black; color:green;
-
+body	{ background-color:black; color:green;
 }
 
-p	{	font-family: calibri;
+p	{ font-family: calibri;
     font-size: 100%;
 }
 
-footer	{font-family: calibri;
+footer	{ font-family: calibri;
 	font-size: 60%;
 }
 
-article	{font-family: arial;
+article	{ font-family: arial;
 	font-size: 43%;
 }
 
-pre{
-    white-space: pre-wrap;font-size: 100%;
-}
-
-
-table {border: 2px solid green; align= left;
-
+table {border: 2px solid green; 
 }
 
 th, td {border: 2px solid green;
