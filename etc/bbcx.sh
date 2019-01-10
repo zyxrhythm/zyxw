@@ -369,7 +369,7 @@ ph)
 #start of html body
 echo '<body>'
 cat <<EOQPH0
-<iframe src="https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain" style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
+<iframe src=https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
 EOQPH0
 ;;
 
