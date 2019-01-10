@@ -233,7 +233,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[!]</a><strong style="color: green">[Domain Status:]</strong>"
 
 #cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
