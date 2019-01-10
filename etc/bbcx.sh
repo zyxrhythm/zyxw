@@ -64,6 +64,9 @@ div a:active { color: green;  }
 div a:hover { color: green;  }
 div a:visited { color: green;  }
 
+strong {color: green;
+}
+
 p  { font-family: verdana; font-size: 85%;
 }
 
@@ -233,7 +236,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[!]</a><strong style="color: green">[Domain Status:]</strong>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[!] </a><strong>[Domain Status:]</strong>"
 
 #cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
