@@ -546,7 +546,7 @@ echo '<p>'
 echo '<br/>'
 echo "__________________________"
 echo "<br/> <br>"
-echo "<strong>Domain Name:</strong> $domain";
+echo "<strong>Domain Name:</strong> $domain";"
 echo "<br/>"
 echo "<br/>"
 echo "<strong>Registrar: </strong>${registrar#*:}";
