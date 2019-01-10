@@ -230,7 +230,7 @@ echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
 echo "<br/>"
-echo "$registrar <br/>";
+echo "<strong>$registrar</strong><br/>";
 echo "__________________________"
 
 echo "<br/> <br/>"
