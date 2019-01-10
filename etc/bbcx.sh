@@ -111,11 +111,15 @@ function copyClipboard() {
   }
 }
 
+</script>
+
+<script>
 function OpenInNewTab(url) {
   var win = window.open(url, '_blank');
   win.focus();
 }
 </script>
+
 
 EOS2
 
