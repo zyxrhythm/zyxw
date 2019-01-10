@@ -111,23 +111,6 @@ function copyClipboard() {
   }
 }
 
-</script>
-
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-jQuery(document).ready(function () {
-newTab();
-});
-
-function newTab() {
- var form = document.createElement("form");
- form.method = "GET";
- form.action = "http://www.google.com";
- form.target = "_blank";
- document.body.appendChild(form);
- form.submit();
-}
-</script>
 
 
 EOS2
@@ -387,13 +370,19 @@ exit 0;
 
 ph)
 #start of html body
-#echo '<body>'
+echo '<body>'
 
 cat <<EOQPH
 
-<body>
 
-<a class="https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain">https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
+<script type="text/javascript">
+    function load()
+    {
+    window.location.href = "https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain";
+
+    }
+ </script>
+#<a class="https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain">https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 
 EOQPH
 
@@ -783,6 +772,14 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 
 #the end of body
 echo '</body>'
+
+
+<footer onload="load()">
+
+
+
+</footer>
+
 
 #the end of html
 echo '</html>'
