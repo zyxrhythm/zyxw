@@ -239,7 +239,7 @@ echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_bl
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank > [?]</a> ${line#*#}";
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank style="color:azure"> [?]</a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 
 #print the domain creation and expiration dates
