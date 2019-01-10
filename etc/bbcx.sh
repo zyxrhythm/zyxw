@@ -113,10 +113,19 @@ function copyClipboard() {
 
 </script>
 
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
-function OpenInNewTab(url) {
-  var win = window.open(url, '_blank');
-  win.focus();
+jQuery(document).ready(function () {
+newTab();
+});
+
+function newTab() {
+ var form = document.createElement("form");
+ form.method = "GET";
+ form.action = "http://www.google.com";
+ form.target = "_blank";
+ document.body.appendChild(form);
+ form.submit();
 }
 </script>
 
@@ -382,9 +391,9 @@ ph)
 
 cat <<EOQPH
 
-<body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
+<body>
 
-Loading... Please wait.
+<a class="https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain">https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 
 EOQPH
 
