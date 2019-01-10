@@ -367,31 +367,32 @@ exit 0;
 
 ph)
 #start of html body
-echo '<body>'
+#echo '<body>'
+
+#cat <<EOQPH0
+#<script type="text/javascript">
+#    function load()
+#    {
+#    window.location.href = "https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain";
+
+#    }
+#</script>
+#<p>
+#Loading Page...
+#</p>
+#EOQPH0
+
 
 cat <<EOQPH
-<script type="text/javascript">
-    function load()
-    {
-    window.location.href = "https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain";
-
-    }
-</script>
+<body>
 <p>
-Loading Page...
+<br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
 </p>
+</body>
+</html>
 EOQPH
-
-
-#cat <<EOQPH
-#<p>
-#<br>
-#<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
-#</p>
-#</body>
-#</html>
-#EOQPH
-#exit 0;
+exit 0;
 
 ;;
 
@@ -769,13 +770,6 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
 
 #the end of body
 echo '</body>'
-
-<footer onload="load()">
-to whois server
-</footer>
-
-
-
 
 #the end of html
 echo '</html>'
