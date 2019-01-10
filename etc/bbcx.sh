@@ -365,26 +365,19 @@ exit 0;
 
 ;;
 
-ph)
-#start of html body
-echo '<body>'
-cat <<EOQPH0
-<iframe src=https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
-EOQPH0
+
+cat <<EOQPH
+<body>
+<p>
+<br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">> Click Here <</a>To get the whois info of this .ph domain.
+</p>
+</body>
+</html>
+EOQPH
+exit 0;
+
 ;;
-
-#cat <<EOQPH
-#<body>
-#<p>
-#<br>
-#<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">Click Here </a>To get the whois info of this .ph domain.
-#</p>
-#</body>
-#</html>
-#EOQPH
-#exit 0;
-
-#;;
 
 sg)
 #start of html body
@@ -392,7 +385,7 @@ echo '<body>'
 cat <<EOQSG
 <p>
 <br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">Click Here </a>To get the whois info of this .sg domain.
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">> Click Here <</a>To get the whois info of this .sg domain.
 </p>
 </body>
 </html>
