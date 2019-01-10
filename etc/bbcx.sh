@@ -22,6 +22,8 @@ echo '<title>BBC (0.7)</title>'
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
+
+#meta for crawlers - and google analytics
 cat <<EOX
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
@@ -47,7 +49,7 @@ cat <<EOX
 
 EOX
 
-#CSS
+#General CSS
 cat <<EOS
 <style>
 
@@ -112,22 +114,22 @@ function copyClipboard() {
 </script>
 EOS2
 
-#back button
+#back | track button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
 
-#The BBC button
+#The BBC copy button
 echo '<br/>'
 echo '<hr>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
-#end of head
+#end of html head
 echo '</head>'
 
 #specififies the PATHs needed by the bash script
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-#stores the string from bbc.sh to a variable and converts all uppoercase to lowercase
+#stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 #list of supported TLDs
@@ -140,8 +142,7 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
-
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+#checks if the domain entered is null  or the BBC Special is cliked without placing anything on the Domain box - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
 #start of html body
@@ -167,13 +168,14 @@ else
 # query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
 
-#domain validity check
+#domain validity check -if  a domain does not exist or has beed deleted the usual raw whois result starts with "no" if no is not on the contect of the the above variable the script continues
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 if [[ "$dvcheck" = "no" ]]; then
 
 #start of html body
 echo '<body>'
 
+#the error that pops up when a domain is not valid/ does not exist
 echo '<p>'
 echo '<br/>'
 echo '<div class="code-bg" id="divClipboard">'
@@ -185,10 +187,10 @@ echo '</p>'
 exit 0;
 else
 
-#cuts and extracts the TLD
+#once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
-#checks if the domain is a gtld
+#checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
    $gtldlist)
 
@@ -198,27 +200,27 @@ registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "status:" );
 
-#stores the creation date
+#stores the domain's expiration date
 expd=$(echo "$zyx" | grep -i -e "registry expiry date:");
 
-#stores the domain expiration date on a variable
+#stores the domain's creation date
 creationdate=$(echo "$zyx" | grep -i -e "creation date:");
 
-#stores the name servers on a variable
+#stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
-#dig A and MX with minimal essential output
+#dig A and MX with minimal essential output from the dig command
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
 #start of html body
 echo '<body>'
 
-#the copy button
+#the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
-#print the results with a couple of string manipulations
+#prints the domain name and the registrar
 echo "__________________________"
 echo "<br/>"
 echo "<br/>"
@@ -230,13 +232,17 @@ echo "__________________________"
 
 echo "<br/> <br/>"
 
+#link to the EPP status codes on [Domain Status:]
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
+#cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
 while IFS= read -r line
 do
    echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank > [?]</a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
+
+#print the domain creation and expiration dates
 echo "<br/>"
 echo "--------------------------"
 echo "<br/>"
@@ -246,7 +252,11 @@ echo "$expd" ;
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
+
+#link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
+
+#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 echo "<br/>"
 while IFS= read -r line
 do
@@ -257,7 +267,11 @@ echo "<br/>"
 
 echo "__________________________"
 echo "<br/> <br/>"
+
+#link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br/>"
 while IFS= read -r line
 do
@@ -267,7 +281,11 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 echo "<br/> <br/>"
 while IFS= read -r line
 do
@@ -281,6 +299,7 @@ do
    echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
 
 done < <(printf '%s\n' "$mxr2")
+
 echo "<br/>"
 else
    mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
@@ -298,7 +317,7 @@ $cctldlist)
 
 zyx=$(whois $domain);
 
-#dig A and MX with minimal essential output
+#dig A and MX with minimal essential output from Google DNS servers
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
@@ -309,16 +328,21 @@ echo '<br>'
 echo '<h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>'
 echo '<br>'
 
-#the copy button
+#the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 
+#displays the raw whois result of ccTLDs
 echo "<pre>$zyx</pre>";
 echo '<p>'
 echo "<br/>"
 echo "__________________________"
 echo '<br/> <br>'
+
+#link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
@@ -328,8 +352,12 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -365,9 +393,11 @@ exit 0;
 
 ;;
 
-
+#special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+ph)
+#start of html body
+echo '<body>'
 cat <<EOQPH
-<body>
 <p>
 <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">> Click Here <</a>To get the whois info of this .ph domain.
@@ -379,9 +409,11 @@ exit 0;
 
 ;;
 
+#special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
 sg)
 #start of html body
 echo '<body>'
+
 cat <<EOQSG
 <p>
 <br>
@@ -394,8 +426,7 @@ exit 0;
 
 ;;
 
-
-#special trimming for CA ccTLDs
+#special whois result trim for CA ccTLDs basically remove everything after "%" on the raw whois result
 ca)
 
 zyxca=$(echo "$zyx" | cut -f1 -d"%");
@@ -407,9 +438,10 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #start of html body
 echo '<body>'
 
-#the copy button
+#the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 
+#prints the whois result with the the trimming
 echo "<pre>$zyxca</pre>";
 
 echo '<p>'
@@ -417,8 +449,12 @@ echo '<p>'
 echo "<br/>"
 echo "__________________________"
 echo '<br/> <br>'
+
+#link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
@@ -428,8 +464,11 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -460,6 +499,8 @@ echo '</p>'
 echo '</div>'
 
 echo '<br>'
+
+#the back | track button on the button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
 exit 0;
 
@@ -479,10 +520,10 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the name servers on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
-#registrant contact
+#stores the registrant contact
 regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 
-#tech contact
+#stores the tech contact
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 
 #dig A and MX with minimal essential output
@@ -492,11 +533,11 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #start of html body
 echo '<body>'
 
-#the copy button
+#the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
-#print the results with a couple of string manipulations
+#print the domain and the registrar
 echo '<br/>'
 echo "__________________________"
 echo "<br/> <br>"
@@ -507,8 +548,10 @@ echo "$registrar";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
+#link to the EPP status codes on [Domain Status:]
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 
+#cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
 while IFS= read -r line
 do
@@ -518,8 +561,12 @@ done < <(printf '%s\n' "$dstat");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
 echo "<br/>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    echo  "<br/>   ${line#*:}";
@@ -534,8 +581,12 @@ echo "$techcontact";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
@@ -545,8 +596,12 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -600,11 +655,11 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #start of html body
 echo '<body>'
 
-#the copy button
+#the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
-#print the results with a couple of string manipulations
+#print the domain and the registrar
 echo "__________________________"
 echo "<br/>"
 echo "<br/>"
@@ -615,12 +670,14 @@ echo "Registrar: ${registrar#*:}";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
-echo "[Domain Status:]";
 
+#link to the EPP status codes on [Domain Status:]
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[Domain Status:]</a>"
 echo "<br/>"
+
 while IFS= read -r line
 do
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank>[?]</a> ${line#*#}";
+   echo  "</br> ${line#*#} ";
 done < <(printf '%s\n' "$dstat");
 echo '<br>'
 echo "--------------------------"
@@ -630,8 +687,12 @@ echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[Name Servers:]</a>"
 echo "<br/>"
+
+#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 while IFS= read -r line
 do
    echo  "<br/>   ${line#*:}";
@@ -640,8 +701,12 @@ done < <(printf '%s\n' "$nameservers");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank">[A records:]</a>"
 echo "<br/>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
@@ -651,8 +716,12 @@ done < <(printf '%s\n' "$ar");
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank">[MX records:]</a>"
 echo "<br/> <br/>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -684,6 +753,8 @@ echo '</p>'
 echo '</div>'
 
 echo '<br>'
+
+#the back | track button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
 exit 0;
 
@@ -694,6 +765,8 @@ exit 0;
 
 #start of html body
 echo '<body>'
+
+#if the domain is not on the list of TLDs throws an error
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
