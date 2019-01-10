@@ -157,7 +157,7 @@ Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
 <br>
-OMG! - I love you will you marry me!
+OMG! - I love you! Will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
 
@@ -239,7 +239,7 @@ echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_bl
 echo "<br/>"
 while IFS= read -r line
 do
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank style="color:yellow"> [?]</a> ${line#*#}";
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#${line#*#} target=_blank style="color:tomato"> [?]</a> ${line#*#}";
 done < <(printf '%s\n' "$dstat");
 
 #print the domain creation and expiration dates
