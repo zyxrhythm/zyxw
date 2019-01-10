@@ -198,8 +198,7 @@ case $tld in
    $gtldlist)
 
 #stores the registrar name on a variable
-registrar0=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
-registrar="${registrar0#*:}";
+registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "status:" );
@@ -231,7 +230,7 @@ echo "<br/>"
 echo "Domain Name: $domain";
 echo "<br/>"
 echo "<br/>"
-echo "<strong>$registrar</strong><br/>";
+echo "<strong>Registrar: </strong>${registrar#*:}";
 echo "__________________________"
 
 echo "<br/> <br/>"
@@ -549,7 +548,7 @@ echo "<br/> <br>"
 echo "Domain Name: $domain";
 echo "<br/>"
 echo "<br/>"
-echo "$registrar";
+echo "<strong>Registrar: </strong>${registrar#*:}";
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
