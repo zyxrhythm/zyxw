@@ -199,7 +199,7 @@ case $tld in
 
 #stores the registrar name on a variable
 registrar0=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
-registrar="${registrar#*:}";
+registrar="${registrar0#*:}";
 
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "status:" );
