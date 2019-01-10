@@ -227,7 +227,7 @@ echo '<p>'
 echo "__________________________"
 echo "<br/>"
 echo "<br/>"
-echo "Domain Name: $domain";
+echo "<strong>Domain Name:</strong> $domain";
 echo "<br/>"
 echo "<br/>"
 echo "<strong>Registrar: </strong>${registrar#*:} ";
@@ -546,7 +546,7 @@ echo '<p>'
 echo '<br/>'
 echo "__________________________"
 echo "<br/> <br>"
-echo "Domain Name: $domain";
+echo "<strong>Domain Name:</strong> $domain";
 echo "<br/>"
 echo "<br/>"
 echo "<strong>Registrar: </strong>${registrar#*:}";
@@ -667,7 +667,7 @@ echo '<p>'
 echo "__________________________"
 echo "<br/>"
 echo "<br/>"
-echo "Domain Name: $domain";
+echo "<strong>Domain Name:</strong> $domain";
 echo "<br/>"
 echo "<br/>"
 echo "Registrar: ${registrar#*:}";
