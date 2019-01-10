@@ -381,7 +381,7 @@ cat <<EOQPH
 <body onload=OpenInNewtab('https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain')>
 
 Loading... Please wait.
-<body>
+
 EOQPH
 
 #cat <<EOQPH
