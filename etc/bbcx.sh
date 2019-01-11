@@ -237,7 +237,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[!]</a><strong> [Domain Status:]</strong>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
 
 #cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
@@ -258,7 +258,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[!]</a><strong> [Name Servers:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -274,7 +274,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [A records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br/>"
@@ -288,7 +288,7 @@ echo "__________________________"
 echo "<br/> <br/>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 echo "<br/> <br/>"
@@ -344,7 +344,7 @@ echo "__________________________"
 echo '<br/> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [A records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 echo "<br/>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
@@ -359,7 +359,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" style="color: tomato">[!]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" style="color: tomato">[+]</a><strong> [MX records:]</strong>"
 echo "<br/> <br/>"
 
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
@@ -456,7 +456,7 @@ echo "__________________________"
 echo '<br/> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [A records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 echo "<br/>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
@@ -470,7 +470,7 @@ echo "<br/>"
 echo "__________________________"
 echo "<br/> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 echo "<br/> <br/>"
 
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
@@ -554,7 +554,7 @@ echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[!]</a><strong> [Domain Status:]</strong>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Domain Status:]</strong>"
 
 #cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
@@ -568,7 +568,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [Name Servers:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Name Servers:]</strong>"
 echo "<br/>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
@@ -588,7 +588,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [A records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
@@ -602,7 +602,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 echo "<br/> <br/>"
 
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
@@ -676,7 +676,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[!]</a><strong> [Domain Status:]</strong>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Domain Status:]</strong>"
 
 
 while IFS= read -r line
@@ -693,7 +693,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [Name Servers:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Name Servers:]</strong>"
 echo "<br/>"
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -707,7 +707,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [A records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 while IFS= read -r line
@@ -721,7 +721,7 @@ echo "__________________________"
 echo "<br/> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[!]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 echo "<br/> <br/>"
 
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
