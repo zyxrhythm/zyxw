@@ -393,7 +393,7 @@ echo '</p>'
 echo '</div>'
 
 echo '<br>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
 exit 0;
 
 ;;
@@ -506,7 +506,7 @@ echo '</div>'
 echo '<br>'
 
 #the back | track button on the button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
 exit 0;
 
 ;;
@@ -758,7 +758,7 @@ echo '</div>'
 echo '<br>'
 
 #the back | track button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
 exit 0;
 
 ;;
@@ -821,7 +821,7 @@ echo "<hr>"
 echo " $whoisservergrep"
 echo "<br>"
 echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>'
 
 #else
 #echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
