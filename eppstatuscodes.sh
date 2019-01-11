@@ -129,7 +129,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td>ok</td>-->
+<td>ok</td>
 </td>
 <td><p>This is the standard status for a domain, meaning it has no pending operations or prohibitions.</p></td>
 <td><p>Asking your registrar to enact status restrictions, like clientTransferProhibited, clientDeleteProhibited, and clientUpdateProhibited, can help to prevent unauthorized transfers, deletions, or updates to your domain.</p></td>
@@ -268,7 +268,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table <a>id="renewperiod"</a>>
+<table id="renewperiod">
 <tbody>
 <tr>
 <th>Status Code</th>
