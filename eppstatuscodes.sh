@@ -268,7 +268,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table </a>id="renewperiod"<a>>
+<table <a>id="renewperiod"</a>>
 <tbody>
 <tr>
 <th>Status Code</th>
