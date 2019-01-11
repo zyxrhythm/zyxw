@@ -162,12 +162,12 @@ echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
-fi
-fi
-
 #end of body and html
 echo '</body>'
 echo '</html>'
+
+fi
+fi
 
 exit 0;
 
