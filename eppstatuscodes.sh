@@ -55,6 +55,8 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
+footer{text-align: center; font-family: verdana; font-size: 50%;
+}
 </style>
 </head>
 
@@ -204,12 +206,14 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 </tbody>
 </table>
 
-
-
 <br>
 <br>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <table class="convey">
 <tbody>
@@ -250,13 +254,30 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 </tbody>
 </table>
 
+
 <br>
+
 <hr>
 The above table is from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANNS's Article</a> about EPP Status codes.
 <hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </body>
-
+<footer>
+Copyleft 2018 ©
+</footer>
 </html>
 
 EOT
