@@ -68,6 +68,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="addperiod">
 <tbody>
@@ -89,6 +90,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="autorenewperiod" >
 <tbody>
@@ -105,6 +107,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -132,6 +135,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="ok">
 <tbody>
@@ -149,6 +153,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -176,6 +181,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="pendingdelete">
 <tbody>
@@ -193,6 +199,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -219,6 +226,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="pendingrestore">
 <tbody>
@@ -235,6 +243,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -261,6 +270,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="pendingupdate">
 <tbody>
@@ -277,6 +287,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -303,6 +314,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="renewperiod">
 <tbody>
@@ -319,6 +331,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -346,6 +359,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="serverhold">
 <tbody>
@@ -367,6 +381,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="serverrenewprohibited">
 <tbody>
@@ -383,6 +398,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -410,6 +426,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="serverupdateprohibited">
 <tbody>
@@ -427,6 +444,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -474,6 +492,10 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 
 <table id="clienthold">
 <tbody>
@@ -490,6 +512,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
@@ -516,6 +539,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="clienttransferprohibited">
 <tbody>
@@ -537,6 +561,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <table id="clientupdateprohibited">
 <tbody>
@@ -553,6 +578,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
+<br>
 <br>
 <br>
 <br>
