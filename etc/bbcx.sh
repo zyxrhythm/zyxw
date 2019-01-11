@@ -821,7 +821,7 @@ echo "<hr>"
 echo " $whoisservergrep"
 echo "<br>"
 echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 
 #else
 #echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
