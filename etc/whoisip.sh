@@ -156,7 +156,7 @@ else
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo " Not a valid domain!" 
+echo " Not a valid domain!"
 echo '</p>'
 echo '</div>'
 
@@ -170,5 +170,3 @@ fi
 fi
 
 exit 0;
-
-
