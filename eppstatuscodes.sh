@@ -74,7 +74,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="addperiod" ></a><a name="addPeriod" id="addPeriod"></a>addPeriod</td>
+<td><a name="addperiod" ></a><a name="addPeriod"></a>addPeriod</td>
 <td><p>This grace period is provided after the initial registration of a domain name. If the registrar deletes the domain name during this period, the registry may provide credit to the registrar for the cost of the registration.</p></td>
 <td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
 </tr>
@@ -92,7 +92,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="autorenewperiod" ></a><a name="autoRenewPeriod" id="autoRenewPeriod"></a>autoRenewPeriod</td>
+<td><a name="autorenewperiod" ></a><a name="autoRenewPeriod" ></a>autoRenewPeriod</td>
 <td><p>This grace period is provided after a domain name registration period expires and is extended (renewed) automatically by the registry. If the registrar deletes the domain name during this period, the registry provides a credit to the registrar for the cost of the renewal.</p></td>
 <td><p>This is an informative status set for a limited time after your domain's auto- renewal by the registry. If you do not want to keep it (i.e., pay the renewal fee) anymore, you should contact your registrar immediately to discuss what options are available.</p></td>
 </tr>
