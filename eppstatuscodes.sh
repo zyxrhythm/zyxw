@@ -468,9 +468,13 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table class="convey">
+<table>
 <tbody>
-
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
 
 
 <tr>
