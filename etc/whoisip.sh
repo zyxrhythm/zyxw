@@ -126,30 +126,6 @@ qs0=$QUERY_STRING;
 qs=$(echo $qs0 | awk '{print tolower($0)}');
 
 
-#butchers the qs string and gets the domain and to whois
-domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
-whoyou=$(echo $qs | sed 's/.*whoyou=//');
-
-#ARIN WHOIS
-
-#if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
-
-#	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
-#	zyxip=$(whois $IPadd -h whois.arin.net);
-#	echo '<div class="code-bg" id="divClipboard">'
-#	echo '<p>'
-
-#	echo "<pre>$zyxip</pre>";
-
-#else
-
-#extracts the resitrar's whois server from the whois result
-typicalwhoisresult=$(whois $domain);
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-if [[ -z "$domain" ]]; then
 
 echo '<br/>'
 echo '<br/>'
@@ -158,87 +134,23 @@ echo '<br/>'
 echo '<br/>'
 echo "Taylor Swift?!?"
 
+
+#butchers the qs string and gets the domain and to whois
+domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
+whoyou=$(echo $qs | sed 's/.*whoisip=//');
+
+#ARIN WHOIS
+
+if [[ "$whoyou" == "whoisip" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+
+	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
+	zyxip=$(whois $IPadd -h whois.arin.net);
+	echo '<div class="code-bg" id="divClipboard">'
+	echo '<p>'
+
+	echo "<pre>$zyxip</pre>";
+
 else
-
-#extracts the TLD
-
-
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
-#checks if the domain is a gtld and prints the whois result
-case $tld in
-   $gtldlist)
-if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then   
-zyxg=$(whois $domain);
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxg</pre>";
-
-;;
-#if the domain is a cctld and prints the whois result
-$cctldlist)
-
-if [[ "$whoyou" == "whois" ]] || [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
-zyxcc=$(whois $domain);
-
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxcc</pre>";
-
-;;
-
-#throw an error for everything else
-   *)
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-echo " Not a valid domain!." 
-echo '</p>'
-
-;;
-
-esac
-
-echo '</p>'
-
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-#############################################################################
-#else the registrar whois server need to be queried 
-else
-
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
-#checks if the domain is a gtld and prints the whois result from the registrar's whois server
-case $tld in
-   $gtldlist)
-
-   
-zyxg=$(whois $domain -h $whoisserver);
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxg</pre>";
-
-;;
-#checks if the domain is a cctld and prints the whois result from the registrar's whois server
-$cctldlist)
-zyxcc=$(whois $domain -h $whoisserver);
-
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxcc</pre>";
-
-;;
-
-#throw an error for everything else
-   *)
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
