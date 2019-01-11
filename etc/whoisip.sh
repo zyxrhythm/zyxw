@@ -118,6 +118,7 @@ echo '</head>'
 
 #stores the string from bbc.sh to a variable
 qs=$QUERY_STRING;
+echo '<pre>$qs</pre>';
 
 ipadd=$(echo $qs | cut -f2 -d"=" );
 
