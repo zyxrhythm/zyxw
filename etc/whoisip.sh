@@ -126,24 +126,29 @@ ipadd=$(echo $qs | cut -f2 -d"=" );
 
 if [[ -z "$ipadd" ]]; then
 
-echo '<br/>'
-echo '<br/>'
-echo 'Blank Space.'
-echo '<br/>'
-echo '<br/>'
-echo "Taylor Swift?!?"
+#start of html body
+echo '<body>'
 
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
 
-#butchers the qs string and gets the domain and to whois
-domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
-whoyou=$(echo $qs | sed 's/.*whoisip=//');
+cat <<EOTS
+Blank Space?!? . . .
+<br> <br>
+Is that you Taylor Swift?!?
+<br>
+OMG! - I love you! Will you marry me!
+<br> <br>
+If not - Please input a domain name. Sorna.
+EOTS
+
+else
 
 #ARIN WHOIS
 
-if [[ "$whoyou" == "whoisip" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
-	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxip=$(whois $IPadd -h whois.arin.net);
+	zyxip=$(whois $ipadd -h whois.arin.net);
 	echo '<div class="code-bg" id="divClipboard">'
 	echo '<p>'
 
@@ -156,9 +161,6 @@ echo '<p>'
 echo " Not a valid domain!" 
 echo '</p>'
 
-;;
-
-esac
 
 echo '</p>'
 
