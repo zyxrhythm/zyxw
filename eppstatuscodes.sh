@@ -55,7 +55,7 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
-footer{text-align: center; font-family: verdana; font-size: 50%;
+footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 }
 </style>
 </head>
@@ -260,6 +260,13 @@ footer{text-align: center; font-family: verdana; font-size: 50%;
 <hr>
 The above table is from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANNS's Article</a> about EPP Status codes.
 <hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
