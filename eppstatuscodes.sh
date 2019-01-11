@@ -67,7 +67,6 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 
 
-<table class"convey">
 <tbody>
 <tr class="dark">
 		<th>Status Code</th>
@@ -204,7 +203,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 
 </tbody>
-</table>
+
 
 <br>
 <br>
