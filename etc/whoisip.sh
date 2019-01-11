@@ -122,10 +122,9 @@ echo '<body>'
 #stores the string from bbc.sh to a variable
 qs0=$QUERY_STRING;
 
-#converts all uppercasr form qs to lowercase
-qs=$(echo $qs0 | awk '{print tolower($0)}');
+ipadd=$(echo $qs | cut -f2 -d"=" );
 
-
+if [[ -z "$ipadd" ]]; then
 
 echo '<br/>'
 echo '<br/>'
