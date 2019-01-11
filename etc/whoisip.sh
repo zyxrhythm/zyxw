@@ -112,9 +112,6 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #specififies the PATHs needed by the bash script
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
