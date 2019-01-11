@@ -85,6 +85,13 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 
 
+<table>
+<tbody>
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
 
 <tr class="light">
 		<td>
@@ -92,6 +99,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 		<td><p>This grace period is provided after a domain name registration period expires and is extended (renewed) automatically by the registry. If the registrar deletes the domain name during this period, the registry provides a credit to the registrar for the cost of the renewal.</p></td>
 		<td><p>This is an informative status set for a limited time after your domain's auto- renewal by the registry. If you do not want to keep it (i.e., pay the renewal fee) anymore, you should contact your registrar immediately to discuss what options are available.</p></td>
 	</tr>
+</tbody>
+</table>
+
 	<tr>
 		<td>
 <a name="inactive" id="inactive"></a>inactive</td>
