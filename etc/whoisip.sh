@@ -145,6 +145,11 @@ EOTS
 else
 
 #ARIN WHOIS
+#start of html body
+echo '<body>'
+
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
 
 if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
