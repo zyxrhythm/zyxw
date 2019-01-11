@@ -151,30 +151,19 @@ echo '<p>'
 if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 	zyxip=$(whois $ipadd -h whois.arin.net);
-	echo '<div class="code-bg" id="divClipboard">'
-	echo '<p>'
-
 	echo "<pre>$zyxip</pre>";
-
 else
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
 echo '</p>'
-
-
-echo '</p>'
-
 echo '</div>'
-
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 fi
 fi
-
-#fi
 
 #end of body and html
 echo '</body>'
