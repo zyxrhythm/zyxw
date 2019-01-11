@@ -116,7 +116,6 @@ echo '</head>'
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-#stores the string from bbc.sh to a variable
 qs=$QUERY_STRING;
 echo '<pre>$qs</pre>';
 
