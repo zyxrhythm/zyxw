@@ -477,7 +477,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 
-<table>
+<table id="clientupdateprohibited">
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -487,7 +487,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 <tr>
 <td>
-<a name="clientupdateprohibited" id="clientupdateprohibited"></a><a name="clientUpdateProhibited" id="clientUpdateProhibited"></a>clientUpdateProhibited</td>
+<a name="clientupdateprohibited" ></a><a name="clientUpdateProhibited" id="clientUpdateProhibited"></a>clientUpdateProhibited</td>
 <td><p>This status code tells your domain's registry to reject requests to update the domain.</p></td>
 <td><p>This domain name status indicates that it is not possible to update the domain, which can help prevent unauthorized updates resulting from fraud. If you do want to update your domain, you must first contact your registrar and request that they remove this status code.</p></td>
 </tr>
