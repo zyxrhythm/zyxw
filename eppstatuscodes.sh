@@ -283,7 +283,7 @@ The above table is from <a href="https://www.icann.org/resources/pages/epp-statu
 
 </body>
 <footer>
-Copyleft 2018 ©
+Copyleft 2018
 </footer>
 </html>
 
