@@ -118,7 +118,7 @@ function copyClipboard() {
 EOS2
 
 #back | track button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><< back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
 
 #The BBC copy button
 echo '<br/>'
