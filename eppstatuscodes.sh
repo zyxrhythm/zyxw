@@ -66,7 +66,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <hr>
 <br>
 
-<table>
+<table id="addperiod">
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -76,7 +76,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 <tr>
 <td>
-<a name="addperiod" id="addperiod"></a><a name="addPeriod" id="addPeriod"></a>addPeriod</td>
+<a name="addperiod" ></a><a name="addPeriod" id="addPeriod"></a>addPeriod</td>
 <td><p>This grace period is provided after the initial registration of a domain name. If the registrar deletes the domain name during this period, the registry may provide credit to the registrar for the cost of the registration.</p></td>
 <td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
 </tr>
