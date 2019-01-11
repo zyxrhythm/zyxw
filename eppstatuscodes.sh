@@ -81,6 +81,11 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 		<td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
 </tr>
 
+</tbody>
+</table>
+
+
+
 <tr class="light">
 		<td>
 <a name="autorenewperiod" id="autorenewperiod"></a><a name="autoRenewPeriod" id="autoRenewPeriod"></a>autoRenewPeriod</td>
