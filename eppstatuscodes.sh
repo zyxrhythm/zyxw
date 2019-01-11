@@ -74,7 +74,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="addperiod" ></a><a name="addPeriod"></a>addPeriod</td>
+<td>addPeriod</td>
 <td><p>This grace period is provided after the initial registration of a domain name. If the registrar deletes the domain name during this period, the registry may provide credit to the registrar for the cost of the registration.</p></td>
 <td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
 </tr>
@@ -92,7 +92,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="autorenewperiod" ></a><a name="autoRenewPeriod" ></a>autoRenewPeriod</td>
+<td>autoRenewPeriod</td>
 <td><p>This grace period is provided after a domain name registration period expires and is extended (renewed) automatically by the registry. If the registrar deletes the domain name during this period, the registry provides a credit to the registrar for the cost of the renewal.</p></td>
 <td><p>This is an informative status set for a limited time after your domain's auto- renewal by the registry. If you do not want to keep it (i.e., pay the renewal fee) anymore, you should contact your registrar immediately to discuss what options are available.</p></td>
 </tr>
@@ -110,7 +110,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="inactive" ></a>inactive</td>
+<td>inactive</td>
 <td><p>This status code indicates that delegation information (name servers) has not been associated with your domain. Your domain is not activated in the <abbr title="Domain Name System">DNS</abbr> and will not resolve.</p></td><td>
 <p>If your domain has remained in this status for several days, you may want to contact your registrar to request information about the delay in processing.</p>
 <p>If the <abbr title="Top Level Domain">TLD</abbr> requires documentation to be provided for registration, you may need to provide the required documentation.</p></td>
@@ -129,7 +129,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <th>Should you do something?</th>
 </tr>
 <tr>
-<td><a name="ok" >ok</a> <!--<a name="OK" id="OK"></a></td>-->
+<td>ok</td>-->
 </td>
 <td><p>This is the standard status for a domain, meaning it has no pending operations or prohibitions.</p></td>
 <td><p>Asking your registrar to enact status restrictions, like clientTransferProhibited, clientDeleteProhibited, and clientUpdateProhibited, can help to prevent unauthorized transfers, deletions, or updates to your domain.</p></td>
