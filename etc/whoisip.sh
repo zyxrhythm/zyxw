@@ -120,7 +120,7 @@ echo '<body>'
 #export $PATH
 
 #stores the string from bbc.sh to a variable
-qs0=$QUERY_STRING;
+qs=$QUERY_STRING;
 
 ipadd=$(echo $qs | cut -f2 -d"=" );
 
