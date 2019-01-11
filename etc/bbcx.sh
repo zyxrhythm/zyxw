@@ -59,10 +59,10 @@ a:hover { color: red;  }
 a:visited { color: red;  }
 
 
-div a:link { color: tomato;  }
-div a:active { color: tomato;  }
-div a:hover { color: tomato;  }
-div a:visited { color: tomato;  }
+div a:link { color: tomato;  font-size: 90%; }
+div a:active { color: tomato;  font-size: 90%; }
+div a:hover { color: tomato;  font-size: 90%; }
+div a:visited { color: tomato;  font-size: 90%; }
 
 strong {color: green;
 }
