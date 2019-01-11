@@ -479,25 +479,90 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 		<td><p>This status code tells your domain's registry to reject requests to delete the domain.</p></td>
 		<td><p>This status indicates that it is not possible to delete the domain name registration, which can prevent unauthorized deletions resulting from hijacking and/or fraud. If you do want to delete your domain, you must first contact your registrar and request that they remove this status code.</p></td>
 	</tr>
+
+
+</tbody>
+</table>
+
+
+<table>
+<tbody>
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
+
 	<tr class="light">
 		<td>
 <a name="clienthold" id="clienthold"></a><a name="clientHold" id="clientHold"></a>clientHold</td>
 		<td><p>This status code tells your domain's registry to not activate your domain in the <abbr title="Domain Name System">DNS</abbr> and as a consequence, it will not resolve. It is an uncommon status that is usually enacted during legal disputes, non-payment, or when your domain is subject to deletion.</p></td>
 		<td><p>Often, this status indicates an issue with your domain that needs resolution. If so, you should contact your registrar to resolve the issue. If your domain does not have any issues, but you need it to resolve, you must first contact your registrar and request that they remove this status code.</p></td>
 	</tr>
-	<tr>
+
+
+
+</tbody>
+</table>
+
+
+<table>
+<tbody>
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
+
+
+
+<tr>
 		<td>
 <a name="clientrenewprohibited" id="clientrenewprohibited"></a><a name="clientRenewProhibited" id="clientRenewProhibited"></a>clientRenewProhibited</td>
 		<td><p>This status code tells your domain's registry to reject requests to renew your domain. It is an uncommon status that is usually enacted during legal disputes or when your domain is subject to deletion.</p></td>
 		<td><p>Often, this status indicates an issue with your domain that needs resolution. If so, you should contact your registrar to resolve the issue. If your domain does not have any issues, and you simply want to renew it, you must first contact your registrar and request that they remove this status code.</p></td>
 	</tr>
-	<tr class="light">
+
+
+
+</tbody>
+</table>
+
+
+<table>
+<tbody>
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
+
+
+
+<tr class="light">
 		<td>
 <a name="clienttransferprohibited" id="clienttransferprohibited"></a><a name="clientTransferProhibited" id="clientTransferProhibited"></a>clientTransferProhibited</td>
 		<td><p>This status code tells your domain's registry to reject requests to transfer the domain from your current registrar to another.</p></td>
 		<td><p>This status indicates that it is not possible to transfer the domain name registration, which will help prevent unauthorized transfers resulting from hijacking and/or fraud. If you do want to transfer your domain, you must first contact your registrar and request that they remove this status code.</p></td>
 	</tr>
-	<tr>
+
+
+
+</tbody>
+</table>
+
+
+<table>
+<tbody>
+<tr class="dark">
+		<th>Status Code</th>
+		<th>What does it mean?</th>
+		<th>Should you do something?</th>
+	</tr>
+
+
+
+<tr>
 		<td>
 <a name="clientupdateprohibited" id="clientupdateprohibited"></a><a name="clientUpdateProhibited" id="clientUpdateProhibited"></a>clientUpdateProhibited</td>
 		<td><p>This status code tells your domain's registry to reject requests to update the domain.</p></td>
@@ -528,11 +593,7 @@ The above table is from <a href="https://www.icann.org/resources/pages/epp-statu
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 </body>
 <footer>
