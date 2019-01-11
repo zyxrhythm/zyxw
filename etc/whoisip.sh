@@ -112,15 +112,12 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #specififies the PATHs needed by the bash script
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-#stores the string from bbc.sh to a variable
 qs=$QUERY_STRING;
+echo '<pre>$qs</pre>';
 
 ipadd=$(echo $qs | cut -f2 -d"=" );
 
@@ -145,38 +142,32 @@ EOTS
 else
 
 #ARIN WHOIS
+#start of html body
+echo '<body>'
+
+echo '<div class="code-bg" id="divClipboard">'
+echo '<p>'
 
 if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 	zyxip=$(whois $ipadd -h whois.arin.net);
-	echo '<div class="code-bg" id="divClipboard">'
-	echo '<p>'
-
 	echo "<pre>$zyxip</pre>";
-
 else
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
 echo '</p>'
-
-
-echo '</p>'
-
 echo '</div>'
 
-
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-fi
-fi
-
-#fi
 
 #end of body and html
 echo '</body>'
 echo '</html>'
+
+fi
+fi
 
 exit 0;
 
