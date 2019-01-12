@@ -72,7 +72,7 @@ pre{
 
 History:
 
--Added to bbcx.sh script the ability to cycle through domain status and create a link to what the status means.
+-Added to bbcx.sh the ability to cycle through domain statuses and create a link to what each status mean.
 
 -Moved securitytrails.com DNS history links to the '[+]'s.
 
