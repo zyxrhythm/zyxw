@@ -72,6 +72,12 @@ pre{
 
 History:
 
+-Added to bbcx.sh script the ability to cycle through domain status and create a link to what the status means.
+
+-Moved securitytrails.com DNS history links to the '[+]'s.
+
+-Added highlights on BBC special result.
+
 -Fixed report about WHOYOU was not able to give raw whois results when querying the registry whois server. 
 (The issue seems to be with the the recent revision with the front page WHOYOU drop down the script does not recognize the new entries in the selection menu)
 
