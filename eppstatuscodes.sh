@@ -584,10 +584,13 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 <br>
+<br>
 
 <hr>
 The tables above are from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANN's Article</a> about EPP Status codes.
 <hr>
+
+<br>
 <br>
 <br>
 <br>
@@ -606,7 +609,20 @@ The tables above are from <a href="https://www.icann.org/resources/pages/epp-sta
 <br>
 <br>
 <br>
-
+<center>
+******
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+******
+</center>
 
 </body>
 <footer>
