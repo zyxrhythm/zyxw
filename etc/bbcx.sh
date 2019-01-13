@@ -401,6 +401,8 @@ exit 0;
 
 us)
 
+zyx=$(whois $domain);
+
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 
