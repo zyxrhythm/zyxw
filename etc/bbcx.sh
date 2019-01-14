@@ -916,9 +916,6 @@ echo '</div>'
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-
-#if [[ "$whoisserver" !== "http://api.fastdomain.com/cgi/whois" ]]; then
-
 semifinale=$(whois $domain -h "$whoisserver" );
 rese=$(echo "$semifinale" | grep -i -e "reseller");
 registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
