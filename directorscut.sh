@@ -9,7 +9,7 @@ cat <<EOT
 <head>
 <title>Thanks! To: </title>
 
-<meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
+<meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
  
