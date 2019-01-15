@@ -950,7 +950,11 @@ else
 case $whoisserver in
    http://api.fastdomain.com/cgi/whois)
 
+echo "<hr>"
 echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
+echo "<br>"
+echo '<hr>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 
 echo '</footer>'
 echo '</html>'
