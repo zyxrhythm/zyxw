@@ -918,9 +918,8 @@ echo '</body>'
 fi
 
 fi
+
 echo "<footer>"
-
-
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 typicalwhoisresult=$(whois $domain);
@@ -928,7 +927,7 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 semifinale=$(whois $domain -h "$whoisserver" );
 
-if [[ -z "$whoisserver" ]]; then
+if [[ -z "$whoisserver" || "$whoisserver" = " " ]]; then
 
 
 echo "<hr>"
@@ -980,10 +979,6 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 #echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
 
 echo "</footer>"
-
-
-#the end of body
-#echo '</body>'
 
 #the end of html
 echo '</html>'
