@@ -934,19 +934,6 @@ tech=$(echo "$semifinale" | grep -i -e 'tech')
 
 if [[ -z "$registrant" ]]; then
 
-echo "<hr>"
-echo " $whoisservergrep"
-echo "<br>"
-echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
-
-echo '</footer>'
-echo '</html>'
-
-exit 0;
-
-else
-
 case $whoisserver in
    http://api.fastdomain.com/cgi/whois)
 
@@ -964,6 +951,21 @@ exit 0;
 ;;
 
  *)
+
+echo "<hr>"
+echo " $whoisservergrep"
+echo "<br>"
+echo '<hr>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
+
+echo '</footer>'
+echo '</html>'
+
+;;
+
+esac
+
+else
 
 echo "<hr>"
 echo "<br>"
@@ -996,10 +998,6 @@ echo "</footer>"
 
 #the end of html
 echo '</html>'
-
-;;
-
-esac
 
 fi
 
