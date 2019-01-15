@@ -920,11 +920,30 @@ fi
 fi
 echo "<footer>"
 
+
+
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 semifinale=$(whois $domain -h "$whoisserver" );
+
+if [[ -z "$whoisserver" ]]; then
+
+
+echo "<hr>"
+echo " $whoisservergrep"
+echo "<br>"
+echo '<hr>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
+
+echo '</footer>'
+echo '</html>'
+
+exit 0;
+
+else
+
 rese=$(echo "$semifinale" | grep -i -e "reseller");
 registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
