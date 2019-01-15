@@ -927,7 +927,13 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 semifinale=$(whois $domain -h "$whoisserver" );
 
-if [[ -z "$semifinale" ]]; then
+
+rese=$(echo "$semifinale" | grep -i -e "reseller");
+registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
+admin=$(echo "$semifinale" | grep -i -e 'admin')
+tech=$(echo "$semifinale" | grep -i -e 'tech')
+
+if [[ -z "$registrant" ]]; then
 
 
 echo "<hr>"
@@ -943,10 +949,7 @@ exit 0;
 
 else
 
-rese=$(echo "$semifinale" | grep -i -e "reseller");
-registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
-admin=$(echo "$semifinale" | grep -i -e 'admin')
-tech=$(echo "$semifinale" | grep -i -e 'tech')
+
 
 echo "<hr>"
 echo "<br>"
