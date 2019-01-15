@@ -935,7 +935,7 @@ tech=$(echo "$semifinale" | grep -i -e 'tech')
 echo "$whoisservergrep"
 if [[ -z "$registrant" ]]; then
 
-case $whoisservergrep in
+case $whoisserver in
    http)
 
 echo "<hr>"
