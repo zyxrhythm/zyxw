@@ -145,7 +145,7 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
-#checks if the domain entered is null  or the BBC Special is cliked without placing anything on the Domain box - then throws a Taylor Swift error
+#checks if the domain entered is null  or the BBC Special is clicked without placing anything on the Domain box - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
 #start of html body
@@ -908,6 +908,17 @@ echo '</p>'
 ;;
 esac
 
+#the end of body
+echo '</body>'
+
+#the end of html
+echo '</html>'
+
+
+fi
+
+fi
+
 echo '</p>'
 
 echo '</div>'
@@ -954,13 +965,11 @@ echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 
 
 #the end of body
-echo '</body>'
+#echo '</body>'
 
 #the end of html
-echo '</html>'
+#echo '</html>'
 
-fi
 
-fi
 
 exit 0;
