@@ -927,7 +927,7 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 semifinale=$(whois $domain -h "$whoisserver" );
 
-if [[ -z "$whoisserver" || "$whoisserver" = " " ]]; then
+if [[ -z "$semifinale" ]]; then
 
 
 echo "<hr>"
