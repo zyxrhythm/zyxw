@@ -953,7 +953,7 @@ exit 0;
 
 ;;
 
-   "RegistrarWHOISServer:whois.godaddy.com")
+"RegistrarWHOISServer:whois.godaddy.com")
 echo "<hr>"
 echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
 echo "<br>"
