@@ -983,5 +983,6 @@ echo "</footer>"
 #the end of html
 echo '</html>'
 
+fi
 
 exit 0;
