@@ -936,7 +936,7 @@ echo "$whoisservergrep"
 if [[ -z "$registrant" ]]; then
 
 case $whoisservergrep in
-   "Registrar WHOIS Server: http://api.fastdomain.com/cgi/whois ")
+   http)
 
 echo "<hr>"
 echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
