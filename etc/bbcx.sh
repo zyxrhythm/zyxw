@@ -932,7 +932,7 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-echo "$whoisserver"
+echo "$whoisservergrep"
 if [[ -z "$registrant" ]]; then
 
 case $whoisservergrep in
