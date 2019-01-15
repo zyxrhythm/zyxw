@@ -932,7 +932,6 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-echo "$whoisservergrep"
 if [[ -z "$registrant" ]]; then
 
 regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
