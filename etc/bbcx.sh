@@ -935,8 +935,9 @@ tech=$(echo "$semifinale" | grep -i -e 'tech')
 echo "$whoisservergrep"
 if [[ -z "$registrant" ]]; then
 
-case $whoisserver in
-   http)
+regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
+case "$regwis" in
+   "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 
 echo "<hr>"
 echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
