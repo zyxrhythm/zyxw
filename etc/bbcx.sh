@@ -953,6 +953,13 @@ exit 0;
 
 ;;
 
+#case "$regwis" in
+#   "https://www.godaddy.com/whois/results.aspx?domain=")
+#
+#
+#
+#;;
+
  *)
 
 echo "<hr>"
