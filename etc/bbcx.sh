@@ -932,6 +932,8 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
+reseller="${rese#*:}"
+
 if [[ -z "$registrant" ]]; then
 
 regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
@@ -971,7 +973,11 @@ else
 echo "<hr>"
 echo "<br>"
 
-echo "$rese"
+if [[ -z $reseller ]]; then
+echo "Reseller: None!"
+else
+echo "Reseller: $reseller"
+fi
 
 echo "<br>"
 echo "<br>"
