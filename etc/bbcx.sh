@@ -927,14 +927,12 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 semifinale=$(whois $domain -h "$whoisserver" );
 
-
 rese=$(echo "$semifinale" | grep -i -e "reseller");
 registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
 if [[ -z "$registrant" ]]; then
-
 
 echo "<hr>"
 echo " $whoisservergrep"
@@ -949,7 +947,14 @@ exit 0;
 
 else
 
+case $whoisserver in
+   http://api.fastdomain.com/cgi/whois)
 
+echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
+
+;;
+
+ *)
 
 echo "<hr>"
 echo "<br>"
@@ -978,13 +983,12 @@ echo "<br>"
 echo '<hr>'
 echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 
-#else
-#echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
-
 echo "</footer>"
 
 #the end of html
 echo '</html>'
+
+;;
 
 fi
 
