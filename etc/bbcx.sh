@@ -954,10 +954,17 @@ exit 0;
 ;;
 
 #case "$regwis" in
-#   "https://www.godaddy.com/whois/results.aspx?domain=")
-#
-#
-#
+#   "RegistrarWHOIS Server:whois.godaddy.com")
+#echo "<hr>"
+#echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
+#echo "<br>"
+#echo '<hr>'
+#echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
+
+#echo '</footer>'
+#echo '</html>'
+
+#exit 0;
 #;;
 
  *)
@@ -988,17 +995,17 @@ fi
 
 echo "<br>"
 echo "<br>"
-echo "[ REGISTRANT: ]"
+echo "<strong>[ REGISTRANT: ]</strong>"
 echo "<br>"
 echo "<pre>$registrant</pre>"
 echo "<br>"
 
-echo "[ ADMIN: ]"
+echo "<strong>[ ADMIN: ]</strong>"
 echo "<br>"
 echo "<pre>$admin</pre>"
 echo "<br>"
 
-echo "[ TECH: ] "
+echo "<strong>[ TECH: ]</strong>"
 echo "<br>"
 echo "<pre>$tech</pre>"
 
