@@ -954,20 +954,20 @@ exit 0;
 
 ;;
 
- "RegistrarWHOISServer:whois.godaddy.com")
+#"RegistrarWHOISServer:whois.godaddy.com")
  
-echo "<hr>"
-echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
-echo "<br>"
-echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
+#echo "<hr>"
+#echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
+#echo "<br>"
+#echo '<hr>'
+#echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 
-echo '</footer>'
-echo '</html>'
+#echo '</footer>'
+#echo '</html>'
 
-exit 0;
+#exit 0;
 
-;;
+#;;
 
  *)
 
