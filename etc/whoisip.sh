@@ -116,7 +116,7 @@ echo '</head>'
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-qs=$QUERY_STRING;
+qs="$QUERY_STRING";
 echo '<pre>$qs</pre>';
 
 ipadd=$(echo $qs | cut -f2 -d"=" );
@@ -139,6 +139,15 @@ OMG! - I love you! Will you marry me!
 If not - Please input a domain name. Sorna.
 EOTS
 
+echo '</p>'
+echo '</div>'
+
+echo '</body>'
+echo '</html>'
+echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+exit 0;
+
 else
 
 #ARIN WHOIS
@@ -148,15 +157,25 @@ echo '<body>'
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
-if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+	if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
-	zyxip=$(whois $ipadd -h whois.arin.net);
-	echo "<pre>$zyxip</pre>";
-else
+zyxip=$(whois $ipadd -h whois.arin.net);
+echo "<pre>$zyxip</pre>";
+echo '<br>'
+echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+echo '</p>'
+echo '</div>'
+
+echo '</body>'
+echo '</html>'
+exit 0;
+
+	else
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo " Not a valid domain!"
+echo " Not a valid IP address! Sorna."
 echo '</p>'
 echo '</div>'
 
@@ -166,7 +185,8 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 echo '</body>'
 echo '</html>'
 
-fi
+	fi
+
 fi
 
 exit 0;
