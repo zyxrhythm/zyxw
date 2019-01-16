@@ -116,8 +116,8 @@ echo '</head>'
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-qs="$QUERY_STRING";
-echo '<pre>$qs</pre>';
+qs=$(echo $QUERY_STRING | tr -d '\040\011\012\015');
+echo '$qs';
 
 ipadd=$(echo $qs | cut -f2 -d"=" );
 
