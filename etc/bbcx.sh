@@ -937,6 +937,7 @@ reseller="${rese#*:}"
 if [[ -z "$registrant" ]]; then
 
 regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
+
 case "$regwis" in
    "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 
@@ -953,7 +954,8 @@ exit 0;
 
 ;;
 
-"RegistrarWHOISServer:whois.godaddy.com")
+ "RegistrarWHOISServer:whois.godaddy.com")
+ 
 echo "<hr>"
 echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
 echo "<br>"
@@ -964,6 +966,7 @@ echo '</footer>'
 echo '</html>'
 
 exit 0;
+
 ;;
 
  *)
