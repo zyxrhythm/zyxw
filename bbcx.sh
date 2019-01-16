@@ -990,7 +990,7 @@ echo "<hr>"
 echo "<br>"
 
 if [[ -z $reseller ]]; then
-echo "<strong>Reseller:</strong> None!"
+echo "<strong>Reseller:</strong> None"
 else
 echo "<strong>Reseller:</strong> $reseller"
 fi
