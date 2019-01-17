@@ -192,8 +192,6 @@ zyx=$(whois $domain);
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 if [[ "$dvcheck" = "no" ]]; then
 
-#start of html body
-
 cat <<EODC
 <body>
 <p>
@@ -209,9 +207,10 @@ EODC
 
 exit 0;
 
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+else
 
+registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
+ws1=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 
 #extracts the TLD
