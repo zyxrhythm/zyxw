@@ -133,8 +133,9 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|au|ax|az|ba|bb|bd|be|bf|b
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
-#ARIN WHOIS
 
+#case $whoyou in
+#arin)
 #if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 #	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
