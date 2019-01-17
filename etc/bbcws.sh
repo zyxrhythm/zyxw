@@ -155,6 +155,8 @@ echo '</p>'
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+echo '</body>'
+echo '</html>'
 
 exit 0;
 
@@ -187,6 +189,9 @@ Not a valid IP address. Sorna.
 
 EOEAR
 
+echo '</body>'
+echo '</html>'
+
 fi
 
 exit 0;
@@ -212,6 +217,9 @@ echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
+echo '</body>'
+echo '</html>'
+
 exit 0;
 
 ;;
@@ -232,6 +240,8 @@ echo '</div>'
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 exit 0;
+echo '</body>'
+echo '</html>'
 
 ;;
 
@@ -244,6 +254,9 @@ echo " Not a valid domain!."
 echo '</p>'
 echo </div>
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+echo '</body>'
+echo '</html>'
 
 exit 0;
 
@@ -271,6 +284,10 @@ echo '</p>'
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+echo '</body>'
+echo '</html>'
+
 exit 0;
 
 ;;
@@ -288,6 +305,10 @@ echo '</p>'
 echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+
+echo '</body>'
+echo '</html>'
+
 exit 0;
 
 ;;
