@@ -133,7 +133,6 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|au|ax|az|ba|bb|bd|be|bf|b
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
-
 #case $whoyou in
 #arin)
 #if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
@@ -142,15 +141,9 @@ whoyou=$(echo $qs | sed 's/.*whoyou=//');
 #	zyxip=$(whois $IPadd -h whois.arin.net);
 #	echo '<div class="code-bg" id="divClipboard">'
 #	echo '<p>'
-
 #	echo "<pre>$zyxip</pre>";
 
 #else
-
-#extracts the registrar's whois server from the whois result
-typicalwhoisresult=$(whois $domain);
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
@@ -169,6 +162,12 @@ If not - Please input a domain name. Sorna.
 EOTS
 
 else
+
+#extracts the registrar's whois server from the whois result
+registrywhois=$(whois $domain);
+wsgrep=$(echo "$registrywhois" | grep -i -e "WHOIS Server");
+whoisserver=$(echo "$wsgrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+
 
 #extracts the TLD
 if [[ "$whoyou" == "registry+whois+server" ]]; then
