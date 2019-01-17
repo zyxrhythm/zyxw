@@ -119,8 +119,11 @@ echo '<body>'
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
+#stores the string from bbc.sh to a variable
+qs0=$QUERY_STRING;
+
 #converts all uppercasr form qs to lowercase
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
+qs=$(echo $qs0 | awk '{print tolower($0)}');
 
 #list of supported gtlds
 shopt -s extglob
@@ -133,73 +136,45 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|au|ax|az|ba|bb|bd|be|bf|b
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
+#ARIN WHOIS
+
+#if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+
+#	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
+#	zyxip=$(whois $IPadd -h whois.arin.net);
+#	echo '<div class="code-bg" id="divClipboard">'
+#	echo '<p>'
+
+#	echo "<pre>$zyxip</pre>";
+
+#else
+
+#extracts the registrar's whois server from the whois result
+typicalwhoisresult=$(whois $domain);
+whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
+whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-
 cat <<EOTS
 
 Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
 <br>
-OMG! - I love you - will you marry me!
+OMG! - I love you will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
-
 EOTS
 
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-echo '</body>'
-echo '</html>'
-
-exit 0;
-
 else
 
-#extracts the registrar's whois server from the whois result
-registrywhois=$(whois $domain);
-wsgrep=$(echo "$registrywhois" | grep -i -e "WHOIS Server");
-whoisserver=$(echo "$wsgrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+#extracts the TLD
+if [[ "$whoyou" == "registry+whois+server" ]]; then
 
-echo $qs $registrywhois $wsgrep $whoisserver
-case $whoyou in
-arin)
-
-if [[ "$domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
-
-	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxip=$(whois $IPadd -h whois.arin.net);
-	echo '<div class="code-bg" id="divClipboard">'
-	echo '<p>'
-	echo "<pre>$zyxip</pre>";
-else
-
-cat <<EOEAR
-<div class="code-bg" id="divClipboard">
-<p>'
-Not a valid IP address. Sorna.
-</p>
-</div>
-
-EOEAR
-
-echo '</body>'
-echo '</html>'
-
-fi
-
-exit 0;
-
-;;
-
-"registry+whois+server")
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -213,18 +188,7 @@ echo '<p>'
 
 echo "<pre>$zyxg</pre>";
 
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-echo '</body>'
-echo '</html>'
-
-exit 0;
-
 ;;
-
 #if the domain is a cctld and prints the whois result
 $cctldlist)
 zyxcc=$(whois $domain);
@@ -235,15 +199,6 @@ echo '<p>'
 
 echo "<pre>$zyxcc</pre>";
 
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-exit 0;
-echo '</body>'
-echo '</html>'
-
 ;;
 
 #throw an error for everything else
@@ -253,21 +208,19 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!." 
 echo '</p>'
-echo </div>
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-echo '</body>'
-echo '</html>'
-
-exit 0;
 
 ;;
 
 esac
 
-#############################################################################
+echo '</p>'
 
-"registrar+whois+server")
+echo '</div>'
+
+echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+#############################################################################
+#else the registrar whois server need to be queried 
+else
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -281,18 +234,8 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxg</pre>";
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-echo '</body>'
-echo '</html>'
-
-exit 0;
 
 ;;
-
 #checks if the domain is a cctld and prints the whois result from the registrar's whois server
 $cctldlist)
 zyxcc=$(whois $domain -h $whoisserver);
@@ -302,15 +245,6 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 echo "<pre>$zyxcc</pre>";
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-echo '</body>'
-echo '</html>'
-
-exit 0;
 
 ;;
 
@@ -326,9 +260,21 @@ echo '</p>'
 
 esac
 
-esac
+echo '</p>'
+
+echo '</div>'
+
+
+echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 fi
+fi
+
+#fi
+
+#end of body and html
+echo '</body>'
+echo '</html>'
 
 exit 0;
 
