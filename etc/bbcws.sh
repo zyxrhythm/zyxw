@@ -172,8 +172,43 @@ exit 0;
 
 else
 
-#extracts the registrar's whois server from the whois result
-typicalwhoisresult=$(whois $domain);
+cat <<EOAW0
+	<body>
+	<div class="code-bg" id="divClipboard">
+	<p>
+	Not a valid IP address. Sorna.
+	</p>
+	</div>
+	</body>
+	</html>
+EOAW0
+exit 0;
+
+fi
+
+
+zyx=$(whois $domain);
+
+dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
+if [[ "$dvcheck" = "no" ]]; then
+
+#start of html body
+
+cat <<EODC
+<body>
+<p>
+<br/>
+<div class="code-bg" id="divClipboard">
+<p>
+Not a valid domain! Sorna.
+</div>
+</p>
+</body>
+</html>
+EODC
+
+exit 0;
+
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
