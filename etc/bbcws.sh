@@ -215,8 +215,6 @@ echo '</html>'
 
 ;;
 
-;;
-
 #throw an error for everything else
    *)
 
@@ -229,59 +227,6 @@ echo '</p>'
 
 esac
 
-echo '</p>'
-
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-#############################################################################
-#else the registrar whois server need to be queried 
-else
-
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
-#checks if the domain is a gtld and prints the whois result from the registrar's whois server
-case $tld in
-   $gtldlist)
-
-   
-zyxg=$(whois $domain -h $whoisserver);
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxg</pre>";
-
-;;
-#checks if the domain is a cctld and prints the whois result from the registrar's whois server
-$cctldlist)
-zyxcc=$(whois $domain -h $whoisserver);
-
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxcc</pre>";
-
-;;
-
-#throw an error for everything else
-   *)
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-echo " Not a valid domain!" 
-echo '</p>'
-
-;;
-
-esac
-
-echo '</p>'
-
-echo '</div>'
-
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 
 
