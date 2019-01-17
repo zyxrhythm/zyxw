@@ -169,7 +169,7 @@ whoisserver=$(echo "$wsgrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 case $whoyou in
 arin)
 
-if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
+if [[ "$domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
 	zyxip=$(whois $IPadd -h whois.arin.net);
