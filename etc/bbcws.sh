@@ -227,16 +227,11 @@ echo '</p>'
 
 esac
 
-
-
-
 registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-
 fi
 fi
-
 
 #end of body and html
 echo '</body>'
