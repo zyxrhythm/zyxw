@@ -112,9 +112,6 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #specififies the PATHs needed by the bash script
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
@@ -136,31 +133,13 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|au|ax|az|ba|bb|bd|be|bf|b
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
-#ARIN WHOIS
-
-#if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
-
-#	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
-#	zyxip=$(whois $IPadd -h whois.arin.net);
-#	echo '<div class="code-bg" id="divClipboard">'
-#	echo '<p>'
-
-#	echo "<pre>$zyxip</pre>";
-
-#else
-
-#extracts the registrar's whois server from the whois result
-typicalwhoisresult=$(whois $domain);
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
 cat <<EOTS
-
+<body>
+<div class="code-bg" id="divClipboard">'
+echo '<p>'
 Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
@@ -171,6 +150,34 @@ If not - Please input a domain name. Sorna.
 EOTS
 
 else
+
+#ARIN WHOIS
+
+if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+	ipwhois=$(echo $domain | tr -d '\040\011\012\015' );
+	zyxip=$(whois $ipwhois -h whois.arin.net);
+
+cat <<EOAW
+	<body>
+	<div class="code-bg" id="divClipboard">
+	<p>
+	<pre>$zyxip</pre>
+	</p>
+	</div>
+	</body>
+	</html>
+EOAW
+
+exit 0;
+
+else
+
+#extracts the registrar's whois server from the whois result
+typicalwhoisresult=$(whois $domain);
+whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server");
+whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+
+
 
 #extracts the TLD
 if [[ "$whoyou" == "registry+whois+server" ]]; then
@@ -268,9 +275,7 @@ echo '</div>'
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
 fi
-fi
 
-#fi
 
 #end of body and html
 echo '</body>'
