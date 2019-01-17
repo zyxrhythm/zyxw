@@ -168,6 +168,7 @@ whoisserver=$(echo "$wsgrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 case $whoyou in
 arin)
+
 if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 
 	IPadd=$(echo $domain | tr -d '\040\011\012\015' );
@@ -177,7 +178,7 @@ if [[ "$whoyou" == "arin" && $domain =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
 	echo "<pre>$zyxip</pre>";
 else
 
-cat << EOEAR
+cat <<EOEAR
 <div class="code-bg" id="divClipboard">
 <p>'
 Not a valid IP address. Sorna.
