@@ -139,13 +139,14 @@ if [[ -z "$domain" ]]; then
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
+
 cat <<EOTS
 
 Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
 <br>
-OMG! - I love you will you marry me!
+OMG! - I love you - will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
 
@@ -167,7 +168,7 @@ registrywhois=$(whois $domain);
 wsgrep=$(echo "$registrywhois" | grep -i -e "WHOIS Server");
 whoisserver=$(echo "$wsgrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-
+echo $qs $registrywhois $wsgrep $whoisserver
 case $whoyou in
 arin)
 
