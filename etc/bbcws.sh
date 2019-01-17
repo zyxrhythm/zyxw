@@ -248,6 +248,9 @@ echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 exit 0;
 
 ;;
+
+esac
+
 #############################################################################
 
 "registrar+whois+server")
