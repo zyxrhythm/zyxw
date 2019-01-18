@@ -165,7 +165,7 @@ echo '</html>'
 ######################################################
 	else
 
-zyx=$(whois $domain);
+zyx=$(whois -H $domain);
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 		if [[ "$dvcheck" = "no" ]]; then
@@ -196,7 +196,7 @@ case $tld in
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-zyxregistrar=$(whois $domain -h $rws);
+zyxregistrar=$(whois -H $domain -h $rws);
 
 ######################################################
 cat <<EOWIR
