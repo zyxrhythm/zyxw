@@ -221,7 +221,7 @@ EOWIR0
 
 cat <<EOWIR1
 <body id="registrarws" >
-<p>Whois Server: $grws</p>
+<p>Whois Server: $rws</p>
 <div class="code-bg" id="divClipboard" >
 <p>
 <pre>
