@@ -162,6 +162,8 @@ else
 	zyxip=$(whois $ipwhois -h whois.arin.net);
 ######################################################
 
+echo '<pre>$zyxip</pre>'
+
 ######################################################
 	else
 
@@ -200,7 +202,25 @@ zyxgcc=$(whois $domain);
 zyxgccregistrar=$( whois $domain -h $registrarws );
 
 ######################################################
-
+cat <<EOWIR
+<body>
+echo '<div class="code-bg" id="divClipboard">'
+<p>
+<pre>
+$zyxgcc
+</pre>
+</p>
+<br>
+<p>
+<pre>
+$zyxgccregistrar
+</pre>
+</p>
+</div>
+<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+</body>
+</html>
+EOWIR
 ######################################################
 
 ;;
