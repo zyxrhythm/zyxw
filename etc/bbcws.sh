@@ -141,7 +141,7 @@ Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
 <br>
-OMG! - I love you will you marry me!
+OMG! - I love you! - Will you marry me!
 <br> <br>
 If not - Please input a domain name. Sorna.
 </p>
@@ -157,7 +157,7 @@ else
 
 #ARIN WHOIS
 
-if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $domain | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois -h whois.arin.net);
 
@@ -179,7 +179,7 @@ exit 0;
 zyx=$(whois $domain);
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
-if [[ "$dvcheck" = "no" ]]; then
+		if [[ "$dvcheck" = "no" ]]; then
 
 cat <<EODC
 <body>
