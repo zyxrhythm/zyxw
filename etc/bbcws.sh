@@ -205,13 +205,13 @@ cat <<EOWIR
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>
-$zyxgcc
+$zyxgcc -----
 </pre>
 </p>
 <br>
 <p>
 <pre>
-$zyxgccregistrar
+$zyxgccregistrar ________
 $registrarws
 </pre>
 </p>
