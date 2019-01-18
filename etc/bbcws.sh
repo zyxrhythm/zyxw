@@ -193,11 +193,10 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 case $tld in
    $gcctldlist)
 
-registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
-ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
+rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-zyxgcc=$(whois $domain);
-zyxgccregistrar=$( whois $domain -h $registrarws );
+zyxregistrar=$(whois $domain -h $rws);
 
 ######################################################
 cat <<EOWIR
@@ -205,14 +204,14 @@ cat <<EOWIR
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>
-$zyxgcc -----
+$zyx 
 </pre>
 </p>
 <br>
 <p>
 <pre>
-$zyxgccregistrar ________
-$registrarws
+$grws
+$zyxregistrar 
 </pre>
 </p>
 </div>
