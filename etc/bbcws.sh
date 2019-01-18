@@ -135,7 +135,7 @@ if [[ -z "$domain" ]]; then
 
 cat <<EOTS
 <body>
-<div class="code-bg" id="divClipboard">'
+<div class="code-bg" id="divClipboard">
 <p>
 Blank Space?!? . . .
 <br> <br>
@@ -163,7 +163,7 @@ else
 	zyxip=$(whois $ipwhois -h whois.arin.net);
 ######################################################
 echo '<body>'
-echo '$zyxip'
+echo "$zyxip"
 echo '</body>'
 echo '</html>'
 ######################################################
