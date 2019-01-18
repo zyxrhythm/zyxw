@@ -161,19 +161,6 @@ else
 	ipwhois=$(echo $domain | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois -h whois.arin.net);
 
-cat <<EOAWS
-	<body>
-	<div class="code-bg" id="divClipboard">
-	<p>
-	<pre>$zyxip</pre>
-	</p>
-	</div>
-	</body>
-	</html>
-EOAWS
-
-exit 0;
-
 	else
 
 zyx=$(whois $domain);
@@ -203,18 +190,12 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld and prints the whois result
 case $tld in
    $gcctldlist)
-   
+
+registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
+ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+
 zyxgcc=$(whois $domain);
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-echo "<pre>$zyxg</pre>";
-echo </p>''
-echo '</dir>'
-echo '</body>'
-echo '</html>'
-
+zyxgccregistrar=$( whois $domain -h $registrarws );
 ;;
 
 #throw an error for everything else
@@ -228,10 +209,6 @@ echo '</p>'
 ;;
 
 esac
-
-registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
-ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-
 
 		fi
 	fi
