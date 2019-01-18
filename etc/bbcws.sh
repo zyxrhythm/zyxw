@@ -136,7 +136,7 @@ if [[ -z "$domain" ]]; then
 cat <<EOTS
 <body>
 <div class="code-bg" id="divClipboard">'
-echo '<p>'
+<p>
 Blank Space?!? . . .
 <br> <br>
 Is that you Taylor Swift?!?
