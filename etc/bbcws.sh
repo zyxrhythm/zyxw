@@ -157,7 +157,7 @@ else
 
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
-	zyxip=$(whois -H $ipwhois -h whois.arin.net);
+	zyxip=$(whois $ipwhois );
 ######################################################
 echo '<body>'
 echo '<div class="code-bg" id="divClipboard">'
