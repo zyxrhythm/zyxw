@@ -201,18 +201,29 @@ rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyxregistrar=$(whois -H $domain -h $rws);
 
 ######################################################
-cat <<EOWIR
-<body>
+cat <<EOWIR0
+<body id="registryws" >
+<p>Whois Server: ... </p>
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>
 $zyx 
 </pre>
 </p>
-<br>
+</div>
+<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+</body>
+</html>
+EOWIR0
+
+######################################################
+
+cat <<EOWIR1
+<body id="registrarws" >
+<p>Whois Server: $grws</p>
+<div class="code-bg" id="divClipboard">
 <p>
 <pre>
-$grws
 $zyxregistrar 
 </pre>
 </p>
@@ -220,7 +231,7 @@ $zyxregistrar
 <p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
 </body>
 </html>
-EOWIR
+EOWIR1
 ######################################################
 
 ;;
