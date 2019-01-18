@@ -174,7 +174,7 @@ EOAWS
 
 exit 0;
 
-else
+	else
 
 zyx=$(whois $domain);
 
@@ -196,7 +196,7 @@ EODC
 
 exit 0;
 
-else
+		else
 
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -229,16 +229,14 @@ echo '</p>'
 
 esac
 
-fi
 registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-fi
+
+		fi
+	fi
 fi
 
-#end of body and html
-echo '</body>'
-echo '</html>'
 
 exit 0;
 
