@@ -151,6 +151,8 @@ If not - Please input a domain name. Sorna.
 
 EOTS
 
+exit 0;
+
 else
 
 #ARIN WHOIS
@@ -227,6 +229,7 @@ echo '</p>'
 
 esac
 
+fi
 registrarws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 ws=$(echo "$registrarws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
