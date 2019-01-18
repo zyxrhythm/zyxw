@@ -206,7 +206,7 @@ zyxgccregistrar=$( whois $domain -h $registrarws );
 ######################################################
 cat <<EOWIR
 <body>
-echo '<div class="code-bg" id="divClipboard">'
+<div class="code-bg" id="divClipboard">
 <p>
 <pre>
 $zyxgcc
