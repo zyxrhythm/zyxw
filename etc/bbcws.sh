@@ -92,6 +92,8 @@ body {background-color:black;color:white;
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
 
+li {display:inline;
+}
 </style>
 
 EOS
