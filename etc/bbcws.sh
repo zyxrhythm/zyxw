@@ -216,6 +216,7 @@ $zyxgcc
 <p>
 <pre>
 $zyxgccregistrar
+$registrarws
 </pre>
 </p>
 </div>
