@@ -199,7 +199,7 @@ case $tld in
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-zxregistry= $(grep -oP '(?<=Using server).*?(?=Using server)' <<< "$zyx");
+#zxregistry= $(grep -oP '(?<=Using server).*?(?=Using server)' <<< "$zyx");
 zyxregistrar=$(whois -H $doi -h $rws);
 
 #<p>Registry Whois Server: ... </p>
@@ -210,7 +210,7 @@ cat <<EOWIR0
 <div class="code-bg" id="divClipboard" >
 <p>
 <pre>
-$zyxregistry
+$zyx
 </pre>
 </p>
 </div>
