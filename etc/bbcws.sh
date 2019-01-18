@@ -204,7 +204,7 @@ zyxregistrar=$(whois -H $domain -h $rws);
 cat <<EOWIR0
 <body id="registryws" >
 <p>Whois Server: ... </p>
-<div class="code-bg" id="divClipboard">
+<div class="code-bg" id="divClipboard" style="page-break-after:always;">
 <p>
 <pre>
 $zyx 
@@ -221,7 +221,7 @@ EOWIR0
 cat <<EOWIR1
 <body id="registrarws" >
 <p>Whois Server: $grws</p>
-<div class="code-bg" id="divClipboard">
+<div class="code-bg" id="divClipboard" style="page-break-after:always;">
 <p>
 <pre>
 $zyxregistrar 
