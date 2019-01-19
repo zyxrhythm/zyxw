@@ -20,14 +20,14 @@ echo '<title>BBC Special</title>'
 
 #start of head
 echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />
+echo '<link rel="icon" type="image/png" href="/icon.png" />'
+
+cat <<EOS
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-
-cat <<EOS
 <script>
 
 $(window).load(function () {
@@ -47,6 +47,8 @@ $(window).load(function () {
 EOS
 
 cat <<EOC
+
+<style>
 
 /* Popup box BEGIN */
 .hover_bkgr_fricc{
@@ -107,6 +109,7 @@ cat <<EOC
 }
 /* Popup box BEGIN */
 
+</style>
 
 EOC
 
