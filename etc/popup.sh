@@ -131,7 +131,7 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<iframe>https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited</iframe>
+	<iframe> src="/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited" </iframe>
 	</p>
     </div>
 </div>
