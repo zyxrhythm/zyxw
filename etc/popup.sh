@@ -43,7 +43,7 @@ echo "	\$('.hover_bkgr_fricc').click(function(){"
 echo "		$('.hover_bkgr_fricc').hide();"
 echo "	});"
 echo "	\$('.popupCloseButton').click(function(){"
-echo "		$('.hover_bkgr_fricc').hide();"
+echo "		\$('.hover_bkgr_fricc').hide();"
 echo "	});"
 echo "});"
 
