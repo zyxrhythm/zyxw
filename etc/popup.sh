@@ -32,23 +32,23 @@ echo <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-
-<script>
-$(window).load(function () {
-	$(".trigger_popup_fricc").click(function(){
-	   $('.hover_bkgr_fricc').show();
-	});
-	$('.hover_bkgr_fricc').click(function(){
-		$('.hover_bkgr_fricc').hide();
-	});
-	$('.popupCloseButton').click(function(){
-		$('.hover_bkgr_fricc').hide();
-	});
-});
-
-</script>
-
 EOS
+
+echo "<script>"
+echo "\$(window).load(function () {"
+echo "	\$(".trigger_popup_fricc").click(function(){"
+echo "	   \$('.hover_bkgr_fricc').show();"
+echo "	});"
+echo "	\$('.hover_bkgr_fricc').click(function(){"
+echo "		$('.hover_bkgr_fricc').hide();"
+echo "	});"
+echo "	\$('.popupCloseButton').click(function(){"
+echo "		$('.hover_bkgr_fricc').hide();"
+echo "	});"
+echo "});"
+
+echo "</script>"
+
 
 
 
