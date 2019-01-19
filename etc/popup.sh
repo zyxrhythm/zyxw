@@ -31,7 +31,7 @@ cat <<EOS
 cat <<EOS
 <script>
 
-echo "\$(window).load(function () {
+e\$(window).load(function () {
     \$(".trigger_popup_fricc").click(function(){
        \$('.hover_bkgr_fricc').show();
     });
@@ -44,6 +44,7 @@ echo "\$(window).load(function () {
 });
 
 </script>
+
 EOS
 
 cat <<EOC
