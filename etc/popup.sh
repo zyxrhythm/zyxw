@@ -28,9 +28,9 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat <<EOS
 
-echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>'
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
-echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>'
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 EOS
 
@@ -130,7 +130,9 @@ cat << EOH
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">X</div>
-        <p>Add any HTML content<br />inside the popup box!</p>
+        <p>Add any HTML content<br />inside the popup box!
+	https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited
+	</p>
     </div>
 </div>
 
