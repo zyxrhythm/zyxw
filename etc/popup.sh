@@ -28,24 +28,10 @@ cat <<EOS
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-cat <<EOS
-<script>
+#cat <<EOS
+echo '<SCRIPT LANGUAGE="JavaScript" SRC="script.js"></SCRIPT>'
 
-\$(window).load(function () {
-    \$(".trigger_popup_fricc").click(function(){
-       \$('.hover_bkgr_fricc').show();
-    });
-    \$('.hover_bkgr_fricc').click(function(){
-        \$('.hover_bkgr_fricc').hide();
-    });
-    \$('.popupCloseButton').click(function(){
-        \$('.hover_bkgr_fricc').hide();
-    });
-});
-
-</script>
-
-EOS
+#EOS
 
 cat <<EOC
 
