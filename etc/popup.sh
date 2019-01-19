@@ -24,6 +24,7 @@ echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 
+#<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
 
 cat <<EOS
 
@@ -31,7 +32,18 @@ echo <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
+$(window).load(function () {
+	$(".trigger_popup_fricc").click(function(){
+	   $('.hover_bkgr_fricc').show();
+	});
+	$('.hover_bkgr_fricc').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
+	$('.popupCloseButton').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
+});
+
 
 EOS
 
