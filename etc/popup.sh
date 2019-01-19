@@ -36,11 +36,11 @@ EOS
 
 echo "<script>"
 echo "\$(window).load(function () {"
-echo "	\$(".trigger_popup_fricc").click(function(){"
+echo "	\$('.trigger_popup_fricc').click(function(){"
 echo "	   \$('.hover_bkgr_fricc').show();"
 echo "	});"
 echo "	\$('.hover_bkgr_fricc').click(function(){"
-echo "		$('.hover_bkgr_fricc').hide();"
+echo "		\$('.hover_bkgr_fricc').hide();"
 echo "	});"
 echo "	\$('.popupCloseButton').click(function(){"
 echo "		\$('.hover_bkgr_fricc').hide();"
