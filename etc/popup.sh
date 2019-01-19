@@ -32,6 +32,8 @@ echo <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
+
+<script>
 $(window).load(function () {
 	$(".trigger_popup_fricc").click(function(){
 	   $('.hover_bkgr_fricc').show();
@@ -44,6 +46,7 @@ $(window).load(function () {
 	});
 });
 
+</script>
 
 EOS
 
