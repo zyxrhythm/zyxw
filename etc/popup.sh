@@ -28,9 +28,9 @@ cat <<EOS
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-<script>
+echo '<script>'
 
-$(window).load(function () {
+echo "$(window).load(function () {
     $(".trigger_popup_fricc").click(function(){
        $('.hover_bkgr_fricc').show();
     });
@@ -43,8 +43,7 @@ $(window).load(function () {
 });
 
 </script>
-
-EOS
+"
 
 cat <<EOC
 
