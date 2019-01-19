@@ -130,8 +130,8 @@ cat << EOH
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">X</div>
-        <p>Add any HTML content<br />inside the popup box!
-	https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited
+        <p>
+	<iframe>https://www.bigblackcactus.com/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited</iframe>
 	</p>
     </div>
 </div>
