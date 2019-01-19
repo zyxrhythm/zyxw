@@ -20,16 +20,22 @@ echo '<title>BBC Special</title>'
 
 #start of head
 echo '<head>'
+
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+cat <<EOS
+
+echo <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-#cat <<EOS
-echo '<SCRIPT LANGUAGE="JavaScript" SRC="script.js"></SCRIPT>'
+<SCRIPT LANGUAGE="JavaScript" SRC="script.js"></SCRIPT>
 
-#EOS
+EOS
+
+
 
 cat <<EOC
 
