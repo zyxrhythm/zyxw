@@ -22,8 +22,6 @@ echo '<title>BBC Special</title>'
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-cat <<EOS
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
