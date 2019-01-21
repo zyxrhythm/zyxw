@@ -46,7 +46,7 @@ cat <<EOS2
 
 <script>
 
-//this is a snippet from http://edupala.com/copy-div-content-clipboard/
+//the snippet below is from http://edupala.com/copy-div-content-clipboard/
 
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
@@ -71,6 +71,59 @@ function copyClipboard() {
 
   }
 }
+
+function copyClipboard() {
+  var elm = document.getElementById("Registry");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+
+function copyClipboard() {
+  var elm = document.getElementById("Registrar");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+
+
+
+//the snippet above is from http://edupala.com/copy-div-content-clipboard/
+
 
 // from https://www.w3schools.com/howto/howto_js_tabs.asp
 
@@ -282,7 +335,7 @@ cat <<EOWIR0
 </div>
 
 <!-- Tab content -->
-<div id="Registry" class="tabcontent"  name="divClipboard" style=display:block >
+<div id="Registry" class="tabcontent" style=display:block >
 	<p>
 	<pre>$zyx</pre>
 	</p>
