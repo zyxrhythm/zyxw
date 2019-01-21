@@ -298,34 +298,12 @@ cat <<EOWIR0
 	</p>
 </div>
 
-<pre>
-$zyx
-</pre>
-</p>
 </div>
 <p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
 </body>
 </html>
 EOWIR0
 
-######################################################
-
-cat <<EOWIR1
-<body id="registrarws" >
-<p>Whois Server: $rws</p>
-<div class="code-bg" id="divClipboard" >
-<p>
-<pre>
-$zyxregistrar 
-</pre>
-</p>
-</div>
-<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
-</body>
-</html>
-EOWIR1
-
-######################################################
 
 ;;
 
