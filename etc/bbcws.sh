@@ -72,7 +72,7 @@ function copyClipboard() {
   }
 }
 
-
+// from https://www.w3schools.com/howto/howto_js_tabs.asp
 
 function whoisserver(evt, ws) {
   // Declare all variables
@@ -282,7 +282,7 @@ cat <<EOWIR0
 </div>
 
 <!-- Tab content -->
-<div id="Registry" class="tabcontent"  id="divClipboard" style=display:block >
+<div id="Registry" class="tabcontent"  name="divClipboard" style=display:block >
 	<p>
 	<pre>$zyx</pre>
 	</p>
