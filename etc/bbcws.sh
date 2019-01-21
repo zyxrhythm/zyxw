@@ -155,10 +155,11 @@ else
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois );
+	zyxip0=$(grep -o '^[^#]*' <<< $zyxip)
 ######################################################
 echo '<body>'
 echo '<div class="code-bg" id="divClipboard">'
-echo "<pre> $zyxip </pre>"
+echo "<pre> $zyxip0 </pre>"
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 echo '</body>'
 echo '</html>'
