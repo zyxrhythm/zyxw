@@ -248,7 +248,7 @@ if [[ -z "$doi" ]]; then
 
 cat <<EOTS
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 Blank Space?!? . . .
 <br> <br>
@@ -276,7 +276,7 @@ else
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
 ######################################################
 echo '<body>'
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 echo "<pre> $zyxip0 </pre>"
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 echo '</body>'
@@ -324,7 +324,7 @@ zyxregistrar=$(whois -H $doi -h $rws);
 ######################################################
 
 cat <<EOWIR0
-<body id="registryws" >
+<body >
 
 <div >
 <p>
@@ -334,17 +334,21 @@ cat <<EOWIR0
   <button class="tablinks" onclick="whoisserver(event, 'Registrar')">Registrar</button>
 </div>
 
+<div id="divClipboard">
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
 	<p>
 	<pre>$zyx</pre>
 	</p>
 </div>
+</div>
 
+<div id="divClipboard">
 <div id="Registrar" class="tabcontent" id="divClipboard" >
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
+</div>
 </div>
 
 </div>
