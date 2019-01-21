@@ -317,7 +317,7 @@ grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
-zyxregistrar=$(whois -H $doi -h $rws);
+zyxregistrar=$(whois $doi -h $rws | sed -e '1,/Query string:/d');
 
 #<p>Registry Whois Server: ... </p>
 ######################################################
