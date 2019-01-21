@@ -270,7 +270,7 @@ else
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois );
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
-######################################################
+
 echo '<body>'
 echo '<button onclick="copyClipboard1()">BBC Copy</button>'
 echo '<br/>'
@@ -279,7 +279,7 @@ echo "<pre> $zyxip0 </pre>"
 echo '<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>'
 echo '</body>'
 echo '</html>'
-######################################################
+
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
@@ -313,15 +313,13 @@ tld=$( echo $doi | rev | cut -d "." -f1 | rev );
 case $tld in
    $gcctldlist)
 
+rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
 zyxregistry=$(echo "$zyx" | sed -e '1,/Query string:/d')
 zyxregistrar=$(whois $doi -h $rws );
-
-#<p>Registry Whois Server: ... </p>
-######################################################
 
 cat <<EOWIR0
 <body >
@@ -341,6 +339,7 @@ cat <<EOWIR0
 	<br/>
 	<div id="divClipboard">
 	<p>
+	Whois server: ${rws0#* }
 	<pre>$zyxregistry</pre>
 	</p>
 	</div>
@@ -351,6 +350,7 @@ cat <<EOWIR0
 	<br/>
 	<div id="divClipboard0">
 	<p>
+	Whois server: $rws
 	<pre>$zyxregistrar</pre>
 	</p>
 	</div>
