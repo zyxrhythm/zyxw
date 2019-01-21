@@ -222,7 +222,7 @@ li {display:inline;
 EOS
 
 #the back button
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<<small>back | track</a> </p>' 
 
 #end of head
 echo '</head>'
@@ -276,7 +276,7 @@ echo '<button onclick="copyClipboard1()">BBC Copy</button>'
 echo '<br/>'
 echo '<div id="divClipboard1">'
 echo "<pre> $zyxip0 </pre>"
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
+echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
 echo '</body>'
 echo '</html>'
 ######################################################
@@ -358,7 +358,7 @@ cat <<EOWIR0
 </p>
 </div>
 
-<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small>back | track</a> </p>
 </body>
 </html>
 EOWIR0
