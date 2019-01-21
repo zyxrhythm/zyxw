@@ -277,12 +277,12 @@ cat <<EOWIR0
 <p>
 
 <div class="tab">
-  <button class="tablinks" onclick="whoisserver(event, 'Registry')">Registry</button>
+  <button class="tablinks" onclick="whoisserver(event, 'Registry')" class=active >Registry</button>
   <button class="tablinks" onclick="whoisserver(event, 'Registrar')">Registrar</button>
 </div>
 
 <!-- Tab content -->
-<div id="Registry" class="tabcontent" class="active" >
+<div id="Registry" class="tabcontent"  style=display:block >
 	<p>
 	<pre>
 	$zyx
