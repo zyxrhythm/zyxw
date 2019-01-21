@@ -273,7 +273,7 @@ zyxregistrar=$(whois -H $doi -h $rws);
 cat <<EOWIR0
 <body id="registryws" >
 
-<div class="code-bg" id="divClipboard" >
+<div >
 <p>
 
 <div class="tab">
@@ -282,13 +282,13 @@ cat <<EOWIR0
 </div>
 
 <!-- Tab content -->
-<div id="Registry" class="tabcontent"  style=display:block >
+<div id="Registry" class="tabcontent"  id="divClipboard" style=display:block >
 	<p>
 	<pre>$zyx</pre>
 	</p>
 </div>
 
-<div id="Registrar" class="tabcontent">
+<div id="Registrar" class="tabcontent" id="divClipboard" >
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
