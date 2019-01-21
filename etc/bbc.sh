@@ -14,7 +14,31 @@ cat <<EOT
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
 <head>
-<title>BBC ( v 0.5 )</title>
+<title>BBC - Big Black Cactus</title>
+
+<meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-32625644-1');
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3422469360028179",
+    enable_page_level_ads: true
+  });
+</script>
 
 <style>
 
@@ -23,40 +47,34 @@ a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
 
-h1	{    font-family: courier new;
-    font-size: 135%;
+h1 {font-family: courier new; font-size: 135%;
 }
 
-h4	{    font-family: courier new;
-    font-size: 160%;
+h4 { font-family: courier new; font-size: 160%;
 }
 
-body	{	background-color:black;color:green;
+body { background-color:black; color:green;
 }
 
-p	{	font-family: calibri;
-    font-size: 100%;
+p { font-family: calibri; font-size: 100%;
 }
 
-label	{	font-family: Trebuchet MS;
-	font-size: 110%;
+label { font-family: Trebuchet MS; font-size: 110%;
 }
 	
-button	{	font-family: Trebuchet MS;
-	font-size: 70%;
+button { font-family: Trebuchet MS; font-size: 70%; 
 }
 
-footer	{	font-family: Georgia;
-	font-size: 100%;
+select, option { width: auto; overflow: hidden;
 }
 
-code	{	font-family: Arial;
-	font-size: 80%;
-
+footer { font-family: Georgia; font-size: 100%;
 }
 
-article	{	font-family: Verdana;
-	font-size: 70%;
+code { font-family: Arial; font-size: 80%;
+}
+
+article	{ font-family: Verdana; font-size: 70%;
 }
 
 </style>
@@ -70,7 +88,6 @@ thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.ht
 removes nasty white spaces on the text fields that causes alot of issue
 -->
 
-
 <script language="javascript" type="text/javascript">
 function removeSpaces(string) {
  return string.split(' ').join('');
@@ -81,10 +98,7 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-
-
 <center>
-
 <p>
 <h4>
 <a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
@@ -99,9 +113,6 @@ function removeSpecialCharacters(string) {
 
 <button id="BBCbtn" type="submit" >BBC special</button>
 </form>
-
-
-
 
 <br>
 <br>
@@ -118,12 +129,12 @@ function removeSpecialCharacters(string) {
 
 <br>
 <select name='whoyou'> 
-<option selected>Whois</option>
+<option selected>registry whois server</option>
 <!-- <option>ARIN</option> -->
-<option>Registrar's Server</option>
+<option>registrar whois server</option>
 </select>
 <br/>
-<button type="submit"> W H O I S </button>
+<button type="submit"> W H O  I S </button>
 </form>
 </p>
 
@@ -150,7 +161,7 @@ function removeSpecialCharacters(string) {
 <button type="submit"> D I G </button> <br>
 <code><b>@</b>NS (Optional) : </code>
 
-<input id="BBCinput" type="text" placeholder="@8.8.8.8(default)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
+<input id="BBCinput" type="text" placeholder="8.8.8.8(default)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
 
 </form>
 </p>
@@ -167,7 +178,6 @@ function removeSpecialCharacters(string) {
 <br>
 <!-- <label></label> -->
 <select name='dcheck'> 
-
 
 <!--
 	<option>WHOISIP</option>
@@ -190,14 +200,13 @@ function removeSpecialCharacters(string) {
 
 <p>
 
-
 </body>
 
 <footer>
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.383
+rev.479
 <br>
 <br>
 <br>
@@ -215,7 +224,8 @@ If you do not specify a name server for Big Nick Digger.
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 <br>
 <br>
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ News ]</a>
 </article>
 </p>
 
@@ -227,7 +237,8 @@ Copyleft 2018 &copy;
 
 </center>
 
-
 </html>
 
 EOT
+
+exit 0;
