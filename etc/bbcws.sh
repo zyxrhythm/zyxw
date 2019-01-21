@@ -73,7 +73,7 @@ function copyClipboard() {
 }
 
 
-function copyClipboard() {
+function copyClipboard0() {
   var elm = document.getElementById("divClipboard0");
   // for Internet Explorer
 
@@ -317,9 +317,9 @@ cat <<EOWIR0
 </div>
 
 <div id="Registrar" class="tabcontent" >
-	<button onclick="copyClipboard()">BBC Copy</button>
+	<button onclick="copyClipboard0()">BBC Copy</button>
 	<br/>
-	<div id="divClipboard">
+	<div id="divClipboard0">
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
