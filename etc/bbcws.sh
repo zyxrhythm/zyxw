@@ -282,7 +282,7 @@ cat <<EOWIR0
 </div>
 
 <!-- Tab content -->
-<div id="Registry" class="tabcontent">
+<div id="Registry" class="tabcontent" class="active" >
 	<p>
 	<pre>
 	$zyx
