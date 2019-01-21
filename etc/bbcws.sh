@@ -337,24 +337,18 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-
-<div id="divClipboard">
 	<p>
 	<pre>$zyx</pre>
 	</p>
 </div>
 
-</div>
-
-<div id="divClipboard">
 <div id="Registrar" class="tabcontent" id="divClipboard" >
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
 </div>
 
-</div>
-
+</p>
 </div>
 
 <p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
