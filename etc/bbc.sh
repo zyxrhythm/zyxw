@@ -120,21 +120,12 @@ function removeSpecialCharacters(string) {
 </p>
 
 <p>
-<form action="bbcws.sh" method="get">
-<h1>WHOYOU</h1>
-<label>Domain:</label>
-<br>
+<form action="/etc/bbws.sh" method="get">
+<label>Domain: </label> 
 
-<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
+<input id="wsinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
-<br>
-<select name='whoyou'> 
-<option selected>registry whois server</option>
-<!-- <option>ARIN</option> -->
-<option>registrar whois server</option>
-</select>
-<br/>
-<button type="submit"> W H O  I S </button>
+<button id="wsbtn" type="submit" >W H O I S</button>
 </form>
 </p>
 
