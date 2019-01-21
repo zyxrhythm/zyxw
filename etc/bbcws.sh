@@ -283,7 +283,7 @@ echo '</html>'
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
-zyx=$(whois -H --verbose $doi );
+zyx=$(whois --verbose $doi );
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 		if [[ "$dvcheck" = "no" ]]; then
