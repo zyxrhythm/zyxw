@@ -97,6 +97,30 @@ function copyClipboard0() {
   }
 }
 
+function copyClipboard1() {
+  var elm = document.getElementById("divClipboard1");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+
 //the snippet above is from http://edupala.com/copy-div-content-clipboard/
 
 
@@ -218,7 +242,8 @@ if [[ -z "$doi" ]]; then
 
 cat <<EOTS
 <body>
-<div id="divClipboard">
+<button onclick="copyClipboard1()">BBC Copy</button>
+<div id="divClipboard1">
 <p>
 Blank Space?!? . . .
 <br> <br>
@@ -246,7 +271,9 @@ else
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
 ######################################################
 echo '<body>'
-echo '<div id="divClipboard">'
+echo '<button onclick="copyClipboard1()">BBC Copy</button>'
+echo '<br/>'
+echo '<div id="divClipboard1">'
 echo "<pre> $zyxip0 </pre>"
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>'
 echo '</body>'
@@ -263,8 +290,9 @@ dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 cat <<EODC
 <body>
 <p>
+<button onclick="copyClipboard1()">BBC Copy</button>
 <br/>
-<div id="divClipboard">
+<div id="divClipboard1">
 <p>
 Not an IP Address / Domain! Sorna.
 </div>
@@ -338,11 +366,12 @@ EOWIR0
 
 #throw an error for everything else
    *)
-
-echo '<div class="code-bg" id="divClipboard">'
+<button onclick="copyClipboard1()">BBC Copy</button>
+echo '<div id="divClipboard1">'
 echo '<p>'
 echo " Not a valid domain!." 
 echo '</p>'
+echo '</div>'
 
 ;;
 
