@@ -283,7 +283,7 @@ echo '</html>'
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
-zyx=$(whois -H --verbose $doi);
+zyx=$(whois -H --verbose $doi | sed -e '1,/Query string:/d' );
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 		if [[ "$dvcheck" = "no" ]]; then
@@ -317,7 +317,7 @@ grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
-zyxregistrar=$(whois $doi -h $rws | sed -e '1,/Query string:/d');
+zyxregistrar=$(whois $doi -h $rws );
 
 #<p>Registry Whois Server: ... </p>
 ######################################################
