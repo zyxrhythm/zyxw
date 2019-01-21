@@ -334,13 +334,16 @@ cat <<EOWIR0
   <button class="tablinks" onclick="whoisserver(event, 'Registrar')">Registrar</button>
 </div>
 
-<div id="divClipboard">
+
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
+
+<div id="divClipboard">
 	<p>
 	<pre>$zyx</pre>
 	</p>
 </div>
+
 </div>
 
 <div id="divClipboard">
@@ -349,9 +352,11 @@ cat <<EOWIR0
 	<pre>$zyxregistrar</pre>
 	</p>
 </div>
+
 </div>
 
 </div>
+
 <p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
 </body>
 </html>
