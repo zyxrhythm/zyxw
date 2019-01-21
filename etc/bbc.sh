@@ -121,7 +121,7 @@ function removeSpecialCharacters(string) {
 
 <p>
 <form action="bbcws.sh" method="get">
-<label>Domain: </label> 
+<label>Domain / IP address: </label> 
 
 <input id="wsinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
