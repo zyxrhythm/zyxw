@@ -339,7 +339,7 @@ cat <<EOWIR0
 	<br/>
 	<div id="divClipboard">
 	<p>
-	Whois server: ${rws0#* }
+	Whois server: ${rws0#*server}
 	<pre>$zyxregistry</pre>
 	</p>
 	</div>
