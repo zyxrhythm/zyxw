@@ -109,11 +109,7 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#specififies the PATHs needed by the bash script
-#PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-#export $PATH
-
-#converts all uppercasr form the query string to lowercase
+#converts all uppercase form the query string to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
 
 #list of supported gtlds
@@ -122,8 +118,6 @@ gcctldlist='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|ac
 
 #butchers the qs string and gets the domain
 doi=$(echo $qs | cut -f2 -d"=" );
-#domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
-#whoyou=$(echo $qs | sed 's/.*whoyou=//');
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$doi" ]]; then
@@ -150,7 +144,7 @@ exit 0;
 
 else
 
-#ARIN WHOIS
+#ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
 
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
@@ -166,6 +160,7 @@ echo '</html>'
 ######################################################
 	else
 
+#If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 zyx=$(whois -H --verbose $doi);
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
@@ -188,16 +183,17 @@ exit 0;
 
 		else
 
+#once the domain is verified - if will extract the TLD - to check if it is a FQDN
 tld=$( echo $doi | rev | cut -d "." -f1 | rev );
 
-#checks if the domain is a gtld and prints the whois result
+#checks if the domain's TLD is on the list of TLDs
 case $tld in
    $gcctldlist)
 
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-#zxregistry= $(grep -oP '(?<=Using server).*?(?=Using server)' <<< "$zyx");
+#does a whois querry for the domain
 zyxregistrar=$(whois -H $doi -h $rws);
 
 #<p>Registry Whois Server: ... </p>
