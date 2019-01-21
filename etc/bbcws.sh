@@ -114,10 +114,10 @@ echo '</head>'
 #export $PATH
 
 #stores the string from bbc.sh to a variable
-qs0=$QUERY_STRING;
+#qs0=;
 
 #converts all uppercasr form qs to lowercase
-qs=$(echo $qs0 | awk '{print tolower($0)}');
+qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
 
 #list of supported gtlds
 shopt -s extglob
