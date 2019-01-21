@@ -291,7 +291,7 @@ cat <<EOWIR0
 	</div>
 </div>
 
-<div id="Registrar" class="tabcontent" id="divClipboard" >
+<div id="Registrar" class="tabcontent" >
 	<button onclick="copyClipboard()">BBC Copy</button>
 	<br/>
 	<div id="divClipboard">
