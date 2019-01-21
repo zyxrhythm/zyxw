@@ -304,7 +304,6 @@ cat <<EOWIR0
 </html>
 EOWIR0
 
-
 ;;
 
 #throw an error for everything else
