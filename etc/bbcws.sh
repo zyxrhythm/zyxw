@@ -284,17 +284,13 @@ cat <<EOWIR0
 <!-- Tab content -->
 <div id="Registry" class="tabcontent"  style=display:block >
 	<p>
-	<pre>
-	$zyx
-	</pre>
+	<pre>$zyx</pre>
 	</p>
 </div>
 
 <div id="Registrar" class="tabcontent">
 	<p>
-	<pre>
-	$zyxregistrar 
-	</pre>
+	<pre>$zyxregistrar</pre>
 	</p>
 </div>
 
