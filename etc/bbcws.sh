@@ -243,6 +243,7 @@ if [[ -z "$doi" ]]; then
 cat <<EOTS
 <body>
 <button onclick="copyClipboard1()">BBC Copy</button>
+<br>
 <div id="divClipboard1">
 <p>
 Blank Space?!? . . .
@@ -366,7 +367,7 @@ EOWIR0
 
 #throw an error for everything else
    *)
-<button onclick="copyClipboard1()">BBC Copy</button>
+echo '<button onclick="copyClipboard1()">BBC Copy</button>'
 echo '<div id="divClipboard1">'
 echo '<p>'
 echo " Not a valid domain!." 
