@@ -113,10 +113,7 @@ echo '</head>'
 #PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 #export $PATH
 
-#stores the string from bbc.sh to a variable
-#qs0=;
-
-#converts all uppercasr form qs to lowercase
+#converts all uppercasr form the query string to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
 
 #list of supported gtlds
