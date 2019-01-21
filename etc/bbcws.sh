@@ -284,17 +284,21 @@ cat <<EOWIR0
 <div id="Registry" class="tabcontent" style=display:block >
 	<button onclick="copyClipboard()">BBC Copy</button>
 	<br/>
+	<div id="divClipboard">
 	<p>
 	<pre>$zyx</pre>
 	</p>
+	</div>
 </div>
 
 <div id="Registrar" class="tabcontent" id="divClipboard" >
 	<button onclick="copyClipboard()">BBC Copy</button>
 	<br/>
+	<div id="divClipboard">
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
+	</div>
 </div>
 
 </p>
