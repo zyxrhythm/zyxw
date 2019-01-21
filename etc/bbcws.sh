@@ -374,7 +374,7 @@ echo '<body>'
 cat <<EOQPH
 <p>
 <br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">> Click Here <</a>To get the whois info of this .ph domain.
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank"> Click Here </a>To get the whois info of this .ph domain.
 </p>
 </body>
 </html>
@@ -391,7 +391,7 @@ echo '<body>'
 cat <<EOQSG
 <p>
 <br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">> Click Here <</a>To get the whois info of this .sg domain.
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank"> Click Here </a>To get the whois info of this .sg domain.
 </p>
 </body>
 </html>
