@@ -175,11 +175,6 @@ EOS
 #the back button
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
-#The BBC button
-echo '<br/>'
-echo '<br/>'
-echo '<button onclick="copyClipboard()">BBC Copy</button>'
-
 #end of head
 echo '</head>'
 
@@ -287,12 +282,16 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
+	<button onclick="copyClipboard()">BBC Copy</button>
+	<br/>
 	<p>
 	<pre>$zyx</pre>
 	</p>
 </div>
 
 <div id="Registrar" class="tabcontent" id="divClipboard" >
+	<button onclick="copyClipboard()">BBC Copy</button>
+	<br/>
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
