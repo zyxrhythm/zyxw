@@ -215,8 +215,9 @@ body {background-color:black;color:white;
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
 
-li {display:inline;
+strong { color:green;
 }
+
 </style>
 
 EOS
@@ -339,7 +340,7 @@ cat <<EOWIR0
 	<br/>
 	<div id="divClipboard">
 	<p>
-	Whois server: ${rws0#*server}
+	<strong>Whois server:</strong> ${rws0#*server}
 	<pre>$zyxregistry</pre>
 	</p>
 	</div>
@@ -350,7 +351,7 @@ cat <<EOWIR0
 	<br/>
 	<div id="divClipboard0">
 	<p>
-	Whois server: $rws
+	<strong>Whois server:</strong> $rws
 	<pre>$zyxregistrar</pre>
 	</p>
 	</div>
