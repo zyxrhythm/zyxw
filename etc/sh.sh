@@ -77,8 +77,8 @@ do
    ar0=$(whois $line );
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'org-name' ); else ar2="$ar1"; fi;
-   if [[ -z "$ar1" && "$ar2" ]]; then ar3=$( echo "$ar0" | grep -i -e 'netname' ); else ar3="$ar2"; fi;
-   arx=$( echo "$ar2" | sort -u );
+   if [[ -z "$ar2" ]]; then ar3=$( echo "$ar0" | grep -i -e 'netname' ); else ar3="$ar2"; fi;
+   arx=$( echo "$ar1" "$ar2" "$ar3" | sort -u );
    echo "<br/>   $line   ---" "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
 
