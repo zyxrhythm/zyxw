@@ -72,6 +72,8 @@ deeg=$(dig +short $domain @8.8.8.8 );
 
 echo "<br/><pre>A:$deeg</pre> <br/>"
 
+function myfunc()
+{
 while IFS= read -r line
 do
    ar0=$(whois $line );
@@ -80,15 +82,10 @@ do
    arx=$( echo "$ar2" | sort -u );
    echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
-
-
-function myfunc()
-{
-    myresult='some value'
 }
 
-myfunc
-echo "$myresult"
+result="$(myfunc)"
+echo "$result"
 
 
 cat << EOHF
