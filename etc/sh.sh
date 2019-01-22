@@ -64,13 +64,13 @@ qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 domain=$(echo $qs | cut -f2 -d"=" );
 
-echo "<br/>D: $domain <br/>"
+echo "<br/>Domain:<br/>$domain <br/>"
 
 #zyx=$(whois $domain);
 
 deeg=$(dig +short $domain @8.8.8.8 );
 
-echo "<br/><pre>A:$deeg</pre> <br/>"
+echo "<br/><pre>A:<br/>$deeg</pre> <br/>"
 
 function myfunc()
 {
