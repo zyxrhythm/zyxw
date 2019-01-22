@@ -22,23 +22,7 @@ echo '<title>Whoi IP</title>'
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-cat <<EOX
-<meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
-<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
-<meta name="author" content="Zyx Rhythm">
- 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-32625644-1');
-</script>
-EOX
+echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
 
 # the javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -127,5 +111,14 @@ do
 done < <(printf '%s\n' "$ar");
 
 
+echo '<body>'
 
+cat << EOHF
+
+</body>
+</html>
+
+EOHF
+
+exit 0;
 
