@@ -113,7 +113,7 @@ while IFS= read -r line
 do
    ar0=$(whois $line );
    ar1=$( echo $ar0 | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo $ar1 | grep -i -e 'netname' ) else ar2=ar3 fi;
+   if [[ -z "$ar1" ]]; then ar2=$( echo $ar0 | grep -i -e 'netname' ) else ar2=ar3 fi;
    ar3=$( echo ar3 | $sort -u );
    arx="$ar3"
    echo "<br/>   $line   ---" "${arx#*:}";
