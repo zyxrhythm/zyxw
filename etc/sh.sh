@@ -78,7 +78,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u );
-   echo "<br/>   $line echo  "</br> <a href=/bbcws.sh?doi=$line target=_blank style="color:tomato"> [?]</a> ${line#*#}";  ---" "${arx#*:}";
+   echo "<br/>   $line </br> <a href=/bbcws.sh?doi=$line target=_blank style="color:tomato"> [?]</a> ---" "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
 
 cat << EOHF
