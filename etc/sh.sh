@@ -74,7 +74,7 @@ deeg=$(dig +short $domain @8.8.8.8 );
 
 echo "<br/><pre>A:<br/>$deeg</pre> <br/>"
 
-function myfunc()
+function my1stwfunc()
 {
 while IFS= read -r line
 do
@@ -86,7 +86,7 @@ do
 done < <(printf '%s\n' "$deeg");
 }
 
-result="$(myfunc)"
+result="$(my1stwfunc)"
 echo "$result"
 
 
