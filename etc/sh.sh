@@ -17,7 +17,7 @@ echo '<!DOCTYPE html>'
 echo '<html>'
 
 #Tab title
-echo '<title>Whoi IP</title>'
+echo '<title>TSH</title>'
 
 #start of head
 echo '<head>'
