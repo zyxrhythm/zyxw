@@ -109,7 +109,7 @@ echo "<br/>D: $domain <br/>"
 
 deeg=$(dig +short $domain @8.8.8.8 );
 
-echo '<br/>A: "$deeg" <br/>'
+echo "<br/> A:<pre> $deeg  </pre> <br/>"
 
 while IFS= read -r line
 do
