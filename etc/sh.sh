@@ -101,11 +101,13 @@ qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 domain=$(echo $qs | cut -f2 -d"=" );
 
-echo "$domain"
+echo "<br/>Domain: $domain <br/>"
 
-zyx=$(whois $domain);
+#zyx=$(whois $domain);
 
 deeg=$(dig +short $domain @8.8.8.8 );
+
+echo "<br/>A: $domain <br/>"
 
 while IFS= read -r line
 do
