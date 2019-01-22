@@ -114,9 +114,9 @@ echo "<br/>A:<br/><pre> $deeg</pre> <br/>"
 while IFS= read -r line
 do
    ar0=$(whois $line );
-   ar1=$( echo $ar0 | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo $ar0 | grep -i -e 'netname' ); else ar2=$ar1; fi;
-   arx=$( echo $ar2 | sort -u );
+   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
+   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
+   arx=$( echo "$ar2" | sort -u );
    echo "<br/>   $line   ---" "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
 
