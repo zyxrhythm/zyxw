@@ -25,37 +25,6 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
 
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-</script>
-EOS2
-
 #CSS
 cat <<EOS
 <style>
@@ -86,14 +55,6 @@ pre{
 
 EOS
 
-#the back button
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-#The BBC button
-echo '<br/>'
-echo '<br/>'
-echo '<button onclick="copyClipboard()">BBC Copy</button>'
-
 #end of head
 echo '</head>'
 
@@ -115,7 +76,8 @@ while IFS= read -r line
 do
    ar0=$(whois $line );
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
+   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'org-name' ); else ar2="$ar1"; fi;
+   if [[ -z "$ar1" && "$ar2" ]]; then ar3=$( echo "$ar0" | grep -i -e 'netname' ); else ar3="$ar2"; fi;
    arx=$( echo "$ar2" | sort -u );
    echo "<br/>   $line   ---" "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
