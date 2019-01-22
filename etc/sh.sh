@@ -88,7 +88,7 @@ function myfunc()
 }
 
 myfunc
-echo $myresult
+echo "$myresult"
 
 
 cat << EOHF
