@@ -81,6 +81,16 @@ do
    echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
 
+
+function myfunc()
+{
+    myresult='some value'
+}
+
+myfunc
+echo $myresult
+
+
 cat << EOHF
 
 </body>
