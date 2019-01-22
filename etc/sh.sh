@@ -97,7 +97,7 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}'| tr -d '\040\011\012\015');
+qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 domain=$(echo $qs | cut -f2 -d"=" );
 
@@ -105,7 +105,7 @@ echo "$domain"
 
 zyx=$(whois $domain);
 
-deeg=$(dig +short a $domain @8.8.8.8 );
+deeg=$(dig +short $domain @8.8.8.8 );
 
 while IFS= read -r line
 do
