@@ -60,6 +60,8 @@ echo '</head>'
 
 echo '<body>'
 
++++++++++++++++++++++++++++++++
+
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 domain=$(echo $qs | cut -f2 -d"=" );
