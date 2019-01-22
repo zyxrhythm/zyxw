@@ -99,7 +99,7 @@ echo '</head>'
 
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}'| tr -d '\040\011\012\015');
 
-domain="$qs";
+domain=$(echo $qs | cut -f2 -d"=" );
 
 echo "$domain"
 
