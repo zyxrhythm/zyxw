@@ -101,6 +101,8 @@ qs=$(echo $QUERY_STRING | awk '{print tolower($0)}'| tr -d '\040\011\012\015');
 
 domain="$qs";
 
+echo "$domain"
+
 zyx=$(whois $domain);
 
 deeg=$(dig +short a $domain @8.8.8.8 );
