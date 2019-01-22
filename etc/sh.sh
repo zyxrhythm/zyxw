@@ -60,7 +60,7 @@ echo '</head>'
 
 echo '<body>'
 
-+++++++++++++++++++++++++++++++
+echo "+++++++++++++++TEST PAGE++++++++++++++++"
 
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
