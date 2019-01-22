@@ -112,82 +112,20 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#specififies the PATHs needed by the bash script
-#PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-#export $PATH
+qs=$(echo $QUERY_STRING | awk '{print tolower($0)}'| tr -d '\040\011\012\015');
 
-qs=$(echo $QUERY_STRING | tr -d '\040\011\012\015');
-echo '$qs';
+domain="$qs";
 
-ipadd=$(echo $qs | cut -f2 -d"=" );
+zyx=$(whois $domain);
 
-if [[ -z "$ipadd" ]]; then
+deeg=$(dig +short a $domain @8.8.8.8 );
 
-#start of html body
-echo '<body>'
+while IFS= read -r line
+do
+   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
+   echo "<br/>   $line   ---" "${ar0#*:}";
+done < <(printf '%s\n' "$ar");
 
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
 
-cat <<EOTS
-Blank Space?!? . . .
-<br> <br>
-Is that you Taylor Swift?!?
-<br>
-OMG! - I love you! Will you marry me!
-<br> <br>
-If not - Please input a domain name. Sorna.
-EOTS
 
-echo '</p>'
-echo '</div>'
-
-echo '</body>'
-echo '</html>'
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-exit 0;
-
-else
-
-#ARIN WHOIS
-#start of html body
-echo '<body>'
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-	if [[ $ipadd =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$]]; then
-
-zyxip=$(whois $ipadd -h whois.arin.net);
-echo "<pre>$zyxip</pre>";
-echo '<br>'
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-echo '</p>'
-echo '</div>'
-
-echo '</body>'
-echo '</html>'
-exit 0;
-
-	else
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-echo " Not a valid IP address! Sorna."
-echo '</p>'
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-#end of body and html
-echo '</body>'
-echo '</html>'
-
-	fi
-
-fi
-
-exit 0;
 
