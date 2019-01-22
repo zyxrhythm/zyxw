@@ -107,12 +107,22 @@ deeg=$(dig +short a $domain @8.8.8.8 );
 
 while IFS= read -r line
 do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$ar");
+   ar0=$(whois $line );
+   ar1=$( echo $ar0 | grep -i -e 'orgname' );
+   if [[ -z "$ar1" ]]; then ar2=$( echo $ar1 | grep -i -e 'netname' ) else ar2=ar3 fi;
+   ar3=$( echo ar3 | $sort -u );
+   arx="$ar3"
+   echo "<br/>   $line   ---" "${arx#*:}";
+done < <(printf '%s\n' "$deeg");
+
 
 
 echo '<body>'
+
+
+echo '<pre> </pre>'
+
+
 
 cat << EOHF
 
