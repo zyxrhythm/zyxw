@@ -120,13 +120,6 @@ do
    echo "<br/>   $line   ---" "${arx#*:}";
 done < <(printf '%s\n' "$deeg");
 
-echo '<body>'
-
-
-echo '<pre> </pre>'
-
-
-
 cat << EOHF
 
 </body>
