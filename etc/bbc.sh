@@ -40,6 +40,14 @@ cat <<EOT
   });
 </script>
 
+<script language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script language="javascript">
+$("select").on('change',function() {
+    $("#frmLoginRegister").attr("action", "city/"+ $(this).val() +"/mobile.php");
+});
+</script>
+
+
 <style>
 
 a:link { color: green; }
@@ -104,6 +112,20 @@ function removeSpecialCharacters(string) {
 <a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
 </h4>
 </p>
+
+<p>
+<form id="frmLoginRegister" action="city/<?drop_down_value?>/mobile.php" method="get">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<select name="Location" required="required" id='Location'>
+<option value="">..</option>
+<option value="india">india</option>
+<option value="USA">USA</option>
+</select>
+<input type="submit">
+</form>
+</p>
+
 
 <p>
 <form action="bbcx.sh" method="get">
