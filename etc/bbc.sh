@@ -106,16 +106,16 @@ article	{ font-family: Verdana; font-size: 70%;
 
 <p>
 <form method="POST">
-<input type="submit" formaction="default_url_when_press_enter" style="visibility: hidden; display: none;">
+<input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none;">
 <!-- all your inputs -->
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
 
 <!-- all your inputs -->
-<button formaction="action1">Action1</button>
-<button formaction="action2">Action2</button>
-<input type="submit" value="Default Action">
+<button formaction="bbcws.sh">WHO YOU</button>
+<button formaction="bbcdc.sh">CHECK-MATE</button>
+<input type="submit" value="BBC Special">
 </form>
 
 </p>
