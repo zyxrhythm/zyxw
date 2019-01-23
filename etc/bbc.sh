@@ -59,10 +59,9 @@ the following javascript is from: https://stackoverflow.com/questions/16660734/h
 https://pastebin.com/j0GUF7MV
 -->
 <script>
-form=document.getElementById("someForm");
+form=document.getElementById("younitee");
 function bbcxsh() {
         form.action="bbcx.sh";
-        form.action="http://box.sianware.com/echopost.php";
         form.submit();
 }
 function bbcwssh() {
@@ -127,7 +126,7 @@ article	{ font-family: Verdana; font-size: 70%;
 </p>
 
 <p>
-<form id="someForm" action="" method="POST">
+<form id="younitee" action="" method="get">
 <!--Put your inputs here -->
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
