@@ -38,6 +38,7 @@ cat <<EOT
     google_ad_client: "ca-pub-3422469360028179",
     enable_page_level_ads: true
   });
+</script>
 
 <style>
 
