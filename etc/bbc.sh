@@ -147,7 +147,17 @@ function removeSpecialCharacters(string) {
 </form>
 </p>
 
+
 <p>
+<br>
+<br>
+<a href="/cgi-bin/bbc.sh">
+<img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
+</a>
+</p>
+
+<p>
+
 </body>
 
 <footer>
