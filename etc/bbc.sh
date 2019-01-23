@@ -107,12 +107,9 @@ function removeSpecialCharacters(string) {
 <p>
 <form method="get">
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none;">
-<!-- all your inputs -->
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
-
-<!-- all your inputs -->
 <button formaction="bbcws.sh">WHO YOU</button>
 <button formaction="bbcdc.sh">CHECK-MATE</button>
 <input type="submit" value="BBC Special">
@@ -148,18 +145,7 @@ function removeSpecialCharacters(string) {
 </form>
 </p>
 
-<br>
-
 <p>
-<br>
-<br>
-<a href="/cgi-bin/bbc.sh">
-<img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
-</a>
-</p>
-
-<p>
-
 </body>
 
 <footer>
