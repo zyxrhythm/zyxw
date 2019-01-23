@@ -126,14 +126,14 @@ article	{ font-family: Verdana; font-size: 70%;
 </p>
 
 <p>
-<form id="younitee" action="" method="get">
+<form id="younitee" action="" method="POST">
 <!--Put your inputs here -->
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
-<input type="button" value="BBC Special" name="save" onclick="bbcxsh()" />
-<input type="button" value="WHO YOU" name="finished" onclick="bbcwssh()" />
-<input type="button" value="CHECK-MATE" name="finished" onclick="bbcdcsh()" />
+<input type="button" value="BBC Special" name="BBCspecial" onclick="bbcxsh()" />
+<input type="button" value="WHO YOU" name="WHOYOU" onclick="bbcwssh()" />
+<input type="button" value="CHECK-MATE" name="CHECK-MATE" onclick="bbcdcsh()" />
 </form>
 </p>
 
