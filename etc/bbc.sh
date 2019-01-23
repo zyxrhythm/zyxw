@@ -39,21 +39,6 @@ cat <<EOT
     enable_page_level_ads: true
   });
 
-<!--
-thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
-removes nasty white spaces on the text fields that causes alot of issue
--->
-
-<script language="javascript" type="text/javascript">
-function removeSpaces(string) {
- return string.split(' ').join('');
-}
-
-function removeSpecialCharacters(string) {
- return string.replace(/[^A-Za-z0-9.-]/g, '');
-}
-</script>
-
 <style>
 
 a:link { color: green; }
@@ -96,6 +81,21 @@ article	{ font-family: Verdana; font-size: 70%;
 </head>
 
 <body>
+
+<!--
+thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
+removes nasty white spaces on the text fields that causes alot of issue
+-->
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
 
 <center>
 <p>
