@@ -54,27 +54,6 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-<!--
-the following javascript is from: https://stackoverflow.com/questions/16660734/html-form-with-multiple-action
-https://pastebin.com/j0GUF7MV
--->
-<script>
-form=document.getElementById("younitee");
-function bbcxsh() {
-        form.action="bbcx.sh";
-        form.submit();
-}
-function bbcwssh() {
-        form.action="bbcws.sh";
-        form.submit();
-}
-function bbcdcsh() {
-        form.action="bbcdc.sh";
-        form.submit();
-}
-
-</script>
-
 <style>
 
 a:link { color: green; }
@@ -129,7 +108,10 @@ article	{ font-family: Verdana; font-size: 70%;
 <form method="POST">
 <input type="submit" formaction="default_url_when_press_enter" style="visibility: hidden; display: none;">
 <!-- all your inputs -->
-<input><input><input>
+
+<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+
+
 <!-- all your inputs -->
 <button formaction="action1">Action1</button>
 <button formaction="action2">Action2</button>
@@ -137,21 +119,6 @@ article	{ font-family: Verdana; font-size: 70%;
 </form>
 
 </p>
-
-
-
-<p>
-<form id="younitee" action="" method="POST">
-<!--Put your inputs here -->
-
-<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-
-<input type="button" value="BBC Special" name="BBCspecial" onclick="bbcxsh()" />
-<input type="button" value="WHO YOU" name="WHOYOU" onclick="bbcwssh()" />
-<input type="button" value="CHECK-MATE" name="CHECK-MATE" onclick="bbcdcsh()" />
-</form>
-</p>
-
 
 <p>
 <form action="bbcx.sh" method="get">
