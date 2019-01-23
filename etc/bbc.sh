@@ -113,7 +113,7 @@ function removeSpecialCharacters(string) {
 
 <button formaction="bbcws.sh">WHO YOU</button>
 <button formaction="bbcdc.sh">CHECK-MATE</button>
-<input type="submit" value="BBC Special">
+<button formaction="bbcx.sh">BBC Special</button>
 </form>
 
 </p>
