@@ -43,7 +43,7 @@ cat <<EOT
 <script language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script language="javascript">
 $("select").on('change',function() {
-    $("#frmLoginRegister").attr("action", "city/"+ $(this).val() +"/mobile.php");
+    $("#frmLoginRegister").attr("action", $(this).val() +".sh");
 });
 </script>
 
