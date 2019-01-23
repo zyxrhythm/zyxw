@@ -60,16 +60,20 @@ https://pastebin.com/j0GUF7MV
 -->
 <script>
 form=document.getElementById("someForm");
-function askForSave() {
-        form.action="save_for_later.php";
+function bbcxsh() {
+        form.action="bbcx.sh";
         form.action="http://box.sianware.com/echopost.php";
         form.submit();
 }
-function askForSubmit() {
-        form.action="submit_for_approval.php";
+function bbcwssh() {
+        form.action="bbcws.sh";
         form.submit();
 }
- 
+function bbcdcsh() {
+        form.action="bbcdc.sh";
+        form.submit();
+}
+
 </script>
 
 <style>
@@ -125,8 +129,12 @@ article	{ font-family: Verdana; font-size: 70%;
 <p>
 <form id="someForm" action="" method="POST">
 <!--Put your inputs here -->
-<input type="button" value="Save" name="save" onclick="askForSave()" />
-<input type="button" value="Finished" name="finished" onclick="askForSubmit()" />
+
+<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+
+<input type="button" value="BBC Special" name="save" onclick="bbcxsh()" />
+<input type="button" value="WHO YOU" name="finished" onclick="bbcwssh()" />
+<input type="button" value="CHECK-MATE" name="finished" onclick="bbcdcsh()" />
 </form>
 </p>
 
