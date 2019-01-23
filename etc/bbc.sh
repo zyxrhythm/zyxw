@@ -114,8 +114,8 @@ function removeSpecialCharacters(string) {
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <br>
 <button formaction="bbcx.sh">BBC Special</button>
-<button formaction="bbcws.sh">WhoIs</button>
-<button formaction="bbcdc.sh">SSL</button>
+<button formaction="bbcws.sh">Who You</button>
+<button formaction="bbcdc.sh">SSLc</button>
 
 </form>
 
@@ -172,9 +172,9 @@ rev.567
 
 <p>
 <article>
-The whois tool (WHOYOU) will query the regsitry's whois servers by default.
+The whois tool (WHOYOU) will query both regsitry
 <br>
-But you can query the registrar's whois server if you want.<br> <br>
+and the reistrar's(if found) whois servers..<br> <br>
 If you do not specify a name server for Big Nick Digger. 
 <br>
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
