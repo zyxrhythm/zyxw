@@ -129,7 +129,7 @@ function removeSpecialCharacters(string) {
 <label>Domain:</label> 
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
-
+<button type="submit"> D I G </button>
 <br>
 <label>Record Type:</label>
 <select name='record'> 
@@ -140,8 +140,7 @@ function removeSpecialCharacters(string) {
   <option>SOA</option>
   <option>SPF</option>
   <option selected>ANY</option>
-</select>
-<button type="submit"> D I G </button> <br> <br>
+</select> <br> <br>
 <code><b>@</b>NS (Optional) : </code>
 
 <input id="BBCinput" type="text" placeholder="8.8.8.8(default)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
