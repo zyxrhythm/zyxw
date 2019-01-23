@@ -120,30 +120,6 @@ article	{ font-family: Verdana; font-size: 70%;
 
 </p>
 
-<p>
-<form action="bbcx.sh" method="get">
-<label>Domain: </label> 
-
-<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-
-<button id="BBCbtn" type="submit" >BBC special</button>
-</form>
-
-<br>
-<br>
-<br>
-</p>
-
-<p>
-<form action="bbcws.sh" method="get">
-<label>Domain/IP address: </label> 
-
-<input id="wsinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-
-<button id="wsbtn" type="submit" >W H O I S</button>
-</form>
-</p>
-
 <br>
 
 <p>
@@ -173,28 +149,6 @@ article	{ font-family: Verdana; font-size: 70%;
 </p>
 
 <br>
-
-<p>
-<form action="bbcdc.sh" method="get">
-<h1>CHECK-MATE</h1>
-<label>Domain:</label> 
-
-<input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
-
-<br>
-<!-- <label></label> -->
-<select name='dcheck'> 
-
-<!--
-	<option>WHOISIP</option>
-	<option>GETHOSTNAME</option>
--->
-
-	<option selected>SSL</option> 
-</select>
-<button type="submit"> CHECK </button>
-</form>
-</p>
 
 <p>
 <br>
