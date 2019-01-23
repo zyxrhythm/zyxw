@@ -46,7 +46,7 @@ cat <<EOS2
 
 <script>
 
-//the snippet below is from http://edupala.com/copy-div-content-clipboard/
+//from http://edupala.com/copy-div-content-clipboard/
 
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
@@ -121,7 +121,7 @@ function copyClipboard1() {
   }
 }
 
-//the snippet above is from http://edupala.com/copy-div-content-clipboard/
+//from http://edupala.com/copy-div-content-clipboard/
 
 
 // from https://www.w3schools.com/howto/howto_js_tabs.asp
@@ -328,6 +328,8 @@ cat <<EOWIR0
 <div >
 <p>
 
+<!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
+
 <div class="tab">
   <button class="tablinks" onclick="whoisserver(event, 'Registry')" class=active >Registry</button>
   <button class="tablinks" onclick="whoisserver(event, 'Registrar')">Registrar</button>
@@ -338,9 +340,10 @@ cat <<EOWIR0
 <div id="Registry" class="tabcontent" style=display:block >
 	<button onclick="copyClipboard()">BBC Copy</button>
 	<br/>
+	<strong>Whois server:</strong> ${rws0#*server}
+	<br/>
 	<div id="divClipboard">
 	<p>
-	<strong>Whois server:</strong> ${rws0#*server}
 	<pre>$zyxregistry</pre>
 	</p>
 	</div>
@@ -349,14 +352,15 @@ cat <<EOWIR0
 <div id="Registrar" class="tabcontent" >
 	<button onclick="copyClipboard0()">BBC Copy</button>
 	<br/>
+	<strong>Whois server:</strong> $rws
+	<br/>
 	<div id="divClipboard0">
 	<p>
-	<strong>Whois server:</strong> $rws
 	<pre>$zyxregistrar</pre>
 	</p>
 	</div>
 </div>
-
+<!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
 </p>
 </div>
 
