@@ -105,7 +105,7 @@ article	{ font-family: Verdana; font-size: 70%;
 </p>
 
 <p>
-<form method="POST">
+<form method="get">
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none;">
 <!-- all your inputs -->
 
