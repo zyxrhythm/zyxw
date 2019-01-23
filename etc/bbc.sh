@@ -38,15 +38,39 @@ cat <<EOT
     google_ad_client: "ca-pub-3422469360028179",
     enable_page_level_ads: true
   });
+
+<!--
+thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
+removes nasty white spaces on the text fields that causes alot of issue
+-->
+
+<script language="javascript" type="text/javascript">
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
 </script>
 
-<script language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script language="javascript">
-$("select").on('change',function() {
-    $("#frmLoginRegister").attr("action", $(this).val() +".sh");
-});
+<!--
+the following javascript is from: https://stackoverflow.com/questions/16660734/html-form-with-multiple-action
+https://pastebin.com/j0GUF7MV
+-->
+<script>
+form=document.getElementById("someForm");
+function askForSave() {
+        form.action="save_for_later.php";
+        form.action="http://box.sianware.com/echopost.php";
+        form.submit();
+}
+function askForSubmit() {
+        form.action="submit_for_approval.php";
+        form.submit();
+}
+ 
 </script>
-
 
 <style>
 
@@ -91,21 +115,6 @@ article	{ font-family: Verdana; font-size: 70%;
 
 <body>
 
-<!--
-thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
-removes nasty white spaces on the text fields that causes alot of issue
--->
-
-<script language="javascript" type="text/javascript">
-function removeSpaces(string) {
- return string.split(' ').join('');
-}
-
-function removeSpecialCharacters(string) {
- return string.replace(/[^A-Za-z0-9.-]/g, '');
-}
-</script>
-
 <center>
 <p>
 <h4>
@@ -114,15 +123,10 @@ function removeSpecialCharacters(string) {
 </p>
 
 <p>
-<form id="frmLoginRegister" action="city/<?drop_down_value?>/mobile.php" method="get">
-Name: <input type="text" name="name"><br>
-E-mail: <input type="text" name="email"><br>
-<select name="Location" required="required" id='Location'>
-<option value="">..</option>
-<option value="india">india</option>
-<option value="USA">USA</option>
-</select>
-<input type="submit">
+<form id="someForm" action="" method="POST">
+<!--Put your inputs here -->
+<input type="button" value="Save" name="save" onclick="askForSave()" />
+<input type="button" value="Finished" name="finished" onclick="askForSubmit()" />
 </form>
 </p>
 
