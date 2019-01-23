@@ -90,6 +90,22 @@ result="$(my1stwfunc)"
 echo "$result"
 
 
+function my2ndwfunc()
+{
+while IFS= read -r line
+do
+   ar0=$(whois $line );
+   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
+   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
+   arx=$( echo "$ar2" | sort -u );
+   echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
+done < <(printf '%s\n' "$1");
+}
+
+result1=$(my2nd)
+result2="$(my2ndwfunc)"
+echo "$result2
+
 cat << EOHF
 
 </body>
