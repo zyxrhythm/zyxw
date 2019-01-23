@@ -141,10 +141,10 @@ function removeSpecialCharacters(string) {
 </select> <br> <br>
 
 <input id="BBCinput" type="text" placeholder="8.8.8.8(default)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
+<br>
 <code><b>@</b>NS (Optional) : </code>
 </form>
 </p>
-
 
 <p>
 <br>
