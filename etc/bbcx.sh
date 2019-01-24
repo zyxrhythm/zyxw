@@ -908,6 +908,7 @@ echo "<strong>Reseller:</strong> $reseller"
 fi
 
 cat << EOHF
+
 <br>
 <br>
 <strong>[ REGISTRANT: ]</strong>
@@ -915,10 +916,10 @@ cat << EOHF
 <pre>$registrant</pre>
 <br>
 
-echo "<strong>[ ADMIN: ]</strong>
-echo "<br>
-echo "<pre>$admin</pre>
-echo "<br>
+<strong>[ ADMIN: ]</strong>
+<br>
+<pre>$admin</pre>
+<br>
 
 <strong>[ TECH: ]</strong>
 <br>
