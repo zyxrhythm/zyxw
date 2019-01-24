@@ -180,15 +180,23 @@ if [[ "$dvcheck" = "no" ]]; then
 echo '<body>'
 
 #the error that pops up when a domain is not valid/ does not exist
-echo '<p>'
-echo '<br/>'
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-echo 'Not a valid domain! Sorna.'
-echo '</div>'
-echo '</p>'
+cat << EONVDE
+
+<body>
+<p>
+<br/>
+<div class="code-bg" id="divClipboard">
+<p>
+Not a valid domain! Sorna.
+</p>
+</div>
+</body>
+</html>
+
+EONVDE
 
 exit 0;
+
 else
 
 #once the domainis validated the TLD is extracted for verification
@@ -225,17 +233,18 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #prints the domain name and the registrar
-echo "__________________________"
-echo "<br/>"
-echo "<br/>"
-echo "<strong>Domain Name:</strong> $domain";
-echo "<br/>"
-echo "<br/>"
-echo "<strong>Registrar: </strong>${registrar#*:} ";
-echo "<br/>"
-echo "__________________________"
-
-echo "<br/> <br/>"
+cat << EODNAR
+__________________________
+<br/>
+<br/>
+<strong>Domain Name:</strong> $domain
+<br/>
+<br/>
+<strong>Registrar: </strong>${registrar#*:}
+<br/>
+__________________________
+<br/> <br/>
+EODNAR
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
