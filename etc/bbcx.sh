@@ -253,15 +253,17 @@ dsresult=$( eppstatf "$dstat" )
 echo "$dsresult"
 
 #print the domain creation and expiration dates
-echo "<br/>"
-echo "--------------------------"
-echo "<br/>"
-echo "$creationdate";
-echo "<br/>"
-echo "$expd" ;
-echo "<br/>"
-echo "__________________________"
-echo "<br/> <br/>"
+cat <<EODEXPCRE
+<br/>
+--------------------------
+<br/>
+"$creationdate"
+<br/>
+"$expd"
+<br/>
+__________________________
+<br/> <br/>
+EODEXPCRE
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
