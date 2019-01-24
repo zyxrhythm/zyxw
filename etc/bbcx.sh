@@ -269,20 +269,22 @@ EODEXPCRE
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-
+echo '<br/>'
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-cat <<EOANSR
-<br/>
+ansf () {
 while IFS= read -r line
 do
    echo  "<br/>   ${line#*:}";
-done < <(printf '%s\n' "$nameservers");
+done < <(printf '%s\n' "$1");
+}
 
-<br/>
+nsresult=$( ansf "$nameservers");
+echo "$nsresult"
 
+echo '<br/>'
 echo "__________________________"
-echo "<br/> <br/>"
-EOANSR
+echo '<br/> <br/>'
+
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
