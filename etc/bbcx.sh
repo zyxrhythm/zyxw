@@ -133,6 +133,66 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
+#=================
+# FUNCTION HALL
+#=================
+
+#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
+dsfunction () {
+while IFS= read -r line
+do
+   eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
+   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
+done < <(printf '%s\n' "$1");
+}
+
+#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
+nsfunction () {
+while IFS= read -r line
+do
+   echo  "<br/>   ${line#*:}";
+done < <(printf '%s\n' "$1");
+}
+
+arfunction () {
+while IFS= read -r line
+do
+   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
+   echo "<br/>   $line   ---" "${ar0#*:}";
+done < <(printf '%s\n' "$1");
+}
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
+mrfunction () {
+while IFS= read -r line
+do
+   echo "$line <br/> ";
+   mxr1=$(echo  $line | cut -f2 -d" ");
+   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
+if (( $(grep -c . <<<"$mxr2") > 1)); then
+while IFS= read -r line
+do
+   mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
+   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
+done < <(printf '%s\n' "$mxr2")
+
+
+echo "<br/>"
+else
+   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
+   mxr3="${mxa1#*:}";
+   
+   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
+fi
+   echo "<br/> <br>"
+done < <(printf '%s\n' "$1");
+
+}
+
+#==================
+# END FUNCTION HALL
+#==================
+
 #checks - if the domain variable  entered is null  / the BBC Special button is clicked without placing anything on the Domain box - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
@@ -214,7 +274,7 @@ ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
 #prints the domain name and the registrar
-cat << EODNAR
+cat << EODNARGT
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
@@ -228,27 +288,18 @@ __________________________
 <br/>
 __________________________
 <br/> <br/>
-EODNAR
+EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
 
 echo "<br/>"
 
-#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-eppstatf () {
-while IFS= read -r line
-do
-   eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
-done < <(printf '%s\n' "$1");
-}
-
-dsresult=$( eppstatf "$dstat" )
-echo "$dsresult"
+dsfrgt=$( dsfunction "$dstat" )
+echo "$dsfrgt"
 
 #print the domain creation and expiration dates
-cat <<EODEXPCRE
+cat <<EODEDCDGT
 <br/>
 --------------------------
 <br/>
@@ -259,22 +310,15 @@ $expd
 __________________________
 <br/> <br/>
 
-EODEXPCRE
+EODEDCDGT
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
 echo '<br/>'
-#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-ansf () {
-while IFS= read -r line
-do
-   echo  "<br/>   ${line#*:}";
-done < <(printf '%s\n' "$1");
-}
 
-nsresult=$( ansf "$nameservers");
-echo "$nsresult"
+nsfrgt=$( nsfunction "$nameservers");
+echo "$nsfrgt"
 
 echo '<br/>'
 echo "__________________________"
@@ -287,16 +331,8 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopene
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br/>"
 
-arecf () {
-while IFS= read -r line
-do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$1");
-}
-
-arecresult=$( arecf "$ar" );
-echo "$arecresult"
+arfrgt=$( arfunction "$ar" );
+echo "$arfrgt"
 
 echo "<br/>"
 echo "__________________________"
@@ -307,35 +343,8 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopen
 
 echo "<br/> <br/>"
 
-#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
-mxrecf () {
-while IFS= read -r line
-do
-   echo "$line <br/> ";
-   mxr1=$(echo  $line | cut -f2 -d" ");
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-if (( $(grep -c . <<<"$mxr2") > 1)); then
-while IFS= read -r line
-do
-   mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
-done < <(printf '%s\n' "$mxr2")
-
-
-echo "<br/>"
-else
-   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   mxr3="${mxa1#*:}";
-   
-   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
-fi
-   echo "<br/> <br>"
-done < <(printf '%s\n' "$1");
-
-}
-
-mxrecipwsr=$( mxrecf "$mxr");
-echo "$mxrecipwsr"
+mrfrgt=$( mrfunction "$mxr");
+echo "$mrfrgt"
 
 echo "__________________________"
 
@@ -370,9 +379,9 @@ echo '<br/> <br>'
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 echo "<br/>"
 
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-arecresult=$( arecf "$ar" );
-echo "$arecresult"
+#A RECORD/S
+arfrct=$( arecf "$ar" );
+echo "$arfrct"
 
 
 echo "<br/>"
@@ -381,31 +390,13 @@ echo "<br/> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" style="color: tomato">[+]</a><strong> [MX records:]</strong>"
+
 echo "<br/> <br/>"
 
-#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
-while IFS= read -r line
-do
-   echo "$line <br/> ";
-   mxr1=$(echo  $line | cut -f2 -d" ");
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-if (( $(grep -c . <<<"$mxr2") > 1)); then
-while IFS= read -r line
-do
-   mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
+#A RECORD/S
+mrfrct=$( mrfuntion "$mxr");
+echo "$mrfrct"
 
-done < <(printf '%s\n' "$mxr2")
-echo "<br/>"
-else
-   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   mxr3="${mxa1#*:}";
-   
-   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
-fi
-
-   echo "<br/> <br>"
-done < <(printf '%s\n' "$mxr");
 echo "<br/>"
 echo "__________________________"
 
@@ -423,6 +414,10 @@ us)
 
 zyx=$(whois $domain);
 
+#dig A and MX with minimal essential output from the dig command
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 
@@ -438,10 +433,6 @@ creationdate=$(echo "$zyx" | grep -i -e "creation date:");
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
-#dig A and MX with minimal essential output from the dig command
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
-
 #start of html body
 echo '<body>'
 
@@ -450,97 +441,70 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #prints the domain name and the registrar
-echo "__________________________"
-echo "<br/>"
-echo "<br/>"
-echo "<strong>Domain Name:</strong> $domain";
-echo "<br/>"
-echo "<br/>"
-echo "<strong>Registrar: </strong>${registrar#*:} ";
-echo "<br/>"
-echo "__________________________"
-
-echo "<br/> <br/>"
+cat << EODNARCTUS
+<body>
+<div class="code-bg" id="divClipboard">
+<p>
+__________________________
+<br/>
+<br/>
+<strong>Domain Name:</strong> $domain
+<br/>
+<br/>
+<strong>Registrar: </strong>${registrar#*:}
+<br/>
+__________________________
+<br/> <br/>
+EODNARCTUS
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
 
-#cycles through the status codes and create a link the status to what it means on eppstatus.sh
-echo "<br/>"
-while IFS= read -r line
-do
-   eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
-done < <(printf '%s\n' "$dstat");
+#DOMAIN STATUS
+dsfrctus=$( dsfunction "$dstat" );
+echo "$dsfrctus"
 
 #print the domain creation and expiration dates
-echo "<br/>"
-echo "--------------------------"
-echo "<br/>"
-echo "$creationdate";
-echo "<br/>"
-echo "$expd" ;
-echo "<br/>"
-echo "__________________________"
-echo "<br/> <br/>"
+cat <<EODEDCDCTUS
+<br/>
+--------------------------
+<br/>
+$creationdate
+<br/>
+$expd
+<br/>
+__________________________
+<br/> <br/>
+
+EODEDCDCTUS
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
 
-#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-echo "<br/>"
-while IFS= read -r line
-do
-   echo  "<br/>   ${line#*:}";
-done < <(printf '%s\n' "$nameservers");
+#NAME SERVERS
 
-echo "<br/>"
-
-echo "__________________________"
-echo "<br/> <br/>"
+nsfrctus=$( nsfunction "$nameservers");
+echo "$nsfrctus"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
+#A RECORD CT US
 echo "<br/>"
-while IFS= read -r line
-do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$ar");
-echo "<br/>"
-echo "__________________________"
-echo "<br/> <br/>"
+
+arfrctus=$( arfunction "$ar");
+echo "$arfrctus"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
-#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
+#MX RECORD/S - AND IP/S
 echo "<br/> <br/>"
-while IFS= read -r line
-do
-   echo "$line <br/> ";
-   mxr1=$(echo  $line | cut -f2 -d" ");
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-if (( $(grep -c . <<<"$mxr2") > 1)); then
-while IFS= read -r line
-do
-   mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
 
-done < <(printf '%s\n' "$mxr2")
+mrfrctus=$( mrfunction "$mxr");
+echo "$mrfrctus"
 
-echo "<br/>"
-else
-   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   mxr3="${mxa1#*:}";
-   
-   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
-fi
-   echo "<br/> <br>"
-done < <(printf '%s\n' "$mxr");
 echo "__________________________"
 
 ;;
