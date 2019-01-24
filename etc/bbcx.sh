@@ -137,6 +137,7 @@ domain=$(echo $qs | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
+#Domain Status Function
 #function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
 while IFS= read -r line
@@ -146,6 +147,7 @@ do
 done < <(printf '%s\n' "$1");
 }
 
+#Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfunction () {
 while IFS= read -r line
@@ -154,6 +156,8 @@ do
 done < <(printf '%s\n' "$1");
 }
 
+#A Record Function
+#cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
 while IFS= read -r line
 do
@@ -162,6 +166,7 @@ do
 done < <(printf '%s\n' "$1");
 }
 
+#MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
 while IFS= read -r line
@@ -175,7 +180,6 @@ do
    mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
    echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
 done < <(printf '%s\n' "$mxr2")
-
 
 echo "<br/>"
 else
