@@ -735,28 +735,33 @@ echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 
 #print the domain and the registrar
-echo "__________________________"
-echo "<br/>"
-echo "<br/>"
-echo "<strong>Domain Name:</strong> $domain";
-echo "<br/>"
-echo "<br/>"
-echo "Registrar: ${registrar#*:}";
-echo "<br/>"
-echo "__________________________"
-echo "<br/> <br>"
+cat << EODNARCTNZ
+<body>
+<div class="code-bg" id="divClipboard">
+<p>
+__________________________
+<br/>
+<br/>
+<strong>Domain Name:</strong> $domain
+<br/>
+<br/>
+<strong>Registrar: </strong>${registrar#*:}
+<br/>
+__________________________
+<br/> <br/>
+EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Domain Status:]</strong>"
 
-
+#DOMAIN STATUS CT NZ
 while IFS= read -r line
 do
    echo  "</br> ${line#*#} ";
 done < <(printf '%s\n' "$dstat");
+
 echo '<br>'
 echo "--------------------------"
-
 echo "<br/>"
 echo "Last Modified: ${lastmod#*:}";
 echo "<br/>"
@@ -780,12 +785,10 @@ echo "<br/> <br>"
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-while IFS= read -r line
-do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$ar");
+#A RECORD/S CT NZ
+
+arfrctnz=$( arfunction "$ar");
+echo "$arfrctnz"
 
 echo "<br/>"
 echo "__________________________"
@@ -795,37 +798,15 @@ echo "<br/> <br>"
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 echo "<br/> <br/>"
 
-#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
-while IFS= read -r line
-do
-   echo "$line <br/> ";
-   mxr1=$(echo  $line | cut -f2 -d" ");
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-if (( $(grep -c . <<<"$mxr2") > 1)); then
-while IFS= read -r line
-do
-   mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
+#MX RECORD/S - AND IP/S CT NZ
 
-done < <(printf '%s\n' "$mxr2")
-echo "<br/>"
-else
-   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   mxr3="${mxa1#*:}";
-   
-   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
-fi
-
-   echo "<br/> <br>"
-done < <(printf '%s\n' "$mxr");
+mrfrctnz=$( mrfunction "$mxr");
+echo "$mrfrctnz"
 
 echo "<br/>"
 echo "__________________________"
-
 echo '</p>'
-
 echo '</div>'
-
 echo '<br>'
 
 #the back | track button
@@ -896,21 +877,6 @@ exit 0;
 
 ;;
 
-#"RegistrarWHOISServer:whois.godaddy.com")
- 
-#echo "<hr>"
-#echo "<br> click <a href='https://www.godaddy.com/whois/results.aspx?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
-#echo "<br>"
-#echo '<hr>'
-#echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
-
-#echo '</footer>'
-#echo '</html>'
-
-#exit 0;
-
-#;;
-
  *)
 
 echo "<hr>"
@@ -937,27 +903,30 @@ else
 echo "<strong>Reseller:</strong> $reseller"
 fi
 
-echo "<br>"
-echo "<br>"
-echo "<strong>[ REGISTRANT: ]</strong>"
-echo "<br>"
-echo "<pre>$registrant</pre>"
-echo "<br>"
+cat << EOHF
+<br>
+<br>
+<strong>[ REGISTRANT: ]</strong>
+<br>
+<pre>$registrant</pre>
+<br>
 
-echo "<strong>[ ADMIN: ]</strong>"
-echo "<br>"
-echo "<pre>$admin</pre>"
-echo "<br>"
+echo "<strong>[ ADMIN: ]</strong>
+echo "<br>
+echo "<pre>$admin</pre>
+echo "<br>
 
-echo "<strong>[ TECH: ]</strong>"
-echo "<br>"
-echo "<pre>$tech</pre>"
+<strong>[ TECH: ]</strong>
+<br>
+<pre>$tech</pre>
 
-echo "<hr>"
-echo " $whoisservergrep"
-echo "<br>"
-echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
+<hr>
+$whoisservergrep
+<br>
+<hr>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+
+EOHF
 
 echo "</footer>"
 
