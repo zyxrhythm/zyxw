@@ -181,7 +181,7 @@ if (( $(grep -c . <<<"$mxr2") > 1)); then
 while IFS= read -r line
 do
    mxa0=$(whois $line );
-   mxa1=$( echo "$ar02" | grep -i -e 'orgname' );
+   mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u );
    echo "<br/> &nbsp; &nbsp; $line   ---" "${mxax#*:}";
