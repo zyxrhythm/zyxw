@@ -104,7 +104,7 @@ done < <(printf '%s\n' "$1");
 
 result1=$(my2ndfunc)
 result2=$(echo "$deeg" | $(my2ndwfunc) )
-echo "$result2
+echo "$result2"
 
 cat << EOHF
 
