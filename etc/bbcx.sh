@@ -218,15 +218,11 @@ nameservers=$(echo "$zyx" | grep -i -e "name server:");
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#start of html body
-echo '<body>'
-
-#the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
 #prints the domain name and the registrar
 cat << EODNAR
+<body>
+<div class="code-bg" id="divClipboard">
+<p>
 __________________________
 <br/>
 <br/>
@@ -239,16 +235,22 @@ __________________________
 <br/> <br/>
 EODNAR
 
-#link to the EPP status codes on [Domain Status:]
+#link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
 
-#cycles through the status codes and create a link the status to what it means on eppstatus.sh
 echo "<br/>"
+
+#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
+eppf () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
-done < <(printf '%s\n' "$dstat");
+done < <(printf '%s\n' "$1");
+}
+
+dsresult=$( eppstat "$dstat" )
+echo "$dsresult"
 
 #print the domain creation and expiration dates
 echo "<br/>"
