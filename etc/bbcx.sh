@@ -159,10 +159,13 @@ done < <(printf '%s\n' "$1");
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
-while IFS= read -r line
+while IFS= read -r line2
 do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
+   ar02=$(whois $line2 );
+   ar12=$( echo "$ar02" | grep -i -e 'orgname' );
+   if [[ -z "$ar12" ]]; then ar22=$( echo "$ar02" | grep -i -e 'netname' ); else ar22="$ar12"; fi;
+   arx2=$( echo "$ar22" | sort -u );
+   echo "<br/>   $line2 --- <a href=/cgi-bin/bbcws.sh?doi=$line2 target=_blank style=color:tomato >[?]</a> " "${arx2#*:}";
 done < <(printf '%s\n' "$1");
 }
 
