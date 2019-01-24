@@ -92,18 +92,18 @@ echo "$result"
 
 function my2ndwfunc()
 {
-while IFS= read -r line
+while IFS= read -r line2
 do
-   ar0=$(whois $line );
-   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
-   arx=$( echo "$ar2" | sort -u );
-   echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
+   ar02=$(whois $line );
+   ar12=$( echo "$ar02" | grep -i -e 'orgname' );
+   if [[ -z "$ar12" ]]; then ar22=$( echo "$ar02" | grep -i -e 'netname' ); else ar22="$ar12"; fi;
+   arx2=$( echo "$ar22" | sort -u );
+   echo "<br/>   $line2 --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx2#*:}";
 done < <(printf '%s\n' "$1");
 }
 
-result1=$(my2nd)
-result2="$(echo "$deeg" | my2ndwfunc)"
+result1=$(my2ndfunc)
+result2=$(echo "$deeg" | $(my2ndwfunc) )
 echo "$result2
 
 cat << EOHF
