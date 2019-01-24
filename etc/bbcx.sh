@@ -190,8 +190,11 @@ done < <(printf '%s\n' "$mxr2")
 
 echo "<br/>"
 else
-   mxa21=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
-   mxr3="${mxa1#*:}";
+   mxa20=$(whois $line );
+   mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
+   if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
+   mxax2=$( echo "$mxa22" | sort -u );
+   mxr3="${mxax2#*:}";
    
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
