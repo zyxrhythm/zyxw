@@ -145,26 +145,27 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo $qs | cut -f2 -d"=" );
 
-#checks if the domain entered is null  or the BBC Special is clicked without placing anything on the Domain box - then throws a Taylor Swift error
+#checks - if the domain variable  entered is null  / the BBC Special button is clicked without placing anything on the Domain box - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
-#start of html body
-echo '<body>'
+cat <<EOTSE
 
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
-cat <<EOTS
-
-Blank Space?!? . . .
+<body>
+<div class="code-bg" id="divClipboard">
+<p>
+Blank Space. . . ?!?
 <br> <br>
 Is that you Taylor Swift?!?
 <br>
-OMG! - I love you! Will you marry me!
+OMG! - I love you! - Will you marry me!
 <br> <br>
-If not - Please input a domain name. Sorna.
+If not! - Please input a domain name. Sorna.
+</p>
+</div>
+</body>
+</html>
 
-EOTS
+EOTSE
 
 else
 
