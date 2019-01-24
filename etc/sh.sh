@@ -103,7 +103,7 @@ done < <(printf '%s\n' "$1");
 }
 
 result1=$(my2ndfunc)
-result2=$(echo "$domain" | my2ndwfunc )
+result2=$( my2ndwfunc "$deeg" )
 echo "$result2"
 
 cat << EOHF
