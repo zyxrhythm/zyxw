@@ -89,7 +89,7 @@ echo "<br/><pre>A:<br/>$deeg</pre> <br/>"
 #result="$(my1stwfunc)"
 #echo "$result"
 
-
+#SHARKS 2
 function my2ndwfunc()
 {
 while IFS= read -r line2
@@ -102,6 +102,7 @@ do
 done < <(printf '%s\n' "$1");
 }
 
+#FEEDIG THE SHARKS
 result2=$( my2ndwfunc "$deeg" )
 echo "$result2"
 
