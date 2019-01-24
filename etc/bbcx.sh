@@ -193,10 +193,8 @@ else
    mxa20=$(whois $line );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
-   mxax2=$( echo "$mxa22" | sort -u );
-   mxr3="${mxax2#*:}";
-   
-   echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
+   mxax2=$( echo "$mxa22" | sort -u );   
+   echo "&nbsp; &nbsp;$mxr2" "--- ${mxax2#*:}"
 fi
    echo "<br/> <br>"
 done < <(printf '%s\n' "$1");
