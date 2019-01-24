@@ -23,13 +23,17 @@ echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 
-#meta for crawlers - and google analytics
-cat <<EOX
+
+cat <<EODHEAD
+
+<!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
- 
+
+<!-- Auto Adjust -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
 <script>
@@ -47,10 +51,6 @@ cat <<EOX
   });
 </script>
 
-EOX
-
-#General CSS
-cat <<EOS
 <style>
 
 a:link { color: red;  }
@@ -84,11 +84,11 @@ hr {color:grey;
 
 </style>
 
-EOS
 
-#The javascript that copies the contents of div to clipboard.
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
+<!-- 
+The javascript that copies the contents of div to clipboard.
+this is a snippet from http://edupala.com/copy-div-content-clipboard/
+-->
 
 <script>
 function copyClipboard() {
@@ -115,22 +115,15 @@ function copyClipboard() {
   }
 }
 </script>
-EOS2
 
-#back | track button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<br/>
+<hr>
+<button onclick="copyClipboard()">BBC Copy</button>
 
-#The BBC copy button
-echo '<br/>'
-echo '<hr>'
-echo '<button onclick="copyClipboard()">BBC Copy</button>'
+</head>
 
-#end of html head
-echo '</head>'
-
-#specififies the PATHs needed by the bash script
-#PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-#export $PATH
+EODHEAD
 
 #stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
