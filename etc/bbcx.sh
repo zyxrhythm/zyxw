@@ -185,7 +185,7 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   ---" "${mxax#*:}";
+   echo "<br/> &nbsp; &nbsp; $line   --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line2 target=_blank style=color:tomato >[?]</a>" "${mxax#*:}";
 done < <(printf '%s\n' "$mxr2")
 
 echo "<br/>"
