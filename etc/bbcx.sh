@@ -241,7 +241,7 @@ echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_bl
 echo "<br/>"
 
 #function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-eppf () {
+eppstatf () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
@@ -249,7 +249,7 @@ do
 done < <(printf '%s\n' "$1");
 }
 
-dsresult=$( eppstat "$dstat" )
+dsresult=$( eppstatf "$dstat" )
 echo "$dsresult"
 
 #print the domain creation and expiration dates
