@@ -10,7 +10,6 @@
 #start the html header
 echo "Content-type: text/html"
 echo ""
-
 echo '<!DOCTYPE html>'
 
 echo '<html>'
@@ -21,8 +20,6 @@ echo '<title>BBC Special</title>'
 #start of head
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
-
-
 
 cat <<EODHEAD
 
@@ -58,7 +55,6 @@ a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
 
-
 div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
@@ -83,7 +79,6 @@ hr {color:grey;
 }
 
 </style>
-
 
 <!-- 
 The javascript that copies the contents of div to clipboard.
@@ -167,7 +162,7 @@ zyx=$(whois $domain);
 
 #domain validity check -if  a domain does not exist or has beed deleted the usual raw whois result starts with "no" if no is not on the contect of the the above variable the script continues
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
-if [[ "$dvcheck" = "no" ]]; then
+  if [[ "$dvcheck" = "no" ]]; then
 
 #start of html body
 echo '<body>'
@@ -190,7 +185,7 @@ EONVDE
 
 exit 0;
 
-else
+  else
 
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
@@ -291,11 +286,18 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopene
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br/>"
+
+arecf () {
 while IFS= read -r line
 do
    ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
    echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$ar");
+done < <(printf '%s\n' "$1");
+}
+
+arecresult=$( arecf "$ar" );
+echo "$arecresult"
+
 echo "<br/>"
 echo "__________________________"
 echo "<br/> <br/>"
@@ -303,8 +305,10 @@ echo "<br/> <br/>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
-#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 echo "<br/> <br/>"
+
+#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
+mxrecf () {
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -315,8 +319,8 @@ while IFS= read -r line
 do
    mxa0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
    echo "<br/> &nbsp; &nbsp; $line   ---" "${mxa0#*:}";
-
 done < <(printf '%s\n' "$mxr2")
+
 
 echo "<br/>"
 else
@@ -326,7 +330,13 @@ else
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
 fi
    echo "<br/> <br>"
-done < <(printf '%s\n' "$mxr");
+done < <(printf '%s\n' "$1");
+
+}
+
+mxrecipwsr=$( mxrecf "$mxr");
+echo "$mxrecipwsr"
+
 echo "__________________________"
 
 ;;
