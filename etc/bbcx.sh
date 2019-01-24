@@ -178,6 +178,7 @@ do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
 if (( $(grep -c . <<<"$mxr2") > 1)); then
+
 while IFS= read -r line
 do
    mxa0=$(whois $line );
@@ -189,7 +190,7 @@ done < <(printf '%s\n' "$mxr2")
 
 echo "<br/>"
 else
-   mxa1=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
+   mxa21=$(whois $mxr2 | grep -i -e 'person' -e 'orgname' -e 'org-name' | sort -u );
    mxr3="${mxa1#*:}";
    
    echo "&nbsp; &nbsp;$mxr2" "--- $mxr3"
