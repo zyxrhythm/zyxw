@@ -371,11 +371,9 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopene
 echo "<br/>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-while IFS= read -r line
-do
-   ar0=$(whois $line | grep -i -e 'person' -e 'orgname' -e 'org-name'| sort -u );
-   echo "<br/>   $line   ---" "${ar0#*:}";
-done < <(printf '%s\n' "$ar");
+arecresult=$( arecf "$ar" );
+echo "$arecresult"
+
 
 echo "<br/>"
 echo "__________________________"
