@@ -102,7 +102,7 @@ do
 done < <(printf '%s\n' "$1");
 }
 
-#FEEDIG THE SHARKS
+#FEEDIG THE SHARK
 result2=$( my2ndwfunc "$deeg" )
 echo "$result2"
 
