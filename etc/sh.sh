@@ -74,20 +74,20 @@ deeg=$(dig +short $domain @8.8.8.8 );
 
 echo "<br/><pre>A:<br/>$deeg</pre> <br/>"
 
-function my1stwfunc()
-{
-while IFS= read -r line
-do
-   ar0=$(whois $line );
-   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
-   arx=$( echo "$ar2" | sort -u );
-   echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
-done < <(printf '%s\n' "$deeg");
-}
+#function my1stwfunc()
+#{
+#while IFS= read -r line
+#do
+#   ar0=$(whois $line );
+#   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
+#   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
+#   arx=$( echo "$ar2" | sort -u );
+#   echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
+#done < <(printf '%s\n' "$deeg");
+#}
 
-result="$(my1stwfunc)"
-echo "$result"
+#result="$(my1stwfunc)"
+#echo "$result"
 
 
 function my2ndwfunc()
