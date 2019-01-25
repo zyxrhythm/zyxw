@@ -124,8 +124,58 @@ cat << EOH
 	</p>
     </div>
 </div>
+
+<table id="addperiod">
+<tbody>
+<tr>
+<th>Status Code</th>
+<th>What does it mean?</th>
+<th>Should you do something?</th>
+</tr>
+<tr>
+<td>addPeriod</td>
+<td><p>This grace period is provided after the initial registration of a domain name. If the registrar deletes the domain name during this period, the registry may provide credit to the registrar for the cost of the registration.</p></td>
+<td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
+</tr>
+</tbody>
+</table>
+
 </body>
 </html>
+
+
+
+<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
+
+<div class="modal fade" id="myModal">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Modal title</h4>
+    </div>
+    <div class="modal-body">
+      <table>
+          <thead>
+          </thead>
+          <tbody class="table">
+              <tr>
+                  <td>1</td>
+                  <td>2</td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>4</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 EOH
 
