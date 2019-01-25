@@ -134,7 +134,7 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<div>
+	<div value="#addperiod">
 
 	</div>
 	</p>
