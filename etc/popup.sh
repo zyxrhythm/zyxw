@@ -141,52 +141,6 @@ cat << EOH
 </tbody>
 </table>
 
-
-
-
-
-
-
-
-<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
-
-<div class="modal fade" id="myModal">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Modal title</h4>
-    </div>
-    <div class="modal-body">
-      <table>
-          <thead>
-          </thead>
-          <tbody class="table">
-              <tr>
-                  <td>1</td>
-                  <td>2</td>
-              </tr>
-              <tr>
-                  <td>3</td>
-                  <td>4</td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-
-
-
-
-
 </body>
 </html>
 EOH
