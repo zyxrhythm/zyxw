@@ -143,7 +143,7 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   echo  "</br> <a href=/cgi-bin/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
+   echo  "</br> <a href=/cgi-bin/etc/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
 done < <(printf '%s\n' "$1");
 }
 
@@ -910,7 +910,7 @@ echo "<hr>"
 echo "<br>"
 
 if [[ -z $reseller ]]; then
-echo "<strong>Reseller:</strong> None!"
+echo "<strong>Reseller:</strong> None"
 else
 echo "<strong>Reseller:</strong> $reseller"
 fi
