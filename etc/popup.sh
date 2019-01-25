@@ -31,6 +31,20 @@ cat <<EOS
 	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
+<script>
+function openPopup() {
+  var popup = window.open("", "", "width=640,height=480,resizeable,scrollbars"),
+      table = document.getElementById("addperiod");
+
+  popup.document.write(table.outerHTML);
+  popup.document.close();
+  if (window.focus) 
+    popup.focus();
+}
+</script>
+
+
+
 EOS
 
 echo "<script>"
@@ -121,11 +135,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 	<div>
-	<table>
-	<tr>
-<td><a href="#addperiod">&nbsp;</a></td>
-</table>
-</tr>
+
 	</div>
 	</p>
     </div>
@@ -149,6 +159,8 @@ cat << EOH
 </table>
 
 </div>
+
+<input type="button" value="Open popup" onclick="openPopup();" />
 
 </body>
 </html>
