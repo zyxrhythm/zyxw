@@ -49,9 +49,6 @@ echo "});"
 
 echo "</script>"
 
-
-
-
 cat <<EOC
 
 <style>
