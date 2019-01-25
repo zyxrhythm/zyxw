@@ -121,6 +121,13 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 	<div>
+
+	</div>
+	</p>
+    </div>
+</div>
+
+<div style="display:none">
 <table id="addperiod">
 <tbody>
 <tr>
@@ -135,12 +142,7 @@ cat << EOH
 </tr>
 </tbody>
 </table>
-	</div>
-	</p>
-    </div>
 </div>
-
-
 
 </body>
 </html>
