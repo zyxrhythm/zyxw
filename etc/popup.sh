@@ -120,8 +120,10 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<table href="#addperiod" >
-	</table>
+	<div>
+	<iframe href="#addperiod" >
+	</iframe>
+	</div>
 	</p>
     </div>
 </div>
