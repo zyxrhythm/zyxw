@@ -128,6 +128,7 @@ cat << EOH
 </div>
 
 <div style="display:none">
+
 <table id="addperiod">
 <tbody>
 <tr>
@@ -142,6 +143,7 @@ cat << EOH
 </tr>
 </tbody>
 </table>
+
 </div>
 
 </body>
