@@ -120,7 +120,8 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<iframe> src="/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited" </iframe>
+	<table scr="#addperiod" >
+	</table>
 	</p>
     </div>
 </div>
