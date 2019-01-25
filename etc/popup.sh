@@ -23,7 +23,6 @@ echo '<head>'
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-
 #<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
 
 cat <<EOS
@@ -47,7 +46,6 @@ echo "</script>"
 cat <<EOC
 
 <style>
-
 /* Popup box BEGIN */
 .hover_bkgr_fricc{
     background:rgba(0,0,0,.4);
@@ -106,7 +104,6 @@ cat <<EOC
     font-weight: bold;
 }
 /* Popup box BEGIN */
-
 </style>
 
 EOC
@@ -127,7 +124,6 @@ cat << EOH
 	</p>
     </div>
 </div>
-
 </body>
 </html>
 
