@@ -141,8 +141,10 @@ cat << EOH
 </tbody>
 </table>
 
-</body>
-</html>
+
+
+
+
 
 
 
@@ -178,6 +180,15 @@ cat << EOH
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+
+
+
+
+
+</body>
+</html>
 EOH
 
 exit 0;
