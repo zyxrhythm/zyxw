@@ -121,7 +121,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 	<div>
-
+<td><a href="#addperiod">&nbsp;</a></td>
 	</div>
 	</p>
     </div>
