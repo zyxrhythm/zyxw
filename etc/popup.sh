@@ -43,8 +43,6 @@ function openPopup() {
 }
 </script>
 
-
-
 EOS
 
 echo "<script>"
@@ -134,9 +132,12 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<div value="#addperiod">
 
-	</div>
+<div value="#addperiod" >
+<table value="##addperiod">
+</table
+</div>
+
 	</p>
     </div>
 </div>
