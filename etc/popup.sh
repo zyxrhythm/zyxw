@@ -33,7 +33,7 @@ cat <<EOS
 
 <script>
 function openPopup() {
-  var popup = window.open("", "", "width=640,height=480,resizeable,scrollbars"),
+  var popup = window.open("", "", "width=666,height=315,resizeable,scrollbars"),
       table = document.getElementById("addperiod");
 
   popup.document.write(table.outerHTML);
