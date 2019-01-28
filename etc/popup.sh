@@ -145,12 +145,12 @@ echo '<footer>'
 
 #echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
 
-#echo '<script>'
-#echo "function myFunctionxx() {"
-#echo "  var iframe = document.getElementById($eppstatuscode);"
-#echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('table')[0];"
-#echo "  elmnt.style.display = 'none';"
-#echo "} </script>"
+echo '<script>'
+echo "function myFunctionxx() {"
+echo "  var iframe = document.getElementById($eppstatuscode);"
+echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0];"
+echo "  elmnt.style.display = 'none';"
+echo "} </script>"
 
 echo '</footer>'
 
