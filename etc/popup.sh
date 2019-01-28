@@ -160,7 +160,7 @@ cat << EOH
 
 </div>
 
-<!-- <input type="button" value="Open popup" onclick="openPopup();" /> -->
+<input type="button" value="Open popup" onclick="openPopup();" />
 
 </body>
 </html>
