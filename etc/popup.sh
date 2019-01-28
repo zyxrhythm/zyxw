@@ -72,10 +72,10 @@ cat <<EOC
     box-shadow: 10px 10px 60px #555;
     display: inline-block;
     height: auto;
-    max-width: 551px;
+    max-width: 560px;
     min-height: 100px;
     vertical-align: middle;
-    width: 85%;
+    width: 82%;
     position: relative;
     border-radius: 3px;
     padding: 4px 5%;
