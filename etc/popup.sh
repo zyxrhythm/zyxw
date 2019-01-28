@@ -75,10 +75,10 @@ cat <<EOC
     max-width: 551px;
     min-height: 100px;
     vertical-align: middle;
-    width: 80%;
+    width: 90%;
     position: relative;
-    border-radius: 3px;
-    padding: 6px 5%;
+    border-radius: 1px;
+    padding: 3px 5%;
 }
 .popupCloseButton {
     background-color: #fff;
