@@ -134,6 +134,7 @@ cat << EOH
         <p>
 
 <table value="#addperiod">
+</table>
 	<p>
 
 	</p>
