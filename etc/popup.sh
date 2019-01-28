@@ -113,7 +113,7 @@ echo '</head>'
 echo '<body>'
 echo '<script>'
 echo 'function myFunctionxx() {'
-echo '  var iframe = document.getElementById("\$eppstatuscode");'
+echo "  var iframe = document.getElementById(\$eppstatuscode);"
 echo '  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];'
 echo '  elmnt.style.display = "none";'
 echo '} </script>'
@@ -134,7 +134,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#addperiod" style="height:416px;width:100%"></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" style="height:416px;width:100%"></iframe>
 
 	</p>
 	</div>
