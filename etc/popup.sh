@@ -48,7 +48,7 @@ function openPopup() {
 <script>
 function myFunctionxx() {
   var iframe = document.getElementById("addperiod");
-  var elmnt = iframe.contentWindow.document.getElementsByTagName("table")[0];
+  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
   elmnt.style.display = "none";
 }
 </script>
@@ -154,8 +154,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<table value="#">
-</table>
+<iframe id="myFrame" src="/eppcodes.sh#addperiod" style="height:380px;width:100%"></iframe>
 
 	</p>
 	</div>
