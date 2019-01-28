@@ -56,6 +56,8 @@ function myFunctionxx() {
 
 EOS
 
+#from https://html-online.com/articles/simple-popup-box/
+
 echo "<script>"
 echo "	\$(window).load(function () {"
 echo "	\$('.trigger_popup_fricc').click(function(){"
@@ -65,10 +67,13 @@ echo "	\$('.hover_bkgr_fricc').hide(); });"
 echo "	\$('.popupCloseButton').click(function(){"
 echo "	\$('.hover_bkgr_fricc').hide(); }); });"
 echo "</script>"
+#from https://html-online.com/articles/simple-popup-box/
 
 cat <<EOC
 
 <style>
+
+/* from https://html-online.com/articles/simple-popup-box/ */
 /* Popup box BEGIN */
 .hover_bkgr_fricc{
     background:rgba(0,0,0,.4);
@@ -127,15 +132,7 @@ cat <<EOC
     font-weight: bold;
 }
 /* Popup box BEGIN */
-
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-
-th { border: 2px solid green;
-}
-
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
+/* from https://html-online.com/articles/simple-popup-box/ */
 
 </style>
 
@@ -145,6 +142,8 @@ echo '</head>'
 
 cat << EOH
 <body>
+
+<!-- from https://html-online.com/articles/simple-popup-box/ -->
 
 <a class="trigger_popup_fricc" onclick="myFunctionxx();">Click here to show the popup</a>
 
@@ -160,6 +159,10 @@ cat << EOH
 	</div>
     </div>
 </div>
+
+
+<!-- from https://html-online.com/articles/simple-popup-box/ -->
+
 
 <div style="display:none">
 
