@@ -118,6 +118,9 @@ echo '  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
 echo '  elmnt.style.display = "none";'
 echo '} </script>'
 
+echo "$eppstatuscode"
+
+
 echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
 
 
