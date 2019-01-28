@@ -23,39 +23,6 @@ echo '<head>'
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-#<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
-
-cat <<EOS
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-<script>
-function openPopup() {
-  var popup = window.open("", "", "width=666,height=315,resizeable,scrollbars"),
-      table = document.getElementById("addperiod");
-
-  popup.document.write(table.outerHTML);
-  popup.document.close();
-  if (window.focus) 
-    popup.focus();
-}
-
-</script>
-
-
-<script>
-function myFunctionxx() {
-  var iframe = document.getElementById("addperiod");
-  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
-  elmnt.style.display = "none";
-}
-</script>
-
-
-EOS
-
 #from https://html-online.com/articles/simple-popup-box/
 
 echo "<script>"
@@ -143,6 +110,14 @@ echo '</head>'
 cat << EOH
 <body>
 
+<script>
+function myFunctionxx() {
+  var iframe = document.getElementById("$eppstatus");
+  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
+  elmnt.style.display = "none";
+}
+</script>
+
 <!-- from https://html-online.com/articles/simple-popup-box/ -->
 
 <a class="trigger_popup_fricc" onclick="myFunctionxx();">Click here to show the popup</a>
@@ -163,27 +138,6 @@ cat << EOH
 
 <!-- from https://html-online.com/articles/simple-popup-box/ -->
 
-
-<div style="display:none">
-
-<table id="addperiod">
-<tbody>
-<tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
-</tr>
-<tr>
-<td>addPeriod</td>
-<td><p>This grace period is provided after the initial registration of a domain name. If the registrar deletes the domain name during this period, the registry may provide credit to the registrar for the cost of the registration.</p></td>
-<td><p>This is an informative status set for the first several days of your domain's registration. There is no issue with your domain name.</p></td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-<input type="button" value="Open popup" onclick="openPopup();" />
 
 </body>
 </html>
