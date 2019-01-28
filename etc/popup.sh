@@ -24,7 +24,6 @@ echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 #from https://html-online.com/articles/simple-popup-box/
-
 echo "<script>"
 echo "	\$(window).load(function () {"
 echo "	\$('.trigger_popup_fricc').click(function(){"
@@ -111,18 +110,8 @@ EOC
 echo '</head>'
 
 echo '<body>'
-echo '<script>'
-echo 'function myFunctionxx() {'
-echo "  var iframe = document.getElementById(\$eppstatuscode);"
-echo '  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];'
-echo '  elmnt.style.display = "none";'
-echo '} </script>'
 
 echo "$eppstatuscode"
-
-
-echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
-
 
 cat << EOH
 
@@ -146,6 +135,21 @@ cat << EOH
 
 
 </body>
+
+<footer>
+
+echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
+
+echo '<script>'
+echo "function myFunctionxx() {"
+echo "  var iframe = document.getElementById($eppstatuscode);"
+echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('H1')[0];"
+echo "  elmnt.style.display = 'none';"
+echo "} </script>"
+
+</footer>
+
+
 </html>
 EOH
 
