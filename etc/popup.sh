@@ -114,6 +114,17 @@ cat <<EOC
 
 EOC
 
+
+#echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
+
+echo '<script>'
+echo "function myFunctionxx() {"
+echo "  var iframe = document.getElementById($eppstatuscode);"
+echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0]; }"
+echo "  elmnt.style.display = 'none';"
+echo '</script>'
+
+
 echo '</head>'
 
 echo '<body>'
@@ -146,24 +157,6 @@ EOH
 echo '</body>'
 
 echo '<footer>'
-
-echo '<script>'
-
-echo "function myFunctionxxx() {"
-echo "\$('#target-div').load('/cgi-bin/eppstatuscodes.sh#\$eppstatuscode');"
-echo "}"
-
-echo '</script>'
-
-
-#echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
-
-echo '<script>'
-echo "function myFunctionxx() {"
-echo "  var iframe = document.getElementById($eppstatuscode);"
-echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0]; }"
-echo "  elmnt.style.display = 'none';"
-echo '</script>'
 
 echo '</footer>'
 
