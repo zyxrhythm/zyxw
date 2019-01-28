@@ -24,7 +24,10 @@ echo '<head>'
 cat << EOSS
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	
+<script>
+$('#target-div').load('/cgi-bin/eppstatuscodes.sh #$eppstatuscode');
+</script>
+
 EOSS
 
 
@@ -122,7 +125,7 @@ echo "$eppstatuscode"
 
 cat << EOH
 
-<a class="trigger_popup_fricc" onclick="myFunctionxx();">Click here to show the popup</a>
+<a class="trigger_popup_fricc" onclick="myFunctionxx()" >Click here to show the popup</a>
 
 <div class="hover_bkgr_fricc">
     <span class="helper"></span>
@@ -130,7 +133,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" style="height:666px;width:100%"></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh #$eppstatuscode" style="height:666px;width:100%"></iframe>
 
 	</p>
 	</div>
