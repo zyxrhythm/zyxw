@@ -65,6 +65,7 @@ cat <<EOC
 .hover_bkgr_fricc .helper{
     display:inline-block;
     height:100%;
+    width:100%;
     vertical-align:middle;
 }
 .hover_bkgr_fricc > div {
