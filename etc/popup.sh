@@ -110,18 +110,18 @@ EOC
 
 echo '</head>'
 
-cat << EOH
-<body>
-
-<script>
-function myFunctionxx() {
-  var iframe = document.getElementById("$eppstatuscode");
-  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
-  elmnt.style.display = "none";
-}
-</script>
+echo '<body>'
+echo '<script>'
+echo 'function myFunctionxx() {'
+echo '  var iframe = document.getElementById("$eppstatuscode");'
+echo '  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];'
+echo '  elmnt.style.display = "none";'
+echo '} </script>'
 
 <!-- from https://html-online.com/articles/simple-popup-box/ -->
+
+
+cat << EOH
 
 <a class="trigger_popup_fricc" onclick="myFunctionxx();">Click here to show the popup</a>
 
