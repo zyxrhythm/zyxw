@@ -41,7 +41,18 @@ function openPopup() {
   if (window.focus) 
     popup.focus();
 }
+
 </script>
+
+
+<script>
+function myFunctionxx() {
+  var iframe = document.getElementById("addperiod");
+  var elmnt = iframe.contentWindow.document.getElementsByTagName("table")[0];
+  elmnt.style.display = "none";
+}
+</script>
+
 
 EOS
 
@@ -126,7 +137,6 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
-
 </style>
 
 EOC
@@ -136,7 +146,7 @@ echo '</head>'
 cat << EOH
 <body>
 
-<a class="trigger_popup_fricc">Click here to show the popup</a>
+<a class="trigger_popup_fricc" onclick="myFunctionxx();">Click here to show the popup</a>
 
 <div class="hover_bkgr_fricc">
     <span class="helper"></span>
