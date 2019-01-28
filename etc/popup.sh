@@ -133,7 +133,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<table value="#addperiod">
+<table value="#">
 
 	<p>
 
