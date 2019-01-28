@@ -43,7 +43,7 @@ echo "</script>"
 #from https://html-online.com/articles/simple-popup-box/
 
 
-eppstatuscode="ok"
+eppstatuscode="pendingdelete"
 
 cat <<EOC
 
