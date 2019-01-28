@@ -65,7 +65,6 @@ cat <<EOC
 .hover_bkgr_fricc .helper{
     display:inline-block;
     height:100%;
-    width:100%;
     vertical-align:middle;
 }
 .hover_bkgr_fricc > div {
@@ -76,10 +75,10 @@ cat <<EOC
     max-width: 551px;
     min-height: 100px;
     vertical-align: middle;
-    width: 60%;
+    width: 80%;
     position: relative;
-    border-radius: 8px;
-    padding: 15px 5%;
+    border-radius: 3px;
+    padding: 6px 5%;
 }
 .popupCloseButton {
     background-color: #fff;
