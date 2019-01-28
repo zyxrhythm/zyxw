@@ -68,7 +68,7 @@ cat <<EOC
     vertical-align:middle;
 }
 .hover_bkgr_fricc > div {
-    background-color: #321;
+    background-color: #301;
     box-shadow: 10px 10px 60px #555;
     display: inline-block;
     height: auto;
