@@ -36,6 +36,9 @@ echo "	\$('.hover_bkgr_fricc').hide(); }); });"
 echo "</script>"
 #from https://html-online.com/articles/simple-popup-box/
 
+
+eppstatuscode="ok"
+
 cat <<EOC
 
 <style>
@@ -109,9 +112,6 @@ echo '</head>'
 
 cat << EOH
 <body>
-
-eppstatuscode="ok"
-
 
 <script>
 function myFunctionxx() {
