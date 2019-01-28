@@ -70,7 +70,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="addperiod">
+<div id="addperiod">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -84,6 +85,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -92,7 +94,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="autorenewperiod" >
+<div id="autorenewperiod">
+<table >
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -106,6 +109,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -114,7 +118,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="inactive">
+<div id="inactive">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -129,6 +134,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -137,7 +143,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="ok">
+<div id="ok">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -152,6 +159,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -160,7 +168,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingcreate">
+<div id="pendingcreate">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -175,6 +184,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -183,7 +193,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingdelete">
+<div id="pendingdelete">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -198,6 +209,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -206,7 +218,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingrenew">
+<div id="pendingrenew">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -220,6 +233,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -228,7 +242,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingrestore">
+<div id="pendingrestore">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -242,6 +257,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -250,7 +266,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingtransfer">
+<div id="pendingtransfer">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -264,6 +281,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -272,7 +290,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="pendingupdate">
+<div id="pendingupdate">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -286,6 +305,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -294,7 +314,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="redemptionperiod">
+<div id="redemptionperiod">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -308,6 +329,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -316,7 +338,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="renewperiod">
+<div id="renewperiod">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -330,6 +353,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -338,7 +362,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="serverdeleteprohibited">
+<div id="serverdeleteprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -353,6 +378,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -361,7 +387,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="serverhold">
+<div id="serverhold">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -375,6 +402,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -383,7 +411,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="serverrenewprohibited">
+<div id="serverrenewprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -397,6 +426,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -405,7 +435,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="servertransferprohibited">
+<div id="servertransferprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -420,6 +451,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -428,7 +460,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="serverupdateprohibited">
+<div id="serverupdateprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -443,6 +476,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -451,7 +485,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="transferperiod">
+<div id="transferperiod">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -465,6 +500,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -475,7 +511,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="clientdeleteprohibited">
+<div id="clientdeleteprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -489,6 +526,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -497,7 +535,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="clienthold">
+<div id="clienthold">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -511,6 +550,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -519,7 +559,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="clientrenewprohibited">
+<div id="clientrenewprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -533,6 +574,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -541,7 +583,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="clienttransferprohibited">
+<div id="clienttransferprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -555,6 +598,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
@@ -563,7 +607,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<table id="clientupdateprohibited">
+<div id="clientupdateprohibited">
+<table>
 <tbody>
 <tr>
 <th>Status Code</th>
@@ -577,6 +622,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tr>
 </tbody>
 </table>
+</div>
 
 <br>
 <br>
