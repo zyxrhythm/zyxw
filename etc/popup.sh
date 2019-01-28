@@ -130,7 +130,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" "allow-top-navigation" ></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" "allow-top-navigation"  object-fit ></iframe>
 
 	</p>
 	</div>
