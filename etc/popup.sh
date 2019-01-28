@@ -154,7 +154,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/eppstatuscodes.sh#addperiod" style="height:380px;width:100%"></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#addperiod" style="height:416px;width:100%"></iframe>
 
 	</p>
 	</div>
