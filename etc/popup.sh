@@ -148,7 +148,7 @@ echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
 echo '<script>'
 echo "function myFunctionxx() {"
 echo "  var iframe = document.getElementById($eppstatuscode);"
-echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('H1')[0];"
+echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('table')[0];"
 echo "  elmnt.style.display = 'none';"
 echo "} </script>"
 
