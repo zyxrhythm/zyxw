@@ -36,7 +36,7 @@ function openPopup() {
   var popup = window.open("", "", "width=640,height=480,resizeable,scrollbars"),
       table = document.getElementById("addperiod");
 
-  popup.document.write(table.innerHTML);
+  popup.document.write(table.outerHTML);
   popup.document.close();
   if (window.focus) 
     popup.focus();
