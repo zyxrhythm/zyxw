@@ -130,13 +130,11 @@ cat << EOH
     </div>
 </div>
 
+EOH
 
-<!-- from https://html-online.com/articles/simple-popup-box/ -->
+echo '</body>'
 
-
-</body>
-
-<footer>
+echo '<footer>'
 
 echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
 
@@ -147,10 +145,9 @@ echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('H1')[0];
 echo "  elmnt.style.display = 'none';"
 echo "} </script>"
 
-</footer>
+echo '</footer>'
 
+echo '</html>'
 
-</html>
-EOH
 
 exit 0;
