@@ -157,9 +157,9 @@ echo '</script>'
 echo '<script>'
 echo "function myFunctionxx() {"
 echo "  var iframe = document.getElementById($eppstatuscode);"
-echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0];"
+echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0]; }"
 echo "  elmnt.style.display = 'none';"
-echo "} </script>"
+echo '</script>'
 
 echo '</footer>'
 
