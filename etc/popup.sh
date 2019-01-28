@@ -134,12 +134,10 @@ cat << EOH
         <p>
 
 <table value="#">
-
-	<p>
+</table>
 
 	</p>
 	</div>
-	</p>
     </div>
 </div>
 
