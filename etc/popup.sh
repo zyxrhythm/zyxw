@@ -21,6 +21,15 @@ echo '<title>BBC Special</title>'
 #start of head
 echo '<head>'
 
+cat << EOSS
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+EOSS
+
+
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 #from https://html-online.com/articles/simple-popup-box/
