@@ -110,9 +110,12 @@ echo '</head>'
 cat << EOH
 <body>
 
+eppstatuscode="ok"
+
+
 <script>
 function myFunctionxx() {
-  var iframe = document.getElementById("$eppstatus");
+  var iframe = document.getElementById("$eppstatuscode");
   var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
   elmnt.style.display = "none";
 }
