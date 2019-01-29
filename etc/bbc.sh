@@ -42,6 +42,7 @@ cat <<EOT
 
 <style>
 
+a {text-decoration: none; }
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
@@ -107,6 +108,7 @@ function removeSpecialCharacters(string) {
 
 <p>
 
+<!--BBC SPECIALS -->
 <form method="get">
 <label>Domain/IP address:</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none;">
@@ -121,8 +123,21 @@ function removeSpecialCharacters(string) {
 
 </p>
 
+<p>
+
+<!-- WHO YOU-->
+<form action="bbcws.sh" method="get">
+<label>Domain: </label> 
+
+<input id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+
+<button id="whoyoubtn" type="submit" >Who You</button>
+</form>
+
+</p>
 <br>
 
+<!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
 <h1>Big Nick Digger</h1>
@@ -162,7 +177,7 @@ function removeSpecialCharacters(string) {
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.567
+rev.666
 <br>
 <br>
 <br>
