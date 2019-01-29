@@ -160,6 +160,11 @@ done < <(printf '%s\n' "$1");
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
+
+if [[ -z "$1" ]]; then echo "No A Record/s Found. "; 
+
+else
+
 while IFS= read -r line
 do
    ar0=$(whois $line );
@@ -168,6 +173,8 @@ do
    arx=$( echo "$ar2" | sort -u );
    echo "<br/>   $line --- <a href=/cgi-bin/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
 done < <(printf '%s\n' "$1");
+
+fi
 }
 
 #MX Record/s Function
