@@ -146,10 +146,6 @@ cat << EOH
 	</p>
 	</div>
     </div>
-    
-    <iframe id="myFrame" src='https://securitytrails.com/domain/ipage.com/history/ns" style="height:666px;width:100%" ></iframe>
-
-  
 </div>
 
 EOH
