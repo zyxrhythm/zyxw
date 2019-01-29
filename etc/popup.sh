@@ -30,6 +30,7 @@ EOSS
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
+<!-- from https://html-online.com/articles/simple-popup-box -->
 #from https://html-online.com/articles/simple-popup-box/
 echo "<script>"
 echo "	\$(window).load(function () {"
@@ -41,7 +42,7 @@ echo "	\$('.popupCloseButton').click(function(){"
 echo "	\$('.hover_bkgr_fricc').hide(); }); });"
 echo "</script>"
 #from https://html-online.com/articles/simple-popup-box/
-
+<!-- from https://html-online.com/articles/simple-popup-box -->
 
 eppstatuscode="pendingdelete"
 
