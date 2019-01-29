@@ -130,6 +130,7 @@ echo "$eppstatuscode"
 
 cat << EOH
 
+<!-- from https://html-online.com/articles/simple-popup-box -->
 <a class="trigger_popup_fricc" onclick="myFunctionxx(); myFunctionxxx()" >Click here to show the popup</a>
 
 <div class="hover_bkgr_fricc">
@@ -138,12 +139,14 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" ></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target="_parent"' style="height:666px;width:100%" ></iframe>
 
 	</p>
 	</div>
     </div>
 </div>
+
+<!-- from https://html-online.com/articles/simple-popup-box -->
 
 EOH
 
