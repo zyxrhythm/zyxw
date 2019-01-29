@@ -114,9 +114,6 @@ cat <<EOC
 
 EOC
 
-
-#echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
-
 echo '<script>'
 echo "function myFunctionxx() {"
 echo "  var iframe = document.getElementById($eppstatuscode);"
@@ -141,7 +138,7 @@ cat << EOH
         <div class="popupCloseButton">X</div>
         <p>
 
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" "allow-top-navigation"  object-fit ></iframe>
+<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" ></iframe>
 
 	</p>
 	</div>
