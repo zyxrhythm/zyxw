@@ -161,7 +161,7 @@ done < <(printf '%s\n' "$1");
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
 
-if [[ -z "$1" ]]; then echo "No A Record/s Found. "; 
+if [[ -z "$1" ]]; then echo "No A Record/s Found. <br/>"; 
 
 else
 
@@ -181,7 +181,7 @@ fi
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
 
-if [[ -z "$1" ]]; then echo "No MX Record/s Found. "; 
+if [[ -z "$1" ]]; then echo "No MX Record/s Found. <br/>"; 
 
 else
 
