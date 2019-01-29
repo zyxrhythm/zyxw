@@ -41,7 +41,6 @@ cat <<EOT
 </script>
 
 <style>
-a {text-decoration: none; }
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
