@@ -50,6 +50,7 @@ cat <<EODHEAD
 
 <style>
 
+a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
