@@ -180,6 +180,11 @@ fi
 #MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
+
+if [[ -z "$1" ]]; then echo "No MX Record/s Found. "; 
+
+else
+
 while IFS= read -r line
 do
    echo "$line <br/> ";
@@ -207,6 +212,7 @@ fi
    echo "<br/> <br>"
 done < <(printf '%s\n' "$1");
 
+fi
 }
 
 #=====================
