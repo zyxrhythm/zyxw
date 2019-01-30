@@ -133,7 +133,7 @@ zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 cat <<EODR
 
 <br/>
-DIG $DNSR record  of domain: $domain from the name server: ${qns#*@}.
+<h1>DIG $DNSR record  of domain: $domain from the name server: ${qns#*@}.</h1>
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>$zyxgd</pre>
