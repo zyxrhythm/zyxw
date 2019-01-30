@@ -116,6 +116,29 @@ EOTSE
 
 else
 
+
+#ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
+
+	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+
+ reverseip=$(echo $domain | tr -d '\040\011\012\015' );
+	zyxrip=$(dig -x $reverseip );
+
+cat << EORIP
+
+<body>
+<button onclick="copyClipboard1()">BBC Copy</button>
+<br/>
+<div id="divClipboard1">
+e<pre> $zyxrip </pre>
+<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+</body>
+</html>
+
+EORIP
+	
+ else
+
 #cuts and extracts the TLD
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -192,6 +215,7 @@ EOS2
 echo '</body>'
 echo '</html>'
 
+ fi
 fi
 
 exit 0;
