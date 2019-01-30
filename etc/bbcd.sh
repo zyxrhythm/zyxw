@@ -157,12 +157,11 @@ else
 
 cat << EORIP
 <body>
-<p> </p>
+<p><h1>Reverse DNS:</h1><br/></p>
 <div id="divClipboard">
 <p>
-<h1>Reverse DNS:</h1><br/>
-<strong>IP address -</strong> $xip <br>
-<strong>Domain/Hostname -</strong> $zyxrip
+<strong>IP address :</strong> $xip <br>
+<strong>Domain/Hostname :</strong> $zyxrip
 </p>
 </div>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
