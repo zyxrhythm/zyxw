@@ -72,7 +72,6 @@ function copyClipboard() {
   }
 }
 
-
 function copyClipboard0() {
   var elm = document.getElementById("divClipboard0");
   // for Internet Explorer
@@ -123,7 +122,6 @@ function copyClipboard1() {
 
 //from http://edupala.com/copy-div-content-clipboard/
 
-
 // from https://www.w3schools.com/howto/howto_js_tabs.asp
 
 function whoisserver(evt, ws) {
@@ -155,7 +153,6 @@ EOS2
 #CSS 
 cat <<EOS
 <style>
-
 
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
  /* Style the tab */
