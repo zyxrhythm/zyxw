@@ -338,7 +338,7 @@ cat <<EOWIR0
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
 	<strong>Whois server:</strong> ${rws0#*server}
-	<br/>
+	<br/> <br/>
 	<button onclick="copyClipboard()">BBC Copy</button>
 	<br/>
 	<div id="divClipboard">
@@ -350,7 +350,7 @@ cat <<EOWIR0
 
 <div id="Registrar" class="tabcontent" >
 	<strong>Whois server:</strong> $rws
-	<br/>
+	<br/> <br/>
 	<button onclick="copyClipboard0()">BBC Copy</button>
 	<br/>
 	<div id="divClipboard0">
