@@ -115,7 +115,7 @@ function removeSpecialCharacters(string) {
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <br>
-<button formaction="bbcx.sh">BBC Special</button>
+<button formaction="bbcx.sh">BBC</button>
 <button formaction="bbcdc.sh">SSLc</button>
 
 </form>
@@ -126,11 +126,11 @@ function removeSpecialCharacters(string) {
 
 <!-- WHO YOU-->
 <form action="bbcws.sh" method="get">
-<label>WHO YOU: </label> <br>
+<label>Who You: </label> <br>
 
 <input placeholder="Domain/IP address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
-<button id="whoyoubtn" type="submit" >Who You</button>
+<button id="whoyoubtn" type="submit" >Who is</button>
 </form>
 
 </p>
