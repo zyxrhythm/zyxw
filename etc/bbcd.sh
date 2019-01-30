@@ -102,7 +102,7 @@ if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
 
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 Blank Space. . . ?!?
 <br> <br>
@@ -116,7 +116,6 @@ EOTSE
 
 else
 
-
 	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 
  xip=$(echo $domain | tr -d '\040\011\012\015' );
@@ -124,8 +123,7 @@ else
 
 cat << EORIP
 
-<body>
-<div id="divClipboard1">
+<div id="divClipboard">
 <pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 
@@ -146,8 +144,8 @@ zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 cat <<EODR
 
 <br/>
-<h1>DIG: <strong>$(echo $DNSR |  awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> domain from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
-<div class="code-bg" id="divClipboard">
+<h1>DIG: <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> domain from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
+<div id="divClipboard">
 <p>
 <pre>$zyxgd</pre>
 <br>
@@ -159,7 +157,7 @@ EODR
 #error for non domain input
    *)
 
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 echo '<p>'
 echo " Not a valid input! To know more about DIG you can click here" 
 echo '</p>'
