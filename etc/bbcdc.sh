@@ -166,7 +166,7 @@ cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-<strong>Resolves to</strong> : $IP <br><br>
+<strong>Domain resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Domain/s</strong> : $Target <br>
 <strong>Expiration</strong> : $Expiry
@@ -189,7 +189,7 @@ cat << EOIDNE
 
 <body>
 <div class="code-bg" id="divClipboard">
-<p>'
+<p>
 Not a domain. Sorna.
 </p>
 </div>
