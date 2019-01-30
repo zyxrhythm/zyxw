@@ -78,9 +78,6 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
 qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
@@ -101,7 +98,7 @@ echo '<br>'
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
-
+<body>
 <div id="divClipboard">
 <p>
 Blank Space. . . ?!?
@@ -111,8 +108,14 @@ Is that you Taylor Swift?!?
 OMG! - I love you! - Will you marry me!
 <br> <br>
 If not! - Please input a domain name. Sorna.
+</p>
+</div>
+</body>
+</html>
 
 EOTSE
+
+exit 0;
 
 else
 
@@ -122,14 +125,19 @@ else
 	zyxrip=$(dig -x $xip +noall +answer );
 
 cat << EORIP
-
+<body>
 <div id="divClipboard">
 <p>
 <pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
-
+</p>
+</div>
+</body>
+</html>
 EORIP
-	
+
+exit 0;
+
  else
 
 #cuts and extracts the TLD
@@ -143,33 +151,38 @@ case $tld in
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
 cat <<EODR
-
+<body>
 <br/>
 <h1>DIG: <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> domain from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
 <div id="divClipboard">
 <p>
 <pre>$zyxgd</pre>
 <br>
-
+</p>
+</div>
+</body>
+</html>
 EODR
 
 ;;
 
 #error for non domain input
    *)
+cat << EOIIE
+<body>
+<div id="divClipboard">
+<p>'
+Not a valid input! To know more about DIG you can click here
+</p>
+</div>
+</body>
+</html>
+EOIIE
 
-echo '<div id="divClipboard">'
-echo '<p>'
-echo " Not a valid input! To know more about DIG you can click here" 
-echo '</p>'
-
+exit 0;
 ;;
 
 esac
-
-echo '</p>'
-
-echo '</div>'
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
 
@@ -203,10 +216,6 @@ function copyClipboard() {
 }
 </script>
 EOS2
-
-#end of body and html
-echo '</body>'
-echo '</html>'
 
 	fi
 fi
