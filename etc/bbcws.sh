@@ -196,8 +196,7 @@ cat <<EOS
 
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
 
-
-
+a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
