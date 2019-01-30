@@ -64,6 +64,7 @@ EOS
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
 cat <<EOS2
 
+<!-- from http://edupala.com/copy-div-content-clipboard -->
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
@@ -89,6 +90,8 @@ function copyClipboard() {
   }
 }
 </script>
+<!-- from http://edupala.com/copy-div-content-clipboard -->
+
 EOS2
 
 
@@ -103,9 +106,6 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 #end of head
 echo '</head>'
 
-#start of body
-echo '<body>'
-
 #stores the string from bbc.sh to a variable converts all uppercase to lowercase
 qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
@@ -119,11 +119,13 @@ domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 #gets what type of check needs to be done
 dcheck=$(echo $qs | sed 's/.*dcheck=//');
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 echo '<br>'
+
+#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
 cat <<EOTS
+<body>
 <div class="code-bg" id="divClipboard">
 <p>
 Blank Space?!? . . .
@@ -149,10 +151,7 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld
 case $tld in
    $gcctldlist)
-
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
+   
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
 IP=$(dig +short a $domain);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
@@ -166,38 +165,52 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 #Daysleft=$(echo $Expiry0 | cut -c 25- +%s) 
 
 #prints the result of the ssl check for gtlds
-echo "Resolves to:      "$IP""
-echo "<br>"
-echo "Cert Issuer:      $Issuer"
-echo "<br>"
-echo "Domain/s   :      $Target"
-echo "<br>"
-echo "Expiration :      $Expiry"
-echo "<br>"
-#echo "Days Left        $Daysleft:"
-echo "<br>"
+cat << EOSSLCCR
+<body>
+<div class="code-bg" id="divClipboard">
+<p>
+Resolves to: $IP
+<br>
+Cert Issuer: $Issuer
+<br>
+Domain/s   :      $Target
+<br>
+Expiration :      $Expiry
+</p>
+</div>
+<br>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+</body>
+</html>
+EOSSLCCR
+
+exit 0;
 
 ;;
 
 #throws in errors for non domain input
    *)
+cat << EOIDNE
+<body>
+<div class="code-bg" id="divClipboard">
+<p>'
+Not a domain. Sorna.
+</p>
+</div>
+<br>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+</body>
+</html>
 
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-echo " Not a domain. Sorna." 
+EOIDNE
+
+exit 0;
 
 ;;
 
 esac
-
-echo '</p>'
-
-echo '</div>'
-
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-#end of body and html
-echo '</body>'
-echo '</html>'
 
 fi
 
