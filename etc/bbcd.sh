@@ -120,7 +120,7 @@ else
 	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 
  xip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig +short -x $xip +noall +answer );
+	zyxrip=$(dig -x $xip +noall +answer );
 
 cat << EORIP
 
