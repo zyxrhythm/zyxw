@@ -122,7 +122,7 @@ DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
-if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
+		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 echo '<br>'
@@ -150,7 +150,7 @@ exit 0;
 
 else
 
-	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR"="ptr" ]]; then
+	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]]; then
 
  xip=$(echo $domain | tr -d '\040\011\012\015' );
 	zyxrip=$(dig -x $xip +noall +answer );
