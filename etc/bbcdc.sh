@@ -165,13 +165,12 @@ cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-Resolves to: $IP <br>
-Cert Issuer: $Issuer <br>
-Domain/s: $Target <br>
+Resolves to : $IP <br><br>
+Cert Issuer : $Issuer <br>
+Domain/s : $Target <br>
 Expiration : $Expiry
 </p>
 </div>
-<br>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
 </body>
