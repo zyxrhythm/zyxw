@@ -57,6 +57,8 @@ h1 { font-family: verdana; font-size: 70%;
 body { background-color:black; color:white;
 }
 
+strong { color: green;
+}
 </style>
 
 EOS
@@ -94,7 +96,6 @@ function copyClipboard() {
 <!-- from http://edupala.com/copy-div-content-clipboard -->
 
 EOS2
-
 
 #the back link
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
@@ -149,7 +150,7 @@ tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
 #checks if the domain is a gtld
 case $tld in
    $gcctldlist)
-   
+
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
 IP=$(dig +short a $domain);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
@@ -165,10 +166,10 @@ cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-Resolves to : $IP <br><br>
-Cert Issuer : $Issuer <br>
-Domain/s : $Target <br>
-Expiration : $Expiry
+<strong>Resolves to</strong> : $IP <br><br>
+<strong>Cert Issuer</strong> : $Issuer <br>
+<strong>Domain/s</strong> : $Target <br>
+<strong>Expiration</strong> : $Expiry
 </p>
 </div>
 <br>
