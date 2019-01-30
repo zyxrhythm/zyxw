@@ -120,13 +120,13 @@ else
 	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 
  xip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig +short -x $xip );
+	zyxrip=$(dig +short -x $xip +noall +answer );
 
 cat << EORIP
 
 <body>
 <div id="divClipboard1">
-<pre> $zyxrip </pre>
+<pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -163,7 +163,7 @@ EODR
 
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
-echo " Not a valid domain!." 
+echo " Not a valid input! To know more about DIG you can click here" 
 echo '</p>'
 
 ;;
@@ -211,7 +211,7 @@ EOS2
 echo '</body>'
 echo '</html>'
 
- fi
+	fi
 fi
 
 exit 0;
