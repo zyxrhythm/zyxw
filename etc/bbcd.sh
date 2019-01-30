@@ -81,11 +81,8 @@ echo '</head>'
 #start of body
 echo '<body>'
 
-#stores the string from bbc.sh to a variable
-qs0=$QUERY_STRING;
-
-#converts uppercase from the query string to lowecase
-qs=$(echo $qs0 | awk '{print tolower($0)}');
+#stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
+qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
 #list of supported TLDs
 shopt -s extglob
