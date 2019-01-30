@@ -148,7 +148,7 @@ zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 cat <<EODR
 
 <br/>
-<h1>DIG <strong>$(echo $DNSR |  awk '{print toupper($0)}' )</strong> record/s  of <br>domain: <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> <br>from name server: <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
+<h1>DIG: <strong>$(echo $DNSR |  awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> domain from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>$zyxgd</pre>
