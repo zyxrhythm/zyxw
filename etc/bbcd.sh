@@ -153,14 +153,16 @@ else
 	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]]; then
 
  xip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig -x $xip +noall +answer );
+	zyxrip=$(dig -x $xip +short );
 
 cat << EORIP
 <body>
 <p> </p>
 <div id="divClipboard">
 <p>
-<pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
+<h1>Reverse DNS:</h1><br/>
+<strong>IP address -</strong> $xip <br>
+<strong>Domain/Hostname -</strong> $zyxrip
 </p>
 </div>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
