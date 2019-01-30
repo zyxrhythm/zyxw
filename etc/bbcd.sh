@@ -67,6 +67,37 @@ strong{ color:green;
 
 EOS
 
+# the javascript that copies the contents of div to clipboard
+#this is a snippet from http://edupala.com/copy-div-content-clipboard/
+cat <<EOS2
+
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+
+  }
+}
+</script>
+EOS2
+
 #the back button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
 
@@ -185,37 +216,6 @@ exit 0;
 esac
 
 echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
-
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-</script>
-EOS2
 
 	fi
 fi
