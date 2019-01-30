@@ -265,21 +265,24 @@ exit 0;
 else
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
+#from 
 
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois );
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
+cat << EOWIIPR
 
-echo '<body>'
-echo '<button onclick="copyClipboard1()">BBC Copy</button>'
-echo '<br/>'
-echo '<div id="divClipboard1">'
-echo "<pre> $zyxip0 </pre>"
-echo '<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>'
-echo '</body>'
-echo '</html>'
+<body>
+<button onclick="copyClipboard1()">BBC Copy</button>
+<br/>
+<div id="divClipboard1">
+e<pre> $zyxip0 </pre>
+<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+</body>
+</html>
 
+EOWIIPR
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
@@ -405,12 +408,17 @@ exit 0;
 
 #throw an error for everything else
    *)
-echo '<button onclick="copyClipboard1()">BBC Copy</button>'
-echo '<div id="divClipboard1">'
-echo '<p>'
-echo " Not a valid domain!." 
-echo '</p>'
-echo '</div>'
+
+cat << EONAVDE
+
+<button onclick="copyClipboard1()">BBC Copy</button>
+<div id="divClipboard1">
+<p>
+Not a valid domain!.
+</p>
+</div>
+
+EONAVDE
 
 ;;
 
