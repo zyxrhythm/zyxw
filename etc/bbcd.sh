@@ -54,10 +54,13 @@ p  {font-family: verdana; font-size: 85%;
 h1 { font-family: verdana; font-size: 80%;
 }
 
-body { background-color:black;color:white
+body { background-color:black; color:white;
 }
 
 pre{ white-space: pre-wrap;font-size: 107%;
+}
+
+strong{ color:green;
 }
 
 </style>
