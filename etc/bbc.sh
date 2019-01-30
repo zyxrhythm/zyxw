@@ -155,7 +155,9 @@ removes nasty white spaces on the text fields that causes alot of issue
   <option>NS</option>
   <option>SOA</option>
   <option>SPF</option>
+  <option>PTR</option>
   <option selected>ANY</option>
+  <option>ReverseIP</option>
 </select> 
 <button type="submit"> D I G </button>
 <br> <br>
