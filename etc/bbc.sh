@@ -139,7 +139,7 @@ function removeSpecialCharacters(string) {
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<h1>Big Nick Digger</h1>
+<label>Big Nick Digger</label>
 <!-- <label>Domain:</label> --> <br> 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
