@@ -119,10 +119,10 @@ else
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
 
-	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ && "$DNSR"="reverseip" ]]; then
 
- reverseip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig -x $reverseip );
+ xip=$(echo $domain | tr -d '\040\011\012\015' );
+	zyxrip=$(dig -x $xip );
 
 cat << EORIP
 
