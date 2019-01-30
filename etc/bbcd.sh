@@ -157,7 +157,7 @@ else
 
 cat << EORIP
 <body>
-<p><h1>Reverse DNS:</h1><br/></p>
+<p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
 <p>
 <strong>IP address :</strong> $xip <br>
