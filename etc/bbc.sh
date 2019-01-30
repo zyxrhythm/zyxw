@@ -110,7 +110,7 @@ function removeSpecialCharacters(string) {
 
 <!--BBC SPECIALS -->
 <form method="get">
-<label>Domain/IP address:</label> <br>
+<label>Domain:</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none;">
 
 <input id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
@@ -127,7 +127,7 @@ function removeSpecialCharacters(string) {
 
 <!-- WHO YOU-->
 <form action="bbcws.sh" method="get">
-<label>Domain: </label> 
+<label>Domain: </label> <br>
 
 <input id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
