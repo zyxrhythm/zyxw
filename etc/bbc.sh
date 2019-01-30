@@ -148,7 +148,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 <!-- <label>Domain:</label> --> <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
-<code>[If an IP address is placed it will reverse it to a host name]</code>
+<code>[Reverse IP address - use PTR]</code>
 <br>
 <select name='record'> 
   <option>A</option>
