@@ -124,6 +124,7 @@ else
 cat << EORIP
 
 <div id="divClipboard">
+<p>
 <pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 
