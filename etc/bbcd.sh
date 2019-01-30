@@ -51,7 +51,7 @@ a:visited { color: red;  }
 p  {font-family: verdana; font-size: 85%;
 }
 
-h1 { font-family: verdana; font-size: 70%;
+h1 { font-family: verdana; font-size: 80%;
 }
 
 body { background-color:black;color:white
@@ -133,7 +133,7 @@ zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 cat <<EODR
 
 <br/>
-<h1>DIG $DNSR record  of domain: $domain from the name server: ${qns#*@}.</h1>
+<h1>DIG $DNSR record/s  of domain: $domain from the name server: ${qns#*@}.</h1>
 <div class="code-bg" id="divClipboard">
 <p>
 <pre>$zyxgd</pre>
