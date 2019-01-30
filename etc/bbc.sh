@@ -149,15 +149,14 @@ removes nasty white spaces on the text fields that causes alot of issue
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
 <select name='record'> 
-  <option>MX</option>
   <option>A</option>
-  <option>TXT</option>
+  <option>MX</option>
   <option>NS</option>
+  <option>TXT</option>
   <option>SOA</option>
   <option>SPF</option>
   <option>PTR</option>
   <option selected>ANY</option>
-  <option>ReverseIP</option>
 </select> 
 <button type="submit"> D I G </button>
 <br> <br>
