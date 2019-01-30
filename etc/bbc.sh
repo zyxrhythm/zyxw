@@ -99,6 +99,11 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
+<!--
+thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
+removes nasty white spaces on the text fields that causes alot of issue
+-->
+
 <center>
 <p>
 <h4>
