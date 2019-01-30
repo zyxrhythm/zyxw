@@ -128,8 +128,6 @@ cat << EORIP
 <div id="divClipboard1">
 <pre> $(echo "$zyxrip" | sed -e '1,/+cmd/d') </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
-</body>
-</html>
 
 EORIP
 	
