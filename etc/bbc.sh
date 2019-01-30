@@ -146,7 +146,9 @@ removes nasty white spaces on the text fields that causes alot of issue
 <form action="bbcd.sh" method="get">
 <label>Big Nick Digger</label>
 <!-- <label>Domain:</label> --> <br> 
-<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
+<br>
+<code>[If an IP address is placed it will reverse it to a host name]</code>
 <br>
 <select name='record'> 
   <option>A</option>
