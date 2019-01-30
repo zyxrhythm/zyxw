@@ -181,7 +181,7 @@ fi
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
 
-if [[ -z "$1" ]]; then echo "No MX Record/s Found. <br/>"; 
+if [[ -z "$1" ]]; then echo "<br/> No MX Record/s Found. <br/>"; 
 
 else
 
