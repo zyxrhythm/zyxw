@@ -156,7 +156,7 @@ function removeSpecialCharacters(string) {
 <br> <br>
 <input id="BBCinput" type="text" placeholder="@Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
 <br>
-<code><strong>@</strong>[ 8.8.8.8 (Default)]</code>
+<code>[<strong>8.8.8.8</strong> (Default)]</code>
 </form>
 </p>
 
