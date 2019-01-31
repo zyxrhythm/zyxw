@@ -138,7 +138,7 @@ echo "    <div class="hover_bkgr_fricc">
     </p>
     </div>
     </div>
-    </div>"
+"
 }
 ##############################################
 #FUNCTIONS
