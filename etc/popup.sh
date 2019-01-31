@@ -122,19 +122,20 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 EOCSSPU
 
 echo '</head>'
-
+#NEBULA
+#<span class="helper"></span>
+#<div>
+#</div>
 ##############################################
 #FUNCTIONS
 ##############################################
 statpopup () {
 echo "    <div class="hover_bkgr_fricc">
-    <span class="helper"></span>
-    <div>
+
     <div class="popupCloseButton">X</div>
     <p>
     $1
     </p>
-    </div>
     </div>
 "
 }
