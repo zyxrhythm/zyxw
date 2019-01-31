@@ -135,7 +135,7 @@ echo '</head>'
 
 echo '<body>'
 
-parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^$eppstatuscode/,/^</div>/p;/^</div>/q');
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n "/^$eppstatuscode/,/^</div>/p;/^</div>/q");
 echo "$eppstatuscode"
 echo '<br>'
 echo "<pre>$parsedtable</pre>"
