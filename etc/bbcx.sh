@@ -191,15 +191,15 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
 #from https://html-online.com/articles/simple-popup-box/
-echo "<script>"
-echo "	\$(window).load(function () {"
-echo "	\$('.trigger_popup_fricc').click(function(){"
-echo "	\$('.hover_bkgr_fricc').show(); });"
-echo "	\$('.hover_bkgr_fricc').click(function(){"
-echo "	\$('.hover_bkgr_fricc').hide(); });"
-echo "	\$('.popupCloseButton').click(function(){"
-echo "	\$('.hover_bkgr_fricc').hide(); }); });"
-echo "</script>"
+echo "<script>
+\$(window).load(function () {
+\$('.trigger_popup_fricc').click(function(){
+\$('.hover_bkgr_fricc').show(); });
+\$('.hover_bkgr_fricc').click(function(){
+\$('.hover_bkgr_fricc').hide(); });
+\$('.popupCloseButton').click(function(){
+\$('.hover_bkgr_fricc').hide(); }); });
+</script>"
 #from https://html-online.com/articles/simple-popup-box/
 echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
 
