@@ -238,9 +238,9 @@ do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
-   echo "<div class="hover_bkgr_fricc">
+   echo "<div class="hover_bkgr_fricc" style="display:none">
          <span class="helper"></span>
-         <div>
+         <div style="display:none">
          <div class="popupCloseButton">X</div>
          <p>$parsedtable</p>
          </div>
