@@ -141,9 +141,7 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target="_parent" style="height:666px;width:100%" ></iframe>
-
+$parsedtable
 	</p>
 	</div>
     </div>
