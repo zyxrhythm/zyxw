@@ -70,6 +70,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tagaddperiod0-->
 <div id="addperiod">
 <table>
 <tbody>
@@ -86,6 +87,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tagaddperiod0-->
 
 <br>
 <br>
@@ -94,6 +96,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tagautorenewperiod0-->
 <div id="autorenewperiod">
 <table >
 <tbody>
@@ -110,6 +113,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tagautorenewperiod1-->
 
 <br>
 <br>
@@ -118,6 +122,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag0-->
 <div id="inactive">
 <table>
 <tbody>
@@ -135,6 +140,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -143,6 +149,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="ok">
 <table>
 <tbody>
@@ -160,6 +167,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -168,6 +176,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingcreate">
 <table>
 <tbody>
@@ -185,6 +194,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -193,6 +203,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingdelete">
 <table>
 <tbody>
@@ -210,6 +221,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -218,6 +230,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingrenew">
 <table>
 <tbody>
@@ -234,6 +247,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -242,6 +256,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingrestore">
 <table>
 <tbody>
@@ -258,6 +273,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -266,6 +282,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingtransfer">
 <table>
 <tbody>
@@ -282,6 +299,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -290,6 +308,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="pendingupdate">
 <table>
 <tbody>
@@ -306,6 +325,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -314,6 +334,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="redemptionperiod">
 <table>
 <tbody>
@@ -330,6 +351,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -338,6 +360,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="renewperiod">
 <table>
 <tbody>
@@ -354,6 +377,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -362,6 +386,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="serverdeleteprohibited">
 <table>
 <tbody>
@@ -379,6 +404,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -387,6 +413,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="serverhold">
 <table>
 <tbody>
@@ -403,6 +430,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -411,6 +439,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="serverrenewprohibited">
 <table>
 <tbody>
@@ -427,6 +456,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -435,6 +465,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="servertransferprohibited">
 <table>
 <tbody>
@@ -452,6 +483,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -460,6 +492,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="serverupdateprohibited">
 <table>
 <tbody>
@@ -477,6 +510,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -485,6 +519,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="transferperiod">
 <table>
 <tbody>
@@ -501,6 +536,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -511,6 +547,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="clientdeleteprohibited">
 <table>
 <tbody>
@@ -527,6 +564,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -535,6 +573,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="clienthold">
 <table>
 <tbody>
@@ -551,6 +590,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -559,6 +599,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="clientrenewprohibited">
 <table>
 <tbody>
@@ -575,6 +616,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -583,6 +625,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="clienttransferprohibited">
 <table>
 <tbody>
@@ -599,6 +642,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
@@ -607,6 +651,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--tag-->
 <div id="clientupdateprohibited">
 <table>
 <tbody>
@@ -623,6 +668,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--tag-->
 
 <br>
 <br>
