@@ -131,12 +131,13 @@ echo '</head>'
 ##############################################
 statpopup () {
 echo "    <div class="hover_bkgr_fricc">
-
+<div>
     <div class="popupCloseButton">X</div>
     <p>
     $1
     </p>
     </div>
+</div>
 "
 }
 ##############################################
