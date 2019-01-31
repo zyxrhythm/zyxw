@@ -230,33 +230,21 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
-#Status Pop-Up function
-statpopup () {
-echo "<div class="hover_bkgr_fricc">
-          <span class="helper"></span>
-        <div>
-      <div class="popupCloseButton">X</div>
-      <p>$1</p>
-        </div>
-      </div>
-      "
-}
-
 #Domain Status Function
 #function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$line"0-->/,/^<!--tag"$line"1-->/p;/^<!--tag"$line"1-->/q');
+   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$line"'0-->/,/^<!--tag'"$line"'1-->/p;/^<!--tag'"$line"'1-->/q');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
    echo "<div class="hover_bkgr_fricc">
-          <span class="helper"></span>
-        <div>
-      <div class="popupCloseButton">X</div>
-      <p>$parsedtable</p>
-        </div>
-      </div>
+         <span class="helper"></span>
+         <div>
+         <div class="popupCloseButton">X</div>
+         <p>$parsedtable</p>
+         </div>
+         </div>
       "
 done < <(printf '%s\n' "$1");
 }
