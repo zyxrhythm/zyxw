@@ -112,6 +112,11 @@ function copyClipboard() {
 }
 </script>
 
+<!-- 
+The javascript that copies the contents of div to clipboard.
+this is a snippet from http://edupala.com/copy-div-content-clipboard/
+-->
+
 EODHEAD0
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
