@@ -117,6 +117,21 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
+cat << JAVSCRIPT1
+
+
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+
+JAVSCRIPT1
+
+
 </style>
 
 EOCSSPU
@@ -157,6 +172,17 @@ echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>'
 
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
+
+
+
+cat << HIDESHOWDIV
+ <button onclick="myFunction()">Click Me</button>
+
+<div id="myDIV">
+  This is my DIV element.
+</div> 
+HIDESHOWDIV
+
 
 ##############################################
 echo '</body>'
