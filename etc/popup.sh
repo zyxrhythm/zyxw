@@ -151,7 +151,7 @@ echo '<body>'
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
 
 echo "$eppstatuscode"
-<a class="trigger_popup_fricc" >Click here to show the popup</a>
+ehcho '<a class="trigger_popup_fricc" >Click here to show the popup</a>'
 
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
