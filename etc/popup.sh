@@ -124,8 +124,7 @@ EOCSSPU
 
 
 cat << JAVSCRIPT1
-
-
+<script>
 function myFunction() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
@@ -134,7 +133,7 @@ function myFunction() {
     x.style.display = "none";
   }
 } 
-
+</script>
 JAVSCRIPT1
 
 
