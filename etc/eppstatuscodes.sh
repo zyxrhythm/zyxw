@@ -193,6 +193,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
+<!--pendingdelete-->
 <div id="pendingdelete">
 <table>
 <tbody>
@@ -210,6 +211,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
+<!--pendingdelete-->
 
 <br>
 <br>
