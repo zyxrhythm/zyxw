@@ -102,10 +102,10 @@ cat <<EOCSSPU
 }
 .trigger_popup_fricc {
     cursor: pointer;
-    font-size: 20px;
+    /*font-size: 20px;*/
     margin: 20px;
     display: inline-block;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 /* Popup box BEGIN */
 /* from https://html-online.com/articles/simple-popup-box/ */
