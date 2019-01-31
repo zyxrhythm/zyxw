@@ -180,7 +180,7 @@ echo "$lineprint";
 
 
 cat << HIDESHOWDIV
- <button onclick="myFunction()">Click Me</button>
+ <a onclick="myFunction()">Click Me</a>
 
 <div id="myDIV">
   This is my DIV element.
