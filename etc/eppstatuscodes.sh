@@ -87,7 +87,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tagaddperiod0-->
+<!--tagaddperiod1-->
 
 <br>
 <br>
@@ -122,7 +122,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag0-->
+<!--taginactive0-->
 <div id="inactive">
 <table>
 <tbody>
@@ -140,7 +140,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--taginactive1-->
 
 <br>
 <br>
@@ -149,7 +149,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagok0-->
 <div id="ok">
 <table>
 <tbody>
@@ -167,7 +167,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagok1-->
 
 <br>
 <br>
@@ -176,7 +176,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingcreate0-->
 <div id="pendingcreate">
 <table>
 <tbody>
@@ -194,7 +194,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingcreate1-->
 
 <br>
 <br>
@@ -203,7 +203,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingdelete0-->
 <div id="pendingdelete">
 <table>
 <tbody>
@@ -221,7 +221,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingdelete1-->
 
 <br>
 <br>
@@ -230,7 +230,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingrenew0-->
 <div id="pendingrenew">
 <table>
 <tbody>
@@ -247,7 +247,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingrenew1-->
 
 <br>
 <br>
@@ -256,7 +256,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingrestore0-->
 <div id="pendingrestore">
 <table>
 <tbody>
@@ -273,7 +273,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingrestore1-->
 
 <br>
 <br>
@@ -282,7 +282,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingtransfer0-->
 <div id="pendingtransfer">
 <table>
 <tbody>
@@ -299,7 +299,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingtransfer1-->
 
 <br>
 <br>
@@ -308,7 +308,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagpendingupdate0-->
 <div id="pendingupdate">
 <table>
 <tbody>
@@ -325,7 +325,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagpendingupdate1-->
 
 <br>
 <br>
@@ -334,7 +334,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagredemptionperiod0-->
 <div id="redemptionperiod">
 <table>
 <tbody>
@@ -351,7 +351,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagredemptionperiod1-->
 
 <br>
 <br>
@@ -360,7 +360,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagrenewperiod0-->
 <div id="renewperiod">
 <table>
 <tbody>
@@ -377,7 +377,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagrenewperiod1-->
 
 <br>
 <br>
@@ -386,7 +386,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagserverdeleteprohibited0-->
 <div id="serverdeleteprohibited">
 <table>
 <tbody>
@@ -404,7 +404,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagserverdeleteprohibited1-->
 
 <br>
 <br>
@@ -413,7 +413,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagserverhold0-->
 <div id="serverhold">
 <table>
 <tbody>
@@ -430,7 +430,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagserverhold1-->
 
 <br>
 <br>
@@ -439,7 +439,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagserverrenewprohibited0-->
 <div id="serverrenewprohibited">
 <table>
 <tbody>
@@ -456,7 +456,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagserverrenewprohibited1-->
 
 <br>
 <br>
@@ -465,7 +465,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagservertransferprohibited0-->
 <div id="servertransferprohibited">
 <table>
 <tbody>
@@ -483,7 +483,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagservertransferprohibited1-->
 
 <br>
 <br>
@@ -492,7 +492,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagserverupdateprohibited0-->
 <div id="serverupdateprohibited">
 <table>
 <tbody>
@@ -510,7 +510,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagserverupdateprohibited1-->
 
 <br>
 <br>
@@ -519,7 +519,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagtransferperiod0-->
 <div id="transferperiod">
 <table>
 <tbody>
@@ -536,7 +536,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagtransferperiod1-->
 
 <br>
 <br>
@@ -547,7 +547,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagclientdeleteprohibited0-->
 <div id="clientdeleteprohibited">
 <table>
 <tbody>
@@ -564,7 +564,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagclientdeleteprohibited1-->
 
 <br>
 <br>
@@ -573,7 +573,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagclienthold0-->
 <div id="clienthold">
 <table>
 <tbody>
@@ -590,7 +590,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagclienthold1-->
 
 <br>
 <br>
@@ -599,7 +599,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagclientrenewprohibited0-->
 <div id="clientrenewprohibited">
 <table>
 <tbody>
@@ -616,7 +616,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagclientrenewprohibited1-->
 
 <br>
 <br>
@@ -625,7 +625,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagclienttransferprohibited0-->
 <div id="clienttransferprohibited">
 <table>
 <tbody>
@@ -642,7 +642,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagclienttransferprohibited1-->
 
 <br>
 <br>
@@ -651,7 +651,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<!--tag-->
+<!--tagclientupdateprohibited0-->
 <div id="clientupdateprohibited">
 <table>
 <tbody>
@@ -668,7 +668,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 </div>
-<!--tag-->
+<!--tagclientupdateprohibited1-->
 
 <br>
 <br>
