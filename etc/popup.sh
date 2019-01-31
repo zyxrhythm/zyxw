@@ -129,8 +129,7 @@ echo '<body>'
 
 
 statpopup () {
-   cat << DSTATPOPUP
-    <div class="hover_bkgr_fricc">
+echo "    <div class="hover_bkgr_fricc">
     <span class="helper"></span>
     <div>
     <div class="popupCloseButton">X</div>
@@ -139,8 +138,7 @@ statpopup () {
     </p>
     </div>
     </div>
-    </div>
-   DSTATPOPUP
+    </div>"
 }
 
 
@@ -169,9 +167,8 @@ $parsedtable
 
 EOH
 
-
-  lineprint=$( statpopup "$parsedtable"); 
-  echo "$lineprint";
+lineprint=$( statpopup "$parsedtable"); 
+echo "$lineprint";
 
 echo '</body>'
 
