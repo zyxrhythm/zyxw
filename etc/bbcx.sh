@@ -250,8 +250,14 @@ do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$line"0-->/,/^<!--tag"$line"1-->/p;/^<!--tag"$line"1-->/q');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
-  lineprint=$( statpopup "$parsedtable"); 
-  echo "$lineprint";
+   echo "<div class="hover_bkgr_fricc">
+          <span class="helper"></span>
+        <div>
+      <div class="popupCloseButton">X</div>
+      <p>$parsedtable</p>
+        </div>
+      </div>
+      "
 done < <(printf '%s\n' "$1");
 }
 
