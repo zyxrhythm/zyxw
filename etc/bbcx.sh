@@ -236,8 +236,8 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    echo  "<br/> <a class='trigger_popup_fricc' style='color:tomato'>[?]</a> ${line#*#}
+   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    <div class='hover_bkgr_fricc'>
          <span class='helper'></span>
          <div>
