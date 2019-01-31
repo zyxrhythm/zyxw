@@ -238,7 +238,7 @@ statpopup () {
     <div>
     <div class="popupCloseButton">X</div>
     <p>
-    $parsedtable
+    $1
     </p>
     </div>
     </div>
@@ -254,7 +254,8 @@ do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$eppstat"0-->/,/^<!--tag"$eppstat"1-->/p;/^<!--tag"$eppstat"1-->/q');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
-  statpopup
+  lineprint=$( statpopup "$parsedtable"); 
+  echo "$lineprint"
 done < <(printf '%s\n' "$1");
 }
 
