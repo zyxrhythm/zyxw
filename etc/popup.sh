@@ -134,7 +134,7 @@ echo "<pre>$parsedtable</pre>"
 cat << EOH
 
 <!-- from https://html-online.com/articles/simple-popup-box -->
-<a class="trigger_popup_fricc" onclick="myFunctionxx(); myFunctionxxx()" >Click here to show the popup</a>
+<a class="trigger_popup_fricc" >Click here to show the popup</a>
 
 <div class="hover_bkgr_fricc">
     <span class="helper"></span>
