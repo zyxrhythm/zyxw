@@ -234,7 +234,7 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   echo  "</br> <a href=/cgi-bin/etc/eppstatuscodes.sh#$eppstat target=_blank style="color:tomato"> [?]</a> ${line#*#}";
+   echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
 done < <(printf '%s\n' "$1");
 }
 
