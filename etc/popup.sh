@@ -81,7 +81,7 @@ cat <<EOCSSPU
     padding: 4px 5%;
 }
 .popupCloseButton {
-    background-color: #fff;
+    background-color: #000;
     border: 3px solid #999;
     border-radius: 50px;
     cursor: pointer;
