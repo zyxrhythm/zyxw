@@ -125,9 +125,9 @@ EOCSSPU
 
 echo '</head>'
 
-echo '<body>'
-
-
+##############################################
+#FUNCTIONS
+##############################################
 statpopup () {
 echo "    <div class="hover_bkgr_fricc">
     <span class="helper"></span>
@@ -140,37 +140,24 @@ echo "    <div class="hover_bkgr_fricc">
     </div>
     </div>"
 }
+##############################################
+#FUNCTIONS
+##############################################
 
-
+##############################################
+echo '<body>'
+##############################################
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
 
 echo "$eppstatuscode"
 
-cat << EOH
-
-<!-- from https://html-online.com/articles/simple-popup-box -->
-<a class="trigger_popup_fricc" >Click here to show the popup</a>
-
-<div class="hover_bkgr_fricc">
-    <span class="helper"></span>
-    <div>
-        <div class="popupCloseButton">X</div>
-        <p>
-$parsedtable
-	</p>
-	</div>
-    </div>
-</div>
-
-<!-- from https://html-online.com/articles/simple-popup-box -->
-
-EOH
-
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
 
+##############################################
 echo '</body>'
+##############################################
 
 echo '<footer>'
 
