@@ -117,6 +117,12 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
+</style>
+
+EOCSSPU
+
+
+
 cat << JAVSCRIPT1
 
 
@@ -132,9 +138,8 @@ function myFunction() {
 JAVSCRIPT1
 
 
-</style>
 
-EOCSSPU
+
 
 echo '</head>'
 #NEBULA
