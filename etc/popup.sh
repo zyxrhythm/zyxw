@@ -46,7 +46,7 @@ echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
 
 eppstatuscode="pendingdelete"
 
-cat <<EOC
+cat <<EOCSSPU
 
 <style>
 
@@ -121,15 +121,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-EOC
-
-echo '<script>'
-echo "function myFunctionxx() {"
-echo "  var iframe = document.getElementById($eppstatuscode);"
-echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0]; }"
-echo "  elmnt.style.display = 'none';"
-echo '</script>'
-
+EOCSSPU
 
 echo '</head>'
 
