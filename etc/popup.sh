@@ -144,9 +144,9 @@ echo "    <div class="hover_bkgr_fricc">
 
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
+
 echo "$eppstatuscode"
-echo '<br>'
-echo "<pre>$parsedtable</pre>"
+
 cat << EOH
 
 <!-- from https://html-online.com/articles/simple-popup-box -->
