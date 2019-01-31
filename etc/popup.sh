@@ -127,8 +127,10 @@ echo '</head>'
 
 echo '<body>'
 
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--pendingdelete0-->/,/^<!--pendingdelete--1>/p;/^<!--pendingdelete1-->/q');
 echo "$eppstatuscode"
-
+echo '<br>'
+echo "<pre>$parsedtable</pre>"
 cat << EOH
 
 <!-- from https://html-online.com/articles/simple-popup-box -->
