@@ -242,7 +242,7 @@ do
          <span class="helper"></span>
          <div>
          <div class="popupCloseButton">X</div>
-         <p>$parsedtable</p>
+         $parsedtable
          </div>
          </div>
       "
