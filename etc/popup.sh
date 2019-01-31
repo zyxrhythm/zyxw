@@ -177,12 +177,13 @@ echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>'
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
 
+echo "$parsedtable"
 
 
 cat << HIDESHOWDIV
  <a href=# onclick="myFunction()">Click Me</a>
 
-<div id="myDIV">
+<div id="pendingdelete">
   This is my DIV element.
 </div> 
 HIDESHOWDIV
