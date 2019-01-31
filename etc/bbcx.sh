@@ -21,7 +21,7 @@ echo '<title>BBC Special</title>'
 echo '<head>'
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-cat <<EODHEAD
+cat <<EODHEAD0
 
 <!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
@@ -112,14 +112,33 @@ function copyClipboard() {
 }
 </script>
 
+EODHEAD0
+
+echo '<link rel="icon" type="image/png" href="/icon.png" />'
+
+echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
+#from https://html-online.com/articles/simple-popup-box/
+echo "<script>"
+echo "	\$(window).load(function () {"
+echo "	\$('.trigger_popup_fricc').click(function(){"
+echo "	\$('.hover_bkgr_fricc').show(); });"
+echo "	\$('.hover_bkgr_fricc').click(function(){"
+echo "	\$('.hover_bkgr_fricc').hide(); });"
+echo "	\$('.popupCloseButton').click(function(){"
+echo "	\$('.hover_bkgr_fricc').hide(); }); });"
+echo "</script>"
+#from https://html-online.com/articles/simple-popup-box/
+echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
+
+cat  << EODHEAD1
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
 <br/>
 <hr>
 <button onclick="copyClipboard()">BBC Copy</button>
 
 </head>
+EODHEAD1
 
-EODHEAD
 
 #stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
