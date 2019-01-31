@@ -127,6 +127,24 @@ echo '</head>'
 
 echo '<body>'
 
+
+statpopup () {
+   cat << DSTATPOPUP
+    <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+    <div class="popupCloseButton">X</div>
+    <p>
+    $1
+    </p>
+    </div>
+    </div>
+    </div>
+   DSTATPOPUP
+}
+
+
+
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
 echo "$eppstatuscode"
 echo '<br>'
@@ -150,6 +168,10 @@ $parsedtable
 <!-- from https://html-online.com/articles/simple-popup-box -->
 
 EOH
+
+
+  lineprint=$( statpopup "$parsedtable"); 
+  echo "$lineprint";
 
 echo '</body>'
 
