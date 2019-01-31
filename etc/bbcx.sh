@@ -214,7 +214,7 @@ EODHEAD1
 
 
 #stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
+qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}' );
 
 #list of supported TLDs
 shopt -s extglob
@@ -230,14 +230,8 @@ domain=$(echo $qs | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
-#Domain Status Function
-#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-dsfunction () {
-while IFS= read -r line
-do
-   eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$eppstat"0-->/,/^<!--tag"$eppstat"1-->/p;/^<!--tag"$eppstat"1-->/q');
-   echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
+#Status Pop-Up function
+statpopup () {
    cat << DSTATPOPUP
     <div class="hover_bkgr_fricc">
     <span class="helper"></span>
@@ -250,6 +244,17 @@ do
     </div>
     </div>
    DSTATPOPUP
+}
+
+#Domain Status Function
+#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
+dsfunction () {
+while IFS= read -r line
+do
+   eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
+   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$eppstat"0-->/,/^<!--tag"$eppstat"1-->/p;/^<!--tag"$eppstat"1-->/q');
+   echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
+  statpopup
 done < <(printf '%s\n' "$1");
 }
 
