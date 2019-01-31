@@ -44,8 +44,6 @@ echo "</script>"
 #from https://html-online.com/articles/simple-popup-box/
 echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
 
-eppstatuscode="pendingdelete"
-
 cat <<EOCSSPU
 
 <style>
@@ -147,8 +145,9 @@ echo "    <div class="hover_bkgr_fricc">
 ##############################################
 echo '<body>'
 ##############################################
+eppstatuscode="pendingdelete"
 
-parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$eppstatuscode"0-->/,/^<!--tag"$eppstatuscode"1-->/p;/^<!--tag"$eppstatuscode"1-->/q');
 
 echo "$eppstatuscode"
 
