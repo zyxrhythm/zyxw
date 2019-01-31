@@ -127,7 +127,7 @@ echo '</head>'
 
 echo '<body>'
 
-parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag"$eppstatuscode"0-->/,/^<!--tag"$eppstatuscode"1-->/p;/^<!--tag"$eppstatuscode"1-->/q');
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tagpendingdelete0-->/,/^<!--tagpendingdelete1-->/p;/^<!--tagpendingdelete1-->/q');
 echo "$eppstatuscode"
 echo '<br>'
 echo "<pre>$parsedtable</pre>"
