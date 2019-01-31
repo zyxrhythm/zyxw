@@ -111,7 +111,7 @@ pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
     padding: 4px 5%;
 }
 .popupCloseButton {
-    background-color: #fff;
+    background-color: #000;
     border: 3px solid #999;
     border-radius: 50px;
     cursor: pointer;
@@ -236,7 +236,7 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$line"'0-->/,/^<!--tag'"$line"'1-->/p;/^<!--tag'"$line"'1-->/q;');
+   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
    echo "<div class="hover_bkgr_fricc">
          <span class="helper"></span>
