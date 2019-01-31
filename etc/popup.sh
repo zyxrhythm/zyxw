@@ -147,7 +147,7 @@ echo '<body>'
 ##############################################
 eppstatuscode="pendingdelete"
 
-parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode'"1-->/p;/^<!--tag'"$eppstatuscode'"1-->/q;');
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
 
 echo "$eppstatuscode"
 
