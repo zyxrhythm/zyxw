@@ -418,7 +418,7 @@ __________________________
 EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
+echo "<a href="/cgi-bin/eppstatuscodes.sh" rel='noopener noreferrer' target='_blank'>[+]</a><strong> [Domain Status:]</strong>"
 
 echo "<br/>"
 
