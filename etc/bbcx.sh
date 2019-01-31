@@ -48,6 +48,8 @@ cat <<EODHEAD0
   });
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
 <style>
 
 a {text-decoration: none; }
@@ -231,10 +233,25 @@ domain=$(echo $qs | cut -f2 -d"=" );
 #Domain Status Function
 #function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
+
+parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^"$eppstatuscode"/,/^</div>/p;/^</div>/q');
+
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    echo  "</br> <a class="trigger_popup_fricc" "color:tomato">[?]</a> ${line#*#}";
+   cat << DSTATPOPUP
+    <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+    <div class="popupCloseButton">X</div>
+    <p>
+    $parsedtable
+    </p>
+    </div>
+    </div>
+    </div>
+   DSTATPOPUP
 done < <(printf '%s\n' "$1");
 }
 
