@@ -37,22 +37,14 @@ POOHSEECAT
 
 echo "
 <script>
-function myFunction() {
-  var x = document.getElementById('$eppstatuscode');
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
-  }
-} 
+function myFunction() { var x = document.getElementById('$eppstatuscode'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
 </script>
 "
 echo "<button onclick='myFunction()'>Click Me</button>"
 
-echo "<div id='$eppstatuscode'>
-  $parsedtable
-</div> 
-"
+echo "<div id='$eppstatuscode'>$parsedtable</div>"
 ###########################################
 echo '</body>'
 ###########################################
