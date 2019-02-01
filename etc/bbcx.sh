@@ -78,68 +78,6 @@ body { background-color:black; color:white;
 pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
 }
 
-/* from https://html-online.com/articles/simple-popup-box/ */
-/* Popup box BEGIN */
-.hover_bkgr_fricc{
-    background:rgba(0,0,0,.4);
-    cursor:pointer;
-    display:none;
-    height:100%;
-    position:fixed;
-    text-align:center;
-    top:0;
-    width:100%;
-    z-index:10000;
-}
-.hover_bkgr_fricc .helper{
-    display:inline-block;
-    height:100%;
-    vertical-align:middle;
-}
-.hover_bkgr_fricc > div {
-    color: white;
-    background-color: #000;
-    box-shadow: 10px 10px 60px #555;
-    display: inline-block;
-    height: auto;
-    max-width: 560px;
-    min-height: 100px;
-    vertical-align: middle;
-    width: 82%;
-    position: relative;
-    border-radius: 3px;
-    padding: 4px 5%;
-}
-.popupCloseButton {
-    background-color: #000;
-    border: 3px solid #999;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-weight: bold;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 25px;
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-}
-.popupCloseButton:hover {
-    background-color: #ccc;
-}
-.trigger_popup_fricc {
-    cursor: pointer;
-    /*font-size: 20px;*/
-    margin: 20px;
-    display: inline-block;
-    /*font-weight: bold;*/
-}
-/* Popup box BEGIN */
-/* from https://html-online.com/articles/simple-popup-box/ */
-
 table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 th { border: 2px solid green;
@@ -189,20 +127,6 @@ EODHEAD0
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
-#from https://html-online.com/articles/simple-popup-box/
-echo "<script>
-\$(window).load(function () {
-\$('.trigger_popup_fricc').click(function(){
-\$('.hover_bkgr_fricc').show(); });
-\$('.hover_bkgr_fricc').click(function(){
-\$('.hover_bkgr_fricc').hide(); });
-\$('.popupCloseButton').click(function(){
-\$('.hover_bkgr_fricc').hide(); }); });
-</script>"
-#from https://html-online.com/articles/simple-popup-box/
-echo '<!-- from https://html-online.com/articles/simple-popup-box -->'
-
 cat  << EODHEAD1
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
 <br/>
@@ -240,13 +164,7 @@ do
    
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    
-   echo "<div class='hover_bkgr_fricc'>
-         <span class='helper' ></span>
-         <div visibility: collapse;>
-         <div class='popupCloseButton'>X</div>
-         $parsedtable
-         </div>
-         </div>
+   echo "
       "
 done < <(printf '%s\n' "$1");
 }
