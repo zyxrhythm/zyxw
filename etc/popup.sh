@@ -23,6 +23,10 @@ cat << HEADERSCRIPTS
 
 HEADERSCRIPTS
 
+cat << HEADERSTYLES
+
+HEADERSTYLES
+
 ###########################################
 echo '</head>'
 ###########################################
