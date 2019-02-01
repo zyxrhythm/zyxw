@@ -158,9 +158,6 @@ echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>'
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
 
-echo "$parsedtable"
-
-
 cat << JAVSCRIPT1
 <script>
 function myFunction() {
