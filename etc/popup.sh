@@ -117,6 +117,11 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
+.hidden{
+       display:none;
+    }
+
+
 </style>
 
 EOCSSPU
@@ -178,6 +183,33 @@ cat << HIDESHOWDIV
 echo "$parsedtable"
 </div> 
 HIDESHOWDIV
+
+
+cat << STACKOVERFLOW
+
+<script>
+
+function toggleDiv(divId) {
+        $("#"+divId).toggle(); 
+    }
+</script>
+
+
+
+<a href="javascript:toggleDiv('myContent');">this is a test</a>
+<div id="myContent" class='hidden'>
+  <div>this is a test #1 </div>
+</div> 
+<br />
+<a href="javascript:toggleDiv('myContentt');"><span>this is a text</span></a>
+<div id="myContentt" class='hidden'>
+ this is a test #2
+</div>
+
+STACKOVERFLOW
+
+
+
 
 
 ##############################################
