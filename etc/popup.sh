@@ -41,7 +41,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 "
-echo "<a href="" class='button' onclick='myFunction()'>Click Me</a>"
+echo "<a stayle='cursor: pointer' class='button' onclick='myFunction()'>Click Me</a>"
 
 echo "<div id='$eppstatuscode' style="display:none" >$parsedtable</div>"
 ###########################################
