@@ -10,25 +10,18 @@
 #start the html header
 echo "Content-type: text/html"
 echo ""
-
 echo '<!DOCTYPE html>'
-
 echo '<html>'
-
-#Tab title
 echo '<title>BBC Special</title>'
-
-#start of head
+###########################################
 echo '<head>'
+###########################################
 
-</style>
-
-EOCSSPU
-
+###########################################
 echo '</head>'
-##############################################
+###########################################
 echo '<body>'
-##############################################
+###########################################
 eppstatuscode="pendingdelete"
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
@@ -86,9 +79,9 @@ $('.targetDiv').hide();
 
 POOHSEECAT1
 
-##############################################
+###########################################
 echo '</body>'
-##############################################
+###########################################
 
 echo '<footer>'
 
