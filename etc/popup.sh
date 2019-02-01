@@ -156,9 +156,9 @@ eppstatuscode="pendingdelete"
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
 
-echo "$eppstatuscode"
+echo "$eppstatuscode" <br>
 
-echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>'
+echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>' <br>
 
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
@@ -186,19 +186,11 @@ echo "$parsedtable"
 HIDESHOWDIV
 
 
-cat << STACKOVERFLOW
+cat << POOHSEECAT1
 
-<a href="javascript:toggleDiv('$eppstatuscode');">this is a test</a>
-<div id="myContent" class='hidden'>
-  <div>this is a test #1 </div>
-</div> 
-<br />
-<a href="javascript:toggleDiv('$eppstatuscode');"><span>this is a text</span></a>
-<div id="myContentt" class='hidden'>
- this is a test #2
-</div>
 
-STACKOVERFLOW
+
+POOHSEECAT1
 
 ##############################################
 echo '</body>'
