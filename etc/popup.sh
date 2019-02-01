@@ -180,7 +180,8 @@ JAVSCRIPT1
 
 cat << HIDESHOWDIV
  <a href=# onclick="myFunction()">Click Me</a>
-echo "$parsedtable"
+$parsedtable
+
 </div> 
 HIDESHOWDIV
 
