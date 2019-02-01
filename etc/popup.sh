@@ -134,7 +134,7 @@ echo "    <div class="hover_bkgr_fricc">
 <div>
     <div class="popupCloseButton">X</div>
     <p>
-    $1
+    
     </p>
     </div>
 </div>
@@ -175,7 +175,7 @@ cat << HIDESHOWDIV
  <a href=# onclick="myFunction()">Click Me</a>
 
 <div id="pendingdelete">
-  This is my DIV element.
+echo "$parsedtable"
 </div> 
 HIDESHOWDIV
 
