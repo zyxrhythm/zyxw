@@ -19,7 +19,7 @@ echo '<head>'
 
 cat << HEADERSCRIPTS
 
-<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
 $('.targetDiv').hide();
