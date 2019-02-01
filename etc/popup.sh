@@ -174,6 +174,7 @@ function myFunction() {
   }
 } 
 </script>
+
 JAVSCRIPT1
 
 cat << HIDESHOWDIV
@@ -187,15 +188,6 @@ HIDESHOWDIV
 
 cat << STACKOVERFLOW
 
-<script>
-
-function toggleDiv(divId) {
-        $("#"+divId).toggle(); 
-    }
-</script>
-
-
-
 <a href="javascript:toggleDiv('$eppstatuscode');">this is a test</a>
 <div id="myContent" class='hidden'>
   <div>this is a test #1 </div>
@@ -208,10 +200,6 @@ function toggleDiv(divId) {
 
 STACKOVERFLOW
 
-
-
-
-
 ##############################################
 echo '</body>'
 ##############################################
@@ -221,6 +209,5 @@ echo '<footer>'
 echo '</footer>'
 
 echo '</html>'
-
 
 exit 0;
