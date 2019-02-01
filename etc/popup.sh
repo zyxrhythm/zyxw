@@ -28,7 +28,6 @@ parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/
 echo "+++++++++++++++++++++++++++ <br>"
 echo "$eppstatuscode <br>" 
 echo "+++++++++++++++++++++++++++ <br>"
-echo "$parsedtable <br>" 
 echo "+++++++++++++++++++++++++++ <br>"
 
 cat << POOHSEECAT
