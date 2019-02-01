@@ -28,13 +28,6 @@ parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/
 echo "+++++++++++++++++++++++++++ <br>"
 echo "$eppstatuscode <br>" 
 echo "+++++++++++++++++++++++++++ <br>"
-echo "+++++++++++++++++++++++++++ <br>"
-
-cat << POOHSEECAT
-
-
-POOHSEECAT
-
 echo "<script>
 function myFunction() { var x = document.getElementById('$eppstatuscode'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
