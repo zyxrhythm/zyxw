@@ -33,7 +33,7 @@ echo '<a class="trigger_popup_fricc" >Click here to show the popup</a> <br>'
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
 
-cat << JAVSCRIPT1
+cat << POOHSEECAT1
 
 <script>
 function myFunction() {
@@ -46,17 +46,9 @@ function myFunction() {
 } 
 </script>
 
-JAVSCRIPT1
-
-cat << HIDESHOWDIV
- <a href=# onclick="myFunction()">Click Me</a>
+<a href=# onclick="myFunction()">Click Me</a>
 $parsedtable
-
 </div> 
-HIDESHOWDIV
-
-
-cat << POOHSEECAT1
 
 <script>
 $('.targetDiv').hide();
