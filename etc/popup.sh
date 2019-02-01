@@ -17,17 +17,6 @@ echo '<title>POP UP</title>'
 echo '<head>'
 ###########################################
 
-cat << HEADERSCRIPTSJS
-
-
-
-HEADERSCRIPTSJS
-
-
-cat << HEADERSTYLESCSS
-
-HEADERSTYLESCSS
-
 ###########################################
 echo '</head>'
 ###########################################
@@ -58,11 +47,11 @@ function myFunction() {
   }
 } 
 </script>
+"
 
+echo "<button onclick="myFunction()">Click Me</button>"
 
- <button onclick="myFunction()">Click Me</button>
-
-<div id='$eppstatuscode'>
+echo "<div id='$eppstatuscode'>
   $parsedtable
 </div> 
 "
