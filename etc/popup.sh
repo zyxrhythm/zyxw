@@ -44,7 +44,7 @@ else { x.style.display = 'none'; } }
 "
 echo "<button onclick='myFunction()'>Click Me</button>"
 
-echo "<div id='$eppstatuscode'>$parsedtable</div>"
+echo "<div id='$eppstatuscode' style="display:none" >$parsedtable</div>"
 ###########################################
 echo '</body>'
 ###########################################
