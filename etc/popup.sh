@@ -47,11 +47,11 @@ echo '<body>'
 eppstatuscode="pendingdelete"
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
-echo"+++++++++++++++++++++++++++ <br>"
+echo "+++++++++++++++++++++++++++ <br>"
 echo "$eppstatuscode <br>" 
-echo"+++++++++++++++++++++++++++ <br>"
+echo "+++++++++++++++++++++++++++ <br>"
 echo "$parsedtable <br>" 
-echo"+++++++++++++++++++++++++++ <br>"
+echo "+++++++++++++++++++++++++++ <br>"
 cat << POOHSEECAT
 
 <div class="buttons">
