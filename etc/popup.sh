@@ -121,25 +121,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 EOCSSPU
 
-
-
-cat << JAVSCRIPT1
-<script>
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-} 
-</script>
-JAVSCRIPT1
-
-
-
-
-
 echo '</head>'
 #NEBULA
 #<span class="helper"></span>
@@ -179,6 +160,19 @@ echo "$lineprint";
 
 echo "$parsedtable"
 
+
+cat << JAVSCRIPT1
+<script>
+function myFunction() {
+  var x = document.getElementById("$eppstatuscode");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+</script>
+JAVSCRIPT1
 
 cat << HIDESHOWDIV
  <a href=# onclick="myFunction()">Click Me</a>
