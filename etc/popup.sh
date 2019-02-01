@@ -19,14 +19,11 @@ echo '<head>'
 
 cat << HEADERSCRIPTSJS
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 HEADERSCRIPTSJS
 
-
 echo "
-</script>
-
 <script>
 \$('.targetDiv').hide();
     \$('.show').click(function () {
