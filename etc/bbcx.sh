@@ -163,11 +163,11 @@ do
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    echo  "<br/> <a style='cursor: pointer; color:tomato ' class='button' onclick='js$eppstat()'>[?]</a> ${line#*#}" 
    echo "<script>
-          function js$eppstat() { var x = document.getElementById('$eppstat'); 
+          function js$eppstat() { var x = document.getElementById('$eppstat'func); 
           if (x.style.display === 'none') { x.style.display = 'block'; } 
           else { x.style.display = 'none'; } } 
           </script>"
-echo "<div id='$eppstat' style='display:none'> $parsedtable </div>"
+echo "<div id='$eppstat'func style='display:none'> $parsedtable </div>"
 done < <(printf '%s\n' "$1");
 }
 
