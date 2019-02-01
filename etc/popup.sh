@@ -19,7 +19,13 @@ echo '<head>'
 
 cat << HEADERSCRIPTS
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+
+<script>
+$('.targetDiv').hide();
+    $('.show').click(function () {
+        $('#div' + $(this).attr('target')).toggle('').siblings('.targetDiv').hide('');
+</script>
 
 HEADERSCRIPTS
 
@@ -37,34 +43,9 @@ eppstatuscode="pendingdelete"
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
 
 echo "$eppstatuscode <br>" 
+echo "$parsedtable <br>" 
 
-cat << POOHSEECAT0
-
-<script>
-function myFunction() {
-  var x = document.getElementById("$eppstatuscode");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-} 
-</script>
-
-<script>
-$('.targetDiv').hide();
-    $('.show').click(function () {
-        $('#div' + $(this).attr('target')).toggle('').siblings('.targetDiv').hide('');
-    });
-</script>
-
-POOHSEECAT0
-
-cat << POOHSEECAT1
-
-<a href="#" onclick="myFunction()">Click Me</a>
-$parsedtable
-</div> 
+cat << POOHSEECAT
 
 <div class="buttons">
     <a  class="show" target="1">Option 1</a>
@@ -78,7 +59,7 @@ $parsedtable
 <div id="div3" class="targetDiv">Lorum Ipsum 3</div>
 <div id="div4" class="targetDiv">Lorum Ipsum 4</div>
 
-POOHSEECAT1
+POOHSEECAT
 
 ###########################################
 echo '</body>'
