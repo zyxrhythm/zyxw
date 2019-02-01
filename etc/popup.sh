@@ -26,9 +26,9 @@ HEADERSCRIPTSJS
 echo "
 <script>
 \$('.targetDiv').hide();
-    \$('.show').click(function () {
-        \$('#div' + \$(this).attr('target')).toggle('').siblings('.targetDiv').hide('');
-            });
+\$('.show').click(function() {
+  \$('#div' + $(this).attr('target')).toggle('').siblings('.targetDiv').hide('');
+});
 </script>
 "
 
