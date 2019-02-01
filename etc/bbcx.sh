@@ -241,8 +241,8 @@ do
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
    
    echo "<div class='hover_bkgr_fricc'>
-         <span class='helper'></span>
-         <div>
+         <span class='helper' ></span>
+         <div visibility: collapse;>
          <div class='popupCloseButton'>X</div>
          $parsedtable
          </div>
