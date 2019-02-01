@@ -19,18 +19,10 @@ echo '<head>'
 
 cat << HEADERSCRIPTSJS
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 HEADERSCRIPTSJS
 
-echo "
-<script>
-\$('.targetDiv').hide();
-\$('.show').click(function() {
-  \$('#div' + $(this).attr('target')).toggle('').siblings('.targetDiv').hide('');
-});
-</script>
-"
 
 cat << HEADERSTYLESCSS
 
@@ -49,21 +41,31 @@ echo "$eppstatuscode <br>"
 echo "+++++++++++++++++++++++++++ <br>"
 echo "$parsedtable <br>" 
 echo "+++++++++++++++++++++++++++ <br>"
+
 cat << POOHSEECAT
 
-<div class="buttons">
-    <a  class="show" target="1">Option 1</a>
-    <a  class="show" target="2">Option 2</a>
-    <a  class="show" target="3">Option 3</a>
-    <a  class="show" target="4">Option 4</a>
-</div>
-
-<div id="div1" class="targetDiv">Lorum Ipsum 1</div>
-<div id="div2" class="targetDiv">Lorum Ipsum 2</div>
-<div id="div3" class="targetDiv">Lorum Ipsum 3</div>
-<div id="div4" class="targetDiv">Lorum Ipsum 4</div>
 
 POOHSEECAT
+
+echo "
+<script>
+function myFunction() {
+  var x = document.getElementById('$eppstatuscode');
+  if (x.style.display === 'none') {
+    x.style.display = 'block';
+  } else {
+    x.style.display = 'none';
+  }
+} 
+</script>
+
+
+ <button onclick="myFunction()">Click Me</button>
+
+<div id='$eppstatuscode'>
+  $parsedtable
+</div> 
+"
 
 ###########################################
 echo '</body>'
