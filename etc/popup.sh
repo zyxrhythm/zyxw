@@ -48,14 +48,12 @@ function myFunction() {
 } 
 </script>
 "
-
-echo "<button onclick="myFunction()">Click Me</button>"
+echo "<button onclick='myFunction()'>Click Me</button>"
 
 echo "<div id='$eppstatuscode'>
   $parsedtable
 </div> 
 "
-
 ###########################################
 echo '</body>'
 ###########################################
