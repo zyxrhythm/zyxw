@@ -196,12 +196,12 @@ function toggleDiv(divId) {
 
 
 
-<a href="javascript:toggleDiv('myContent');">this is a test</a>
+<a href="javascript:toggleDiv('$eppstatuscode');">this is a test</a>
 <div id="myContent" class='hidden'>
   <div>this is a test #1 </div>
 </div> 
 <br />
-<a href="javascript:toggleDiv('myContentt');"><span>this is a text</span></a>
+<a href="javascript:toggleDiv('$eppstatuscode');"><span>this is a text</span></a>
 <div id="myContentt" class='hidden'>
  this is a test #2
 </div>
