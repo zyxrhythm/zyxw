@@ -156,14 +156,15 @@ eppstatuscode="pendingdelete"
 
 parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/,/^<!--tag'"$eppstatuscode"'1-->/p;/^<!--tag'"$eppstatuscode"'1-->/q;');
 
-echo "$eppstatuscode" <br>
+echo "$eppstatuscode <br>" 
 
-echo '<a class="trigger_popup_fricc" >Click here to show the popup</a>' <br>
+echo '<a class="trigger_popup_fricc" >Click here to show the popup</a> <br>'
 
 lineprint=$( statpopup "$parsedtable"); 
 echo "$lineprint";
 
 cat << JAVSCRIPT1
+
 <script>
 function myFunction() {
   var x = document.getElementById("$eppstatuscode");
