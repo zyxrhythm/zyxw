@@ -28,12 +28,7 @@ parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstatuscode"'0-->/
 
 echo "$eppstatuscode <br>" 
 
-echo '<a class="trigger_popup_fricc" >Click here to show the popup</a> <br>'
-
-lineprint=$( statpopup "$parsedtable"); 
-echo "$lineprint";
-
-cat << POOHSEECAT1
+cat << POOHSEECAT0
 
 <script>
 function myFunction() {
@@ -46,10 +41,6 @@ function myFunction() {
 } 
 </script>
 
-<a href=# onclick="myFunction()">Click Me</a>
-$parsedtable
-</div> 
-
 <script>
 $('.targetDiv').hide();
     $('.show').click(function () {
@@ -57,17 +48,25 @@ $('.targetDiv').hide();
     });
 </script>
 
-<div class="buttons">
-        <a  class="show" target="1">Option 1</a>
-        <a  class="show" target="2">Option 2</a>
-        <a  class="show" target="3">Option 3</a>
-        <a  class="show" target="4">Option 4</a>
-    </div>
+POOHSEECAT0
 
-    <div id="div1" class="targetDiv">Lorum Ipsum 1</div>
-    <div id="div2" class="targetDiv">Lorum Ipsum 2</div>
-    <div id="div3" class="targetDiv">Lorum Ipsum 3</div>
-    <div id="div4" class="targetDiv">Lorum Ipsum 4</div>
+cat << POOHSEECAT1
+
+<a href="#" onclick="myFunction()">Click Me</a>
+$parsedtable
+</div> 
+
+<div class="buttons">
+    <a  class="show" target="1">Option 1</a>
+    <a  class="show" target="2">Option 2</a>
+    <a  class="show" target="3">Option 3</a>
+    <a  class="show" target="4">Option 4</a>
+</div>
+
+<div id="div1" class="targetDiv">Lorum Ipsum 1</div>
+<div id="div2" class="targetDiv">Lorum Ipsum 2</div>
+<div id="div3" class="targetDiv">Lorum Ipsum 3</div>
+<div id="div4" class="targetDiv">Lorum Ipsum 4</div>
 
 POOHSEECAT1
 
