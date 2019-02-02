@@ -176,7 +176,11 @@ done < <(printf '%s\n' "$1");
 nsfunction () {
 while IFS= read -r line
 do
-   echo  "<br/>   ${line#*:}";
+   nsa0=$(dig a +short "${line#*:}" @8.8.8.8 2>/dev/null);
+   nssa1=$( echo "$nsa0" | grep -i -e 'orgname' );
+   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
+   nsax=$( echo "$nsa2" | sort -u );
+   echo "<br/> ${line#*:} --- <a href='/cgi-bin/bbcws.sh?doi'=$line target'=_blank' style='color:tomato' >[?]</a> " "$nsa0 --- ${nsx#*:}";
 done < <(printf '%s\n' "$1");
 }
 
