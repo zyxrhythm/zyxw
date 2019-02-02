@@ -168,7 +168,7 @@ do
           else { x.style.display = 'none'; } } 
           </script>"
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>"
-done < <(printf '%s\n' "$1");
+done <<(printf '%s\n' "$1");
 }
 
 #Name Servers Function
@@ -182,7 +182,7 @@ do
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
    echo "<br/> $ns0 --- <a href='/cgi-bin/bbcws.sh?doi'=$ns0 target'=_blank' style='color:tomato' >[?]</a> " "$nsa0 ---" "${nsx#*:}";
-done < <(printf '%s\n' "$1");
+done <<(printf '%s\n' "$1");
 }
 
 #A Record Function
@@ -238,7 +238,7 @@ else
    echo "&nbsp; &nbsp;$mxr2 --- <a href=/cgi-bin/etc/bbcws.sh?doi=$mxr2 target=_blank style=color:tomato >[?]</a>" "${mxax2#*:}"
 fi
    echo "<br/> <br>"
-done < <(printf '%s\n' "$1");
+done <<(printf '%s\n' "$1");
 
 fi
 }
