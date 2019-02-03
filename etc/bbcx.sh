@@ -176,7 +176,7 @@ done < <(printf '%s\n' "$1");
 nsfunction () {
 while IFS= read -r line
 do
-   ns0=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}')
+   ns0=$( echo "${line#*:}" | tr -d '\040\011\012\015')
    nsa0=$( dig a +short "$ns0" @8.8.8.8 2>/dev/null );
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
