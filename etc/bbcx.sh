@@ -181,7 +181,7 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br/> $ns0 --- <a href='/cgi-bin/bbcws.sh?doi'=$ns0 target'=_blank' style='color:tomato' >[?]</a> " "$nsa0 ---" "${nsx#*:}";
+   echo "<br/> $ns0 --- <a href='/cgi-bin/bbcws.sh?doi=$ns0' target'=_blank' style='color:tomato' >[?]</a> " "$nsa0 ---" "${nsx#*:}";
 done < <(printf '%s\n' "$1");
 }
 
@@ -282,7 +282,7 @@ dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 echo '<body>'
 
 #the error that pops up when a domain is not valid/ does not exist
-cat << EONVDE
+cat <<EONVDE
 
 <body>
 <p>
