@@ -345,7 +345,7 @@ __________________________
 EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
-echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'>[+]</a><strong> [Domain Status:]</strong>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 echo "<br/>"
 
@@ -366,7 +366,7 @@ __________________________
 
 EODEDCDGT
 
-#link to the name servers history on [Domain Status:] - from securitytrails.com
+#name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
 echo '<br/>'
@@ -511,7 +511,7 @@ __________________________
 EODNARCTUS
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank">[+]</a><strong> [Domain Status:]</strong>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 #DOMAIN STATUS CT US
 dsfrctus=$( dsfunction "$dstat" );
@@ -703,10 +703,9 @@ __________________________
 EODNARCTAU
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Domain Status:]</strong>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 #DOMAIN STATUS CT AU
-
 dsfrctau=$( dsfunction "$dstat" );
 
 echo "<br/>"
@@ -806,7 +805,7 @@ __________________________
 EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href="/cgi-bin/eppstatuscodes.sh" rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Domain Status:]</strong>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 #DOMAIN STATUS CT NZ
 while IFS= read -r line
