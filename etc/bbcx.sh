@@ -182,7 +182,7 @@ do
    nsa1=$( echo "$nsaw" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsaw" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br/> ${line#*:} <br/> &nbsp; &nbsp; $nsa0 <a href='/cgi-bin/bbcws.sh?doi=$nsa0' target'=_blank' style='color:tomato' >[?]</a>  --- ${nsax#*:}";
+   echo "<br/> ${line#*:} <br/> &nbsp; &nbsp; $nsa0 <a href='/cgi-bin/bbcws.sh?doi=$nsa0' target'=_blank' style='color:tomato' >[?]</a>  --- ${nsax#*:} <br/>";
 done < <(printf '%s\n' "$1");
 }
 
