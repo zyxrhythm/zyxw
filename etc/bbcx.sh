@@ -883,10 +883,8 @@ exit 0;
 #throw an error for anything else
    *)
 
-#start of html body
-echo '<body>'
-
 #if the domain is not on the list of TLDs throws an error
+echo '<body>'
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
