@@ -347,7 +347,7 @@ EODNARGT
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/>"
+echo "<br/> <br/>"
 
 dsfrgt=$( dsfunction "$dstat" )
 echo "$dsfrgt"
@@ -512,6 +512,8 @@ EODNARCTUS
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
+
+echo "<br/> <br/>"
 
 #DOMAIN STATUS CT US
 dsfrctus=$( dsfunction "$dstat" );
@@ -705,6 +707,8 @@ EODNARCTAU
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
+echo "<br/> <br/>"
+
 #DOMAIN STATUS CT AU
 dsfrctau=$( dsfunction "$dstat" );
 
@@ -806,6 +810,8 @@ EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
+
+echo "<br/> <br/>"
 
 #DOMAIN STATUS CT NZ
 while IFS= read -r line
