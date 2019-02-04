@@ -178,26 +178,26 @@ nsfunction () {
 while IFS= read -r line
 do
    echo "${line#*:} <br/> ";
-   mxr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null );
-if (( $(grep -c . <<<"$mxr2") > 1)); then
+   nsr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
+   nsr2=$(dig a +short "$nsr1" @8.8.8.8 2>/dev/null );
+if (( $(grep -c . <<<"$nsr2") > 1)); then
 
 while IFS= read -r line
 do
-   mxa0=$(whois $line );
-   mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
-   if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
-   mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br/> &nbsp; &nbsp; $line   --- <a href=/cgi-bin/bbcws.sh?doi=$line target=_blank style=color:tomato >[+]</a>" "${mxax#*:}";
-done < <(printf '%s\n' "$mxr2");
+   nsa0=$(whois $line );
+   nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
+   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
+   nsax=$( echo "$nsa2" | sort -u | head -1 );
+   echo "<br/> &nbsp; &nbsp; $line   --- <a href=/cgi-bin/bbcws.sh?doi=$line target=_blank style=color:tomato >[+]</a>" "${nsax#*:}";
+done < <(printf '%s\n' "$nsr2");
 
 echo "<br/>"
 else
-   mxa20=$(whois "$mxr2" );
-   mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
-   if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
-   mxax2=$( echo "$mxa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;$mxr2 --- <a href=/cgi-bin/bbcws.sh?doi=$mxr2 target=_blank style=color:tomato >[+]</a>" "${mxax2#*:}"
+   nsa20=$(whois "$nsr2" );
+   nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
+   if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
+   nsax2=$( echo "$nsa22" | sort -u | head -1 );
+   echo "&nbsp; &nbsp;$nsr2 --- <a href=/cgi-bin/bbcws.sh?doi=$nsr2 target=_blank style=color:tomato >[+]</a>" "${nsax2#*:}"
 fi
    echo "<br/> <br>"
 done < <(printf '%s\n' "$1");
