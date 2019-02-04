@@ -166,7 +166,7 @@ do
           if (x.style.display === 'none') { x.style.display = 'block'; } 
           else { x.style.display = 'none'; } } 
           </script>"
-echo  "<br/> <a style='cursor: pointer; color:tomato ' class='button' onclick='js$eppstat()'>[?]</a> ${line#*#}" 
+echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}" 
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>"
 done < <(printf '%s\n' "$1");
 }
