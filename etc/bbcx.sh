@@ -161,12 +161,12 @@ while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
    parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
-   echo  "<br/> <a style='cursor: pointer; color:tomato ' class='button' onclick='js$eppstat()'>[?]</a> ${line#*#}" 
    echo "<script>
           function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
           if (x.style.display === 'none') { x.style.display = 'block'; } 
           else { x.style.display = 'none'; } } 
           </script>"
+echo  "<br/> <a style='cursor: pointer; color:tomato ' class='button' onclick='js$eppstat()'>[?]</a> ${line#*#}" 
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>"
 done < <(printf '%s\n' "$1");
 }
