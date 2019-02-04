@@ -197,7 +197,7 @@ else
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;'$nsr2' --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' >[+]</a>" "${nsax2#*:}"
+   echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' >[+]</a> ${nsax2#*:}"
 fi
    echo "<br/> <br>"
 done < <(printf '%s\n' "$1");
