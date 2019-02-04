@@ -286,6 +286,7 @@ If not! - Please input a domain name. Sorna.
 </html>
 
 EOTSE
+exit 0;
 
 else
 
