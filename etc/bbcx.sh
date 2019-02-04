@@ -160,7 +160,7 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo ${line#*#} | awk '{print tolower($0)}');
-   parsedtable=$(cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;');
+   parsedtable=$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' );
    echo "<script>
           function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
           if (x.style.display === 'none') { x.style.display = 'block'; } 
@@ -435,7 +435,7 @@ echo '<h1>ccTLD does not have any configured string manipulation, falling back t
 echo '<br>'
 
 #the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 
 #displays the raw whois result of ccTLDs
 echo "<pre>$zyx</pre>";
@@ -502,7 +502,7 @@ creationdate=$(echo "$zyx" | grep -i -e "creation date:");
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
 #the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 echo '<p>'
 
 #prints the domain name and the registrar
@@ -623,7 +623,7 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 echo '<body>'
 
 #the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 
 #prints the whois result with the the trimming
 echo "<pre>$zyxca</pre>";
@@ -693,13 +693,13 @@ regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 
 #the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 echo '<p>'
 
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 __________________________
 <br/>
@@ -793,14 +793,10 @@ lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
 #stores the name servers on a variable
 nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
 
-#the BBC copy button
-echo '<div class="code-bg" id="divClipboard">'
-echo '<p>'
-
 #print the domain and the registrar
 cat << EODNARCTNZ
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 __________________________
 <br/>
@@ -885,7 +881,7 @@ exit 0;
 
 #if the domain is not on the list of TLDs throws an error
 echo '<body>'
-echo '<div class="code-bg" id="divClipboard">'
+echo '<div id="divClipboard">'
 echo '<p>'
 echo " Not a valid domain!" 
 exit 0;
