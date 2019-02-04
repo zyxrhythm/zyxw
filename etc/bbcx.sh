@@ -188,7 +188,7 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   --- <a href=/cgi-bin/bbcws.sh?doi=$line target=_blank style=color:tomato >[+]</a>" "${nsax##*:}";
+   echo "<br/> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[+]</a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
 echo "<br/>"
@@ -217,7 +217,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br/>   $line --- <a href=/cgi-bin/bbcws.sh?doi=$line target=_blank style=color:tomato >[+]</a> " "${arx#*:}";
+   echo "<br/>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[+]</a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
