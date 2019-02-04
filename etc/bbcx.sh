@@ -353,7 +353,7 @@ __________________________
 <strong>Domain Name:</strong> $domain
 <br/>
 <br/>
-<strong>Registrar: </strong>${registrar#*:} </p>
+<strong>Registrar: </strong>${registrar#*:} </p> <p>
 <br/>
 __________________________
 <br/> <br/>
