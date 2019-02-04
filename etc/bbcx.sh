@@ -178,8 +178,9 @@ while IFS= read -r line
 do
    ns0=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' )
    nsa0=$( dig a +short "$ns0" @8.8.8.8 2>/dev/null );
-   nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
-   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
+   if [[ -z "$nsa0" ]]; then nsaw="orgname: No IP address Found!"; else nsaw=$( whois "$nsa0"); fi;
+   nsa1=$( echo "$nsaw" | grep -i -e 'orgname' );
+   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsaw" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
    echo "<br/> ${line#*:} --- <a href='/cgi-bin/bbcws.sh?doi=$nsa0' target'=_blank' style='color:tomato' >[?]</a> $nsa0 --- ${nsax#*:}";
 done < <(printf '%s\n' "$1");
