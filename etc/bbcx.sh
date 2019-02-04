@@ -353,9 +353,9 @@ __________________________
 <strong>Domain Name:</strong> $domain
 <br/>
 <br/>
-<strong>Registrar: </strong>${registrar#*:} </p> <p>
+<strong>Registrar: </strong>${registrar#*:} </p>
 <br/>
-__________________________
+__________________________<p>
 <br/> <br/>
 EODNARGT
 
