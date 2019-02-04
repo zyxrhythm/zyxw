@@ -166,7 +166,7 @@ do
           else { x.style.display = 'none'; } } 
           </script>"
 echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}"; 
-   parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
+   parsedtable="$( cat ./epp.txt | sed -n '/^tag'"$eppstat"'0/,/^tag'"$eppstat"'1/p;/^tag'"$eppstat"'1/q;' )";
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 done < <(printf '%s\n' "$1");
 }
