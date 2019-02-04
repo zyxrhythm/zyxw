@@ -154,22 +154,7 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
-#Domain Status Function
-#function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-dsfunction () {
-while IFS= read -r line
-do
-   eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
-   echo "<script>
-          function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
-          if (x.style.display === 'none') { x.style.display = 'block'; } 
-          else { x.style.display = 'none'; } } 
-          </script>"
-echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}"; 
 
-echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
-done < <(printf '%s\n' "$1");
-}
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
