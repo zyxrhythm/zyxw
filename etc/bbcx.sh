@@ -180,9 +180,8 @@ do
    nsa0=$( dig a +short "$ns0" @8.8.8.8 2>/dev/null );
    if [[ -z "$nsa0" ]]; then nsaw="orgname: No IP address Found!"; else nsaw=$( whois "$nsa0"); fi;
    nsa1=$( echo "$nsaw" | grep -i -e 'orgname' );
-   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsaw" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
-   nsax=$( echo "$nsa2" | sort -u );
-   echo "<br/> ${line#*:} <br/> &nbsp; &nbsp; $nsa0 --- <a href='/cgi-bin/bbcws.sh?doi=$nsa0' target'=_blank' style='color:tomato' >[+]</a>${nsax#*:} <br/>";
+   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsaw" | grep -i -e 'netname' | sort -u ); else nsa2="$nsa1"; fi;
+   echo "<br/> ${line#*:} <br/> &nbsp; &nbsp; $nsa0 --- <a href='/cgi-bin/bbcws.sh?doi=$nsa0' target'=_blank' style='color:tomato' >[+]</a>${nsa2#*:} <br/>";
 done < <(printf '%s\n' "$1");
 }
 
