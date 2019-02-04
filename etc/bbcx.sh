@@ -271,7 +271,7 @@ if [[ -z "$domain" ]]; then
 cat <<EOTSE
 
 <body>
-<div class="code-bg" id="divClipboard">
+<di id="divClipboard">
 <p>
 Blank Space. . . ?!?
 <br> <br>
@@ -302,7 +302,7 @@ cat <<EONVDE
 <body>
 <p>
 <br/>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 Not a valid domain! Sorna.
 </p>
@@ -345,7 +345,7 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #prints the domain name and the registrar
 cat << EODNARGT
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 __________________________
 <br/>
