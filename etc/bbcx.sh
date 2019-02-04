@@ -296,9 +296,6 @@ zyx=$(whois $domain);
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
   if [[ "$dvcheck" = "no" ]]; then
 
-#start of html body
-echo '<body>'
-
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
 
@@ -504,9 +501,6 @@ creationdate=$(echo "$zyx" | grep -i -e "creation date:");
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
-#start of html body
-echo '<body>'
-
 #the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
 echo '<p>'
@@ -587,9 +581,8 @@ echo "__________________________"
 
 #special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
 ph)
-#start of html body
-echo '<body>'
 cat <<EOQPH
+<body>
 <p>
 <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target="_blank">> Click Here <</a>To get the whois info of this .ph domain.
@@ -603,10 +596,9 @@ exit 0;
 
 #special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
 sg)
-#start of html body
-echo '<body>'
 
 cat <<EOQSG
+<body>
 <p>
 <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target="_blank">> Click Here <</a>To get the whois info of this .sg domain.
@@ -699,9 +691,6 @@ regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 
 #stores the tech contact
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
-
-#start of html body
-echo '<body>'
 
 #the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
@@ -803,9 +792,6 @@ lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
 
 #stores the name servers on a variable
 nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
-
-#start of html body
-echo '<body>'
 
 #the BBC copy button
 echo '<div class="code-bg" id="divClipboard">'
