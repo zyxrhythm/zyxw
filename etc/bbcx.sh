@@ -201,7 +201,7 @@ else
 fi
    echo "<br/> <br>"
 done < <(printf '%s\n' "$1");
-
+}
 
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
