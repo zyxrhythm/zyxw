@@ -366,7 +366,7 @@ echo "<br/> <br/>"
 
 dsfrgt=$( dsfunction "$dstat" )
 echo "$dsfrgt"
-
+</p> <p>
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
 <br/>
