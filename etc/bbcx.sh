@@ -177,7 +177,7 @@ nsfunction () {
 
 while IFS= read -r line
 do
-   echo "$line <br/> ";
+   echo "${line#*:} <br/> ";
    mxr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null );
 if (( $(grep -c . <<<"$mxr2") > 1)); then
@@ -514,7 +514,7 @@ echo '<p>'
 #prints the domain name and the registrar
 cat << EODNARCTUS
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
 __________________________
 <br/>
@@ -568,6 +568,8 @@ echo "<br/>"
 
 arfrctus=$( arfunction "$ar");
 echo "$arfrctus"
+
+echo "<br/> <br/>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
