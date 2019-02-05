@@ -728,6 +728,7 @@ echo "<br/> <br/>"
 
 #DOMAIN STATUS CT AU
 dsfrctau=$( dsfunction "$dstat" );
+echo "$dsfrctau"
 
 echo "<br/>"
 echo "__________________________"
