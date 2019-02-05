@@ -164,10 +164,11 @@ do
    if (x.style.display === 'none') { x.style.display = 'block'; } 
    else { x.style.display = 'none'; } } </script>"
 parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
+tunneldrive="$parsedtable";
+echo "<div id='jsf$eppstat' style='display:none'> $tunneldrive </div>";
 done < <(printf '%s\n' "$1");
 }
 
-#echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfunction () {
