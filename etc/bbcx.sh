@@ -164,7 +164,8 @@ do
    if (x.style.display === 'none') { x.style.display = 'block'; } 
    else { x.style.display = 'none'; } } </script>"
 parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
-echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
+purged=$(echo "$parsedtable" | sed 's/\b</p>\b//g' );
+echo "<div id='jsf$eppstat' style='display:none'> $purged </div>";
 done < <(printf '%s\n' "$1");
 }
 
