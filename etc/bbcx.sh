@@ -367,7 +367,7 @@ EODNARGT
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> </p><p>"
+echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt";
