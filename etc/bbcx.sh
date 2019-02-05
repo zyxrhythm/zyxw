@@ -164,9 +164,9 @@ do
    
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
    
-   echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat');"
-   echho "if (x.style.display === 'none') { x.style.display = 'block'; }"
-   echo "else { x.style.display = 'none'; } } </script>"  
+   echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat');
+         if (x.style.display === 'none') { x.style.display = 'block'; }
+         else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
