@@ -164,7 +164,7 @@ do
    if (x.style.display === 'none') { x.style.display = 'block'; } 
    else { x.style.display = 'none'; } } </script>"
 parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
-eventhorizon=$( echo "$parsedtable" | sed 's/\b'</p>'\b//g' );
+eventhorizon=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 done < <(printf '%s\n' "$1");
 }
@@ -365,7 +365,6 @@ echo "<br/> <br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt";
-echo "<p>";
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
