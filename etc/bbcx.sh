@@ -166,6 +166,7 @@ do
 parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
 purged=$(echo "$parsedtable" | sed 's/\b</p>\b//g' );
 echo "<div id='jsf$eppstat' style='display:none'> $purged </div>";
+echo "<p></p>";
 done < <(printf '%s\n' "$1");
 }
 
