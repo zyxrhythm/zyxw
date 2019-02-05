@@ -159,13 +159,18 @@ dsfunction () {
 while IFS= read -r line
 do
    eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );  
+   
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+   
    echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
    if (x.style.display === 'none') { x.style.display = 'block'; } 
    else { x.style.display = 'none'; } } </script>"
+
 parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
 eventhorizon=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
-echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
+
+echo "<div id='jsf$eppstat' style='display:none'> $eventhorizon </div>";
+
 done < <(printf '%s\n' "$1");
 }
 
