@@ -174,6 +174,8 @@ echo "<div id='jsf$eppstat' style='display:none'> $eventhorizon </div>";
 done < <(printf '%s\n' "$1");
 }
 
+#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
+
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfunction () {
