@@ -169,7 +169,10 @@ do
 parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
 spectral=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
 
-echo "<div id='jsf$eppstat' style='display:none'> $spectral </div>";
+
+echo "<div id='jsf$eppstat' style='display:none'>" 
+echo "$spectral" 
+echo "</div>";
 
 done < <(printf '%s\n' "$1");
 }
