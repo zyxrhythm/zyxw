@@ -371,7 +371,7 @@ echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
 spectral=$( echo "$dsfrgt" | awk '{gsub("</tr>", "");print}' );
-echo "$spectral"
+echo "$spectral +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 #spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
 #echo "$spectral"
