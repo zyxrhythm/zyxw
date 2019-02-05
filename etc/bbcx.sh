@@ -167,9 +167,9 @@ do
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
-eventhorizon=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
+spectral=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
 
-echo "<div id='jsf$eppstat' style='display:none'> $eventhorizon </div>";
+echo "<div id='jsf$eppstat' style='display:none'> $spectral </div>";
 
 done < <(printf '%s\n' "$1");
 }
