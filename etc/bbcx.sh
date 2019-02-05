@@ -372,6 +372,7 @@ echo "<br/> <br/>"
 dsfrgt=$( dsfunction "$dstat" );
 spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
 echo "$spectral"
+echo "TEST"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
