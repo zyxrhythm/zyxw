@@ -160,13 +160,15 @@ while IFS= read -r line
 do
    eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );  
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
+   echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
+   if (x.style.display === 'none') { x.style.display = 'block'; } 
+   else { x.style.display = 'none'; } } </script>"
+
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 done < <(printf '%s\n' "$1");
 }
 
-#echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"
-
+#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfunction () {
