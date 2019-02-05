@@ -370,7 +370,8 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt";
+spectral=$( echo "$dsfrgt" | awk '{gsub("</tr>", "");print}' );
+echo "$spectral"
 
 #spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
 #echo "$spectral"
