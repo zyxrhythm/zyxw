@@ -170,11 +170,7 @@ do
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
-spectral=$( echo "$parsedtable" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' );
-
-echo "<div id='jsf$eppstat' style='display:none'>" 
-echo "$spectral" 
-echo "</div>";
+echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 
 done < <(printf '%s\n' "$1");
 }
@@ -374,7 +370,8 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/> <br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-echo "$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}' | awk '{gsub("/p", "");print}' )";
+spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
+echo "$spectral"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
