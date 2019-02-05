@@ -367,12 +367,13 @@ EODNARGT
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> <br/>"
+echo "<br/> </p><p>"
 
 dsfrgt=$( dsfunction "$dstat" );
-spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
-echo "$spectral"
-echo "TEST"
+echo "$dsfrgt";
+
+#spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}');
+#echo "$spectral"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
