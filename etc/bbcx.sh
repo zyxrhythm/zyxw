@@ -374,7 +374,7 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}' );
+spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}' | tr -d '\011\012\015');
 echo "$spectral";
 
 #print the domain creation and expiration dates
