@@ -892,7 +892,7 @@ uk)
 
 zyxuk=$( whois $domain );
 zyxuk0=( echo "$zyxuk" | awk '/Domain name:/{flag=1;next}/--/{flag=0}flag' );
-zyxuk1="${zyxuk#*--}"
+zyxuk1="${zyxuk#*--}";
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
@@ -949,7 +949,7 @@ exit 0;
 ;;
 
 #throw an error for anything else
-   *)
+*)
 
 #if the domain is not on the list of TLDs throws an error
 echo '<body>'
