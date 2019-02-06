@@ -133,7 +133,6 @@ cat  << EODHEAD1
 <hr>
 <button onclick="copyClipboard()">BBC Copy</button>
 
-</head>
 EODHEAD1
 
 
@@ -352,7 +351,7 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 
 #prints the domain name and the registrar
 cat << EODNARGT
-<body>
+
 <div id="divClipboard">
 <p>
 __________________________
@@ -388,7 +387,8 @@ $expd
 <br/>
 __________________________
 <br/> <br/>
-
+</head>
+<body>
 EODEDCDGT
 
 #name servrers history
