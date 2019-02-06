@@ -362,7 +362,7 @@ __________________________
 <strong>Domain Name:</strong> $domain
 <br/>
 <br/>
-echo "<strong>Registrar: </strong>${registrar#*:}
+<strong>Registrar: </strong>${registrar#*:}
 <br/>
 __________________________
 <br/> <br/>"
