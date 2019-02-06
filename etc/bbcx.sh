@@ -918,7 +918,7 @@ echo '<body>'
 echo '<div id="divClipboard">'
 
 #prints the whois result with the the trimming
-echo "Domain name: <br> <pre>$zyxuk0</pre>";
+echo "<pre> Domain name: <br> $zyxuk0</pre>";
 
 echo '<p>'
 
@@ -954,7 +954,7 @@ echo '</p>'
 echo '</div>'
 echo '<br>'
 
-echo "${zyx#*--} <br/>";
+echo "<pre>${zyx#*--}</pre> <br/>";
 
 #the back | track button on the button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
