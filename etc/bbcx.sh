@@ -127,12 +127,17 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
+#EVENT
+#sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;'
+#awk '{gsub("</p>", "");print}'
+#awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag'
+#HORIZON
+
 #=================
 # FUNCTION HALL
 #=================
 
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
 
 dsfunction () {
 while IFS= read -r line
@@ -900,7 +905,7 @@ uk)
 
 zyx=$(whois $domain);
 
-zyxuk=$(echo "$zyx" | cut -f1 -d"%");
+zyxuk0=$(echo "$zyx" | );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
@@ -913,7 +918,7 @@ echo '<body>'
 echo '<div id="divClipboard">'
 
 #prints the whois result with the the trimming
-echo "<pre>$zyxuk</pre>";
+echo "<pre>$zyxuk0</pre>";
 
 echo '<p>'
 
