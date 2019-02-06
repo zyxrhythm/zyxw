@@ -587,62 +587,103 @@ exit 0;
 
 ;;
 
-#special whois result trim for CA ccTLDs basically remove everything after "%" on the raw whois result
+#special whois result trim for CA ccTLDs 
 ca)
 
-zyxca=$(echo "$zyx" | cut -f1 -d"%");
+zyx=$(whois $domain);
 
-#dig A and MX with minimal essential output
+#dig A and MX with minimal essential output from the dig command
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#start of html body
-echo '<body>'
+#stores the registrar name on a variable
+registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
+
+#stores the domain status on a variable
+dstat=$(echo "$zyx" | grep -i -e "status:" );
+
+#stores the domain's expiration date
+expd=$(echo "$zyx" | grep -i -e "registry expiry date:");
+
+#stores the domain's creation date
+creationdate=$(echo "$zyx" | grep -i -e "creation date:");
+
+#stores the name servers under the domain on a variable
+nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
 #the BBC copy button
 echo '<div id="divClipboard">'
-
-#prints the whois result with the the trimming
-echo "<pre>$zyxca</pre>";
-
 echo '<p>'
 
-echo "<br/>"
-echo "__________________________"
-echo '<br/> <br>'
+#prints the domain name and the registrar
+cat << EODNARCTCA
+<body>
+<div id="divClipboard">
+<p>
+__________________________
+<br/>
+<br/>
+<strong>Domain Name:</strong> $domain
+<br/>
+<br/>
+<strong>Registrar: </strong>${registrar#*:}
+<br/>
+__________________________
+<br/> <br/>
+EODNARCTCA
 
-#link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
-echo "<br/>"
-
-#A RECORD/S CT CA
-
-arfrctca=$( arfunction "$ar");
-echo "$arfrctca"
-
-echo "<br/>"
-echo "__________________________"
-echo "<br/> <br>"
-#link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
+#link to the EPP status codes on [Domain Status:]
+echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 echo "<br/> <br/>"
 
-#MX RECORD/S -AND IP/S CT CA
+#DOMAIN STATUS CT CA
+dsfrctus=$( dsfunction "$dstat" );
+echo "$dsfrctus"
 
-mrfrctca=$( mrfunction "$mxr");
-echo "$mrfrctca"
+#print the domain creation and expiration dates
+cat <<EODEDCDCTCA
+<br/>
+--------------------------
+<br/>
+$creationdate
+<br/>
+$expd
+<br/>
+__________________________
+<br/> <br/>
+EODEDCDCTCA
+
+#link to the name servers history on [Domain Status:] - from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
+
+
+#NAME SERVERS CT CA
+
+nsfrctus=$( nsfunction "$nameservers");
+echo "$nsfrctus"
+
+#link to the A record/s history on [A records:] - from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
+
+#A RECORD CT CA
+echo "<br/>"
+
+arfrctus=$( arfunction "$ar");
+echo "$arfrctus"
+
+echo "<br/> <br/>"
+
+#link to the MX record/s history on [MX records:] - from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
+
+#MX RECORD/S - AND IP/S CT CA
+echo "<br/> <br/>"
+
+mrfrctus=$( mrfunction "$mxr");
+echo "$mrfrctus"
 
 echo "__________________________"
-echo "<br/>"
-echo '</p>'
-echo '</div>'
-echo '<br>'
-
-#the back | track button on the button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
-exit 0;
-
 ;;
 
 #special trimming for AU ccTLDs
