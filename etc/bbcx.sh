@@ -630,7 +630,7 @@ echo "<br/> <br/>"
 
 #MX RECORD/S -AND IP/S CT CA
 
-mrfrctca=$( arfunction "$ar");
+mrfrctca=$( mrfunction "$mxr");
 echo "$mrfrctca"
 
 echo "__________________________"
@@ -854,6 +854,65 @@ exit 0;
 
 ;;
 
+#special whois result trim for UK TLDs
+uk)
+
+zyx=$(whois $domain);
+
+zyxuk=$(echo "$zyx" | cut -f1 -d"%");
+
+#dig A and MX with minimal essential output
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+#start of html body
+echo '<body>'
+
+#the BBC copy button
+echo '<div id="divClipboard">'
+
+#prints the whois result with the the trimming
+echo "<pre>$zyxca</pre>";
+
+echo '<p>'
+
+echo "<br/>"
+echo "__________________________"
+echo '<br/> <br>'
+
+#link to the A record/s history on [A records:] - from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
+echo "<br/>"
+
+#A RECORD/S CT UK
+
+arfrctca=$( arfunction "$ar");
+echo "$arfrctca"
+
+echo "<br/>"
+echo "__________________________"
+echo "<br/> <br>"
+#link to the MX record/s history on [MX records:] - from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
+
+echo "<br/> <br/>"
+
+#MX RECORD/S -AND IP/S CT UK
+
+mrfrctca=$( mrfunction "$mxr");
+echo "$mrfrctca"
+
+echo "__________________________"
+echo "<br/>"
+echo '</p>'
+echo '</div>'
+echo '<br>'
+
+#the back | track button on the button
+echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
+exit 0;
+
+;;
 #throw an error for anything else
    *)
 
