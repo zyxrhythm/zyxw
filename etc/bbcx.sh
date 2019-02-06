@@ -905,7 +905,7 @@ uk)
 
 zyx=$(whois $domain);
 
-zyxuk0=$(echo "$zyx" | awk '/Domain name:/{flag=1;next}/--/{flag=0}flag' );
+zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
@@ -918,7 +918,7 @@ echo '<body>'
 echo '<div id="divClipboard">'
 
 #prints the whois result with the the trimming
-echo "<pre> &nbsp; <strong>Domain name:</strong><br>$zyxuk0</pre>";
+echo "<pre> &nbsp; <strong>Domain name:</strong>$domain<br> &nbsp; <strong>Registrar:</strong><br><$zyxuk0</pre>";
 
 echo '<p>'
 
@@ -953,8 +953,8 @@ echo "<br/>"
 echo '</p>'
 echo '</div>'
 echo '<br>'
-
-echo "<pre>${zyx#*--}</pre> <br/>";
+echo '<br>'
+echo "<pre>$zyx</pre> <br/>";
 
 #the back | track button on the button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
