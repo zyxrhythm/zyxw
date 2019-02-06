@@ -905,7 +905,7 @@ uk)
 
 zyx=$(whois $domain);
 
-zyxuk0=$(echo "$zyx" | );
+zyxuk0=$(echo "$zyx" | awk '/Domain name:/{flag=1;next}/--/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
