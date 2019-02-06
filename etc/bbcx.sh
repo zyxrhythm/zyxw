@@ -352,9 +352,9 @@ ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
 #prints the domain name and the registrar
-#cat << EODNARGT
-echo "<body>
-<div id='divClipboard'>
+cat << EODNARGT
+<body>
+<div id="divClipboard">
 <p>
 __________________________
 <br/>
@@ -365,9 +365,9 @@ __________________________
 <strong>Registrar: </strong>${registrar#*:}
 <br/>
 __________________________
-<br/> <br/>"
+<br/> <br/>
 
-#EODNARGT
+EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
