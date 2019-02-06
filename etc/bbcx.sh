@@ -150,19 +150,23 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
+#EVENT
+#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
+#| awk '{gsub("</p>", "");print}'
+#HORIZON
+
 #=================
 # FUNCTION HALL
 #=================
 
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
 
 dsfunction () {
 while IFS= read -r line
 do
-   eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' | awk '{gsub("</p>", "");print}' );  
+   eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );  
    
-   parsedtable="$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' | awk '{gsub("</p>", "");print}' )";
+   parsedtable="$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' )";
    
    echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat');
          if (x.style.display === 'none') { x.style.display = 'block'; }
@@ -348,7 +352,8 @@ ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
 #prints the domain name and the registrar
-cat << EODNARGT
+#cat << EODNARGT
+echo "
 <body>
 <div id="divClipboard">
 <p>
@@ -358,11 +363,12 @@ __________________________
 <strong>Domain Name:</strong> $domain
 <br/>
 <br/>
-<strong>Registrar: </strong>${registrar#*:}
+echo "<strong>Registrar: </strong>${registrar#*:}
 <br/>
 __________________________
-<br/> <br/>
-EODNARGT
+<br/> <br/>"
+
+#EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
