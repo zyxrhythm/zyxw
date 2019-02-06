@@ -151,26 +151,15 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
 #EVENT
-#parsedtable="$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' )";
-#| awk '{gsub("</p>", "");print}'
+#sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;'
+#awk '{gsub("</p>", "");print}'
+#awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag'
 #HORIZON
 
 #=================
 # FUNCTION HALL
 #=================
 
-#Parsely Parsley
-parsefunction () {
-   parsedtable="$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag' )";
-   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
-}
-
-#Javascript
-javaprintfunc () {
-   echo "<script> function js$1() { var x = document.getElementById('jsf$1');
-         if (x.style.display === 'none') { x.style.display = 'block'; }
-         else { x.style.display = 'none'; } } </script>"  
-}
 
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
@@ -179,8 +168,12 @@ do
    eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-javaprintfunc $eppstat;
-parsefunction $eppstat;
+   echo "<script> function js$1() { var x = document.getElementById('jsf$1');
+         if (x.style.display === 'none') { x.style.display = 'block'; }
+         else { x.style.display = 'none'; } } </script>" 
+
+   parsedtable=$( cat ./eppstatuscodes.sh | sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;' | awk '{gsub("</p>", "");print}' | tr -d '\011\012\015');
+   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 
 done < <(printf '%s\n' "$1");
 }
