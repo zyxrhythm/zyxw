@@ -353,9 +353,8 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 
 #prints the domain name and the registrar
 #cat << EODNARGT
-echo "
-<body>
-<div id="divClipboard">
+echo "<body>
+<div id='divClipboard'>
 <p>
 __________________________
 <br/>
