@@ -525,7 +525,7 @@ EODEDCDCTUS
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-
+echo '<br/>'
 #NAME SERVERS CT US
 
 nsfrctus=$( nsfunction "$nameservers");
@@ -657,7 +657,7 @@ EODEDCDCTCA
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-
+echo '<br/>'
 #NAME SERVERS CT CA
 
 nsfrctus=$( nsfunction "$nameservers");
