@@ -932,7 +932,7 @@ echo "<br/> <br/>"
 
 #MX RECORD/S -AND IP/S CT UK
 
-mrfrctca=$( arfunction "$mx");
+mrfrctca=$( mrfunction "$mx");
 echo "$mrfrctca"
 
 echo "__________________________"
