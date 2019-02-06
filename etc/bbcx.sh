@@ -918,7 +918,7 @@ echo '<body>'
 echo '<div id="divClipboard">'
 
 #prints the whois result with the the trimming
-echo "<pre> &nbsp; <strong>Domain name:</strong>$domain<br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
+echo "<pre> &nbsp; <strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
 
 echo '<p>'
 
