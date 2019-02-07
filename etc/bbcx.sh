@@ -151,14 +151,7 @@ done < <(printf '%s\n' "$1");
 dsarrayfunc () {
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag');
    
-  x=0
-while read line
-do
-    arraypt[ $x ]="$line"        
-    (( x++ ))
-done < < "$parsedtable"
-
-echo "<div id='jsf$1' style='display:none'> ${arraypt[@]} </div>";
+echo "<div id='jsf$1' style='display:none'> $parsedtable </div>";
 }
 
 #Name Servers Function
@@ -352,10 +345,7 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-echo $dsfrgt
-
-aptdsfrgt=$( dsarrayfunc );
-echo $aptdsfrgt
+echo "$dsfrgt"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
