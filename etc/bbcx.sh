@@ -142,18 +142,19 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-        ex=$( dsarrayfunc "$eppstat")
-        echo $ex
+        echo "<div id='jsf$1' style='display:none'>";
+       cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag';
+       echo "</div>";
 done < <(printf '%s\n' "$1");
 }
 
 #ARRAY
-dsarrayfunc () {
-   parsedtable=$( cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag');
+#dsarrayfunc () {
+#   parsedtable=$( cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag');
    
-divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
-echo "$divisoreya"
-}
+#divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
+#echo "$divisoreya"
+#}
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
