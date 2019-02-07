@@ -151,7 +151,8 @@ done < <(printf '%s\n' "$1");
 dsarrayfunc () {
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag');
    
-echo "<div id='jsf$1' style='display:none'> $parsedtable </div>";
+divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
+echo "$divisoreya"
 }
 
 #Name Servers Function
