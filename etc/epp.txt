@@ -1,5 +1,4 @@
 tagaddperiod0
-<div id="addperiod">
 <table>
 <tbody>
 <tr>
@@ -14,11 +13,8 @@ tagaddperiod0
 </tr>
 </tbody>
 </table>
-</div>
 tagaddperiod1
-
 tagautorenewperiod0
-<div id="autorenewperiod">
 <table >
 <tbody>
 <tr>
@@ -33,11 +29,8 @@ tagautorenewperiod0
 </tr>
 </tbody>
 </table>
-</div>
 tagautorenewperiod1
-
 taginactive0
-<div id="inactive">
 <table>
 <tbody>
 <tr>
@@ -53,11 +46,8 @@ taginactive0
 </tr>
 </tbody>
 </table>
-</div>
 taginactive1
-
 tagok0
-<div id="ok">
 <table>
 <tbody>
 <tr>
@@ -73,11 +63,8 @@ tagok0
 </tr>
 </tbody>
 </table>
-</div>
 tagok1
-
 tagpendingcreate0
-<div id="pendingcreate">
 <table>
 <tbody>
 <tr>
@@ -92,12 +79,8 @@ tagpendingcreate0
 <p>If the <abbr title="Top Level Domain">TLD</abbr> is not on a special registration period and you are NOT the listed <abbr title="Registrant">Registrant</abbr>, you should contact your registrar immediately to resolve the issue.</p></td>
 </tr>
 </tbody>
-</table>
-</div>
 tagpendingcreate1
-
 tagpendingdelete0
-<div id="pendingdelete">
 <table>
 <tbody>
 <tr>
@@ -113,11 +96,8 @@ tagpendingdelete0
 </tr>
 </tbody>
 </table>
-</div>
 tagpendingdelete1
-
 tagpendingrenew0
-<div id="pendingrenew">
 <table>
 <tbody>
 <tr>
@@ -132,11 +112,8 @@ tagpendingrenew0
 </tr>
 </tbody>
 </table>
-</div>
 tagpendingrenew1
-
 tagpendingrestore0
-<div id="pendingrestore">
 <table>
 <tbody>
 <tr>
@@ -151,11 +128,8 @@ tagpendingrestore0
 </tr>
 </tbody>
 </table>
-</div>
 tagpendingrestore1
-
 tagpendingtransfer0
-<div id="pendingtransfer">
 <table>
 <tbody>
 <tr>
@@ -170,11 +144,8 @@ tagpendingtransfer0
 </tr>
 </tbody>
 </table>
-</div>
 tagpendingtransfer1
-
 tagpendingupdate0
-<div id="pendingupdate">
 <table>
 <tbody>
 <tr>
@@ -189,11 +160,8 @@ tagpendingupdate0
 </tr>
 </tbody>
 </table>
-</div>
 tagpendingupdate1
-
 tagredemptionperiod0
-<div id="redemptionperiod">
 <table>
 <tbody>
 <tr>
@@ -208,9 +176,7 @@ tagredemptionperiod0
 </tr>
 </tbody>
 </table>
-</div>
 tagredemptionperiod1
-
 tagrenewperiod0
 <div id="renewperiod">
 <table>
@@ -227,11 +193,8 @@ tagrenewperiod0
 </tr>
 </tbody>
 </table>
-</div>
 tagrenewperiod1
-
 tagserverdeleteprohibited0
-<div id="serverdeleteprohibited">
 <table>
 <tbody>
 <tr>
@@ -247,11 +210,8 @@ tagserverdeleteprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagserverdeleteprohibited1
-
 tagserverhold0
-<div id="serverhold">
 <table>
 <tbody>
 <tr>
@@ -266,11 +226,8 @@ tagserverhold0
 </tr>
 </tbody>
 </table>
-</div>
 tagserverhold1
-
 tagserverrenewprohibited0
-<div id="serverrenewprohibited">
 <table>
 <tbody>
 <tr>
@@ -285,11 +242,8 @@ tagserverrenewprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagserverrenewprohibited1
-
 tagservertransferprohibited0
-<div id="servertransferprohibited">
 <table>
 <tbody>
 <tr>
@@ -305,11 +259,8 @@ tagservertransferprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagservertransferprohibited1
-
 tagserverupdateprohibited0
-<div id="serverupdateprohibited">
 <table>
 <tbody>
 <tr>
@@ -325,11 +276,8 @@ tagserverupdateprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagserverupdateprohibited1
-
 tagtransferperiod0
-<div id="transferperiod">
 <table>
 <tbody>
 <tr>
@@ -344,11 +292,8 @@ tagtransferperiod0
 </tr>
 </tbody>
 </table>
-</div>
 tagtransferperiod1
-
 tagclientdeleteprohibited0
-<div id="clientdeleteprohibited">
 <table>
 <tbody>
 <tr>
@@ -363,11 +308,8 @@ tagclientdeleteprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagclientdeleteprohibited1
-
 tagclienthold0
-<div id="clienthold">
 <table>
 <tbody>
 <tr>
@@ -382,11 +324,8 @@ tagclienthold0
 </tr>
 </tbody>
 </table>
-</div>
 tagclienthold1
-
 tagclientrenewprohibited0
-<div id="clientrenewprohibited">
 <table>
 <tbody>
 <tr>
@@ -401,11 +340,8 @@ tagclientrenewprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagclientrenewprohibited1
-
 tagclienttransferprohibited0
-<div id="clienttransferprohibited">
 <table>
 <tbody>
 <tr>
@@ -420,11 +356,8 @@ tagclienttransferprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagclienttransferprohibited1
-
 tagclientupdateprohibited0
-<div id="clientupdateprohibited">
 <table>
 <tbody>
 <tr>
@@ -439,8 +372,4 @@ tagclientupdateprohibited0
 </tr>
 </tbody>
 </table>
-</div>
 tagclientupdateprohibited1
-
-
-
