@@ -142,15 +142,23 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-        dsaf=$(dsarrayfunc $eppstat | awk '{gsub("</p>", "");print}' );
-        echo "$dsaf";
+        dsarrayfunc "$eppstat"
+
 done < <(printf '%s\n' "$1");
 }
 
 #ARRAY
 dsarrayfunc () {
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag');
-   echo "<div id='jsf$1' style='display:none'> $parsedtable </div>";
+   
+  x=0
+while read line
+do
+    arraypt[ $x ]="$line"        
+    (( x++ ))
+done < < "$parsedtable"
+
+echo "<div id='jsf$1' style='display:none'> ${arraypt[@]} </div>";
 }
 
 #Name Servers Function
@@ -345,6 +353,9 @@ echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo $dsfrgt
+
+aptdsfrgt=$( dsarrayfunc );
+echo $aptdsfrgt
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
