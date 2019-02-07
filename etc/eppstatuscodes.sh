@@ -70,11 +70,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <br>
 <br>
 
-<
-   
-   
-   
-!--tagaddperiod0-->
+<!--tagaddperiod0-->
 <div id="addperiod">
 <table>
 <tbody>
