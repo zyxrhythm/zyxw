@@ -148,14 +148,15 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-  
+        dsaf=$(dsarrayfunc $eppstat | awk '{gsub("</p>", "");print}' );
+        echo "$dsaf";
 done < <(printf '%s\n' "$1");
 }
 
 #ARRAY
-arrayfunc () {
-   parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
-   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
+dsarrayfunc () {
+   parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag');
+   echo "<div id='jsf$1' style='display:none'> $parsedtable </div>";
 }
 
 #Name Servers Function
