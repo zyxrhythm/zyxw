@@ -101,6 +101,12 @@ function copyClipboard() {
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
 -->
+         <script> 
+         function js$eppstat() { var x = document.getElementById(id);
+         if (x.style.display === 'none') { x.style.display = 'block'; }
+         else { x.style.display = 'none'; } } 
+         </script>
+         
 EODHEAD0
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
@@ -145,11 +151,7 @@ do
    eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' | awk '{gsub("</p>", "");print}' );  
    
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' | awk '{gsub("</p>", "");print}' );
-   
-   echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat');
-         if (x.style.display === 'none') { x.style.display = 'block'; }
-         else { x.style.display = 'none'; } } </script>"  
-   
+    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
