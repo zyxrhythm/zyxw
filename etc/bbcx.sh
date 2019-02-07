@@ -127,12 +127,6 @@ cctldlist='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|b
 #removes "domain=" from the QUERY_STRING and store it in domain variable
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
-#EVENT
-#sed -n '/^<!--tag'"$eppstat"'0-->/,/^<!--tag'"$eppstat"'1-->/p;/^<!--tag'"$eppstat"'1-->/q;'
-#awk '{gsub("</p>", "");print}'
-#awk '/<!--tag'"$1"'0-->/{flag=1;next}/<!--tag'"$1"'1-->/{flag=0}flag'
-#HORIZON
-
 #=================
 # FUNCTION HALL
 #=================
@@ -350,7 +344,7 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt"
+echo $dsfrgt
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
