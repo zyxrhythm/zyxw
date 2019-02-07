@@ -142,8 +142,8 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-        dsarrayfunc "$eppstat"
-
+        ex=$( dsarrayfunc "$eppstat")
+        echo $ex
 done < <(printf '%s\n' "$1");
 }
 
