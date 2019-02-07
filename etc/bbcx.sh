@@ -152,7 +152,7 @@ do
    
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' | awk '{gsub("</p>", "");print}' );
     
-   echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+   echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat('js$eppstat')'> [?] </a> ${line#*#}";
 
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 
