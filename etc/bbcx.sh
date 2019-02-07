@@ -350,8 +350,7 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_bl
 echo "<br/>"
 
 dsfrgt=$( dsfunction "$dstat" );
-spectral=$( echo "$dsfrgt" | awk '{gsub("</p>", "");print}' );
-echo "$spectral";
+echo "$dsfrgt"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
