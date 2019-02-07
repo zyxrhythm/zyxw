@@ -137,12 +137,6 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
-#ARRAY
-arrayfunc () {
-   parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
-   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
-}
-
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
 while IFS= read -r line
@@ -156,6 +150,12 @@ do
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
   
 done < <(printf '%s\n' "$1");
+}
+
+#ARRAY
+arrayfunc () {
+   parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
+   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 }
 
 #Name Servers Function
