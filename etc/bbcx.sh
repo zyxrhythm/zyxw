@@ -140,7 +140,7 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 #ARRAY
 arrayfunc () {
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag');
-
+   echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 }
 
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
@@ -154,9 +154,7 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-   
-echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
-
+  
 done < <(printf '%s\n' "$1");
 }
 
