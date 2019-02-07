@@ -102,7 +102,7 @@ The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
 -->
          <script> 
-         function js$eppstat() { var x = document.getElementById(id);
+         function js() { var x = document.getElementById(id);
          if (x.style.display === 'none') { x.style.display = 'block'; }
          else { x.style.display = 'none'; } } 
          </script>
@@ -152,7 +152,7 @@ do
    
    parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' | awk '{gsub("</p>", "");print}' );
     
-   echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat('js$eppstat')'> [?] </a> ${line#*#}";
+   echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js('js$eppstat')'> [?] </a> ${line#*#}";
 
 echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
 
