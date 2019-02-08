@@ -107,10 +107,10 @@ removes nasty white spaces on the text fields that causes alot of issue
 <script>
 
 function editform() {
-    document.myform.action = '/edit.sh';
+    document.getElementById("myForm").action = "/edit.sh" 
 }
 function deleteform() {
-    document.myform.action = '/delete.sh';
+    document.myform.action = '/delete.sh'
 }
 </script>
 
