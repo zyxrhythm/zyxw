@@ -89,7 +89,7 @@ thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.ht
 removes nasty white spaces on the text fields that causes alot of issue
 -->
 
-<script language="javascript" type="text/javascript">
+<script>
 function removeSpaces(string) {
  return string.split(' ').join('');
 }
@@ -103,6 +103,7 @@ function removeSpecialCharacters(string) {
 thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
 removes nasty white spaces on the text fields that causes alot of issue
 -->
+
 <script>
 
 function editform() {
