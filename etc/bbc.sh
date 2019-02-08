@@ -133,7 +133,7 @@ function deleteform() {
   
   <input type="submit" value="Submit">
   
-  <input type="submit" value="Go Elsewhere" formaction="/elsewhere">
+  <input type="submit" value="Go Elsewhere" formaction="/bbcx.sh">
   
 </form>
 
