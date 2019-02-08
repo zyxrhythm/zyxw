@@ -104,41 +104,11 @@ thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.ht
 removes nasty white spaces on the text fields that causes alot of issue
 -->
 
-<script>
-
-function editform() {
-    document.getElementById("myForm").action = "/bbcx.sh";
-}
-function deleteform() {
-    document.myform.action = "/bbcx.sh";
-}
-</script>
-
 <center>
 <p>
 <h4>
 <a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
 </h4>
-</p>
-
-<p>
-
-<form id="myform"  method="get">
-<input type="text" "name="domain">
-<input type="submit" value="Edit" onclick="editform()" type="text" "name="domain">
-<input type="submit" value="Delete" onclick="deleteform()" type="text" "name="domain">
-</form>
-
-<form action="/submit">
-  
-  <input type="submit" value="Submit">
-  
-  <input type="submit" value="Go Elsewhere" formaction="/bbcx.sh">
-  
-</form>
-
-
-
 </p>
 
 <p>
