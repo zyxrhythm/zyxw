@@ -134,7 +134,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 </select>
 <script type="text/javascript">
  var urlmenu = document.getElementById( 'menu1' );
- urlmenu.onclick = function() {
+ urlmenu.onchange = function() {
       window.open( this.options[ this.selectedIndex ].value );
  };
 </script>
