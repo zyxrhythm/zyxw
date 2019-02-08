@@ -103,6 +103,15 @@ function removeSpecialCharacters(string) {
 thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
 removes nasty white spaces on the text fields that causes alot of issue
 -->
+<script>
+
+function editform() {
+    document.myform.action = '/edit';
+}
+function deleteform() {
+    document.myform.action = '/delete';
+}
+</script>
 
 <center>
 <p>
@@ -112,14 +121,9 @@ removes nasty white spaces on the text fields that causes alot of issue
 </p>
 
 <p>
-<form name="form">
+<input type="submit" value="Edit" onclick="editform();return true;">
+<input type="submit" value="Delete" onclick="deleteform();return true;">
 
-  <!-- inputs and stuff -->
-<input type="submit" formaction="bbcx.sh" >
-  <input type="submit" onclick="javascript: form.action='/submit';">
-  <input type="submit" onclick="javascript: form.action='/submit-2';"> 
-
-</form>
 </p>
 
 <p>
