@@ -121,6 +121,7 @@ function deleteform() {
 </p>
 
 <p>
+<input type="text">
 <input type="submit" value="Edit" onclick="editform();return true;">
 <input type="submit" value="Delete" onclick="deleteform();return true;">
 
