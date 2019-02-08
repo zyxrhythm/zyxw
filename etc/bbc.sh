@@ -115,9 +115,10 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 
 <p>
+
 <form name="mycombo">
 <p><select name="example" size="1">
-<input method="get" type="submit">
+<input method="get" type="text" >
 <option value="/bbcx.sh">JavaScript Kit</option>
 <option value="/bbcx.sh">Coding Forums</option>
 <option value="/bbcx.sh">Dynamic Drive</option>
