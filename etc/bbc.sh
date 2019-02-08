@@ -112,6 +112,17 @@ removes nasty white spaces on the text fields that causes alot of issue
 </p>
 
 <p>
+<form name="form">
+
+  <!-- inputs and stuff -->
+<input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
+  <input type="submit" onclick="javascript: form.action='/submit';">
+  <input type="submit" onclick="javascript: form.action='/submit-2';"> 
+
+</form>
+</p>
+
+<p>
 
 <!--BBC SPECIALS -->
 <form method="get">
