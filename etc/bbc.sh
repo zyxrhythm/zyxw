@@ -129,6 +129,16 @@ function deleteform() {
 <input type="submit" value="Delete" onclick="deleteform()" type="text" "name="domain">
 </form>
 
+<form action="/submit">
+  
+  <input type="submit" value="Submit">
+  
+  <input type="submit" value="Go Elsewhere" formaction="/elsewhere">
+  
+</form>
+
+
+
 </p>
 
 <p>
