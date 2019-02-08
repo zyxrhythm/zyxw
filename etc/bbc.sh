@@ -121,9 +121,12 @@ function deleteform() {
 </p>
 
 <p>
+
+<form>
 <input type="text">
 <input type="submit" value="Edit" onclick="editform()">
 <input type="submit" value="Delete" onclick="deleteform()">
+</form>
 
 </p>
 
