@@ -107,7 +107,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 <script>
 
 function editform() {
-    document.getElementById("myForm").action = "/edit.sh" 
+    document.getElementById("myForm").action = "/edit.sh"
 }
 function deleteform() {
     document.myform.action = '/delete.sh'
@@ -123,7 +123,7 @@ function deleteform() {
 
 <p>
 
-<form id="myform" >
+<form id="myform"  method="get">
 <input type="text">
 <input type="submit" value="Edit" onclick="editform()">
 <input type="submit" value="Delete" onclick="deleteform()">
