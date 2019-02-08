@@ -127,6 +127,36 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 </p>
 
+
+
+
+<p>
+
+
+
+
+<select name="menu1" id="menu1">
+<option value="http://www.espn.com">ESPN</option>
+<option value="http://www.cnn.com">CNN</option>
+<option value="http://www.abcnews.com">ABC</option>
+<option value="http://www.cbsnews.com">CBS</option>
+<option value="http://www.foxnews.com">FOX</option>
+</select>
+<script type="text/javascript">
+ var urlmenu = document.getElementById( 'menu1' );
+ urlmenu.onchange = function() {
+      window.open( this.options[ this.selectedIndex ].value );
+ };
+</script>
+
+</p>
+
+
+
+
+
+
+
 <p>
 
 <!-- WHO YOU-->
