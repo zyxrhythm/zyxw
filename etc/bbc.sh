@@ -123,7 +123,7 @@ function deleteform() {
 
 <p>
 
-<form>
+<form id="myform" >
 <input type="text">
 <input type="submit" value="Edit" onclick="editform()">
 <input type="submit" value="Delete" onclick="deleteform()">
