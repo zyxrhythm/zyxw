@@ -111,6 +111,41 @@ removes nasty white spaces on the text fields that causes alot of issue
 </h4>
 </p>
 
+
+
+
+<p>
+<form name="mycombo">
+<p><select name="example" size="1">
+<input method="get" type="submit">
+<option value="/bbcx.sh">JavaScript Kit</option>
+<option value="/bbcx.sh">Coding Forums</option>
+<option value="/bbcx.sh">Dynamic Drive</option>
+</select></p>
+ 
+<script type="text/javascript">
+<!--
+function go(){
+location=
+document.mycombo.example.
+options[document.mycombo.example.selectedIndex].value
+}
+//-->
+</script>
+ 
+<input type="button" name="test" value="Go!" onClick="go()">
+</form>
+</p>
+
+
+
+
+
+
+
+
+
+
 <p>
 
 <!--BBC SPECIALS -->
