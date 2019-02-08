@@ -162,9 +162,9 @@ removes nasty white spaces on the text fields that causes alot of issue
 </select> 
 <button type="submit"> D I G </button>
 <br> <br>
-<input id="BBCinput" type="text" placeholder="@Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
+<input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
 <br>
-<code>[<strong> will query 8.8.8.8</strong> (if blank) ]</code>
+<code>[<strong> will query @8.8.8.8</strong> (if blank) ]</code>
 </form>
 </p>
 
