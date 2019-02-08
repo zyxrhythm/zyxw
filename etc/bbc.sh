@@ -125,8 +125,8 @@ function deleteform() {
 
 <form id="myform"  method="get">
 <input type="text" "name="domain">
-<input type="submit" value="Edit" onclick="editform()">
-<input type="submit" value="Delete" onclick="deleteform()">
+<input type="submit" value="Edit" onclick="editform()" type="text" "name="domain">
+<input type="submit" value="Delete" onclick="deleteform()" type="text" "name="domain">
 </form>
 
 </p>
