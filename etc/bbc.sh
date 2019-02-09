@@ -122,19 +122,15 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 <p>
 
-<form method="get">
+<form method="get" type="submit">
+
 <input type="text">
 <select name="menu1" id="menu1">
-<option value="http://www.espn.com">ESPN</option>
-<option value="http://www.cnn.com">CNN</option>
-<option value="http://www.abcnews.com">ABC</option>
-<option value="http://www.cbsnews.com">CBS</option>
-<option value="/cgi-bin/etc/bbcx.sh">FOX</option>
+<option value="/cgi-bin/etc/bbcx.sh">ESPN</option>
+<option value="/cgi-bin/etc/bbcws.sh">TEST2</option>
 </select>
 
 </form>
-
-
 
 <script type="text/javascript">
  var urlmenu = document.getElementById( 'menu1' );
