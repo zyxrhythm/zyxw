@@ -135,7 +135,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 <script type="text/javascript">
  var urlmenu = document.getElementById( 'menu1' );
  urlmenu.onchange = function() {
-      window.open( this.options[ this.selectedIndex ].value );
+      window.open( this.options[ this.selectedIndex ].value+'?domain=' );
  };
 </script>
 
@@ -143,7 +143,25 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 
 
+<select id="dynamic_select">
+  <option value="" selected>Pick a Website</option>
+  <option value="http://www.google.com">Google</option>
+  <option value="http://www.youtube.com">YouTube</option>
+  <option value="https://www.gurustop.net">GuruStop.NET</option>
+</select>
 
+<script>
+    $(function(){
+      // bind change event to select
+      $('#dynamic_select').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+      });
+    });
+</script>
 
 
 
