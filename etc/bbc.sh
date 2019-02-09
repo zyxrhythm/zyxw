@@ -113,34 +113,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 
 
-
-
-
-
-
-
-
 <p>
-
-<form method="get" type="submit">
-
-<input type="text">
-<select name="menu1" id="menu1">
-<option value="/cgi-bin/etc/bbcx.sh">ESPN</option>
-<option value="/cgi-bin/etc/bbcws.sh">TEST2</option>
-</select>
-
-</form>
-
-<script type="text/javascript">
- var urlmenu = document.getElementById( 'menu1' );
- urlmenu.onchange = function() {
-      window.open( this.options[ this.selectedIndex ].value+'?domain=' );
- };
-</script>
-
-</p>
-
 <form>
 
 <select id="dynamic_select">
@@ -166,7 +139,7 @@ removes nasty white spaces on the text fields that causes alot of issue
     });
 </script>
 
-
+</p>
 
 
 
