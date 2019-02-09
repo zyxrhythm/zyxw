@@ -141,7 +141,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 </p>
 
-
+<form>
 
 <select id="dynamic_select">
   <option value="" selected>Pick a Website</option>
@@ -149,6 +149,9 @@ removes nasty white spaces on the text fields that causes alot of issue
   <option value="http://www.youtube.com">YouTube</option>
   <option value="https://www.gurustop.net">GuruStop.NET</option>
 </select>
+
+</form>
+
 
 <script>
     $(function(){
