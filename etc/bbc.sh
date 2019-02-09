@@ -112,41 +112,6 @@ removes nasty white spaces on the text fields that causes alot of issue
 </p>
 
 
-
-<p>
-<form>
-
-<select id="dynamic_select">
-  <option value="" selected>Pick a Website</option>
-  <option value="http://www.google.com">Google</option>
-  <option value="http://www.youtube.com">YouTube</option>
-  <option value="https://www.gurustop.net">GuruStop.NET</option>
-</select>
-
-</form>
-
-
-<script>
-    $(function(){
-      // bind change event to select
-      $('#dynamic_select').on('change', function () {
-          var url = $(this).val(); // get selected value
-          if (url) { // require a URL
-              window.location = url; // redirect
-          }
-          return false;
-      });
-    });
-</script>
-
-</p>
-
-
-
-
-
-
-
 <p>
 
 <!--BBC SPECIALS -->
