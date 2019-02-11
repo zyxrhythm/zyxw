@@ -123,12 +123,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 
 <br>
-<select name='Special' onchange='this.form.submit()' action="bbcdc.sh">
-  <option selected>BBCs</option>
-  <option>SSLc</option>
-</select>
-<input type="radio" name="scores" id="1" value="1"> 1
-<input type="radio" name="scores" id="2" value="2"> 1
+<input type="radio" name="scores" id="sslradio" value="SSLc"> SSLc
 <button formaction="bbcx.sh">Analyze</button>
 
 </form>
