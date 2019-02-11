@@ -121,12 +121,15 @@ removes nasty white spaces on the text fields that causes alot of issue
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 
 
-<button formaction="bbcx.sh">Analyze</button>
+
 <br>
-<select name='Special' onchange='this.form.submit()' formaction="bbcdc.sh">
+<select name='Special' onchange='this.form.submit()' action="bbcdc.sh">
   <option selected>BBCs</option>
   <option>SSLc</option>
 </select>
+<input type="radio" name="scores" id="1" value="1"> 1
+<input type="radio" name="scores" id="2" value="2"> 1
+<button formaction="bbcx.sh">Analyze</button>
 
 </form>
 </p>
