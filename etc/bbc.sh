@@ -84,7 +84,7 @@ article	{ font-family: Verdana; font-size: 70%;
 <script>
 function detour()
 {
-   if(document.getElementById("sslc").checked == true)
+   if(document.getElementsByName("sslc").checked == true)
         window.location.href = '/cgi-bin/etc/bbcdc.sh';
 	}
 </script>
