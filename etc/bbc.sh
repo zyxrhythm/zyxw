@@ -141,7 +141,7 @@ function removeSpecialCharacters(string) {
 EOT
 
 echo "
-
+<script>
 \$("#myForm").submit(function() {
     var checked_array = new Array();
     \$("#myForm input").each(function() {
@@ -152,7 +152,11 @@ echo "
     if ( checked_array.indexOf(2) !== -1 && checked_array.indexOf(5) !== -1)
        ("#myForm").attr("action", "/url1.php") ;
     else if etc...
-}); "
+}); 
+
+</script>
+
+"
 
 cat <<EOT2
 <!-- BBC Special -->
