@@ -118,10 +118,9 @@ removes nasty white spaces on the text fields that causes alot of issue
  <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
 
-<select name='myfield' onchange='this.form.submit()'>
-  <option selected>Milk</option>
-  <option>Coffee</option>
-  <option>Tea</option>
+<select name='domain' onchange='this.form.submit()'>
+  <option selected>Special</option>
+  <option>SSL check</option>
 </select>
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
@@ -130,7 +129,6 @@ removes nasty white spaces on the text fields that causes alot of issue
 <button formaction="bbcx.sh">Analyze</button>
 <br>
 <button formaction="bbcdc.sh">SSL-check</button>
-
 </form>
 </p>
 
