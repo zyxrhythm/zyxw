@@ -137,7 +137,7 @@ function removeSpecialCharacters(string) {
 
 <button formaction="bbcx.sh" onClick="detour()" >Go</button>
 <br>
-<input type="checkbox" id="sslc" value="1" name="sslc" > <label>CS</label>
+<input type="checkbox" id="sslc" name="sslc" > <label>CS</label>
 
 </form>
 </p>
