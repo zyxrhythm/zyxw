@@ -135,7 +135,7 @@ function removeSpecialCharacters(string) {
 
 <!-- BBC Special -->
 <p>
-<form name="BBCsform"  action="bbcx.sh" method="get" >
+<form name="BBCsform" method="get" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " onclick="doPreview();" >
 
