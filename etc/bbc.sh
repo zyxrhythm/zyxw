@@ -80,6 +80,7 @@ article	{ font-family: Verdana; font-size: 70%;
 
 </style>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
 function detour()
@@ -125,6 +126,35 @@ function removeSpecialCharacters(string) {
 </h4>
 </p>
 
+<p>
+<form action="" method="post" id="myForm">
+    <input value="1" type="checkbox" name="sign[]" />     
+    <input value="2" type="checkbox" name="sign[]" />     
+    <input value="3" type="checkbox" name="sign[]" />     
+    <input value="4" type="checkbox" name="sign[]" />     
+    <input value="5" type="checkbox" name="sign[]" />     
+    <input type="submit" /> 
+</form>
+
+</p>
+
+EOT
+
+echo "
+
+\$("#myForm").submit(function() {
+    var checked_array = new Array();
+    \$("#myForm input").each(function() {
+        if (\$(this).is(":checked")
+            checked_array.push($(this).attr("value"));
+    });
+
+    if ( checked_array.indexOf(2) !== -1 && checked_array.indexOf(5) !== -1)
+       ("#myForm").attr("action", "/url1.php") ;
+    else if etc...
+}); "
+
+cat <<EOT2
 <!-- BBC Special -->
 <p>
 <form method="get" >
@@ -230,6 +260,6 @@ Copyleft 2018 &copy;
 
 </html>
 
-EOT
+EOT2
 
 exit 0;
