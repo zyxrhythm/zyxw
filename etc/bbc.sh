@@ -86,13 +86,7 @@ article	{ font-family: Verdana; font-size: 70%;
 EOT
 
 echo "
-\$('#sslc').on('change', function(){
-    if (\$(this).is(':checked')) {
-        \$('form').attr('action', '/cgi-bin/etc/bbcdc.sh');
-    } else {
-        \$('form').attr('action', '/cgi-bin/etc/bbcdc.sh');
-    }
-});
+
 "
 
 cat <<EOT2
