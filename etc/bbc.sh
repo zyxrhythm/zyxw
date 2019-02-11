@@ -88,13 +88,12 @@ EOT
 echo "
 \$('#sslc').on('change', function(){
     if (\$(this).is(':checked')) {
-        \$('form').attr('action', 'BusinessInoiveCreate.php');
+        \$('form').attr('action', '/cgi-bin/etc/bbcdc.sh');
     } else {
-        \$('form').attr('action', 'invoiceCreate.php');
+        \$('form').attr('action', '/cgi-bin/etc/bbcdc.sh');
     }
 });
 "
-
 
 cat <<EOT2
 
@@ -141,7 +140,7 @@ function removeSpecialCharacters(string) {
 
 <button >Go</button>
 <br>
-<input type="checkbox" id="sslc" name="sslc"  value= "yes" /> <label>CS</label>
+<input type="checkbox" id="sslc" name="sslc"  value="yes" /> <label>CS</label>
 
 </form>
 </p>
