@@ -90,6 +90,20 @@ function detour()
 	}
 </script>
 
+EOT
+
+echo "
+\$('#special').on('change', function(){
+    if (\$(this).is(':checked')) {
+        \$('form').attr('action', 'BusinessInoiveCreate.php');
+    } else {
+        \$('form').attr('action', 'invoiceCreate.php');
+    }
+});
+"
+
+
+cat <<EOT2
 
 </head>
 
@@ -126,9 +140,6 @@ function removeSpecialCharacters(string) {
 </h4>
 </p>
 
-EOT
-
-cat <<EOT2
 <!-- BBC Special -->
 <p>
 <form method="get" >
