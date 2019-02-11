@@ -126,37 +126,7 @@ function removeSpecialCharacters(string) {
 </h4>
 </p>
 
-<p>
-<form action="" method="post" id="myForm">
-    <input value="1" type="checkbox" name="sign[]" />     
-    <input value="2" type="checkbox" name="sign[]" />     
-    <input value="3" type="checkbox" name="sign[]" />     
-    <input value="4" type="checkbox" name="sign[]" />     
-    <input value="5" type="checkbox" name="sign[]" />     
-    <input type="submit" /> 
-</form>
-
-</p>
-
 EOT
-
-echo "
-<script>
-\$("#myForm").submit(function() {
-    var checked_array = new Array();
-    \$("#myForm input").each(function() {
-        if (\$(this).is(":checked")
-            checked_array.push($(this).attr("value"));
-    });
-
-    if ( checked_array.indexOf(2) !== -1 && checked_array.indexOf(5) !== -1)
-       ("#myForm").attr("action", "/url1.php") ;
-    else if etc...
-}); 
-
-</script>
-
-"
 
 cat <<EOT2
 <!-- BBC Special -->
