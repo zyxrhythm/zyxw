@@ -86,7 +86,17 @@ article	{ font-family: Verdana; font-size: 70%;
 EOT
 
 echo "
+var form = document.getElementsByName("BBCspecform")[0];
+var checkBox = document.getElementById("sslc");
 
+checkBox.onchange = function(){
+  if(this.checked){
+    form.action = "/cgi-bin/etc/bbcdc.sh";
+  }else{
+    form.action = "/cgi-bin/etc/bbcdc.sh";
+  }
+  console.log(form.action);
+};
 "
 
 cat <<EOT2
@@ -126,7 +136,7 @@ function removeSpecialCharacters(string) {
 
 <!-- BBC Special -->
 <p>
-<form method="get" action="bbcx.sh" >
+<form name="BBCspecform" method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
 
