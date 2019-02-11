@@ -152,12 +152,12 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 </form>
 
--->
 </p>
+-->
 
 <p>
 
-<!-- WHO YOU-->
+<!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
 <label>Who You: </label> <br>
 
