@@ -80,6 +80,16 @@ article	{ font-family: Verdana; font-size: 70%;
 
 </style>
 
+
+<script>
+function detour()
+{
+   if(document.getElementById("sslc").checked == true)
+        window.location.href = '/etc/bbcdc.sh';
+	}
+</script>
+
+
 </head>
 
 <body>
@@ -118,13 +128,12 @@ removes nasty white spaces on the text fields that causes alot of issue
  <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
 
-<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain" >
 
 
-<button formaction="bbcx.sh">Go</button>
+<button formaction="bbcx.sh" onClick="detour() >Go</button>
 <br>
-<input type="checkbox" id="sslc" value="1" name="sslc"> <label>CS</label>
-
+<input type="checkbox" id="sslc" value="1" name="sslc" > <label>CS</label>
 
 </form>
 </p>
