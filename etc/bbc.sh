@@ -125,15 +125,13 @@ function removeSpecialCharacters(string) {
 </h4>
 </p>
 
-
+<!-- BBC Special -->
 <p>
-
 <form method="get">
- <label>Specials</label> <br>
+<label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain" >
-
 
 <button formaction="bbcx.sh" onClick="detour()" >Go</button>
 <br>
@@ -141,23 +139,6 @@ function removeSpecialCharacters(string) {
 
 </form>
 </p>
-
-<p>
-
-<!--BBC SPECIALS 
-<form method="get">
- <label>Specials</label> <br>
-<input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
-
-<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-<button formaction="bbcx.sh">Analyze</button>
-<br>
-<button formaction="bbcdc.sh">SSL-check</button>
-
-</form>
--->
-</p>
-
 
 <p>
 
