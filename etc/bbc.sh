@@ -123,7 +123,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 
 <button formaction="bbcx.sh">Go</button>
 <br>
-<input type="checkbox" name="scores" id="sslradio" value="SSLc"> <label>SSLc</label>
+<input type="checkbox" id="sslc" value="sslc"> <label>SSL</label>
 
 
 </form>
