@@ -86,6 +86,7 @@ article	{ font-family: Verdana; font-size: 70%;
 EOT
 
 echo "
+<script>
 var form = document.getElementsByName("BBCspecform")[0];
 var checkBox = document.getElementById("sslc");
 
@@ -97,6 +98,7 @@ checkBox.onchange = function(){
   }
   console.log(form.action);
 };
+</script>
 "
 
 cat <<EOT2
