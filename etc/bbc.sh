@@ -85,7 +85,7 @@ article	{ font-family: Verdana; font-size: 70%;
 function detour()
 {
    if(document.getElementById("sslc").checked == true)
-        window.location.href = '/etc/bbcdc.sh';
+        window.location.href = '/cgi-bin/etc/bbcdc.sh';
 	}
 </script>
 
@@ -133,7 +133,7 @@ function removeSpecialCharacters(string) {
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain" >
 
-<button formaction="bbcx.sh" onClick="detour()" >Go</button>
+<button onClick="detour()" formaction="bbcx.sh" >Go</button>
 <br>
 <input type="checkbox" id="sslc" name="sslc" > <label>CS</label>
 
