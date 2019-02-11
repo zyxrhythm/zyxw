@@ -80,26 +80,6 @@ article	{ font-family: Verdana; font-size: 70%;
 
 </style>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-EOT
-
-echo "
-<script>
-    function bbcrefraction()
-    {
-        form=document.getElementById('BBCsform');
-        form.action='/cgi-bin/etc/bbcdc.sh';
-        form.submit();
-        form.action='/cgi-bin/etc/bbcdc.sh';
-        form.target='';
-    }
-</script>
-"
-
-cat <<EOT2
-
 </head>
 
 <body>
@@ -135,15 +115,15 @@ function removeSpecialCharacters(string) {
 
 <!-- BBC Special -->
 <p>
-<form name="BBCsform" method="get" onclick="bbcrefraction();">
+<form name="BBCsform" method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
 
-<button onclick="bbcrefraction();" >Go</button>
+<button formaction="bbcx.sh" >Go</button>
 <br>
-<input type="checkbox" id="sslc" name="sslc"  value="yes" /> <label>CS</label>
+<input type="checkbox" id="sslc" name="sslc"  value="1" /> <label>CS</label>
 
 </form>
 </p>
