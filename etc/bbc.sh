@@ -82,18 +82,11 @@ article	{ font-family: Verdana; font-size: 70%;
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-function detour()
-{
-   if(document.getElementsByName("sslc").checked == true)
-        window.location.href = '/cgi-bin/etc/bbcdc.sh';
-	}
-</script>
 
 EOT
 
 echo "
-\$('#special').on('change', function(){
+\$('#sslc').on('change', function(){
     if (\$(this).is(':checked')) {
         \$('form').attr('action', 'BusinessInoiveCreate.php');
     } else {
@@ -142,13 +135,13 @@ function removeSpecialCharacters(string) {
 
 <!-- BBC Special -->
 <p>
-<form method="get" >
+<form method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; ">
 
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain" >
 
-<button onClick="detour()" formaction="bbcx.sh" >Go</button>
+<button >Go</button>
 <br>
 <input type="checkbox" id="sslc" name="sslc" > <label>CS</label>
 
