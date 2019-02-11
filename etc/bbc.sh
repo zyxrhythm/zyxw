@@ -124,8 +124,6 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-
-
 <center>
 <p>
 <h4>
@@ -143,7 +141,7 @@ function removeSpecialCharacters(string) {
 
 <button >Go</button>
 <br>
-<input type="checkbox" id="sslc" name="sslc" > <label>CS</label>
+<input type="checkbox" id="sslc" name="sslc"  value= "yes" /> <label>CS</label>
 
 </form>
 </p>
