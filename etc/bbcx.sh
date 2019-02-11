@@ -257,13 +257,11 @@ cat <<EOTSE
 <body>
 <di id="divClipboard">
 <p>
-Blank Space. . . ?!?
+ERROR: Blank Space - Sorry.
 <br> <br>
-Is that you Taylor Swift?!?
+Please enter a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>
 <br>
-OMG! - I love you! - Will you marry me!
-<br> <br>
-If not! - Please input a domain name. Sorna.
+<br>
 </p>
 </div>
 </body>
@@ -287,7 +285,7 @@ cat <<EONVDE
 <br/>
 <div id="divClipboard">
 <p>
-Not a valid domain! Sorna.
+Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
 </body>
@@ -966,7 +964,7 @@ exit 0;
 echo '<body>'
 echo '<div id="divClipboard">'
 echo '<p>'
-echo " Not a valid domain!" 
+echo " Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
 exit 0;
 echo '</p>'
 
