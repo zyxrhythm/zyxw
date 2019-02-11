@@ -95,7 +95,7 @@ function detour()
 <body>
 
 <!--
-thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
+from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
 removes nasty white spaces on the text fields that causes alot of issue
 -->
 
@@ -103,16 +103,20 @@ removes nasty white spaces on the text fields that causes alot of issue
 function removeSpaces(string) {
  return string.split(' ').join('');
 }
+</script>
 
+<!--
+from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
+removes nasty white spaces on the text fields that causes alot of issue
+-->
+
+<script>
 function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
 }
 </script>
 
-<!--
-thanks to https://www.mediacollege.com/internet/javascript/form/remove-spaces.html
-removes nasty white spaces on the text fields that causes alot of issue
--->
+
 
 <center>
 <p>
@@ -131,7 +135,7 @@ removes nasty white spaces on the text fields that causes alot of issue
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain" >
 
 
-<button formaction="bbcx.sh" onClick="detour() >Go</button>
+<button formaction="bbcx.sh" onClick="detour()" >Go</button>
 <br>
 <input type="checkbox" id="sslc" value="1" name="sslc" > <label>CS</label>
 
@@ -151,9 +155,9 @@ removes nasty white spaces on the text fields that causes alot of issue
 <button formaction="bbcdc.sh">SSL-check</button>
 
 </form>
-
-</p>
 -->
+</p>
+
 
 <p>
 
