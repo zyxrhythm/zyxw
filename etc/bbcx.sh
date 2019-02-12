@@ -337,7 +337,7 @@ __________________________
 <strong>Registrar: </strong>${registrar#*:}
 <br/>
 __________________________
-<br/> <br/>
+</p> <p>
 EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
