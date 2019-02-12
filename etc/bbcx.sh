@@ -251,11 +251,8 @@ fi
 # END OF FUNCTION HALL
 #=====================
 
-if [[ "$sslc"="1" ]]; then echo "<meta http-equiv="refresh" content="0; URL='https://www.bigblackcactus.com/cgi-bin/bbcd.sh?domain=$domain'" />"; exit 0; 
-else
-
 #checks - if the domain variable  entered is null  / the BBC Special button is clicked without placing anything on the Domain box - then throws a Taylor Swift error
-if [[ -z "$domain" ]] && [[ -z "$sslc" ]]; then
+if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
 <body>
@@ -981,8 +978,6 @@ echo '</div>'
 
 #the end of body
 echo '</body>'
-
-fi
 
 fi
 
