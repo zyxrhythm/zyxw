@@ -145,9 +145,9 @@ dsflinkinpark="<br> <a style='cursor: pointer; color:tomato;' class='button' onc
 dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
 dsfdiv2="</div>"
 
-thefuck="$dsfdiv1 $dsfjavascript $dsflinkinpark $parsedtable $dsfdiv2"
+thefuck="$dsfdiv1 $dsfjavascript $dsflinkinpark $dsfparsedtable $dsfdiv2"
 
-echo "$( echo $thefuck | awk '{gsub("</p>", "");print}' )";
+echo $thefuck
 
 done < <(printf '%s\n' "$1");
 }
