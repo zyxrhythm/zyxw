@@ -147,7 +147,7 @@ dsfdiv2="</div>"
 
 thefuck="$dsfdiv1 $dsfjavascript $dsflinkinpark $parsedtable $dsfdiv2"
 
-echo "$thefuck";
+echo "$( echo $thefuck | awk '{gsub("</p>", "");print}' )";
 
 done < <(printf '%s\n' "$1");
 }
