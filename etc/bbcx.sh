@@ -134,17 +134,18 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 dsfunction () {
 while IFS= read -r line
 do
-  linex="${line#*#}"
-   eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );  
-
+   eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}');  
+   
+   parsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+   
    echo "<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat');
          if (x.style.display === 'none') { x.style.display = 'block'; }
          else { x.style.display = 'none'; } } </script>"  
    
-   echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> $linex";
-        echo " <div id='jsf$1' style='display:none'>";
-       cat ./epp.txt | awk '/tag'"$eppstat"'0/{flag=1;next}/tag'"$eppstat"'1/{flag=0}flag';
-       echo "</div>";
+echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+
+echo "<div id='jsf$eppstat' style='display:none'> $parsedtable </div>";
+
 done < <(printf '%s\n' "$1");
 }
 
