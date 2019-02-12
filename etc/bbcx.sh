@@ -145,7 +145,7 @@ dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onc
 dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
 dsfdiv2="</div>"
 
-thefuck=" $dsfjavascript $dsflinkinpark $dsfdiv1 $dsfdiv2"
+thefuck=" $dsfjavascript $dsfdiv1 $dsfdiv2"
 
 echo $thefuck
 
