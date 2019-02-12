@@ -142,9 +142,9 @@ do
          else { x.style.display = 'none'; } } </script>"  
    
    echo  "<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> $linex";
-        echo "<div id='jsf$1' style='display:none'>";
+        echo "<p> <div id='jsf$1' style='display:none'>";
        cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag';
-       echo "</div>";
+       echo "</div></p>";
 done < <(printf '%s\n' "$1");
 }
 
