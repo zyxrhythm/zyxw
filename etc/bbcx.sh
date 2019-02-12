@@ -140,7 +140,7 @@ dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=
    
 dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
    
-dsflinkinpark="<br> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+dsflinkinpark="<br> <a style='color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
 dsfdiv2="</div>"
