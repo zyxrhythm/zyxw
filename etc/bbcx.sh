@@ -107,7 +107,7 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
-<br/>
+<br>
 <hr>
 <button onclick="copyClipboard()">BBC Copy</button>
 </head>
@@ -140,10 +140,14 @@ dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=
    
 dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
    
-dsflinkinpark="<br/> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+dsflinkinpark="<br> <a style='cursor: pointer; color:tomato;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
 dsfdiv2="</div>"
+
+thefuck="$dsfdiv1 $dsfjavascript $dsflinkinpark $parsedtable $dsfdiv2"
+
+echo "$thefuck";
 
 done < <(printf '%s\n' "$1");
 }
@@ -162,7 +166,7 @@ nsfunction () {
 
 while IFS= read -r line
 do
-   echo "${line#*:} <br/> ";
+   echo "${line#*:} <br> ";
    nsr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
    nsr2=$(dig a +short "$nsr1" @8.8.8.8 2>/dev/null );
 if (( $(grep -c . <<<"$nsr2") > 1)); then
@@ -173,10 +177,10 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br/> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${nsax##*:}";
+   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
-echo "<br/>"
+echo "<br>"
 else
    nsa20=$(whois "$nsr2" );
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
@@ -184,7 +188,7 @@ else
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
    echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' >[^]</a> ${nsax2#*:}"
 fi
-   echo "<br/> <br>"
+   echo "<br> <br>"
 done < <(printf '%s\n' "$1");
 }
 
@@ -192,7 +196,7 @@ done < <(printf '%s\n' "$1");
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
 
-if [[ -z "$1" ]]; then echo " <br/> No A record/s found! <br/>"; 
+if [[ -z "$1" ]]; then echo " <br> No A record/s found! <br>"; 
 
 else
 
@@ -202,7 +206,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br/>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${arx#*:}";
+   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
@@ -212,13 +216,13 @@ fi
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
 
-if [[ -z "$1" ]]; then echo "No MX record/s found! <br/>"; 
+if [[ -z "$1" ]]; then echo "No MX record/s found! <br>"; 
 
 else
 
 while IFS= read -r line
 do
-   echo "$line <br/> ";
+   echo "$line <br> ";
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
 if (( $(grep -c . <<<"$mxr2") > 1)); then
@@ -229,10 +233,10 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br/> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${mxax#*:}";
+   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
-echo "<br/>"
+echo "<br>"
 else
    mxa20=$(whois "$mxr2" );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
@@ -240,7 +244,7 @@ else
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' >[^]</a> ${mxax2#*:}"
 fi
-   echo "<br/> <br>"
+   echo "<br> <br>"
 done < <(printf '%s\n' "$1");
 
 fi
@@ -282,7 +286,7 @@ dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 cat <<EONVDE
 <body>
 <p>
-<br/>
+<br>
 <div id="divClipboard">
 <p>
 Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
@@ -328,68 +332,68 @@ cat << EODNARGT
 <div id="divClipboard">
 <p>
 __________________________
-<br/>
-<br/>
+<br>
+<br>
 <strong>Domain Name:</strong> $domain
-<br/>
-<br/>
+<br>
+<br>
 <strong>Registrar: </strong>${registrar#*:}
-<br/>
+<br>
 __________________________
-</p> <p>
+<br><br>
 EODNARGT
 
 #link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/>"
+echo "<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
-<br/>
+<br>
 --------------------------
-<br/>
+<br>
 $creationdate
-<br/>
+<br>
 $expd
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODEDCDGT
 
 #name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-echo '<br/>'
+echo '<br>'
 
 nsfrgt=$( nsfunction "$nameservers");
 echo "$nsfrgt"
 
-echo '<br/>'
+echo '<br>'
 echo "__________________________"
-echo '<br/> <br/>'
+echo '<br> <br>'
 
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-echo "<br/>"
+echo "<br>"
 
 arfrgt=$( arfunction "$ar" );
 echo "$arfrgt"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt"
@@ -419,32 +423,32 @@ echo '<div id="divClipboard">'
 #displays the raw whois result of ccTLDs
 echo "<pre>$zyx</pre>";
 echo '<p>'
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo '<br/> <br>'
+echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
-echo "<br/>"
+echo "<br>"
 
 #A RECORD/S CT
 arfrct=$( arecf "$ar" );
 echo "$arfrct"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" style="color: tomato">[+]</a><strong> [MX records:]</strong>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #A RECORD/S FOT CT
 mrfrct=$( mrfuntion "$mxr");
 echo "$mrfrct"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
 
 echo '</p>'
@@ -490,21 +494,21 @@ cat << EODNARCTUS
 <div id="divClipboard">
 <p>
 __________________________
-<br/>
-<br/>
+<br>
+<br>
 <strong>Domain Name:</strong> $domain
-<br/>
-<br/>
+<br>
+<br>
 <strong>Registrar: </strong>${registrar#*:}
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODNARCTUS
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #DOMAIN STATUS CT US
 dsfrctus=$( dsfunction "$dstat" );
@@ -512,21 +516,21 @@ echo "$dsfrctus"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDCTUS
-<br/>
+<br>
 --------------------------
-<br/>
+<br>
 $creationdate
-<br/>
+<br>
 $expd
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODEDCDCTUS
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-echo '<br/>'
+echo '<br>'
 #NAME SERVERS CT US
 
 nsfrctus=$( nsfunction "$nameservers");
@@ -536,18 +540,18 @@ echo "$nsfrctus"
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #A RECORD CT US
-echo "<br/>"
+echo "<br>"
 
 arfrctus=$( arfunction "$ar");
 echo "$arfrctus"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
 #MX RECORD/S - AND IP/S CT US
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 mrfrctus=$( mrfunction "$mxr");
 echo "$mrfrctus"
@@ -622,21 +626,21 @@ cat << EODNARCTCA
 <div id="divClipboard">
 <p>
 __________________________
-<br/>
-<br/>
+<br>
+<br>
 <strong>Domain Name:</strong> $domain
-<br/>
-<br/>
+<br>
+<br>
 <strong>Registrar: </strong>${registrar#*:}
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODNARCTCA
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #DOMAIN STATUS CT CA
 dsfrctus=$( dsfunction "$dstat" );
@@ -644,21 +648,21 @@ echo "$dsfrctus"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDCTCA
-<br/>
+<br>
 --------------------------
-<br/>
+<br>
 $creationdate
-<br/>
+<br>
 $expd
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODEDCDCTCA
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-echo '<br/>'
+echo '<br>'
 #NAME SERVERS CT CA
 
 nsfrctus=$( nsfunction "$nameservers");
@@ -668,18 +672,18 @@ echo "$nsfrctus"
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
 
 #A RECORD CT CA
-echo "<br/>"
+echo "<br>"
 
 arfrctus=$( arfunction "$ar");
 echo "$arfrctus"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
 #MX RECORD/S - AND IP/S CT CA
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 mrfrctus=$( mrfunction "$mxr");
 echo "$mrfrctus"
@@ -721,48 +725,48 @@ cat << EODNARCTAU
 <div id="divClipboard">
 <p>
 __________________________
-<br/>
-<br/>
+<br>
+<br>
 <strong>Domain Name:</strong> $domain
-<br/>
-<br/>
+<br>
+<br>
 <strong>Registrar: </strong>${registrar#*:}
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODNARCTAU
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #DOMAIN STATUS CT AU
 dsfrctau=$( dsfunction "$dstat" );
 echo "$dsfrctau"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Name Servers:]</strong>"
-echo "<br/>"
+echo "<br>"
 
 #NAME SERVERS CT AU
 
 nsfrctau=$( nsfunction "$nameservers");
 echo "$nsfrctau"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 echo "$regcontact";
-echo "<br/>"
+echo "<br>"
 echo "$techcontact";
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
@@ -772,20 +776,20 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopene
 arfrctau=$( arfunction "$ar" );
 echo "$arfrctau"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #MX RECORD/S - AND IP/S CT AU
 
 mrfrctau=$( mrfunction "$mxr" );
 echo "$mrfrctau"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
 echo '</p>'
 
@@ -819,21 +823,21 @@ cat << EODNARCTNZ
 <div id="divClipboard">
 <p>
 __________________________
-<br/>
-<br/>
+<br>
+<br>
 <strong>Domain Name:</strong> $domain
-<br/>
-<br/>
+<br>
+<br>
 <strong>Registrar: </strong>${registrar#*:}
-<br/>
+<br>
 __________________________
-<br/> <br/>
+<br> <br>
 EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #DOMAIN STATUS CT NZ
 while IFS= read -r line
@@ -843,25 +847,25 @@ done < <(printf '%s\n' "$dstat");
 
 echo '<br>'
 echo "--------------------------"
-echo "<br/>"
+echo "<br>"
 echo "Last Modified: ${lastmod#*:}";
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [Name Servers:]</strong>"
-echo "<br/>"
+echo "<br>"
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 while IFS= read -r line
 do
-   echo  "<br/>   ${line#*:}";
+   echo  "<br>   ${line#*:}";
 done < <(printf '%s\n' "$nameservers");
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
@@ -871,20 +875,20 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopene
 arfrctnz=$( arfunction "$ar");
 echo "$arfrctnz"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #MX RECORD/S - AND IP/S CT NZ
 
 mrfrctnz=$( mrfunction "$mxr");
 echo "$mrfrctnz"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
 echo '</p>'
 echo '</div>'
@@ -918,26 +922,26 @@ echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registra
 
 echo '<p>'
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo '<br/> <br>'
+echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
-echo "<br/>"
+echo "<br>"
 
 #A RECORD/S CT UK
 
 arfrctca=$( arfunction "$ar");
 echo "$arfrctca"
 
-echo "<br/>"
+echo "<br>"
 echo "__________________________"
-echo "<br/> <br>"
+echo "<br> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
 
-echo "<br/> <br/>"
+echo "<br> <br>"
 
 #MX RECORD/S -AND IP/S CT UK
 
@@ -945,12 +949,12 @@ mrfrctca=$( mrfunction "$mxr");
 echo "$mrfrctca"
 
 echo "__________________________"
-echo "<br/>"
+echo "<br>"
 echo '</p>'
 echo '</div>'
 echo '<br>'
 echo '<br>'
-echo "<hr><pre>$zyx</pre><hr><br/>";
+echo "<hr><pre>$zyx</pre><hr><br>";
 
 #the back | track button on the button
 echo '<p> <a href="/cgi-bin/bbc.sh" ><<</small> back | track</a> </p>' 
