@@ -367,7 +367,7 @@ EODEDCDGT
 #name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
-echo '<br>'
+echo '<br> <br>'
 
 nsfrgt=$( nsfunction "$nameservers");
 echo "$nsfrgt"
