@@ -10,18 +10,17 @@
 #start the html header
 echo "Content-type: text/html"
 echo ""
-echo '<!DOCTYPE html>'
-
-echo '<html>'
-
-#Tab title
-echo '<title>BBC Special</title>'
-
-#start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat <<EODHEAD0
+<!DOCTYPE html>
+
+<html>
+
+<title>BBC Special</title>
+
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />
+
 <!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
@@ -29,43 +28,20 @@ cat <<EODHEAD0
 <!-- Auto Adjust -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-a {text-decoration: none; }
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-div a:link { color: tomato;  font-size: 90%; }
-div a:active { color: tomato;  font-size: 90%; }
-div a:hover { color: tomato;  font-size: 90%; }
-div a:visited { color: tomato;  font-size: 90%; }
-strong {color: green;
-}
-p  { font-family: verdana; font-size: 85%;
-}
-h1 { font-family: verdana; font-size: 70%;
-}
-body { background-color:black; color:white;
-}
-pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-</style>
 </head>
 
 <body>
-</body>
+
 <p>
-<br>
-<br>
+
 <a href="http://www.bigblackcactus.com/cgi-bin/etc/scc.sh">
 <img border="0" alt="Cactus" src="https://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
 </a>
+
 </p>
+
+</body>
+
 <footer></footer>
+
 </html>
