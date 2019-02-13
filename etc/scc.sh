@@ -28,6 +28,11 @@ cat <<EODHEAD0
 <!-- Auto Adjust -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body {color: white; background: black;
+}
+</style>
+
 </head>
 
 <body>
