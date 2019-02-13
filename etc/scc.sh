@@ -64,7 +64,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 <br>
 <br>
 <a href="http://www.bigblackcactus.com/cgi-bin/etc/scc.sh">
-<img border="0" alt="Cactus" src="https://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
+<img border="0" alt="Cactus" src="http://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
 </a>
 </p>
 <footer></footer>
