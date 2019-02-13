@@ -63,7 +63,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 <p>
 <br>
 <br>
-<a href="/cgi-bin/bbc.sh">
+<a href="https://google.com">
 <img border="0" alt="Cactus" src="http://www.biglackcactus.com/cactus2.png" width="26%" height="26%">
 </a>
 </p>
