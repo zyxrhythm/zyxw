@@ -34,7 +34,7 @@ body {color: white; background: black;
 </style>
 
 </head>
-
+<center>
 <body>
 
 <p>
@@ -46,7 +46,6 @@ body {color: white; background: black;
 </p>
 
 </body>
-
 <footer></footer>
-
+</center>
 </html>
