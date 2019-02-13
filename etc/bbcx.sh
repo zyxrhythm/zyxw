@@ -137,28 +137,39 @@ do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
    
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
-   
-dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
-   
-dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
-dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
-dsfdiv2="</div>"
+dsftable="<div id='jsf$eppstat' style='display:none'> $dsfparsedtable </div>"
 
-thefuck=" $dsflinkinpark "
-
-echo $thefuck
+echo $dsftable
 
 done < <(printf '%s\n' "$1");
 }
 
-#ARRAY
-#dsarrayfunc () {
-#   parsedtable=$( cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag');
-   
-#divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
-#echo "$divisoreya"
-#}
+#ds javascript
+dsfunction2 () {
+while IFS= read -r line 
+do 
+
+eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
+
+dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"
+
+echo "$dsjavascript"
+
+done < < (printf '%s\n' "$1")
+}
+
+#dslink
+dsfucntion3 () {
+while IFS=  read -r line
+do 
+eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
+
+dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+
+done < < (printf '%s\n' "$1")
+
+}
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
