@@ -40,7 +40,7 @@ body {color: white; background: black;
 <p>
 
 <a href="http://www.bigblackcactus.com/cgi-bin/etc/scc.sh">
-<img border="0" alt="Cactus" src="https://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
+<img border="0" alt="Cactus" src="http://www.bigblackcactus.com/cactus2.png" width="26%" height="26%">
 </a>
 
 </p>
