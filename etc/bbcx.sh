@@ -155,9 +155,7 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
-echo "<div id='jsf$eppstat' style='display:none'>";
 echo "$dsfparsedtable";
-echo "</div>";
 
 done < <(printf '%s\n' "$1");
 }
@@ -373,8 +371,12 @@ $creationdate
 $expd
 <br>
 __________________________
-<br> <br>
+<br> 
 EODEDCDGT
+dsfrgt2=$( dsfunction2 "$dstat" );
+echo "$dsfrgt2";
+
+echo "<br>"
 
 #name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
