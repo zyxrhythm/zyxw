@@ -56,7 +56,8 @@ EOCSS
 
 #<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
 
-dstat="ok"
+dstat="ok
+serverDeleteProhibited"
 
 dsfunction2 () {
 while IFS= read -r line
@@ -192,14 +193,13 @@ cat << EOH
 EOH
 
 dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
 	
 cat << EOH2
 	</p>
     </div>
 </div>
 
-<input name="ans1b" type="button" value="b" onclick="showPos(event,'That\'s right!')" />
+<input name="ans1b" type="button" value="b" onclick="showPos(event,'$dsfrgt2')" />
 
 
 <DIV id='PopUp' style='display: none; position: absolute; left: 100px; top: 50px; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); text-align: justify; font-size: 12px; width: 135px;' onmouseover="document.getElementById('PopUp').style.display = 'none' ">
