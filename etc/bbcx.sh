@@ -56,7 +56,7 @@ div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
 strong {color: green;
 }
-p  { font-family: verdana; font-size: 85%;
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
 }
 h1 { font-family: verdana; font-size: 70%;
 }
