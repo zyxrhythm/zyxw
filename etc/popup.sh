@@ -25,6 +25,18 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 #<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
 
+dsfunction2 () {
+while IFS= read -r line
+do
+eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
+
+dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+
+echo "$dsfparsedtable";
+
+done < <(printf '%s\n' "$1");
+}
+
 cat <<EOS
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	
@@ -114,12 +126,17 @@ cat << EOH
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-	<iframe> src="/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited" </iframe>
+EOH
+
+dsfrgt2=$( dsfunction2 "$dstat" );
+echo "$dsfrgt2";
+	
+cat << EOH2
 	</p>
     </div>
 </div>
 </body>
 </html>
-EOH
+EOH2
 
 exit 0;
