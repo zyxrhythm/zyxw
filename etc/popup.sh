@@ -212,7 +212,7 @@ cat << EOH2
 $dsfrgt2
 </SPAN>
 
-<input name="ans1b" type="button" value="b" onclick="showPos(event,'That\'s right!')" />
+<input name="ans1b" type="button" value="b" onclick="showPos(event,'$dsfrgt2')" />
 
 </body>
 
