@@ -202,10 +202,9 @@ cat << EOH2
 <input name="ans1b" type="button" value="b" onclick="showPos(event,'$dsfrgt2')" />
 
 
-<DIV id='PopUp' style='display: none; position: absolute; left: 100px; top: 50px; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); font-size: 12px; width: 315;' onmouseover="document.getElementById('PopUp').style.display = 'none' ">
-<SPAN id='PopUpText'>
-$dsfrgt2
-</SPAN>
+<DIV id='PopUp' style='display: none; position: absolute; left: 100px; top: 50px; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); text-align: justify; font-size: 12px; width: 135px;' onmouseover="document.getElementById('PopUp').style.display = 'none' ">
+<SPAN id='PopUpText'>TEXT</SPAN>
+</DIV>
 
 
 
