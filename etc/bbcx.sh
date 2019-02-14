@@ -131,43 +131,24 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 #=================
 
 #Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
+####################################################################################
 dsfunction () {
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
-   
-dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
-   
-dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
-   
-dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
-dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
-dsfdiv2="</div>"
-
+echo "<script> 
+function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>"  
+   
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 }
-
 ####################################################################################
 dsfunction2 () {
-while IFS= read -r line
-do
-eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
-   
-dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
-   
-dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
-   
-dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-
-dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
-dsfdiv2="</div>"
-
-done < <(printf '%s\n' "$1");
-}
-####################################################################################
-dsfunction3 () {
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
