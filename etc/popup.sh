@@ -56,12 +56,7 @@ EOCSS
 
 #<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
 
-dstat="clientDeleteProhibited 
-clientTransferProhibited 
-clientUpdateProhibited 
-serverDeleteProhibited 
-serverTransferProhibited 
-serverUpdateProhibited"
+dstat="ok"
 
 dsfunction2 () {
 while IFS= read -r line
