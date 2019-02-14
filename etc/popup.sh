@@ -21,14 +21,16 @@ echo '<title>BBC Special</title>'
 #start of head
 echo '<head>'
 
-cat << EOSS
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-EOSS
-
-
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
-#from https://html-online.com/articles/simple-popup-box/
+#<SCRIPT LANGUAGE="JavaScript" SRC="/etc/script.js"></SCRIPT>
+
+cat <<EOS
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+EOS
+
 echo "<script>"
 echo "	\$(window).load(function () {"
 echo "	\$('.trigger_popup_fricc').click(function(){"
@@ -38,14 +40,9 @@ echo "	\$('.hover_bkgr_fricc').hide(); });"
 echo "	\$('.popupCloseButton').click(function(){"
 echo "	\$('.hover_bkgr_fricc').hide(); }); });"
 echo "</script>"
-#from https://html-online.com/articles/simple-popup-box/
-
-
-eppstatuscode="pendingdelete"
 
 cat <<EOC
 <style>
-/* from https://html-online.com/articles/simple-popup-box/ */
 /* Popup box BEGIN */
 .hover_bkgr_fricc{
     background:rgba(0,0,0,.4);
@@ -64,17 +61,17 @@ cat <<EOC
     vertical-align:middle;
 }
 .hover_bkgr_fricc > div {
-    background-color: #150;
+    background-color: #fff;
     box-shadow: 10px 10px 60px #555;
     display: inline-block;
     height: auto;
-    max-width: 560px;
+    max-width: 551px;
     min-height: 100px;
     vertical-align: middle;
-    width: 82%;
+    width: 60%;
     position: relative;
-    border-radius: 3px;
-    padding: 4px 5%;
+    border-radius: 8px;
+    padding: 15px 5%;
 }
 .popupCloseButton {
     background-color: #fff;
@@ -104,58 +101,25 @@ cat <<EOC
     font-weight: bold;
 }
 /* Popup box BEGIN */
-/* from https://html-online.com/articles/simple-popup-box/ */
 </style>
 EOC
 
 echo '</head>'
 
-echo '<body>'
-
-echo "$eppstatuscode"
-
 cat << EOH
-<a class="trigger_popup_fricc" onclick="myFunctionxx(); myFunctionxxx()" >Click here to show the popup</a>
+<body>
+<a class="trigger_popup_fricc">Click here to show the popup</a>
 <div class="hover_bkgr_fricc">
     <span class="helper"></span>
     <div>
         <div class="popupCloseButton">X</div>
         <p>
-<iframe id="myFrame" src="/cgi-bin/eppstatuscodes.sh#$eppstatuscode" target='parent' style="height:666px;width:100%" "allow-top-navigation"  object-fit ></iframe>
+	<iframe> src="/cgi-bin/eppstatuscodes.sh#clientdeleteprohibited" </iframe>
 	</p>
-	</div>
     </div>
-    
-    <iframe id="myFrame" src="href='https://securitytrails.com/domain/ipage.com/history/ns" target='parent' style="height:666px;width:100%" "allow-top-navigation"  object-fit ></iframe>
-  
 </div>
+</body>
+</html>
 EOH
-
-echo '</body>'
-
-echo '<footer>'
-
-echo '<script>'
-
-echo "function myFunctionxxx() {"
-echo "\$('#target-div').load('/cgi-bin/eppstatuscodes.sh#\$eppstatuscode');"
-echo "}"
-
-echo '</script>'
-
-
-#echo '<!-- from https://html-online.com/articles/simple-popup-box/ -->'
-
-echo '<script>'
-echo "function myFunctionxx() {"
-echo "  var iframe = document.getElementById($eppstatuscode);"
-echo "  var elmnt = iframe.contentWindow.document.getElementsByTagName('div')[0]; }"
-echo "  elmnt.style.display = 'none';"
-echo '</script>'
-
-echo '</footer>'
-
-echo '</html>'
-
 
 exit 0;
