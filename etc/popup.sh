@@ -200,7 +200,7 @@ cat << EOH2
 </div>
 
 
-<DIV id='PopUp' style='display: none; position: absolute; left: 100px; top: 50px; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); text-align: center; font-size: 12px; width: 100%;' onmouseover="document.getElementById('PopUp').style.display = 'none' ">
+<DIV id='PopUp' style='display: none; position: absolute; left: 100px; top: 50px; border: solid black 1px; padding: 10px; background-color: rgb(200,100,100); text-align: center; font-size: 12px; width: 315;' onmouseover="document.getElementById('PopUp').style.display = 'none' ">
 <SPAN id='PopUpText'>
 $dsfrgt2
 </SPAN>
