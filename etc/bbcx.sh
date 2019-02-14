@@ -145,12 +145,46 @@ dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onc
 dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
 dsfdiv2="</div>"
 
-thefuck=" $dsflinkinpark "
-
-echo $thefuck
 
 done < <(printf '%s\n' "$1");
 }
+
+####################################################################################
+dsfunction () {
+while IFS= read -r line
+do
+eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
+   
+dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+   
+dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
+   
+dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+
+dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
+dsfdiv2="</div>"
+
+done < <(printf '%s\n' "$1");
+}
+
+dsfunction () {
+while IFS= read -r line
+do
+eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
+   
+dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+   
+dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
+   
+dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+
+dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
+dsfdiv2="</div>"
+
+done < <(printf '%s\n' "$1");
+}
+
+#############################################################################################
 
 #ARRAY
 #dsarrayfunc () {
