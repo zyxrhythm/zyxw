@@ -137,41 +137,28 @@ do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
    
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+   
+dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); if (x.style.display === 'none') { x.style.display = 'block'; } else { x.style.display = 'none'; } } </script>"  
+   
+dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
-dsftable="<div id='jsf$eppstat' style='display:none'> $dsfparsedtable </div>"
+dsfdiv1="<div id='jsf$eppstat' style='display:none'>"
+dsfdiv2="</div>"
 
-echo $dsftable
+thefuck=" $dsflinkinpark "
+
+echo $thefuck
 
 done < <(printf '%s\n' "$1");
 }
 
-#ds javascript
-dsfunction2 () {
-while IFS= read -r line 
-do 
-
-eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
-
-dsfjavascript="<script> function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
-if (x.style.display === 'none') { x.style.display = 'block'; } 
-else { x.style.display = 'none'; } } </script>"
-
-echo "$dsjavascript"
-
-done < < (printf '%s\n' "$1")
-}
-
-#dslink
-dsfucntion3 () {
-while IFS=  read -r line
-do 
-eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
-
-dsflinkinpark="<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
-
-done < < (printf '%s\n' "$1")
-
-}
+#ARRAY
+#dsarrayfunc () {
+#   parsedtable=$( cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag');
+   
+#divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
+#echo "$divisoreya"
+#}
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -190,7 +177,7 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${nsax##*:}";
+   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
 echo "<br>"
@@ -199,7 +186,7 @@ else
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' > > </a> ${nsax2#*:}"
+   echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' >[^]</a> ${nsax2#*:}"
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
@@ -219,7 +206,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${arx#*:}";
+   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
@@ -246,7 +233,7 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${mxax#*:}";
+   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
 echo "<br>"
@@ -255,7 +242,7 @@ else
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > > </a> ${mxax2#*:}"
+   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' >[^]</a> ${mxax2#*:}"
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
@@ -356,7 +343,7 @@ __________________________
 <br><br>
 EODNARGT
 
-#link to the EPP status codes on "[Domain Status:]"
+#link to the EPP status codes on "[+]" before "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 echo "<br>"
@@ -378,7 +365,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank"> [+] </a><strong> [Name Servers:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
 
 echo '<br> <br>'
 
