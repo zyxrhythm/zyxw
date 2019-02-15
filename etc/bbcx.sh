@@ -376,7 +376,7 @@ EODEDCDGT
 dsfrgt2=$( dsfunction2 "$dstat" );
 echo "$dsfrgt2";
 
-echo "<br>"
+echo "<br> <p>"
 
 #name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
