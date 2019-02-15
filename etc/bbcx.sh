@@ -373,8 +373,12 @@ $expd
 __________________________
 <br> 
 EODEDCDGT
+echo "<div id='jsf$eppstat' style='display:none'>"
+
 dsfrgt2=$( dsfunction2 "$dstat" );
 echo "$dsfrgt2";
+
+echo "</div>"
 
 echo "<br> <p>"
 
