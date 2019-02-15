@@ -258,7 +258,7 @@ fi
 # END OF FUNCTION HALL
 #=====================
 
-#checks - if the domain variable  entered is null  / the BBC Special button is clicked without placing anything on the Domain box - then throws a Taylor Swift error
+#checks - if the domain variable  entered is null  / the BBC Special button is clicked without placing anything
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
@@ -377,7 +377,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><strong><a href='https://securitytrails.com/domain/$domain/history/ns' target="_blank">[+]&nbsp</a>Name Servers:</strong>"
+echo "<br><strong><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'>[+]&nbsp;</a>Name Servers:</strong>"
 
 echo '<br> <br>'
 
@@ -390,7 +390,7 @@ echo '<br> <br>'
 
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/a' target="_blank" >[+]</a> [A records:]</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp;</a>[A records:]</strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br>"
@@ -403,7 +403,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]&nbsp</a> [MX records:]</strong>"
+echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]&nbsp;</a>[MX records:]</strong>"
 
 echo "<br> <br>"
 
@@ -440,7 +440,7 @@ echo "__________________________"
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target="_blank" >[+] &nbsp</a> [A records:]</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+] &nbsp;</a>A records:</strong>"
 echo "<br>"
 
 #A RECORD/S CT
@@ -452,7 +452,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx'  target="_blank" style="color: tomato">[+]&nbsp</a> [MX records:]</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='color: tomato'>[+]&nbsp;</a>MX records:</strong>"
 
 echo "<br> <br>"
 
@@ -522,14 +522,14 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status
 
 echo "<br>"
 
-dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt"
+dsfrctus=$( dsfunction "$dstat" );
+echo "$dsfrctus"
 
 echo "<br>"
 echo "--------------------------"
 
-dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
+dsfrctus2=$( dsfunction2 "$dstat" );
+echo "$dsfrctus2";
 
 #the illusionist =(
 echo "<p>"
@@ -548,7 +548,7 @@ EODEDCDCTUS
 
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
-echo "<br><strong><a href='https://securitytrails.com/domain/$domain/history/ns' target="_blank">[+]&nbsp</a>Name Servers:</strong>"
+echo "<br><strong><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'>[+]&nbsp;</a>Name Servers:</strong>"
 
 echo '<br>'
 #NAME SERVERS CT US
@@ -557,7 +557,7 @@ nsfrctus=$( nsfunction "$nameservers");
 echo "$nsfrctus"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a'  target="_blank" >[+]&nbsp</a>A records:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp;</a>A records:</strong>"
 
 #A RECORD CT US
 echo "<br>"
@@ -568,7 +568,7 @@ echo "$arfrctus"
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]&nbsp</a>MX records:</strong>"
+echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp;</a>MX records:</strong>"
 
 #MX RECORD/S - AND IP/S CT US
 echo "<br> <br>"
@@ -662,14 +662,14 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status
 
 echo "<br>"
 
-dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt"
+dsfrctca=$( dsfunction "$dstat" );
+echo "$dsfrctca"
 
 echo "<br>"
 echo "--------------------------"
 
-dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
+dsfrctca2=$( dsfunction2 "$dstat" );
+echo "$dsfrctca2";
 
 #the illusionist =(
 echo "<p>"
@@ -687,33 +687,33 @@ __________________________
 EODEDCDCTCA
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'>[+]nbsp;</a><strong> [Name Servers:]</strong>"
 
 echo '<br>'
 #NAME SERVERS CT CA
 
 nsfrctus=$( nsfunction "$nameservers");
-echo "$nsfrctus"
+echo "$nsfrctca"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
+echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]nbsp;</a> [A records:]</strong>"
 
 #A RECORD CT CA
 echo "<br>"
 
 arfrctus=$( arfunction "$ar");
-echo "$arfrctus"
+echo "$arfrctca"
 
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a><strong> [MX records:]</strong>"
 
 #MX RECORD/S - AND IP/S CT CA
 echo "<br> <br>"
 
-mrfrctus=$( mrfunction "$mxr");
-echo "$mrfrctus"
+mrfrctca=$( mrfunction "$mxr");
+echo "$mrfrctca"
 
 echo "__________________________"
 ;;
@@ -769,13 +769,13 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status
 echo "<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt"
+echo "$dsfrctau"
 
 echo "<br>"
 echo "--------------------------"
 
-dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
+dsfrctau2=$( dsfunction2 "$dstat" );
+echo "$dsfrctau2";
 
 #the illusionist =(
 echo "<p>"
@@ -793,7 +793,7 @@ __________________________
 EODEDCDCTAU
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/ns' target="_blank" >[+]&nbsp</a>Name Servers:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' >[+]&nbsp;</a>Name Servers:</strong>"
 echo "<br>
 
 #NAME SERVERS CT AU
@@ -812,7 +812,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a'" target="_blank" >[+]</a>A records:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' >[+]nbsp;</a>A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -824,7 +824,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]</a>MX records:</strong>"
+echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a>MX records:</strong>"
 echo "<br> <br>"
 
 #MX RECORD/S - AND IP/S CT AU
@@ -878,7 +878,7 @@ __________________________
 EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong>Domain Status:</strong></a>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status:</strong></a>"
 
 echo "<br> <br>"
 
@@ -897,7 +897,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank" >[+]</a>Name Servers:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' >[+]</a>Name Servers:</strong>"
 echo "<br>"
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -911,7 +911,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target="_blank" >[+]</a>A records:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]nbsp;</a>A records:</strong>"
 
 #A RECORD/S CT NZ
 
@@ -923,7 +923,7 @@ echo "__________________________"
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]</a>MX records:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a>MX records:</strong>"
 echo "<br> <br>"
 
 #MX RECORD/S - AND IP/S CT NZ
@@ -970,7 +970,7 @@ echo "__________________________"
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/a'  target="_blank" >[+]</a>A records:</strong>"
+echo "<strong> <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]nbsp;</a>A records:</strong>"
 echo "<br>"
 
 #A RECORD/S CT UK
@@ -982,7 +982,7 @@ echo "<br>"
 echo "__________________________"
 echo "<br> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx' target="_blank" >[+]</a>MX records:</strong>"
+echo "<strong><a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a>MX records:</strong>"
 
 echo "<br> <br>"
 
