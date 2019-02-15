@@ -355,10 +355,18 @@ echo "<br>"
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
 
+echo "<br>"
+echo "--------------------------"
+
+dsfrgt2=$( dsfunction2 "$dstat" );
+echo "$dsfrgt2";
+
+#the illusionist =(
+echo "<p>"
+
 #print the domain creation and expiration dates
+
 cat <<EODEDCDGT
-<br>
---------------------------
 <br>
 $creationdate
 <br>
@@ -367,11 +375,6 @@ $expd
 __________________________
 <br> 
 EODEDCDGT
-
-dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
-
-echo "<br> <p>"
 
 #name servrers history
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong> [Name Servers:]</strong>"
