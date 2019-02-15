@@ -182,8 +182,9 @@ do
    echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' >[^]</a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
-echo "<br> <br>"
+echo "<br>"
 else
+   echo "<br>"
    nsa20=$(whois "$nsr2" );
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
@@ -240,6 +241,7 @@ done < <(printf '%s\n' "$mxr2");
 
 echo "<br>"
 else
+   echo "<br>"
    mxa20=$(whois "$mxr2" );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
