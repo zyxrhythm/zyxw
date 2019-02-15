@@ -155,7 +155,9 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
+echo "<div id='jsf$eppstat' style='display:none'>"
 echo "$dsfparsedtable";
+echo "</div>"
 
 done < <(printf '%s\n' "$1");
 }
@@ -373,12 +375,9 @@ $expd
 __________________________
 <br> 
 EODEDCDGT
-echo "<div id='jsf$eppstat' style='display:none'>"
 
 dsfrgt2=$( dsfunction2 "$dstat" );
 echo "$dsfrgt2";
-
-echo "</div>"
 
 echo "<br> <p>"
 
