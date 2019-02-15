@@ -377,7 +377,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br> <strong>[Name Servers:] <a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank"> [+] </a></strong>"
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank">[+]</a><strong>Name Servers:</strong>"
 
 echo '<br> <br>'
 
