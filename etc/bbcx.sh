@@ -130,8 +130,8 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 # FUNCTION HALL
 #=================
 
-#Domain Status Function function that cycles through the status codes and create a link the status to what it means on eppstatus.sh
-####################################################################################
+#Domain Status Functions functions that cycles through the status codes and create a link the status to what it means on eppstatus.sh
+
 dsfunction () {
 while IFS= read -r line
 do
@@ -147,7 +147,7 @@ echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$
 
 done < <(printf '%s\n' "$1");
 }
-####################################################################################
+
 dsfunction2 () {
 while IFS= read -r line
 do
@@ -161,16 +161,6 @@ echo "</div>"
 
 done < <(printf '%s\n' "$1");
 }
-
-#############################################################################################
-
-#ARRAY
-#dsarrayfunc () {
-#   parsedtable=$( cat ./epp.txt | awk '/tag'"$1"'0/{flag=1;next}/tag'"$1"'1/{flag=0}flag');
-   
-#divisoreya=$(echo "<div id='jsf$1' style='display:none'> $parsedtable </div>" | awk '{gsub("</p>", "");print}' );
-#echo "$divisoreya"
-#}
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
