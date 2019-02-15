@@ -347,7 +347,7 @@ __________________________
 <br><br>
 EODNARGT
 
-#link to the EPP status codes on "[+]" before "[Domain Status:]"
+#link to the EPP status codes on "[+]" after "[Domain Status:]"
 echo "<a href='/cgi-bin/eppstatuscodes.sh' rel='noopener noreferrer' target='_blank'><strong> [Domain Status:]</strong></a>"
 
 echo "<br>"
@@ -377,7 +377,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<strong>[Name Servers:] <a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank"> + </a></strong>"
+echo "<br> <strong>[Name Servers:] <a href='https://securitytrails.com/domain/$domain/history/ns' rel="noopener noreferrer" target="_blank"> [+] </a></strong>"
 
 echo '<br> <br>'
 
@@ -390,7 +390,7 @@ echo '<br> <br>'
 
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a><strong> [A records:]</strong>"
+echo "<strong> [A records:]</strong><a href='https://securitytrails.com/domain/$domain/history/a' rel="noopener noreferrer" target="_blank" >[+]</a>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo "<br>"
