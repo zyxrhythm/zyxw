@@ -711,8 +711,6 @@ zyx=$(whois $domain);
 
 zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/Name servers:/{flag=0}flag' );
 
-nameservers=$(echo "$zyx" | awk '/Name servers:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
-
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
@@ -727,8 +725,6 @@ echo "<div id='divClipboard'>"
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
 
 echo '<p>'
-
-echo "$nameservers";
 
 echo '<br>'
 echo '__________________________'
