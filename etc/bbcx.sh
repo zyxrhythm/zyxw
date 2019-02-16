@@ -548,7 +548,7 @@ EODNARCTAU
 #link to the EPP status codes 
 echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a>"
 
-echo '<br> <br>'
+echo '<br>'
 
 dsfrctau=$( dsfunction "$dstat" );
 echo "$dsfrctau"
