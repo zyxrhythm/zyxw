@@ -757,6 +757,7 @@ echo '<br>'
 echo '</p>'
 echo '</div>'
 echo '<br>'
+echo 'Raw whois result below:'
 echo '<br>'
 echo "<hr><pre>$zyx</pre><hr><br>";
 
