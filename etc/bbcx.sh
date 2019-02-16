@@ -559,18 +559,17 @@ echo "$dsfrctau2";
 #the illusionist
 echo '<p>'
 echo "__________________________"
-echo '<br> <br>'
+echo '<br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
-echo '<br>'
+echo '<br> <br>'
 
 #NAME SERVERS CT AU
 
 nsfrctau=$( nsfunction "$nameservers");
 echo "$nsfrctau"
 
-echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 echo "$regcontact";
