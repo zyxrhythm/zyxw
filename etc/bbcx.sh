@@ -757,9 +757,9 @@ echo '<br>'
 echo '</p>'
 echo '</div>'
 echo '<br>'
-echo 'Raw whois result below:'
+echo '<hr><p>Raw whois result below:</p><hr>'
 echo '<br>'
-echo "<hr><pre>$zyx</pre><hr><br>";
+echo "<pre>$zyx</pre><br>";
 
 ;;
 #throw an error for anything else
