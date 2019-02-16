@@ -711,7 +711,7 @@ zyx=$(whois $domain);
 
 zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/Name servers:/{flag=0}flag' );
 
-nameservers=$(echo "$zyx" | awk '/Name servers:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' | sed -i '/^$/d' );
+nameservers=$(echo "$zyx" | awk '/Name servers:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
@@ -728,8 +728,7 @@ echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registra
 
 echo '<p>'
 
-echo "$nameservers"
-
+echo "$nameservers";
 
 echo '<br>'
 echo '__________________________'
