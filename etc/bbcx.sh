@@ -709,7 +709,9 @@ uk)
 
 zyx=$(whois $domain);
 
-zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
+zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/Name servers:t/{flag=0}flag' );
+
+nameservers=$(echo "$zyx" | awk '/Name servers:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' | sed -i '/^$/d' | tr -d '\040\011\012\' );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
@@ -725,6 +727,9 @@ echo "<div id='divClipboard'>"
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
 
 echo '<p>'
+
+nsfrctuk=$( nsfunction "$nameservers");
+echo "$nsfrctuk"
 
 echo '<br>'
 echo '__________________________'
