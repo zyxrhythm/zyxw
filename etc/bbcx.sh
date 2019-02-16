@@ -500,7 +500,6 @@ exit 0;
 
 ;;
 
-
 #special trimming for AU ccTLDs
 au)
 
@@ -554,26 +553,12 @@ echo '<br>'
 dsfrctau=$( dsfunction "$dstat" );
 echo "$dsfrctau"
 
-echo "<br>"
-echo "--------------------------"
-
 dsfrctau2=$( dsfunction2 "$dstat" );
 echo "$dsfrctau2";
 
 #the illusionist
 echo '<p>'
-
-#print the domain creation and expiration dates
-
-cat <<EODEDCDCTAU
-<br>
-$creationdate
-<br>
-$expd
-<br>
-__________________________
-<br> 
-EODEDCDCTAU
+echo "--------------------------"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
@@ -595,7 +580,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' >[+]nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -607,7 +592,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT AU
