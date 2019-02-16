@@ -656,14 +656,12 @@ echo '<br>'
 dsfrctca=$( dsfunction "$dstat" );
 echo "$dsfrctca"
 
-echo '<br>'
-echo '--------------------------'
-
 dsfrctca2=$( dsfunction2 "$dstat" );
 echo "$dsfrctca2";
 
 #the illusionist
 echo '<p>'
+echo '--------------------------'
 
 #print the domain creation and expiration dates
 
