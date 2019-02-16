@@ -441,7 +441,7 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_bla
 echo '<br>'
 
 #A RECORD/S CT
-arfrct=$( arecf "$ar" );
+arfrct=$( arfunction "$ar" );
 echo "$arfrct"
 
 echo '<br>'
@@ -466,6 +466,37 @@ echo '</div>'
 
 echo '<br>'
 echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
+
+;;
+
+#special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+ph)
+cat <<EOQPH
+<body>
+<p>
+<br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'> Click Here </a>To get the whois info of this .ph domain.
+</p>
+</body>
+</html>
+EOQPH
+exit 0;
+
+;;
+
+#special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
+sg)
+
+cat <<EOQSG
+<body>
+<p>
+<br>
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'> Click Here </a>To get the whois info of this .sg domain.
+</p>
+</body>
+</html>
+EOQSG
+exit 0;
 
 ;;
 
@@ -576,38 +607,6 @@ echo '__________________________'
 
 ;;
 
-
-#special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
-ph)
-cat <<EOQPH
-<body>
-<p>
-<br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'> Click Here </a>To get the whois info of this .ph domain.
-</p>
-</body>
-</html>
-EOQPH
-exit 0;
-
-;;
-
-#special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
-sg)
-
-cat <<EOQSG
-<body>
-<p>
-<br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'> Click Here </a>To get the whois info of this .sg domain.
-</p>
-</body>
-</html>
-EOQSG
-exit 0;
-
-;;
-
 #special whois result trim for CA ccTLDs 
 ca)
 
@@ -683,27 +682,27 @@ __________________________
 EODEDCDCTCA
 
 #link to the name servers history on [Domain Status:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> [+]nbsp; </a><strong>Name Servers: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> [+]&nbsp;</a><strong>Name Servers: </strong>"
 
 echo '<br>'
 #NAME SERVERS CT CA
 
-nsfrctus=$( nsfunction "$nameservers");
+nsfrctca=$( nsfunction "$nameservers");
 echo "$nsfrctca"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]nbsp; </a> <strong> A records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp;</a> <strong> A records: </strong>"
 
 #A RECORD CT CA
 echo '<br>'
 
-arfrctus=$( arfunction "$ar");
+arfrctca=$( arfunction "$ar");
 echo "$arfrctca"
 
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a><strong> [MX records:]</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp;</a><strong> [MX records:]</strong>"
 
 #MX RECORD/S - AND IP/S CT CA
 echo '<br> <br>'
