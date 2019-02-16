@@ -705,9 +705,6 @@ echo '</p>'
 echo '</div>'
 echo '<br>'
 
-#the back | track button
-echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
-
 ;;
 
 #special whois result trim for UK TLDs
@@ -737,7 +734,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
 echo '<br>'
 
 #A RECORD/S CT UK
@@ -749,7 +746,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
@@ -766,9 +763,6 @@ echo '<br>'
 echo '<br>'
 echo "<hr><pre>$zyx</pre><hr><br>";
 
-#the back | track button on the button
-echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
-
 ;;
 #throw an error for anything else
    *)
@@ -779,6 +773,9 @@ echo "<div id='divClipboard'>"
 echo '<p>'
 echo " Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
 echo '</p>'
+
+#the back | track button on the button
+echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
 
 ;;
 esac
