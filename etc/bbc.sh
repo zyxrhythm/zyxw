@@ -130,17 +130,7 @@ function removeSpecialCharacters(string) {
 
 <p>
 
-<script>
- function redirect(url)
- {
-    window.location.href = url;
- }
-</script>
 
-<input type="checkbox" name="gender" value="female" id="female" onClick="redirect('www.google.com')">
-
-<input type="radio" name="gender" value="Male">
-<input type="radio" name="female" value="Female">
 
 </p>
 
