@@ -699,11 +699,8 @@ echo '<br> <br>'
 mrfrctnz=$( mrfunction "$mxr");
 echo "$mrfrctnz"
 
-echo '<br>'
-echo '__________________________'
 echo '</p>'
 echo '</div>'
-echo '<br>'
 
 ;;
 
