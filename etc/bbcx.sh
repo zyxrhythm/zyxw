@@ -558,7 +558,8 @@ echo "$dsfrctau2";
 
 #the illusionist
 echo '<p>'
-echo "--------------------------"
+echo "__________________________"
+echo '<br> <br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
