@@ -128,28 +128,6 @@ function removeSpecialCharacters(string) {
 </form>
 </p>
 
-<p>
-
-<form method="post" action="send.php" id="idOfForm">
-  <textarea name="msg" id="msg"></textarea>
-  <input type="submit" value="Send" />
-</form>
-<button onclick="doPreview();">Preview</button>
-
-<script>
-    function doPreview()
-    {
-        form=document.getElementById('idOfForm');
-        form.target='_blank';
-        form.action='preview.sh';
-        form.submit();
-        form.action='send.sh';
-        form.target='';
-    }
-</script>
-
-</p>
-
 
 <p>
 
