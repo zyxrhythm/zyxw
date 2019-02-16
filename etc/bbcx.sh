@@ -728,8 +728,8 @@ echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registra
 
 echo '<p>'
 
-nsfrctuk=$( nsfunction "$nameservers");
-echo "$nsfrctuk"
+echo "$nameservers"
+
 
 echo '<br>'
 echo '__________________________'
