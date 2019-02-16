@@ -354,18 +354,15 @@ echo "<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
-
-echo "<br>"
-echo "--------------------------"
-
 dsfrgt2=$( dsfunction2 "$dstat" );
 echo "$dsfrgt2";
 
 #the illusionist =(
 echo "<p>"
 
-#print the domain creation and expiration dates
+echo "--------------------------"
 
+#print the domain creation and expiration dates
 cat <<EODEDCDGT
 <br>
 $creationdate
@@ -549,7 +546,7 @@ EODEDCDCTUS
 #link to the name servers history on [Domain Status:] - from securitytrails.com
 echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'>[+]&nbsp; </a> <strong> Name Servers: </strong>"
 
-echo '<br>'
+echo '<br> <br>'
 #NAME SERVERS CT US
 
 nsfrctus=$( nsfunction "$nameservers");
