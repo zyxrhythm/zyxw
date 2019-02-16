@@ -135,14 +135,15 @@ function removeSpecialCharacters(string) {
   <input type="submit" value="Send" />
 </form>
 <button onclick="doPreview();">Preview</button>
-<script type="text/javascript">
+
+<script>
     function doPreview()
     {
         form=document.getElementById('idOfForm');
         form.target='_blank';
-        form.action='preview.php';
+        form.action='preview.sh';
         form.submit();
-        form.action='send.php';
+        form.action='send.sh';
         form.target='';
     }
 </script>
