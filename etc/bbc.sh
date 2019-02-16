@@ -118,8 +118,8 @@ function removeSpecialCharacters(string) {
 <form name="BBCsform" method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
-
-<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
+<input type="submit" type=radio >
+<input placeholder=<input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >"Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
 
 <button formaction="bbcx.sh" >Go</button>
 <br>
@@ -130,7 +130,22 @@ function removeSpecialCharacters(string) {
 
 <p>
 
-
+<form method="post" action="send.php" id="idOfForm">
+  <textarea name="msg" id="msg"></textarea>
+  <input type="submit" value="Send" />
+</form>
+<button onclick="doPreview();">Preview</button>
+<script type="text/javascript">
+    function doPreview()
+    {
+        form=document.getElementById('idOfForm');
+        form.target='_blank';
+        form.action='preview.php';
+        form.submit();
+        form.action='send.php';
+        form.target='';
+    }
+</script>
 
 </p>
 
