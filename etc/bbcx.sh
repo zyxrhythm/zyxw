@@ -648,7 +648,7 @@ EODNARCTNZ
 #link to the EPP status codes on [Domain Status:]
 echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a>"
 
-echo '<br> <br>'
+echo '<br>'
 
 #DOMAIN STATUS CT NZ
 while IFS= read -r line
@@ -679,7 +679,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]&nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT NZ
 
@@ -691,7 +691,7 @@ echo '__________________________'
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]nbsp;</a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp;</a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT NZ
