@@ -109,7 +109,7 @@ function removeSpecialCharacters(string) {
 <p>
 <!-- <form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" > -->
 
-<form action="bbcx.sh"  accept-charset="UTF-8" method="post" name="search-theme-form" id="search-theme-form">
+<form action="bbcx.sh"  accept-charset="UTF-8" method="get" name="search-theme-form" id="search-theme-form">
 
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
