@@ -104,18 +104,13 @@ function removeSpecialCharacters(string) {
 <a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
 </h4>
 
-
-<p>
-
-<form action="/"  accept-charset="UTF-8" method="get" name="search-theme-form" id="search-theme-form">
-
-</p>
-
-
 </p>
 <!-- BBC Special -->
 <p>
-<form name="BBCsform" method="get" action="bbcx.sh" >
+<!-- <form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" > -->
+
+<form action="bbcx.sh"  accept-charset="UTF-8" method="post" name="search-theme-form" id="search-theme-form">
+
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
