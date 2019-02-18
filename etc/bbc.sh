@@ -123,8 +123,8 @@ function removeSpecialCharacters(string) {
 
 
 <select name="menu1" id="menu1">
-<option value="/bbcx.sh">ESPN</option>
-<option value="/bbcdc.sh">CNN</option>
+<option value="bbcx.sh">ESPN</option>
+<option action="bbcdc.sh">CNN</option>
 </select>
 
 
