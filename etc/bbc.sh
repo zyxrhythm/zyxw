@@ -106,37 +106,35 @@ function removeSpecialCharacters(string) {
 
 </p>
 
+<!-- BBC Special -->
 <p>
-<select name="menu1" id="menu1">
-<option value="http://www.espn.com">ESPN</option>
-<option value="http://www.cnn.com">CNN</option>
-<option value="http://www.abcnews.com">ABC</option>
-<option value="http://www.cbsnews.com">CBS</option>
-<option value="/cgi-bin/etc/bbcx.sh">FOX</option>
-</select>
+
 <script type="text/javascript">
  var urlmenu = document.getElementById( 'menu1' );
  urlmenu.onchange = function() {
       window.open( this.options[ this.selectedIndex ].value );
  };
 </script>
-</p>
 
-
-<!-- BBC Special -->
-<p>
-<!-- <form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" > -->
-
-<form action="bbcx.sh"  accept-charset="UTF-8" method="get" name="search-theme-form" id="search-theme-form">
-
+<form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
+
+
+<select name="menu1" id="menu1">
+<option value="/bbcx.sh">ESPN</option>
+<option value="/bbcdc.sh">CNN</option>
+</select>
+
+
 <button formaction="bbcx.sh" >Go</button>
 <br>
-<input type="checkbox" id="aaa" name="aaa"  value="1" /> <label>CS</label>
+<input type="checkbox" id="cs" name="cs"  value="1" /> <label>CS</label>
 </form>
+
 </p>
+
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
