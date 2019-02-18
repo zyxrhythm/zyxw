@@ -109,6 +109,13 @@ function removeSpecialCharacters(string) {
 <!-- BBC Special -->
 <p>
 
+<script>
+ var urlmenu = document.getElementById( 'menu1' );
+ urlmenu.onchange = function() {
+      window.open( this.options[ this.selectedIndex ].value );
+ };
+</script>
+
 <form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" >
 <label>Specials</label> <br>
 <input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
@@ -116,6 +123,12 @@ function removeSpecialCharacters(string) {
 <input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
 
 <button formaction="bbcx.sh" >Go</button>
+
+<select name="menu1" id="menu1">
+<option value="http://www.espn.com">Analyze</option>
+<option value="https://www.bigblackcactus.com/cgi-bin/etc/bbcdc.sh?">SSL-check</option>
+</select>
+
 </form>
 
 </p>
