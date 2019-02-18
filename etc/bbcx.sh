@@ -164,6 +164,14 @@ done < <(printf '%s\n' "$1");
 
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
+
+nsfunction0 () {
+while IFS= read -r line
+do
+   echo  "<br/>   ${line#*:}";
+done < <(printf '%s\n' "$1");
+}
+
 nsfunction () {
 
 while IFS= read -r line
