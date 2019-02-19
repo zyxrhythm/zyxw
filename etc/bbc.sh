@@ -120,11 +120,11 @@ function redirect()
 }
 </script>
 
-<form method="get" name="formation">
-<input type="checkbox" name="domain" value="square" id="square" >
+<form method="get" name="formation" action="" >
+<input type="checkbox" name="domain" >
 <input type="text" type="submit">
 
-<button onclick="redirect();" >Go</button>
+<button onclick="redirect();" type="submit" >Go</button>
 
 </form>
 
