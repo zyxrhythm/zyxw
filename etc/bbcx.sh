@@ -196,7 +196,6 @@ do
    echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
-echo '<br>'
 else
    echo "<br>"
    nsa20=$(whois "$nsr2" );
@@ -209,6 +208,7 @@ fi
 done < <(printf '%s\n' "$1");
 
 echo '</div>'
+echo "<p>"
 }
 
 #A Record Function
