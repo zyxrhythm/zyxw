@@ -128,7 +128,7 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" >scc</code>
+<code style="font-size:100%" >SCC</code>
 <input type="checkbox" id="square">
 </form>
 <!-- ################## =) ################# -->
