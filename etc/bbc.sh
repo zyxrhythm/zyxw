@@ -109,26 +109,30 @@ function removeSpecialCharacters(string) {
 
 <p>
 
+<!-- ################## =) ################# -->
 <script>
 function redirect()
 {
    if(document.getElementById("square").checked == true)
         document.formation.action ="bbcdc.sh";
 
-		else if(document.getElementById("square").checked == false)
+	else if(document.getElementById("square").checked == false)
         document.formation.action = "bbcx.sh";       
 }
 </script>
 
+
+
 <form method="get" name="formation" action="" >
 
-<input type="text" type="submit" name="domain">
-<input type="checkbox" id="square">
+<input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
+<br><label>SCC</label>
+<input type="checkbox" id="square">
 
 </form>
-</form>
+<!-- ################## =) ################# -->
 
 </p>
 
