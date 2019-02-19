@@ -208,7 +208,7 @@ fi
 done < <(printf '%s\n' "$1");
 
 echo '</div>'
-echo "<p>"
+echo '<p>'
 }
 
 #A Record Function
@@ -390,12 +390,11 @@ EODEDCDGT
 #name servrers history
 echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> [+]&nbsp; </a> <strong>Name Servers:</strong>"
 
-echo '<br> <br>'
+echo '<br>'
 
 nsfrgt=$( nsfunction "$nameservers");
 echo "$nsfrgt"
 
-echo '<br>'
 echo "__________________________"
 echo '<br> <br>'
 
@@ -574,7 +573,7 @@ echo '<br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
-echo '<br> <br>'
+echo '<br>'
 
 #NAME SERVERS CT AU
 
