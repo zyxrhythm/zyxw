@@ -206,8 +206,9 @@ else
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
-echo '<p>'
+echo '<p></p>'
 echo '</div>'
+echo '<p>'
 }
 
 #A Record Function
