@@ -176,7 +176,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> # </a>"
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'><?></a>"
 
 echo "<div id='nsverbose' style='display:none'>"
 
@@ -206,9 +206,8 @@ else
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
-
-echo '</div>'
 echo '<p>'
+echo '</div>'
 }
 
 #A Record Function
