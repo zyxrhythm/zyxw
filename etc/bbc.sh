@@ -106,7 +106,7 @@ function removeSpecialCharacters(string) {
 
 </p>
 
-
+<!-- BBC Special -->
 <p>
 
 <!-- ################## =) ################# -->
@@ -121,8 +121,7 @@ function redirect()
 }
 </script>
 
-
-
+<label>Specials</label> <br>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -133,28 +132,6 @@ function redirect()
 
 </form>
 <!-- ################## =) ################# -->
-
-</p>
-
-
-
-
-
-<!-- BBC Special -->
-<p>
-
-<form name="BBCsform" id="BBCsform" method="get" action="bbcx.sh" >
-<label>Specials</label> <br>
-<input type="submit" formaction="bbcx.sh" style="visibility: hidden; display: none; " >
-<input placeholder="Domain" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);"name="domain">
-
-<button formaction="bbcx.sh" >Go</button>
-
-<br>
-
-<input type="checkbox" id="cs" name="cs"  value="1" /> <label>CS</label>
-
-</form>
 
 </p>
 
