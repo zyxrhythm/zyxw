@@ -113,10 +113,10 @@ function removeSpecialCharacters(string) {
 function redirect()
 {
    if(document.getElementById("square").checked == true)
-        document.formation.action ="bbcx.sh";
+        document.formation.action ="bbcdc.sh";
 
 		else if(document.getElementById("square").checked == false)
-        document.formation.action = "bbcdc.sh";       
+        document.formation.action = "bbcx.sh";       
 }
 </script>
 
