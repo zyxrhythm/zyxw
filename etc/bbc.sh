@@ -127,7 +127,7 @@ function redirect()
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
-<br><label>SSL Check</label><br>(leave blank to analyze domain)
+<br><label>SSL Check</label>
 <input type="checkbox" id="square">
 
 </form>
