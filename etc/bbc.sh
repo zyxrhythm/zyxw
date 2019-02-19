@@ -106,6 +106,34 @@ function removeSpecialCharacters(string) {
 
 </p>
 
+
+<p>
+
+<script>
+function redirect()
+{
+   if(document.getElementById("square").checked == true)
+        document.formation.action ="bbcx.sh";
+
+		else if(document.getElementById("square").checked == false)
+        document.formation.action = "bbcdc.sh";       
+}
+</script>
+
+<form method="get" name="formation">
+<input type="checkbox" name="domain" value="square" id="square" >
+<input type="text" type="submit">
+
+<button onclick="redirect();" >Go</button>
+
+</form>
+
+</p>
+
+
+
+
+
 <!-- BBC Special -->
 <p>
 
