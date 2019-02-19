@@ -146,9 +146,7 @@ else { x.style.display = 'none'; } }
 echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
 
 done < <(printf '%s\n' "$1");
-}
 
-dsfunction2 () {
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
@@ -362,8 +360,6 @@ echo "<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
-dsfrgt2=$( dsfunction2 "$dstat" );
-echo "$dsfrgt2";
 
 #the illusionist =(
 echo "<p>"
@@ -560,9 +556,6 @@ echo '<br>'
 
 dsfrctau=$( dsfunction "$dstat" );
 echo "$dsfrctau"
-
-dsfrctau2=$( dsfunction2 "$dstat" );
-echo "$dsfrctau2";
 
 #the illusionist
 echo '<p>'
