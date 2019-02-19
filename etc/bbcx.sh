@@ -179,7 +179,7 @@ else { x.style.display = 'none'; } }
 echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'><?></a>"
 
 echo "<div id='nsverbose' style='display:none'>"
-
+echo '<p>'
 while IFS= read -r line
 do
    echo "${line#*:} <br> ";
@@ -206,7 +206,7 @@ else
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
-echo '<p></p>'
+echo '</p>'
 echo '</div>'
 echo '<p>'
 }
