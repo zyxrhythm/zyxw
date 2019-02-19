@@ -211,5 +211,7 @@ Copyleft 2018 &copy;
 </article>
 </center>
 </html>
-EOT2
+
+EOT
+
 exit 0;
