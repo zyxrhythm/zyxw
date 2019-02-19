@@ -121,13 +121,13 @@ function redirect()
 }
 </script>
 
-<label>BBC Specials</label>
+<strong><label>BBC Specials</label></strong>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
-<br><label>SSL Check</label>
+<br><code>SSL Check</code>
 <input type="checkbox" id="square">
 
 </form>
