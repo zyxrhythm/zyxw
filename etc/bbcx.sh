@@ -163,14 +163,22 @@ done < <(printf '%s\n' "$1");
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 
-nsfunction0 () {
+nsfunction () {
+
 while IFS= read -r line
 do
    echo  "<br/>   ${line#*:}";
 done < <(printf '%s\n' "$1");
-}
 
-nsfunction () {
+echo "<script> 
+function jsnsverbose() { var x = document.getElementById('nsverbose'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>"
+
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> # </a>"
+
+echo "<div id='nsverbose' style='display:none'>"
 
 while IFS= read -r line
 do
@@ -188,7 +196,7 @@ do
    echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
-echo "<br>"
+echo '<br>'
 else
    echo "<br>"
    nsa20=$(whois "$nsr2" );
@@ -197,8 +205,10 @@ else
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
    echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' > > </a> ${nsax2#*:}"
 fi
-   echo "<br> <br>"
+   echo '<br> <br>'
 done < <(printf '%s\n' "$1");
+
+echo '</div>'
 }
 
 #A Record Function
