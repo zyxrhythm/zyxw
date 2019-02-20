@@ -58,19 +58,47 @@ EOCSS
 cat << EOH2
 
 <body>
-<SCRIPT LANGUAGE="JavaScript">
-function testResults (form) {
-    var TestVar = form.inputbox.value;
-    alert ("You typed: " + TestVar);
+
+
+
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+
+<input id="text" type="text" value="$testvar" style="width:80%; display:none" /><br />
+<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 100,
+	height : 100
+});
+
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
 }
-</SCRIPT>
 
-<FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
-<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
-<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
-</FORM>
+makeCode();
 
-
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
+</script>
 
 </body>
 
