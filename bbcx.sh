@@ -726,9 +726,6 @@ zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#start of html body
-echo '<body>'
-
 #the BBC copy button
 echo "<div id='divClipboard'>"
 
@@ -774,9 +771,8 @@ echo "<pre>$zyx</pre><br>";
 
 ;;
 #throw an error for anything else
-   *)
 
-#if the domain is not on the list of TLDs throws an error
+*)
 echo '<body>'
 echo "<div id='divClipboard'>"
 echo '<p>'
