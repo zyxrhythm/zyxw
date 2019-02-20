@@ -207,7 +207,7 @@ fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
 echo '</p>'
-echo '</div> </td> </tbody> </table>'
+echo '</td> </tbody> </table> </div>'
 echo '<p>'
 }
 
