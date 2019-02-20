@@ -63,7 +63,7 @@ cat << EOH2
 <script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/jquery.min.js"></script>
 <script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/qrcode.js"></script>
 
-<input id="text" type="text" value="$testvar" style="width:80%; display:none" /><br />
+<input id="text" type="text" value="$testvar" style="width:80%; " /><br />
 <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
 
 <script type="text/javascript">
