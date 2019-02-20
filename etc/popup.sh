@@ -25,6 +25,12 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 testvar="WHAT DOES THE FOX SAY"
 
+cat << EOSCRIPTS
+
+<script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/jquery.min.js"></script>
+<script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/qrcode.js"></script>
+
+EOSCRIPTS
 
 cat <<EOCSS
 <style>
@@ -53,6 +59,16 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 </style>
+
+
+
+
+</head>
+EOCSS
+
+cat << EOH2
+
+<body>
 
 <script type="text/javascript">
 var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -86,16 +102,6 @@ $("#text").
 </script>
 
 
-</head>
-EOCSS
-
-cat << EOH2
-
-<body>
-
-
-<script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/jquery.min.js"></script>
-<script type="text/javascript" src="http://hiddencloud.zyxrhythm.ninja/qrcode.js"></script>
 
 <input id="text" type="text" value="$testvar" style="width:80%; " /><br />
 <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
