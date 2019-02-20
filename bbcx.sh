@@ -742,8 +742,8 @@ echo '<br>'
 
 #A RECORD/S CT UK
 
-arfrctca=$( arfunction "$ar");
-echo "$arfrctca"
+arfrctuk=$( arfunction "$ar");
+echo "$arfrctuk"
 
 echo '<br>'
 echo '__________________________'
@@ -755,8 +755,8 @@ echo '<br> <br>'
 
 #MX RECORD/S -AND IP/S CT UK
 
-mrfrctca=$( mrfunction "$mxr");
-echo "$mrfrctca"
+mrfrctuk=$( mrfunction "$mxr");
+echo "$mrfrctuk"
 
 echo '__________________________'
 echo '<br>'
@@ -765,7 +765,7 @@ echo '</div>'
 echo '<br>'
 echo '<hr><p>Raw whois result below:</p><hr>'
 echo '<br>'
-echo "<pre>$zyx</pre><br>";
+echo "<pre>$zyx</pre><br>"
 
 ;;
 #throw an error for anything else
