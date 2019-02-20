@@ -143,7 +143,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> [?] </a> ${line#*#}";
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10068; </a> ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
@@ -176,9 +176,9 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> [v] </a>"
+echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> &#9660; </a>"
 
-echo "<div id='nsverbose' style='display:none'>"
+echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
 echo '<p>'
 while IFS= read -r line
 do
@@ -193,7 +193,7 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${nsax##*:}";
+   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${nsax##*:}";
 done < <(printf '%s\n' "$nsr2");
 
 else
@@ -202,12 +202,12 @@ else
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' > > </a> ${nsax2#*:}"
+   echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' > &#9654; </a> ${nsax2#*:}"
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
 echo '</p>'
-echo '</div>'
+echo '</td> </tbody> </table> </div>'
 echo '<p>'
 }
 
@@ -225,7 +225,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${arx#*:}";
+   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
@@ -240,10 +240,10 @@ if [[ -z "$1" ]]; then echo 'No MX record/s found! <br>';
 else
 
 while IFS= read -r line
-do   
+do
    mxr1=$(echo  $line | cut -f2 -d" ");
 mxr1a=$(echo $line | cut -f1 -d" ");
-echo "<strong>$mxr1a</strong> &nbsp; & nbsp; $mxr1 <br> ";
+echo "<strong>$mxr1a</strong> &nbsp; &nbsp; $mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 
@@ -253,7 +253,7 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br> &nbsp; &nbsp; $line   --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > > </a> ${mxax#*:}";
+   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
 echo "<br>"
@@ -263,7 +263,7 @@ else
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
-   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > > </a> ${mxax2#*:}"
+   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > &#9654; </a> ${mxax2#*:}"
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
@@ -282,9 +282,9 @@ cat <<EOTSE
 <body>
 <di id="divClipboard">
 <p>
-Blank Space - Sorry.
+Input: null.
 <br> <br>
-Please enter a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
 <br>
 </p>
@@ -310,7 +310,7 @@ cat <<EONVDE
 <br>
 <div id="divClipboard">
 <p>
-Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
 </body>
@@ -389,7 +389,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> [+]&nbsp; </a> <strong>Name Servers:</strong>"
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> &#9960; &nbsp; </a> <strong>Name Servers:</strong>"
 
 echo '<br>'
 
@@ -401,7 +401,7 @@ echo '<br> <br>'
 
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]&nbsp; </a> <strong>A records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong>A records: </strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo '<br>'
@@ -414,7 +414,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records: </strong>"
 
 echo '<br> <br>'
 
@@ -451,7 +451,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+] &nbsp; </a> <strong>A records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong>A records: </strong>"
 echo '<br>'
 
 #A RECORD/S CT
@@ -463,7 +463,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > [+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
@@ -538,10 +538,6 @@ regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 #stores the tech contact
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 
-#the BBC copy button
-echo "<div id='divClipboard'>"
-echo '<p>'
-
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
@@ -573,7 +569,7 @@ echo "__________________________"
 echo '<br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > &#9960; &nbsp; </a> <strong> Name Servers:</strong>"
 echo '<br>'
 
 #NAME SERVERS CT AU
@@ -591,7 +587,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -603,7 +599,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT AU
@@ -676,7 +672,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' >[+]</a> <strong>Name Servers: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > &#9960; </a> <strong>Name Servers: </strong>"
 echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -690,7 +686,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT NZ
 
@@ -702,7 +698,7 @@ echo '__________________________'
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp;</a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp;</a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT NZ
@@ -726,42 +722,41 @@ zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#start of html body
 echo '<body>'
 
 #the BBC copy button
 echo "<div id='divClipboard'>"
 
+echo '<p>'
+
 #prints the whois result with the the trimming
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
-
-echo '<p>'
 
 echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 echo '<br>'
 
 #A RECORD/S CT UK
 
-arfrctca=$( arfunction "$ar");
-echo "$arfrctca"
+arfrctuk=$( arfunction "$ar");
+echo "$arfrctuk"
 
 echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
 #MX RECORD/S -AND IP/S CT UK
 
-mrfrctca=$( mrfunction "$mxr");
-echo "$mrfrctca"
+mrfrctuk=$( mrfunction "$mxr");
+echo "$mrfrctuk"
 
 echo '__________________________'
 echo '<br>'
@@ -770,17 +765,16 @@ echo '</div>'
 echo '<br>'
 echo '<hr><p>Raw whois result below:</p><hr>'
 echo '<br>'
-echo "<pre>$zyx</pre><br>";
+echo "<pre>$zyx</pre><br>"
 
 ;;
 #throw an error for anything else
-   *)
 
-#if the domain is not on the list of TLDs throws an error
+*)
 echo '<body>'
 echo "<div id='divClipboard'>"
 echo '<p>'
-echo " Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
+echo " Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>" 
 echo '</p>'
 
 #the back | track button on the button
