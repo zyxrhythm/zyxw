@@ -389,7 +389,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> [+]&nbsp; </a> <strong>Name Servers:</strong>"
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank'> &#9960; &nbsp; </a> <strong>Name Servers:</strong>"
 
 echo '<br>'
 
@@ -401,7 +401,7 @@ echo '<br> <br>'
 
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]&nbsp; </a> <strong>A records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong>A records: </strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo '<br>'
@@ -414,7 +414,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records: </strong>"
 
 echo '<br> <br>'
 
@@ -451,7 +451,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+] &nbsp; </a> <strong>A records: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong>A records: </strong>"
 echo '<br>'
 
 #A RECORD/S CT
@@ -463,7 +463,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > [+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
@@ -573,7 +573,7 @@ echo "__________________________"
 echo '<br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > [+]&nbsp; </a> <strong> Name Servers:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > &#9960; &nbsp; </a> <strong> Name Servers:</strong>"
 echo '<br>'
 
 #NAME SERVERS CT AU
@@ -591,7 +591,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -603,7 +603,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT AU
@@ -676,7 +676,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' >[+]</a> <strong>Name Servers: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' > &#9960; </a> <strong>Name Servers: </strong>"
 echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -690,7 +690,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > [+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT NZ
 
@@ -702,7 +702,7 @@ echo '__________________________'
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp;</a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp;</a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT NZ
@@ -742,7 +742,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' >[+]&nbsp; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' > &#9960; &nbsp; </a> <strong> A records:</strong>"
 echo '<br>'
 
 #A RECORD/S CT UK
@@ -754,7 +754,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' >[+]&nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
