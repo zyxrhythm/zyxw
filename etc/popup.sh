@@ -23,6 +23,9 @@ echo '<head>'
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
+testvar="WHAT DOES THE FOX SAY"
+
+
 cat <<EOCSS
 <style>
 a {text-decoration: none; }
