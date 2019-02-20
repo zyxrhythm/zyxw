@@ -143,7 +143,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10023; </a> ${line#*#}";
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10068; </a> ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
