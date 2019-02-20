@@ -240,9 +240,10 @@ if [[ -z "$1" ]]; then echo 'No MX record/s found! <br>';
 else
 
 while IFS= read -r line
-do
-   echo "$line <br> ";
+do   
    mxr1=$(echo  $line | cut -f2 -d" ");
+mxr1a=$(echo $line | cut -f1 -d" ");
+echo "<strong>$mxr1a</strong> &nbsp; & nbsp; $mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 
