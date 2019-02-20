@@ -178,7 +178,7 @@ else { x.style.display = 'none'; } }
 
 echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> &#9660; </a>"
 
-echo "<div id='nsverbose' style='display:none'> <table>"
+echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
 echo '<p>'
 while IFS= read -r line
 do
@@ -207,7 +207,7 @@ fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
 echo '</p>'
-echo '</div> </table>'
+echo '</div> </td> </tbody> </table>'
 echo '<p>'
 }
 
