@@ -40,8 +40,7 @@ p  { font-family: verdana; font-size: 85%;
 }
 h1 { font-family: verdana; font-size: 70%;
 }
-body { background-color:black; color:white;
-}
+
 pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
 }
 table { font-family: verdana; border: 2px solid green; font-size: 90%;
