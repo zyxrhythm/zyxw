@@ -389,7 +389,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 150%'> &#9960; &nbsp; </a> <strong>Name Servers:</strong>"
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 140%'> &#9960;</a> <strong>Name Servers:</strong>"
 
 echo '<br>'
 
