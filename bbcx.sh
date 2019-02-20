@@ -538,10 +538,6 @@ regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 #stores the tech contact
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 
-#the BBC copy button
-echo "<div id='divClipboard'>"
-echo '<p>'
-
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
@@ -726,13 +722,15 @@ zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
+echo '<body>'
+
 #the BBC copy button
 echo "<div id='divClipboard'>"
 
+echo '<p>'
+
 #prints the whois result with the the trimming
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
-
-echo '<p>'
 
 echo '<br>'
 echo '__________________________'
@@ -776,7 +774,7 @@ echo "<pre>$zyx</pre><br>";
 echo '<body>'
 echo "<div id='divClipboard'>"
 echo '<p>'
-echo " Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
+echo " Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>" 
 echo '</p>'
 
 #the back | track button on the button
