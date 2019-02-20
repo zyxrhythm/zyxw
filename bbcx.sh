@@ -282,9 +282,9 @@ cat <<EOTSE
 <body>
 <di id="divClipboard">
 <p>
-Blank Space - Sorry.
+Input: null.
 <br> <br>
-Please enter a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
 <br>
 </p>
@@ -310,7 +310,7 @@ cat <<EONVDE
 <br>
 <div id="divClipboard">
 <p>
-Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
 </body>
@@ -780,7 +780,7 @@ echo "<pre>$zyx</pre><br>";
 echo '<body>'
 echo "<div id='divClipboard'>"
 echo '<p>'
-echo " Not a valid a <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
+echo " Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>" 
 echo '</p>'
 
 #the back | track button on the button
