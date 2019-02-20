@@ -176,7 +176,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> v </a>"
+echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> * </a>"
 
 echo "<div id='nsverbose' style='display:none'>"
 echo '<p>'
