@@ -483,7 +483,7 @@ echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
 
 ;;
 
-#special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+#special result for .ph ccTLD 
 ph)
 
 ar=$(dig +short $domain @8.8.8.8);
@@ -531,7 +531,7 @@ exit 0;
 ;;
 
 
-#special result for .sg ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+#special result for .sg ccTLD 
 sg)
 
 ar=$(dig +short $domain @8.8.8.8);
@@ -579,16 +579,50 @@ exit 0;
 
 ;;
 
-#special result for .vn ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+#special result for .vn ccTLD 
 vn)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
 cat <<EOQVN
 <body>
+
+<div id="divClipboard">
+<p>
+
 <p>
 <br>
-<a href='http://www.vnnic.vn/en/domain' target='_blank'> Click Here </a>To get the whois info of this .vn domain.
+For the  Whois info of this .sg domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
 </p>
+
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
+<br> <br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+
+</p>
+</div>
+
 </body>
 </html>
+
 EOQVN
 exit 0;
 
