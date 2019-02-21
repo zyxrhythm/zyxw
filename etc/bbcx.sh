@@ -495,16 +495,16 @@ mrfrgt=$( mrfunction "$mxr");
 
 cat <<EOQPH
 <body>
+<div id="divClipboard">
+<p>
 <p>
 <br>
-For the  whois info of this .ph domain <br>
-Click the link below or copy and paste it on a browser:  <br> <br>
+For the  Whois info of this .ph domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
 
-<div id="divClipboard">
-<p>
-__________________________ <br>
+__________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
@@ -533,14 +533,49 @@ exit 0;
 #special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
 sg)
 
+#special result for .sg ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
+sg)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
 cat <<EOQSG
 <body>
+
+<div id="divClipboard">
+<p>
 <p>
 <br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'> Click Here </a>To get the whois info of this .sg domain.
+For the  Whois info of this .sg domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
+
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
+<br> <br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+
+</p>
+</div>
+
 </body>
 </html>
+
 EOQSG
 exit 0;
 
