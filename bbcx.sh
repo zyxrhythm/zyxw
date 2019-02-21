@@ -508,7 +508,7 @@ __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
-<br> <br>
+<br>
 $arfrgt
 <br>
 __________________________
@@ -557,7 +557,7 @@ __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
-<br> <br>
+<br>
 $arfrgt
 <br>
 __________________________
@@ -605,7 +605,7 @@ __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
-<br> <br>
+<br>
 $arfrgt
 <br>
 __________________________
