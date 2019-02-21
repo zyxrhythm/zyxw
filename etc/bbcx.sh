@@ -504,6 +504,7 @@ Click the link below or copy and paste it on a browser:  <br> <br>
 
 <div id="divClipboard">
 <p>
+__________________________ <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
