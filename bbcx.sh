@@ -468,7 +468,7 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 echo '<br> <br>'
 
 #A RECORD/S FOT CT
-mrfrct=$( mrfuntion "$mxr");
+mrfrct=$( mrfunction "$mxr");
 echo "$mrfrct"
 
 echo '<br>'
