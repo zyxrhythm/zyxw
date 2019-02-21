@@ -400,7 +400,7 @@ echo "__________________________"
 echo '<br> <br>'
 
 
-#link to the A record/s history on [A records:] - from securitytrails.com
+#link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
@@ -413,7 +413,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [MX records:] - from securitytrails.com
+#link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>"
 
 echo '<br> <br>'
@@ -450,7 +450,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the A record/s history on [A records:] - from securitytrails.com
+#link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>"
 echo '<br>'
 
@@ -462,7 +462,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [MX records:] - from securitytrails.com
+#link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
