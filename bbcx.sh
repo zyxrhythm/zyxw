@@ -300,7 +300,7 @@ else
 zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
-dvcheck=$(echo "${zyx:0:16}");
+dvcheck=$(echo "${zyx:0:9}");
   if [[ "$dvcheck" = "Domain no" ]] || [[ "$dvcheck" = "No match " ]] || [[ "$dvcheck" = "The queri" ]] || [[ "$dvcheck" = "NOT FOUND" ]]; then
 
 #the error that pops up when a domain is not valid/ does not exist
