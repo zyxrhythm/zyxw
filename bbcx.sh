@@ -299,9 +299,9 @@ else
 # query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
 
-#domain validity check -if  a domain does not exist or has beed deleted the usual raw whois result starts with "no" if no is not on the contect of the the above variable the script continues
-dvcheck=$(echo "${zyx:0:3}" | awk '{print tolower($0)}' );
-  if [[ "$dvcheck" = "no " ]] || [[ "$dvcheck" = "the" ]]; then
+#domain validity check -if  by checking the first 9 characters on the raw whois result
+dvcheck=$(echo "${zyx:0:16}");
+  if [[ "$dvcheck" = "Domain no" ]] || [[ "$dvcheck" = "No match " ]] || [[ "$dvcheck" = "The queri" ]] || [[ "$dvcheck" = "NOT FOUND" ]]; then
 
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
