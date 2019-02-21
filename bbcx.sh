@@ -301,7 +301,7 @@ zyx=$(whois $domain);
 
 #domain validity check -if  a domain does not exist or has beed deleted the usual raw whois result starts with "no" if no is not on the contect of the the above variable the script continues
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
-  if [[ "$dvcheck" = "no" ]]; then
+  if [[ "$dvcheck" = "no" ]] || [[ "$dvcheck" = "th" ]]; then
 
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
