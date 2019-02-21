@@ -496,7 +496,6 @@ mrfrgt=$( mrfunction "$mxr");
 cat <<EOQPH
 <body>
 <div id="divClipboard">
-<p>
 
 <p>
 <br>For the  Whois info of this .ph domain <br>
@@ -504,6 +503,7 @@ Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
 
+<p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
@@ -545,7 +545,6 @@ cat <<EOQSG
 <body>
 
 <div id="divClipboard">
-<p>
 
 <p>
 <br>For the  Whois info of this .sg domain <br>
@@ -553,6 +552,7 @@ Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
 
+<p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
