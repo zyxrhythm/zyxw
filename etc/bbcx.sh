@@ -498,7 +498,7 @@ cat <<EOQPH
 <p>
 <br>
 For the  whois info of this .ph domain <br>
-Click the link below or copy and paste it on a browser:  <br>
+Click the link below or copy and paste it on a browser:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
 
@@ -507,7 +507,7 @@ Click the link below or copy and paste it on a browser:  <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
-<br>
+<br> <br>
 $arfrgt
 <br>
 __________________________
@@ -547,7 +547,7 @@ exit 0;
 
 #special result for .vn ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
 vn)
-cat <<EOQPH
+cat <<EOQVN
 <body>
 <p>
 <br>
@@ -555,7 +555,7 @@ cat <<EOQPH
 </p>
 </body>
 </html>
-EOQPH
+EOQVN
 exit 0;
 
 ;;
