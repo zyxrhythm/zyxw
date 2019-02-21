@@ -497,11 +497,14 @@ cat <<EOQPH
 <body>
 <p>
 <br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'> Click Here </a>To get the whois info of this .ph domain.
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'> Click Here </a>To get the whois info of this .ph domain. <br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
 
 <div id="divClipboard">
 <p>
+<strong>Domain:</strong> $domain <br>
+__________________________
 <a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A records: </strong>
 <br>
 $arfrgt
