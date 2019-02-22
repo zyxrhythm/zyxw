@@ -126,13 +126,14 @@ domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
-
 #FUNCTION HALL
 
 cutfunc () {
 while IFS= read -r line
 do
-   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f2 -d" " )  $(echo $line | awk '$1=$1' | cut -f4 -d" " ) $(echo $line | awk '$1=$1' | cut -f5 -d" " ) $(echo $line | awk '$1=$1' | cut -f6 -d" " )";
+   echo  "<br/>  
+   $(echo $line | awk '$1=$1' | cut -f4 -d" " )  
+   
 done < <(printf '%s\n' "$1");
 
 }
@@ -199,7 +200,7 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-glued=$( cutfunc "$zyxgd" );
+cutres=$( cutfunc "$zyxgd" );
 
 cat <<EODR
 <body>
@@ -208,9 +209,12 @@ cat <<EODR
 <div id="divClipboard">
 <p>
 
-$glued
+<table>
+<tr><td>
+$cutres
+</td></tr>
+</table>
 
-<br>
 </p>
 </div>
 </body>
