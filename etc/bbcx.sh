@@ -185,7 +185,7 @@ do
    echo "${line#*:} <br> ";
    nsr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
    nsr2=$(dig a +short "$nsr1" @8.8.8.8 2>/dev/null );
-   if [[ -z "$mxr2" ]]; then echo "Invalid Nameserver: Does not resolve to an IP address!" else true; fi;
+   if [[ -z "$nsr2" ]]; then echo "Invalid Nameserver: Does not resolve to an IP address!" else true; fi;
 if (( $(grep -c . <<<"$nsr2") > 1)); then
 
 while IFS= read -r line
