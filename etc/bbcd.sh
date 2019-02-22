@@ -131,10 +131,8 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 cutfunc () {
 while IFS= read -r line
 do
-   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f4 -d" " ); 
-   
+   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f4 -d" " );    
 done < <(printf '%s\n' "$1");
-
 }
 
 #FUNCTION HALL
@@ -208,13 +206,9 @@ cat <<EODR
 <div id="divClipboard">
 <p>
 
-<table>
-<tr>
-<td>
+
 $cutres
-</td>
-</tr>
-</table>
+
 
 </p>
 </div>
