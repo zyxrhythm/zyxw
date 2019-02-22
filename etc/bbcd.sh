@@ -183,6 +183,11 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
+while IFS= read -r line
+do
+   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' )";
+done < <(printf '%s\n' "$zyxgd");
+
 cat <<EODR
 <body>
 <br/>
