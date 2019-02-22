@@ -185,7 +185,7 @@ zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
 while IFS= read -r line
 do
-   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | -f4 -d" " )";
+   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | cut -f4 -d" " )";
 done < <(printf '%s\n' "$zyxgd");
 
 cat <<EODR
