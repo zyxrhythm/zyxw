@@ -132,7 +132,7 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 cutfunc () {
 while IFS= read -r line
 do
-   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f2 -d" " )  $(echo $line | awk '$1=$1' | cut -f4 -d" " ) $(echo $line | awk '$1=$1' | cut -f5 -d" " )";
+   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f2 -d" " )  $(echo $line | awk '$1=$1' | cut -f4 -d" " ) $(echo $line | awk '$1=$1' | cut -f5 -d" " ) $(echo $line | awk '$1=$1' | cut -f6 -d" " )";
 done < <(printf '%s\n' "$1");
 
 }
