@@ -57,17 +57,12 @@ h1 { font-family: verdana; font-size: 80%;
 body { background-color:black; color:white;
 }
 
-pre{ white-space: pre-wrap;font-size: 107%;
+pre{ white-space: pre-wrap;font-size: 100%;
 }
 
 strong{ color:green;
 }
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
+
 </style>
 
 EOS
@@ -126,21 +121,10 @@ domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
-#FUNCTION HALL
-
-cutfunc () {
-while IFS= read -r line
-do
-   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f4 -d" " );    
-done < <(printf '%s\n' "$1");
-}
-
-#FUNCTION HALL
-
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
 		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
-#checks if the domain enter is null  
+#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 echo '<br>'
 if [[ -z "$domain" ]]; then
 
@@ -197,19 +181,14 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-cutres=$( cutfunc "$zyxgd" );
-
 cat <<EODR
 <body>
 <br/>
 <h1>DIG: <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
 <div id="divClipboard">
 <p>
-
-
-$cutres
-
-
+<pre>$zyxgd</pre>
+<br>
 </p>
 </div>
 </body>
