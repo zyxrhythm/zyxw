@@ -235,7 +235,7 @@ fi
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
 
-if [[ -z "$1" ]]; then echo 'No MX record/s found! <br>'; 
+if [[ -z "$1" ]]; then echo 'No MX record/s found! <br>';
 
 else
 
@@ -247,7 +247,7 @@ echo "<strong>$mxr1a</strong> &nbsp; &nbsp; $mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    if [[ -z "$mxr2" ]]; then echo "Ivalid MX record! <br>Does not resolve to an IP address!"; 
 
-   else
+   else{
 
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 
@@ -259,7 +259,7 @@ do
    mxax=$( echo "$mxa2" | sort -u | head -1 );
    echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
-
+};
 fi
 
 echo "<br>"
