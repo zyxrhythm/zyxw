@@ -121,10 +121,39 @@ domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
+
+#FUNCTION HALL
+
+cut2func () {
+while IFS= read -r line
+do
+   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | cut -f2 -d" " )";
+done < <(printf '%s\n' "$1");
+
+}
+
+cut4func () {
+while IFS= read -r line
+do
+   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | cut -f4 -d" " )";
+done < <(printf '%s\n' "$1");
+
+}
+
+cut5func () {
+while IFS= read -r line
+do
+   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | cut -f5 -d" " )";
+done < <(printf '%s\n' "$1");
+
+}
+
+#FUNCTION HALL
+
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
 		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+#checks if the domain enter is null  
 echo '<br>'
 if [[ -z "$domain" ]]; then
 
@@ -181,10 +210,9 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-while IFS= read -r line
-do
-   echo  "<br/>   $(echo ${line#*:} | awk '$1=$1' | cut -f4 -d" " )";
-done < <(printf '%s\n' "$zyxgd");
+cutttl=$( cut2func $zyxgd );
+cuttype=$( cut4func $zyxgd );
+cutrec=$( cut5func $zyxgd );
 
 cat <<EODR
 <body>
@@ -192,7 +220,21 @@ cat <<EODR
 <h1>DIG: <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
 <div id="divClipboard">
 <p>
-<pre>$zyxgd</pre>
+<table>
+<tbody>
+<td>
+<tr>
+<pre>$cuttl</pre>
+</tr>
+<tr>
+<pre>$cuttype</pre>
+</tr>
+<tr>
+<pre>$cutrec</pre>
+</tr>
+</td>
+</tbody>
+</table>
 <br>
 </p>
 </div>
