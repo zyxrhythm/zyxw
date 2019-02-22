@@ -129,26 +129,10 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
 #FUNCTION HALL
 
-cut2func () {
+cutfunc () {
 while IFS= read -r line
 do
-   echo  "<br/>   $(echo $line | awk '$1=$1' | cut -f2 -d" " )";
-done < <(printf '%s\n' "$1");
-
-}
-
-cut4func () {
-while IFS= read -r line
-do
-   echo  "<br/>   $(echo $line | awk '$1=$1' | cut -f4 -d" " )";
-done < <(printf '%s\n' "$1");
-
-}
-
-cut5func () {
-while IFS= read -r line
-do
-   echo  "<br/>   $(echo $line | awk '$1=$1' | cut -f5 -d" " )";
+   echo  "<br/>  $(echo $line | awk '$1=$1' | cut -f2 -d" " )  $(echo $line | awk '$1=$1' | cut -f4 -d" " ) $(echo $line | awk '$1=$1' | cut -f5 -d" " )";
 done < <(printf '%s\n' "$1");
 
 }
@@ -215,9 +199,7 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-cutttl=$( cut2func "$zyxgd" );
-cuttype=$( cut4func "$zyxgd" );
-cutrec=$( cut5func "$zyxgd" );
+glued=$( cutfunc "$zyxgd" );
 
 cat <<EODR
 <body>
@@ -225,21 +207,9 @@ cat <<EODR
 <h1>DIG: <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong> name server.</h1>
 <div id="divClipboard">
 <p>
-<table>
-<tbody>
-<td>
-<tr>
-<pre>$cuttl</pre>
-</tr>
-<tr>
-<pre>$cuttype</pre>
-</tr>
-<tr>
-<pre>$cutrec</pre>
-</tr>
-</td>
-</tbody>
-</table>
+
+$glued
+
 <br>
 </p>
 </div>
