@@ -132,13 +132,11 @@ cat <<EOTSE
 <body>
 <div id="divClipboard">
 <p>
-Blank Space. . . ?!?
+Input: null.
 <br> <br>
-Is that you Taylor Swift?!?
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
-OMG! - I love you! - Will you marry me!
-<br> <br>
-If not! - Please input a domain name. Sorna.
+<br>
 </p>
 </div>
 </body>
