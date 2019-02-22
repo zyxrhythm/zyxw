@@ -62,7 +62,12 @@ pre{ white-space: pre-wrap;font-size: 107%;
 
 strong{ color:green;
 }
-
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
+}
+th { border: 2px solid green;
+}
+td { vertical-align: top; text-align: left; border: 1px solid green;
+}
 </style>
 
 EOS
@@ -210,9 +215,9 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-cutttl=$( cut2func $zyxgd );
-cuttype=$( cut4func $zyxgd );
-cutrec=$( cut5func $zyxgd );
+cutttl=$( cut2func "$zyxgd" );
+cuttype=$( cut4func "$zyxgd" );
+cutrec=$( cut5func "$zyxgd" );
 
 cat <<EODR
 <body>
