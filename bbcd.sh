@@ -57,7 +57,7 @@ h1 { font-family: verdana; font-size: 80%;
 body { background-color:black; color:white;
 }
 
-pre{ white-space: pre-wrap;font-size: 107%;
+pre{ white-space: pre-wrap;font-size: 95%;
 }
 
 strong{ color:green;
