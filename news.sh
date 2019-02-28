@@ -69,72 +69,81 @@ pre{
 <p>
 <pre>
 -----------------------
-
 History:
 
--Added to bbcx.sh the ability to cycle through domain statuses and create a [?] before each status that links to what each status mean.
+- A lot of bug fixes and UI improvements.
 
--Moved securitytrails.com DNS history links to the '[+]'s.
+- Added  ▶ in line with IP addresses that links to the full whois info of that IP address. 
 
--Added highlights on BBC special result.
+- Added ▼ on the list of name servers: when click will show a 'MX presentation like' detail about the name servers. 
 
--Fixed report about WHOYOU was not able to give raw whois results when querying the registry whois server. 
+- Changed [?] to ❓
+
+- Changed [+] to ⛨
+
+- Added to bbcx.sh the ability to cycle through domain statuses and create a [?] before each status that links to what each status mean.
+
+- Moved securitytrails.com DNS history links to the '[+]'s.
+
+- Added highlights on BBC special result.
+
+- Fixed report about WHOYOU was not able to give raw whois results when querying the registry whois server. 
 (The issue seems to be with the the recent revision with the front page WHOYOU drop down the script does not recognize the new entries in the selection menu)
 
--Fixed report about WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. 
+- Fixed report about WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. 
 (.au ccTLD was somehow removed from the sourcecode.)
 
--[MX records:] is now cliackable, it links to the the MX records history from https://securitytrails.com/
+- [MX records:] is now cliackable, it links to the the MX records history from https://securitytrails.com/
 
--[A records:] is now cliackable, it links to the the A records history from https://securitytrails.com/
+- [A records:] is now cliackable, it links to the the A records history from https://securitytrails.com/
 
--[Name Servers:]  is now clickable, it links to the the name server history from https://securitytrails.com/
+- [Name Servers:]  is now clickable, it links to the the name server history from https://securitytrails.com/
 
--[Domain Status:]  is now clickable, it links to ICANN's page for EPP Status Codes.
+- [Domain Status:]  is now clickable, it links to ICANN's page for EPP Status Codes.
 
--The website should now be accessible anywhere in the world - as per request.
+- The website should now be accessible anywhere in the world - as per request.
 
--Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
+- Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
 
--Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
+- Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
 
--Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
+- Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
 
--Added the requested "Guide Lines" for better visuals of BBC special results.
+- Added the requested "Guide Lines" for better visuals of BBC special results.
 
 -Fixed reported bug that the website cannot process domains with .store TLDs even though the tld is listed on the supported TLDs.
 
--Restricted the access to the website, the site can only be accessed by From selected locations, because of cyber attacks.
+- Restricted the access to the website, the site can only be accessed by From selected locations, because of cyber attacks.
 
--Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
+- Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
 
--Removed extra whois result from all ccTLDs.
+- Removed extra whois result from all ccTLDs.
 
--Added a domain validity check at the start of the BBC special script process.
+- Added a domain validity check at the start of the BBC special script process.
 
--.CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
+- .CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
 
--BBC special will now querry 8.8.8.8 by default instead of the localhost bind server. 
+- BBC special will now querry 8.8.8.8 by default instead of the localhost bind server. 
 
--White spaces and invalid special characters on the textfields will now be removed automatically by the javascript.
+- White spaces and invalid special characters on the textfields will now be removed automatically by the javascript.
 
--Added support for all gTLDs from ICANN's <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt" rel="noopener noreferrer" target="_blank">list</a> of gTLDs and ccTLDs.
+- Added support for all gTLDs from ICANN's <a href="http://data.iana.org/TLD/tlds-alpha-by-domain.txt" rel="noopener noreferrer" target="_blank">list</a> of gTLDs and ccTLDs.
 
--Added a simple SSL certificate checker (CHECK-MATE).
+- Added a simple SSL certificate checker (CHECK-MATE).
 
--Fixed the reported issue that the site cannot process domains with .media TLD, added .media TLD to the supported TLDs.
+- Fixed the reported issue that the site cannot process domains with .media TLD, added .media TLD to the supported TLDs.
 
--Added a function to get the raw whois info from whois servers (WHOYOU).
+- Added a function to get the raw whois info from whois servers (WHOYOU).
 
--BBC Special will now display the Registrant Info, the domain Tech and Admin contact details on the bottom of the result (queried from the whois server of the the registrar).
+- BBC Special will now display the Registrant Info, the domain Tech and Admin contact details on the bottom of the result (queried from the whois server of the the registrar).
 
--Created a custom result for .CA .AU and .NZ domains on BBC special.
+- Created a custom result for .CA .AU and .NZ domains on BBC special.
 
--Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution.
+- Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution.
 
--Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results".
+- Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results".
 
--Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
+- Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
 
 -----------------------
 ##### ZYX-Rhythm ######
