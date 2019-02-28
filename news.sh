@@ -75,7 +75,7 @@ History:
 
 - Added  &#9654; in line with IP addresses that links to the full whois info of that IP address. 
 
-- Added &#9660;on the list of name servers: when click will show a 'MX presentation like' detail about the name servers. 
+- Added &#9660; on the list of name servers: when click will show a 'MX presentation like' detail about the name servers. 
 
 - Changed [?] to &#10067;
 
