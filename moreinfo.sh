@@ -7,7 +7,7 @@ cat <<EOT
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
 <head>
-<title>BBC ( v 0.9 )</title>
+<title>About</title>
 
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
