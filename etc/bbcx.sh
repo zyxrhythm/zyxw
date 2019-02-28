@@ -244,7 +244,7 @@ while IFS= read -r line
 do
    mxr1=$(echo  $line | cut -f2 -d" ");
 mxr1a=$(echo $line | cut -f1 -d" ");
-echo "<strong>$mxr1a</strong> &nbsp; $mxr1 <br> ";
+echo "<strong>$mxr1a</strong> &nbsp;$mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    if [[ -z "$mxr2" ]]; then echo "<br>Invalid MX record: Does not resolve to an IP address!"; else true; fi;
 if (( $(grep -c . <<<"$mxr2") > 1)); then
@@ -265,7 +265,9 @@ else
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
+   if [[ -z "$mxr2" ]]; then echo ""; else 
    echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > &#9654; </a> ${mxax2#*:}"
+   fi
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
