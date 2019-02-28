@@ -71,9 +71,10 @@ pre{
 <pre>
 BigBlackCactus.com (BBC) is a website you can use for the following: 
 
--Do a whois lookup for a domain directly from default registry whois server/s and/or the domain name registar's whois server/s.
--Dig DNS (A,MX,SOA,NS,TXT,SPF)records under domains and sub domains directly from one of Google's name server (8.8.8.8) or from a particular name servers (user specified).
--And can also check if an SSL certificate is issued for a domain/sub domain name.
+- Do a 'whois lookup' for a domain directly from registries whois server/s and/or the domain name's registars whois server/s.
+- Dig DNS records(A,MX,SOA,NS,TXT,SPF) of domain names, sub domains and hostnames directly from one of Google's name server (8.8.8.8) or from a particular name servers (user specified). 
+- Reverse an IP address to its Domain/Host name.
+- And can also check details about the SSL certificate issued for a domain name/sub domain.
 
 -----------------------
 
@@ -81,14 +82,6 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 -The usual Javascript for client side scripting.
 -The usual HTML and CSS for its simple looks.
 
-
->>If you like the website, and wants to check the beta codes for improvement or comments,
-or just want to deploy it on your own server, the codes are at github:
-
-<a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
-
-Origins:
->>The functions of this website is from <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a>, which are custom bash scripts for DNS digging and simplified whois info lookups, and then were decided that the scripts should go out the terminal and to a browser via CGI.
 -----------------------
 For bugs and other concerns please email:
 director@bigblackcactus.com
