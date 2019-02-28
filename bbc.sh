@@ -201,7 +201,7 @@ Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 <br>
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ News ]</a>
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
 </p>
 <article>
