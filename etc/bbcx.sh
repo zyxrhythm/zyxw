@@ -244,9 +244,9 @@ while IFS= read -r line
 do
    mxr1=$(echo  $line | cut -f2 -d" ");
 mxr1a=$(echo $line | cut -f1 -d" ");
-echo "<strong>$mxr1a</strong> &nbsp; &nbsp; $mxr1 <br> ";
+echo "<strong>$mxr1a</strong> &nbsp; $mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-   if [[ -z "$mxr2" ]]; then echo "<br>Invalid MX record: Does not resolve to an IP address!"; else 
+   if [[ -z "$mxr2" ]]; then echo "<br>Invalid MX record: Does not resolve to an IP address!"; else true; fi;
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 
 while IFS= read -r line
@@ -269,7 +269,6 @@ else
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
-fi;
 fi
 }
 
