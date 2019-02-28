@@ -85,7 +85,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 >>If you like the website, and wants to check the beta codes for improvement or comments,
 or just want to deploy it on your own server, the codes are at github:
 
-<a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/cgi</a>
+<a href="https://github.com/zyxrhythm/bbclive" rel="noopener noreferrer" target="_blank">https://github.com/zyxrhythm/bbclive</a>
 
 Origins:
 >>The functions of this website is from <a href="https://github.com/zyxrhythm/zyx-kit-codex/tree/master/lib/scripts/domaintools" rel="noopener noreferrer" target="_blank">zyx-kit</a>, which are custom bash scripts for DNS digging and simplified whois info lookups, and then were decided that the scripts should go out the terminal and to a browser via CGI.
