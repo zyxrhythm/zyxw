@@ -73,13 +73,13 @@ History:
 
 - A lot of bug fixes and UI improvements.
 
-- Added  ▶ in line with IP addresses that links to the full whois info of that IP address. 
+- Added  &#9654; in line with IP addresses that links to the full whois info of that IP address. 
 
-- Added ▼ on the list of name servers: when click will show a 'MX presentation like' detail about the name servers. 
+- Added &#9660;on the list of name servers: when click will show a 'MX presentation like' detail about the name servers. 
 
-- Changed [?] to ❓
+- Changed [?] to &#10067;
 
-- Changed [+] to ⛨
+- Changed [+] to &#9960;
 
 - Added to bbcx.sh the ability to cycle through domain statuses and create a [?] before each status that links to what each status mean.
 
