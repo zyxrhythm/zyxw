@@ -265,7 +265,9 @@ else
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
+   if [[ -z "$mxr2" ]]; then echo ""; else 
    echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > &#9654; </a> ${mxax2#*:}"
+   fi
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
