@@ -269,7 +269,7 @@ else
 fi
    echo "<br> <br>"
 done < <(printf '%s\n' "$1");
-fi
+fi;
 fi
 }
 
