@@ -194,7 +194,7 @@ rev.1513
 <article>
 The whois tool (WHOYOU) will query both regsitry
 <br>
-and the reistrar's(if found) whois servers..<br> <br>
+and the reistrar's whois servers (if found)..<br> <br>
 If you do not specify a name server for Big Nick Digger. 
 <br>
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
@@ -205,7 +205,7 @@ Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 </article>
 </p>
 <article>
-<b>Once you GO BLACK, you can never GO BACK!</b>
+<b>Once you GO BLACK, you can never go back!</b>
 <br>
 Copyleft 2018 &copy;
 </article>
