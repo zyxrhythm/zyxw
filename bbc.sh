@@ -183,7 +183,7 @@ function redirect()
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.666
+rev.1513
 <br>
 <br>
 <br>
