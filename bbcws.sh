@@ -289,7 +289,7 @@ cat <<EODC
 <br/>
 <div id="divClipboard1">
 <p>
-Not an IP Address / Domain! Sorna.
+Not an <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IP Address</a> / <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>!
 </div>
 </p>
 </body>
