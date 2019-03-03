@@ -102,8 +102,6 @@ EOS2
 echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
 
 #The BBC button
-echo '<br/>'
-echo '<br/>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
@@ -124,8 +122,7 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
 		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-echo '<br>'
+#checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
@@ -180,6 +177,21 @@ case $tld in
 
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
+
+if [[ -z $zyxgd ]]; 
+then echo "
+<body>
+<div id="divClipboard">
+<p>
+No record (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) found for domain <strong>$domain</strong> on <strong>$qns</strong>
+</p>
+</div>
+</body>
+</html>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>" && exit 0;
+
+else true; 
+fi;
 
 cat <<EODR
 <body>
