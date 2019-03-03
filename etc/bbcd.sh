@@ -186,7 +186,7 @@ then echo "
 <body>
 <div id="divClipboard">
 <p>
-No <strong>$DNSR</strong> record found on <strong>$qns</strong>!
+No <strong>$DNSR</strong> record found for domain <strong>$domain</strong> on <strong>$qns</strong>!
 </p>
 </div>
 </body>
