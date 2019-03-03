@@ -160,6 +160,8 @@ function redirect()
   <option>TXT</option>
   <option>SOA</option>
   <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
   <option>PTR</option>
   <option selected>ANY</option>
 </select> 
@@ -183,7 +185,7 @@ function redirect()
 <br>
 [&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
 <br>
-rev.666
+rev.1513
 <br>
 <br>
 <br>
@@ -194,22 +196,24 @@ rev.666
 <article>
 The whois tool (WHOYOU) will query both regsitry
 <br>
-and the reistrar's(if found) whois servers..<br> <br>
+and the reistrar's whois servers (if found)..<br> <br>
 If you do not specify a name server for Big Nick Digger. 
 <br>
 Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
 <br>
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ News ]</a>
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
 </p>
 <article>
-<b>Once you GO BLACK, you can never GO BACK!</b>
+<b>Once you GO BLACK, you can never go back!</b>
 <br>
 Copyleft 2018 &copy;
 </article>
 </center>
 </html>
-EOT2
+
+EOT
+
 exit 0;
