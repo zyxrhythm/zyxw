@@ -181,7 +181,20 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-if [[ -z $zyxgd ]]; then echo "<body><div id="divClipboard"><p>No <strong>$DNSR</strong> record found on <strong>$qns</strong>!</p></div></body></html>" && exit 0; else true; fi;
+if [[ -z $zyxgd ]]; 
+then echo "
+<body>
+<div id="divClipboard">
+<p>
+No <strong>$DNSR</strong> record found on <strong>$qns</strong>!
+</p>
+</div>
+</body>
+</html>
+<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>" && exit 0;
+
+else true; 
+fi;
 
 cat <<EODR
 <body>
