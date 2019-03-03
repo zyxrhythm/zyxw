@@ -122,7 +122,7 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
 		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+#checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
