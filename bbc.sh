@@ -160,6 +160,8 @@ function redirect()
   <option>TXT</option>
   <option>SOA</option>
   <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
   <option>PTR</option>
   <option selected>ANY</option>
 </select> 
