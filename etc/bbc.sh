@@ -139,7 +139,7 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext">SSL Certificate Checker <br>( tick the checkbox to get the details of the SSL issued for the domain / sub domain)</span>
+<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext">SSL Certificate Checker <br>( tick the checkbox to get the details of the SSL certificate issued for the domain / sub domain)</span>
 </div> </code>
 <input type="checkbox" id="square">
 </form>
@@ -160,7 +160,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default. To reverse an IP address select PTR from the dropdown.</span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">Big Nick Digger will <br>dig from Google's DNS sever (8.8.8.8) by default. <br>To reverse an IP address select PTR from the dropdown.</span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
