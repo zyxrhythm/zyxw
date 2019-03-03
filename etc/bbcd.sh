@@ -125,7 +125,6 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-echo '<br>'
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
