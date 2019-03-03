@@ -77,7 +77,7 @@ article	{ font-family: Verdana; font-size: 70%;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  border: 5px dotted green;
+  border: 3px dotted green;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
@@ -111,7 +111,8 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 <h4>
-<a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
+<a href="/cgi-bin/bbc.sh"><div class="tooltip">Big Black Cactus <span class="tooltiptext">For comments/suggestions/reactions email: <br> director@bigblackcactus.com</span>
+</div></a>
 </h4>
 
 </p>
