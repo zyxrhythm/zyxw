@@ -186,7 +186,7 @@ then echo "
 <body>
 <div id="divClipboard">
 <p>
-No <strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong> record found for domain <strong>$domain</strong> on <strong>$qns</strong>
+No record (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) found for domain <strong>$domain</strong> on <strong>$qns</strong>
 </p>
 </div>
 </body>
