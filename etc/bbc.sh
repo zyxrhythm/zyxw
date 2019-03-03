@@ -65,7 +65,7 @@ article	{ font-family: Verdana; font-size: 70%;
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted grey;
+  border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
@@ -76,7 +76,7 @@ article	{ font-family: Verdana; font-size: 70%;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
+  border-bottom: 1px dotted grey;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
