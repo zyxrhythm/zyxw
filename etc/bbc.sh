@@ -150,7 +150,7 @@ function redirect()
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
-<label><div class="tooltip">Who You: <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For domain names the whois tool (WHOYOU) will query both the registry and the registrar's(if found) whois server/s. And will query ARIN's whois server/s for IP addresses.</span>
+<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For domain names the whois tool (WHOYOU) will query both the registry and the registrar's(if found) whois server/s. And will query ARIN's whois server/s for IP addresses.</span>
 </div></label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is</button>
@@ -160,8 +160,8 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label>Big Nick Digger</label>
-<!-- <label>Domain:</label> --> <br> 
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default. To reverse an IP address select PTR from the dropdown.</span></div></label>
+<br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
 <code>[Reverse an I.P.address? Use PTR.]</code>
