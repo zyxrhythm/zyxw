@@ -125,15 +125,13 @@ if [[ -z "$domain" ]]; then
 
 cat <<EOTS
 <body>
-<div class="code-bg" id="divClipboard">
+<div id="divClipboard">
 <p>
-Blank Space?!? . . .
+Input: null.
 <br> <br>
-Is that you Taylor Swift?!?
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
-OMG! - I love you will you marry me!
-<br> <br>
-If not - Please input a domain name. Sorna.
+<br>
 </p>
 </div>
 </body>
@@ -190,7 +188,7 @@ cat << EOIDNE
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-Not a domain. Sorna.
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>
 </p>
 </div>
 <br>
