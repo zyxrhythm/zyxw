@@ -150,7 +150,7 @@ function redirect()
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
-<label><div class="tooltip">Who You: <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">The whois tool (WHOYOU) will query both registry<br> and the registrar's whois servers (if found).. And will query ARIN for IP addresses.</span>
+<label><div class="tooltip">Who You: <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For domain names the whois tool (WHOYOU) will query both the registry and the registrar's(if found) whois server/s. And will query ARIN's whois server/s for IP addresses.</span>
 </div></label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is</button>
