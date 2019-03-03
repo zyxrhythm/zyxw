@@ -70,9 +70,9 @@ article	{ font-family: Verdana; font-size: 70%;
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 214px;
   background-color: black;
-  color: #fff;
+  color: green;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
