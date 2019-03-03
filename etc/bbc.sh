@@ -71,7 +71,7 @@ article	{ font-family: Verdana; font-size: 70%;
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 214px;
-  background-color: black;
+  background-color: grey;
   color: green;
   text-align: center;
   border-radius: 6px;
@@ -137,7 +137,7 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext">SSL Certificate Checker ( tick the checkbox to perform a check instead of generating a whois and DIG report for the domain)</span>
+<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext">SSL Certificate Checker <br>( tick the checkbox to perform a check instead of generating a whois and DIG report for the domain</span>
 </div> </code>
 <input type="checkbox" id="square">
 </form>
