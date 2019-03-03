@@ -191,7 +191,7 @@ No record (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) found f
 </div>
 </body>
 </html>
-<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>" && exit 0;
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>" && exit 0;
 
 else true; 
 fi;
