@@ -69,6 +69,7 @@ article	{ font-family: Verdana; font-size: 70%;
 }
 
 .tooltip .tooltiptext {
+  font-size:85%;
   visibility: hidden;
   width: 214px;
   background-color: black;
