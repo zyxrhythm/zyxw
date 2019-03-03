@@ -181,7 +181,7 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
-if [[ -z $zyxgd ]]; then echo "No <strong>$DNSR</strong> record found on <strong>$qns</strong>!"; else true; fi;
+if [[ -z $zyxgd ]]; then echo "<body><div id="divClipboard"><p>No <strong>$DNSR</strong> record found on <strong>$qns</strong>!</p></div></body></html>" && exit 0; else true; fi;
 
 cat <<EODR
 <body>
