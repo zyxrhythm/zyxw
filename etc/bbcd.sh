@@ -102,8 +102,6 @@ EOS2
 echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
 
 #The BBC button
-echo '<br/>'
-echo '<br/>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
