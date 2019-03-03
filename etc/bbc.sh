@@ -76,7 +76,7 @@ article	{ font-family: Verdana; font-size: 70%;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  border-bottom: 1px dotted grey;
+  border: 3px dotted grey;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
