@@ -87,21 +87,6 @@ article	{ font-family: Verdana; font-size: 70%;
 }
 </style>
 
-<script>
-function chgAction( action_name )
-{
-    if( action_name=="aaa" ) {
-        document.search-theme-form.action = "/AAA";
-    }
-    else if( action_name=="bbb" ) {
-        document.search-theme-form.action = "/BBB";
-    }
-    else if( action_name=="ccc" ) {
-        document.search-theme-form.action = "/CCC";
-    }
-}
-</script>
-
 </head>
 <body>
 <!--
