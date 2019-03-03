@@ -227,7 +227,7 @@ exit 0;
 
 esac
 
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
 
 	fi
 fi
