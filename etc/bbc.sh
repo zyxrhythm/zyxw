@@ -110,10 +110,10 @@ function removeSpecialCharacters(string) {
 </script>
 <center>
 <p>
-<h4>
-<a href="/cgi-bin/bbc.sh"><div class="tooltip">Big Black Cactus <span class="tooltiptext">For comments/suggestions/reactions email: <br> director@bigblackcactus.com</span>
+
+<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4>Big Black Cactus</h4><span class="tooltiptext">For comments/suggestions/reactions email: <br> director@bigblackcactus.com</span>
 </div></a>
-</h4>
+
 
 </p>
 
