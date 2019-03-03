@@ -61,6 +61,30 @@ code { font-family: Arial; font-size: 80%;
 }
 article	{ font-family: Verdana; font-size: 70%;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 </style>
 
 <script>
@@ -128,7 +152,8 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" >S. C. C. </code>
+<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext">SSL Certificate Checker ( tick the checkbox to perform a check instead of generating a whois and DIG report for the domain)</span>
+</div> </code>
 <input type="checkbox" id="square">
 </form>
 <!-- ################## =) ################# -->
