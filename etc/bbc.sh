@@ -206,12 +206,10 @@ rev.1513
 </p>
 <p>
 <article>
-The whois tool (WHOYOU) will query both regsitry
-<br>
-and the reistrar's whois servers (if found)..<br> <br>
-If you do not specify a name server for Big Nick Digger. 
-<br>
-Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
+All rights reserved. This website or any portion thereof<br>
+may be reproduced or used in any manner whatsoever<br>
+without the express written permission of the publisher<br>
+also for the use of brief quotations in a site review.
 <br>
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
