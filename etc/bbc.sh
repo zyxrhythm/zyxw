@@ -200,8 +200,6 @@ function redirect()
 rev.1513
 <br>
 <br>
-<br>
-<b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b>
 </footer>
 </p>
 <p>
@@ -216,6 +214,7 @@ also for the use of brief quotations in a site review.
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
 </p>
+<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b></p>
 <article>
 <b>Once you GO BLACK, you can never go back!</b>
 <br>
