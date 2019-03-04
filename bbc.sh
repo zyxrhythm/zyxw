@@ -62,7 +62,7 @@ code { font-family: Arial; font-size: 80%;
 article	{ font-family: Verdana; font-size: 70%;
 }
 
-strong {font-size: 160%;
+strong {font-size: 143%;
 font 
 }
 
