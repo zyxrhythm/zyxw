@@ -195,7 +195,7 @@ function redirect()
 </body>
 <footer>
 <br>
-[&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
+&nbsp;&nbsp; &nbsp;"There are only 10 types of peroplr in the world.<br>Those whos understands binary,<br>and those who don't. &nbsp;"&nbsp;&nbsp;<br>
 <br>
 rev.1513
 <br>
