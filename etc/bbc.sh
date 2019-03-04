@@ -136,7 +136,7 @@ function redirect()
 }
 </script>
 
-<label>[ BBC Specials ]</label>
+<label><div class="tooltip">[ BBC Specials ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain to the box below and click the "Go" button - this will generate a simplified report regarding vital details under the domain.<br><br></span></div><</label>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -164,7 +164,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address select PTR from the dropdown. <br>------ <br> <br>If the name server field <br>is left blank,<br>by default, <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8).<br><br></span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address first select PTR from the dropdown then hit go. <br>------ <br> <br>If the name server field <br>is left blank,<br>by default, <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8).<br><br></span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
