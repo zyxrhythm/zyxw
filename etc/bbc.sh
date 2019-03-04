@@ -42,7 +42,7 @@ a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new;
+h4 { font-family: courier new; font-size: 161%
 }
 body { background-color:black; color:green;
 }
@@ -111,7 +111,7 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br></span>
+<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong style="font-size: 200%;">B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br></span>
 </div></a>
 
 
