@@ -136,7 +136,7 @@ function redirect()
 }
 </script>
 
-<label><div class="tooltip">[ BBC Specials ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain to the box below and click the "Go" button - this will generate a simplified report regarding vital details under the domain.<br><br></span></div></label>
+<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain to the box below and click the "Go" button - this will generate a simplified report regarding vital details under the domain.<br><br></span></div>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
