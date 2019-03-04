@@ -198,7 +198,7 @@ function redirect()
 </body>
 <footer>
 <br>
-&nbsp;&nbsp; &nbsp;" There are only 10 types of people in the world.<br>Those who understands binary,<br>and those who don't. &nbsp;"&nbsp;&nbsp;<br>
+&nbsp;&nbsp; &nbsp;" There is no place like 127.0.0.1 "&nbsp;&nbsp;&nbsp;<br>
 <br>
 rev.1513
 <br>
