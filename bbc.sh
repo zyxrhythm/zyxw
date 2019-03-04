@@ -42,7 +42,7 @@ a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new; font-size: 160%;
+h4 { font-family: courier new; font-size: 161%
 }
 body { background-color:black; color:green;
 }
@@ -61,22 +61,36 @@ code { font-family: Arial; font-size: 80%;
 }
 article	{ font-family: Verdana; font-size: 70%;
 }
-</style>
 
-<script>
-function chgAction( action_name )
-{
-    if( action_name=="aaa" ) {
-        document.search-theme-form.action = "/AAA";
-    }
-    else if( action_name=="bbb" ) {
-        document.search-theme-form.action = "/BBB";
-    }
-    else if( action_name=="ccc" ) {
-        document.search-theme-form.action = "/CCC";
-    }
+strong {font-size: 160%;
+font 
 }
-</script>
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
 
 </head>
 <body>
@@ -100,9 +114,10 @@ function removeSpecialCharacters(string) {
 </script>
 <center>
 <p>
-<h4>
-<a href="/cgi-bin/bbc.sh">Big Black Cactus</a>
-</h4>
+
+<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br></span>
+</div></a>
+
 
 </p>
 
@@ -121,14 +136,15 @@ function redirect()
 }
 </script>
 
-<strong><label>BBC Specials</label></strong>
+<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain to the box below and click the "Go" button - this will generate a simplified report regarding vital details under the domain.<br><br></span></div>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" >SCC</code>
+<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br>( tick the checkbox to get the details of the SSL certificate issued for the domain / sub domain)<br><br></span>
+</div> </code>
 <input type="checkbox" id="square">
 </form>
 <!-- ################## =) ################# -->
@@ -138,7 +154,8 @@ function redirect()
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
-<label>Who You: </label> <br>
+<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For domain names the whois tool (WHOYOU) will query both the registry and the registrar's whois server/s (if the registrar whois server is found). <br> <br> And will query ARIN's whois server/s for IP addresses.<br><br></span>
+</div></label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is</button>
 </form>
@@ -147,11 +164,10 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label>Big Nick Digger</label>
-<!-- <label>Domain:</label> --> <br> 
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address first select PTR from the dropdown then hit go. <br>------ <br> <br>If the name server field <br>is left blank,<br>by default, <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8).<br><br></span></div></label>
+<br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
-<code>[Reverse an I.P.address? Use PTR.]</code>
 <br>
 <select name='record'> 
   <option>A</option>
@@ -169,7 +185,6 @@ function redirect()
 <br> <br>
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
 <br>
-<code>[<strong> will query @8.8.8.8</strong> (if blank) ]</code>
 </form>
 </p>
 <p>
@@ -183,29 +198,26 @@ function redirect()
 </body>
 <footer>
 <br>
-[&nbsp;&nbsp;" &nbsp;When in doubt... &nbsp;Logout! &nbsp;"&nbsp;&nbsp;]<br>
+&nbsp;&nbsp; &nbsp;" There are only 10 types of people in the world.<br>Those who understands binary,<br>and those who don't. &nbsp;"&nbsp;&nbsp;<br>
 <br>
 rev.1513
 <br>
 <br>
-<br>
-<b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b>
 </footer>
 </p>
 <p>
 <article>
-The whois tool (WHOYOU) will query both regsitry
-<br>
-and the reistrar's whois servers (if found)..<br> <br>
-If you do not specify a name server for Big Nick Digger. 
-<br>
-Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.
+All rights reserved. This website or any portion thereof<br>
+may be reproduced or used in any manner whatsoever<br>
+without the express written permission of the publisher<br>
+also for the use of brief quotations in a site review.
 <br>
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
 </p>
+<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b></p>
 <article>
 <b>Once you GO BLACK, you can never go back!</b>
 <br>
