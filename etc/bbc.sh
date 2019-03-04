@@ -160,7 +160,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address select PTR from the dropdown. <br> <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.<br><br></span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address select PTR from the dropdown. <br> <br>If the name server field is left blank<br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8) by default.<br><br></span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
@@ -181,7 +181,6 @@ function redirect()
 <br> <br>
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver">
 <br>
-<code>{<strong> will query @8.8.8.8</strong> (if blank) }</code>
 </form>
 </p>
 <p>
