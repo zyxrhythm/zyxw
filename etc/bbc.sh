@@ -188,8 +188,8 @@ function redirect()
 <p>
 <br>
 <br>
-
-<div class="tooltip"><a href="/cgi-bin/bbc.sh"><img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
+<a href="/cgi-bin/bbc.sh">
+<div class="tooltip"><img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
  <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br></span>
 </a>
 </div>
