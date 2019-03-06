@@ -115,8 +115,8 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br></span>
-</div></a>
+<a href="/cgi-bin/bbc.sh">
+<h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4></a>
 
 
 </p>
@@ -190,9 +190,15 @@ function redirect()
 <p>
 <br>
 <br>
+
 <a href="/cgi-bin/bbc.sh">
+<div class="tooltip">
 <img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For comments/suggestions/reactions <br><br>email: <br> director@bigblackcactus.com <br><br>
+</span>
+</div>
 </a>
+
 </p>
 <p>
 </body>
