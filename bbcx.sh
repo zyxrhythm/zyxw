@@ -499,11 +499,13 @@ mrfrgt=$( mrfunction "$mxr");
 cat <<EOQPH
 <body>
 <div id="divClipboard">
+
 <p>
 <br>For the  Whois info of this .ph domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
+
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -514,14 +516,18 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
+
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
+
 </p>
 </div>
+
 </body>
 </html>
+
 EOQPH
 exit 0;
 
@@ -540,12 +546,15 @@ mrfrgt=$( mrfunction "$mxr");
 
 cat <<EOQSG
 <body>
+
 <div id="divClipboard">
+
 <p>
 <br>For the  Whois info of this .sg domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
+
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -556,14 +565,18 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
+
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
+
 </p>
 </div>
+
 </body>
 </html>
+
 EOQSG
 exit 0;
 
@@ -581,12 +594,15 @@ mrfrgt=$( mrfunction "$mxr");
 
 cat <<EOQVN
 <body>
+
 <div id="divClipboard">
 <p>
+
 <br>For the  Whois info of this .sg domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
 </p>
+
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -597,14 +613,18 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
+
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
+
 </p>
 </div>
+
 </body>
 </html>
+
 EOQVN
 exit 0;
 
@@ -613,11 +633,66 @@ exit 0;
 #special trimming for AU ccTLDs
 au)
 
+#stores the whois info from auda in a variable.
 zyx=$(whois $domain );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+
+limitcheck=$(echo "${zyx:0:20}");
+
+if [[ "$limitcheck" = "WHOIS LIMIT EXCEEDED" ]]; 
+
+then echo "<body>
+<div id='divClipboard'>
+<p>
+<br>
+auDA's whois servers answers solely for whois queries regarding .au domains. And there is a limit on how much whois lookup query an I.P. address can do at a certain period of time, and since this website only have 1 I.P. address, you can either wait for this website's server to be able to query auDA's whois server again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information.
+<br> <br>
+__________________________
+<br> <br>";
+
+#link to the A record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
+
+#A RECORD/S CT AU
+
+arfrctau=$( arfunction "$ar" );
+echo "$arfrctau"
+
+echo '<br>'
+echo '__________________________'
+echo '<br> <br>'
+
+#link to the MX record/s history on from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
+echo '<br> <br>'
+
+#MX RECORD/S - AND IP/S CT AU
+
+mrfrctau=$( mrfunction "$mxr" );
+echo "$mrfrctau"
+
+cat << CTAULIMIT 
+<br>
+__________________________
+</p>
+
+</div>
+</body>
+
+<br>
+<hr>
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+</html>
+
+CTAULIMIT
+
+exit 0;
+
+else true;
+fi;
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
@@ -682,7 +757,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [A records:] - from securitytrails.com
+#link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
@@ -694,7 +769,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [MX records:] - from securitytrails.com
+#link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
