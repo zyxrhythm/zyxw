@@ -62,7 +62,7 @@ code { font-family: Arial; font-size: 80%;
 article	{ font-family: Verdana; font-size: 70%;
 }
 
-strong {font-size: 160%;
+strong {font-size: 143%;
 font 
 }
 
@@ -136,10 +136,10 @@ function redirect()
 }
 </script>
 
-<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain to the box below and click the "Go" button - this will generate a simplified report regarding vital details under the domain.<br><br></span></div>
+<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span></div>
 <form method="get" name="formation" action="" >
 
-<input type="text" type="submit" name="domain" placeholder="Domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
+<input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
@@ -164,7 +164,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address first select PTR from the dropdown then hit go. <br>------ <br> <br>If the name server field <br>is left blank,<br>by default, <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8).<br><br></span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>To reverse an IP address first select PTR from the dropdown then click the DIG button. <br>------ <br> <br>If the name server field <br>is left blank,<br>by default, <br>Big Nick Digger will dig from Google's DNS sever (8.8.8.8).<br><br></span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
@@ -198,7 +198,7 @@ function redirect()
 </body>
 <footer>
 <br>
-&nbsp;&nbsp; &nbsp;" There are only 10 types of people in the world.<br>Those who understands binary,<br>and those who don't. &nbsp;"&nbsp;&nbsp;<br>
+&nbsp;&nbsp; &nbsp;" There is no place like 127.0.0.1 "&nbsp;&nbsp;&nbsp;<br>
 <br>
 rev.1513
 <br>
