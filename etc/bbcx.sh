@@ -647,6 +647,7 @@ if [[ "$limitcheck" = "WHOIS LIMIT EXCEEDED" ]];
 then echo "<body>
 <div id='divClipboard'>
 <p>
+<br>
 auDA's whois servers answers solely for whois queries regarding .au domains. And there is a limit on how much whois lookup query an I.P. address can do at a certain period of time, and since this website only have 1 I.P. address, you can either wait for this website's server to be able to query auDA's whois server again and try again after a few minutes, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information.
 <br> <br>
 __________________________
@@ -680,6 +681,10 @@ __________________________
 
 </div>
 </body>
+
+<br>
+<hr>
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 </html>
 
 CTAULIMIT
