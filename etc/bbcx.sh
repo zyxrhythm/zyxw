@@ -648,7 +648,7 @@ then echo "<body>
 <div id='divClipboard'>
 <p>
 <br>
-auDA's whois servers answers solely for whois queries regarding .au domains. And there is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame, and since this website has only an I.P. address, you can either wait for this website to be able to query auDA's whois server again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information.
+<a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a>'s (AU Domain Administration )whois servers answers solely for whois queries regarding .au domains. And there is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame, and since this website has only an I.P. address, you can either wait for this website to be able to query auDA's whois server again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information.
 <br> <br>
 __________________________
 <br> <br>";
