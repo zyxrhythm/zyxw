@@ -633,11 +633,61 @@ exit 0;
 #special trimming for AU ccTLDs
 au)
 
+#stores the whois info from auda in a variable.
 zyx=$(whois $domain );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+
+limitcheck=$(echo "${zyx:0:20}");
+
+if [[ "$limitcheck" = "WHOIS LIMIT EXCEEDED" ]]; 
+
+then echo "<body>
+<div id='divClipboard'>
+<p>
+auDA's whois servers answers solely for whois queries regarding .au domains. And there is a limit on how much whois lookup query an I.P. address can do at a certain period of time, and since this website only have 1 I.P. address, you can either wait for this website's server to be able to query auDA's whois server again and try again after a few minutes, or you can go to  https://whois.auda.org.au/ to get the raw whois information.
+<br>
+__________________________
+<br>";
+
+#link to the A record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
+
+#A RECORD/S CT AU
+
+arfrctau=$( arfunction "$ar" );
+echo "$arfrctau"
+
+echo '<br>'
+echo '__________________________'
+echo '<br> <br>'
+
+#link to the MX record/s history on from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
+echo '<br> <br>'
+
+#MX RECORD/S - AND IP/S CT AU
+
+mrfrctau=$( mrfunction "$mxr" );
+echo "$mrfrctau"
+
+cat << CTAULIMIT 
+<br>
+__________________________
+</p>
+
+</div>
+</body>
+</html>
+
+CTAULIMIT
+
+exit 0;
+
+else true;
+fi;
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
@@ -702,7 +752,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [A records:] - from securitytrails.com
+#link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
@@ -714,7 +764,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
-#link to the MX record/s history on [MX records:] - from securitytrails.com
+#link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
