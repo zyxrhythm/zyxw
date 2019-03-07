@@ -198,7 +198,7 @@ function redirect()
 </body>
 <footer>
 <br>
-&nbsp;&nbsp; &nbsp;" There is no place like 127.0.0.1 "&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br>
 <br>
 rev.1513
 <br>
