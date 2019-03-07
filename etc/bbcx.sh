@@ -499,13 +499,11 @@ mrfrgt=$( mrfunction "$mxr");
 cat <<EOQPH
 <body>
 <div id="divClipboard">
-
 <p>
 <br>For the  Whois info of this .ph domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
-
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -516,18 +514,14 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
-
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
-
 </p>
 </div>
-
 </body>
 </html>
-
 EOQPH
 exit 0;
 
@@ -546,15 +540,12 @@ mrfrgt=$( mrfunction "$mxr");
 
 cat <<EOQSG
 <body>
-
 <div id="divClipboard">
-
 <p>
 <br>For the  Whois info of this .sg domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
-
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -565,18 +556,14 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
-
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
-
 </p>
 </div>
-
 </body>
 </html>
-
 EOQSG
 exit 0;
 
@@ -594,15 +581,12 @@ mrfrgt=$( mrfunction "$mxr");
 
 cat <<EOQVN
 <body>
-
 <div id="divClipboard">
 <p>
-
 <br>For the  Whois info of this .sg domain <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
 </p>
-
 <p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
@@ -613,18 +597,14 @@ $arfrgt
 <br>
 __________________________
 <br> <br>
-
 <a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
-
 </p>
 </div>
-
 </body>
 </html>
-
 EOQVN
 exit 0;
 
@@ -678,15 +658,12 @@ cat << CTAULIMIT
 <br>
 __________________________
 </p>
-
 </div>
 </body>
-
 <br>
 <hr>
 <p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 </html>
-
 CTAULIMIT
 
 exit 0;
