@@ -207,10 +207,19 @@ rev.1513
 </p>
 <p>
 <article>
-All rights reserved. This website or any portion thereof<br>
-may be reproduced or used in any manner whatsoever<br>
-without the express written permission of the publisher<br>
-also for the use of brief quotations in a site review.
+41 73 20 66 61 72 20 61 73 20 74 68 65 <br>
+20 6c 61 77 73 20 6f 66 20 6d 61 74 68 <br>
+65 6d 61 74 69 63 73 20 72 65 66 65 72 <br>
+20 74 6f 20 72 65 61 6c 69 74 79 2c 20 <br>
+74 68 65 79 20 61 72 65 20 6e 6f 74 20 <br>
+63 65 72 74 61 69 6e 3b 20 61 6e 64 20 <br>
+61 73 20 66 61 72 20 61 73 20 74 68 65 <br>
+79 20 61 72 65 20 63 65 72 74 61 69 6e <br>
+2c 20 74 68 65 79 20 64 6f 20 6e 6f 74 <br>
+20 72 65 66 65 72 20 74 6f 20 72 65 61 <br>
+6c 69 74 79 20 2d 2d 2d 20 41 6c 62 65 <br>
+72 74 20 45 69 6e 73 74 65 69 6e 20 28 <br>
+31 38 37 39 20 2d 20 31 39 35 35 29 2e <br>
 <br>
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
