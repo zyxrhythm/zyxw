@@ -200,7 +200,7 @@ function redirect()
 <br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br>
 <br>
-rev.1513
+rev.1671
 <br>
 <br>
 </footer>
