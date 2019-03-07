@@ -239,17 +239,11 @@ if [[ -z "$doi" ]]; then
 
 cat <<EOTS
 <body>
-<button onclick="copyClipboard1()">BBC Copy</button>
-<br>
-<div id="divClipboard1">
 <p>
-Blank Space?!? . . .
-<br> <br>
-Is that you Taylor Swift?!?
 <br>
-OMG! - I love you! - Will you marry me!
-<br> <br>
-If not - Please input a domain name. Sorna.
+<div id="divClipboard">
+<p>
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
 </body>
@@ -274,7 +268,7 @@ cat << EOWIIPR
 <button onclick="copyClipboard1()">BBC Copy</button>
 <br/>
 <div id="divClipboard1">
-e<pre> $zyxip0 </pre>
+<pre> $zyxip0 </pre>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -295,7 +289,7 @@ cat <<EODC
 <br/>
 <div id="divClipboard1">
 <p>
-Not an IP Address / Domain! Sorna.
+Not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a> / <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>!
 </div>
 </p>
 </body>
