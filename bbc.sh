@@ -115,13 +115,13 @@ function removeSpecialCharacters(string) {
 <a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For comments / suggestions / reactions email  director@bigblackcactus.com</span>
 </div></a>
 
-
 </p>
 
 <!-- BBC Special -->
 <p>
 
 <!-- ################## =) ################# -->
+
 <script>
 function redirect()
 {
@@ -144,6 +144,7 @@ function redirect()
 </div> </code>
 <input type="checkbox" id="square">
 </form>
+
 <!-- ################## =) ################# -->
 
 </p>
@@ -152,7 +153,7 @@ function redirect()
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
 <label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name / I.P. address on the box below then click the "Who is " Button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br></span>
-</div></label> <br>
+</div> </label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is</button>
 </form>
