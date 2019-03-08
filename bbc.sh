@@ -133,14 +133,14 @@ function redirect()
 }
 </script>
 
-<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span></div>
+<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Type a domain in the box below and click / tap the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span></div>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before clicking go to get the details of the SSL certificate issued for the domain / sub domain)<br><br></span>
+<code style="font-size:100%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click / tap "Go" to get the details of the SSL certificate issued for the domain / sub domain)<br><br></span>
 </div> </code>
 <input type="checkbox" id="square">
 </form>
@@ -151,7 +151,7 @@ function redirect()
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
-<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For domain names the whois tool (WHOYOU) will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br></span>
+<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 65%; font-family: calibri; font: green; "><br>Put a domain name on the box below then click / tap the "Whoi is " Button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br></span>
 </div></label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is</button>
