@@ -13,7 +13,9 @@ cat <<EOT
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
 <head>
+
 <title>BBC - Big Black Cactus</title>
+
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
