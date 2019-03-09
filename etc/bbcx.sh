@@ -166,17 +166,11 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br>
-
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
-
-<span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>
-<br>
-Click this to know more about this domain status.
-<br><br>
-</span>
-</a>
- ${line#*#}";
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
+<span class='tooltiptext' style='font-size: 80%; font-family: calibri; font: green; '>
+<br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+</span></a>
+${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
@@ -209,7 +203,10 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> &#9660; </a>"
+echo " <a style='color:tomato; cursor: pointer;' class='button tolltip' onclick='jsnsverbose()'> &#9660; 
+<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; ">
+<br>Click this to check the IP address/es is associated with the current authoritative name servers and what organization and will also give query ARIN for the possible organization the IP is associated with.<br><br>
+</span></a>"
 
 echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
 echo '<p>'
