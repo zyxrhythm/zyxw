@@ -117,7 +117,7 @@ function removeSpecialCharacters(string) {
 EOT
 
 echo "<div class='tooltip'>
-&#127797;
+<label>&#127797; </label>
 <span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>
 </div>"
 
