@@ -190,16 +190,6 @@ echo "$dsfparsedtable";
 echo "</div>"
 done < <(printf '%s\n' "$1");
 
-<div class="tooltip">
-
-<a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a>
-
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">
-
-$
-
-</span>
-</div>
 }
 
 #Name Servers Function
