@@ -166,11 +166,11 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <div class="tooltip">
+echo "<br> <div class='tooltip'>
 
 <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a>
 
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">
+<span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>
 <br>
 Click this to know more about this domain status.
 <br><br>
