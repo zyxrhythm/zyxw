@@ -112,9 +112,11 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
+<h4><a href='/cgi-bin/bbc.sh'><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus></a></h4> 
+
 EOT
 
-echo "<a href='/cgi-bin/bbc.sh'><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus></h4</a> <div class='tooltip'> &#127797; <span class="tooltiptext" style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>
+echo "<div class='tooltip'> &#127797; <span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>
 </div>"
 
 
