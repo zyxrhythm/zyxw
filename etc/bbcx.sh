@@ -204,7 +204,7 @@ else { x.style.display = 'none'; } }
 </script>"
 
 echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
-<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; ">
+<span class='tooltiptext' style='font-size: 80%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es is associated with the current authoritative name servers and what organization and will also give query ARIN for the possible organization the IP is associated with.<br><br>
 </span></a>"
 
