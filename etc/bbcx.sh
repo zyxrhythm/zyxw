@@ -166,7 +166,16 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a> ${line#*#}";
+echo "<br> <div class="tooltip">
+
+<a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a>
+
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">
+<br>
+Click this to know more about this domain status.
+<br><br>
+</span>
+</div> ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
@@ -179,6 +188,7 @@ dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=
 echo "<div id='jsf$eppstat' style='display:none'>"
 echo "$dsfparsedtable";
 echo "</div>"
+done < <(printf '%s\n' "$1");
 
 <div class="tooltip">
 
@@ -186,11 +196,10 @@ echo "</div>"
 
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">
 
-$dsfparsedtable
+$
 
 </span>
 </div>
-done < <(printf '%s\n' "$1");
 }
 
 #Name Servers Function
