@@ -167,7 +167,7 @@ else { x.style.display = 'none'; } }
 </script>"  
    
 echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
-<span class='tooltiptext' style='font-size: 80%; font-family: calibri; font: green; '>
+<span class='tooltiptext' style='font-size: 90%; font-family: calibri; font: green; '>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
@@ -204,7 +204,7 @@ else { x.style.display = 'none'; } }
 </script>"
 
 echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
-<span class='tooltiptext' style='font-size: 80%; font-family: calibri; font: green; '>
+<span class='tooltiptext' style='font-size: 90%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es is associated with the current authoritative name servers and what organization and will also give query ARIN for the possible organization the IP is associated with.<br><br>
 </span></a>"
 
@@ -256,7 +256,10 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${arx#*:}";
+echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' class='tooltip' target='_blank' style='color:tomato' > &#9654; 
+<span class='tooltiptext' style='font-size: 90%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
@@ -285,7 +288,9 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${mxax#*:}";
+   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 90%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
 echo "<br>"
@@ -296,7 +301,9 @@ else
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    if [[ -z "$mxr2" ]]; then true; else 
-   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > &#9654; </a> ${mxax2#*:}"
+   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 90%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${mxax2#*:}"
    fi
 fi
    echo "<br> <br>"
