@@ -67,6 +67,32 @@ th { border: 2px solid green;
 }
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 </style>
 <!-- 
 The javascript that copies the contents of div to clipboard.
@@ -140,7 +166,11 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a> ${line#*#}";
+echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+</span></a>
+${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
@@ -153,8 +183,8 @@ dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=
 echo "<div id='jsf$eppstat' style='display:none'>"
 echo "$dsfparsedtable";
 echo "</div>"
-
 done < <(printf '%s\n' "$1");
+
 }
 
 #Name Servers Function
@@ -173,7 +203,10 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo " <a style='color:tomato; cursor: pointer;' class='button' onclick='jsnsverbose()'> &#9660; </a>"
+echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to check the IP address/es associated with current authoritative name servers and will try to indicate the organization responsible for the IP address/es from querying ARIN's whois servers.<br><br>
+</span></a>"
 
 echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
 echo '<p>'
@@ -223,7 +256,10 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-   echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${arx#*:}";
+echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' class='tooltip' target='_blank' style='color:tomato' > &#9654; 
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
 fi
@@ -241,7 +277,7 @@ while IFS= read -r line
 do
    mxr1=$(echo  $line | cut -f2 -d" ");
 mxr1a=$(echo $line | cut -f1 -d" ");
-echo "<strong>$mxr1a</strong> &nbsp;$mxr1 <br> ";
+echo "<strong class='tooltip'>$mxr1a <span class='tooltiptext' style='font-size: 85%; font-family: calibri; font: green; '><br>MX priority<br><br></span></strong> &nbsp;$mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    if [[ -z "$mxr2" ]]; then echo "<br>Invalid MX record: Does not resolve to an IP address!"; else true; fi;
 if (( $(grep -c . <<<"$mxr2") > 1)); then
@@ -252,7 +288,9 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' > &#9654; </a> ${mxax#*:}";
+   echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
 echo "<br>"
@@ -263,7 +301,9 @@ else
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    if [[ -z "$mxr2" ]]; then true; else 
-   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' > &#9654; </a> ${mxax2#*:}"
+   echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to get the full raw whois information from ARIN.<br><br>
+</span></a> ${mxax2#*:}"
    fi
 fi
    echo "<br> <br>"
@@ -284,7 +324,7 @@ cat <<EOTSE
 <p>
 Input: null.
 <br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
 <br>
 </p>
@@ -389,7 +429,7 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%'> &#9960;</a> <strong>Name Servers:</strong>"
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong>"
 
 echo '<br>'
 
@@ -401,7 +441,7 @@ echo '<br> <br>'
 
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo '<br>'
@@ -414,7 +454,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
 
 echo '<br> <br>'
 
@@ -451,7 +491,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
 echo '<br>'
 
 #A RECORD/S CT
@@ -463,7 +503,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
@@ -505,13 +545,13 @@ Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
 <br>
 $arfrgt
 <br>
 __________________________
 <br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX records history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
@@ -547,13 +587,13 @@ Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
 <br>
 $arfrgt
 <br>
 __________________________
 <br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
@@ -588,13 +628,13 @@ Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
 __________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>A record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
 <br>
 $arfrgt
 <br>
 __________________________
 <br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX record/s: </strong>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
 <br> <br>
 $mrfrgt
 __________________________
@@ -631,7 +671,7 @@ __________________________
 <br> <br>";
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -643,7 +683,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history on from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT AU
@@ -714,7 +754,7 @@ echo "__________________________"
 echo '<br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> Name Servers:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong> Name Servers:</strong>"
 echo '<br>'
 
 #NAME SERVERS CT AU
@@ -732,7 +772,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%'> &#9960; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
 
 #A RECORD/S CT AU
 
@@ -744,7 +784,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'> &#9960; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT AU
@@ -817,7 +857,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%'> &#9960; </a> <strong>Name Servers: </strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip' > &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers: </strong>"
 echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
@@ -831,7 +871,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' > &#9960; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
 
 #A RECORD/S CT NZ
 
@@ -843,7 +883,7 @@ echo '__________________________'
 echo "<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' > &#9960; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 echo '<br> <br>'
 
 #MX RECORD/S - AND IP/S CT NZ
@@ -882,7 +922,7 @@ echo '__________________________'
 echo '<br> <br>'
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' > &#9960; </a> <strong> A records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
 echo '<br>'
 
 #A RECORD/S CT UK
@@ -894,7 +934,7 @@ echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' > &#9960; &nbsp; </a> <strong> MX records:</strong>"
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 
 echo '<br> <br>'
 
