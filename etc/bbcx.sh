@@ -180,6 +180,16 @@ echo "<div id='jsf$eppstat' style='display:none'>"
 echo "$dsfparsedtable";
 echo "</div>"
 
+<div class="tooltip">
+
+<a style='color:tomato; cursor: pointer;' class='button' onclick='js$eppstat()'> &#10067; </a>
+
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">
+
+$dsfparsedtable
+
+</span>
+</div>
 done < <(printf '%s\n' "$1");
 }
 
