@@ -205,9 +205,12 @@ revision 1712
 </p>
 <p>
 <article>
-It starts with one thing<br>
-I don't know why
-<br><br> <br>
+All rights reversed. <br>
+This website or any portion thereof may be <br>
+reproduced or used in any manner whatsoever<br>
+without the express written permission of the publisher<br>
+also for the use of brief quotations in a site review.
+<br><br><br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
