@@ -93,8 +93,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
-span { white-space:nowrap;
-}
 </style>
 <!-- 
 The javascript that copies the contents of div to clipboard.
