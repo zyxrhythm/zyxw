@@ -68,8 +68,6 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
-div {white-space:nowrap;
-}
 
 .tooltip {
   position: relative;
