@@ -69,8 +69,9 @@ pre{
 <p>
 <pre>
 
+Special Thanks to:
 -Director Paul
--Paul Anthony
+-Julian
 -Mark Anthony
 -Mary Genevive
 -Pamela
@@ -81,10 +82,7 @@ pre{
 -Walter King
 -Christina
 -Raymond
--Naits
 -Glenda Mae
-
-
 For testing/feedbacks/suggestions/bug reports.
 
 </pre>
