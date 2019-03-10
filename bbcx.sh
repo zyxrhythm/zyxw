@@ -42,7 +42,7 @@ cat <<EODHEAD0
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <style>
-a {text-decoration: none; white-space:nowrap;}
+a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
@@ -93,6 +93,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
+span { white-space:nowrap;
+}
 </style>
 <!-- 
 The javascript that copies the contents of div to clipboard.
