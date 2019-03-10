@@ -198,15 +198,16 @@ function redirect()
 <br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br>
 <br>
-rev.1671
+revision 1712
 <br>
 <br>
 </footer>
 </p>
 <p>
 <article>
-<br>
-
+<br><br>
+It starts with one thing<br>
+I don't know why
 <br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
