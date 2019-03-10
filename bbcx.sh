@@ -965,6 +965,8 @@ echo '</p>'
 #the back | track button on the button
 echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
 
+exit 0;
+
 ;;
 esac
 
