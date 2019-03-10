@@ -166,7 +166,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"  
    
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
+echo "<br> <a style='color:tomato; ' class='button tooltip' onclick='js$eppstat()'> &#10067;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
