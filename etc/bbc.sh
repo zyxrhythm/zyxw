@@ -112,7 +112,7 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>actus</h4></a>
+<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
 
 EOT
 
