@@ -42,7 +42,7 @@ cat <<EODHEAD0
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <style>
-a {text-decoration: none; }
+a {text-decoration: none; white-space:nowrap;}
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
