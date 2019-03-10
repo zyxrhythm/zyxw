@@ -112,7 +112,7 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
+<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac<label class='tooltip'>&#127797;</label><span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>us</h4></a>
 
 EOT
 
