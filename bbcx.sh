@@ -87,7 +87,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  white-space:nowrap;
 }
 
 .tooltip:hover .tooltiptext {
