@@ -72,7 +72,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
-  white-space:nowrap;
 }
 
 .tooltip .tooltiptext {
@@ -92,6 +91,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  white-space:nowrap;
 }
 
 </style>
