@@ -205,6 +205,9 @@ rev.1671
 </p>
 <p>
 <article>
+<br>
+
+<br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
@@ -216,6 +219,7 @@ rev.1671
 Copyleft 2018 &copy;
 </article>
 <article>
+<br> <br>
 41 73 20 66 61 72 20 61 73 20 74 68 65 <br>
 20 6c 61 77 73 20 6f 66 20 6d 61 74 68 <br>
 65 6d 61 74 69 63 73 20 72 65 66 65 72 <br>
@@ -229,7 +233,6 @@ Copyleft 2018 &copy;
 6c 69 74 79 20 2d 2d 2d 20 41 6c 62 65 <br>
 72 74 20 45 69 6e 73 74 65 69 6e 20 28 <br>
 31 38 37 39 20 2d 20 31 39 35 35 29 2e <br>
-<br>
 <br>
 </article>
 </center>
