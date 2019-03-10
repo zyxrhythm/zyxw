@@ -205,10 +205,10 @@ revision 1712
 </p>
 <p>
 <article>
-<br><br>
+<br>
 It starts with one thing<br>
 I don't know why
-<br>
+<br><br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
