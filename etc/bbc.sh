@@ -112,16 +112,9 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac<label class='tooltip'>&#127797;</label><span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>us</h4></a>
+<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For comments / suggestions / reactions email  director@bigblackcactus.com</span>
+</div></a>
 
-EOT
-
-echo "<div class='tooltip'>
-<label>&#127797; </label>
-<span class='tooltiptext' style='font-size: 70%; font-family: calibri; font: green; '>For comments / suggestions / reactions email  director@bigblackcactus.com</span>
-</div>"
-
-cat << EOT0
 </p>
 
 <!-- BBC Special -->
@@ -240,6 +233,6 @@ Copyleft 2018 &copy;
 </center>
 </html>
 
-EOT0
+EOT
 
 exit 0;
