@@ -205,7 +205,7 @@ else { x.style.display = 'none'; } }
 
 echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to check the IP address/es associated with current authoritative name servers and will try to indicate the organization responsible for the IP address/es from querying ARIN's whois servers.<br><br>
+<br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
 </span></a>"
 
 echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
