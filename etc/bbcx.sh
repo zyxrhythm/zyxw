@@ -68,7 +68,6 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
-
 .tooltip {
   position: relative;
   display: inline-block;
@@ -965,6 +964,8 @@ echo '</p>'
 
 #the back | track button on the button
 echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
+
+exit 0;
 
 ;;
 esac
