@@ -112,8 +112,7 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<a href="/cgi-bin/bbc.sh"><div class="tooltip"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For comments / suggestions / reactions email  director@bigblackcactus.com</span>
-</div></a>
+<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
 
 </p>
 
@@ -210,7 +209,7 @@ This website or any portion thereof may be <br>
 reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
-<br><br>for suggestions / comments / reactions <br> email director@bigblackcactus.com<br><br>
+<br><br><br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
@@ -220,6 +219,23 @@ also for the use of brief quotations in a site review.
 <b>Once you GO BLACK, you can never go back!</b>
 <br>
 Copyleft 2018 &copy;
+</article>
+<article>
+<br> <br>
+41 73 20 66 61 72 20 61 73 20 74 68 65 <br>
+20 6c 61 77 73 20 6f 66 20 6d 61 74 68 <br>
+65 6d 61 74 69 63 73 20 72 65 66 65 72 <br>
+20 74 6f 20 72 65 61 6c 69 74 79 2c 20 <br>
+74 68 65 79 20 61 72 65 20 6e 6f 74 20 <br>
+63 65 72 74 61 69 6e 3b 20 61 6e 64 20 <br>
+61 73 20 66 61 72 20 61 73 20 74 68 65 <br>
+79 20 61 72 65 20 63 65 72 74 61 69 6e <br>
+2c 20 74 68 65 79 20 64 6f 20 6e 6f 74 <br>
+20 72 65 66 65 72 20 74 6f 20 72 65 61 <br>
+6c 69 74 79 20 2d 2d 2d 20 41 6c 62 65 <br>
+72 74 20 45 69 6e 73 74 65 69 6e 20 28 <br>
+31 38 37 39 20 2d 20 31 39 35 35 29 2e <br>
+<br>
 </article>
 </center>
 </html>
