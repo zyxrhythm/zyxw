@@ -209,7 +209,7 @@ This website or any portion thereof may be <br>
 reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
-<br><br>For suggestions / comments / reactions<br> Email director@bigblackcactus.com<br><br><br>
+<br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
