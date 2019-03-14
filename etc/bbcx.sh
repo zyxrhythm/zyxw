@@ -1037,7 +1037,7 @@ else
 echo '<hr>'
 echo '<br>'
 
-if [[ -z "$reseller" ]] || if [[ "$reseller" = " " ]]; then
+if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; then
 echo "<strong>Reseller:</strong> None"
 else
 echo "<strong>Reseller:</strong> $reseller"
