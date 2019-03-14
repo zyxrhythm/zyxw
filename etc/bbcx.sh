@@ -467,7 +467,23 @@ echo '__________________________'
 
 gov)
 zyx=$(whois $domain);
+zyxf=$(echo "$zyx"| grep -i -e 'No match for' );
 
+if [[ !-z "$zyxf" ]]; 
+
+then 
+echo "<body>
+<div id="divClipboard">
+<p>
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+</p>
+</div>
+</body>
+</html>"
+
+exit 0;
+
+else 
 #dig A and MX with minimal essential output from Google DNS servers
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
@@ -520,6 +536,8 @@ cat << EODNARGTGOV0
 </html>
 
 EODNARGTGOV0
+
+fi;
 
 exit 0;
 
