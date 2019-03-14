@@ -277,7 +277,7 @@ while IFS= read -r line
 do
    mxr1=$(echo  $line | cut -f2 -d" ");
 mxr1a=$(echo $line | cut -f1 -d" ");
-echo "<strong class='tooltip'>$mxr1a <span class='tooltiptext' style='font-size: 85%; font-family: calibri; font: green; '><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br> ";
+echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' style='font-size: 85%; font-family: calibri; font: green; '><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br> ";
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    if [[ -z "$mxr2" ]]; then echo "<br>Invalid MX record: Does not resolve to an IP address!"; else true; fi;
 if (( $(grep -c . <<<"$mxr2") > 1)); then
