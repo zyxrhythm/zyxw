@@ -112,8 +112,7 @@ function removeSpecialCharacters(string) {
 <center>
 <p>
 
-<h4><a href="/cgi-bin/bbc.sh"><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac</a></h4><h4>&#127797;us<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">For comments / suggestions / reactions email  director@bigblackcactus.com</span></h4>
-
+<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
 
 </p>
 
@@ -140,8 +139,8 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<code style="font-size:80%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get the details of the SSL certificate issued for the domain / sub domain)<br><br></span>
-</div> </code>
+<label style="font-size:90%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for the domain / sub domain)<br><br></span>
+</div> </label>
 <input type="checkbox" id="square">
 </form>
 
@@ -152,7 +151,7 @@ function redirect()
 <p>
 <!-- WHO YOU -->
 <form action="bbcws.sh" method="get">
-<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name / I.P. address on the box below then click the "Who is" Button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br></span>
+<label><div class="tooltip">[ Who You ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br></span>
 </div> </label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain"><br>
 <button id="whoyoubtn" type="submit" >Who is</button>
@@ -162,7 +161,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify what name server will the tool dig the records for the domain name from. Finally click the "DIG" Button. <br> <br>If the name server field is left blank, by default, Big Nick Digger will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address first select PTR from the dropdown then click the "DIG" button.<br><br></span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name(FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify what name server will the tool dig the records for the domain name from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br></span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
@@ -198,28 +197,19 @@ function redirect()
 <br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br>
 <br>
-rev.1671
+revision 1717
 <br>
 <br>
 </footer>
 </p>
 <p>
 <article>
-41 73 20 66 61 72 20 61 73 20 74 68 65 <br>
-20 6c 61 77 73 20 6f 66 20 6d 61 74 68 <br>
-65 6d 61 74 69 63 73 20 72 65 66 65 72 <br>
-20 74 6f 20 72 65 61 6c 69 74 79 2c 20 <br>
-74 68 65 79 20 61 72 65 20 6e 6f 74 20 <br>
-63 65 72 74 61 69 6e 3b 20 61 6e 64 20 <br>
-61 73 20 66 61 72 20 61 73 20 74 68 65 <br>
-79 20 61 72 65 20 63 65 72 74 61 69 6e <br>
-2c 20 74 68 65 79 20 64 6f 20 6e 6f 74 <br>
-20 72 65 66 65 72 20 74 6f 20 72 65 61 <br>
-6c 69 74 79 20 2d 2d 2d 20 41 6c 62 65 <br>
-72 74 20 45 69 6e 73 74 65 69 6e 20 28 <br>
-31 38 37 39 20 2d 20 31 39 35 35 29 2e <br>
-<br>
-<br>
+All rights reversed. <br>
+This website or any portion thereof may be <br>
+reproduced or used in any manner whatsoever<br>
+without the express written permission of the publisher<br>
+also for the use of brief quotations in a site review.
+<br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
 </article>
