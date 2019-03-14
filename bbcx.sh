@@ -844,7 +844,7 @@ cat <<EOQPH
 <body>
 <div id="divClipboard">
 <p>
-<br>For the  Whois info of this .ph domain <br>
+<br>For the  Whois info of this .ph domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
 </p>
@@ -886,7 +886,7 @@ cat <<EOQSG
 <body>
 <div id="divClipboard">
 <p>
-<br>For the  Whois info of this .sg domain <br>
+<br>For the  Whois info of this .sg domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
@@ -927,7 +927,7 @@ cat <<EOQVN
 <body>
 <div id="divClipboard">
 <p>
-<br>For the  Whois info of this .sg domain <br>
+<br>For the  Whois info of this .sg domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
 </p>
