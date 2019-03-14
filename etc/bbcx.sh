@@ -341,7 +341,7 @@ zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' );
-  if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois "]]; then
+  if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]]; then
 
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
