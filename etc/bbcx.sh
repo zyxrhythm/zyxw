@@ -472,7 +472,43 @@ zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-echo ".gov domain under construction"
+cat << EODNARGTGOV
+<body>
+<div id="divClipboard">
+<p>
+EODNARGTGOV
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
+echo '<br>'
+
+arfrgt=$( arfunction "$ar" );
+echo "$arfrgt"
+
+echo '<br>'
+echo '__________________________'
+echo '<br> <br>'
+
+#link to the MX record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
+
+echo '<br> <br>'
+
+mrfrgt=$( mrfunction "$mxr");
+echo "$mrfrgt"
+
+echo '__________________________'
+cat << EODNARGTGOV0
+
+</p>
+</div>
+
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+</body>
+</html>
+
+EODNARGTGOV0
+
+exit 0;
 
 ;;
 
