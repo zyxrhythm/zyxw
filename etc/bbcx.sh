@@ -994,7 +994,8 @@ registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
 admin=$(echo "$semifinale" | grep -i -e 'admin')
 tech=$(echo "$semifinale" | grep -i -e 'tech')
 
-reseller="${rese#*:}"
+reseller0="${rese#*:}"
+reseller="$reseller0"
 
 if [[ -z "$registrant" ]]; then
 
