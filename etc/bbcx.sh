@@ -467,7 +467,7 @@ echo '__________________________'
 
 gov)
 zyx=$(whois $domain);
-zyxf=$(echo "$zyx"| grep -i -e 'No match for' );
+zyxf=$(echo "$zyx" | grep -i -e 'No match for' );
 
 if [[ !-z "$zyxf" ]]; 
 
@@ -479,7 +479,7 @@ Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' 
 </p>
 </div>
 </body>
-</html>"
+</html>";
 
 exit 0;
 
@@ -535,7 +535,7 @@ cat << EODNARGTGOV0
 </body>
 </html>
 
-EODNARGTGOV0
+EODNARGTGOV0;
 
 fi;
 
