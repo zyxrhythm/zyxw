@@ -472,11 +472,24 @@ zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
+#stores the domain status on a variable
+dstat=$(echo "$zyx" | grep -i -e "status:" );
+
 cat << EODNARGTGOV
 <body>
 <div id="divClipboard">
 <p>
+__________________________
+<br> <br>
+<strong>Domain:</strong> $domain <br>
+<strong>Status:</strong> $dstat <br> 
+<br>
+__________________________ <br>
+
 EODNARGTGOV
+
+#link to the A record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
 
 #cycles through multiple A record/s and will get the company/individual that is liable for the IP address
 echo '<br>'
