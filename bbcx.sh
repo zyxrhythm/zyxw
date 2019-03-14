@@ -523,130 +523,6 @@ echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
 
 ;;
 
-#special result for .ph ccTLD 
-ph)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
-cat <<EOQPH
-<body>
-<div id="divClipboard">
-<p>
-<br>For the  Whois info of this .ph domain <br>
-Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
-</p>
-<p>
-__________________________ <br> <br>
-<strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX records history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
-</div>
-</body>
-</html>
-EOQPH
-exit 0;
-
-;;
-
-
-#special result for .sg ccTLD 
-sg)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
-cat <<EOQSG
-<body>
-<div id="divClipboard">
-<p>
-<br>For the  Whois info of this .sg domain <br>
-Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
-</p>
-<p>
-__________________________ <br> <br>
-<strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
-</div>
-</body>
-</html>
-EOQSG
-exit 0;
-
-;;
-
-#special result for .vn ccTLD 
-vn)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
-cat <<EOQVN
-<body>
-<div id="divClipboard">
-<p>
-<br>For the  Whois info of this .sg domain <br>
-Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
-</p>
-<p>
-__________________________ <br> <br>
-<strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
-</div>
-</body>
-</html>
-EOQVN
-exit 0;
-
-;;
-
 #special trimming for AU ccTLDs
 au)
 
@@ -665,7 +541,7 @@ then echo "<body>
 <div id='divClipboard'>
 <p>
 <br>
-<a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a>'s (AU Domain Administration )whois servers answers solely for whois queries regarding .au domains. And there is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame, and since this website has only an I.P. address, you can either wait for this website to be able to query auDA's whois server again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information.
+<a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a>'s (AU Domain Administration )whois server/s answers solely for whois queries regarding .au domains. There is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame. And since this website's server has only an I.P. address, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of this .au domain.
 <br> <br>
 __________________________
 <br> <br>";
@@ -953,6 +829,131 @@ echo '<br>'
 echo "<pre>$zyx</pre><br>"
 
 ;;
+
+#special result for .ph ccTLD 
+ph)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
+cat <<EOQPH
+<body>
+<div id="divClipboard">
+<p>
+<br>For the  Whois info of this .ph domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
+</p>
+<p>
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
+<br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX records history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+</p>
+</div>
+</body>
+</html>
+EOQPH
+exit 0;
+
+;;
+
+
+#special result for .sg ccTLD 
+sg)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
+cat <<EOQSG
+<body>
+<div id="divClipboard">
+<p>
+<br>For the  Whois info of this .sg domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
+</p>
+<p>
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
+<br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+</p>
+</div>
+</body>
+</html>
+EOQSG
+exit 0;
+
+;;
+
+#special result for .vn ccTLD 
+vn)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
+cat <<EOQVN
+<body>
+<div id="divClipboard">
+<p>
+<br>For the  Whois info of this .sg domain <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
+</p>
+<p>
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
+<br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+</p>
+</div>
+</body>
+</html>
+EOQVN
+exit 0;
+
+;;
+
 #throw an error for anything else
 
 *)
