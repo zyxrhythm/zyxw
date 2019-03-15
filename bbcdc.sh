@@ -121,6 +121,9 @@ gcctldlist='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|ac
 #get the domain from qs
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
+#check if the input is domain or sub domain.
+if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
+
 echo '<br>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
@@ -153,7 +156,7 @@ case $tld in
    $gcctldlist)
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-IP=$(dig +short a $domain);
+IP=$(dig +short a $domain | head -n 1);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
@@ -167,7 +170,7 @@ cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-<strong>Domain/sub domain</strong> : $domain <br>
+<strong>$domvar</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
