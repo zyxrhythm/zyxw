@@ -258,7 +258,7 @@ do
    arx=$( echo "$ar2" | sort -u | head -1 );
 echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> &#9654; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to get the full raw whois information of this I.P. address from ARIN.<br><br>
+<br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${arx#*:}";
 done < <(printf '%s\n' "$1");
 
@@ -289,7 +289,7 @@ do
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
    echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to get the full raw whois information of this I.P. address from ARIN.<br><br>
+<br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
@@ -302,7 +302,7 @@ else
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    if [[ -z "$mxr2" ]]; then true; else 
    echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > &#9654; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to get the full raw whois information of this I.P. address from ARIN.<br><br>
+<br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${mxax2#*:}"
    fi
 fi
