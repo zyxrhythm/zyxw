@@ -130,15 +130,18 @@ if [[ -z "$domain" ]]; then
 
 cat <<EOTS
 <body>
+<hr>
 <div id="divClipboard">
 <p>
 Input: null.
 <br> <br>
 Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
-<br>
 </p>
 </div>
+<hr>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
 EOTS
@@ -179,9 +182,11 @@ Not valid!
 </p>
 </div>
 <hr>
+<br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
+
 ZXCVBNM
 
 exit 0; 
