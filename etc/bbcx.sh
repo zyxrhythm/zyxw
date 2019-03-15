@@ -131,8 +131,8 @@ echo '<link rel="icon" type="image/png" href="/icon.png" />'
 cat  << EODHEAD1
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
 <br>
-<hr>
 <button onclick="copyClipboard()">BBC Copy</button>
+<hr>
 </head>
 EODHEAD1
 
