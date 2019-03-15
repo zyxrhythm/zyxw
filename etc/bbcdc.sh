@@ -172,7 +172,7 @@ zyx=$(whois $domain);
 
 dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' );
 
-if [[ -z "$IP" ]] && [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]; 
+if [[ -z "$IP" ]] && if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]; 
 
 then cat << ZXCVBNM
 
