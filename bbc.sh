@@ -132,7 +132,7 @@ function redirect()
 }
 </script>
 
-<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name(FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span></div>
+<div class="tooltip"><label> [ BBC Specials ]</label><span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span></div>
 <form method="get" name="formation" action="" >
 
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -161,7 +161,7 @@ function redirect()
 <!-- BIG NICK DIGGER -->
 <p>
 <form action="bbcd.sh" method="get">
-<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name(FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br></span></div></label>
+<label><div class="tooltip">[ Big Nick Digger ]<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br></span></div></label>
 <br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <br>
