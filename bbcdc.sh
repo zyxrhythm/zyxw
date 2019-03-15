@@ -174,7 +174,7 @@ cat << EOSSLCCR
 </p>
 </div>
 <br>
-<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
 
