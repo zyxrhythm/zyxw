@@ -171,6 +171,7 @@ if [[ -z "$IP" ]];
 then cat << ZXCVBNM
 
 <body>
+<hr>
 <div id='divClipboard'>
 <p>
 <strong>Input:</strong> $domain <br> <br>
@@ -179,6 +180,7 @@ Not valid!
 </p>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </div>
+<hr>
 </body>
 </html>
 ZXCVBNM
@@ -189,6 +191,7 @@ else true; fi;
 
 cat << EOSSLCCR
 <body>
+<hr>
 <div class="code-bg" id="divClipboard">
 <p>
 <strong>$domvar</strong> : $domain <br>
@@ -198,6 +201,8 @@ cat << EOSSLCCR
 <strong>Expiration</strong> : $Expiry
 </p>
 </div>
+<hr>
+<br>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
@@ -214,11 +219,13 @@ exit 0;
 cat << EOIDNE
 
 <body>
+<hr>
 <div class="code-bg" id="divClipboard">
 <p>
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
+<hr>
 <br>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
