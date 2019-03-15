@@ -205,7 +205,6 @@ cat << EOSSLCCR
 <strong>Expiration</strong> : $Expiry
 </p>
 </div>
-<br>
 <hr>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
