@@ -167,7 +167,7 @@ cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-<strong>Domain</strong> : $domain <br>
+<strong>Domain/sub domain</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
