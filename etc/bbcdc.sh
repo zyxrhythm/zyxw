@@ -156,7 +156,7 @@ case $tld in
    $gcctldlist)
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-IP=$(dig +short a $domain);
+IP=$(dig +short a $domain | head -n 1);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
