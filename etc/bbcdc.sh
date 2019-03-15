@@ -235,6 +235,6 @@ exit 0;
 
 esac
 
-fi;
+fi
 
 exit 0;
