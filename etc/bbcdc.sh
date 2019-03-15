@@ -165,8 +165,29 @@ Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
-cat << EOSSLCCR
 
+if [[ -z "$IP" ]]; 
+
+then 
+
+cat << INVALIDINPUT
+<body>
+<div id="divClipboard">
+<p>
+Input: null.
+<br> <br>
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+<br>
+<br>
+</p>
+</div>
+</body>
+</html> 
+
+INVALIDINPUT;
+
+else
+cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
@@ -182,7 +203,9 @@ cat << EOSSLCCR
 </body>
 </html>
 
-EOSSLCCR
+EOSSLCCR;
+
+fi;
 
 exit 0;
 
@@ -195,7 +218,7 @@ cat << EOIDNE
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>
+Not a valid domain(<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
 <br>
