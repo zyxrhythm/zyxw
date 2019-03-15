@@ -168,19 +168,22 @@ IP=$(dig +short a $domain | head -n 1);
 
 if [[ -z "$IP" ]]; 
 
-then echo "<body>
+then cat << ZXCVBNM
+
+<body>
 <div id='divClipboard'>
 <p>
-Input: $domain <br> 
+<strong>Input:</strong> $domain <br> 
 Not valid!
 <br>
-<br>
 </p>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </div>
 </body>
 </html>" 
-exit 0; 
+ZXCVBNM
 
+exit 0; 
 
 else true; fi;
 
