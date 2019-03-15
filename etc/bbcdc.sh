@@ -126,7 +126,9 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 echo '<br>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-if [[ -z "$domain" ]] && [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]; then
+if [[ -z "$domain" ]]; 
+
+then
 
 cat <<EOTS
 <body>
@@ -168,7 +170,11 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
 IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]]; 
+zyx=$(whois $domain);
+
+dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' );
+
+if [[ -z "$IP" ]] && [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]; 
 
 then cat << ZXCVBNM
 
