@@ -139,7 +139,7 @@ function redirect()
 
 <button onclick="redirect();" type="submit" >Go</button>
 <br>
-<label style="font-size:90%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for the domain / sub domain)<br><br></span>
+<label style="font-size:90%" ><div class="tooltip">S. C. C. <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br></span>
 </div> </label>
 <input type="checkbox" id="square">
 </form>
