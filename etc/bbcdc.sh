@@ -156,7 +156,6 @@ case $tld in
    $gcctldlist)
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-IP=$(dig +short a $domain | head -n 1);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
@@ -165,28 +164,10 @@ Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
+IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]]; 
+if [[ -z "$IP" ]]; then echo "X"; else true; fi;
 
-then 
-
-cat << INVALIDINPUT
-<body>
-<div id="divClipboard">
-<p>
-Input: null.
-<br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
-<br>
-</p>
-</div>
-</body>
-</html> 
-
-INVALIDINPUT;
-
-else
 cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
@@ -203,9 +184,7 @@ cat << EOSSLCCR
 </body>
 </html>
 
-EOSSLCCR;
-
-fi
+EOSSLCCR
 
 exit 0;
 
