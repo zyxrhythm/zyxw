@@ -169,7 +169,7 @@ IP=$(dig +short a $domain | head -n 1);
 if [[ -z "$IP" ]]; 
 
 then echo "<body>
-<div id="divClipboard">
+<div id='divClipboard'>
 <p>
 Input: $domain <br> 
 Not valid!
@@ -178,7 +178,8 @@ Not valid!
 </p>
 </div>
 </body>
-</html>" exit 0; 
+</html>" 
+exit 0; 
 
 
 else true; fi;
