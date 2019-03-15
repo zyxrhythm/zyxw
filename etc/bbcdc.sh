@@ -205,7 +205,7 @@ cat << EOSSLCCR
 
 EOSSLCCR;
 
-fi;
+fi
 
 exit 0;
 
