@@ -104,8 +104,7 @@ EOS2
 echo '<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>' 
 
 #The BBC button
-echo '<br/>'
-echo '<br/>'
+echo '<br>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
@@ -178,9 +177,9 @@ then cat << ZXCVBNM
 Not valid!
 <br>
 </p>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </div>
 <hr>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
 ZXCVBNM
@@ -201,8 +200,8 @@ cat << EOSSLCCR
 <strong>Expiration</strong> : $Expiry
 </p>
 </div>
-<hr>
 <br>
+<hr>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
@@ -225,8 +224,8 @@ cat << EOIDNE
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
-<hr>
 <br>
+<hr>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
