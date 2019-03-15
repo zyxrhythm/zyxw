@@ -173,14 +173,14 @@ then cat << ZXCVBNM
 <body>
 <div id='divClipboard'>
 <p>
-<strong>Input:</strong> $domain <br> 
+<strong>Input:</strong> $domain <br> <br>
 Not valid!
 <br>
 </p>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </div>
 </body>
-</html>" 
+</html>
 ZXCVBNM
 
 exit 0; 
