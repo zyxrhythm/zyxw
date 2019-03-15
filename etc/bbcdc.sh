@@ -126,7 +126,7 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 echo '<br>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-if [[ -z "$domain" ]]; then
+if [[ -z "$domain" ]] && [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]; then
 
 cat <<EOTS
 <body>
