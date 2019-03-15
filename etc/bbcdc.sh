@@ -28,6 +28,7 @@ cat <<EOX
 <meta name="author" content="Zyx Rhythm">
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
 <script>
@@ -36,6 +37,8 @@ cat <<EOX
   gtag('js', new Date());
   gtag('config', 'UA-32625644-1');
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
 EOX
 
 #CSS
@@ -63,7 +66,7 @@ strong { color: green;
 
 EOS
 
-# the javascript that copies the contents of div to clipboard
+#the javascript that copies the contents of div to clipboard
 #this is a snippet from http://edupala.com/copy-div-content-clipboard/
 cat <<EOS2
 
@@ -98,7 +101,7 @@ function copyClipboard() {
 EOS2
 
 #the back link
-echo '<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>' 
+echo '<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>' 
 
 #The BBC button
 echo '<br/>'
@@ -193,7 +196,7 @@ Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' 
 </div>
 <br>
 <br>
-<p> <a href="/cgi-bin/bbc.sh" > << back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
 
