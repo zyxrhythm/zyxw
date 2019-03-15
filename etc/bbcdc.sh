@@ -170,7 +170,7 @@ cat << EOSSLCCR
 <strong>Domain</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
-<strong>Domain/s</strong> : $Target <br>
+<strong>Issued for</strong> : $Target <br>
 <strong>Expiration</strong> : $Expiry
 </p>
 </div>
