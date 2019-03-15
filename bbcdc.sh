@@ -104,8 +104,7 @@ EOS2
 echo '<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>' 
 
 #The BBC button
-echo '<br/>'
-echo '<br/>'
+echo '<br>'
 echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
@@ -131,15 +130,18 @@ if [[ -z "$domain" ]]; then
 
 cat <<EOTS
 <body>
+<hr>
 <div id="divClipboard">
 <p>
 Input: null.
 <br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
+Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
 </p>
 </div>
+<hr>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
 EOTS
@@ -156,7 +158,6 @@ case $tld in
    $gcctldlist)
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-IP=$(dig +short a $domain | head -n 1);
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
@@ -165,9 +166,36 @@ Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
-cat << EOSSLCCR
+IP=$(dig +short a $domain | head -n 1);
+
+if [[ -z "$IP" ]]; 
+
+then cat << ZXCVBNM
 
 <body>
+<hr>
+<div id='divClipboard'>
+<p>
+<strong>Input:</strong> $domain <br> <br>
+Not valid!
+<br>
+</p>
+</div>
+<hr>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+</body>
+</html>
+
+ZXCVBNM
+
+exit 0; 
+
+else true; fi;
+
+cat << EOSSLCCR
+<body>
+<hr>
 <div class="code-bg" id="divClipboard">
 <p>
 <strong>$domvar</strong> : $domain <br>
@@ -177,6 +205,7 @@ cat << EOSSLCCR
 <strong>Expiration</strong> : $Expiry
 </p>
 </div>
+<hr>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
@@ -193,12 +222,14 @@ exit 0;
 cat << EOIDNE
 
 <body>
+<hr>
 <div class="code-bg" id="divClipboard">
 <p>
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>
+Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
 <br>
+<hr>
 <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
