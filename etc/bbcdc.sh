@@ -135,7 +135,7 @@ cat <<EOTS
 <p>
 Input: null.
 <br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
 <br>
 </p>
@@ -166,7 +166,22 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
 IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]]; then echo "X"; else true; fi;
+if [[ -z "$IP" ]]; 
+
+then echo "<body>
+<div id="divClipboard">
+<p>
+Input: $domain <br> 
+Not valid!
+<br>
+<br>
+</p>
+</div>
+</body>
+</html>" exit 0; 
+
+
+else true; fi;
 
 cat << EOSSLCCR
 <body>
@@ -197,7 +212,7 @@ cat << EOIDNE
 <body>
 <div class="code-bg" id="divClipboard">
 <p>
-Not a valid domain(<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
+Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
 <br>
