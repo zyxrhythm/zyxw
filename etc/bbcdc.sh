@@ -128,9 +128,7 @@ echo '<br>'
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; 
 
-then
-
-cat <<EOTS
+then cat <<EOTS
 <body>
 <hr>
 <div id="divClipboard">
