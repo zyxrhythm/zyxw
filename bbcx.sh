@@ -322,7 +322,7 @@ cat <<EOTSE
 <body>
 <di id="divClipboard">
 <p>
-<strong>Input</strong> : null.
+<strong>Input</strong> : null
 <br> <br>
 Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
@@ -351,7 +351,7 @@ cat <<EONVDE
 <br>
 <div id="divClipboard">
 <p>
-<strong>Input</strong> : $domain
+<strong>Input</strong> : $domain <br>
 Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
@@ -965,11 +965,9 @@ cat << ERRORFORALLELSE
 <div id='divClipboard'>
 
 <p>
-<strong>Input</strong> : $domain
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>
+<strong>Input</strong> : $domain <br>
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>!
 </p>
-
-<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>
 
 ERRORFORALLELSE
 
