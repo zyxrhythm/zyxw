@@ -519,7 +519,6 @@ echo '</p>'
 echo '</div>'
 
 echo '<br>'
-echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
 
 ;;
 
