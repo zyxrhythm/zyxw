@@ -106,7 +106,7 @@ echo '<button onclick="copyClipboard()">BBC Copy</button>'
 
 #end of head
 echo '</head>'
-
+<hr>
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
 qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
@@ -227,7 +227,7 @@ exit 0;
 
 esac
 
-echo '<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
+echo '<br><hr> <br><p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
 
 	fi
 fi
