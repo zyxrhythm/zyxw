@@ -322,7 +322,7 @@ cat <<EOTSE
 <body>
 <di id="divClipboard">
 <p>
-Input: null.
+<strong>Input</strong> : null.
 <br> <br>
 Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
@@ -341,8 +341,9 @@ zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' );
-  if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]]; then
-
+  if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]]; 
+  
+then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
 <body>
@@ -350,6 +351,7 @@ cat <<EONVDE
 <br>
 <div id="divClipboard">
 <p>
+<strong>Input</strong> : $domain
 Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 </p>
 </div>
@@ -956,14 +958,20 @@ exit 0;
 #throw an error for anything else
 
 *)
-echo '<body>'
-echo "<div id='divClipboard'>"
-echo '<p>'
-echo " Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>" 
-echo '</p>'
+cat << ERRORFORALLELSE
 
-#the back | track button on the button
-echo "<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>"
+<body>
+
+<div id='divClipboard'>
+
+<p>
+<strong>Input</strong> : $domain
+Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>
+</p>
+
+<p> <a href='/cgi-bin/bbc.sh' ><<</small> back | track</a> </p>
+
+ERRORFORALLELSE
 
 exit 0;
 
