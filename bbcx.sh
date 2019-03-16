@@ -324,7 +324,7 @@ cat <<EOTSE
 <p>
 <strong>Input</strong> : null
 <br> <br>
-Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
 <br>
 <br>
 </p>
@@ -352,7 +352,7 @@ cat <<EONVDE
 <div id="divClipboard">
 <p>
 <strong>Input</strong> : $domain <br>
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+Not a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
 </p>
 </div>
 </body>
@@ -966,7 +966,7 @@ cat << ERRORFORALLELSE
 
 <p>
 <strong>Input</strong> : $domain <br>
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>!
+Not a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
 </p>
 
 ERRORFORALLELSE
