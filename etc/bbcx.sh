@@ -387,7 +387,7 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 expd=$(echo "$zyx" | grep -i -e "registry expiry date:");
 
 #stores the domain's expiration date fromt the registrar
-expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
+expd0=${$(echo "$zyx2" | grep -i -e "registrar registration expiration date:")/Registration};
 
 #stores the domain's creation date
 creationdate=$(echo "$zyx" | grep -i -e "creation date:");
