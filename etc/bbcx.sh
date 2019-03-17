@@ -371,7 +371,7 @@ exit 0;
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+whoisserver="http://whois.fastdomain.com"
 zyx2=$(whois $domain -h "$whoisserver" );
 
 #once the domainis validated the TLD is extracted for verification
