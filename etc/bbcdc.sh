@@ -126,9 +126,9 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 echo '<br>'
 
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-if [[ -z "$domain" ]]; 
+if [[ -z "$domain" ]]; then
 
-then cat <<EOTS
+cat <<EOTS
 <body>
 <hr>
 <div id="divClipboard">
@@ -168,7 +168,7 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
 IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]] ; 
+if [[ -z "$IP" ]]; 
 
 then cat << ZXCVBNM
 
@@ -225,6 +225,7 @@ cat << EOIDNE
 <hr>
 <div class="code-bg" id="divClipboard">
 <p>
+<strong>Input</strong> : $domain
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
