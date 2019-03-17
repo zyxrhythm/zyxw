@@ -179,7 +179,7 @@ S. C. C.
 <button id="whoyoubtn" type="submit" >Who is</button>
 
 </form>
-</p> <br>
+</p>
 
 <!-- ################## WHO YOU ################# -->
 
