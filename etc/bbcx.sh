@@ -434,7 +434,7 @@ cat <<EODEDCDGT
 <br>
 $creationdate
 <br>
-$expd
+$expd <br>
 $expd0
 <br>
 __________________________
