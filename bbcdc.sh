@@ -225,7 +225,7 @@ cat << EOIDNE
 <hr>
 <div class="code-bg" id="divClipboard">
 <p>
-<strong>Input</strong> : $domain
+<strong>Input</strong> : $domain<br>
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!
 </p>
 </div>
