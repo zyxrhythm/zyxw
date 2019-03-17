@@ -389,7 +389,7 @@ creationdate1=$( echo "$creationdate0" | sed 's/T/\<label style="color: green;">
 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<label style="color: green;"> Time: </label>/g');
+expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<label style=color: green;> Time: </label>/g');
 
 #stores the domain's expiration date fromt the registrar
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
