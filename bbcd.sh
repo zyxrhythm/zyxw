@@ -129,7 +129,7 @@ cat <<EOTSE
 <body>
 <div id="divClipboard">
 <p>
-Input: null.
+<strong>Input</strong> : null
 <br> <br>
 Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
 <br>
@@ -215,7 +215,9 @@ cat << EOIIE
 <body>
 <div id="divClipboard">
 <p>
-Not a valid input! To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
+<strong>Input</strong> : $domain <br> <br>
+Not valid! <br>
+To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
 </p>
 </div>
 </body>
