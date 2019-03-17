@@ -216,7 +216,7 @@ cat << EOIIE
 <div id="divClipboard">
 <p>
 <strong>Input</strong> : $domain <br> <br>
-Not valid! <br>
+Not valid! <br> <br> <br>
 To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
 </p>
 </div>
