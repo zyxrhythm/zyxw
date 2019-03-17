@@ -149,11 +149,17 @@ History:
 
 - Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
 
------------------------
-##### ZYX-Rhythm ######
------------------------
+------------------------------------------------
 For bugs and other concerns please email:
 director@bigblackcactus.com
+
+
+
+
+
+-----------------------
+##### ZYXRhythm ######
+-----------------------
 </pre>
 <br>
 </p>
