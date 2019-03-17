@@ -384,10 +384,12 @@ registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 dstat=$(echo "$zyx" | grep -i -e "status:" );
 
 #stores the domain's creation date
-creationdate=$(echo "$zyx" | grep -i -e "creation date:");
+creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
+creationdate1=$( echo "$creationdate0" | sed 's/T/\ <strong>Time: /g');
 
 #stores the domain's expiration date from the registry
-expd=$(echo "$zyx" | grep -i -e "registry expiry date:");
+expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
+expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\ Time: /g');
 
 #stores the domain's expiration date fromt the registrar
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
