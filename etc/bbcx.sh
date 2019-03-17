@@ -385,15 +385,15 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
-creationdate1=$( echo "$creationdate0" | sed 's/T/\ <strong>Time: /g');
+creationdate1=$( echo "$creationdate0" | sed 's/T/\<label style="color: green;"> Time: </label>/g');
 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\ Time: /g');
+expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<label style="color: green;"> Time: </label>/g');
 
 #stores the domain's expiration date fromt the registrar
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0/Registration }" | sed 's/T/\ Time: /g');
+expd1=$( echo "${expd0/Registration }" | sed 's/T/\<label style="color: green;"> Time: </label>/g');
 
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
