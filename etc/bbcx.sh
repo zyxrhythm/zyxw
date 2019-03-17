@@ -393,11 +393,11 @@ creationdate1=$( echo "$creationdate0" | sed 's/T/\<span id="domaintimes" > Time
 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<span style="color: green;"> Time: <\/span>/g');
+expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g');
 
 #stores the domain's expiration date fromt the registrar
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0/Registration }" | sed 's/T/\<span id="domaintimes" style="color: green;"> Time: <\/span>/g');
+expd1=$( echo "${expd0/Registration }" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' );
 
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
