@@ -368,7 +368,7 @@ exit 0;
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-semifinale=$(whois $domain -h "$whoisserver" );
+zyx2=$(whois $domain -h "$whoisserver" );
 
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
@@ -387,7 +387,7 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 expd=$(echo "$zyx" | grep -i -e "registry expiry date:");
 
 #stores the domain's expiration date fromt the registrar
-expd0=$(echo "$zyx" | grep -i -e "registrar registration expiration date:");
+expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 
 #stores the domain's creation date
 creationdate=$(echo "$zyx" | grep -i -e "creation date:");
@@ -1000,10 +1000,10 @@ fi
 
 echo '<footer>'
 
-rese=$(echo "$semifinale" | grep -i -e "reseller");
-registrant=$(echo "$semifinale" | grep -i -e 'registrant\s')
-admin=$(echo "$semifinale" | grep -i -e 'admin')
-tech=$(echo "$semifinale" | grep -i -e 'tech')
+rese=$(echo "$zyx2" | grep -i -e "reseller");
+registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
+admin=$(echo "$zyx2" | grep -i -e 'admin')
+tech=$(echo "$zyx2" | grep -i -e 'tech')
 
 reseller="${rese#*:}"
 
