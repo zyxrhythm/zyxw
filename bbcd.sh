@@ -217,8 +217,8 @@ cat << EOIIE
 <body>
 <div id="divClipboard">
 <p>
-<strong>Input</strong> : domain ( $domain ) nameserver ( $qns )<br>
-<strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type( $DNSR )<br><br>
+<strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
+<strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
 To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
 </p>
