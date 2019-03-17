@@ -71,6 +71,8 @@ pre{
 -----------------------
 History:
 
+- Added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
+
 - Added tooltips accross the website.
 
 - A lot of bug fixes and UI improvements.
