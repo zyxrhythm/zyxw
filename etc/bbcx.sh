@@ -397,9 +397,12 @@ expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<span id="domaintimes"> Tim
 
 #stores the domain's expiration date from the registrar
 if [[ -z "$(dig $whoisserver)" ]]; 
-then expd1="Unable to fetch the Registrar Expiry Date from $whoisserver.";
-else expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0/Registration }" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' ); fi;
+then 
+expd1="Unable to fetch the Registrar Expiry Date from $whoisserver.";
+else 
+expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
+expd1=$( echo "${expd0/Registration }" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
+fi;
 
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
