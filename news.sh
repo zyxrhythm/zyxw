@@ -71,6 +71,8 @@ pre{
 -----------------------
 History:
 
+- Added tooltips accross the website.
+
 - A lot of bug fixes and UI improvements.
 
 - Added  &#9654; in line with IP addresses that links to the full whois info of that IP address. 
