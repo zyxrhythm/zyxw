@@ -83,6 +83,7 @@ Special Thanks to:
 -Christina
 -Raymond
 -Glenda Mae
+-Cherry May
 For testing/feedbacks/suggestions/bug reports.
 
 </pre>
