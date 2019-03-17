@@ -352,9 +352,8 @@ cat <<EONVDE
 <div id="divClipboard">
 <p>
 <strong>Input</strong> : $domain <br> <br>
-Not a registered domain. <br>
-or not a valid domain <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
-To get the actual response of the whois server for this domain click <a href="/cgi-bin/bbcws.sh?domain=$domain" >here.</a>
+Not a valid/registered domain<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
+For additional info, click <a href="/cgi-bin/bbcws.sh?domain=$domain" >here.</a>
 </p>
 </div>
 </body>
