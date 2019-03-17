@@ -435,9 +435,9 @@ echo "--------------------------"
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
 <br>
-$creationdate
+$creationdate1
 <br>
-$expd <br>
+$expdx1 <br>
 $expd1
 <br>
 __________________________
