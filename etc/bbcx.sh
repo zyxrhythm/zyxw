@@ -95,8 +95,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
 .tooltip:hover .tooltiptext {
+  display: inline;
   visibility: visible;
-   display: inline;
 
 }
 
