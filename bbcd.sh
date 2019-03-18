@@ -152,6 +152,7 @@ else
 
 cat << EORIP
 <body>
+<hr>
 <p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
 <p>
@@ -159,6 +160,7 @@ cat << EORIP
 <strong>Domain/Hostname :</strong> $zyxrip
 </p>
 </div>
+<hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
