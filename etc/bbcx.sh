@@ -81,7 +81,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 .tooltip .tooltiptext {
   font-size:85%;
   visibility: hidden;
-  display: inline;
+  display: none;
   width: 167px;
   background-color: black;
   color: white;
@@ -96,6 +96,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+   display: inline;
+
 }
 
 </style>
