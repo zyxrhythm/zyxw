@@ -159,6 +159,7 @@ cat << EORIP
 <strong>Domain/Hostname :</strong> $zyxrip
 </p>
 </div>
+<hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -179,18 +180,19 @@ case $tld in
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
 if [[ -z $zyxgd ]]; 
+
 then echo "
 <body>
 <div id="divClipboard">
 <p>
-No record (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) found for domain <strong>$domain</strong> on <strong>$qns</strong>
+No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong>
 </p>
 </div>
 </body>
-</html>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>" && exit 0;
+</html>" && exit 0;
 
 else true; 
+
 fi;
 
 cat <<EODR
