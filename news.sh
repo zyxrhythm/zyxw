@@ -71,6 +71,8 @@ pre{
 -----------------------
 History:
 
+- Fixed the bug about regsitrar names are repeated on BBC special whois result.
+
 - Fixed the bug about the BBC Copy button when copying the BBC special result, the copied reults has a lot of improper line breaks when pasted.
 
 - Added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
