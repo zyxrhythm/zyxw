@@ -71,7 +71,7 @@ pre{
 -----------------------
 History:
 
-- Fixed tha bug about the BBC Copy button on BBC special that creates alot of improper line breaks when the results are copied.
+- Fixed the bug about the BBC Copy button when copying the BBC special result, the copied reults has a lot of improper line breaks when pasted.
 
 - Added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
 
