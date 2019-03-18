@@ -266,9 +266,10 @@ cat << EOWIIPR
 
 <body>
 <button onclick="copyClipboard1()">BBC Copy</button>
-<br/>
+<br><hr>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre>
+<br><hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
