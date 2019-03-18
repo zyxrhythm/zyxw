@@ -180,6 +180,7 @@ case $tld in
 zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
 if [[ -z $zyxgd ]]; 
+
 then echo "
 <body>
 <div id="divClipboard">
@@ -188,8 +189,10 @@ No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found f
 </p>
 </div>
 </body>
-</html>" exit 0;
+</html>" && exit 0;
+
 else true; 
+
 fi;
 
 cat <<EODR
