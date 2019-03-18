@@ -188,7 +188,8 @@ No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found f
 </p>
 </div>
 </body>
-</html>
+</html>"
+
 else true; 
 fi;
 
