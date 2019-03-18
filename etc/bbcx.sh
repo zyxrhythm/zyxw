@@ -81,6 +81,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 .tooltip .tooltiptext {
   font-size:85%;
   visibility: hidden;
+  display:none;
   width: 167px;
   background-color: black;
   color: white;
