@@ -57,7 +57,7 @@ a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new; font-size: 161%; display: inline;
+h4 { font-family: courier new; font-size: 161%; display: inline; text-decoration: none;
 }
 body { background-color:black; color:green;
 }
@@ -109,10 +109,10 @@ strong {font-size: 143%;
 #goblack {color: #1c2833
 }
 
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color:  #2ecc71;
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; 
 }
 
-#navig-link { text-decoration: none; color:  #2ecc71;
+#navig-link { color:  #2ecc71;
 }
 
 </style>
