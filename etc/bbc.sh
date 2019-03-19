@@ -50,14 +50,14 @@ cat <<EOBBCSH
 <!-- AdSense -->
 
 <style>
-
+a { text-decoration: none; }
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new; font-size: 161%; display: inline; text-decoration: none;
+h4 { font-family: courier new; font-size: 161%; display: inline; 
 }
 body { background-color:black; color:green;
 }
