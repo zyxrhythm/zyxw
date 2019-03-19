@@ -73,7 +73,7 @@ History:
 
 - Fixed reported bug: registrar names are repeated on BBC special whois result.
 
-- Fixed reported bug: when the BBC Copy button when copyies the BBC special result, the copied reults has a lot of improper line breaks when pasted.
+- Fixed reported bug: when the BBC Copy button on BBC special copies the result, the copied reults contains a lot of improper line breaks when pasted.
 
 - As per request, added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
 
