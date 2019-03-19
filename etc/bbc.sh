@@ -101,7 +101,7 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
-#revisions {color: # #186a3b
+#revisions {color: #186a3b
 }
 
 #goblack {color: #1c2833
