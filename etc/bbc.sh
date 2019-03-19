@@ -145,7 +145,12 @@ function removeSpecialCharacters(string) {
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10070; About &#10070;
 </a>
-&nbsp; &nbsp; &nbsp;
+&nbsp; 
+<div class="tooltip">
+<span id="nav-link"> &#10070; Contact &#10070; </span>
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
+</div>
+&nbsp; 
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10070; Logs &#10070;
 </a>
