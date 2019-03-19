@@ -147,7 +147,7 @@ function removeSpecialCharacters(string) {
 </a>
 &nbsp; &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link">
-&#10070;web logs&#10070;
+&#10070;weblogs&#10070;
 </a>
 </span>
 </p> <br>
