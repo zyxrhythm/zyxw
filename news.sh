@@ -68,8 +68,9 @@ pre{
 <br>
 <p>
 <pre>
+[History]
+
 -----------------------
-History:
 
 - Fixed reported bug: registrar names are repeated on BBC special whois result.
 
