@@ -84,6 +84,9 @@ Special Thanks to:
 -Raymond
 -Glenda Mae
 -Cherry May
+-Anthony
+-Jester
+-Jessielito
 For testing/feedbacks/suggestions/bug reports.
 
 </pre>
