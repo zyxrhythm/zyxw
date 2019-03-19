@@ -139,7 +139,7 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br><br>
 <span id="navigation">
 &#10092;
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">ABOUT</a>
@@ -149,7 +149,7 @@ function removeSpecialCharacters(string) {
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link"> web logs </a>
 &#10093;
 </span>
-</p> <br><br>
+</p> <br>
 
 <!-- ################## BBC Special ################# -->
 
