@@ -51,8 +51,6 @@ cat <<EOBBCSH
 
 <style>
 
-a:#BBh4link { text-decoration: none; }
-
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
@@ -114,7 +112,7 @@ strong {font-size: 143%;
 #navigation { font-family: Arial; font-size: 85%; font-weight: bold; 
 }
 
-#navig-link { color:  #2ecc71;
+#navig-link { color:  #2ecc71; text-decoration: none;
 }
 
 </style>
@@ -141,7 +139,7 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p><a href="/cgi-bin/bbc.sh" id="BBCh4" id="BBh4link" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 <span id="navigation">
 &#10093;&#10093;
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">ABOUT</a>
