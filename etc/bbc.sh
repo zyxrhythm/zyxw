@@ -6,6 +6,9 @@
 #################################################
 #https://github.com/zyxrhythm
 #############################################
+gitrevcount=$( git rev-list --all --count );
+revcount=$(echo "$gitrevcount + 315" | bc);
+
 echo "Content-type: text/html"
 echo ""
 cat <<EOBBCSH
@@ -233,7 +236,7 @@ S. C. C.
 
 <p style="color: white"><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-<span style="color: dark gray">revision 2154</span>
+<span id="revisions">revision $revcount</span>
 <br><br>
 
 </footer>
@@ -253,7 +256,7 @@ also for the use of brief quotations in a site review.
 
 <article>
 <b>Once you GO BLACK, you can never go back!</b><br>
-<span style="color:  #273746 ">Copyleft 2018 &copy;</span>
+<span style="color: white">Copyleft 2018 &copy;</span>
 </article>
 
 </center>
