@@ -101,8 +101,12 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
-#revisions {color:  #1c2833 
+#revisions {color:   #abb2b9 
 }
+
+#goblack {color:  #1c2833 
+}
+
 
 </style>
 
@@ -239,7 +243,6 @@ S. C. C.
 
 <p style="color: white"><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-<span id="revisions">revision $revcount</span>
 <br><br>
 
 </footer>
@@ -254,11 +257,11 @@ also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
 
 </article></p>
-
+<span id="revisions">revision $revcount</span>
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
 <article>
-<b>Once you GO BLACK, you can never go back!</b><br>
+<span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
 <span style="color: white">Copyleft 2018 &copy;</span>
 </article>
 
