@@ -110,7 +110,7 @@ strong {font-size: 143%;
 #goblack {color: #1c2833
 }
 
-#navigation { font-family: Verdana; font-size: 85%;
+#navigation { font-family: Arial; font-size: 85%;
 }
 
 </style>
@@ -137,7 +137,7 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
+<p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 <span id="navigation">
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" >[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" >[ we<i>blog</i>s ]</a>
