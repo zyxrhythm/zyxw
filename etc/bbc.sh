@@ -158,7 +158,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 
 <div class="tooltip">
-<label> #127797; BBC Specials #127797;</label>
+<label> &#127797; BBC Specials &#127797;</label>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 
