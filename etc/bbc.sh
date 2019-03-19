@@ -101,6 +101,9 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
+#revisions {color:  #1c2833 
+}
+
 </style>
 
 </head>
