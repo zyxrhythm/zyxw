@@ -6,8 +6,11 @@
 #################################################
 #https://github.com/zyxrhythm
 #############################################
+
+#revisions counter
 gitrevcount=$( git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 315" | bc);
+#revisions counter
 
 echo "Content-type: text/html"
 echo ""
@@ -55,7 +58,7 @@ a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new; font-size: 161%;
+h4 { font-family: courier new; font-size: 161%; display: inline;
 }
 body { background-color:black; color:green;
 }
