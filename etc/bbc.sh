@@ -32,6 +32,17 @@ cat <<EOBBCSH
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
+
+<!-- AdSense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3422469360028179",
+    enable_page_level_ads: true
+  });
+</script>
+<!-- AdSense -->
+
 <style>
 
 a {text-decoration: none; }
@@ -147,7 +158,7 @@ S. C. C.
 
 <input type="checkbox" id="square">
 
-</form></p><br>
+</form></p><br><br>
 
 <!-- ################## BBC Special ################# -->
 
@@ -168,7 +179,7 @@ S. C. C.
 <button id="whoyoubtn" type="submit" >Who is</button>
 
 </form>
-</p> <br>
+</p>
 
 <!-- ################## WHO YOU ################# -->
 
@@ -217,7 +228,7 @@ S. C. C.
 
 <p><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-revision 1717
+revision 2154
 <br><br>
 
 </footer>
@@ -230,11 +241,11 @@ reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank">[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank">[ we<i>blog</i>s ]</a>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ About ]</a> &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ we<i>blog</i>s ]</a>
 </article></p>
 
-<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank">Thanks to</a> <-</b></p>
+<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
 <article>
 <b>Once you GO BLACK, you can never go back!</b><br>
