@@ -123,7 +123,8 @@ function removeSpecialCharacters(string) {
 <center>
 
 <p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a></p>
-
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ About ]</a> &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ we<i>blog</i>s ]</a>
 
 <!-- ################## BBC Special ################# -->
 
@@ -241,8 +242,7 @@ reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ we<i>blog</i>s ]</a>
+
 </article></p>
 
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
