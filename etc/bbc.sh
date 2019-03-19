@@ -233,7 +233,7 @@ S. C. C.
 
 <p style="color: white"><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-revision 2154
+<span style="color: dark gray">revision 2154</span>
 <br><br>
 
 </footer>
