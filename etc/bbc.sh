@@ -112,7 +112,7 @@ strong {font-size: 143%;
 #navigation { font-family: Arial; font-size: 85%;
 }
 
-#navig { text-decoration: none;
+#navig { text-decoration: none; font-weight: bold;
 }
 
 </style>
