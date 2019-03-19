@@ -248,6 +248,8 @@ S. C. C.
 </footer>
 </p>
 
+<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
+
 <p><article>
 All rights reversed. <br>
 This website or any portion thereof may be <br>
@@ -255,10 +257,9 @@ reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
-
 </article></p>
-<span id="revisions">revision $revcount</span>
-<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
+
+<span id="revisions">rev $revcount</span>
 
 <article>
 <span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
