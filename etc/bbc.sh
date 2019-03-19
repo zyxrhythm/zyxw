@@ -231,7 +231,7 @@ S. C. C.
 
 <footer>
 
-<p><br>
+<p style="color: white"><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
 revision 2154
 <br><br>
@@ -252,7 +252,7 @@ also for the use of brief quotations in a site review.
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
 <article>
-<span style="color: gray"><b>Once you GO BLACK, you can never go back!</b></span><br>
+<b>Once you GO BLACK, you can never go back!</b><br>
 <span style="color: white">Copyleft 2018 &copy;</span>
 </article>
 
