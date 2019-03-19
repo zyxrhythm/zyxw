@@ -109,10 +109,10 @@ strong {font-size: 143%;
 #goblack {color: #1c2833
 }
 
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: red;
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: white;
 }
 
-#navig { text-decoration: none; 
+#navig { text-decoration: none; color: red;
 }
 
 </style>
