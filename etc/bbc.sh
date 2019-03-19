@@ -109,7 +109,7 @@ strong {font-size: 143%;
 #goblack {color: #1c2833
 }
 
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #28b463;
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;
 }
 
 #navig-link { text-decoration: none; color: #145a32;
@@ -151,7 +151,7 @@ function removeSpecialCharacters(string) {
 </a>
 &nbsp; 
 <div class="tooltip">
-<span id="nav-link"><label>&#9993;Contact</label></span>
+<span id="navig-link"><label>&#9993;Contact</label></span>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
 </div>
 </span>
