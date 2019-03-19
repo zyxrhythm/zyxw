@@ -139,7 +139,7 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br><br>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 
 <span id="navigation">
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
@@ -152,7 +152,7 @@ function removeSpecialCharacters(string) {
 &nbsp; 
 <div class="tooltip">
 <span id="navig-link"><label>&#9993;Contact</label></span>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
+<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
 </div>
 </span>
 </p> <br>
