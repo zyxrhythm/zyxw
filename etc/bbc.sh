@@ -151,7 +151,7 @@ function removeSpecialCharacters(string) {
 </a>
 &nbsp; 
 <div class="tooltip">
-<span id="nav-link"><label>&#9993;Contact</labe></span>
+<span id="nav-link"><label>&#9993;Contact</label></span>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
 </div>
 </span>
