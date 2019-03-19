@@ -112,7 +112,7 @@ strong {font-size: 143%;
 #navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #28b463;
 }
 
-#navig-link { color: #28b463; text-decoration: none;
+#navig-link { text-decoration: none; color: #145a32;
 }
 
 </style>
@@ -152,7 +152,7 @@ function removeSpecialCharacters(string) {
 &nbsp; 
 <div class="tooltip">
 <span id="nav-link"><label>&#9993;Contact</labe></span>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
 </div>
 </span>
 </p> <br>
