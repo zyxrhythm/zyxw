@@ -143,16 +143,16 @@ function removeSpecialCharacters(string) {
 
 <span id="navigation">
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
-&#10070; About &#10070;
+&#10070;About
 </a>
 &nbsp; 
 <div class="tooltip">
-<span id="nav-link"> &#10070; Contact &#10070; </span>
+<span id="nav-link"> &#9993;Contact </span>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 &nbsp; 
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link">
-&#10070; Logs &#10070;
+&#10022;Logs
 </a>
 </span>
 </p> <br>
@@ -221,7 +221,7 @@ S. C. C.
 <p><form action="bbcd.sh" method="get">
 <label>
 <div class="tooltip">
-&#10097;&#10097; Big Nick Digger &#10096;&#10096;
+&#9935; Big Nick Digger &#9935;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
