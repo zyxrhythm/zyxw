@@ -68,7 +68,7 @@ pre{
 <br>
 <p>
 <pre>
-[History]
+<center>[ History ]</center>
 
 -----------------------
 
@@ -172,10 +172,11 @@ director@bigblackcactus.com
 
 
 
-
+<center>
 -----------------------
 ##### ZYXRhythm ######
 -----------------------
+</center>
 </pre>
 <br>
 </p>
