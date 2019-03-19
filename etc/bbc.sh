@@ -158,7 +158,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 
 <div class="tooltip">
-<label> &#127797; BBC Specials &#127797;</label>
+<label> &#127797; BBC Special &#127797;</label>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 
@@ -189,7 +189,7 @@ S. C. C.
 
 <label>
 <div class="tooltip">
-[ Who You ]
+&#128083; Who You &#128083;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 
@@ -210,7 +210,7 @@ S. C. C.
 <p><form action="bbcd.sh" method="get">
 <label>
 <div class="tooltip">
-[ Big Nick Digger ]
+&#128203; Big Nick Digger &#128203;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
