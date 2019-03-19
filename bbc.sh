@@ -6,6 +6,12 @@
 #################################################
 #https://github.com/zyxrhythm
 #############################################
+
+#revisions counter
+gitrevcount=$( git rev-list --all --count );
+revcount=$(echo "$gitrevcount + 666" | bc);
+#revisions counter
+
 echo "Content-type: text/html"
 echo ""
 cat <<EOBBCSH
@@ -45,14 +51,13 @@ cat <<EOBBCSH
 
 <style>
 
-a {text-decoration: none; }
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
 h1 {font-family: courier new; font-size: 135%;
 }
-h4 { font-family: courier new; font-size: 161%;
+h4 { font-family: courier new; font-size: 161%; display: inline; 
 }
 body { background-color:black; color:green;
 }
@@ -98,6 +103,18 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
+#revisions {color: #186a3b
+}
+
+#goblack {color: #1c2833
+}
+
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;
+}
+
+#navig-link { text-decoration: none; color: #145a32;
+}
+
 </style>
 
 </head>
@@ -122,8 +139,23 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a></p>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 
+<span id="navigation">
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
+&#10084;About
+</a>
+&nbsp; 
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link">
+&#10070;Logs
+</a>
+&nbsp; 
+<div class="tooltip">
+<span id="navig-link"><label>&#9993;Contact</label></span>
+<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
+</div>
+</span>
+</p> <br>
 
 <!-- ################## BBC Special ################# -->
 
@@ -137,7 +169,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 
 <div class="tooltip">
-<label> [ BBC Specials ]</label>
+<label> &#127797; BBC Special &#127797; </label>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 
@@ -168,7 +200,7 @@ S. C. C.
 
 <label>
 <div class="tooltip">
-[ Who You ]
+&#8284; Who You &#8284;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 
@@ -189,7 +221,7 @@ S. C. C.
 <p><form action="bbcd.sh" method="get">
 <label>
 <div class="tooltip">
-[ Big Nick Digger ]
+&#9935; Big Nick Digger &#9935;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
@@ -226,13 +258,14 @@ S. C. C.
 
 <footer>
 
-<p><br>
+<p style="color: white"><br>
 &nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-revision 2154
 <br><br>
 
 </footer>
 </p>
+
+<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
 <p><article>
 All rights reversed. <br>
@@ -241,15 +274,12 @@ reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" style="color: red;">[ we<i>blog</i>s ]</a>
-</article></p>
-
-<p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
+</article>
+<span id="revisions">rev. $revcount</span></p>
 
 <article>
-<b>Once you GO BLACK, you can never go back!</b><br>
-Copyleft 2018 &copy;
+<span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
+<span style="color: white">Copyleft 2018 &copy;</span>
 </article>
 
 </center>
