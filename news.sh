@@ -71,15 +71,21 @@ pre{
 -----------------------
 History:
 
-- Fixed the bug about regsitrar names are repeated on BBC special whois result.
+- Fixed reported bug: registrar names are repeated on BBC special whois result.
 
-- Fixed the bug about the BBC Copy button when copying the BBC special result, the copied reults has a lot of improper line breaks when pasted.
+- Fixed reported bug: when the BBC Copy button when copyies the BBC special result, the copied reults has a lot of improper line breaks when pasted.
 
-- Added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
+- As per request, added registrar expiration date on BBC special result , and highlighted the time on the creation and expiration dates.
 
-- Added tooltips accross the website.
+- As per request, added tooltips accross the website.
 
 - A lot of bug fixes and UI improvements.
+
+- gTLD and ccTLD list changed to tldlist0 and tldlist1.
+
+- Added .ca .us .co .cc .me .ac domains to the same process intended for GTLDs.
+
+- Added custom process for .ph .sg .vn domains.
 
 - Added  &#9654; in line with IP addresses that links to the full whois info of that IP address. 
 
@@ -89,17 +95,15 @@ History:
 
 - Changed [+] to &#9960;
 
-- Added to bbcx.sh the ability to cycle through domain statuses and create a [?] before each status that links to what each status mean.
+- Added to bbcx.sh the ability to cycle through domain statuses and create a [?] before each status that links to  a table about the status at eppstatuscodes.sh.
 
 - Moved securitytrails.com DNS history links to the '[+]'s.
 
-- Added highlights on BBC special result.
+- Added highlights (Green Bold) on some of the text on BBC special result.
 
-- Fixed report about WHOYOU was not able to give raw whois results when querying the registry whois server. 
-(The issue seems to be with the the recent revision with the front page WHOYOU drop down the script does not recognize the new entries in the selection menu)
+- Fixed reported bug: WHOYOU was not able to give raw whois results when querying the registry whois server. 
 
-- Fixed report about WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. 
-(.au ccTLD was somehow removed from the sourcecode.)
+- Fixed reported bug: WHOYOU, Big Nick Digger and CHECK-MATE not able to process .au ccTLDs. 
 
 - [MX records:] is now cliackable, it links to the the MX records history from https://securitytrails.com/
 
@@ -109,27 +113,29 @@ History:
 
 - [Domain Status:]  is now clickable, it links to ICANN's page for EPP Status Codes.
 
+- Added to custom process for .au .nz .uk domains.
+
 - The website should now be accessible anywhere in the world - as per request.
 
 - Disabled unecessary services (bind9, mysql, nginx, webmin, postfix, php7.0-fpm), and focused the server to only serve BBC pages (hopefully will take care of the 500 Internal server errors from failures to allocate memory to apache processes), and will prevent chinese attackers from executing randomly named php files which causes alot of access and error logs. 
 
-- Fixed reported bug that  Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
+- Fixed reported bug: Big Nick Digger, WHOYOU and CHECK-MATE were unable to process .ca domains.
 
-- Fixed reported bug of Big Nick Digger which shows only "+noall" as result when digging a specified name server.
+- Fixed reported bug: Big Nick Digger shows only "+noall" as result when digging a specified name server.
 
-- Added the requested "Guide Lines" for better visuals of BBC special results.
+- As per request, added the "Guide Lines" (made out of dashes and underscores) for better visuals of BBC special results.
 
--Fixed reported bug that the website cannot process domains with .store TLDs even though the tld is listed on the supported TLDs.
+- Fixed reported bug: the website cannot process domains with .store TLDs even though the tld is listed on the supported TLDs.
 
-- Restricted the access to the website, the site can only be accessed by From selected locations, because of cyber attacks.
+- Restricted the access to the website, the site can only be accessed by From selected locations (CNX(IPG) and SPI(MIT)), because of cyber attacks.
 
-- Speed and stability fixes: (removed full url links from the codes removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
+- Speed and stability fixes: (removed full url links [https://] from the codes and replacing them with file locations, removing the need for another DNS resolution for incresed speed, added a cron that will restart apache2 every hour for statibility -to temporarily handle the 500 server internal Errors)
 
 - Removed extra whois result from all ccTLDs.
 
 - Added a domain validity check at the start of the BBC special script process.
 
-- .CA .NZ domains will not show the extra whois result on the bottom of the BBC special result.
+- .CA .NZ domains will now not display the extra whois result on the bottom of the BBC special result.
 
 - BBC special will now querry 8.8.8.8 by default instead of the localhost bind server. 
 
@@ -147,15 +153,16 @@ History:
 
 - Created a custom result for .CA .AU and .NZ domains on BBC special.
 
-- Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution.
+- Added the ability of bbcx.sh to convert all uppercase letters to lowercase during the script execution, for easier execution. (Original Core sh files Update)
 
-- Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results".
+- Added the ability of the bash scripts to try to identify who owns the IP address from the "A and MX record dig results". (Original Core sh files Update)
 
-- Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special.
+- Added the ability to cycle through multiple IP addresses under the A and MX record dig result on BBC special. (Original Core sh files Update)
 
-------------------------------------------------
-
-
+------------------------------------
+The above are just notable updates made on the source codes,
+minor updates are not included.
+------------------------------------
 
 
 For bugs and other concerns please email:
