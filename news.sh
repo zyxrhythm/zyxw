@@ -72,6 +72,10 @@ pre{
 
 -----------------------
 
+- Added an up to date counter of the revisions made to the site on the home page, the counter's base number is from the commits done on github.
+
+- Moved some links and details below the home page to the top, with a couple of visual edits.
+
 - Fixed reported bug: registrar names are repeated on BBC special whois result.
 
 - Fixed reported bug: when the BBC Copy button on BBC special copies the result, the copied reults contains a lot of improper line breaks when pasted.
