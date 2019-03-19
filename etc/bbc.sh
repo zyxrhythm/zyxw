@@ -112,7 +112,7 @@ strong {font-size: 143%;
 #navigation { font-family: Arial; font-size: 85%;
 }
 
-#BBCh4 { text-decoration: none;
+#BBCh4 #navig { text-decoration: none;
 }
 
 </style>
@@ -141,8 +141,8 @@ function removeSpecialCharacters(string) {
 
 <p><a href="/cgi-bin/bbc.sh" id="BBCh4" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 <span id="navigation">
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" >[ About ]</a> &nbsp; &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" >[ web logs ]</a>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig">[ About ]</a> &nbsp; &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig">[ web logs ]</a>
 </span>
 </p> <br><br>
 
