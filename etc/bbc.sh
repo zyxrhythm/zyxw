@@ -200,7 +200,7 @@ S. C. C.
 
 <label>
 <div class="tooltip">
-&#10097;&#10097; Who You &#10096;&#10096;
+&#8284; Who You &#8284;
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 
