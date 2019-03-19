@@ -101,10 +101,10 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
-#revisions {color:   #abb2b9 
+#revisions {color: # #186a3b
 }
 
-#goblack {color:  #1c2833 
+#goblack {color: #1c2833
 }
 
 
@@ -132,13 +132,12 @@ function removeSpecialCharacters(string) {
 
 <center>
 
-<p>
+<p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
 <article>
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" >[ About ]</a> &nbsp; &nbsp;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" >[ we<i>blog</i>s ]</a>
 </article>
-<a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a>
-</p>
+</p> <br><br>
 
 <!-- ################## BBC Special ################# -->
 
@@ -258,7 +257,7 @@ without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
 </article>
-<span id="revisions">rev $revcount</span></p>
+<span id="revisions">rev. $revcount</span></p>
 
 <article>
 <span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
