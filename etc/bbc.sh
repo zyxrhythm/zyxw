@@ -9,7 +9,7 @@
 
 #revisions counter
 gitrevcount=$( git rev-list --all --count );
-revcount=$(echo "$gitrevcount + 315" | bc);
+revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
 
 echo "Content-type: text/html"
@@ -112,7 +112,7 @@ strong {font-size: 143%;
 #navigation { font-family: Arial; font-size: 85%;
 }
 
-#BBCh4 #navig { text-decoration: none;
+#navig { text-decoration: none;
 }
 
 </style>
