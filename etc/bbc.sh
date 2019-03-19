@@ -141,9 +141,9 @@ function removeSpecialCharacters(string) {
 
 <p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br><br>
 <span id="navigation">
-&#10092;
+&#10070;
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">About</a>
-&#10093;
+&#10070;
 &nbsp; &nbsp; &nbsp;
 &#10092;
 <a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" id="navig-link"> web logs </a>
