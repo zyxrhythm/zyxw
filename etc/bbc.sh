@@ -257,9 +257,8 @@ reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
 <br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
-</article></p>
-
-<span id="revisions">rev $revcount</span>
+</article>
+<span id="revisions">rev $revcount</span></p>
 
 <article>
 <span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
