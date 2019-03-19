@@ -51,7 +51,7 @@ cat <<EOBBCSH
 
 <style>
 
-a {text-decoration: none; }
+
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
@@ -139,8 +139,8 @@ function removeSpecialCharacters(string) {
 
 <p><a href="/cgi-bin/bbc.sh"><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 <span id="navigation">
-<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" >[ About ]</a> &nbsp; &nbsp;
-<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" >[ we<i>blog</i>s ]</a>
+<a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" >[ About ]</a> &nbsp; &nbsp; &nbsp;
+<a href=/cgi-bin/news.sh rel="noopener noreferrer" target="_blank" >[ web logs ]</a>
 </span>
 </p> <br><br>
 
