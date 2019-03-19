@@ -51,7 +51,7 @@ cat <<EOBBCSH
 
 <style>
 
-a#BBh4link { text-decoration: none; }
+a:#BBh4link { text-decoration: none; }
 
 a:link { color: green; }
 a:active { color: green; }
