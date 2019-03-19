@@ -72,7 +72,7 @@ pre{
 
 -----------------------
 
-- Added an up to date counter of the revisions made to the site on the home page, the counter's base number is from the commits done on github.
+- Added an up to date counter of the revisions made to the site on the footer of the home page, the counter's base number is from the commits done on github.
 
 - Moved some links and details below the home page to the top, with a couple of visual edits.
 
