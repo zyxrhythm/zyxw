@@ -239,7 +239,7 @@ revision 2154
 </footer>
 </p>
 
-<p><article style="color: white">
+<p><article>
 All rights reversed. <br>
 This website or any portion thereof may be <br>
 reproduced or used in any manner whatsoever<br>
@@ -252,8 +252,8 @@ also for the use of brief quotations in a site review.
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
 <article>
-<b>Once you GO BLACK, you can never go back!</b><br>
-Copyleft 2018 &copy;
+<span style="color: gray"><b>Once you GO BLACK, you can never go back!</b></span><br>
+<span style="color: white">Copyleft 2018 &copy;</span>
 </article>
 
 </center>
