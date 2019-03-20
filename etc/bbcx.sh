@@ -1090,10 +1090,12 @@ EOHF
 
 regexc2=$( host $whoisserver );
 echo 'This is where: $whoisserver';
-
+echo '$regexc'
 if [[ -z "$regexc2" ]] || [[ "$regexc2" = " " ]]; 
-then echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
-else echo "$whoisservergrep"; 
+then 
+echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
+else 
+echo "$whoisservergrep"; 
 fi; 
 
 cat << EOHF2
