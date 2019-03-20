@@ -100,7 +100,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 }
 
-#registrarwsf { color:green; font-size 90%;
+#registrarwsf { color: green; font-size: 90%;
 }
 
 </style>
@@ -1099,9 +1099,9 @@ EOHF
 
 if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
-echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
+echo "<strong id="registrarwsf" >$whoisservergrep Not Found!</strong>"; 
 else 
-echo "$whoisservergrep"; 
+echo "<span id="registrarwsf" >$whoisservergrep</span>"; 
 fi; 
 
 cat << EOHF2
