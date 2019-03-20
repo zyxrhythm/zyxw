@@ -406,7 +406,7 @@ then
 expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0#*:}" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
 fi;
 
 #stores the name servers under the domain on a variable
