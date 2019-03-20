@@ -156,8 +156,8 @@ function removeSpecialCharacters(string) {
 <div class="tooltip">
 <span id="navig-link"><label>&#9993;Contact</label></span>
 <span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
-</div>
 </span>
+</div>
 </p> <br>
 
 <!-- ################## BBC Special ################# -->
