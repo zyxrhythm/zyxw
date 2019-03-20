@@ -260,7 +260,7 @@ S. C. C.
 
 <div class="tooltip">
 <p style="color: white">&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
-<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;>
+<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
 ROT 13
 </span>
 </div>
