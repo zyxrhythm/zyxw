@@ -215,7 +215,7 @@ echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick=
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
 </span></a>"
 
-echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
+echo "<div id='nsverbose' style='display:none'> <table> <tbody> <td>"
 echo '<p>'
 while IFS= read -r line
 do
@@ -392,12 +392,12 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
-creationdate1=$( echo "$creationdate0" | sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' | cut -d ';' -f 1 );
+creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
 
-
+ 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "$expdx0" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | cut -d ';' -f 1 );
+expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
 
 
 #stores the domain's expiration date from the registrar
