@@ -59,6 +59,30 @@ pre{
     white-space: pre-wrap;font-size: 100%;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
 </style>
 </head>
 
@@ -82,7 +106,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 -----------------------
 -This website uses<a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Bourne again shell<br></span>
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; ">Bourne again shell<br></span>
 (.sh) for server-side scripting.
 -The usual Javascript for client side scripting.
 -The usual HTML and CSS for its simple looks.
