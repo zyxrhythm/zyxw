@@ -115,6 +115,9 @@ strong {font-size: 143%;
 #navig-link { text-decoration: none; color: #145a32;
 }
 
+#wave7a { color: white; font-size: 90%;
+}
+
 </style>
 
 </head>
@@ -257,16 +260,13 @@ S. C. C.
 </body>
 
 <footer>
-
-<div class="tooltip">
-<p style="color: white">&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
+<p><div class="tooltip">
+<span id="wave7a" >&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</span>
 <span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
 Encoded in ROT 13.
 </span>
-</div>
-
+</div></p>
 <br><br><br><br>
-
 </footer>
 
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
