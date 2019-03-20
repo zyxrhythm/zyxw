@@ -166,8 +166,7 @@ pre{
 
 ------------------------------------
 The above are just notable updates made on the source codes,
-most of the minor updates are not included,
-you can check <a href="https://github.com/zyxrhythm/bbclive">github</a> for those.
+most of the minor updates are not included.
 ------------------------------------
 
 
