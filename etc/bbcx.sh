@@ -392,13 +392,13 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
-creationdate1=$( echo "$creationdate0" | sed 's/T/\<span id="domaintimes" > Time: <\/span>/g');
+creationdate1=$( echo "$creationdate0" | sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' | cut -d ';' -f 1 );
 
 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g');
-expdx2="${expdx1#*:}";
+expdx1=$( echo "$expdx0" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | cut -d ';' -f 1 );
+
 
 #stores the domain's expiration date from the registrar
 if [[ -z "$(dig $whoisserver)" ]]; 
@@ -449,10 +449,9 @@ echo "--------------------------"
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
 <br>
-<strong>Creation Date:</strong>${creationdate1#*:}
-<br>
-<strong>Registry Expiry Date:</strong>${expdx1#*:} <br>
-<strong>Registrar Expiry Date:</strong>${expd1#*:}
+<strong>Creation Date:</strong>$creationdate1 <br>
+<strong>Registry Expiry Date:</strong> $expdx1 <br>
+<strong>Registrar Expiry Date:</strong> $expd1
 <br>
 __________________________
 <br> 
