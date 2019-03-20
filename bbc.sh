@@ -258,12 +258,16 @@ S. C. C.
 
 <footer>
 
-<p style="color: white"><br>
-&nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
-<br><br>
+<div class="tooltip">
+<p style="color: white">&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
+<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
+Encoded in ROT 13.
+</span>
+</div>
+
+<br><br><br><br>
 
 </footer>
-</p>
 
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
