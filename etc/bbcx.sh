@@ -1086,11 +1086,17 @@ cat << EOHF
 <br>
 <pre>$tech</pre>
 <hr>
-$whoisservergrep
+EOHF
+
+ if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]] ; then echo "$whoisservergrep : Not Found! "; else echo "$whoisservergrep"; fi; 
+
+cat << EOHF2
+
 <br>
 <hr>
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
-EOHF
+
+EOHF2
 
 echo '</footer>'
 
