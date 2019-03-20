@@ -401,7 +401,7 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 
 
 #stores the domain's expiration date from the registrar
-regexc=$(dig $whoisserver);
+regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
@@ -1088,7 +1088,12 @@ cat << EOHF
 <hr>
 EOHF
 
- if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; then echo "$whoisservergrep Not Found!"; else echo "$whoisservergrep"; fi; 
+regexc2=$( host $whoisserver );
+
+if [[ -z "$regexc2" ]] || [[ "$regexc2" = " " ]]; 
+then echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
+else echo "$whoisservergrep"; 
+fi; 
 
 cat << EOHF2
 
