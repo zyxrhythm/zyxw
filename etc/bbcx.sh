@@ -401,7 +401,7 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 
 
 #stores the domain's expiration date from the registrar
-regexc=$(dig $whoisserver);
+regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
