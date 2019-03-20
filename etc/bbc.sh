@@ -259,7 +259,7 @@ S. C. C.
 <footer>
 
 <div class="tooltip">
-<p style="color: white">&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp;<label style="color white; font-size: 76% ">" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
 <span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
 Encoded in ROT 13.
 </span>
