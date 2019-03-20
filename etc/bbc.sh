@@ -115,7 +115,7 @@ strong {font-size: 143%;
 #navig-link { text-decoration: none; color: #145a32;
 }
 
-#wave7a { style="color white; font-size: 76%; "
+#wave7a { style="color: white; font-size: 76%; "
 }
 
 </style>
