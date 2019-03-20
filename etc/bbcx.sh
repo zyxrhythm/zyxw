@@ -100,7 +100,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 }
 
-#registrarwsf { color: green; font-size: 90%;
+#registrarwsf { color: green; font-size: 85%;
 }
 
 </style>
