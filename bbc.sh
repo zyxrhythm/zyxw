@@ -103,9 +103,6 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
-.tooltiptext { font-size: 70%; font-family: calibri; font: green;
-}
-
 #revisions {color: #186a3b
 }
 
@@ -261,18 +258,12 @@ S. C. C.
 
 <footer>
 
-<br>
-<div class="tooltip">
-<p style="color: white">&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
-<span class="tooltiptex" >
-ROT 13
-</span>
-</div>
-
-<br><br><br><br>
+<p style="color: white"><br>
+&nbsp;&nbsp; &nbsp;" [ v-Cntr Jnir 7n (PAK) ] "&nbsp;&nbsp;&nbsp;<br><br>
+<br><br>
 
 </footer>
-
+</p>
 
 <p><b>-> <a href=/cgi-bin/directorscut.sh rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 
