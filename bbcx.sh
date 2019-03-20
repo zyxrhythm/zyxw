@@ -215,7 +215,7 @@ echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick=
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
 </span></a>"
 
-echo "<div id='nsverbose' style='display:none'> <table> <tbpdy> <td>"
+echo "<div id='nsverbose' style='display:none'> <table> <tbody> <td>"
 echo '<p>'
 while IFS= read -r line
 do
@@ -392,11 +392,13 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
-creationdate1=$( echo "$creationdate0" | sed 's/T/\<span id="domaintimes" > Time: <\/span>/g');
+creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
 
+ 
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
-expdx1=$( echo "${expdx0/Registration }" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g');
+expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
+
 
 #stores the domain's expiration date from the registrar
 if [[ -z "$(dig $whoisserver)" ]]; 
@@ -404,7 +406,7 @@ then
 expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0/Registration }" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
 fi;
 
 #stores the name servers under the domain on a variable
@@ -447,10 +449,9 @@ echo "--------------------------"
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
 <br>
-$creationdate1
-<br>
-$expdx1 <br>
-$expd1
+<strong>Creation Date: </strong>$creationdate1 <br>
+<strong>Registry Expiry Date: </strong> $expdx1 <br>
+<strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
 <br>
 __________________________
 <br> 
