@@ -409,9 +409,6 @@ expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 expd1=$( echo "${expd0/Registration }" |sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
 fi;
 
-if [[ "$expd1" != "Unable to fetch the Registrar Expiry Date check the whois server of the registrar."]] ; then expd2="${expd1#*:}"; else true; fi;
-
-
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
