@@ -115,6 +115,9 @@ strong {font-size: 143%;
 #navig-link { text-decoration: none; color: #145a32;
 }
 
+#wave7a { style="color white; font-size: 76%; "
+}
+
 </style>
 
 </head>
@@ -259,7 +262,7 @@ S. C. C.
 <footer>
 
 <div class="tooltip">
-<p>&nbsp;&nbsp; &nbsp;<label style="color white; font-size: 76% ">" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p>
+<span id="wave7a" ><p>&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</p></span>
 <span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
 Encoded in ROT 13.
 </span>
