@@ -1088,7 +1088,7 @@ cat << EOHF
 <hr>
 EOHF
 
- if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]] ; then echo "$whoisservergrep : Not Found! "; else echo "$whoisservergrep"; fi; 
+ if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]] ; then echo "$whoisservergrep : Not Found! "; else echo "$whoisservergrep"; fi; 
 
 cat << EOHF2
 
