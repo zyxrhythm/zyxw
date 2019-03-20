@@ -1048,7 +1048,13 @@ exit 0;
  *)
 
 echo '<hr>'
-echo " $whoisservergrep"
+
+if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
+then 
+echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
+else 
+echo "$whoisservergrep"; 
+fi; 
 echo '<br>'
 echo '<hr>'
 echo "<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>"
@@ -1088,10 +1094,7 @@ cat << EOHF
 <hr>
 EOHF
 
-regexc2=$( host $whoisserver );
-echo 'This is where: $whoisserver';
-echo '$regexc'
-if [[ -z "$regexc2" ]] || [[ "$regexc2" = " " ]]; 
+if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
 echo "<strong style="color:red" >$whoisservergrep Not Found!</strong>"; 
 else 
