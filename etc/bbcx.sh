@@ -451,7 +451,7 @@ cat <<EODEDCDGT
 <br>
 <strong>Creation Date: </strong>$creationdate1 <br>
 <strong>Registry Expiry Date: </strong> $expdx1 <br>
-<strong><span style="color:white;">Registrar</span> Expiry Date:</strong> $expd1
+<strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
 <br>
 __________________________
 <br> 
