@@ -1105,7 +1105,7 @@ cat << EOHF2
 
 <br>
 <hr>
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track &#127968;</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track </a> </p>
 
 EOHF2
 
