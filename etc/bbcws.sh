@@ -239,11 +239,13 @@ if [[ -z "$doi" ]]; then
 
 cat <<EOTS
 <body>
+<di id="divClipboard">
 <p>
 <br>
-<div id="divClipboard">
-<p>
-Not a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+<strong>Input</strong> : null <br> <br>
+Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
+<br>
+<br>
 </p>
 </div>
 </body>
@@ -266,9 +268,10 @@ cat << EOWIIPR
 
 <body>
 <button onclick="copyClipboard1()">BBC Copy</button>
-<br/>
+<br><hr>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre>
+<br><hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -308,7 +311,7 @@ case $tld in
    $gcctldlist)
 
 rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
-grws=$(echo "$zyx" | grep -i -e "WHOIS Server");
+grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
