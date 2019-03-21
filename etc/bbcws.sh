@@ -258,11 +258,10 @@ exit 0;
 else
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
-#from 
 
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
-	zyxip=$(whois $ipwhois );
+	zyxip=$( whois $ipwhois );
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
 cat << EOWIIPR
 
@@ -280,7 +279,8 @@ EOWIIPR
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
-zyx=$(whois --verbose $doi );
+zyxx=$(whois --verbose $doi );
+zyx=$(whois $doi );
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 		if [[ "$dvcheck" = "no" ]]; then
@@ -310,9 +310,9 @@ tld=$( echo $doi | rev | cut -d "." -f1 | rev );
 case $tld in
    $gcctldlist)
 
-rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
-grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
-rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+rws0=$(echo "$zyxx" | grep -i -e "Using server" | sort -u );
+rws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u | cut -f2 -d":" | tr -d '\040\011\012\015');
+
 
 #does a whois querry for the domain
 zyxregistry=$(echo "$zyx" | sed -e '1,/Query string:/d')
