@@ -1051,9 +1051,9 @@ echo '<hr>'
 
 if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
-echo "<strong style="color: green; font-size: 90%;" >$whoisservergrep Not Found!</strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
-echo "<span style="color: green; font-size: 90%;" >$whoisservergrep</span>"; 
+echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 fi; 
 echo '<br>'
 echo '<hr>'
@@ -1096,9 +1096,9 @@ EOHF
 
 if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
-echo "<strong style="color: green; font-size: 90%;" >$whoisservergrep Not Found!</strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
-echo "<span style="color: green; font-size: 90%;" >$whoisservergrep</span>"; 
+echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 fi; 
 
 cat << EOHF2
