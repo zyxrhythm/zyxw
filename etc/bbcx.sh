@@ -100,9 +100,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 }
 
-#registrarwsf { color: green; font-size: 85%;
-}
-
 </style>
 <!-- 
 The javascript that copies the contents of div to clipboard.
@@ -1054,9 +1051,9 @@ echo '<hr>'
 
 if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
-echo "<strong id="registrarwsf" >$whoisservergrep Not Found!</strong>"; 
+echo "<strong style="color: green; font-size: 90%;" >$whoisservergrep Not Found!</strong>"; 
 else 
-echo "<span id="registrarwsf" >$whoisservergrep</span>"; 
+echo "<span style="color: green; font-size: 90%;" >$whoisservergrep</span>"; 
 fi; 
 echo '<br>'
 echo '<hr>'
@@ -1099,9 +1096,9 @@ EOHF
 
 if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
 then 
-echo "<strong id="registrarwsf" >$whoisservergrep Not Found!</strong>"; 
+echo "<strong style="color: green; font-size: 90%;" >$whoisservergrep Not Found!</strong>"; 
 else 
-echo "<span id="registrarwsf" >$whoisservergrep</span>"; 
+echo "<span style="color: green; font-size: 90%;" >$whoisservergrep</span>"; 
 fi; 
 
 cat << EOHF2
