@@ -375,7 +375,7 @@ exit 0;
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' | sort -u );
-zyx2=$(whois $domain -h "$whoisserver" );
+zyx2=$( whois $domain -h "$whoisserver" );
 
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
