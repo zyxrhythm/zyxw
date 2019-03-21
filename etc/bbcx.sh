@@ -136,7 +136,7 @@ EODHEAD0
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track &#127968;</a> </p>
 <br>
 <button onclick="copyClipboard()">BBC Copy</button>
 <hr>
@@ -374,8 +374,8 @@ exit 0;
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 typicalwhoisresult=$(whois $domain);
 whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' | sort -u );
-zyx2=$(whois $domain -h "$whoisserver" );
+whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+zyx2=$( whois "$domain" -h "$whoisserver" );
 
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
@@ -1049,7 +1049,7 @@ exit 0;
 
 echo '<hr>'
 
-if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
+if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
@@ -1094,7 +1094,7 @@ cat << EOHF
 <hr>
 EOHF
 
-if [[ -z "$regexc" ]] || [[ "$regexc2" = " " ]]; 
+if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
@@ -1105,7 +1105,7 @@ cat << EOHF2
 
 <br>
 <hr>
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track &#127968;</a> </p>
 
 EOHF2
 
