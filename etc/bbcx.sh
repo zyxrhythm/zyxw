@@ -136,7 +136,7 @@ EODHEAD0
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track &#127968;</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" >&#127968;[Home]</a> </p>
 <br>
 <button onclick="copyClipboard()">BBC Copy</button>
 <hr>
