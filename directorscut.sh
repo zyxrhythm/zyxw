@@ -87,6 +87,7 @@ Special Thanks to:
 -Anthony
 -Jester
 -Jessielito
+-Michael
 For testing/feedbacks/suggestions/bug reports.
 
 </pre>
