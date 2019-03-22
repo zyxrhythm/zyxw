@@ -136,7 +136,7 @@ EODHEAD0
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" >[&#127968;Home]</a> </p>
 <br>
 <button onclick="copyClipboard()">BBC Copy</button>
 <hr>
@@ -716,6 +716,9 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
 
+#stores other registrar info on a variable
+regcoun=$( echo "$zyx" | grep -i -e "registrar_country:")
+
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "query_status:" );
 
@@ -730,14 +733,10 @@ cat << EODNARCTNZ
 <body>
 <div id="divClipboard">
 <p>
-__________________________
-<br>
-<br>
-<strong>Domain Name:</strong> $domain
-<br>
-<br>
-<strong>Registrar: </strong>${registrar#*:}
-<br>
+__________________________<br><br>
+<strong>Domain Name:</strong> $domain <br><br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+Registrar Country: ${regcoun#*:}<br>
 __________________________
 <br> <br>
 EODNARCTNZ
@@ -751,9 +750,9 @@ echo '<br>'
 while IFS= read -r line
 do
    echo  "</br> ${line#*#} ";
-done < <(printf '%s\n' "$dstat");
+done < <(printf '%s\n' "${dstat#*:}");
 
-echo '<br>'
+echo '<br><br>'
 echo '--------------------------'
 echo '<br>'
 echo "Last Modified: ${lastmod#*:}";
@@ -766,11 +765,8 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_bl
 echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-while IFS= read -r line
-do
-   echo  "<br>   ${line#*:}";
-done < <(printf '%s\n' "$nameservers");
-
+nsfrctnz=$( nsfunction "$nameservers");
+echo "$nsfrctnz"
 echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
@@ -1049,6 +1045,8 @@ exit 0;
 
 echo '<hr>'
 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
+
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
@@ -1094,6 +1092,8 @@ cat << EOHF
 <hr>
 EOHF
 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
+
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
@@ -1105,7 +1105,7 @@ cat << EOHF2
 
 <br>
 <hr>
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track </a> </p>
 
 EOHF2
 
