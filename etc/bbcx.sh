@@ -716,6 +716,9 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
 
+#stores other registrar info on a variable
+regcoun=S( echo "$zyx" | grep -i -e "registrar_country:")
+
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "query_status:" );
 
@@ -730,14 +733,10 @@ cat << EODNARCTNZ
 <body>
 <div id="divClipboard">
 <p>
-__________________________
-<br>
-<br>
-<strong>Domain Name:</strong> $domain
-<br>
-<br>
-<strong>Registrar: </strong>${registrar#*:}
-<br>
+__________________________<br><br>
+<strong>Domain Name:</strong> $domain <br><br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+Country: ${registrar_count#*:}<br>
 __________________________
 <br> <br>
 EODNARCTNZ
@@ -1049,7 +1048,7 @@ exit 0;
 
 echo '<hr>'
 
-if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="Registrar WHOIS Server:"; else true; fi;
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
@@ -1095,6 +1094,8 @@ cat << EOHF
 <pre>$tech</pre>
 <hr>
 EOHF
+
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
