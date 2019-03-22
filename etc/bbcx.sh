@@ -136,6 +136,15 @@ EODHEAD0
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
+
+<p><form action="bbcx.sh" method="get">
+
+<input placeholder="Domain / sub domain"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain"><br>
+<button type="submit" >Test</button>
+
+</form>
+</p>
+
 <p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
 <br>
 <button onclick="copyClipboard()">BBC Copy</button>
