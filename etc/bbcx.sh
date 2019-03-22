@@ -147,7 +147,6 @@ cat  << EODHEAD1
 </form>
 </p>
 
-<br>
 <button onclick="copyClipboard()">BBC Copy</button>
 <hr>
 </head>
