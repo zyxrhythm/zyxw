@@ -750,7 +750,7 @@ echo '<br>'
 while IFS= read -r line
 do
    echo  "</br> ${line#*#} ";
-done < <(printf '%s\n' "$dstat");
+done < <(printf '%s\n' "${dstat#*:}");
 
 echo '<br>'
 echo '--------------------------'
