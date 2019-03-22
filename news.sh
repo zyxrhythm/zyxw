@@ -72,6 +72,14 @@ pre{
 
 -----------------------
 
+- Added  registrar country info on the BBC special result for .nz domains.
+
+- Added the same 'name server report generation process' for GTLD's in the 'name server report generation process' for .nz domains. 
+
+- Fixed bug: BBC special result show  "Not Found!" on the footer  instead of "Registrar WHOIS Server: Not Found!"
+
+- As per request, added [ &#127968;Home ] on BBC special result page (to make it a little user friednly).
+
 - Instead of seeing a blank space, added a message response when the registrar registrartion expiration date is not found on BBC special result.  
 
 - Added an up to date counter of the revisions made to the site on the footer of the home page, the counter's base number is from the commits done on github.
