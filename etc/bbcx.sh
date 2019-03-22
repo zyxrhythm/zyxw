@@ -136,7 +136,7 @@ EODHEAD0
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
 
 cat  << EODHEAD1
-<p> <a href="/cgi-bin/bbc.sh" >&#127968;[Home]</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" >[&#127968;Home]</a> </p>
 <br>
 <button onclick="copyClipboard()">BBC Copy</button>
 <hr>
@@ -736,7 +736,7 @@ cat << EODNARCTNZ
 __________________________<br><br>
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
-Country: ${regcoun#*:}<br>
+Registrar Country: ${regcoun#*:}<br>
 __________________________
 <br> <br>
 EODNARCTNZ
