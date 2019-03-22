@@ -71,13 +71,13 @@ pre{
 <pre>
 BigBlackCactus.com (BBC) is a website you can use for the following: 
 
-> Do a 'whois lookup' for a domain directly from the whois server/s  of registries and registrars.
+> Do a 'whois lookup' for a domain name or I.P. Address directly from the whois server/s  of registries and registrars (for domain names) and whois server/s of A.R.I.N.(for I.P. addresses).
 
 > Do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAA,PTR) of domain names, sub domains and hostnames directly from one of Google's name server (8.8.8.8), or from a particular name server specified by the user. 
 
-> Reverse an IP address to its domain/host name.
+> Reverse an I.P. address to its domain/host name.
 
-> And can also provide info about the SSL certificate issued for a domain name/sub domain.
+> And can also provide info about the S.S.L. certificate issued for a domain name/sub domain.
 
 
 -----------------------
