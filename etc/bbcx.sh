@@ -736,7 +736,7 @@ cat << EODNARCTNZ
 __________________________<br><br>
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
-Country: ${registrar_count#*:}<br>
+Country: ${regcoun#*:}<br>
 __________________________
 <br> <br>
 EODNARCTNZ
@@ -752,7 +752,7 @@ do
    echo  "</br> ${line#*#} ";
 done < <(printf '%s\n' "${dstat#*:}");
 
-echo '<br>'
+echo '<br><br>'
 echo '--------------------------'
 echo '<br>'
 echo "Last Modified: ${lastmod#*:}";
