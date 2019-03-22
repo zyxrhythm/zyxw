@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Added the javascript from the homepage that filters valid characters placed on the text box to the BBC results page..
+
 - As per request, added a text box on BBC special result's page in which another BBC special result can be initiated.
 
 - Fixed: .nz domains not supported by WHO YOU.
