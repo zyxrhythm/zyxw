@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Fixed: .nz domains not supported by WHO YOU.
+
 - Added  "registrar country" on the BBC special result for .nz domains.
 
 - Added the same 'name server report generation process' for GTLD's in the 'name server report generation process' for .nz domains. 
