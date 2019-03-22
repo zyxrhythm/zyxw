@@ -765,11 +765,8 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_bl
 echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-while IFS= read -r line
-do
-   echo  "<br>   ${line#*:}";
-done < <(printf '%s\n' "$nameservers");
-
+nsfrctau=$( nsfunction "$nameservers");
+echo "$nsfrctnz"
 echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
