@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- As per request, added a text box on BBC special result's page in which another BBC special result can be initiated.
+
 - Fixed: .nz domains not supported by WHO YOU.
 
 - Added  "registrar country" on the BBC special result for .nz domains.
