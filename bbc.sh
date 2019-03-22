@@ -180,7 +180,7 @@ else if(document.getElementById("square").checked == false)
 
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
 
-<button onclick="redirect();" type="submit" >Go</button><br>
+<button onclick="redirect();" type="submit" >Go 1</button><br>
 <label style="font-size:90%" >
 
 <div class="tooltip">
