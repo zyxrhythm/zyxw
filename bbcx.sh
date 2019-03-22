@@ -127,10 +127,28 @@ function copyClipboard() {
   }
 }
 </script>
+
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
 -->
+
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
+
 EODHEAD0
 
 echo '<link rel="icon" type="image/png" href="/icon.png" />'
