@@ -103,6 +103,11 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
 #revisions {color: #186a3b
 }
 
@@ -283,7 +288,7 @@ also for the use of brief quotations in a site review.
 
 <article>
 <span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
-<span style="color: white">Copyleft 2018 &copy;</span>
+<span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
 </article>
 
 </center>
