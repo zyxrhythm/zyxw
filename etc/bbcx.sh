@@ -717,7 +717,7 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
 
 #stores other registrar info on a variable
-regcoun=S( echo "$zyx" | grep -i -e "registrar_country:")
+regcoun=$( echo "$zyx" | grep -i -e "registrar_country:")
 
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "query_status:" );
