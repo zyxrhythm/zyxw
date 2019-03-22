@@ -1049,6 +1049,8 @@ exit 0;
 
 echo '<hr>'
 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="Registrar WHOIS Server:"; else true; fi;
+
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
