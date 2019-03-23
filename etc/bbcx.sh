@@ -457,11 +457,8 @@ cat << EODNARGT
 <body>
 <div id="divClipboard">
 <p>
-__________________________
-<br>
-<br>
-<strong>Domain Name: </strong>$domain<br>
---------------------<br>
+<strong>Domain Name: </strong>$domain<br><hr>
+__________________________<br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
 __________________________
