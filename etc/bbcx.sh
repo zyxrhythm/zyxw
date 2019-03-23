@@ -165,7 +165,7 @@ cat  << EODHEAD1
 </form>
 </p>
 
-<button onclick="copyClipboard()">BBC Copy</button>
+<button onclick="copyClipboard()" class="tooltip">Copy Results</button> <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. (expanded tables will be included on the copied result) <br><br></span>
 <hr>
 </head>
 EODHEAD1
@@ -431,7 +431,7 @@ dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*
 regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
-expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
+expd1="Expiry Date Not Found. Consult the Registrar.";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); fi;
@@ -496,7 +496,7 @@ else { x.style.display = 'none'; } }
 <p>
 Days counted since registration: $dayssince <br>
 Days left before expiration on registry: ${dayslefttry#*-}<br>
-Days lefr before expiration on registrar: ${daysleftrar#*-}<br>
+Days left before expiration on registrar: ${daysleftrar#*-}<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
