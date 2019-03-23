@@ -409,7 +409,7 @@ rese=$(echo "$zyx2" | grep -i -e "reseller");
 reseller="${rese#*:}";
 if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
 then reese="None";
-else reese"$reseller"; fi;
+else reese="$reseller"; fi;
 #REESE
 
 #once the domainis validated the TLD is extracted for verification
