@@ -406,12 +406,11 @@ zyx2=$( whois "$domain" -h "$whoisserver" );
 
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
-reseller="${rese#*:}"
+reseller="${rese#*:}";
 if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
-then reese="<strong>Reseller:</strong> None";
-else reese"<strong>Reseller:</strong> $reseller"; fi;
-
-REESE
+then reese="None";
+else reese"$reseller"; fi;
+#REESE
 
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
@@ -461,9 +460,9 @@ cat << EODNARGT
 __________________________
 <br>
 <br>
-<strong>Domain Name:</strong> $domain <br><br>
+<strong>Domain Name: </strong>$domain<br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
-$reese <br>
+<strong>Reseller: </strong>$reese<br>
 __________________________
 <br><br>
 EODNARGT
@@ -1116,10 +1115,8 @@ esac
 else
 
 echo '<hr>'
-echo '<br>'
 
 cat << EOHF
-<br>
 <br>
 <strong>[ REGISTRANT: ]</strong>
 <br>
