@@ -496,7 +496,7 @@ else { x.style.display = 'none'; } }
 <p>
 Days counted since registration: $dayssince <br>
 Days left before expiration on registry: ${dayslefttry#*-}<br>
-Days lefr before expiration on registrar: ${daysleftrar#*-}<br>
+Days left before expiration on registrar: ${daysleftrar#*-}<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
