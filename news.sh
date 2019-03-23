@@ -72,7 +72,7 @@ pre{
 
 -----------------------
 
-- Changed the BBC results page Copy button from 'BBC Copy' to 'Copy Result' - also added a tooltip on the pointing hand next to the button.
+- Changed the BBC results page Copy button name from 'BBC Copy' to 'Copy Result' - also added a tooltip on the pointing hand next to the button.
 
 - Some few modifications with how the results are displayed on BBC special results.
 
