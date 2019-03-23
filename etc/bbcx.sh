@@ -404,6 +404,15 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
+#REESE
+rese=$(echo "$zyx2" | grep -i -e "reseller");
+reseller="${rese#*:}"
+if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
+then reese="<strong>Reseller:</strong> None";
+else reese"<strong>Reseller:</strong> $reseller"; fi;
+
+REESE
+
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -444,7 +453,7 @@ nameservers=$(echo "$zyx" | grep -i -e "name server:");
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#prints the domain name and the registrar
+#prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
 <body>
 <div id="divClipboard">
@@ -452,11 +461,9 @@ cat << EODNARGT
 __________________________
 <br>
 <br>
-<strong>Domain Name:</strong> $domain
-<br>
-<br>
-<strong>Registrar: </strong>${registrar#*:}
-<br>
+<strong>Domain Name:</strong> $domain <br><br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+$reese <br>
 __________________________
 <br><br>
 EODNARGT
@@ -1059,13 +1066,9 @@ fi
 
 echo '<footer>'
 
-rese=$(echo "$zyx2" | grep -i -e "reseller");
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
 admin=$(echo "$zyx2" | grep -i -e 'admin')
 tech=$(echo "$zyx2" | grep -i -e 'tech')
-
-reseller="${rese#*:}"
-
 
 if [[ -z "$registrant" ]]; then
 
@@ -1114,12 +1117,6 @@ else
 
 echo '<hr>'
 echo '<br>'
-
-if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; then
-echo "<strong>Reseller:</strong> None"
-else
-echo "<strong>Reseller:</strong> $reseller"
-fi
 
 cat << EOHF
 <br>
