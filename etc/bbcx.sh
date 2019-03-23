@@ -165,7 +165,7 @@ cat  << EODHEAD1
 </form>
 </p>
 
-<button onclick="copyClipboard()" class="tooltip">Copy Results</button> <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. (expanded tables will be included on the copied result) <br><br></span>
+<button onclick="copyClipboard()" >Copy Results</button> <span class="tooltip">&#128072; </span><span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. (expanded tables will be included on the copied result) <br><br></span>
 <hr>
 </head>
 EODHEAD1
