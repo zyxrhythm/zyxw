@@ -420,12 +420,12 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-
+dayssince=$( echo $((($(date +%s)-$(date +%s --date "${creationdate0:18:10}"))/(3600*24))) );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
-
+dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*24))) );
 
 #stores the domain's expiration date from the registrar
 regexc=$(host $whoisserver);
@@ -434,8 +434,8 @@ then
 expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
-fi;
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); fi;
+daysleftrar=$( echo $((($(date +%s)-$(date +%s --date "${expd0:40:10}"))/(3600*24))) );
 
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
@@ -476,11 +476,30 @@ echo "--------------------------"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
-<br>
+<br> <br>
 <strong>Creation Date: </strong>$creationdate1 <br>
 <strong>Registry Expiry Date: </strong> $expdx1 <br>
 <strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
-<br>
+
+<!-- COUNTER-->
+
+<script> 
+function jstimeverbose() { var x = document.getElementById('timeverbose'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jstimeverbose()'> &#9660; 
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created.<br><br>
+</span></a>
+<div id='timeverbose' style='display:none'> <table> <tbody> <td>
+<p>
+Days counted since registration: $dayssince <br>
+Days left before expiration on registry: ${dayslefttry#*-}<br>
+Days lefr before expiration on registrar: ${daysleftrar#*-}<br>
+</p></td> </tbody> </table> </div><p>
+
+<!--COUNTER-->
 __________________________
 <br> 
 EODEDCDGT
