@@ -459,6 +459,7 @@ cat << EODNARGT
 <p>
 __________________________
 <br>
+--------------------
 <br>
 <strong>Domain Name: </strong>$domain<br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
