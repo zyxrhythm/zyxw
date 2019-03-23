@@ -72,6 +72,10 @@ pre{
 
 -----------------------
 
+- Changed the BBC results page Copy button from 'BBC Copy' to 'Copy Result' - also added a tooltip on the pointing hand next to the button.
+
+- Some few modifications with how the results are displayed on BBC special results.
+
 - As per request, added a table of 'days left' before the domain expiration (not part of the request, but also added 'days counted' since registration) - this table can be spawned by clicking &#9660; after the registrar expiry date.
 
 - Added the javascript from the homepage that filters valid characters placed on the text box to the BBC results page..
