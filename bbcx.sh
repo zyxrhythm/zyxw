@@ -165,7 +165,7 @@ cat  << EODHEAD1
 </form>
 </p>
 
-<button onclick="copyClipboard()">BBC Copy</button>
+<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. (expanded tables will be included on the copied result) <br><br></span></label>
 <hr>
 </head>
 EODHEAD1
@@ -404,6 +404,14 @@ whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort 
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
+#REESE
+rese=$(echo "$zyx2" | grep -i -e "reseller");
+reseller="${rese#*:}";
+if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
+then reese="None";
+else reese="$reseller"; fi;
+#REESE
+
 #once the domainis validated the TLD is extracted for verification
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
@@ -431,7 +439,7 @@ dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*
 regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
-expd1="Unable to fetch the Registrar Expiry Date check the whois server of the registrar.";
+expd1="Expiry Date Not Found. Consult the Registrar.";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); fi;
@@ -444,19 +452,15 @@ nameservers=$(echo "$zyx" | grep -i -e "name server:");
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-#prints the domain name and the registrar
+#prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
 <body>
 <div id="divClipboard">
 <p>
-__________________________
-<br>
-<br>
-<strong>Domain Name:</strong> $domain
-<br>
-<br>
-<strong>Registrar: </strong>${registrar#*:}
-<br>
+__________________________<br><br>
+<strong>Domain Name: </strong>$domain<br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+<strong>Reseller: </strong>$reese<br>
 __________________________
 <br><br>
 EODNARGT
@@ -1059,13 +1063,9 @@ fi
 
 echo '<footer>'
 
-rese=$(echo "$zyx2" | grep -i -e "reseller");
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
 admin=$(echo "$zyx2" | grep -i -e 'admin')
 tech=$(echo "$zyx2" | grep -i -e 'tech')
-
-reseller="${rese#*:}"
-
 
 if [[ -z "$registrant" ]]; then
 
@@ -1113,16 +1113,8 @@ esac
 else
 
 echo '<hr>'
-echo '<br>'
-
-if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; then
-echo "<strong>Reseller:</strong> None"
-else
-echo "<strong>Reseller:</strong> $reseller"
-fi
 
 cat << EOHF
-<br>
 <br>
 <strong>[ REGISTRANT: ]</strong>
 <br>
