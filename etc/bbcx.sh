@@ -494,9 +494,9 @@ else { x.style.display = 'none'; } }
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>
-Days since registered: $dayssince <br>
-Days left before expiry on registry: ${dayslefttry#*-}<br>
-Days lefr before expiry on registrar: ${daysleftrar#*-}<br>
+Days counted since registration: $dayssince <br>
+Days left before expiration on registry: ${dayslefttry#*-}<br>
+Days lefr before expiration on registrar: ${daysleftrar#*-}<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
