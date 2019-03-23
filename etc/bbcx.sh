@@ -420,7 +420,7 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-
+dayssince=$( echo $((($(date +%s --date "2017-12-31")-$(date +%s --date "2017-1-1"))/(3600*24))) );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
@@ -451,6 +451,7 @@ cat << EODNARGT
 <p>
 __________________________
 <br>
+Date Since Creation Date: $dayssince
 <br>
 <strong>Domain Name:</strong> $domain
 <br>
