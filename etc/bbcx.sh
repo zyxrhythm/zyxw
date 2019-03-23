@@ -490,18 +490,16 @@ else { x.style.display = 'none'; } }
 </script>
 <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jstimeverbose()'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this spawn a table with days left before the domain expires and days counted since it was created.<br><br>
+<br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created.<br><br>
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>
 Days since registered: $dayssince <br>
-Days left before expiry on registry: $dayslefttry<br>
-Days lefr before expiry on registrar: $daysleftrar<br>
+Days left before expiry on registry: ${dayslefttry#*-}<br>
+Days lefr before expiry on registrar: ${daysleftrar#*-}<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
-
-<br>
 __________________________
 <br> 
 EODEDCDGT
