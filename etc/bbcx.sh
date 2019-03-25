@@ -436,7 +436,7 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*24))) );
 
 #stores the domain's expiration date from the registrar
-regexc=$(host $whoisserver );
+regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar.";
@@ -817,7 +817,6 @@ echo '<br>'
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfrctnz=$( nsfunction "$nameservers");
 echo "$nsfrctnz"
-echo '<br>'
 echo '__________________________'
 echo '<br> <br>'
 
@@ -825,7 +824,7 @@ echo '<br> <br>'
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
 
 #A RECORD/S CT NZ
-
+echo '<br>'
 arfrctnz=$( arfunction "$ar");
 echo "$arfrctnz"
 
