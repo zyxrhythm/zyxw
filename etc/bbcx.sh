@@ -435,7 +435,8 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-dayssince=$( echo $((($(date +%s)-$(date +%s --date "$( datefunction "$creationdate0" )"))/(3600*24))) );
+creationdate=$( datefunction "$creationdate0" );
+dayssince=$( echo $((($(date +%s)-$(date +%s --date "$creationdate"))/(3600*24))) );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
