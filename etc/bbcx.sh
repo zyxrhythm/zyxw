@@ -436,7 +436,7 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*24))) );
 
 #stores the domain's expiration date from the registrar
-regexc=$(host $whoisserver);
+regexc=$(echo "$whoisserver#*:" );
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar.";
