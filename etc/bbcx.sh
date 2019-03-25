@@ -345,13 +345,6 @@ done < <(printf '%s\n' "$1");
 fi
 }
 
-#Date Extractor
-
-datefunction () {
-echo "$1" | awk '/Date:/{flag=1;next}/T/{flag=0}flag' | tr -d '\040\011\012\015'
-}
-
-
 #=====================
 # END OF FUNCTION HALL
 #=====================
@@ -435,8 +428,7 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-creationdate=$( datefunction "$creationdate0" );
-dayssince=$( echo $((($(date +%s)-$(date +%s --date "$creationdate"))/(3600*24))) );
+dayssince=$( echo $((($(date +%s)-$(date +%s --date "${creationdate0:18:10}"))/(3600*24))) );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
