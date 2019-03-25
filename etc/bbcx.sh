@@ -437,7 +437,7 @@ dayslefttry=$( echo $((($(date +%s)-$(date +%s --date "${expdx0:25:10}"))/(3600*
 
 #stores the domain's expiration date from the registrar
 regexc=$(host $whoisserver);
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$regexc" ]] || [[ $regexc = *[[:space:]]* ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar.";
 else 
