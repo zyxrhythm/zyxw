@@ -476,9 +476,8 @@ __________________________
 EODNARGT
 
 #link to the EPP status codes 
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a>"
-
-echo "<br>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a>
+<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
@@ -526,9 +525,7 @@ echo '<br>'
 nsfrgt=$( nsfunction "$nameservers");
 echo "$nsfrgt"
 
-echo "__________________________"
-echo '<br> <br>'
-
+echo "__________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
@@ -539,9 +536,7 @@ echo '<br>'
 arfrgt=$( arfunction "$ar" );
 echo "$arfrgt"
 
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<br>__________________________<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
