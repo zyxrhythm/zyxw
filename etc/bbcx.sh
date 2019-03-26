@@ -345,6 +345,13 @@ done < <(printf '%s\n' "$1");
 fi
 }
 
+##DateFunction
+dleftfunc () {
+
+extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
+daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
+echo "$daysleft"
+}
 #=====================
 # END OF FUNCTION HALL
 #=====================
