@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Some code optimizations 3/27/19.
+
 - Added custom BBC special result for .edu domains.
 
 - Fixed Bug: about the 'days counter' for the creation and expiration dates on BBC result is displaying 0, even if the date is found.
