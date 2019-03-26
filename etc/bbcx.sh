@@ -237,13 +237,14 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>"
 
-echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
 </span></a>"
 
-echo "<div id='nsverbose' style='display:none'> <table> <tbody> <td>"
-echo '<p>'
+<div id='nsverbose' style='display:none'> <table> <tbody> <td>
+<p>"
+
 while IFS= read -r line
 do
    echo "${line#*:} <br> ";
