@@ -446,11 +446,13 @@ dayslefttry=$( dleftfunc "$expdx0" );
 regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
-expd1="Expiry Date Not Found. Consult the Registrar.";
+expd1="Expiry Date Not Found. Consult the Registrar." 
+daysleftrar="0";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
-expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); fi;
-daysleftrar=$( echo $((($(date +%s)-$(date +%s --date "${expd0:40:10}"))/(3600*24))) );
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
+daysleftrar=$( dleftfunc "$expd0" );
+fi;
 
 #stores the name servers under the domain on a variable
 nameservers=$(echo "$zyx" | grep -i -e "name server:");
