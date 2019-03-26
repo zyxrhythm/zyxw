@@ -440,7 +440,7 @@ dayssince=$( echo $((($(date +%s)-$(date +%s --date "${creationdate0:18:10}"))/(
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
-dayslefttry=$( dleftfunc $expdx0 );
+dayslefttry=$( dleftfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
 regexc=$(host $whoisserver);
@@ -506,7 +506,7 @@ else { x.style.display = 'none'; } }
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>
 Days counted since registration: $dayssince <br>
-Days left before expiration on registry: ${dayslefttry#*-}<br>
+Days left before expiration on registry: $dayslefttry<br>
 Days left before expiration on registrar: ${daysleftrar#*-}<br>
 </p></td> </tbody> </table> </div><p>
 
