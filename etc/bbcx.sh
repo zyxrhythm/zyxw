@@ -605,14 +605,14 @@ zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-cat << EDUSECTION
+cat << GOVSECTION
 <body>
 <p>
 <div id="divClipboard">
 <pre>$zyx</pre>
 __________________________
 <p>
-EDUSECTION
+GOVSECTION
 
 #link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
@@ -742,8 +742,7 @@ cat << CTAULIMIT
 __________________________
 </p>
 </div>
-</body>
-<br>
+</body><br>
 <hr>
 <p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 </html>
@@ -775,11 +774,9 @@ cat << EODNARCTAU
 <div id='divClipboard'>
 <p>
 __________________________
-<br>
-<br>
+<br><br>
 <strong>Domain Name:</strong> $domain
-<br>
-<br>
+<br><br>
 <strong>Registrar: </strong>${registrar#*:}
 <br>
 __________________________
