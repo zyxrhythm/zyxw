@@ -593,6 +593,14 @@ echo "$mrfrgt"
 echo '__________________________<br>'
 
 echo "<pre>${zyx%-------------------------------------------------------------*}</pre>"
+</p>
+</div>
+</body>
+<footer>
+<hr>
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+</footer>
+</html>
 
 ;;
 
