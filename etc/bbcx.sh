@@ -1103,13 +1103,12 @@ jp)
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
-zyx0=$( echo $zyx |awk "{if(found) print} /[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]/{found=1}" );
 
 cat << JAPANDOM
 <body>
 <p>
 <div id="divClipboard">
-<pre>$zyx0</pre>
+<pre>${zyx#*Domain Information:}</pre>
 __________________________
 <p>
 JAPANDOM
@@ -1136,7 +1135,7 @@ echo "$mrfrgt
 __________________________<br>
 </p>
 </div>
-<pre>${zyx%[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]*}</pre>
+<pre>${zyx%Domain Information:*}</pre>
 </body>
 <footer>
 <hr>
