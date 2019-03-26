@@ -346,7 +346,7 @@ fi
 }
 
 ##DateFunction
-dleftfunc () {
+countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
 daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
@@ -435,12 +435,12 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-dayssince=$( dleftfunc "$creationdate0" );
+dayssince=$( countdfunc "$creationdate0" );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
-dayslefttry=$( dleftfunc "$expdx0" );
+dayslefttry=$( countdfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
 regexc=$(host $whoisserver);
@@ -451,7 +451,7 @@ daysleftrar="0";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
-daysleftrar=$( dleftfunc "$expd0" );
+daysleftrar=$( countdfunc "$expd0" );
 fi;
 
 #stores the name servers under the domain on a variable
