@@ -447,7 +447,7 @@ regexc=$(host $whoisserver);
 if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="0";
+daysleftrar="Counter Error: Date Not Found!";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
