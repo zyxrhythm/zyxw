@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Added whois error check for invalid / unregistered .nz domains.
+
 - Added custom BBC special result for .gov domains.
 
 - Some code optimizations 3/27/19.
