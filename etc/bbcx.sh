@@ -1016,7 +1016,6 @@ exit 0;
 
 ;;
 
-
 #special result for .sg ccTLD 
 sg)
 
@@ -1104,7 +1103,7 @@ jp)
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
-zyx0=$( echo $zyx | sed -n -e '/whois.jprs.jp xxx/e/,$p'| tail -n +2);
+zyx0=$( echo $zyx |awk '{if(found) print} /[ at the end of command/{found=1} );
 
 cat << JAPANDOM
 <body>
