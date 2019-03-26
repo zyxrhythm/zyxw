@@ -605,7 +605,7 @@ zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-zyx0=$(echo $zyx | awk '/% DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
+zyx0=$(echo "$zyx" | awk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
 
 cat << GOVSECTION
 <body>
