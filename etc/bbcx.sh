@@ -590,13 +590,10 @@ echo '<br> <br>'
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt"
 
-echo '__________________________<br>'
-
+echo "__________________________<br>
 </p>
 </div>
-
-echo "<pre>${zyx%-------------------------------------------------------------*}</pre>
-
+<pre>${zyx%-------------------------------------------------------------*}</pre>
 </body>
 <footer>
 <hr>
@@ -651,8 +648,9 @@ echo '<br> <br>'
 
 #A RECORD/S FOT CT
 mrfrct=$( mrfunction "$mxr");
-echo "$mrfrct
-<br>
+echo "$mrfrct"
+
+echo "<br>
 __________________________
 </p>
 </div>
