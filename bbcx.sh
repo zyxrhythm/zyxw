@@ -572,11 +572,9 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_bla
 echo '<br>'
 
 arfrgt=$( arfunction "$ar" );
-echo "$arfrgt"
-
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "$arfrgt 
+<br>__________________________
+<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
@@ -584,9 +582,9 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 echo '<br> <br>'
 
 mrfrgt=$( mrfunction "$mxr");
-echo "$mrfrgt"
 
-echo "__________________________<br>
+echo "$mrfrgt
+__________________________<br>
 </p>
 </div>
 <pre>${zyx%-------------------------------------------------------------*}</pre>
@@ -595,8 +593,8 @@ echo "__________________________<br>
 <hr>
 <p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 </footer>
-</html>
-"
+</html>"
+
 exit 0;
 ;;
 
@@ -609,44 +607,37 @@ ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
 #start of html body
-echo '<body>'
-
-echo '<br>'
-echo '<h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>'
-echo '<br>'
-
-#the BBC copy button
-echo "<div id='divClipboard'>"
+echo "<body>
+<br>
+<h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>
+<br>
+<div id='divClipboard'>"
 
 #displays the raw whois result of ccTLDs
-echo "<pre>$zyx</pre>";
-echo '<p>'
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<pre>$zyx</pre>
+<p><br>
+__________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
+
 echo '<br>'
 
 #A RECORD/S CT
 arfrct=$( arfunction "$ar" );
-echo "$arfrct"
-
-echo "<br>
+echo "$arfrct
+<br>
 __________________________
 <br> <br>"
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
+<br> <br>"
 
 #A RECORD/S FOT CT
 mrfrct=$( mrfunction "$mxr");
-echo "$mrfrct"
-
-echo "<br>
+echo "$mrfrct
+<br>
 __________________________
 </p>
 </div>
@@ -683,15 +674,14 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blan
 #A RECORD/S CT AU
 
 arfrctau=$( arfunction "$ar" );
-echo "$arfrctau"
-
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "$arfrctau
+<br>
+__________________________
+<br> <br>"
 
 #link to the MX record/s history on from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
+<br> <br>"
 
 #MX RECORD/S - AND IP/S CT AU
 
@@ -748,17 +738,15 @@ __________________________
 EODNARCTAU
 
 #link to the EPP status codes 
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a>"
-
-echo '<br>'
+echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a>
+<br>"
 
 dsfrctau=$( dsfunction "$dstat" );
 echo "$dsfrctau"
 
 #the illusionist
-echo '<p>'
-echo "__________________________"
-echo '<br>'
+echo "<p>
+__________________________<br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong> Name Servers:</strong>"
@@ -767,16 +755,15 @@ echo '<br>'
 #NAME SERVERS CT AU
 
 nsfrctau=$( nsfunction "$nameservers");
-echo "$nsfrctau"
-
-echo '__________________________'
-echo '<br> <br>'
-echo "$regcontact";
-echo '<br>'
-echo "$techcontact";
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "$nsfrctau
+__________________________
+<br> <br>
+$regcontact
+<br>
+$techcontact
+<br>
+__________________________
+<br> <br>"
 
 #link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
@@ -784,24 +771,22 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blan
 #A RECORD/S CT AU
 
 arfrctau=$( arfunction "$ar" );
-echo "$arfrctau"
-
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "$arfrctau
+<br>
+__________________________
+<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
+<br> <br>"
 
 #MX RECORD/S - AND IP/S CT AU
 
 mrfrctau=$( mrfunction "$mxr" );
-echo "$mrfrctau"
-
-echo '<br>'
-echo '__________________________'
-echo '</p>'
+echo "$mrfrctau
+<br>
+__________________________
+</p>"
 
 ;;
 
@@ -844,9 +829,8 @@ __________________________
 EODNARCTNZ
 
 #link to the EPP status codes on [Domain Status:]
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a>"
-
-echo '<br>'
+echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a>
+<br>"
 
 #DOMAIN STATUS CT NZ
 while IFS= read -r line
@@ -854,13 +838,13 @@ do
    echo  "</br> ${line#*#} ";
 done < <(printf '%s\n' "${dstat#*:}");
 
-echo '<br><br>'
-echo '--------------------------'
-echo '<br>'
-echo "Last Modified: ${lastmod#*:}";
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<br><br>
+--------------------------
+<br>
+Last Modified: ${lastmod#*:}
+<br>
+__________________________
+<br> <br>"
 
 #link to the name servers history on [Name Server:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip' > &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers: </strong>"
@@ -868,9 +852,9 @@ echo '<br>'
 
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfrctnz=$( nsfunction "$nameservers");
-echo "$nsfrctnz"
-echo '__________________________'
-echo '<br> <br>'
+echo "$nsfrctnz
+__________________________
+<br> <br>"
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
@@ -878,11 +862,10 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_bla
 #A RECORD/S CT NZ
 echo '<br>'
 arfrctnz=$( arfunction "$ar");
-echo "$arfrctnz"
-
-echo '<br>'
-echo '__________________________'
-echo "<br> <br>"
+echo "$arfrctnz
+<br>
+__________________________
+<br> <br>"
 
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
@@ -891,10 +874,9 @@ echo '<br> <br>'
 #MX RECORD/S - AND IP/S CT NZ
 
 mrfrctnz=$( mrfunction "$mxr");
-echo "$mrfrctnz"
-
-echo '</p>'
-echo '</div>'
+echo "$mrfrctnz
+</p>
+</div>"
 
 ;;
 
@@ -909,12 +891,9 @@ zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
 
-echo '<body>'
-
-#the BBC copy button
-echo "<div id='divClipboard'>"
-
-echo '<p>'
+echo "<body>
+<div id='divClipboard'>
+<p>"
 
 #prints the whois result with the the trimming
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre><br>
@@ -922,17 +901,16 @@ __________________________
 <br><br><p>";
 
 #link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
-echo '<br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>
+<br>"
 
 #A RECORD/S CT UK
 
 arfrctuk=$( arfunction "$ar");
-echo "$arfrctuk"
-
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "$arfrctuk
+<br>
+__________________________
+<br> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
 
@@ -1094,12 +1072,9 @@ exit 0;
 ;;
 esac
 
-echo '</p>'
-
-echo '</div>'
-
-#the end of body
-echo '</body>'
+echo "</p>
+</div>
+</body>"
 
 fi
 
@@ -1118,14 +1093,13 @@ regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
 case "$regwis" in
    "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 
-echo '<hr>'
-echo "<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>"
-echo '<br>'
-echo '<hr>'
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>'
-
-echo '</footer>'
-echo '</html>'
+echo "<hr>
+<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>
+<br>
+<hr>
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+</footer>
+</html>"
 
 exit 0;
 
@@ -1143,12 +1117,11 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 else 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 fi; 
-echo '<br>'
-echo '<hr>'
-echo "<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>"
-
-echo '</footer>'
-echo '</html>'
+echo "<br>
+<hr>
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+</footer>
+</html>"
 
 ;;
 
@@ -1156,9 +1129,8 @@ esac
 
 else
 
-echo '<hr>'
-
 cat << EOHF
+<hr>
 <br>
 <strong>[ REGISTRANT: ]</strong>
 <br>
@@ -1191,10 +1163,8 @@ cat << EOHF2
 
 EOHF2
 
-echo '</footer>'
-
-#the end of html
-echo '</html>'
+echo "</footer>
+</html>"
 
 fi
 
