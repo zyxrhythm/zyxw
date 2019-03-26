@@ -198,9 +198,9 @@ echo "<script>
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-</script>"  
-   
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
+</script>
+
+<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
@@ -214,9 +214,9 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
-echo "<div id='jsf$eppstat' style='display:none'>"
-echo "$dsfparsedtable";
-echo "</div>"
+echo "<div id='jsf$eppstat' style='display:none'>
+$dsfparsedtable
+</div>"
 done < <(printf '%s\n' "$1");
 
 }
@@ -235,15 +235,16 @@ echo "<script>
 function jsnsverbose() { var x = document.getElementById('nsverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-</script>"
+</script>
 
-echo " <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
-</span></a>"
+</span></a>
 
-echo "<div id='nsverbose' style='display:none'> <table> <tbody> <td>"
-echo '<p>'
+<div id='nsverbose' style='display:none'> <table> <tbody> <td>
+<p>"
+
 while IFS= read -r line
 do
    echo "${line#*:} <br> ";
@@ -271,9 +272,9 @@ else
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
-echo '</p>'
-echo '</td> </tbody> </table> </div>'
-echo '<p>'
+echo "</p>
+</td> </tbody> </table> </div>
+<p>"
 }
 
 #A Record Function
@@ -327,9 +328,9 @@ do
 </span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
-echo "<br>"
+echo '<br>'
 else
-   echo "<br>"
+   echo '<br>'
    mxa20=$(whois "$mxr2" );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
@@ -340,7 +341,7 @@ else
 </span></a> ${mxax2#*:}"
    fi
 fi
-   echo "<br> <br>"
+   echo '<br> <br>'
 done < <(printf '%s\n' "$1");
 fi
 }
@@ -350,7 +351,7 @@ countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
 daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
-echo "$daysleft"
+echo "$daysleft";
 }
 #=====================
 # END OF FUNCTION HALL
@@ -381,8 +382,8 @@ else
 zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
-dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' );
-  if [[ "$dvcheck" = "domain no" ]] || [[ "$dvcheck" = "no match " ]] || [[ "$dvcheck" = "the queri" ]] || [[ "$dvcheck" = "not found" ]] || [[ "$dvcheck" = "no data f" ]] || [[ "$dvcheck" = "no whois " ]] || [[ "$dvcheck" = "this doma" ]]; 
+dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
+  if [[ "$dvcheck" = "domainno" ]] || [[ "$dvcheck" = "nomatch" ]] || [[ "$dvcheck" = "thequeri" ]] || [[ "$dvcheck" = "notfound" ]] || [[ "$dvcheck" = "nodataf" ]] || [[ "$dvcheck" = "nowhois" ]] || [[ "$dvcheck" = "thisdoma" ]] || [[ "$dvcheck" = "nom" ]]; 
   
 then
 #the error that pops up when a domain is not valid/ does not exist
@@ -475,9 +476,8 @@ __________________________
 EODNARGT
 
 #link to the EPP status codes 
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a>"
-
-echo "<br>"
+echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a>
+<br>"
 
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
@@ -525,9 +525,7 @@ echo '<br>'
 nsfrgt=$( nsfunction "$nameservers");
 echo "$nsfrgt"
 
-echo "__________________________"
-echo '<br> <br>'
-
+echo "__________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
@@ -538,9 +536,7 @@ echo '<br>'
 arfrgt=$( arfunction "$ar" );
 echo "$arfrgt"
 
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<br>__________________________<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
@@ -921,11 +917,9 @@ echo "<div id='divClipboard'>"
 echo '<p>'
 
 #prints the whois result with the the trimming
-echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>";
-
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre><br>
+__________________________
+<br><br><p>";
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
@@ -947,16 +941,11 @@ echo '<br> <br>'
 #MX RECORD/S -AND IP/S CT UK
 
 mrfrctuk=$( mrfunction "$mxr");
-echo "$mrfrctuk"
-
-echo '__________________________'
-echo '<br>'
-echo '</p>'
-echo '</div>'
-echo '<br>'
-echo '<hr><p>Raw whois result below:</p><hr>'
-echo '<br>'
-echo "<pre>$zyx</pre><br>"
+echo "$mrfrctuk
+__________________________
+<br></p></div><br><hr>
+<p>Raw whois result below:</p><hr>
+<br><pre>$zyx</pre><br>"
 
 ;;
 
