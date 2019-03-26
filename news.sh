@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Fixed Bug: about the 'days counter' for the creation and expiration dates on BBC result is displaying 0, even if the date is found.
+
 - Changed the BBC results page Copy button name from 'BBC Copy' to 'Copy Result' - also added a tooltip on the pointing hand next to the button.
 
 - Some few modifications with how the results are displayed on BBC special results.
