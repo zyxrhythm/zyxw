@@ -640,9 +640,9 @@ echo '<br>'
 arfrct=$( arfunction "$ar" );
 echo "$arfrct"
 
-echo '<br>'
-echo '__________________________'
-echo '<br> <br>'
+echo "<br>
+__________________________
+<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
@@ -651,16 +651,12 @@ echo '<br> <br>'
 
 #A RECORD/S FOT CT
 mrfrct=$( mrfunction "$mxr");
-echo "$mrfrct"
-
-echo '<br>'
-echo '__________________________'
-
-echo '</p>'
-
-echo '</div>'
-
-echo '<br>'
+echo "$mrfrct
+<br>
+__________________________
+</p>
+</div>
+<br>
 
 ;;
 
