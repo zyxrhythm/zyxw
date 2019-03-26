@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Added custom BBC special result for .jp domains.
+
 - Added whois error check for invalid / unregistered .nz domains.
 
 - Added custom BBC special result for .gov domains.
