@@ -1104,12 +1104,13 @@ jp)
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8);
+zyx0=$( echo $zyx | sed -n -e '/whois.jprs.jp xxx/e/,$p'| tail -n +2);
 
 cat << JAPANDOM
 <body>
 <p>
 <div id="divClipboard">
-<pre>${zyx#*[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]}</pre>
+<pre>$zyx0</pre>
 __________________________
 <p>
 JAPANDOM
