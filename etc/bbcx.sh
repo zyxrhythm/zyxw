@@ -198,9 +198,9 @@ echo "<script>
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-</script>"  
-   
-echo "<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
+</script>
+
+<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> &#10067;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
@@ -214,9 +214,9 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
-echo "<div id='jsf$eppstat' style='display:none'>"
-echo "$dsfparsedtable";
-echo "</div>"
+echo "<div id='jsf$eppstat' style='display:none'>
+$dsfparsedtable
+</div>"
 done < <(printf '%s\n' "$1");
 
 }
@@ -272,9 +272,9 @@ else
 fi
    echo '<br> <br>'
 done < <(printf '%s\n' "$1");
-echo '</p>'
-echo '</td> </tbody> </table> </div>'
-echo '<p>'
+echo "</p>
+</td> </tbody> </table> </div>
+<p>"
 }
 
 #A Record Function
@@ -328,9 +328,9 @@ do
 </span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
-echo "<br>"
+echo '<br>'
 else
-   echo "<br>"
+   echo '<br>'
    mxa20=$(whois "$mxr2" );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
@@ -341,7 +341,7 @@ else
 </span></a> ${mxax2#*:}"
    fi
 fi
-   echo "<br> <br>"
+   echo '<br> <br>'
 done < <(printf '%s\n' "$1");
 fi
 }
@@ -351,7 +351,7 @@ countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
 daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
-echo "$daysleft"
+echo "$daysleft";
 }
 #=====================
 # END OF FUNCTION HALL
