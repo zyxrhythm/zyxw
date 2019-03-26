@@ -383,7 +383,7 @@ zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-  if [[ "$dvcheck" = "domainno" ]] || [[ "$dvcheck" = "nomatch" ]] || [[ "$dvcheck" = "thequeri" ]] || [[ "$dvcheck" = "notfound" ]] || [[ "$dvcheck" = "nodataf" ]] || [[ "$dvcheck" = "nowhois" ]] || [[ "$dvcheck" = "thisdoma" ]] || [[ "$dvcheck" = "nom" ]] || [[ "$dvcheck" = "%termso" ]] || [[ "$dvcheck" = "invalidq" ]] || [[ "$dvcheck" = "whoisloo" ]] || [[ "$dvcheck" = "thistld" ]] || [[ "$dvcheck" = "[jprsda" ]]; 
+  if [[ "$dvcheck" = "domainno" ]] || [[ "$dvcheck" = "nomatch" ]] || [[ "$dvcheck" = "thequeri" ]] || [[ "$dvcheck" = "notfound" ]] || [[ "$dvcheck" = "nodataf" ]] || [[ "$dvcheck" = "nowhois" ]] || [[ "$dvcheck" = "thisdoma" ]] || [[ "$dvcheck" = "nom" ]] || [[ "$dvcheck" = "%termso" ]] || [[ "$dvcheck" = "invalidq" ]] || [[ "$dvcheck" = "whoisloo" ]] || [[ "$dvcheck" = "thistld" ]]; 
   
 then
 #the error that pops up when a domain is not valid/ does not exist
@@ -1097,6 +1097,54 @@ __________________________
 EOQVN
 exit 0;
 
+;;
+
+jp)
+
+zyx=$(whois $domain);
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+cat << JAPANDOM
+<body>
+<p>
+<div id="divClipboard">
+<pre>${zyx#*[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]}</pre>
+__________________________
+<p>
+JAPANDOM
+
+#link to the A record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
+
+#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
+echo '<br>'
+
+arfrgt=$( arfunction "$ar" );
+echo "$arfrgt 
+<br>__________________________
+<br> <br>"
+
+#link to the MX record/s history from securitytrails.com
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
+
+echo '<br> <br>'
+
+mrfrgt=$( mrfunction "$mxr");
+
+echo "$mrfrgt
+__________________________<br>
+</p>
+</div>
+<pre>${zyx%[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]*}</pre>
+</body>
+<footer>
+<hr>
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+</footer>
+</html>"
+
+exit 0;
 ;;
 
 #throw an error for anything else
