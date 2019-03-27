@@ -447,11 +447,17 @@ dayslefttry=$( countdfunc "$expdx0" );
 if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="Counter Error: Date Not Found!";
+daysleftrar="Counter Error: Whois server Not Found!";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
+if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]]; 
+then
+expd1="Expiry Date Not Found. Consult the Registrar." 
+daysleftrar="Counter Error: Date Not Found!";
+else
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
 daysleftrar=$( countdfunc "$expd0" );
+fi;
 fi;
 
 #stores the name servers under the domain on a variable
