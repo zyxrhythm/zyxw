@@ -1166,14 +1166,19 @@ exit 0;
 
 echo '<hr>'
 
-if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; 
+then 
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+
+else 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-else 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
-fi; 
+else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+
+fi;
 
 echo "<br>
 <hr>
@@ -1204,14 +1209,18 @@ cat << EOHF
 <hr>
 EOHF
 
-if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; 
+then 
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
 
+else 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-else 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
-fi; 
+else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+
+fi;
 
 cat << EOHF2
 
