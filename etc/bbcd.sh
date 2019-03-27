@@ -180,18 +180,16 @@ case $tld in
 zyxgd0=$(dig +noall +answer $DNSR $domain $qns| awk '{$2=$2};1' );
 
 cutterfunc () {
-
 while IFS= read -r line
 do
 cutter=$( echo "$line" |  cut -f1 -d" " );
-echo $cutter
+echo "$cutter"
 done < <(printf '%s\n' "$1");
-
-if [[ -z $zyxgd ]]; 
 }
 
 zyxgd=$( cutterfunc "$zyxgd0" );
 
+if [[ -z $zyxgd ]]; 
 
 then echo "
 <body>
