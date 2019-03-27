@@ -1162,9 +1162,11 @@ exit 0;
 
 echo '<hr>'
 
+wsscheck=$(host "$whoisserver" );
+
 if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
@@ -1201,7 +1203,7 @@ EOHF
 
 if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
 else 
