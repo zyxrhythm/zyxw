@@ -407,10 +407,14 @@ exit 0;
   else
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
-typicalwhoisresult=$(whois $domain);
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
+trywsresult=$(whois $domain);
+whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
+
+#REGISTRAR WHOIS SERVER CHECK 
+wsscheck0=$( nslookup "$whoisserver" );
+wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
@@ -444,15 +448,20 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 dayslefttry=$( countdfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
-regexc=$(host $whoisserver);
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="Counter Error: Date Not Found!";
+daysleftrar="Counter Error: Whois server Not Found!";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
+if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]]; 
+then
+expd1="Expiry Date Not Found. Consult the Registrar." 
+daysleftrar="Counter Error: Date Not Found!";
+else
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
 daysleftrar=$( countdfunc "$expd0" );
+fi;
 fi;
 
 #stores the name servers under the domain on a variable
@@ -1142,7 +1151,7 @@ case "$regwis" in
    "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 
 echo "<hr>
-<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>
+<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br>
 <br>
 <hr>
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
@@ -1157,14 +1166,19 @@ exit 0;
 
 echo '<hr>'
 
-if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; 
 then 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+
 else 
-echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-fi; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi; 
+
+fi;
+
 echo "<br>
 <hr>
 <p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
@@ -1194,14 +1208,17 @@ cat << EOHF
 <hr>
 EOHF
 
-if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
-
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; 
 then 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+
 else 
-echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-fi; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi; 
+
+fi;
 
 cat << EOHF2
 
