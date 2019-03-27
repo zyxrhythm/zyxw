@@ -1174,8 +1174,8 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 
 else 
 if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
-then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
-else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi; 
 
 fi;
 
@@ -1215,8 +1215,8 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 
 else 
 if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
-then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
-else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi; 
 
 fi;
 
