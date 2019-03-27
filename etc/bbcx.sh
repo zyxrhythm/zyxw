@@ -444,8 +444,7 @@ expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>
 dayslefttry=$( countdfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
-regexc=$(host $whoisserver);
-if [[ -z "$regexc" ]] || [[ "$regexc" = " " ]]; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
 daysleftrar="Counter Error: Date Not Found!";
