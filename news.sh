@@ -72,6 +72,10 @@ pre{
 
 -----------------------
 
+- Fixed Bug: about registrar whois server not found or invalid yet the footer displays no error.
+
+- Fixed bug: days left counter til the registrar expiration date on BBC special result displays 0, the whois server is not found but the counter script still calculated the days left. So instead of a numeric value, the counter will now display an error message instead. 
+
 - Added custom BBC special result for .jp domains.
 
 - Added whois error check for invalid / unregistered .nz domains.
