@@ -183,12 +183,12 @@ cutterfunc () {
 
 while IFS= read -r line
 do
-cutter=$( echo "$line" |  sed -i "/{.*$2.*}/d"  );
+cutter=$( ${line//google.com./} );
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
-zyxgd=$( cutterfunc "$zyxgd0" "$domain" );
+zyxgd=$( cutterfunc "$zyxgd0" );
 
 if [[ -z $zyxgd ]]; 
 
