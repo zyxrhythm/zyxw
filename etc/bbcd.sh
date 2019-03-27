@@ -182,7 +182,7 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns| awk '{$2=$2};1' );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter=$( echo "$line" |  cut -f1 -d" " );
+cutter=$( echo "$line" |  cut -d" " -f2- );
 echo "$cutter"
 done < <(printf '%s\n' "$1");
 }
