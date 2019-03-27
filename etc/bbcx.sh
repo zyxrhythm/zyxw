@@ -412,6 +412,10 @@ whoisservergrep=$(echo "$trywsresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
+#REGISTRAR WHOIS SERVER CHECK 
+wsscheck0=$( nslookup "$whoisserver" );
+wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
+
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
 reseller="${rese#*:}";
@@ -1161,9 +1165,6 @@ exit 0;
  *)
 
 echo '<hr>'
-
-wsscheck0=$( nslookup "$whoisserver" );
-wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
