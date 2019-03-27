@@ -182,7 +182,7 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter=$( echo "$line" |  cut -d"$domain" -f2- );
+cutter=$( echo "$line" |  sed -i "/{.*$domain.*}/d"  );
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
