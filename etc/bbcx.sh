@@ -1173,9 +1173,9 @@ whoisservergrep="<strong>Registrar WHOIS Server: </strong>";
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
 
 else 
-if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
-then echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 
 fi;
 
@@ -1214,9 +1214,9 @@ whoisservergrep="<strong>Registrar WHOIS Server: </strong>";
 echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
 
 else 
-if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
-then echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
-else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 
 fi;
 
