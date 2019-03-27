@@ -177,13 +177,13 @@ case $tld in
    $gcctldlist)
 
 #prints the dig results for gtlds
-zyxgd0=$(dig +noall +answer $DNSR $domain $qns| awk '{$2=$2};1' );
+zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 
 cutterfunc () {
 while IFS= read -r line
 do
 cutter=$( echo "$line" |  cut -d" " -f2- );
-echo "$cutter"
+echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
