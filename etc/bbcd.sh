@@ -183,7 +183,7 @@ cutterfunc () {
 
 while IFS= read -r line
 do
-cutter="${line//google.com./}";
+cutter=$( echo "${line//google.com./}" | sed '/^$/d');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
