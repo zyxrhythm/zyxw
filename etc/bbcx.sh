@@ -1147,7 +1147,7 @@ case "$regwis" in
    "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 
 echo "<hr>
-<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the registrar.<br>
+<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br>
 <br>
 <hr>
 <p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
@@ -1162,15 +1162,16 @@ exit 0;
 
 echo '<hr>'
 
-wsscheck=$(host "$whoisserver" );
+wsscheck0=$( nslookup "$whoisserver" );
+wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisservergrep="<strong>Registrar WHOIS Server: </strong>"; else true; fi;
 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
-else 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+else 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
 fi; 
 
 echo "<br>
@@ -1206,9 +1207,9 @@ if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]]; then whoisserv
 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
 then 
-echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; 
-else 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+else 
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
 fi; 
 
 cat << EOHF2
