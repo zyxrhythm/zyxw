@@ -177,7 +177,7 @@ case $tld in
    $gcctldlist)
 
 #prints the dig results for gtlds
-zyxgd=$(dig +noall +answer $DNSR $domain $qns | tr -s " ");
+zyxgd=$(dig +noall +answer $DNSR $domain $qns);
 
 if [[ -z $zyxgd ]]; 
 
