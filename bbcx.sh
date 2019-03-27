@@ -382,8 +382,8 @@ else
 zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
-dvcheck=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-  if [[ "$dvcheck" = "domainno" ]] || [[ "$dvcheck" = "nomatch" ]] || [[ "$dvcheck" = "thequeri" ]] || [[ "$dvcheck" = "notfound" ]] || [[ "$dvcheck" = "nodataf" ]] || [[ "$dvcheck" = "nowhois" ]] || [[ "$dvcheck" = "thisdoma" ]] || [[ "$dvcheck" = "nom" ]] || [[ "$dvcheck" = "%termso" ]] || [[ "$dvcheck" = "invalidq" ]] || [[ "$dvcheck" = "whoisloo" ]] || [[ "$dvcheck" = "thistld" ]]; 
+dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
+  if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "%termso" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "thistld" ]];  
   
 then
 #the error that pops up when a domain is not valid/ does not exist
