@@ -408,7 +408,7 @@ exit 0;
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 trywsresult=$(whois $domain);
-whoisservergrep=$(echo "$trywsresult" | grep -i -e "WHOIS Server" | sort -u );
+whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
@@ -1174,8 +1174,7 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 
 else 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
-then 
-echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+then echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
 
 fi;
@@ -1216,8 +1215,7 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 
 else 
 if [[ -z "$wsscheck" ]] || [[ "$wsscheck" = " " ]]; 
-then 
-echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
+then echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 else echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>"; fi; 
 
 fi;
