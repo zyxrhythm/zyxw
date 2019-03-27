@@ -407,8 +407,8 @@ exit 0;
   else
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
-typicalwhoisresult=$(whois $domain);
-whoisservergrep=$(echo "$typicalwhoisresult" | grep -i -e "WHOIS Server" | sort -u );
+trywsresult=$(whois $domain);
+whoisservergrep=$(echo "$trywsresult" | grep -i -e "WHOIS Server" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
@@ -1172,6 +1172,7 @@ echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!
 else 
 echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; 
 fi; 
+
 echo "<br>
 <hr>
 <p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
