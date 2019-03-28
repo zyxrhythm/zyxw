@@ -72,7 +72,7 @@ pre{
 
 -----------------------
 
-- Some improvements on Who You and Big Nick Digger results.
+- Some improvements on BBC Special, Who You and Big Nick Digger results page.
 
 - Fixed Bug: about registrar whois server not found or invalid yet the footer displays no error.
 
