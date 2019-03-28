@@ -114,6 +114,22 @@ function copyClipboard() {
 }
 </script>
 
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
+
 <p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
 
 <!-- ################## BIG NICK DIGGER ################# -->
