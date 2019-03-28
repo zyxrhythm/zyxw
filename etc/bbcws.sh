@@ -254,7 +254,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' align='left' class='button tooltip' onclick='jswhoistable()'> &#9776;
+<a style='color:tomato; cursor: pointer;' align='right' class='button tooltip' onclick='jswhoistable()'> &#9776;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide the input table.<br><br>
 </span></a>
