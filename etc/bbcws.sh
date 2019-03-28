@@ -252,7 +252,7 @@ else { x.style.display = 'none'; } }
 <br>Click this to hide the input table.<br><br>
 </span></a>
 
-<div id='digtable'> <table> <tbody> <td>
+<div id='whoistable'> <table> <tbody> <td>
 
 <!-- ################## WHO YOU ################# -->
 
