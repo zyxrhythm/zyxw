@@ -35,6 +35,43 @@ cat <<ENDOFHTMLHEAD
   gtag('config', 'UA-32625644-1');
 </script>
 
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+  }
+}
+</script>
+
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
+
 <style>
 a {text-decoration: none; }
 a:link { color: red;  }
@@ -83,43 +120,6 @@ strong{ color:green;
   visibility: visible;
 }
 </style>
-
-<script>
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-  }
-}
-</script>
-
-<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpaces(string) {
- return string.split(' ').join('');
-}
-</script>
-
-<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpecialCharacters(string) {
- return string.replace(/[^A-Za-z0-9.-]/g, '');
-}
-</script>
 
 <p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
 <script> 
@@ -260,7 +260,7 @@ if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
 cat << EOIIE
 <body>
 <div id="divClipboard">
-<p><strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
+<p><strong>Input</strong> : domain / I.P. address ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
 To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a></p>
