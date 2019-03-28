@@ -19,10 +19,11 @@ echo '<html>'
 echo '<title>Big Nick Digger</title>'
 
 #start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
+cat <<ENDOFHTMLHEAD
 
-cat <<EOX
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />
+
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
@@ -36,10 +37,7 @@ cat <<EOX
   gtag('js', new Date());
   gtag('config', 'UA-32625644-1');
 </script>
-EOX
 
-#CSS
-cat <<EOS
 <style>
 
 a {text-decoration: none; }
@@ -64,12 +62,6 @@ strong{ color:green;
 }
 
 </style>
-
-EOS
-
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
 
 <script>
 function copyClipboard() {
@@ -96,16 +88,48 @@ function copyClipboard() {
   }
 }
 </script>
-EOS2
 
-#the back button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
+<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
 
-#The BBC button
-echo '<button onclick="copyClipboard()">BBC Copy</button>'
+<!-- ################## BIG NICK DIGGER ################# -->
 
-#end of head
-echo '</head> <hr>'
+<p><form action="bbcd.sh" method="get">
+<label>
+<div class="tooltip">
+&#9935; Big Nick Digger
+<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
+</span>
+</div>
+</label><br> 
+
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain"><br><br>
+
+<select name='record'> 
+  <option>A</option>
+  <option>MX</option>
+  <option>NS</option>
+  <option>TXT</option>
+  <option>SOA</option>
+  <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
+  <option>PTR</option>
+  <option selected>ANY</option>
+</select> 
+
+<button type="submit"> D I G </button><br> <br>
+
+<input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
+
+</form></p>
+
+<!-- ################## BIG NICK DIGGER ################# -->
+
+<button onclick="copyClipboard()">BBC Copy</button>
+
+</head> <hr>
+
+ENDOFHTMLHEAD
 
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
 qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
