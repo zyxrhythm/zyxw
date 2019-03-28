@@ -248,12 +248,12 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p>  <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
+<p> <div style='display: inline' > <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
 <script> function jswhoistable() { var x = document.getElementById('whoistable'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
-<div style='display: inline' >
+
 <div align='right'><a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide the input table.<br><br>
@@ -398,8 +398,8 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br>
-	<button onclick="copyClipboard()">Copy Result</button><br>
+	
+	<button onclick="copyClipboard()">Copy Result</button><table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br><br>
 	<table> <tbody> <td>
 	<div id="divClipboard">
 	<p><pre>$zyxregistry</pre></p>
