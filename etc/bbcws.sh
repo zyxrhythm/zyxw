@@ -344,7 +344,9 @@ cat <<EODC
 <br/>
 <div id="divClipboard1">
 <p>
-Not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a> / <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>!
+<strong>Input</strong> : $domain <br> <br>
+Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
+And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!
 </div>
 </p>
 </body>
