@@ -123,7 +123,7 @@ else { x.style.display = 'none'; } }
 
 <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsdigtable()'> &#9776; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to hide/unhide this input table.<br><br>
+<br>Click this to hide/unhide the input table.<br><br>
 </span></a>
 
 <div id='digtable' style='display:none'> <table> <tbody> <td>
