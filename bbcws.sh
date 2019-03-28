@@ -345,12 +345,10 @@ case $tld in
 
 rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
-rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+rws1=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-#does a whois querry for the domain
+#registry
 zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
-zyxregistrar=$(whois $doi -h $rws );
-
 cutterfunc () {
 while IFS= read -r line
 do
@@ -358,8 +356,18 @@ cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
-
 zyxregistry=$( cutterfunc "$zyxregistry0" );
+
+#registrarservervalidation
+if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
+then 
+rws="Not Found!"; 
+zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not give whois details via port 43, and only provides a web interface for whois queries.<br>Or there is no such server from the registrar."
+
+else 
+rws="$rws1"; 
+zyxregistrar=$(whois $doi -h $rws );
+fi;
 
 cat <<EOWIR0
 <body >
@@ -396,9 +404,7 @@ cat <<EOWIR0
 	</div>
 </div>
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
-</p>
-</div>
-
+</p></div>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -411,15 +417,11 @@ ph)
 #start of html body
 echo '<body>'
 cat <<EOQPH
-<p>
-<br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.
-</p>
+<p><br><a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.</p>
 </body>
 </html>
 EOQPH
 exit 0;
-
 ;;
 
 #special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
@@ -436,7 +438,6 @@ cat <<EOQSG
 </html>
 EOQSG
 exit 0;
-
 ;;
 
 #throw an error for everything else
@@ -452,15 +453,12 @@ Not a valid domain!.
 </div>
 
 EONAVDE
-
 ;;
 
 esac
-
 		fi
 	fi
 fi
-
 
 exit 0;
 
