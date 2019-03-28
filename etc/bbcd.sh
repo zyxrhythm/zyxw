@@ -115,21 +115,22 @@ function removeSpecialCharacters(string) {
 </script>
 
 <p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
-<script> 
+
+<p><script> 
 function jsdigtable() { var x = document.getElementById('digtable'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsdigtable()'> &#9660; 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsdigtable()'> &#9776; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to hide the table.<br><br>
+<br>Click this to hide/unhide this input table.<br><br>
 </span></a>
 
 <div id='digtable' style='display:none'> <table> <tbody> <td>
 
 <!-- ################## BIG NICK DIGGER ################# -->
-<p><form action="bbcd.sh" method="get">
+<form action="bbcd.sh" method="get">
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 <select name='record'> 
   <option>A</option>
