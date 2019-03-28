@@ -110,7 +110,7 @@ DiG 9.10.3-P4-Ubuntu
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ---------------------------------------------------------
-TLD lists used (<a href="/cgi-bin/gtld.sh" target="_blank" >1</a> & <a href="/cgi-bin/gtld.sh" target="_blank" >2</a>).  
+TLD lists used (<a href="/cgi-bin/gtld.sh" target="_blank" >1</a> & <a href="/cgi-bin/cctld.sh" target="_blank" >2</a>).  
 ---------------------------------------------------------
 
 For bugs and other concerns please email:
