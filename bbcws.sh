@@ -214,7 +214,7 @@ pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 strong { color:green;
 }
 
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
+table { font-family: verdana; border: 2px solid green; font-size: 97%;
 }
 th { border: 2px solid green;
 }
@@ -295,7 +295,7 @@ cat <<EOTS
 <p>
 <br>
 <strong>Input</strong> : null <br> <br>
-Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
+Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!!
 <br>
 <br>
 </p>
@@ -319,7 +319,7 @@ else
 cat << EOWIIPR
 
 <body>
-<button onclick="copyClipboard1()">BBC Copy</button>
+<button onclick="copyClipboard1()">Copy Result</button>
 <br><hr>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre>
@@ -340,11 +340,13 @@ dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 cat <<EODC
 <body>
 <p>
-<button onclick="copyClipboard1()">BBC Copy</button>
+<button onclick="copyClipboard1()">Copy Result</button>
 <br/>
 <div id="divClipboard1">
 <p>
-Not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a> / <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>!
+<strong>Input</strong> : $doi <br> <br>
+Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
+And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!
 </div>
 </p>
 </body>
@@ -396,26 +398,22 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-	<strong>Whois server:</strong> ${rws0#*server}
-	<br/> <br/>
-	<button onclick="copyClipboard()">BBC Copy</button>
-	<br/>
+	<table> <tbody> <td style="font-size: 87%;"><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br>
+	<button onclick="copyClipboard()">Copy Result</button><br>
+	<table> <tbody> <td>
 	<div id="divClipboard">
-	<p>
-	<pre>$zyxregistry</pre>
-	</p>
+	<p><pre>$zyxregistry</pre></p>
+	</td> </tbody> </table>
 	</div>
 </div>
 
 <div id="Registrar" class="tabcontent" >
-	<strong>Whois server:</strong> $rws
-	<br/> <br/>
-	<button onclick="copyClipboard0()">BBC Copy</button>
-	<br/>
+	<table> <tbody> <td style="font-size: 87%;"><strong>Whois server:</strong> $rws</td> </tbody> </table><br>
+	<button onclick="copyClipboard0()">Copy Result</button><br>
+	<table> <tbody> <td>
 	<div id="divClipboard0">
-	<p>
-	<pre>$zyxregistrar</pre>
-	</p>
+	<p><pre>$zyxregistrar</pre></p>
+	</td> </tbody> </table>
 	</div>
 </div>
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
