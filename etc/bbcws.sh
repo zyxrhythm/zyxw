@@ -376,8 +376,8 @@ cat <<EOWIR0
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
 	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> ${rws0#*server}
-	</td> </tbody> </table>
-	<button onclick="copyClipboard()">Copy Result</button><br><br>
+	</td> </tbody> </table><br>
+	<button onclick="copyClipboard()">Copy Result</button><br>
 	<table> <tbody> <td>
 	<div id="divClipboard">
 	<p><pre>$zyxregistry</pre></p>
