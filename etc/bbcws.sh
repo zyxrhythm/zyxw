@@ -362,7 +362,7 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
 then 
 rws="Not Found!"; 
-zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not provide whois details via port 43, and only provides a web interface for whois qeuries.<br>Or there is no such server from the registrar."
+zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not give whois details via port 43, and only provides a web interface for whois queries.<br>Or there is no such server from the registrar."
 
 else 
 rws="$rws1"; 
