@@ -347,14 +347,8 @@ rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
 rws1=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; then rws="Registrar WHOIS Server: Not Found!"; else rws="$rws1"; fi;
-
-#does a whois querry for the domain
+#registry
 zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
-zyxregistrar0=$(whois $doi -h $rws );
-
-if [[ -z  "$zyxregsitrar0" ]] || [[ "$zyxregsitrar0" = " " ]] ; then zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not provide whois details via port 43, and only provides a web interface for whois qeuries.<br>Or there is no such server provided by the registrar."; else zyxregistrar="$zyxregistrar0"; fi;
-
 cutterfunc () {
 while IFS= read -r line
 do
@@ -362,8 +356,18 @@ cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
-
 zyxregistry=$( cutterfunc "$zyxregistry0" );
+
+#registrarservervalidation
+if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
+then 
+rws="Not Found!"; 
+zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not provide whois details via port 43, and only provides a web interface for whois qeuries.<br>Or there is no such server from the registrar."
+
+else 
+rws="$rws1"; 
+zyxregistrar=$(whois $doi -h $rws );
+fi;
 
 cat <<EOWIR0
 <body >
