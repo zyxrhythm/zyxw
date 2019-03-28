@@ -114,9 +114,8 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
-
-<p><script> 
+<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<script> 
 function jsdigtable() { var x = document.getElementById('digtable'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
