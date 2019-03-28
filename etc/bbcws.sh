@@ -349,7 +349,9 @@ rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
 zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
-zyxregistrar=$(whois $doi -h $rws );
+zyxregistrar0=$(whois $doi -h $rws );
+
+if [[ -z  "$zyxregsitrar0" ]] || [[ "$zyxregsitrar0" = " " ]] ; then zyxregsitrar="Registrar Whois server not found!"; else zyxregistrar="$zyxregistrar"; fi;
 
 cutterfunc () {
 while IFS= read -r line
