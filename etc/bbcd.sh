@@ -145,10 +145,10 @@ else { x.style.display = 'none'; } }
 </select> 
 <button type="submit"> D I G </button><br> <br>
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
-</form></p>
+</form>
 <!-- ################## BIG NICK DIGGER ################# -->
 
-</td> </tbody> </table> </div>
+</td> </tbody> </table> </div></p>
 
 <button onclick="copyClipboard()">Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br></span></label>
 <hr> </head>
