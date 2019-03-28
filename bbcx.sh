@@ -7,21 +7,17 @@
 #https://github.com/zyxrhythm
 #############################################
 
-#start the html header
 echo "Content-type: text/html"
 echo ""
-echo '<!DOCTYPE html>'
 
-echo '<html>'
+#start the html header
+echo "<!DOCTYPE html>
+<html>
+<title>BBC Special</title>
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />"
 
-#Tab title
-echo '<title>BBC Special</title>'
-
-#start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
-
-cat <<EODHEAD0
+cat <<EODHHEAD
 <!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
@@ -149,27 +145,32 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-EODHEAD0
+<link rel="icon" type="image/png" href="/icon.png" />
 
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
+<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<script> 
+function jsxtable() { var x = document.getElementById('xtable'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
 
-cat  << EODHEAD1
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsxtable()'> &#9776; 
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to hide/unhide the input table.<br><br>
+</span></a>
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
-
-<p><form action="bbcx.sh" method="get">
-
+<div id='xtable' ><table> <tbody> <td>
+<form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button type="submit" >Go 2</button>
-
 </form>
-</p>
+</td> </tbody> </table> </div></p>
 
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label>
 <hr>
 </head>
-EODHEAD1
-
+EODHHEAD
 
 #stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
