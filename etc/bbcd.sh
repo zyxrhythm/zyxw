@@ -10,9 +10,7 @@
 #start the html header
 echo "Content-type: text/html"
 echo ""
-
 echo '<!DOCTYPE html>'
-
 echo '<html>'
 
 #Tab title
@@ -121,13 +119,7 @@ function copyClipboard() {
 <!-- ################## BIG NICK DIGGER ################# -->
 
 <p><form action="bbcd.sh" method="get">
-<label>
-<div class="tooltip">
-&#9935; Big Nick Digger
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
-</span>
-</div>
-</label><br> 
+<br> 
 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 
