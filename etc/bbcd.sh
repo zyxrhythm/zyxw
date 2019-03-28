@@ -101,7 +101,6 @@ function copyClipboard() {
 </script>
 
 <!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-
 <script>
 function removeSpaces(string) {
  return string.split(' ').join('');
@@ -170,11 +169,10 @@ exit 0;
 
 else
 
-if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; then
-	
- xip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig -x $xip +short );
-
+if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; 
+then
+xip=$(echo $domain | tr -d '\040\011\012\015' );
+zyxrip=$(dig -x $xip +short );
 cat << EORIP
 <body>
 <p><h1>Reverse DNS</h1></p>
@@ -186,7 +184,6 @@ cat << EORIP
 </body>
 </html>
 EORIP
-
 exit 0;
 
  else
