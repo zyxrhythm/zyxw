@@ -150,7 +150,7 @@ else { x.style.display = 'none'; } }
   <option>PTR</option>
   <option selected>ANY</option>
 </select> 
-<button type="submit"> D I G </button><br> <br>
+<button type="submit"> D I G  2 </button><br> <br>
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
