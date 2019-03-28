@@ -59,25 +59,24 @@ article	{font-family: arial;
 }
 
 pre{
-    white-space: pre-wrap;font-size: 100%;
+    white-space: pre-wrap;font-size: 100%; word-wrap: break-word;
 }
 
 </style>
 </head>
 
 <body>
-
-<left>
 <br>
 <br>
 <p>
-<h1>TLD List 2</h1>
-<pre>
+<center>
+<h1>TLD List 1</h1>
+</center>
+<left>
 $cctldlist
 </pre>
 <br>
 </p>
-
 </left>
 </body>
 
