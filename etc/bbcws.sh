@@ -248,16 +248,16 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<p> <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
 <script> function jswhoistable() { var x = document.getElementById('whoistable'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;  
+<left><a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'>&#9776;  
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide the input table.<br><br>
-</span></a>
+</span></a></left>
 
 <div id='whoistable'> <table> <tbody> <td>
 
