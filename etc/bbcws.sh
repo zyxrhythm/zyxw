@@ -360,8 +360,18 @@ grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
-zyxregistry=$(echo "$zyx" | sed -e '1,/Query string:/d')
+zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
 zyxregistrar=$(whois $doi -h $rws );
+
+cutterfunc () {
+while IFS= read -r line
+do
+cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
+echo "$cutter";
+done < <(printf '%s\n' "$1");
+}
+
+zyxregistry=$( cutterfunc "$zyxregistry0" );
 
 cat <<EOWIR0
 <body >
