@@ -61,6 +61,33 @@ pre{ white-space: pre-wrap;font-size: 100%;
 strong{ color:green;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  display: none;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  display: inline;
+  visibility: visible;
+}
+
 </style>
 
 <script>
