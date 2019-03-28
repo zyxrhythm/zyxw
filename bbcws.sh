@@ -18,11 +18,10 @@ echo '<html>'
 #Tab title
 echo '<title>BBC WhoYou</title>'
 
-#start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
+cat <<ENDOFHEAD
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />
 
-cat <<EOX
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
@@ -38,14 +37,8 @@ cat <<EOX
 
   gtag('config', 'UA-32625644-1');
 </script>
-EOX
-
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
 
 <script>
-
 //from http://edupala.com/copy-div-content-clipboard/
 
 function copyClipboard() {
@@ -68,7 +61,6 @@ function copyClipboard() {
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand("Copy");
-
   }
 }
 
@@ -144,22 +136,30 @@ function whoisserver(evt, ws) {
   document.getElementById(ws).style.display = "block";
   evt.currentTarget.className += " active";
 } 
-
 // from https://www.w3schools.com/howto/howto_js_tabs.asp
-
 </script>
-EOS2
 
-#CSS 
-cat <<EOS
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
+
 <style>
 
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
  /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 1px solid #000;
+  background-color: #556B2F;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -175,19 +175,19 @@ cat <<EOS
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #000;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #006400;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #006400;
   border-top: none;
 } 
 
@@ -214,16 +214,61 @@ pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 strong { color:green;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  display: none;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  display: inline;
+  visibility: visible;
+}
+
 </style>
 
-EOS
+<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<script> function jswhoistable() { var x = document.getElementById('whoistable'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
 
-#the back button
-echo '<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;  
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to hide the input table.<br><br>
+</span></a>
 
-#end of head
-echo '</head>'
+<div id='whoistable'> <table> <tbody> <td>
 
+<!-- ################## WHO YOU ################# -->
+
+<form action="bbcws.sh" method="get">
+
+<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+<button id="whoyoubtn" type="submit" >Who is</button>
+
+</form>
+
+<!-- ################## WHO YOU ################# -->
+
+</td> </tbody> </table> </div> </p>
+
+</head>
+ENDOFHEAD
 #converts all uppercase form the query string to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
 
@@ -315,8 +360,18 @@ grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
 rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #does a whois querry for the domain
-zyxregistry=$(echo "$zyx" | sed -e '1,/Query string:/d')
+zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
 zyxregistrar=$(whois $doi -h $rws );
+
+cutterfunc () {
+while IFS= read -r line
+do
+cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
+echo "$cutter";
+done < <(printf '%s\n' "$1");
+}
+
+zyxregistry=$( cutterfunc "$zyxregistry0" );
 
 cat <<EOWIR0
 <body >
