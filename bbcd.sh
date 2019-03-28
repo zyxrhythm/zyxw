@@ -10,19 +10,17 @@
 #start the html header
 echo "Content-type: text/html"
 echo ""
-
 echo '<!DOCTYPE html>'
-
 echo '<html>'
 
 #Tab title
 echo '<title>Big Nick Digger</title>'
 
 #start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
+cat <<ENDOFHTMLHEAD
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />
 
-cat <<EOX
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
@@ -36,46 +34,53 @@ cat <<EOX
   gtag('js', new Date());
   gtag('config', 'UA-32625644-1');
 </script>
-EOX
 
-#CSS
-cat <<EOS
 <style>
-
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
-
 p  {font-family: verdana; font-size: 85%;
 }
-
 h1 { font-family: verdana; font-size: 80%;
 }
-
 body { background-color:black; color:white;
 }
-
 pre{ white-space: pre-wrap;font-size: 100%;
 }
-
 strong{ color:green;
 }
-
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  display: none;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  display: inline;
+  visibility: visible;
+}
 </style>
-
-EOS
-
-# the javascript that copies the contents of div to clipboard
-#this is a snippet from http://edupala.com/copy-div-content-clipboard/
-cat <<EOS2
 
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
   // for Internet Explorer
-
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
     range.moveToElementText(elm);
@@ -85,27 +90,69 @@ function copyClipboard() {
   }
   else if(window.getSelection) {
     // other browsers
-
     var selection = window.getSelection();
     var range = document.createRange();
     range.selectNodeContents(elm);
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand("Copy");
-
   }
 }
 </script>
-EOS2
 
-#the back button
-echo '<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>' 
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
 
-#The BBC button
-echo '<button onclick="copyClipboard()">BBC Copy</button>'
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+}
+</script>
 
-#end of head
-echo '</head> <hr>'
+<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<script> 
+function jsdigtable() { var x = document.getElementById('digtable'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
+
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsdigtable()'> &#9776; 
+<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
+<br>Click this to hide/unhide the input table.<br><br>
+</span></a>
+
+<div id='digtable' > <table> <tbody> <td>
+
+<!-- ################## BIG NICK DIGGER ################# -->
+<form action="bbcd.sh" method="get">
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
+<select name='record'> 
+  <option>A</option>
+  <option>MX</option>
+  <option>NS</option>
+  <option>TXT</option>
+  <option>SOA</option>
+  <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
+  <option>PTR</option>
+  <option selected>ANY</option>
+</select> 
+<button type="submit"> D I G </button><br> <br>
+<input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
+</form>
+<!-- ################## BIG NICK DIGGER ################# -->
+
+</td> </tbody> </table> </div></p>
+
+<button onclick="copyClipboard()">Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br></span></label>
+<hr> </head>
+ENDOFHTMLHEAD
 
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
 qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
@@ -120,51 +167,38 @@ DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
-		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
+if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
 #checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
-
 cat <<EOTSE
 <body>
 <div id="divClipboard">
-<p>
-<strong>Input</strong> : null
-<br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
-<br>
-</p>
+<p><strong>Input</strong> : null<br> <br>
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.<br><br></p>
 </div>
 </body>
 </html>
-
 EOTSE
-
 exit 0;
 
 else
 
-	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; then
-	
- xip=$(echo $domain | tr -d '\040\011\012\015' );
-	zyxrip=$(dig -x $xip +short );
-
+if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; 
+then
+xip=$(echo $domain | tr -d '\040\011\012\015' );
+zyxrip=$(dig -x $xip +short );
 cat << EORIP
 <body>
 <p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
-<p>
-<strong>IP address :</strong> $xip <br>
+<p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
-</p>
-</div>
-<hr>
+</p></div><hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
 EORIP
-
 exit 0;
 
  else
@@ -177,16 +211,22 @@ case $tld in
    $gcctldlist)
 
 #prints the dig results for gtlds
-zyxgd=$(dig +noall +answer $DNSR $domain $qns);
+zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
+cutterfunc () {
+while IFS= read -r line
+do
+cutter=$( echo "$line" | sed 's/ \+ /\t/g' );
+echo "$cutter";
+done < <(printf '%s\n' "$1");
+}
+
+zyxgd=$( cutterfunc "$zyxgd0" );
 
 if [[ -z $zyxgd ]]; 
 
-then echo "
-<body>
+then echo "<body>
 <div id="divClipboard">
-<p>
-No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong>
-</p>
+<p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
 </body>
 </html>" && exit 0;
@@ -196,34 +236,27 @@ else true;
 fi;
 
 cat <<EODR
-<body>
-<br/>
+<body><br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <div id="divClipboard">
-<p>
-<pre>$zyxgd</pre>
-<br>
-</p>
+<p><pre>$zyxgd</pre><br></p>
 </div>
 </body>
 </html>
 EODR
-
 ;;
 
 #error for non domain input
-   *)
- if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
+*)
+if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
 <body>
 <div id="divClipboard">
-<p>
-<strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
+<p><strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
-To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
-</p>
+To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a></p>
 </div>
 </body>
 </html>
@@ -234,7 +267,7 @@ exit 0;
 
 esac
 
-echo '<br><hr> <br><p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
+echo '<hr><p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
 
 	fi
 fi
