@@ -345,13 +345,15 @@ case $tld in
 
 rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
-rws=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+rws0=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+
+if [[ -z "$rws0" ]] || [[ "$rws0" = " " ]]; then rws="Registrar WHOIS Server: Not Found!"; else rws="$rws0"; fi;
 
 #does a whois querry for the domain
 zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
 zyxregistrar0=$(whois $doi -h $rws );
 
-if [[ -z  "$zyxregsitrar0" ]] || [[ "$zyxregsitrar0" = " " ]] ; then zyxregistrar="Registrar Whois server not found!"; else zyxregistrar="$zyxregistrar0"; fi;
+if [[ -z  "$zyxregsitrar0" ]] || [[ "$zyxregsitrar0" = " " ]] ; then zyxregistrar="Registrar Whois server not found!<br>Possible causes: The server does not provide whois details via port 43, and only provides a web interface for whois qeuries.<br>Or there is no such server provided by the registrar."; else zyxregistrar="$zyxregistrar0"; fi;
 
 cutterfunc () {
 while IFS= read -r line
@@ -398,9 +400,7 @@ cat <<EOWIR0
 	</div>
 </div>
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
-</p>
-</div>
-
+</p></div>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -413,15 +413,11 @@ ph)
 #start of html body
 echo '<body>'
 cat <<EOQPH
-<p>
-<br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.
-</p>
+<p><br><a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.</p>
 </body>
 </html>
 EOQPH
 exit 0;
-
 ;;
 
 #special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
@@ -438,7 +434,6 @@ cat <<EOQSG
 </html>
 EOQSG
 exit 0;
-
 ;;
 
 #throw an error for everything else
@@ -454,15 +449,12 @@ Not a valid domain!.
 </div>
 
 EONAVDE
-
 ;;
 
 esac
-
 		fi
 	fi
 fi
-
 
 exit 0;
 
