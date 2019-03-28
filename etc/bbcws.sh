@@ -319,7 +319,7 @@ else
 cat << EOWIIPR
 
 <body>
-<button onclick="copyClipboard1()">BBC Copy</button>
+<button onclick="copyClipboard1()">Copy Result</button>
 <br><hr>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre>
@@ -340,7 +340,7 @@ dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 cat <<EODC
 <body>
 <p>
-<button onclick="copyClipboard1()">BBC Copy</button>
+<button onclick="copyClipboard1()">Copy Result</button>
 <br/>
 <div id="divClipboard1">
 <p>
@@ -400,24 +400,28 @@ cat <<EOWIR0
 <div id="Registry" class="tabcontent" style=display:block >
 	<strong>Whois server:</strong> ${rws0#*server}
 	<br/> <br/>
-	<button onclick="copyClipboard()">BBC Copy</button>
+	<table> <tbody> <td>
+	<button onclick="copyClipboard()">Copy Result</button>
 	<br/>
 	<div id="divClipboard">
 	<p>
 	<pre>$zyxregistry</pre>
 	</p>
+	</td> </tbody> </table>
 	</div>
 </div>
 
 <div id="Registrar" class="tabcontent" >
 	<strong>Whois server:</strong> $rws
 	<br/> <br/>
-	<button onclick="copyClipboard0()">BBC Copy</button>
+	<table> <tbody> <td>
+	<button onclick="copyClipboard0()">Copy Result</button>
 	<br/>
 	<div id="divClipboard0">
 	<p>
 	<pre>$zyxregistrar</pre>
 	</p>
+	</td> </tbody> </table>
 	</div>
 </div>
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
