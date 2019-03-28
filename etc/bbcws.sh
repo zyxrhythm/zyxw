@@ -295,7 +295,7 @@ cat <<EOTS
 <p>
 <br>
 <strong>Input</strong> : null <br> <br>
-Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
+Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!!
 <br>
 <br>
 </p>
@@ -344,7 +344,7 @@ cat <<EODC
 <br/>
 <div id="divClipboard1">
 <p>
-<strong>Input</strong> : $domain <br> <br>
+<strong>Input</strong> : $doi <br> <br>
 Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
 And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!
 </div>
