@@ -240,7 +240,7 @@ cutterfunc () {
 
 while IFS= read -r line
 do
-cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
+cutter=$( echo "$line" | sed 's/ \+ /\t/g' );
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
