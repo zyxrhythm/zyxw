@@ -2,7 +2,7 @@
 echo "Content-type: text/html"
 echo ""
 
-cctldlist=$( cat ./etc/cctld.txt);
+cctldlist=$( cat ./etc/cctldx.txt);
 
 cat <<EOT
 
@@ -71,6 +71,7 @@ pre{
 <br>
 <br>
 <p>
+<h1>TLD List 2</h1>
 <pre>
 $cctldlist
 </pre>
