@@ -59,7 +59,7 @@ article	{font-family: arial;
 }
 
 pre{
-    white-space: pre-wrap;font-size: 100%;
+    white-space: pre-wrap;font-size: 100%;word-wrap: break-word;
 }
 
 </style>
