@@ -266,7 +266,7 @@ else { x.style.display = 'none'; } }
 <form action="bbcws.sh" method="get">
 
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-<button id="whoyoubtn" type="submit" >Who is</button>
+<button id="whoyoubtn" type="submit" >Who is 2</button>
 
 </form>
 
