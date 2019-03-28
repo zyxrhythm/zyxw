@@ -121,7 +121,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsdigtable()'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide the table.<br><br>
 </span></a>
