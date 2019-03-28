@@ -214,7 +214,7 @@ pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 strong { color:green;
 }
 
-table { font-family: verdana; border: 2px solid green; font-size: 95%;
+table { font-family: verdana; border: 2px solid green; font-size: 97%;
 }
 th { border: 2px solid green;
 }
@@ -398,7 +398,7 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-	<table> <tbody> <td><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br><br>
+	<table> <tbody> <td style="font-size: 90%;"><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br>
 	<button onclick="copyClipboard()">Copy Result</button><br>
 	<table> <tbody> <td>
 	<div id="divClipboard">
@@ -408,7 +408,7 @@ cat <<EOWIR0
 </div>
 
 <div id="Registrar" class="tabcontent" >
-	<table> <tbody> <td><strong>Whois server:</strong> $rws</td> </tbody> </table><br><br><br><br>
+	<table> <tbody> <td style="font-size: 90%;"><strong>Whois server:</strong> $rws</td> </tbody> </table><br><br>
 	<button onclick="copyClipboard0()">Copy Result</button><br>
 	<table> <tbody> <td>
 	<div id="divClipboard0">
