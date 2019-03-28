@@ -49,6 +49,13 @@ body { background-color:black; color:white;
 }
 pre{ white-space: pre-wrap;font-size: 100%;
 }
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
+}
+th { border: 2px solid green;
+}
+td { vertical-align: top; text-align: left; border: 1px solid green;
+}
+
 strong{ color:green;
 }
 .tooltip {
