@@ -18,7 +18,6 @@ echo '<title>Big Nick Digger</title>'
 
 #start of head
 cat <<ENDOFHTMLHEAD
-
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />
 
@@ -37,34 +36,26 @@ cat <<ENDOFHTMLHEAD
 </script>
 
 <style>
-
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
-
 p  {font-family: verdana; font-size: 85%;
 }
-
 h1 { font-family: verdana; font-size: 80%;
 }
-
 body { background-color:black; color:white;
 }
-
 pre{ white-space: pre-wrap;font-size: 100%;
 }
-
 strong{ color:green;
 }
-
 .tooltip {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
 }
-
 .tooltip .tooltiptext {
   font-size:85%;
   visibility: hidden;
@@ -80,19 +71,16 @@ strong{ color:green;
   position: absolute;
   z-index: 1;
 }
-
 .tooltip:hover .tooltiptext {
   display: inline;
   visibility: visible;
 }
-
 </style>
 
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
   // for Internet Explorer
-
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
     range.moveToElementText(elm);
@@ -102,14 +90,12 @@ function copyClipboard() {
   }
   else if(window.getSelection) {
     // other browsers
-
     var selection = window.getSelection();
     var range = document.createRange();
     range.selectNodeContents(elm);
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand("Copy");
-
   }
 }
 </script>
@@ -123,7 +109,6 @@ function removeSpaces(string) {
 </script>
 
 <!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-
 <script>
 function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
@@ -131,12 +116,9 @@ function removeSpecialCharacters(string) {
 </script>
 
 <p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
-
 <!-- ################## BIG NICK DIGGER ################# -->
-
 <p><form action="bbcd.sh" method="get">
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
-
 <select name='record'> 
   <option>A</option>
   <option>MX</option>
@@ -149,19 +131,13 @@ function removeSpecialCharacters(string) {
   <option>PTR</option>
   <option selected>ANY</option>
 </select> 
-
 <button type="submit"> D I G </button><br> <br>
-
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
-
 </form></p>
-
 <!-- ################## BIG NICK DIGGER ################# -->
 
 <button onclick="copyClipboard()">Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br></span></label>
-
 <hr> </head>
-
 ENDOFHTMLHEAD
 
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
@@ -177,32 +153,24 @@ DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
-		if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
+if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
 #checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
-
 cat <<EOTSE
 <body>
 <div id="divClipboard">
-<p>
-<strong>Input</strong> : null
-<br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
-<br>
-</p>
+<p><strong>Input</strong> : null<br> <br>
+Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.<br><br></p>
 </div>
 </body>
 </html>
-
 EOTSE
-
 exit 0;
 
 else
 
-	if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; then
+if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; then
 	
  xip=$(echo $domain | tr -d '\040\011\012\015' );
 	zyxrip=$(dig -x $xip +short );
@@ -211,12 +179,9 @@ cat << EORIP
 <body>
 <p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
-<p>
-<strong>IP address :</strong> $xip <br>
+<p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
-</p>
-</div>
-<hr>
+</p></div><hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
@@ -235,9 +200,7 @@ case $tld in
 
 #prints the dig results for gtlds
 zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
-
 cutterfunc () {
-
 while IFS= read -r line
 do
 cutter=$( echo "$line" | sed 's/ \+ /\t/g' );
@@ -249,12 +212,9 @@ zyxgd=$( cutterfunc "$zyxgd0" );
 
 if [[ -z $zyxgd ]]; 
 
-then echo "
-<body>
+then echo "<body>
 <div id="divClipboard">
-<p>
-No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong>
-</p>
+<p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
 </body>
 </html>" && exit 0;
@@ -264,34 +224,27 @@ else true;
 fi;
 
 cat <<EODR
-<body>
-<br/>
+<body><br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <div id="divClipboard">
-<p>
-<pre>$zyxgd</pre>
-<br>
-</p>
+<p><pre>$zyxgd</pre><br></p>
 </div>
 </body>
 </html>
 EODR
-
 ;;
 
 #error for non domain input
-   *)
- if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
+*)
+if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
 <body>
 <div id="divClipboard">
-<p>
-<strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
+<p><strong>Input</strong> : domain ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
-To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>
-</p>
+To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a></p>
 </div>
 </body>
 </html>
