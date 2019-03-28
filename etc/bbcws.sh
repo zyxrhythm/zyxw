@@ -345,9 +345,9 @@ case $tld in
 
 rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
 grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
-rws0=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+rws1=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
-if [[ -z "$rws0" ]] || [[ "$rws0" = " " ]]; then rws="Registrar WHOIS Server: Not Found!"; else rws="$rws0"; fi;
+if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; then rws="Registrar WHOIS Server: Not Found!"; else rws="$rws1"; fi;
 
 #does a whois querry for the domain
 zyxregistry0=$(echo "$zyx" | sed -e '1,/Query string:/d')
