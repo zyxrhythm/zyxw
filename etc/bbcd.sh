@@ -126,7 +126,7 @@ else { x.style.display = 'none'; } }
 <br>Click this to hide/unhide the input table.<br><br>
 </span></a>
 
-<div id='digtable' style='display:none'> <table> <tbody> <td>
+<div id='digtable' > <table> <tbody> <td>
 
 <!-- ################## BIG NICK DIGGER ################# -->
 <form action="bbcd.sh" method="get">
