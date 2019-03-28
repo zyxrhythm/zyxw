@@ -116,7 +116,7 @@ function copyClipboard() {
 }
 </script>
 
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a> </p>
 
 <!-- ################## BIG NICK DIGGER ################# -->
 
@@ -129,7 +129,7 @@ function copyClipboard() {
 </div>
 </label><br> 
 
-<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain"><br><br>
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 
 <select name='record'> 
   <option>A</option>
@@ -152,7 +152,7 @@ function copyClipboard() {
 
 <!-- ################## BIG NICK DIGGER ################# -->
 
-<button onclick="copyClipboard()">BBC Copy</button>
+<button onclick="copyClipboard()">Copy Results</button>
 
 </head> <hr>
 
