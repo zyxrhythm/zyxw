@@ -67,11 +67,14 @@ pre{
 
 <body>
 
-<left>
+
 <br>
 <br>
 <p>
+<center>
 <h1>TLD List 1</h1>
+</center>
+<left>
 <pre>
 $gtldlist
 </pre>
