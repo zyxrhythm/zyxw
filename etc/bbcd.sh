@@ -119,8 +119,6 @@ function copyClipboard() {
 <!-- ################## BIG NICK DIGGER ################# -->
 
 <p><form action="bbcd.sh" method="get">
-<br> 
-
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
 
 <select name='record'> 
