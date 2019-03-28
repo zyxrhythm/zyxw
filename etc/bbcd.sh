@@ -158,9 +158,9 @@ function removeSpecialCharacters(string) {
 
 <!-- ################## BIG NICK DIGGER ################# -->
 
-<button onclick="copyClipboard()">Copy Results</button>
+<button onclick="copyClipboard()">Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br></span></label>
 
-</head> <hr>
+<hr> </head>
 
 ENDOFHTMLHEAD
 
@@ -240,7 +240,7 @@ cutterfunc () {
 
 while IFS= read -r line
 do
-cutter=$( echo "${line//google.com./}" | sed -e 's/^[ \t]*//');
+cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
