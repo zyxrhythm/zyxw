@@ -159,7 +159,7 @@ function removeSpecialCharacters(string) {
 .tab {
   overflow: hidden;
   border: 1px solid #000;
-  background-color: #006400;
+  background-color: #556B2F;
 }
 
 /* Style the buttons that are used to open the tab content */
