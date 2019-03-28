@@ -398,27 +398,21 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-	<strong>Whois server:</strong> ${rws0#*server}
-	<br/><button onclick="copyClipboard()">Copy Result</button><br/>
+	<strong>Whois server:</strong> ${rws0#*server}<br><br>
+	<button onclick="copyClipboard()">Copy Result</button><br>
 	<table> <tbody> <td>
-	<br/>
 	<div id="divClipboard">
-	<p>
-	<pre>$zyxregistry</pre>
-	</p>
+	<p><pre>$zyxregistry</pre></p>
 	</td> </tbody> </table>
 	</div>
 </div>
 
 <div id="Registrar" class="tabcontent" >
-	<strong>Whois server:</strong> $rws
-	<br/><button onclick="copyClipboard0()">Copy Result</button><br/>
+	<strong>Whois server:</strong> $rws<br><br>
+	<button onclick="copyClipboard0()">Copy Result</button><br>
 	<table> <tbody> <td>
-	<br/>
 	<div id="divClipboard0">
-	<p>
-	<pre>$zyxregistrar</pre>
-	</p>
+	<p><pre>$zyxregistrar</pre></p>
 	</td> </tbody> </table>
 	</div>
 </div>
