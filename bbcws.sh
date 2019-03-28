@@ -16,7 +16,7 @@ echo '<!DOCTYPE html>'
 echo '<html>'
 
 #Tab title
-echo '<title>BBC WhoYou</title>'
+echo '<title>WhoYou</title>'
 
 cat <<ENDOFHEAD
 <head>
