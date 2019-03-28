@@ -87,7 +87,31 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 -----------------------
 
-
+---------------------------------------------------------
+What the scripts are working with:
+---------------------------------------------------------
+:~# lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.6 LTS
+Release:        16.04
+Codename:       xenial
+---------------------------------------------------------
+:~# bash --version
+GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
+---------------------------------------------------------
+~# whois --version
+Version 5.2.11.
+---------------------------------------------------------
+:~# dig -v
+DiG 9.10.3-P4-Ubuntu
+---------------------------------------------------------
+:~# cat /etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+---------------------------------------------------------
+TLD lists used (<a href="/cgi-bin/gtld.sh" target="_blank" >1</a> & <a href="/cgi-bin/gtld.sh" target="_blank" >2</a>).  
+---------------------------------------------------------
 
 For bugs and other concerns please email:
 director@bigblackcactus.com
