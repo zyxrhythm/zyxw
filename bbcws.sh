@@ -201,19 +201,14 @@ a:visited { color: red;  }
 
 p  { font-family: verdana; font-size: 85%;
 }
-
 h1 {font-family: verdana; font-size: 70%;
 }
-
 body {background-color:black;color:white;
 }
-
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
-
 strong { color:green;
 }
-
 table { font-family: verdana; border: 2px solid green; font-size: 97%;
 }
 th { border: 2px solid green;
@@ -248,13 +243,13 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<p> <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
 <script> function jswhoistable() { var x = document.getElementById('whoistable'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;  
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide the input table.<br><br>
 </span></a>
@@ -292,17 +287,11 @@ if [[ -z "$doi" ]]; then
 cat <<EOTS
 <body>
 <di id="divClipboard">
-<p>
-<br>
-<strong>Input</strong> : null <br> <br>
-Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!!
-<br>
-<br>
-</p>
+<p><br><strong>Input</strong> : null <br> <br>
+Please enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!!<br><br></p>
 </div>
 </body>
 </html>
-
 EOTS
 
 exit 0;
@@ -310,24 +299,20 @@ exit 0;
 else
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
-#from 
-
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois );
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
-cat << EOWIIPR
 
+cat << EOWIIPR
 <body>
 <button onclick="copyClipboard1()">Copy Result</button>
 <br><hr>
 <div id="divClipboard1">
-<pre> $zyxip0 </pre>
-<br><hr>
-<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+<pre> $zyxip0 </pre><br>
+<hr><p><a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
-
 EOWIIPR
 	else
 
@@ -336,26 +321,20 @@ zyx=$(whois --verbose $doi );
 
 dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
 		if [[ "$dvcheck" = "no" ]]; then
-
 cat <<EODC
 <body>
-<p>
-<button onclick="copyClipboard1()">Copy Result</button>
-<br/>
+<p><button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
-<p>
-<strong>Input</strong> : $doi <br> <br>
+<p><strong>Input</strong> : $doi <br> <br>
 Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
 And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!
-</div>
-</p>
+</div></p>
 </body>
 </html>
 EODC
 
 exit 0;
-
-		else
+	else
 
 #once the domain is verified - if will extract the TLD - to check if it is a FQDN
 tld=$( echo $doi | rev | cut -d "." -f1 | rev );
@@ -384,9 +363,7 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 
 cat <<EOWIR0
 <body >
-
-<div >
-<p>
+<div ><p>
 
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
 
@@ -398,7 +375,8 @@ cat <<EOWIR0
 
 <!-- Tab content -->
 <div id="Registry" class="tabcontent" style=display:block >
-	<table> <tbody> <td style="font-size: 87%;"><strong>Whois server:</strong> ${rws0#*server}</td> </tbody> </table><br>
+	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> ${rws0#*server}
+	</td> </tbody> </table><br>
 	<button onclick="copyClipboard()">Copy Result</button><br>
 	<table> <tbody> <td>
 	<div id="divClipboard">
@@ -408,7 +386,8 @@ cat <<EOWIR0
 </div>
 
 <div id="Registrar" class="tabcontent" >
-	<table> <tbody> <td style="font-size: 87%;"><strong>Whois server:</strong> $rws</td> </tbody> </table><br>
+	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $rws
+	</td> </tbody> </table><br>
 	<button onclick="copyClipboard0()">Copy Result</button><br>
 	<table> <tbody> <td>
 	<div id="divClipboard0">
