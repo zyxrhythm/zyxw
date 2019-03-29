@@ -168,7 +168,7 @@ else { x.style.display = 'none'; } }
 </td> </tbody> </table> </div></p>
 
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
- &nbsp; &nbsp; &nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <a style='color:tomato; cursor: pointer;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;</a>
 
 <hr>
