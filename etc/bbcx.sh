@@ -985,47 +985,6 @@ __________________________
 
 ;;
 
-#special result for .ph ccTLD 
-ph)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
-echo "
-<body>
-<div id='divClipboard'>
-<p>
-<br>For the  Whois info of this .ph domain, <br>
-Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
-</p>
-<p>
-__________________________ <br> <br>
-<strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
-</div>
-</body>
-</html>
-"
-exit 0;
-
-;;
-
 #special result for .sg ccTLD 
 sg)
 
@@ -1063,6 +1022,47 @@ __________________________
 </body>
 </html>
 EOQSG
+exit 0;
+
+;;
+
+#special result for .ph ccTLD 
+ph)
+
+ar=$(dig +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8);
+
+arfrgt=$( arfunction "$ar" );
+
+mrfrgt=$( mrfunction "$mxr");
+
+echo "
+<body>
+<div id='divClipboard'>
+<p>
+<br>For the  Whois info of this .ph domain, <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
+</p>
+<p>
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br>
+<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
+<br>
+$arfrgt
+<br>
+__________________________
+<br> <br>
+<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
+<br> <br>
+$mrfrgt
+__________________________
+</p>
+</div>
+</body>
+</html>
+"
 exit 0;
 
 ;;
@@ -1108,9 +1108,7 @@ exit 0;
 
 ;;
 
-
 #throw an error for anything else
-
 *)
 cat << ERRORFORALLELSE
 
