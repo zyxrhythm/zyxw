@@ -169,7 +169,7 @@ else { x.style.display = 'none'; } }
 
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
 
-< label style='color:tomato; onclick="location.reload();"> &#8635; </label>
+<a style='color:tomato; onclick="location.reload();"> &#8635; </a>
 
 <hr>
 </head>
