@@ -172,7 +172,7 @@ else { x.style.display = 'none'; } }
 location.reload();
 </script>
 
-<a onclick="location.reload();"> &#8635; </a>
+<button onclick="location.reload();"> &#8635; </button>
 
 <hr>
 </head>
