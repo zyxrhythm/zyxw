@@ -87,9 +87,18 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 -----------------------
 
----------------------------------------------------------
-What the scripts are working with:
----------------------------------------------------------
+
+For bugs and other concerns please email:
+director@bigblackcactus.com
+
+
+
+
+
+=========================================================
+[For the Geeks] 
+What the scripts are working with: 
+=========================================================
 :~# lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
@@ -113,11 +122,10 @@ OpenSSL 1.0.2g  1 Mar 2016
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ---------------------------------------------------------
-TLD lists used (<a href="/cgi-bin/gtld.sh" target="_blank" >1</a> & <a href="/cgi-bin/cctld.sh" target="_blank" >2</a>).  
+TLD lists used (<a href="/cgi-bin/gtld.sh" target="_blank" > 1 </a> & <a href="/cgi-bin/cctld.sh" target="_blank" > 2 </a>).  
 ---------------------------------------------------------
 
-For bugs and other concerns please email:
-director@bigblackcactus.com
+
 </pre>
 <br>
 </p>
