@@ -135,6 +135,11 @@ nameserver 8.8.4.4
 ---------------------------------------------------------
 TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" > list1 </a> and <a href="/cgi-bin/cctld.sh" target="_blank" > list2 </a>).  
 ---------------------------------------------------------
+Bash string manipulation and other opearations (server-side): 
+grep, sed, awk, echo, cat, rev, git, gitrevcount, bc,
+posix character expansions, shopt (extglob),
+---------------------------------------------------------
+================================================================
 ################################################################
 
 </pre>
