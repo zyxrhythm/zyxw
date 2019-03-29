@@ -995,9 +995,9 @@ arfrgt=$( arfunction "$ar" );
 
 mrfrgt=$( mrfunction "$mxr");
 
-cat <<EOPHQ
+echo "
 <body>
-<div id="divClipboard">
+<div id='divClipboard'>
 <p>
 <br>For the  Whois info of this .ph domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
@@ -1021,7 +1021,7 @@ __________________________
 </div>
 </body>
 </html>
-EOPHQ
+"
 exit 0;
 
 ;;
