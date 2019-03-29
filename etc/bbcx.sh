@@ -154,7 +154,7 @@ if (x.style.display === 'none')
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
-&nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 150%;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;</a>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsxtable()'> &#9776; 
