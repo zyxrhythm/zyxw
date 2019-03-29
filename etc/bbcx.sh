@@ -157,7 +157,7 @@ else { x.style.display = 'none'; } }
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <right>
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsxtable()'> &#9776; 
+<a style='color:tomato; cursor: pointer; font-size:126%' class='button tooltip' onclick='jsxtable()'> &#9776; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide/unhide the input table.<br><br>
 </span></a>
@@ -172,7 +172,7 @@ else { x.style.display = 'none'; } }
 
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
 &nbsp; &nbsp; &nbsp;
-<a style='color:tomato; cursor: pointer; font-size: 126%;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;</a>
+<a style='color:tomato; cursor: pointer; font-size: 116%;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;</a>
 
 <hr>
 </head>
