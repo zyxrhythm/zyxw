@@ -161,10 +161,56 @@ case $tld in
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
-   
+
 Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
+
+daysleftmonth=$( echo '${Expiry:0:3}' | awk '{print tolower($0)}' );
+
+case $daysleftmonth in)
+jan)
+datenum='1'
+;;
+feb)
+datenum='2'
+;;
+mar)
+datenum='3'
+;;
+apr)
+datenum='4'
+;;
+may)
+datenum='5'
+;;
+jun)
+datenum='6'
+;;
+jul)
+datenum='7'
+;;
+aug)
+datenum='8'
+;;
+sep)
+datenum='9'
+;;
+oct)
+datenum='10'
+;;
+nov)
+datenum='11'
+;;
+dec)
+datenum='12'
+;;
+*)
+datenum='0'
+;;
+esac
+
+daysleftdate=$( echo '${Expiry:}' )
 
 IP=$(dig +short a $domain | head -n 1);
 
