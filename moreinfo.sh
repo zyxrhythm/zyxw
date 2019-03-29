@@ -133,7 +133,7 @@ OpenSSL 1.0.2g  1 Mar 2016
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ---------------------------------------------------------
-TLD lists used: (<a href="/cgi-bin/gtld.sh" target="_blank" > list1 </a> and <a href="/cgi-bin/cctld.sh" target="_blank" > list2 </a>).  
+TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" > list1 </a> and <a href="/cgi-bin/cctld.sh" target="_blank" > list2 </a>).  
 ---------------------------------------------------------
 ################################################################
 
