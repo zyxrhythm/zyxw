@@ -106,6 +106,9 @@ Version 5.2.11.
 :~# dig -v
 DiG 9.10.3-P4-Ubuntu
 ---------------------------------------------------------
+:~# openssl version
+OpenSSL 1.0.2g  1 Mar 2016
+---------------------------------------------------------
 :~# cat /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 8.8.4.4
