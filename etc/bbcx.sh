@@ -172,8 +172,7 @@ else { x.style.display = 'none'; } }
 location.reload();
 </script>
 
-<label onclick="location.reload();"> &#8635; </label>
-
+<a onclick="location.reload();"> &#8635; </a>
 
 <hr>
 </head>
