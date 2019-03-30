@@ -17,6 +17,12 @@ echo "<!DOCTYPE html>
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />"
 
+#stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
+qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
+
+#removes "domain=" from the QUERY_STRING and store it in domain variable
+domain=$(echo "$qs" | cut -f2 -d"=" );
+
 cat <<EODHHEAD
 <!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
@@ -161,8 +167,10 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' ><table> <tbody> <td>
-Test table
+<div id='navtable' style='display:none' ><table> <tbody> <td>
+<a href='/cgi-bin/bbcws.sh?domain=$domain'>Who You</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$domain'>S.C.C.</a>
+<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='></a>
 </td> </tbody> </table> </div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -184,8 +192,7 @@ Test table
 </head>
 EODHHEAD
 
-#stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
+
 
 #list of supported TLDs
 shopt -s extglob
@@ -194,8 +201,7 @@ tldlist0='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|acce
 #list of supported ccTLDs
 tldlist1='+(ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bw|by|bz|cd|cf|cg|ch|ci|ck|cl|cm|cn|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|om|pa|pe|pf|pg|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sh|si|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tw|tz|ua|ug|uy|uz|va|vc|ve|vg|vi|vu|wf|ws|ye|yt|za|zm|zw)'
 
-#removes "domain=" from the QUERY_STRING and store it in domain variable
-domain=$(echo "$qs" | cut -f2 -d"=" );
+
 #=================
 # FUNCTION HALL
 #=================
