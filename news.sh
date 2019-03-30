@@ -72,7 +72,11 @@ pre{
 
 -----------------------
 
-- Some improvements on BBC Special, Who You and Big Nick Digger results page.
+- Added navigation menu on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
+
+- As per request, added a refesh button on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
+
+- Some improvements on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
 
 - Fixed Bug: about registrar whois server not found or invalid yet the footer displays no error.
 
