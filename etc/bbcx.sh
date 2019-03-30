@@ -157,7 +157,7 @@ else { x.style.display = 'none'; } }
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 <a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable()'> &#9776; </a>
-<div id='navtable' ><table> <tbody> <td>
+<div id='navtable' styele='display:none;'><table> <tbody> <td>
 TEST
 </td> </tbody> </table> </div>
 
