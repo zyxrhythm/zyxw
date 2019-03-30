@@ -167,7 +167,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float: left; color: red;' >
+<div id='navtable' style='display:none; float: right;' >
 <a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; SCC ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; BND ]</a>
@@ -176,8 +176,8 @@ else { x.style.display = 'none'; } }
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 <a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable(); jsx2table()'> &#9776; </a>
-
-<div id='xtable' ><table> <tbody> <td>
+</p>
+<p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button type="submit" >Go 2</button>
