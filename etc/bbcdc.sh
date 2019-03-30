@@ -61,6 +61,39 @@ body { background-color:black; color:white;
 
 strong { color: green;
 }
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
+}
+th { border: 2px solid green;
+}
+td { vertical-align: top; text-align: left; border: 1px solid green;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  display: none;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  display: inline;
+  visibility: visible;
+}
 </style>
 
 <!-- from http://edupala.com/copy-div-content-clipboard -->
@@ -88,6 +121,7 @@ function copyClipboard() {
   }
 }
 </script>
+
 <!-- from http://edupala.com/copy-div-content-clipboard -->
 
 <!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
@@ -103,6 +137,7 @@ function removeSpaces(string) {
 <script>
 function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
+</script>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
