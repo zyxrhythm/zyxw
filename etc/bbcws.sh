@@ -283,9 +283,8 @@ else { x.style.display = 'none'; } }
 
 <!-- ################## WHO YOU ################# -->
 
-</td> </tbody> </table> </div> </p>
-
-<p><a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
+</td> </tbody> </table> </div> 
+<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
 </head>
 ENDOFHEAD
