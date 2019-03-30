@@ -154,9 +154,20 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
+<script> 
+function jsx2table() { var x = document.getElementById('navtable'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
+
+<div id='xtable' ><table> <tbody> <td>
+Test table
+</td> </tbody> </table> </div>
+
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable()'> &#9776; </a>
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable(); jsx2table()'> &#9776; </a>
 
 <div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
