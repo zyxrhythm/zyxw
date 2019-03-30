@@ -125,6 +125,48 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 
 echo '<br>'
 
+#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+if [[ -z "$domain" ]]; then
+
+cat <<EOTS
+<body>
+<hr>
+<div id="divClipboard">
+<p>
+Input: null.
+<br> <br>
+Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
+<br>
+</p>
+</div>
+<hr>
+<br>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+</body>
+</html>
+EOTS
+
+exit 0;
+
+else
+
+#cuts and extracts the TLD
+tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
+
+#checks if the domain is a gtld
+case $tld in
+   $gcctldlist)
+
+#uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
+Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
+Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
+Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
+   
+Issuer=${Issuer0#*CN=};
+Target=${Target0#*CN=};
+Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
+Daysleft=$( dateconvfunc "$Expiry");
+
 dateconvfunc () {
 Exp="$1";
 
@@ -173,48 +215,6 @@ echo "$daysleft";
 }
 
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
-if [[ -z "$domain" ]]; then
-
-cat <<EOTS
-<body>
-<hr>
-<div id="divClipboard">
-<p>
-Input: null.
-<br> <br>
-Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
-</p>
-</div>
-<hr>
-<br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
-</body>
-</html>
-EOTS
-
-exit 0;
-
-else
-
-#cuts and extracts the TLD
-tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
-
-#checks if the domain is a gtld
-case $tld in
-   $gcctldlist)
-
-#uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
-Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
-Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
-   
-Issuer=${Issuer0#*CN=};
-Target=${Target0#*CN=};
-Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
-Daysleft=$( dateconvfunc "$Expiry");
-
 IP=$(dig +short a $domain | head -n 1);
 
 if [[ -z "$IP" ]]; 
@@ -251,7 +251,8 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
-<strong>Expiration</strong> : $Expiry
+<strong>Expiration</strong> : $Expiry <br>
+<strong>Expiration</strong> : $Daysleft
 </p>
 </div>
 <hr>
