@@ -212,7 +212,7 @@ pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
 strong { color:green;
 }
-table { font-family: verdana; border: 2px solid green; font-size: 97%;
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 th { border: 2px solid green;
 }
@@ -277,7 +277,7 @@ else { x.style.display = 'none'; } }
 <button id="whoyoubtn" type="submit" >Who is 2</button>
 </form>
 </td> </tbody> </table> </div></p>
-<br>
+
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
 </head>
