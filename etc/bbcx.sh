@@ -43,65 +43,6 @@ cat <<EODHHEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<style>
-a {text-decoration: none; }
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-div a:link { color: tomato;  font-size: 90%; }
-div a:active { color: tomato;  font-size: 90%; }
-div a:hover { color: tomato;  font-size: 90%; }
-div a:visited { color: tomato;  font-size: 90%; }
-strong {color: green;
-}
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
-}
-h1 { font-family: verdana; font-size: 70%;
-}
-body { background-color:black; color:white;
-}
-pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-
-#domaintimes {color: green;
-
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-  font-size:85%;
-  visibility: hidden;
-  display: none;
-  width: 167px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  border: 3px dotted green;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  display: inline;
-  visibility: visible;
-}
-</style>
-
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -149,6 +90,61 @@ function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
 }
 </script>
+
+<style>
+a {text-decoration: none; }
+a:link { color: red;  }
+a:active { color: red;  }
+a:hover { color: red;  }
+a:visited { color: red;  }
+div a:link { color: tomato;  font-size: 90%; }
+div a:active { color: tomato;  font-size: 90%; }
+div a:hover { color: tomato;  font-size: 90%; }
+div a:visited { color: tomato;  font-size: 90%; }
+strong {color: green;
+}
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
+}
+h1 { font-family: verdana; font-size: 70%;
+}
+body { background-color:black; color:white;
+}
+pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
+}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
+}
+th { border: 2px solid green;
+}
+td { vertical-align: top; text-align: left; border: 1px solid green;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  font-size:85%;
+  visibility: hidden;
+  display: none;
+  width: 167px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  border: 3px dotted green;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  display: inline;
+  visibility: visible;
+}
+</style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
