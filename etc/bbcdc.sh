@@ -155,7 +155,7 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#127797; BBC Special ]</a>
+<a href='/cgi-bin/bbcx.sh?domain=$domain'>[ &#127797; BBC Special ]</a>
 <a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
