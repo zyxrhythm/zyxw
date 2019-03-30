@@ -264,6 +264,17 @@ else { x.style.display = 'none'; } }
 
 <a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a></p>
 
+
+
+<br><div id='whoistable'> <table> <tbody> <td>
+<!-- ################## WHO YOU ################# -->
+<form action="bbcws.sh" method="get">
+<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+<button id="whoyoubtn" type="submit" >Who is 2</button>
+</form>
+<!-- ################## WHO YOU ################# -->
+</td> </tbody> </table> </div> 
+
 <p> 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 <a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a> 
@@ -271,20 +282,7 @@ else { x.style.display = 'none'; } }
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
-<br><div id='whoistable'> <table> <tbody> <td>
-
-<!-- ################## WHO YOU ################# -->
-
-<form action="bbcws.sh" method="get">
-
-<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-<button id="whoyoubtn" type="submit" >Who is 2</button>
-
-</form>
-
-<!-- ################## WHO YOU ################# -->
-
-</td> </tbody> </table> </div> 
+<br>
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
 </head>
