@@ -247,37 +247,36 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a>
 <script> 
-function jswhoistable() { var x = document.getElementById('whoistable'); 
+function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 <script> 
-function jswhois2table() { var x = document.getElementById('navtable'); 
+function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
+
+<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
+<a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+</td> </tbody> </table></div>
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
 </p>
-
-
-<br><div id='whoistable'> <table> <tbody> <td>
-<!-- ################## WHO YOU ################# -->
+<p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcws.sh" method="get">
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button id="whoyoubtn" type="submit" >Who is 2</button>
 </form>
-<!-- ################## WHO YOU ################# -->
-</td> </tbody> </table> </div> 
-
-<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
-</td> </tbody> </table></div>
+</td> </tbody> </table> </div></p>
 <br>
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
