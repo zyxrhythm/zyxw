@@ -216,7 +216,7 @@ body {background-color:black;color:white;
 }
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
-table { font-family: verdana; border: 2px solid green; font-size: 97%;
+table { font-family: verdana; border: 2px solid green; font-size: 100%;
 }
 th { border: 2px solid green;
 }
