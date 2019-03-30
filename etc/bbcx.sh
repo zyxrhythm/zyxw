@@ -96,31 +96,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 </style>
 
-<script>
- var mousex = e.pageX + 20; //Get X coordinates
-    var mousey = e.pageY + 10; //Get Y coordinates
-   if((mousey+100)>$(window).height())
-   {
-
-    $('.tooltip')
-    .css({ top: mousey-100 ,left: mousex })
-
-   }
-   else if((mousex+200)>$(window).width())
-   {
-      $('.tooltip')
-    .css({ top: mousey ,left: mousex-200})
-
-   }
-   else
-    {
-   $('.tooltip')
-    .css({ top: mousey, left: mousex })
-
-    }
-</script>
-
-
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -173,17 +148,18 @@ function removeSpecialCharacters(string) {
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
-function jsxtable() { var x = document.getElementById('xtable'); 
+function jsxtable() { var x = document.getElementById('xtable, navtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' class='button tooltip' onclick='jsxtable()'> &#9776; 
-<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to hide/unhide the input table.<br><br>
-</span></a>
+
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable()'> &#9776; </a>
+<div id='navtable' ><table> <tbody> <td>
+TEST
+</td> </tbody> </table> </div>
 
 <div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
