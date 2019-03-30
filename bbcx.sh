@@ -17,6 +17,12 @@ echo "<!DOCTYPE html>
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />"
 
+#stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
+qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
+
+#removes "domain=" from the QUERY_STRING and store it in domain variable
+domain=$(echo "$qs" | cut -f2 -d"=" );
+
 cat <<EODHHEAD
 <!-- Site Description -->
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain, dig DNS records of domains and sub domains from name servers, etc...">
@@ -93,10 +99,9 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 .tooltip:hover .tooltiptext {
   display: inline;
   visibility: visible;
-
 }
-
 </style>
+
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -147,7 +152,7 @@ function removeSpecialCharacters(string) {
 
 <link rel="icon" type="image/png" href="/icon.png" />
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
@@ -155,25 +160,37 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsxtable()'> &#9776; 
-<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to hide/unhide the input table.<br><br>
-</span></a>
+<script> 
+function jsx2table() { var x = document.getElementById('navtable'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
 
-<div id='xtable' ><table> <tbody> <td>
+<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
+<a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+</td> </tbody> </table></div>
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
+</p>
+<p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button type="submit" >Go 2</button>
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label>
+<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
+&nbsp;
+<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
+
 <hr>
 </head>
 EODHHEAD
-
-#stores the QUERY_STRING from bbc.sh to a variable and converts all uppercase letters to lowercase
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
 
 #list of supported TLDs
 shopt -s extglob
@@ -182,8 +199,7 @@ tldlist0='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|acce
 #list of supported ccTLDs
 tldlist1='+(ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bw|by|bz|cd|cf|cg|ch|ci|ck|cl|cm|cn|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|om|pa|pe|pf|pg|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sh|si|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tw|tz|ua|ug|uy|uz|va|vc|ve|vg|vi|vu|wf|ws|ye|yt|za|zm|zw)'
 
-#removes "domain=" from the QUERY_STRING and store it in domain variable
-domain=$(echo "$qs" | cut -f2 -d"=" );
+
 #=================
 # FUNCTION HALL
 #=================
