@@ -70,10 +70,6 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
-#domaintimes {color: green;
-
-}
-
 .tooltip {
   position: relative;
   display: inline-block;
