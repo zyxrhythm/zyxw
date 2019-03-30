@@ -133,7 +133,7 @@ dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 
 dlmonth=$( echo "${Exp:0:3}" | awk '{print tolower($0)}' );
 
-case $dlmonth in)
+case $dlmonth in
 jan) 
 dlmono='1';; 
 feb) 
