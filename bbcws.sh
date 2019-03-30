@@ -202,6 +202,12 @@ a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
 
+div a:link { color: tomato;  font-size: 90%; }
+div a:active { color: tomato;  font-size: 90%; }
+div a:hover { color: tomato;  font-size: 90%; }
+div a:visited { color: tomato;  font-size: 90%; }
+strong {color: green;
+}
 p  { font-family: verdana; font-size: 85%;
 }
 h1 {font-family: verdana; font-size: 70%;
@@ -210,9 +216,7 @@ body {background-color:black;color:white;
 }
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
-strong { color:green;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 97%;
+table { font-family: verdana; border: 2px solid green; font-size: 100%;
 }
 th { border: 2px solid green;
 }
@@ -261,7 +265,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' ><table style='font-size: 90%;'> <tbody><td>
+<div id='navtable' style='display:none; float:right;' ><table style="font-size:90%;"> <tbody><td>
 <a href='/cgi-bin/bbcx.sh?domain=$doi'>[ &#127797; BBC Special ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$doi'>[ &#128195; S.C.C. ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$doi&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
