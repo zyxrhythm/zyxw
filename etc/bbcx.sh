@@ -161,7 +161,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='xtable' ><table> <tbody> <td>
+<div id='navtable' ><table> <tbody> <td>
 Test table
 </td> </tbody> </table> </div>
 
