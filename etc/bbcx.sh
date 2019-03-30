@@ -156,12 +156,10 @@ else { x.style.display = 'none'; } }
 </script>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<right>
-<a style='color:tomato; cursor: pointer; font-size:126%' class='button tooltip' onclick='jsxtable()'> &#9776; 
+<a align='right' style='color:tomato; cursor: pointer; font-size:126%' class='button tooltip' onclick='jsxtable()'> &#9776; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide/unhide the input table.<br><br>
 </span></a>
-</right>
 
 <div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
