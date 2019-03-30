@@ -96,6 +96,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 }
 
+
 </style>
 <!-- 
 The javascript that copies the contents of div to clipboard.
@@ -156,7 +157,7 @@ else { x.style.display = 'none'; } }
 </script>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<a align='right' style='color:tomato; cursor: pointer; font-size:126%' class='button tooltip' onclick='jsxtable()'> &#9776; 
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' class='button tooltip' onclick='jsxtable()'> &#9776; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to hide/unhide the input table.<br><br>
 </span></a>
