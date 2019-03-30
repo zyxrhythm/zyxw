@@ -271,7 +271,7 @@ else { x.style.display = 'none'; } }
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
-<div id='whoistable'> <table> <tbody> <td>
+<br><div id='whoistable'> <table> <tbody> <td>
 
 <!-- ################## WHO YOU ################# -->
 
