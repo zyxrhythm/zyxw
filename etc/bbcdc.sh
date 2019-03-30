@@ -165,32 +165,54 @@ Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2
 Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
+Daysleft=$( date_conv_func "$Expiry")
 
-daysleftmonth=$( echo '${Expiry:0:3}' | awk '{print tolower($0)}' );
+date_conv_func () {
+Exp="$1";
 
-case $daysleftmonth in)
-jan) monthno='1';; 
-feb) monthno='2';;
-mar) monthno='3';;
-apr) monthno='4';;
-may) monthno='5';;
-jun) monthno='6';;
-jul) monthno='7';;
-aug) monthno='8';;
-sep) monthno='9';;
-oct) monthno='10';;
-nov) monthno='11';;
-dec) monthno='12';;
-*) monthno='0';;
+dlyear0="${Exp:10:10}"
+dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
+
+dlmonth=$( echo '${Exp:0:3}' | awk '{print tolower($0)}' );
+
+case $dlmonth in)
+jan) 
+dlmono='1';; 
+feb) 
+dlmono='2';;
+mar) 
+dlmono='3';;
+apr) 
+dlmono='4';;
+may) 
+dlmono='5';;
+jun) 
+dlmono='6';;
+jul) 
+dlmono='7';;
+aug) 
+dlmono='8';;
+sep) 
+dlmono='9';;
+oct) 
+dlmono='10';;
+nov) 
+dlmono='11';;
+dec) 
+dlmono='12';;
+*) 
+dlmono='0';;
 esac
 
-daysleftdate0="${Expiry:0:9}"
-daysleftdate=$(grep -oP '(?<= ).*?(?= )' <<< "$daysleftdate0")
+dlday0="${Exp:0:9}"
+dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0")
 
-#2020-03-25
-fulldate="$dlyear-$monthno-$daysleftdate"
+fulldate="$dlyear-$dlmono-$dlday"
 
-daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
+daysleft=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
+
+echo "$daysleft"
+}
 
 IP=$(dig +short a $domain | head -n 1);
 
