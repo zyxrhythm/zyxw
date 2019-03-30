@@ -167,10 +167,10 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none' ><table> 
-<a href='/cgi-bin/bbcws.sh?domain=$domain'>[&#128269;Who You]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[&#128195;SCC]</a>
-<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[&#9935;BND]</a>
+<div id='navtable' style='display:none' >
+<a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; SCC ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; BND ]</a>
 </div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
