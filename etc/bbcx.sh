@@ -167,7 +167,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none' >
+<div id='navtable' style='display:none; float: left; color: red;' >
 <a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; SCC ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; BND ]</a>
