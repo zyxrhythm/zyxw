@@ -167,7 +167,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; ' ><table style='float: center;'> <tbody><td>
+<div id='navtable' style='display:none; float:center;' ><table> <tbody><td>
 <a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; SCC ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; BND ]</a>
@@ -175,7 +175,7 @@ else { x.style.display = 'none'; } }
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right' onclick='jsxtable(); jsx2table()'> &#9776; </a>
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
 </p>
 <p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
