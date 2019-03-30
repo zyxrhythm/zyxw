@@ -262,15 +262,16 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a></p>
+
+<p> 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 <a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a></p>
-
-<p> <div id='whoistable'> <table> <tbody> <td>
+<div id='whoistable'> <table> <tbody> <td>
 
 <!-- ################## WHO YOU ################# -->
 
