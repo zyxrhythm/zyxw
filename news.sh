@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Added a "Daysleft" counter on S.C.C. results.
+
 - Added navigation menu on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
 
 - As per request, added a refesh button on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
