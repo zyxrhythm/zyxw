@@ -212,7 +212,7 @@ pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
 strong { color:green;
 }
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
+table { font-family: verdana; border: 2px solid green; font-size: 97%;
 }
 th { border: 2px solid green;
 }
@@ -261,7 +261,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' font-size: 97%; ><table> <tbody><td>
+<div id='navtable' style='display:none; float:right;' ><table style='font-size: 90%;'> <tbody><td>
 <a href='/cgi-bin/bbcx.sh?domain=$domain'>[ &#127797; BBC Special ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
