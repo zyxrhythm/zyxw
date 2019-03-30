@@ -93,7 +93,7 @@ strong {color: green;
 }
 p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
 }
-h1 { font-family: verdana; font-size: 90%;
+h1 { font-family: verdana; font-size: 95%;
 }
 body { background-color:black; color:white;
 }
