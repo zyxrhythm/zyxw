@@ -125,6 +125,54 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 
 echo '<br>'
 
+dateconvfunc () {
+Exp="$1";
+
+dlyear0="${Exp:10:10}";
+dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
+
+dlmonth=$( echo '${Exp:0:3}' | awk '{print tolower($0)}' );
+
+case $dlmonth in)
+jan) 
+dlmono='1';; 
+feb) 
+dlmono='2';;
+mar) 
+dlmono='3';;
+apr) 
+dlmono='4';;
+may) 
+dlmono='5';;
+jun) 
+dlmono='6';;
+jul) 
+dlmono='7';;
+aug) 
+dlmono='8';;
+sep) 
+dlmono='9';;
+oct) 
+dlmono='10';;
+nov) 
+dlmono='11';;
+dec) 
+dlmono='12';;
+*) 
+dlmono='0';;
+esac
+
+dlday0="${Exp:0:9}"
+dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
+
+fulldate="$dlyear-$dlmono-$dlday";
+
+daysleft=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
+
+echo "$daysleft";
+}
+
+
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
@@ -165,54 +213,7 @@ Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2
 Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
-Daysleft=$( date_conv_func "$Expiry")
-
-date_conv_func () {
-Exp="$1";
-
-dlyear0="${Exp:10:10}"
-dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
-
-dlmonth=$( echo '${Exp:0:3}' | awk '{print tolower($0)}' );
-
-case $dlmonth in)
-jan) 
-dlmono='1';; 
-feb) 
-dlmono='2';;
-mar) 
-dlmono='3';;
-apr) 
-dlmono='4';;
-may) 
-dlmono='5';;
-jun) 
-dlmono='6';;
-jul) 
-dlmono='7';;
-aug) 
-dlmono='8';;
-sep) 
-dlmono='9';;
-oct) 
-dlmono='10';;
-nov) 
-dlmono='11';;
-dec) 
-dlmono='12';;
-*) 
-dlmono='0';;
-esac
-
-dlday0="${Exp:0:9}"
-dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0")
-
-fulldate="$dlyear-$dlmono-$dlday"
-
-daysleft=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
-
-echo "$daysleft"
-}
+Daysleft=$( dateconvfunc "$Expiry");
 
 IP=$(dig +short a $domain | head -n 1);
 
