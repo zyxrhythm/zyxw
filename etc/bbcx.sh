@@ -93,11 +93,34 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 .tooltip:hover .tooltiptext {
   display: inline;
   visibility: visible;
-
 }
-
-
 </style>
+
+<script>
+ var mousex = e.pageX + 20; //Get X coordinates
+    var mousey = e.pageY + 10; //Get Y coordinates
+   if((mousey+100)>$(window).height())
+   {
+
+    $('.tooltip')
+    .css({ top: mousey-100 ,left: mousex })
+
+   }
+   else if((mousex+200)>$(window).width())
+   {
+      $('.tooltip')
+    .css({ top: mousey ,left: mousex-200})
+
+   }
+   else
+    {
+   $('.tooltip')
+    .css({ top: mousey, left: mousex })
+
+    }
+</script>
+
+
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -148,7 +171,7 @@ function removeSpecialCharacters(string) {
 
 <link rel="icon" type="image/png" href="/icon.png" />
 
-<p> <a href="/cgi-bin/bbc.sh" >[ &#127968;Home ]</a>
+<p> <a href="/cgi-bin/bbc.sh" style='float:right'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
