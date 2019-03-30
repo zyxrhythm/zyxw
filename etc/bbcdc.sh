@@ -128,10 +128,10 @@ echo '<br>'
 dateconvfunc () {
 Exp="$1";
 
-dlyear0="${Exp:10:10}";
+dlyear0="${Exp:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 
-dlmonth=$( echo '${Exp:0:3}' | awk '{print tolower($0)}' );
+dlmonth=$( echo "${Exp:0:3}" | awk '{print tolower($0)}' );
 
 case $dlmonth in)
 jan) 
@@ -162,7 +162,7 @@ dlmono='12';;
 dlmono='0';;
 esac
 
-dlday0="${Exp:0:9}"
+dlday0="${Exp:0:9}";
 dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 
 fulldate="$dlyear-$dlmono-$dlday";
