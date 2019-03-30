@@ -246,7 +246,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p> <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
+<p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 
 <script> 
 function jswhoistable() { var x = document.getElementById('whoistable'); 
@@ -268,9 +268,9 @@ else { x.style.display = 'none'; } }
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a>
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a></p>
 
-<div id='whoistable'> <table> <tbody> <td>
+<p><div id='whoistable'> <table> <tbody> <td>
 
 <!-- ################## WHO YOU ################# -->
 
