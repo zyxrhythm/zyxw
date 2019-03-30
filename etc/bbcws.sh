@@ -247,15 +247,28 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh">[ &#127968;Home ]</a>
-<script> function jswhoistable() { var x = document.getElementById('whoistable'); 
-if (x.style.display === 'none') { x.style.display = 'block'; } 
+
+<script> 
+function jswhoistable() { var x = document.getElementById('whoistable'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jswhoistable()'> &#9776;
-<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
-<br>Click this to hide the input table.<br><br>
-</span></a>
+<script> 
+function jswhois2table() { var x = document.getElementById('navtable'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+</script>
+
+<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
+<a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+</td> </tbody> </table></div>
+
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a>
 
 <div id='whoistable'> <table> <tbody> <td>
 
