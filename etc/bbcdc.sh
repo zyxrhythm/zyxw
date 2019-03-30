@@ -174,35 +174,8 @@ dlyear0="${Exp:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 
 dlmonth=$( echo "${Exp:0:3}" | awk '{print tolower($0)}' );
-
-case $dlmonth in
-jan) 
-dlmono='1';; 
-feb) 
-dlmono='2';;
-mar) 
-dlmono='3';;
-apr) 
-dlmono='4';;
-may) 
-dlmono='5';;
-jun) 
-dlmono='6';;
-jul) 
-dlmono='7';;
-aug) 
-dlmono='8';;
-sep) 
-dlmono='9';;
-oct) 
-dlmono='10';;
-nov) 
-dlmono='11';;
-dec) 
-dlmono='12';;
-*) 
-dlmono='0';;
-esac
+case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
+esac;
 
 dlday0="${Exp:0:9}";
 dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
@@ -252,7 +225,7 @@ cat << EOSSLCCR
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
 <strong>Expiration</strong> : $Expiry <br>
-<strong>Expiration</strong> : $Daysleft
+<strong>Daysleft</strong> : $Daysleft
 </p>
 </div>
 <hr>
