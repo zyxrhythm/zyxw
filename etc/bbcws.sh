@@ -206,7 +206,8 @@ div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
-
+strong {color: green;
+}
 p  { font-family: verdana; font-size: 85%;
 }
 h1 {font-family: verdana; font-size: 70%;
@@ -215,9 +216,7 @@ body {background-color:black;color:white;
 }
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
 }
-strong { color:green;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 97%;
+table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 th { border: 2px solid green;
 }
