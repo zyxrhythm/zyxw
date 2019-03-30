@@ -150,8 +150,6 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-<link rel="icon" type="image/png" href="/icon.png" />
-
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
