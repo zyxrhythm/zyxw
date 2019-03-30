@@ -178,7 +178,7 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 
 fulldate="$dlyear-$dlmono-$dlday";
 
-Daysleft=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
+Daysleft=${( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) )#*-};
 
 IP=$(dig +short a $domain | head -n 1);
 
