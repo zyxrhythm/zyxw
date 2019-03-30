@@ -262,10 +262,6 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a></p>
-
-
-
 <br><div id='whoistable'> <table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
 <form action="bbcws.sh" method="get">
@@ -275,13 +271,12 @@ else { x.style.display = 'none'; } }
 <!-- ################## WHO YOU ################# -->
 </td> </tbody> </table> </div> 
 
-<p> 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 <a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a> 
 <a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
-
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jswhoistable(); jswhois2table()'> &#9776; </a>
 <br>
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
