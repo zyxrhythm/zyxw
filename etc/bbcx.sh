@@ -148,7 +148,7 @@ function removeSpecialCharacters(string) {
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
-function jsxtable() { var x = document.getElementById('xtable, navtable'); 
+function jsxtable() { var x = document.getElementById("xtable, navtable"); 
 if (x.style.display === 'none') 
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
