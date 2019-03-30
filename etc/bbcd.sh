@@ -15,6 +15,9 @@ echo "<!DOCTYPE html>
 <html>
 <title>Big Nick Digger</title>"
 
+#stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
+qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
+
 #butchers the QUERY_STRING for the domain the name server and the record type and stores them in variables 
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
 DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
@@ -177,9 +180,6 @@ else { x.style.display = 'none'; } }
 <button onclick="copyClipboard()">Copy Result</button> <label class="tooltip"> &#128072; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a 'paste' on your text editor or note taking app. <br><br></span></label>
 <hr> </head>
 ENDOFHTMLHEAD
-
-#stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
-qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
 #list of supported TLDs
 shopt -s extglob
