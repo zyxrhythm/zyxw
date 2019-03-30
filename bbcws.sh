@@ -262,9 +262,9 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table style='font-size: 90%;'> <tbody><td>
-<a href='/cgi-bin/bbcx.sh?domain=$domain'>[ &#127797; BBC Special ]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+<a href='/cgi-bin/bbcx.sh?domain=$doi'>[ &#127797; BBC Special ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain=$doi'>[ &#128195; S.C.C. ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=$doi&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
