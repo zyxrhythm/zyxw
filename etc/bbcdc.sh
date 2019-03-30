@@ -19,7 +19,6 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 
 echo "<!DOCTYPE html>
 <html>
-
 <title>BBC S.C.C.</title>"
 
 
@@ -44,22 +43,24 @@ cat <<EOHTMLHEAD
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <style>
-
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
-
-p  { font-family: verdana; font-size: 85%;}
-
+div a:link { color: tomato;  font-size: 90%; }
+div a:active { color: tomato;  font-size: 90%; }
+div a:hover { color: tomato;  font-size: 90%; }
+div a:visited { color: tomato;  font-size: 90%; }
+strong {color: green;
+}
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
+}
 h1 { font-family: verdana; font-size: 70%;
 }
-
 body { background-color:black; color:white;
 }
-
-strong { color: green;
+pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
 }
 table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
