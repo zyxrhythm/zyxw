@@ -169,48 +169,28 @@ Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 daysleftmonth=$( echo '${Expiry:0:3}' | awk '{print tolower($0)}' );
 
 case $daysleftmonth in)
-jan)
-datenum='1'
-;;
-feb)
-datenum='2'
-;;
-mar)
-datenum='3'
-;;
-apr)
-datenum='4'
-;;
-may)
-datenum='5'
-;;
-jun)
-datenum='6'
-;;
-jul)
-datenum='7'
-;;
-aug)
-datenum='8'
-;;
-sep)
-datenum='9'
-;;
-oct)
-datenum='10'
-;;
-nov)
-datenum='11'
-;;
-dec)
-datenum='12'
-;;
-*)
-datenum='0'
-;;
+jan) monthno='1';; 
+feb) monthno='2';;
+mar) monthno='3';;
+apr) monthno='4';;
+may) monthno='5';;
+jun) monthno='6';;
+jul) monthno='7';;
+aug) monthno='8';;
+sep) monthno='9';;
+oct) monthno='10';;
+nov) monthno='11';;
+dec) monthno='12';;
+*) monthno='0';;
 esac
 
-daysleftdate=$( echo '${Expiry:}' )
+daysleftdate0="${Expiry:0:9}"
+daysleftdate=$(grep -oP '(?<= ).*?(?= )' <<< "$daysleftdate0")
+
+#2020-03-25
+fulldate="$dlyear-$monthno-$daysleftdate"
+
+daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
 
 IP=$(dig +short a $domain | head -n 1);
 
