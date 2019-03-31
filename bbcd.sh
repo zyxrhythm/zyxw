@@ -201,9 +201,9 @@ if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 if [[ -z "$domain" ]]; then
 cat <<EOTSE
 <body>
-<div id="divClipboard">
-<p><strong>Input</strong> : null<br> <br>
-Please enter a valid<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.<br><br></p>
+<di id="divClipboard">
+<p><br><strong>Current Input</strong> : none <br> <br>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!<br><br></p>
 </div>
 </body>
 </html>
