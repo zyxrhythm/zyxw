@@ -211,7 +211,7 @@ else if(document.getElementById("square").checked == false)
 
 <label>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcws.sh?domain=' target='_blank' ><label style='cursor: pointer;' > &#8284; Who You </label></a>
+<a id="tools-link" href='/cgi-bin/bbcws.sh?domain=' target='_blank' ><label style='cursor: pointer;' > &#128269; Who You </label></a>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 
