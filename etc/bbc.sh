@@ -180,7 +180,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcx.sh?domain=' target='_blank' ><label> &#127797; BBC Special </label></a>
+<a id="tools-link" href='/cgi-bin/bbcx.sh?domain=' target='_blank' > &#127797; BBC Special </a>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 
