@@ -240,23 +240,18 @@ Daysleft=${Daysleft0#*-};
 
 IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]] || [[ "$IP" = " " ]] || [[ -z "Issuer0" ]] || [[ "Issuer0" = " " ]]; 
+if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
 then cat << ZXCVBNM
-
-<body>
-<hr>
+<body><hr>
 <div id='divClipboard'>
-<p>
-<strong>Input:</strong> $domain <br> <br>
+<p><strong>Input:</strong> $domain <br> <br>
 Error! <br>
 (certificate not found)<br><br>
-Possible causes:<br>
--The domain /sub domain does not resolve to an IP address (check the DNS).<br>
--A certificate is not / not yet issued for it.<br></p>
+Possible cause:<br>
+-The domain /sub domain does not resolve to an IP address (check the DNS).<br></p>
 </div>
-<hr>
-<br>
+<hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
@@ -264,6 +259,24 @@ Possible causes:<br>
 ZXCVBNM
 
 exit 0; 
+
+if [[ -z "Issuer0" ]] || [[ "Issuer0" = " " ]];
+then cat << ZXCVBNM2
+<body><hr>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> <br>
+Error! <br>
+(certificate not found)<br><br>
+Possible cause:<br>
+-A certificate is not / not yet issued for it.<br></p>
+</div>
+<hr><br>
+<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+</body>
+</html>
+ZXCVBNM2
+
+else true; fi;
 
 else true; fi;
 
