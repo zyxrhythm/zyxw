@@ -258,7 +258,7 @@ exit 0;
 
 else true; fi;
 
-if [[ -z "Issuer0" ]] || [[ "Issuer0" = " " ]];
+if [[ -z "$Issuer0" ]] || [[ "$Issuer0" = " " ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
