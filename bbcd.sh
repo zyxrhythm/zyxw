@@ -97,7 +97,7 @@ h1 { font-family: verdana; font-size: 90%;
 }
 body { background-color:black; color:white;
 }
-pre{ white-space: pre-wrap; font-size: 90%;
+pre{ white-space: pre-wrap; font-size: 95%;
 }
 table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
