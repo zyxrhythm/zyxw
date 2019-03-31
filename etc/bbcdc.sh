@@ -282,7 +282,7 @@ case $tld in
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-Issuer=( issuerfunc "$domain" );
+Issuer=$( issuerfunc "$domain" );
 
 if [[ -z "$Issuer" ]] || [[ "$Issuer" = " " ]];
 then cat << ZXCVBNM2
@@ -311,7 +311,7 @@ Daysleft=$( daysleftfunc "$Expiry" ); fi;
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "2" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-Issuer=( issuerfunc "$domain" )
+Issuer=$( issuerfunc "$domain" )
 
 if [[ -z "$Issuer" ]] || [[ "$Issuer" = " " ]];
 then cat << ZXCVBNM2
