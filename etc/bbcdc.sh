@@ -215,11 +215,12 @@ case $tld in
 Issuer0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer);
 Target0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -subject);
 Expiry0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -enddate);
-   
+
 Issuer=${Issuer0#*CN=};
 Target=${Target0#*CN=};
 Expiry=$(echo "$Expiry0"| cut -d "=" -f 2 );
 
+###Days Left Counter
 dlyear0="${Expiry:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 
@@ -233,11 +234,13 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 fulldate="$dlyear-$dlmono-$dlday";
 
 Daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
+###Days Left Counter
+
 Daysleft=${Daysleft0#*-};
 
 IP=$(dig +short a $domain | head -n 1);
 
-if [[ -z "$IP" ]]; 
+if [[ -z "$IP" ]] || [[ "$IP" = " " ]] || [[ -z "Issuer0" ]] || [[ "Issuer0" = " " ]]; 
 
 then cat << ZXCVBNM
 
@@ -246,9 +249,11 @@ then cat << ZXCVBNM
 <div id='divClipboard'>
 <p>
 <strong>Input:</strong> $domain <br> <br>
-Not valid!
-<br>
-</p>
+Error! <br>
+(certificate not found)<br><br>
+Possible causes:<br>
+-The domain /sub domain does not resolve to an IP address (check the DNS).<br>
+-A certificate is not / not yet issued for it.<br></p>
 </div>
 <hr>
 <br>
