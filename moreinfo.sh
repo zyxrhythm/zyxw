@@ -137,7 +137,10 @@ OpenSSL 1.0.2g  1 Mar 2016
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ---------------------------------------------------------------
-TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" > list1 </a> and <a href="/cgi-bin/cctld.sh" target="_blank" > list2 </a>).  
+:~# cat /etc/whois.conf
+<a href="/cgi-bin/gtld.sh" target="_blank" >whois server list</a> 
+---------------------------------------------------------------
+TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" >list1</a> and <a href="/cgi-bin/cctld.sh" target="_blank" >list2</a>).  
 ---------------------------------------------------------------
 String manipulation and other opearations (server-side): 
 echo, cat, grep, sed, awk, cut, tr, rev, git, gitrevcount, bc,
