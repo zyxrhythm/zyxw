@@ -395,14 +395,10 @@ then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
 <body>
-<p>
-<br>
-<div id="divClipboard">
-<p>
-<strong>Input</strong> : $domain <br> <br>
+<p><br><div id="divClipboard">
+<p><strong>Input</strong> : $domain <br> <br>
 Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
-For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a>
-</p>
+For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
 </body>
 </html>
@@ -466,8 +462,7 @@ expd1="Expiry Date Not Found. Consult the Registrar."
 daysleftrar="Counter Error: Date Not Found!";
 else
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
-daysleftrar=$( countdfunc "$expd0" );
-fi;
+daysleftrar=$( countdfunc "$expd0" );fi;
 fi;
 
 #stores the name servers under the domain on a variable
@@ -497,10 +492,9 @@ echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Stat
 dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
 
-#the illusionist =(
-echo "<p>"
-
-echo "--------------------------"
+#the illusionist <p>=(
+echo "<p>
+--------------------------"
 
 #print the domain creation and expiration dates
 cat <<EODEDCDGT
@@ -533,35 +527,25 @@ __________________________
 EODEDCDGT
 
 #name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong>"
-
-echo '<br>'
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br>"
 
 nsfrgt=$( nsfunction "$nameservers");
-echo "$nsfrgt"
-
-echo "__________________________<br> <br>"
+echo "$nsfrgt
+__________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-echo '<br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong><br>"
 
 arfrgt=$( arfunction "$ar" );
-echo "$arfrgt"
-
-echo "<br>__________________________<br> <br>"
+echo "$arfrgt
+<br>__________________________<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
-
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong><br> <br>"
 
 mrfrgt=$( mrfunction "$mxr");
-echo "$mrfrgt"
-
-echo '__________________________'
+echo "$mrfrgt
+__________________________"
 
 ;;
 
