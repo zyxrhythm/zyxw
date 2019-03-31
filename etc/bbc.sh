@@ -103,6 +103,11 @@ strong {font-size: 143%;
   visibility: visible;
 }
 
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
 #revisions {color: #186a3b
 }
 
@@ -172,7 +177,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 
 <div class="tooltip">
-<label> &#127797; BBC Special &#127797; </label>
+<a href='/cgi-bin/bbcx.sh?domain='> &#127797; BBC Special</a>
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 
@@ -203,7 +208,7 @@ S. C. C.
 
 <label>
 <div class="tooltip">
-&#8284; Who You &#8284;
+&#8284; Who You
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 
@@ -224,7 +229,7 @@ S. C. C.
 <p><form action="bbcd.sh" method="get">
 <label>
 <div class="tooltip">
-&#9935; Big Nick Digger &#9935;
+&#9935; Big Nick Digger
 <span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
@@ -283,7 +288,7 @@ also for the use of brief quotations in a site review.
 
 <article>
 <span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
-<span style="color: white">Copyleft 2018 &copy;</span>
+<span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
 </article>
 
 </center>
