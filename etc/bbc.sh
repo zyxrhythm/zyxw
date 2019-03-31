@@ -192,7 +192,7 @@ else if(document.getElementById("square").checked == false)
 <label style="font-size:90%" >
 
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcdc.sh?domain=' target='_blank' ><label style='cursor: pointer; font-size: 95%; font-family: calibri; ' > S. C. C. </label></a>
+<a id="tools-link" href='/cgi-bin/bbcdc.sh?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' > S. C. C. </label></a>
 <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
 </span>
 
