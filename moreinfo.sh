@@ -138,7 +138,7 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ---------------------------------------------------------------
 :~# cat /etc/whois.conf
-<a href="/cgi-bin/gtld.sh" target="_blank" >whois server list</a> 
+<a href="/cgi-bin/whois.conf.sh" target="_blank" >whois server list</a> 
 ---------------------------------------------------------------
 TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" >list1</a> and <a href="/cgi-bin/cctld.sh" target="_blank" >list2</a>).  
 ---------------------------------------------------------------
