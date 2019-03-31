@@ -191,24 +191,15 @@ echo '<br>'
 #checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
 if [[ -z "$domain" ]]; then
 
-cat <<EOTS
+cat <<EOTSE
 <body>
-<hr>
-<div id="divClipboard">
-<p>
-Input: null.
-<br> <br>
-Please enter a valid <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>FQDN<a/>.
-<br>
-</p>
+<di id="divClipboard">
+<p><br><strong>Current Input</strong> : none <br> <br>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / sub domain.<br><br></p>
 </div>
-<hr>
-<br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
-EOTS
-
+EOTSE
 exit 0;
 
 else
