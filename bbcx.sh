@@ -1091,7 +1091,7 @@ cat <<EOQVN
 <body>
 <div id="divClipboard">
 <p>
-<br>For the  Whois info of this .sg domain, <br>
+<br>For the  Whois info of this .vn domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='http://www.vnnic.vn/en/domain' target='_blank'>http://www.vnnic.vn/en/domain</a>
 </p>
