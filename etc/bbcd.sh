@@ -241,7 +241,6 @@ case $tld in
 #prints the dig results for gtlds
 zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 
-zyxgd=$( cutterfunc "$zyxgd0" );
 cutterfunc () {
 while IFS= read -r line
 do
@@ -249,6 +248,9 @@ cutter=$( echo "${line##*.}" | sed -e 's/^[ \t]*//');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
+
+zyxgd=$( cutterfunc "$zyxgd0" );
+
 
 if [[ -z $zyxgd ]]; 
 
