@@ -244,7 +244,7 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter0=$(grep -oP '(?<="$domain").*?(?=" ")' <<< "$line");
+cutter0=$(grep -oP '(?<=$domain).*?(?=	)' <<< "$line");
 cutter=$( echo "$cutter0" | cut -d' ' -f2- );
 echo "${cutter/IN/}";
 done < <(printf '%s\n' "$1");
