@@ -194,6 +194,10 @@ tldlist1='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg
 
 issuerfunc () {
 issuer0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer);
+issuer1=$(echo "$issuer0" | tr -d '\040\011\012\015' );
+if [[ -z "$issuer1" ]]; 
+then issuer="not found";
+else
 issuer=${Issuer0#*CN=};
 echo "$issuer";
 }
@@ -284,7 +288,7 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 
 Issuer=$( issuerfunc "$domain" );
 
-if [[ -z "$Issuer" ]];
+if [[ "$Issuer" = "not found" ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
@@ -313,7 +317,7 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "2" ]]; then domvar="Sub Dom
 
 Issuer=$( issuerfunc "$domain" )
 
-if [[ -z "$Issuer" ]] || [[ "$Issuer" = " " ]];
+if [[ "$Issuer" = "not found" ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
