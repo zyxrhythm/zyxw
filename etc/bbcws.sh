@@ -451,6 +451,21 @@ EOQSG
 exit 0;
 ;;
 
+vn)
+#start of html body
+echo '<body>'
+
+cat <<EOQVN
+<p>
+<br>
+<a href='https://vnnic.vn/en/whois-information?lang=en' target="_blank"> Click Here </a>To get the whois info of this .vn domain.
+</p>
+</body>
+</html>
+EOQVN
+exit 0;
+;;
+
 #throw an error for everything else
    *)
 
