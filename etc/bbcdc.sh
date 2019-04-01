@@ -239,16 +239,15 @@ fulldate="$dlyear-$dlmono-$dlday";
 current=$(date +%s);
 querydate=$(date +%s --date "$fulldate");
 
-daysleft0=$( echo $((("$current"-"$querydate")/(3600*24))) );
+daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
 
-if [[ "$current" -gt "$querydate"  ]]; 
-then 
-daysleft="$daysleft0"; 
+negpos=$(echo $current-$querydate | bc);
+
+if [[ "${negpos:0:1}" = "-"  ]]; 
+then daysleft="$daysleft0"; 
+else daysleft=${daysleft0#*-} ; fi;
+
 echo "$daysleft";
-else 
-daysleft=${daysleft0#*-} ; 
-echo "$daysleft";
-fi;
 }
 #===================
 #END OF FUNCTION HALL
