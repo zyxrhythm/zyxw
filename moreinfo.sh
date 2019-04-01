@@ -106,9 +106,9 @@ director@bigblackcactus.com
 
 
 
-################################################################
+
 ================================================================
-[Extra info for the geeks (What the scripts are working with)] 
+[ Extra info for the geeks (What the scripts are working with) ] 
 ================================================================
 ---------------------------------------------------------------
 :~# lsb_release -a
@@ -133,6 +133,13 @@ nslookup 9.10.3-P4-Ubuntu
 :~# openssl version
 OpenSSL 1.0.2g  1 Mar 2016
 ---------------------------------------------------------------
+:~# nmap -version
+Nmap version 7.01 ( https://nmap.org )
+Platform: x86_64-pc-linux-gnu
+Compiled with: liblua-5.2.4 openssl-1.0.2g libpcre-8.38 libpcap-1.7.4 nmap-libdnet-1.12 ipv6
+Compiled without:
+Available nsock engines: epoll poll select
+---------------------------------------------------------------
 :~# cat /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 8.8.4.4
@@ -146,8 +153,7 @@ String manipulation and other opearations (server-side):
 echo, cat, grep, sed, awk, cut, tr, rev, git, gitrevcount, bc,
 host, POSIX character expansions, shopt (extglob).
 ---------------------------------------------------------------
-================================================================
-################################################################
+
 
 </pre>
 <br>
