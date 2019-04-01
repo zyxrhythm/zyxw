@@ -311,7 +311,7 @@ ZXCVBNM
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer -subect -dates);
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subect -dates);
 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
