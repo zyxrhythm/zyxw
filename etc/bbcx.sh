@@ -945,7 +945,7 @@ echo "<body>
 #prints the whois result with the the trimming
 echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre><br>
 __________________________
-<br><br><p>";
+<p>";
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>
