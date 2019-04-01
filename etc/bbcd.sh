@@ -245,7 +245,7 @@ cutterfunc () {
 while IFS= read -r line
 do
 cutter0=$( echo "$line" | awk '{$2=$2};1' | cut -d' ' -f2- );
-cutter1=$( echo "${cutter0/IN/}" | sed -e 's/    /\t/g' );
+cutter1=$( echo "${cutter0/IN/}" | awk '{s=$NF; NF-- ; printf "%-40s %s\n", $0, s}');
 echo "$cutter1"
 done < <(printf '%s\n' "$1");
 }
