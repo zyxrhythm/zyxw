@@ -289,7 +289,7 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 errc=$( errcfunc "$domain" );
 
 if [[ -z "$errc" ]];
-then cat << ZXCVBNM2
+then cat << ZXCVBNM
 <body><hr>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
@@ -302,7 +302,7 @@ No certificate found on port 443. <br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
-ZXCVBNM2
+ZXCVBNM
 exit 0; 
 
 else 
