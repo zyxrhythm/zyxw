@@ -65,7 +65,6 @@ function copyClipboard() {
     range.selectNodeContents(elm);
     selection.removeAllRanges();
     selection.addRange(range);
-    selection.replace(/[^\x20-\x7E]+/g, '');
     document.execCommand("Copy");
   }
 }
