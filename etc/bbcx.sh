@@ -470,7 +470,7 @@ nameservers=$(echo "$zyx" | grep -i -e "name server:");
 
 #dig A and MX with minimal essential output from the dig command
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
@@ -553,7 +553,7 @@ edu)
 
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 cat << EDUSECTION
 <body>
@@ -601,7 +601,7 @@ gov)
 
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 zyx0=$(echo "$zyx" | awk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
 
@@ -648,7 +648,7 @@ exit 0;
 
 mil)
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 cat << MILSECTION
 <body>
@@ -698,7 +698,7 @@ zyx=$(whois $domain);
 
 #dig A and MX with minimal essential output from Google DNS servers
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #start of html body
 echo "<body>
@@ -745,7 +745,7 @@ zyx=$(whois $domain );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 limitcheck=$(echo "${zyx:0:20}");
 
@@ -886,7 +886,7 @@ zyx=$(whois $domain);
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
@@ -977,7 +977,7 @@ zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 echo "<body>
 <div id='divClipboard'>
@@ -1022,7 +1022,7 @@ zyxeu0=$(echo "$zyx" | awk '/Domain:/{flag=1;next}/Keys:/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 echo "<body>
 <div id='divClipboard'>
@@ -1062,7 +1062,7 @@ __________________________
 ph)
 
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 arfrgt=$( arfunction "$ar" );
 
@@ -1103,7 +1103,7 @@ exit 0;
 sg)
 
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 arfrgt=$( arfunction "$ar" );
 
@@ -1144,7 +1144,7 @@ exit 0;
 vn)
 
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 arfrgt=$( arfunction "$ar" );
 
@@ -1187,7 +1187,7 @@ zyx=$(whois $domain);
 
 #dig A and MX with minimal essential output from Google DNS servers
 ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8);
+mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 #PASS the a record/s to arfunc
 arfrjp=$( arfunction "$ar" );
 #PASS the mx record/s to mxrfunc
