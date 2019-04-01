@@ -941,7 +941,7 @@ echo "<body>
 <p>"
 
 #prints the whois result with the the trimming
-echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre><br>
+echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
 __________________________
 <p>";
 
@@ -986,7 +986,7 @@ echo "<body>
 <p>"
 
 #prints the whois result with the the trimming
-echo "<pre><strong>Domain:</strong><br>$zyxeu0</pre><br>
+echo "<pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
 __________________________
 <p>";
 
