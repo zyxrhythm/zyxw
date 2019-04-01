@@ -314,7 +314,7 @@ Daysleft=$( daysleftfunc "$Expiry" ); fi;
 
  $tldlist1)
 #check if the input is domain or sub domain.
-if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "2" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
 errc=$( errcfunc "$domain" );
 
