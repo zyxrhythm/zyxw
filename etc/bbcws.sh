@@ -469,11 +469,10 @@ mil)
 echo '<body>'
 cat <<EOQMIL
 <p>
-<br>
-ThisTLDhasnowhoisserver.<br>
-.mil domains are exclusively for the use of the United States Department of Defense.<br><br>
-The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a>
-</p>
+Input: $doi <br>
+This TLD has no whois server.
+.mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
+The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>
 </body>
 </html>
 EOQMIL
