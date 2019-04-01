@@ -197,7 +197,7 @@ echo "$err";
 }
 
 issuerfunc () {
-issuer=$( grep -oP '(?<=/O=).*?(?=/CN=)' <<< "$1");
+issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$1");
 echo "$issuer";
 }
 
@@ -376,7 +376,7 @@ cat << EOSSLCCR
 <p><strong>$domvar</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
-<strong>Issued for</strong> : $Target <br>
+<strong>Issued For</strong> : $Target <br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>Daysleft</strong> : $Daysleft</p></div>
