@@ -71,7 +71,7 @@ pre{
 <pre>
 BigBlackCactus.com (BBC) is a website you can use for the following: 
 
----------------------------------------------------------------
+--------------------------------------------------------------------------
 > Do a 'whois lookup' for a domain name or I.P. Address directly from the whois server/s  of registries and registrars (for domain names) and whois server/s of A.R.I.N.(for I.P. addresses).
 
 > Do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from one of Google's Google Public DNS server (8.8.8.8), or from a particular name server specified by the user. 
@@ -80,14 +80,13 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 > And can also provide info about the S.S.L. certificate issued for a domain name/sub domain.
 
-----------------------------------------------------------
+---------------------------------------------------------
 
-=====================================================
+===================================================
 -This website uses <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a> (Bourne again shell) for server-side scripting.
 -The usual Javascript for client side scripting.
 -The usual HTML and CSS for its simple looks.
-
-==========================================
+========================================
 *
 *
 *
@@ -96,10 +95,10 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 *
 *
 *
-******************************
+*************************
 *For bugs and other concerns please email:
 *director@bigblackcactus.com
-*******************
+*****************
 
 
 
