@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- As per report, Who You and BBC special should now be able to handle .mil domains properly.
+
 - Improved results, error handling and days counter of S.C.C.
 
 - Added custom BBC special result for .eu domains, and some improvements on .uk domains result.
