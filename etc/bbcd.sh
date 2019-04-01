@@ -244,7 +244,7 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter=$( echo "${line##*.}" | sed -e 's/^[ \t]*//');
+cutter=$( echo "${line##*.}" | awk '{$2=$2};1');
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
