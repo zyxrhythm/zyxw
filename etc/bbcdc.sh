@@ -377,7 +377,7 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
-<strong>Start of Validity:</strong> : $Validstart <br>
+<strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>Daysleft</strong> : $Daysleft</p></div>
 <hr><br><p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
