@@ -235,10 +235,11 @@ dlday0="${Expiryx:0:9}";
 dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 #full date
 fulldate="$dlyear-$dlmono-$dlday";
-daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
 
 current=$(date +%s);
 querydate=$(date +%s --date "$fulldate");
+
+daysleft0=$( echo $((("$current"-"$querydate")/(3600*24))) );
 
 if [[ "$current" -gt "$querydate"  ]]; 
 then 
