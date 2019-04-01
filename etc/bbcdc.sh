@@ -263,7 +263,7 @@ then cat << ZXCVBNM
 <body><hr>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> <br>
-Error!<br><br>
+<span style="font-size: 130%; font-family: gothic; color: red; ">Error!</span><br><br>
 Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
 </div>
 <hr><br>
