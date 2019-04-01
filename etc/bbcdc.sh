@@ -374,8 +374,8 @@ esac
 
 if [[ ${Daysleft0:0:1} = "-" ]]; 
 then 
-leftvar="Domain Expired";
-Daysleft="${Daysleft0#*-} ago."; 
+leftvar="Cert Expired";
+Daysleft="${Daysleft0#*-} days ago."; 
 else 
 leftvar="Daysleft";
 Daysleft="$Daysleft0";
