@@ -1147,7 +1147,7 @@ mxr=$(dig mx +short $domain @8.8.8.8);
 #PASS the a record/s to arfunc
 arfrjp=$( arfunction "$ar" );
 #PASS the mx record/s to mxrfunc
-mrfrjp=$( mrfunction "$mxr");v
+mrfrjp=$( mrfunction "$mxr");
 
 #start of html body
 echo "<body>
@@ -1158,25 +1158,20 @@ echo "<body>
 __________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-echo "<br>
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong> <br>
 $arfrjp
 <br>
 __________________________<br> <br>"
 
 #link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
-<br> <br>"
-
-echo "$mrfrjp 
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong> <br>
+$mrfrjp 
 <br>
 __________________________
 </p></div><hr>
 <p>Raw whois result below:</p><hr>
-<br><pre>$zyx</pre><br>"
+<br><pre>$zyx</pre><br>
 "
-
 ;;
 
 #throw an error for anything else
