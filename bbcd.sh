@@ -251,7 +251,7 @@ echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
-zyxgd=$( cutterfunc "$zyxgd0" );
+zyxgd=$( cutterfunc "$zyxgd0" | sort -k2 );
 
 if [[ -z $zyxgd ]]; 
 
