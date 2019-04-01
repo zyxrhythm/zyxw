@@ -72,6 +72,10 @@ pre{
 
 -----------------------
 
+- BBC special result will now sort MX records depending on their priority value. And Who You will now sort records by type.
+
+- As per request, simplified Big Nick Digger's result.
+
 - As per report, Who You and BBC special should now be able to handle .mil domains properly.
 
 - Improved results, error handling and days counter of S.C.C.
