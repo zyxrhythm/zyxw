@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Added custom BBC special result for .eu domains, and some improments on .uk domains result.
+
 - Improved the capability of the S.C.C. to identify a domain from a sub domain, and improved its ability to check if an ssl is issued for a domain / sub domain, also improved its error identication and message.
 
 - Added a "Daysleft" counter on S.C.C. results.
