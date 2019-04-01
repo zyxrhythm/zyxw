@@ -664,7 +664,7 @@ echo "<body>
 
 #displays the raw whois result of ccTLDs
 echo "<pre>$zyx</pre>
-<p><br>
+<p>
 __________________________<br> <br>"
 
 #link to the A record/s history from securitytrails.com
@@ -689,8 +689,7 @@ echo "$mrfrct
 <br>
 __________________________
 </p>
-</div>
-<br>"
+</div>"
 
 ;;
 
