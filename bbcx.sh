@@ -434,7 +434,7 @@ case $tld in
    $tldlist0)
 
 #stores the registrar name on a variable
-registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:" | sort -u );
+registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 
 #stores the domain status on a variable
 dstat=$(echo "$zyx" | grep -i -e "status:" );
