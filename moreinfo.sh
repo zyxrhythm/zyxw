@@ -136,7 +136,8 @@ OpenSSL 1.0.2g  1 Mar 2016
 :~# nmap -version
 Nmap version 7.01 ( https://nmap.org )
 Platform: x86_64-pc-linux-gnu
-Compiled with: liblua-5.2.4 openssl-1.0.2g libpcre-8.38 libpcap-1.7.4 nmap-libdnet-1.12 ipv6
+Compiled with: liblua-5.2.4 openssl-1.0.2g libpcre-8.38 
+libpcap-1.7.4 nmap-libdnet-1.12 ipv6
 Compiled without:
 Available nsock engines: epoll poll select
 ---------------------------------------------------------------
