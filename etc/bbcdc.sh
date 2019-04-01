@@ -236,7 +236,13 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 #full date
 fulldate="$dlyear-$dlmono-$dlday";
 daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
-daysleft=${daysleft0#*-};
+
+current=$(date +%s);
+querydate=$(date +%s --date "$fulldate");
+
+if [[ "$current" -gt "$querydate" ) ]]; then daysleft="$daysleft0"; 
+else daysleft=${daysleft0#*-} ; fi
+
 echo "$daysleft"
 }
 #===================
