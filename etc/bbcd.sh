@@ -244,9 +244,9 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter0=$( echo "$line" | awk '{$2=$2};1' | cut -d' ' -f2- );
-cutter1=$( echo "${cutter0/IN/}" | awk '{s=$NF; NF-- ; printf "%-40s %s\n", $0, s}');
-echo "$cutter1"
+cutter=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+echo "${cutter/IN/}"
+
 done < <(printf '%s\n' "$1");
 }
 
