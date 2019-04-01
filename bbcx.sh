@@ -144,6 +144,9 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
+
+#domaintimes { color:green;
+}
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
