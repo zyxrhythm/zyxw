@@ -195,10 +195,10 @@ tldlist1='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg
 issuerfunc () {
 issuer0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer);
 issuer1=$(echo "$issuer0" | tr -d '\040\011\012\015' );
+
 if [[ -z "$issuer1" ]]; 
 then issuer="not found";
-else
-issuer=${Issuer0#*CN=};
+else issuer=${Issuer0#*CN=}; fi;
 echo "$issuer";
 }
 
