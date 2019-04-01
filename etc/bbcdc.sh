@@ -244,8 +244,8 @@ daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
 negpos=$(echo $current-$querydate | bc);
 
 if [[ "${negpos:0:1}" = "-"  ]]; 
-then daysleft="$daysleft0"; 
-else daysleft=${daysleft0#*-} ; fi;
+then daysleft="${daysleft0#*-}"; 
+else daysleft="$daysleft0"; fi;
 
 echo "$daysleft";
 }
