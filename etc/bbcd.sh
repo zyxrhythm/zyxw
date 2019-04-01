@@ -244,13 +244,15 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter=$( echo "$line" | awk '{$2=$2};1' | cut -d' ' -f2- );
+cutter0=$(grep -oP '(?<=$domain).*?(?=	)' <<< "$line");
+cutter=$( echo "$cutter0" | | cut -d' ' -f2- );
 echo "${cutter/IN/}";
 done < <(printf '%s\n' "$1");
 }
 
 zyxgd=$( cutterfunc "$zyxgd0" );
 
+# awk '{$2=$2};1'
 
 if [[ -z $zyxgd ]]; 
 
