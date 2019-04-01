@@ -236,15 +236,10 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 #full date
 fulldate="$dlyear-$dlmono-$dlday";
 
-current=$(date +%s);
-querydate=$(date +%s --date "$fulldate");
-
 daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
 
-negpos=$(echo $current-$querydate | bc);
-
-if [[ "${negpos:0:1}" = "-"  ]]; 
-then daysleft="${daysleft0#*-}"; 
+if [[ "${daysleft0:0:1}" == "-"  ]]; 
+then daysleft=${daysleft0#*-}; 
 else daysleft="$daysleft0"; fi;
 
 echo "$daysleft";
