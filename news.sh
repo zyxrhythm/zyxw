@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Improved the capability of the S.C.C. to identify a domain from a sub domain, and improved its ability to check if an ssl is issued for a domain / sub domain, also improved its error identication and message.
+
 - Added a "Daysleft" counter on S.C.C. results.
 
 - Added navigation menu on BBC Special, Who You, S.C.C. and Big Nick Digger results page.
