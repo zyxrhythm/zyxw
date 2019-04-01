@@ -597,7 +597,6 @@ __________________________<br>
 exit 0;
 ;;
 
-
 gov)
 
 zyx=$(whois $domain);
@@ -744,8 +743,7 @@ __________________________
 </p>
 </div>
 </body><br>
-<hr>
-<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+<hr><p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 </html>
 CTAULIMIT
 
@@ -959,16 +957,14 @@ echo "$arfrctuk
 __________________________
 <br> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong><br> <br>"
 
 #MX RECORD/S -AND IP/S CT UK
 
 mrfrctuk=$( mrfunction "$mxr");
 echo "$mrfrctuk
 __________________________
-<br></p></div><br><hr>
+<br></p></div><hr>
 <p>Raw whois result below:</p><hr>
 <br><pre>$zyx</pre><br>"
 
@@ -992,13 +988,13 @@ echo "<body>
 #prints the whois result with the the trimming
 echo "<pre><strong>Domain:</strong><br>$zyxeu0</pre><br>
 __________________________
-<br><br><p>";
+<p>";
 
 #link to the A record/s history on [A records:] - from securitytrails.com
 echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> &#9960; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>
 <br>"
 
-#A RECORD/S CT UK
+#A RECORD/S CT EU
 
 arfrcteu=$( arfunction "$ar");
 echo "$arfrcteu
@@ -1006,16 +1002,14 @@ echo "$arfrcteu
 __________________________
 <br> <br>"
 #link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-
-echo '<br> <br>'
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> &#9960; &nbsp; <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong><br> <br>"
 
 #MX RECORD/S -AND IP/S CT EU
 
 mrfrcteu=$( mrfunction "$mxr");
 echo "$mrfrcteu
 __________________________
-<br></p></div><br><hr>
+<br></p></div><hr>
 <p>Raw whois result below:</p><hr>
 <br><pre>$zyx</pre><br>"
 
