@@ -191,14 +191,14 @@ tldlist1='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg
 #===================
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
+errcfunc (){
+err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
+echo "$err";
+}
 
 issuerfunc () {
 issuer0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer);
-issuer1=$(echo "$issuer0" | tr -d '\040\011\012\015' );
-
-if [[ -z "$issuer1" ]]; 
-then issuer="not found";
-else issuer=${Issuer0#*CN=}; fi;
+issuer=${Issuer0#*CN=};
 echo "$issuer";
 }
 
@@ -286,9 +286,9 @@ case $tld in
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-Issuer=$( issuerfunc "$domain" );
+errc=$( errcfunc "$domain" );
 
-if [[ "$Issuer" = "not found" ]];
+if [[ -z "$errc" ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
