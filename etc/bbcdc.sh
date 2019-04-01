@@ -198,7 +198,7 @@ echo "$err";
 
 issuerfunc () {
 issuer0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer);
-issuer=${Issuer0#*CN=};
+issuer=${issuer0#*CN=};
 echo "$issuer";
 }
 
@@ -314,9 +314,9 @@ Daysleft=$( daysleftfunc "$Expiry" ); fi;
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "2" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-Issuer=$( issuerfunc "$domain" )
+errc=$( errcfunc "$domain" );
 
-if [[ "$Issuer" = "not found" ]];
+if [[ -z "$errc" ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
