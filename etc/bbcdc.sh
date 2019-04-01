@@ -260,7 +260,7 @@ then cat << ZXCVBNM
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> <br>
 Error! (certificate not found)<br><br>
--The domain /sub domain does not resolve to an IP address (check the DNS).<br></p>
+Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
@@ -284,14 +284,14 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 
 Issuer=$( issuerfunc "$domain" );
 
-if [[ -z "$Issuer" ]] || [[ "$Issuer" = " " ]];
+if [[ -z "$Issuer" ]];
 then cat << ZXCVBNM2
 <body><hr>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-Error! (certificate not found)<br><br>
--A certificate is not / not yet issued for this domain/sub domain.<br></p>
+Error!<br><br>
+Certificate not found.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
@@ -319,8 +319,8 @@ then cat << ZXCVBNM2
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-Error! (certificate not found)<br><br>
--A certificate is not / not yet issued for this domain/sub domain.<br></p>
+Error!<br><br>
+Certificate not found.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
