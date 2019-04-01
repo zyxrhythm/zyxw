@@ -294,7 +294,9 @@ then cat << ZXCVBNM2
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-No certificate found.<br></p>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
@@ -322,7 +324,9 @@ then cat << ZXCVBNM2
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-No certificate found.<br></p>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
