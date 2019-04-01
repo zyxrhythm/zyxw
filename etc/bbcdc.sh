@@ -240,10 +240,14 @@ daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
 current=$(date +%s);
 querydate=$(date +%s --date "$fulldate");
 
-if [[ "$current" -lt "$querydate"  ]]; then daysleft="$daysleft0"; 
-else daysleft=${daysleft0#*-} ; fi
-
-echo "$daysleft"
+if [[ "$current" -gt "$querydate"  ]]; 
+then 
+daysleft="$daysleft0"; 
+echo "$daysleft";
+else 
+daysleft=${daysleft0#*-} ; 
+echo "$daysleft";
+fi;
 }
 #===================
 #END OF FUNCTION HALL
