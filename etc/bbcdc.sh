@@ -197,7 +197,7 @@ echo "$err";
 }
 
 issuerfunc () {
-issuer=$( grep -oP '(?<=/O=C).*?(?=/CN=)' <<< "$1");
+issuer=$( grep -oP '(?<=/O=).*?(?=/CN=)' <<< "$1");
 echo "$issuer";
 }
 
@@ -316,7 +316,7 @@ rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
 Expiry=$( expiryfunc "$rawdata0" );
-Validstart$( validstartfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
 Daysleft=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
@@ -349,7 +349,7 @@ rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
 Expiry=$( expiryfunc "$rawdata0" );
-Validstart$( validstartfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
 Daysleft=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
