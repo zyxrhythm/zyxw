@@ -197,7 +197,8 @@ echo "$err";
 }
 
 issuerfunc () {
-issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$1");
+issuer0=$(echo "$1" | grep -i 'issuer=' );
+issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$issuer0");
 echo "$issuer";
 }
 
