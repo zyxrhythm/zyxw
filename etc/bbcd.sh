@@ -245,7 +245,7 @@ cutterfunc () {
 while IFS= read -r line
 do
 cutter=$( echo "$line" | awk '{$2=$2};1' | cut -d' ' -f2- );
-echo "${line/IN/}";
+echo "${cutter/IN/}";
 done < <(printf '%s\n' "$1");
 }
 
