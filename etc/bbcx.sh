@@ -1152,7 +1152,7 @@ mrfrjp=$( mrfunction "$mxr");
 #start of html body
 echo "<body>
 <br>
-<div id='divClipboard'>"
+<div id='divClipboard'>
 <pre>${zyx#*Domain Information:}</pre>
 <p>
 __________________________<br> <br>"
