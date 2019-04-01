@@ -246,7 +246,7 @@ while IFS= read -r line
 do
 cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cutter1="${cutter0/IN/}";
-cutter=$( echo "$cutter1" | sed -e 's/^[ \t]*//');
+cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' );
 echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
