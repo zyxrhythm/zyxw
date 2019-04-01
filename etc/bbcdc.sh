@@ -197,7 +197,7 @@ echo "$err";
 }
 
 issuerfunc () {
-issuer=$(echo "$1" | grep -oP '(?<=/O=C).*?(?=/CN=)' <<< "$qs");
+issuer=$( grep -oP '(?<=/O=C).*?(?=/CN=)' <<< "$1");
 echo "$issuer";
 }
 
@@ -311,7 +311,7 @@ ZXCVBNM
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subect -dates);
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
@@ -344,7 +344,7 @@ ZXCVBNM2
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subect -dates);
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
