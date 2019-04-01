@@ -263,7 +263,7 @@ then cat << ZXCVBNM
 <body><hr>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> <br>
-Error! (certificate not found)<br><br>
+Error!<br><br>
 Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
 </div>
 <hr><br>
@@ -294,8 +294,7 @@ then cat << ZXCVBNM2
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-Error!<br><br>
-Certificate not found.<br></p>
+No certificate found.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
@@ -323,8 +322,7 @@ then cat << ZXCVBNM2
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
-Error!<br><br>
-Certificate not found.<br></p>
+No certificate found.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
