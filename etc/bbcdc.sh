@@ -236,11 +236,7 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 #full date
 fulldate="$dlyear-$dlmono-$dlday";
 
-daysleft0=$( echo $((($(date +%s)-$(date +%s --date "$fulldate"))/(3600*24))) );
-
-if [[ "${daysleft0:0:1}" == "-"  ]]; 
-then daysleft=${daysleft0#*-}; 
-else daysleft="$daysleft0"; fi;
+daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
 
 echo "$daysleft";
 }
@@ -250,7 +246,7 @@ echo "$daysleft";
 
 echo '<br>'
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+#checks if input is null 
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
