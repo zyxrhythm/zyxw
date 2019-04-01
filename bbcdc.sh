@@ -191,27 +191,32 @@ tldlist1='+(ac|ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg
 #===================
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-errcfunc (){
+errcfunc () {
 err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
 echo "$err";
 }
 
 issuerfunc () {
-issuer0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -issuer);
-issuer=${issuer0#*CN=};
+issuer=$( grep -oP '(?<=/O=).*?(?=/CN=)' <<< "$1");
 echo "$issuer";
 }
 
 targetfunc () {
-target0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -subject);
+target0=$( echo "$1" | grep -i 'subject=' );
 target=${target0#*CN=};
 echo "$target";
 }
 
 expiryfunc () {
-expiry0=$(echo | openssl s_client -servername "$1" -connect "$1":443 2>/dev/null | openssl x509 -noout -enddate);
-expiry=$(echo "$expiry0"| cut -d "=" -f 2 );
+expiry0=$(echo "$1" | grep -i 'notafter=');
+expiry=${expiry0#*After=};
 echo "$expiry";
+}
+
+validstartfunc () {
+validstart0=$(echo "$1" | grep -i 'notbefore=');
+validstart=${validstart0#*Before=};
+echo "$validstart";
 }
 
 daysleftfunc () {
@@ -306,9 +311,12 @@ ZXCVBNM
 exit 0; 
 
 else 
-Issuer=$( issuerfunc "$domain" );
-Target=$( targetfunc "$domain" );
-Expiry=$( expiryfunc "$domain" );
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+Issuer=$( issuerfunc "$rawdata0" );
+Target=$( targetfunc "$rawdata0" );
+Expiry=$( expiryfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
 Daysleft=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
@@ -336,9 +344,12 @@ ZXCVBNM2
 exit 0; 
 
 else 
-Issuer=$( issuerfunc "$domain" );
-Target=$( targetfunc "$domain" );
-Expiry=$( expiryfunc "$domain" );
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+Issuer=$( issuerfunc "$rawdata0" );
+Target=$( targetfunc "$rawdata0" );
+Expiry=$( expiryfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
 Daysleft=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
@@ -366,6 +377,7 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued for</strong> : $Target <br>
+<strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>Daysleft</strong> : $Daysleft</p></div>
 <hr><br><p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
