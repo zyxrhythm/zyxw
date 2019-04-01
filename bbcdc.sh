@@ -319,7 +319,7 @@ Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
 Expiry=$( expiryfunc "$rawdata0" );
 Validstart=$( validstartfunc "$rawdata0" );
-Daysleft=$( daysleftfunc "$Expiry" ); fi;
+Daysleft0=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
  $tldlist1)
@@ -352,7 +352,7 @@ Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
 Expiry=$( expiryfunc "$rawdata0" );
 Validstart=$( validstartfunc "$rawdata0" );
-Daysleft=$( daysleftfunc "$Expiry" ); fi;
+Daysleft0=$( daysleftfunc "$Expiry" ); fi;
 ;;
 
 #throws in errors for non domain input
@@ -372,6 +372,15 @@ exit 0;
 
 esac
 
+if [[ ${Daysleft0:0:1} = "-" ]]; 
+then 
+leftvar="Cert Expired";
+Daysleft="${Daysleft0#*-} days ago."; 
+else 
+leftvar="Daysleft";
+Daysleft="$Daysleft0";
+fi;
+
 cat << EOSSLCCR
 <body><hr>
 <div class="code-bg" id="divClipboard">
@@ -381,7 +390,7 @@ cat << EOSSLCCR
 <strong>Issued For</strong> : $Target <br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
-<strong>Daysleft</strong> : $Daysleft</p></div>
+<strong>$leftvar</strong> : $Daysleft</p></div>
 <hr><br><p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
 </body>
 </html>
