@@ -401,7 +401,7 @@ zyx=$(whois $domain);
 dvc0=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 dvc=$( dvcfunc "$dvc0" );
 
-if [[ "$dvc" = "y" ]];  
+if [[ "$dvc" = "n" ]];  
 then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
