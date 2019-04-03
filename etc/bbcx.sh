@@ -364,9 +364,16 @@ fi
 countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
-daysleft=$( echo $((($(date +%s)-$(date +%s --date "$extdate"))/(3600*24))) );
+daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
+
+##Domain validity checker
+dvcfunc {
+case "$1" in nomatch) x=0;;  thequeri) x=0;;  notfound) x=0;;  nodataf) x=0;;  nowhois) x=0;;  thisdoma) x=0;;  nom) x=0;;  invalidq) x=0;;  whoisloo) x=0;;  theregis) x=0;; *) x=1;; esac;
+echo "$x";
+}
+
 #=====================
 # END OF FUNCTION HALL
 #=====================
@@ -390,10 +397,11 @@ else
 # query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
 
-#domain validity check -if  by checking the first 9 characters on the raw whois result
-dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-  if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
-  
+#domain validity check 
+dvc=$( dvcfunc "$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')" );
+
+if [[ "$dvc" = "0" ]];  
+
 then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
@@ -450,13 +458,13 @@ dayssince=$( countdfunc "$creationdate0" );
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
-dayslefttry=$( countdfunc "$expdx0" );
+dayslefttry0=$( countdfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
 if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="Counter Error: Whois server Not Found!";
+daysleftrar0="Counter Error: Whois server Not Found!";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]]; 
@@ -507,6 +515,25 @@ cat <<EODEDCDGT
 <strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
 
 <!-- COUNTER-->
+timez=$(date +%Z)
+
+if [[ "${dayslefttry0:0:1}" = "-"]]; 
+then 
+dltryvar="Days Expired (Registry)";
+dayslefttry=${dayslefttry0#*-};
+else 
+dltryvar="Days Left (Registry)"; 
+dayslefttry="$dayslefttry";
+fi;
+
+if [[ "${daysleftrar0:0:1}" = "-" ]]; 
+then 
+dlrarvar="Days Expired (Registrar"; 
+daysleftrar=${daysleftrar0#*-};
+else 
+dlrarvar="Days Left (Registrar)"; 
+daysleftrar="$daysleftrar0";
+fi;
 
 <script> 
 function jstimeverbose() { var x = document.getElementById('timeverbose'); 
@@ -520,8 +547,8 @@ else { x.style.display = 'none'; } }
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>
 Days counted since registration: $dayssince <br>
-Days left before expiration on registry: ${dayslefttry#*-}<br>
-Days left before expiration on registrar: ${daysleftrar#*-}<br>
+$dltryvar: $dayslefttry ($timez)<br>
+$dlrarvar: $daysleftrar ($timez)<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
