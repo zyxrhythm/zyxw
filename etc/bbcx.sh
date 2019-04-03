@@ -369,7 +369,7 @@ echo "$daysleft";
 }
 
 ##Domain validity checker
-dvcfunc {
+dvcfunc () {
 case "$1" in nomatch) x='n';;  thequeri) x='n';;  notfound) x='n';;  nodataf) x='n';;  nowhois) x='n';;  thisdoma) x='n';;  nom) x='n';;  invalidq) x='n';;  whoisloo) x='n';;  theregis) x='n';; *) x='y';; esac;
 echo "$x";
 }
