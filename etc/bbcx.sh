@@ -370,7 +370,7 @@ echo "$daysleft";
 
 ##Domain validity checker
 dvcfunc {
-case "$1" in nomatch) x='0';;  thequeri) x='0';;  notfound) x='0';;  nodataf) x='0';;  nowhois) x='0';;  thisdoma) x='0';;  nom) x='0';;  invalidq) x='0';;  whoisloo) x='0';;  theregis) x='0';; *) x='1';; esac;
+case "$1" in nomatch) x='n';;  thequeri) x='n';;  notfound) x='n';;  nodataf) x='n';;  nowhois) x='n';;  thisdoma) x='n';;  nom) x='n';;  invalidq) x='n';;  whoisloo) x='n';;  theregis) x='n';; *) x='y';; esac;
 echo "$x";
 }
 
@@ -398,10 +398,10 @@ else
 zyx=$(whois $domain);
 
 #domain validity check 
-dvc=$( dvcfunc "$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')" );
+dvc0=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
+dvc=$( dvcfunc "$dvc0" );
 
-if [[ "$dvc" = "0" ]];  
-
+if [[ "$dvc" = "y" ]];  
 then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
