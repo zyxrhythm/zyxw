@@ -370,7 +370,7 @@ echo "$daysleft";
 
 ##Domain validity checker
 dvcfunc {
-case "$1" in nomatch) x=0;;  thequeri) x=0;;  notfound) x=0;;  nodataf) x=0;;  nowhois) x=0;;  thisdoma) x=0;;  nom) x=0;;  invalidq) x=0;;  whoisloo) x=0;;  theregis) x=0;; *) x=1;; esac;
+case "$1" in nomatch) x='0';;  thequeri) x='0';;  notfound) x='0';;  nodataf) x='0';;  nowhois) x='0';;  thisdoma) x='0';;  nom) x='0';;  invalidq) x='0';;  whoisloo) x='0';;  theregis) x='0';; *) x='1';; esac;
 echo "$x";
 }
 
@@ -508,13 +508,7 @@ echo "<p>
 --------------------------"
 
 #print the domain creation and expiration dates
-cat <<EODEDCDGT
-<br> <br>
-<strong>Creation Date: </strong>$creationdate1 <br>
-<strong>Registry Expiry Date: </strong> $expdx1 <br>
-<strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
-
-<!-- COUNTER-->
+#COUNTER 
 timez=$(date +%Z)
 
 if [[ "${dayslefttry0:0:1}" = "-"]]; 
@@ -535,6 +529,13 @@ dlrarvar="Days Left (Registrar)";
 daysleftrar="$daysleftrar0";
 fi;
 
+cat <<EODEDCDGT
+<br> <br>
+<strong>Creation Date: </strong>$creationdate1 <br>
+<strong>Registry Expiry Date: </strong> $expdx1 <br>
+<strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
+
+<!-- COUNTER-->
 <script> 
 function jstimeverbose() { var x = document.getElementById('timeverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
