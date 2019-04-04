@@ -501,7 +501,7 @@ echo "<p>
 
 #print the domain creation and expiration dates
 #COUNTER 
-timez="--------------------------<br>The number of days below are calculated<br>based on BBC server's time zone: <strong>$(date +%Z)</strong><br>--------------------------";
+timez="--------------------------<br>The number of days below are calculated<br>based on BBC server's time zone: <strong>$(date +%Z)</strong>";
 
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
 then 
