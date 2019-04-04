@@ -505,19 +505,19 @@ timez="--------------------------<br>The number of days below are calculated<br>
 
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
 then 
-dltryvar="Days Expired (Registry)";
+dltryvar="Days Expired (Registry) ";
 dayslefttry=${dayslefttry0#*-};
 else 
-dltryvar="Days Left (Registry)"; 
+dltryvar="Days Left (Registry) "; 
 dayslefttry="$dayslefttry0";
 fi;
 
 if [[ "${daysleftrar0:0:1}" = "-" ]]; 
 then 
-dlrarvar="Days Expired (Registrar"; 
+dlrarvar="Days Expired (Registrar) "; 
 daysleftrar=${daysleftrar0#*-};
 else 
-dlrarvar="Days Left (Registrar)"; 
+dlrarvar="Days Left (Registrar) "; 
 daysleftrar="$daysleftrar0";
 fi;
 
