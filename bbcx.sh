@@ -165,9 +165,9 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=$domain&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+<a href='/cgi-bin/bbcws.sh?domain='>[ &#128269; Who You ]</a> 
+<a href='/cgi-bin/bbcdc.sh?domain='>[ &#128195; S.C.C. ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -540,9 +540,9 @@ else { x.style.display = 'none'; } }
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
-Days counted since registration: ${dayssince#*-} <br>
-$dltryvar: $dayslefttry<br>
-$dlrarvar: $daysleftrar<br>
+Days counted since registration: <strong>${dayssince#*-}</strong> <br>
+$dltryvar: <strong>$dayslefttry</strong><br>
+$dlrarvar: <strong>$daysleftrar</strong><br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
