@@ -501,7 +501,7 @@ echo "<p>
 
 #print the domain creation and expiration dates
 #COUNTER 
-timez=$(date +%Z);
+timez="Server Time Zone: $(date +%Z)";
 
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
 then 
@@ -509,7 +509,7 @@ dltryvar="Days Expired (Registry)";
 dayslefttry=${dayslefttry0#*-};
 else 
 dltryvar="Days Left (Registry)"; 
-dayslefttry="$dayslefttry";
+dayslefttry="$dayslefttry0";
 fi;
 
 if [[ "${daysleftrar0:0:1}" = "-" ]]; 
@@ -539,10 +539,10 @@ else { x.style.display = 'none'; } }
 <br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created.<br><br>
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
-<p>
-Days counted since registration: $dayssince <br>
-$dltryvar: $dayslefttry ($timez)<br>
-$dlrarvar: $daysleftrar ($timez)<br>
+<p>$timez<br><br>
+Days counted since registration: ${dayssince#*-} <br>
+$dltryvar: $dayslefttry<br>
+$dlrarvar: $daysleftrar<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
