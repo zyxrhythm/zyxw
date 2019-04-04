@@ -541,8 +541,8 @@ else { x.style.display = 'none'; } }
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
 Days counted since registration: ${dayssince#*-} <br>
-$dltryvar: $dayslefttry<br>
-$dlrarvar: $daysleftrar<br>
+$dltryvar: <strong>$dayslefttry</strong><br>
+$dlrarvar: <strong>$daysleftrar</strong><br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
