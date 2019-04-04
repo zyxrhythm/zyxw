@@ -450,22 +450,22 @@ dayssince=$( countdfunc "$creationdate0" );
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
-dayslefttry=$( countdfunc "$expdx0" );
+dayslefttry0=$( countdfunc "$expdx0" );
 
 #stores the domain's expiration date from the registrar
 if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]]; 
 then 
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="Counter Error: Whois server Not Found!";
+daysleftrar0="Counter Error: Whois server Not Found!";
 else 
 expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
 if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]]; 
 then
 expd1="Expiry Date Not Found. Consult the Registrar." 
-daysleftrar="Counter Error: Date Not Found!";
+daysleftrar0="Counter Error: Date Not Found!";
 else
 expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
-daysleftrar=$( countdfunc "$expd0" );fi;
+daysleftrar0=$( countdfunc "$expd0" );fi;
 fi;
 
 #stores the name servers under the domain on a variable
@@ -500,6 +500,27 @@ echo "<p>
 --------------------------"
 
 #print the domain creation and expiration dates
+#COUNTER 
+timez=$(date +%Z);
+
+if [[ "${dayslefttry0:0:1}" = "-" ]]; 
+then 
+dltryvar="Days Expired (Registry)";
+dayslefttry=${dayslefttry0#*-};
+else 
+dltryvar="Days Left (Registry)"; 
+dayslefttry="$dayslefttry";
+fi;
+
+if [[ "${daysleftrar0:0:1}" = "-" ]]; 
+then 
+dlrarvar="Days Expired (Registrar"; 
+daysleftrar=${daysleftrar0#*-};
+else 
+dlrarvar="Days Left (Registrar)"; 
+daysleftrar="$daysleftrar0";
+fi;
+
 cat <<EODEDCDGT
 <br> <br>
 <strong>Creation Date: </strong>$creationdate1 <br>
@@ -520,8 +541,8 @@ else { x.style.display = 'none'; } }
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>
 Days counted since registration: $dayssince <br>
-Days left before expiration on registry: ${dayslefttry#*-}<br>
-Days left before expiration on registrar: ${daysleftrar#*-}<br>
+$dltryvar: $dayslefttry ($timez)<br>
+$dlrarvar: $daysleftrar ($timez)<br>
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
