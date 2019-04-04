@@ -501,7 +501,7 @@ echo "<p>
 
 #print the domain creation and expiration dates
 #COUNTER 
-timez="The number of days are calculated based on <br>BBC server's time zone: <strong>$(date +%Z)</strong>";
+timez="--------------------------<br>The number of days below are calculated<br>based on BBC server's time zone: <strong>$(date +%Z)</strong>";
 
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
 then 
@@ -540,7 +540,7 @@ else { x.style.display = 'none'; } }
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
-Days counted since registration: <strong>${dayssince#*-}</strong> <br>
+Days counted since creation: <strong>${dayssince#*-}</strong> <br>
 $dltryvar: <strong>$dayslefttry</strong><br>
 $dlrarvar: <strong>$daysleftrar</strong><br>
 </p></td> </tbody> </table> </div><p>
