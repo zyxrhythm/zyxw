@@ -368,13 +368,6 @@ daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
 
-##Domain validity checker
-dvcfunc () {
-case "$1" in 
-nomatch) x='n';;  thequeri) x='n';;  notfound) x='n';;  nodataf) x='n';;  nowhois) x='n';;  thisdoma) x='n';;  nom) x='n';;  invalidq) x='n';;  whoisloo) x='n';;  theregis) x='n';; *) x='y';; 
-esac;
-echo "$x";
-}
 
 #=====================
 # END OF FUNCTION HALL
@@ -400,10 +393,13 @@ else
 zyx=$(whois $domain);
 
 #domain validity check 
-dvc0=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-dvc=$( dvcfunc "$dvc0" );
+dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
-if [[ "$dvc" = "n" ]];  
+case "$dvc" in 
+nomatch) x='n';;  thequeri) x='n';;  notfound) x='n';;  nodataf) x='n';;  nowhois) x='n';;  thisdoma) x='n';;  nom) x='n';;  invalidq) x='n';;  whoisloo) x='n';;  theregis) x='n';; *) x='y';; 
+esac;
+
+if [[ "$x" = "n" ]];  
 then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
