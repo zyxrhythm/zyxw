@@ -303,7 +303,7 @@ then cat << ZXCVBNM
 <strong>Resolves to</strong> : $IP <br><br>
 No certificate found on port 443. <br>
 -https might be configured to use another port. <br>
--S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
+-an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
 <p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
