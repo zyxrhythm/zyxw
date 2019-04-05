@@ -68,9 +68,11 @@ function copyClipboard() {
     document.execCommand("Copy");
   }
 }
+</script>
 
+<script>
 \$(document).bind('copy', function () {
-            var text = window.getSelection().toString().replace(/[^A-Za-z0-9.-]/g, '');
+            var text = window.getSelection().toString().replace(/[^ -~]+/g, "");
             copyToClipboard(text);
         });
 
@@ -89,6 +91,7 @@ function copyClipboard() {
                     document.body.removeChild(textarea);
                 }
         }
+
 </script>
 
 <!-- 
