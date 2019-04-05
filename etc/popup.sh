@@ -70,7 +70,7 @@ function copyClipboard() {
 }
 
 \$(document).bind('copy', function () {
-            var text = window.getSelection().toString().replace(/[^ -~]+/g, "");
+            var text = window.getSelection().toString().replace(/[^A-Za-z0-9.-]/g, '');
             copyToClipboard(text);
         });
 
