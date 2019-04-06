@@ -103,22 +103,8 @@ function removeSpecialCharacters(string) {
     \$(".wy-tooltiptext").jqxTooltip({content:"Who You",position:"mouse",name:"popupStrings"});
     
     \$(".bnd-tooltiptext").jqxTooltip({content:"Big NIck Digger",position:"mouse",name:"popupStrings"});
-    
-    
-    \$("#btn").jqxButton({width: '100'});
-    
-    var displayed=false;
-    \$("#btn").on('click', function(){
-        if(displayed===false){
-            \$(".hide-me").css({'display': 'block'});
-            displayed=true;
-        } else {
-            $(".hide-me").css({'display': 'none'});
-            displayed=false;
-        }
-    });
 
-});
+};
 </script>
 <!--From https://www.jqwidgets.com/community/topic/apply-tooltips-for-hidden-elements/-->
 
@@ -179,6 +165,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 #navlinkz { display:inline; white-space: pre-line;
 }
+
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
