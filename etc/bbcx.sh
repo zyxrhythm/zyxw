@@ -456,7 +456,7 @@ dstat=$(echo "$zyx" | grep -i -e "status:" );
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
-dayssince=$( countdfunc "$creationdate0" );
+dayssince0=$( countdfunc "$creationdate0" );
  
 #stores the domain's expiration date from the registry
 expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
@@ -514,6 +514,15 @@ echo "<p>
 #COUNTER 
 timez="--------------------------<br>The number of days below are <br>calculated based on <strong>$(date +%Z)</strong> time zone.";
 
+if [[ "$dayssince0" = "0" ]]; 
+then 
+dayssincevar="Domain was registered "; 
+dayssince="today!";
+else 
+dayssincevar="Days counted since creation: "; 
+dayssince="$daysleftrar0";
+fi;
+
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
 then 
 dltryvar="Days Expired (Registry) ";
@@ -551,7 +560,7 @@ else { x.style.display = 'none'; } }
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
-Days counted since creation: <strong>${dayssince#*-}</strong> <br>
+$dcsincevar<strong>$dayssince</strong> <br>
 $dltryvar: <strong>$dayslefttry</strong><br>
 $dlrarvar: <strong>$daysleftrar</strong><br>
 --------------------------
