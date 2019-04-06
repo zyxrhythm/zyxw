@@ -145,29 +145,33 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
-#domaintimes { color:green;
+#navlinkz { display:inline; white-space: pre-line;
 }
+
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 <script> 
 function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a href='/cgi-bin/bbcws.sh?domain='>[ &#128269; Who You ]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain='>[ &#128195; S.C.C. ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver='>[ &#9935; B.N.D. ]</a>
+
+<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
+<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
+<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a>
+
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
