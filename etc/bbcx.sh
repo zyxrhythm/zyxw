@@ -145,17 +145,17 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
-<!-- https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript -->
+<!-- https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting -->
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-<!-- https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript -->
+<!-- https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting -->
 
 #navlinkz { display:inline; white-space: pre-line;
 }
