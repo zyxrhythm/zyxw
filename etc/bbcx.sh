@@ -145,7 +145,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
-<!-- https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting -->
 .noselect {
     cursor: default;
     -webkit-touch-callout: none;
@@ -155,7 +154,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
     -ms-user-select: none;
     user-select: none;
 }
-<!-- https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting -->
+
 
 #navlinkz { display:inline; white-space: pre-line;
 }
