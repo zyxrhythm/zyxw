@@ -132,6 +132,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
+#navlinkz { display:inline; white-space: pre-line;
+}
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
@@ -150,9 +152,12 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a href='/cgi-bin/bbcx.sh?domain=google.com'>[ &#127797; BBC Special ]</a>
-<a href='/cgi-bin/bbcws.sh?domain=$domain'>[ &#128269; Who You ]</a> 
-<a href='/cgi-bin/bbcdc.sh?domain=$domain'>[ &#128195; S.C.C. ]</a>
+
+<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
+<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
+<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a>
+
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
