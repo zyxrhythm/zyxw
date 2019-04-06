@@ -354,7 +354,6 @@ do
 </span></a> ${mxax#*:}";
 done < <(printf '%s\n' "$mxr2");
 
-echo '<br>'
 else
    echo '<br>'
    mxa20=$(whois "$mxr2" );
