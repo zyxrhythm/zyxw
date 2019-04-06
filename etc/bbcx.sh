@@ -145,6 +145,18 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   visibility: visible;
 }
 
+<!-- https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript -->
+#noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+<!-- https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript -->
+
 #navlinkz { display:inline; white-space: pre-line;
 }
 
@@ -255,7 +267,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()'> &#9660; 
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' id='noselect'> &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
 </span></a>
