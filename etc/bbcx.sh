@@ -146,7 +146,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
 <!-- https://stackoverflow.com/questions/3779534/how-do-i-disable-text-selection-with-css-or-javascript -->
-#noselect {
+.noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -267,10 +267,10 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' id='noselect'> &#9660; 
+<span class='noselect'><a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' > &#9660; 
 <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '>
 <br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
-</span></a>
+</span></a></span>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
 <p>"
