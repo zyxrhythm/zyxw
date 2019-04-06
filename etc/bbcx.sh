@@ -270,7 +270,7 @@ else { x.style.display = 'none'; } }
 </span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
-<p>--------------------------"
+<p>--------------------------<br>"
 
 while IFS= read -r line
 do
