@@ -153,14 +153,14 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 <script> 
 function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
