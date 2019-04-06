@@ -560,7 +560,7 @@ else { x.style.display = 'none'; } }
 </span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
-$dcsincevar<strong>$dayssince</strong> <br>
+$daysincevar<strong>$dayssince</strong> <br>
 $dltryvar: <strong>$dayslefttry</strong><br>
 $dlrarvar: <strong>$daysleftrar</strong><br>
 --------------------------
