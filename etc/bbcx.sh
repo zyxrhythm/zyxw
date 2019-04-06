@@ -270,7 +270,7 @@ else { x.style.display = 'none'; } }
 </span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
-<p>"
+<p>--------------------------"
 
 while IFS= read -r line
 do
@@ -297,9 +297,9 @@ else
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
    echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"
 fi
-   echo '<br> <br>'
+   echo '<br><br>'
 done < <(printf '%s\n' "$1");
-echo "</p>
+echo "--------------------------</p>
 </td> </tbody> </table> </div>
 <p>"
 }
@@ -556,6 +556,7 @@ else { x.style.display = 'none'; } }
 Days counted since creation: <strong>${dayssince#*-}</strong> <br>
 $dltryvar: <strong>$dayslefttry</strong><br>
 $dlrarvar: <strong>$daysleftrar</strong><br>
+--------------------------
 </p></td> </tbody> </table> </div><p>
 
 <!--COUNTER-->
