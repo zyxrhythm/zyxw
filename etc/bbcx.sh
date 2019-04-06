@@ -91,24 +91,6 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-<!--From https://www.jqwidgets.com/community/topic/apply-tooltips-for-hidden-elements/-->
-
-<script>
-\$(document).ready(function ()
-{
-    \$(".bbcs-tooltiptext").jqxTooltip({content:"BBC special",position:"mouse",name:"popupStrings"});
-    	
-    \$(".scc-tooltiptext").jqxTooltip({content:"SSL Cert Checker",position:"mouse",name:"popupStrings"});
-    	
-    \$(".wy-tooltiptext").jqxTooltip({content:"Who You",position:"mouse",name:"popupStrings"});
-    
-    \$(".bnd-tooltiptext").jqxTooltip({content:"Big NIck Digger",position:"mouse",name:"popupStrings"});
-
-};
-</script>
-<!--From https://www.jqwidgets.com/community/topic/apply-tooltips-for-hidden-elements/-->
-
-
 <style>
 a {text-decoration: none; }
 a:link { color: red;  }
@@ -185,10 +167,10 @@ else { x.style.display = 'none'; } }
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 
-<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797; BBCS ]</a><span class='bbcs-tooltiptext'>BBC Special</span>
-<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269; WY ]</a><span class='wy-tooltiptext'>Who You</span>
-<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195; SCC ]</a><span class='scc-tooltiptext'>SSL Cert Checker</span>
-<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935; BND ]</a><span class='bnd-tooltiptext'>Big Nick Digger</span>
+<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797; BBCS ]</a>
+<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269; WY ]</a>
+<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195; SCC ]</a>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935; BND ]</a>
 
 </td> </tbody> </table></div>
 
