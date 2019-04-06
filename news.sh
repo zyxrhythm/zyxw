@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Removed non ASCII characters in the copied results on BCC Special.
+
 - Some tweaks on the navigation menu and links.
 
 - Domain relevant dates on BBC special should now be able to handle expired domains better and diplay days past and left more accurately.
