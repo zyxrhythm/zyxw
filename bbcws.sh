@@ -290,6 +290,7 @@ else { x.style.display = 'none'; } }
 
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 
+<hr>
 </head>
 ENDOFHEAD
 
