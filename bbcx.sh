@@ -148,7 +148,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 #navlinkz { display:inline; white-space: pre-line;
 }
 #noselect {
-    cursor: default;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
