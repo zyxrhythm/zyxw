@@ -19,7 +19,7 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 
 echo "<!DOCTYPE html>
 <html>
-<title>BBC S.C.C.</title>"
+<title>SSL Cert Checker</title>"
 
 
 cat <<EOHTMLHEAD
