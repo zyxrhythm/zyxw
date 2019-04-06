@@ -165,10 +165,10 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<label class='tooltip'><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz' >[ &#127797; BBCS ]</a></label><span class='tooltiptext'>BBC Special</span>
-<label class='tooltip'><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz' >[ &#128269; WY ]</a></label><span class='tooltiptext'>Who You</span>
-<label class='tooltip'><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz' >[ &#128195; SCC ]</a></label><span class='tooltiptext'>SSL Cert Checker</span>
-<label class='tooltip'><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz' >[ &#9935; BND ]</a></label><span class='tooltiptext'>Big Nick Digger</span>
+<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz' class='tooltip'>[ &#127797; BBCS ]</a><span class='tooltiptext'>BBC Special</span>
+<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz' class='tooltip'>[ &#128269; WY ]</a><span class='tooltiptext'>Who You</span>
+<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz' class='tooltip'>[ &#128195; SCC ]</a><span class='tooltiptext'>SSL Cert Checker</span>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz' class='tooltip'>[ &#9935; BND ]</a><span class='tooltiptext'>Big Nick Digger</span>
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
