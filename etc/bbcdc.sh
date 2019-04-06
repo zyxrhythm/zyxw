@@ -250,6 +250,7 @@ echo "$daysleft";
 #END OF FUNCTION HALL
 #===================
 
+echo '<br>'
 
 #checks if input is null 
 if [[ -z "$domain" ]]; then
