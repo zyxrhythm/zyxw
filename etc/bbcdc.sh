@@ -250,7 +250,6 @@ echo "$daysleft";
 #END OF FUNCTION HALL
 #===================
 
-echo '<br>'
 
 #checks if input is null 
 if [[ -z "$domain" ]]; then
@@ -258,7 +257,7 @@ if [[ -z "$domain" ]]; then
 cat <<EOTSE
 <body>
 <di id="divClipboard">
-<p><br><strong>Current Input</strong> : none <br> <br>
+<p><strong>Current Input</strong> : none <br> <br>
 Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / sub domain.<br><br></p>
 </div>
 </body>
