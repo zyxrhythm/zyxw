@@ -250,8 +250,6 @@ echo "$daysleft";
 #END OF FUNCTION HALL
 #===================
 
-echo '<br>'
-
 #checks if input is null 
 if [[ -z "$domain" ]]; then
 
@@ -273,7 +271,7 @@ IP=$(dig +short a $domain | head -n 1);
 if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
 then cat << ZXCVBNM
-<body><hr>
+<body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> <br>
 <span style="font-size: 120%; font-family: verdana; color: red; ">Error!!</span><br><br>
@@ -303,7 +301,7 @@ errc=$( errcfunc "$domain" );
 
 if [[ -z "$errc" ]];
 then cat << ZXCVBNM
-<body><hr>
+<body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
@@ -336,7 +334,7 @@ errc=$( errcfunc "$domain" );
 
 if [[ -z "$errc" ]];
 then cat << ZXCVBNM2
-<body><hr>
+<body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
 <strong>Resolves to</strong> : $IP <br><br>
@@ -365,7 +363,7 @@ Daysleft0=$( daysleftfunc "$Expiry" ); fi;
    *)
 cat << EOIDNE
 <body>
-<hr><div class="code-bg" id="divClipboard">
+<div class="code-bg" id="divClipboard">
 <p><strong>Input</strong> : $domain<br> <br>
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!</p>
 </div><br><hr><br>
@@ -388,7 +386,7 @@ Daysleft="$Daysleft0";
 fi;
 
 cat << EOSSLCCR
-<body><hr>
+<body>
 <div class="code-bg" id="divClipboard">
 <p><strong>$domvar</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
