@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Some tweaks on the navigation menu and links.
+
 - Domain relevant dates on BBC special should now be able to handle expired domains better and diplay days past and left more accurately.
 
 - BBC special result will now sort MX records depending on their priority value. And Who You will now sort records by type.
