@@ -250,8 +250,6 @@ echo "$daysleft";
 #END OF FUNCTION HALL
 #===================
 
-echo '<br>'
-
 #checks if input is null 
 if [[ -z "$domain" ]]; then
 
@@ -273,7 +271,7 @@ IP=$(dig +short a $domain | head -n 1);
 if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
 then cat << ZXCVBNM
-<body><hr>
+<body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> <br>
 <span style="font-size: 120%; font-family: verdana; color: red; ">Error!!</span><br><br>
