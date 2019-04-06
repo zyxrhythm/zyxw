@@ -520,7 +520,7 @@ dayssincevar="Domain was registered ";
 dayssince="today!";
 else 
 dayssincevar="Days counted since creation: "; 
-dayssince="$dayssince0";
+dayssince="${dayssince0#*-}";
 fi;
 
 if [[ "${dayslefttry0:0:1}" = "-" ]]; 
