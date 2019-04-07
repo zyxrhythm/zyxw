@@ -144,7 +144,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
-
+#domaintimes {color: green;
+}
 #navlinkz { display:inline; white-space: pre-line;
 }
 #noselect {
