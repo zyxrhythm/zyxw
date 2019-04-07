@@ -252,7 +252,8 @@ do
 cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cutter1="${cutter0/IN/}";
 cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' );
-echo -e "$cutter \n";
+echo "$cutter";
+echo ""
 done < <(printf '%s\n' "$1");
 }
 
@@ -266,9 +267,6 @@ ttl=$( echo "$1" | awk  '{print $1}');
 echo '<strong>TTL</strong><br>"$ttl"';
 rtype=$( echo "$1" | awk  '{print $2}');
 echo '<strong>Record</strong><br>"$rtype"';
-
-
-
 }
 
 if [[ -z $zyxgd ]]; 
