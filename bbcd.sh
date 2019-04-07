@@ -244,7 +244,7 @@ case $tld in
    $gcctldlist)
 
 #prints the dig results for gtlds
-zyxgd0=$(dig +noall +answer $DNSR $domain $qns );
+zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
 cutterfunc () {
 while IFS= read -r line
@@ -252,11 +252,11 @@ do
 cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cutter1="${cutter0/IN/}";
 cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' );
-echo "$cutter";
+echo -e "$cutter\n";
 done < <(printf '%s\n' "$1");
 }
 
-zyxgd=$( cutterfunc "$zyxgd0" | sort -k2 );
+zyxgd=$( cutterfunc "$zyxgd0" );
 
 if [[ -z $zyxgd ]]; 
 
