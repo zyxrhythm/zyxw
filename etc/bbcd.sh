@@ -252,11 +252,24 @@ do
 cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cutter1="${cutter0/IN/}";
 cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' );
-echo "$cutter";
+echo -e "$cutter \n";
 done < <(printf '%s\n' "$1");
 }
 
 zyxgd=$( cutterfunc "$zyxgd0" | sort -k2 );
+
+zyxd=$( unnamedfunc "$zyxgd" );
+
+unnamedfunc () {
+
+ttl=$( echo "$1" | awk  '{print $1}');
+echo '<strong>TTL</strong><br>"$ttl"';
+rtype=$( echo "$1" | awk  '{print $2}');
+echo '<strong>Record</strong><br>"$rtype"';
+
+
+
+}
 
 if [[ -z $zyxgd ]]; 
 
