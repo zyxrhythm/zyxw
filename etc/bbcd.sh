@@ -261,11 +261,18 @@ zyxgd=$( cutterfunc "$zyxgd0" );
 zyxd=$( unnamedfunc "$zyxgd" );
 
 unnamedfunc () {
+linefeed="$1";
+echo '<table><tbody><tr>'
 
 ttl=$( echo "$1" | awk  '{print $1}');
 echo '<strong>TTL</strong><br>"$ttl"';
+
 rtype=$( echo "$1" | awk  '{print $2}');
 echo '<strong>Record</strong><br>"$rtype"';
+
+cut -d' ' -f3-
+
+echo '</tr></tbody></table>'
 }
 
 if [[ -z $zyxgd ]]; 
