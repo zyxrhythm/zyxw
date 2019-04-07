@@ -587,14 +587,16 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 <!--tagclienttransferprohibited0-->
 <table id="clienttransferprohibited">
 <tbody>
+<tr>
 <th>Status Code</th>
 <th>What does it mean?</th>
 <th>Should you do something?</th>
-
+</tr>
+<tr>
 <td>clientTransferProhibited</td>
 <td><br/>This status code tells your domain's registry to reject requests to transfer the domain from your current registrar to another.<br/><br/></td>
 <td><br/>This status indicates that it is not possible to transfer the domain name registration, which will help prevent unauthorized transfers resulting from hijacking and/or fraud. If you do want to transfer your domain, you must first contact your registrar and request that they remove this status code.<br/><br/></td>
-
+</tr>
 </tbody>
 </table>
 <!--tagclienttransferprohibited1-->
