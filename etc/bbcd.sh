@@ -259,7 +259,6 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 zyxd=$( unnamedfunc "$zyxgd" );
-echo "$zyxd"
 
 unnamedfunc () {
 echo '<table><tbody><tr>';
@@ -299,7 +298,7 @@ cat <<EODR
 <body><br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <div id="divClipboard">
-<p><pre>$zyxgd</pre><br></p>
+<p><pre>$zyxd</pre><br></p>
 </div>
 </body>
 </html>
