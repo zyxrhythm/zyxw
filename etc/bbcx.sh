@@ -159,7 +159,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p><br>
 
 <p><script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -175,7 +175,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
+<div id='navtable' style='display:none; float:right;' ><table style='display: inline;'> <tbody><td>
 
 <a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
 <a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
