@@ -281,10 +281,10 @@ done < <(printf '%s\n' "$1");
 tablexfunc () {
 while IFS= read -r line
 do
-ttl=$( echo "$line" | awk  '{print $1}');
-rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d' ' -f3-);
-echo "$rtype $ttl $record"
+ttlx=$( echo "$line" | awk  '{print $1}');
+rtypex=$( echo "$line" | awk  '{print $2}');
+recordx=$( echo "$line" | cut -d' ' -f3-);
+echo "$rtypex $ttlx $recordx"
 done < <(printf '%s\n' "$1");
 }
 
@@ -307,9 +307,11 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard" style="visibility: hidden;"><p><pre>$zyxdx</pre></p></div>
-<pre>
-<table><tbody>
+<div id="divClipboard" style="visibility: hidden;">
+<p><pre>$zyxdx</pre></p>
+</div>
+
+<pre><table><tbody>
 <tr><th><strong> Type </strong></th>
 <th><strong> TTL </strong></th>
 <th><strong> Record </strong></th></tr>
