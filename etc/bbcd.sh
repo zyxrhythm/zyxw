@@ -127,7 +127,6 @@ strong {color: green;}
   visibility: visible;
 }
 #navlinkz { display:inline; white-space: pre-line;}
-
 #noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -136,7 +135,6 @@ strong {color: green;}
     -ms-user-select: none;
     user-select: none;
 }
-
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
@@ -261,18 +259,16 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 tablefunc () {
-echo '<table><tbody><tr><th><strong>Type	</strong></th><th><strong>TTL	</strong></th><th><strong>Record	</strong></th></tr>'
 while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
+echo "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
-echo '</tbody></table>'
 }
 
-zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
+zyxd=$( tablefunc "$zyxgd" | columt -t -s'	' );
 
 if [[ -z $zyxd ]]; 
 
@@ -290,7 +286,8 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard"><p><pre>$zyxd</pre></p></div><br>
+<div id="divClipboard"><p><pre><table><tbody><tr id='noselect'><th><strong> Type </strong></th><th><strong> TTL </strong></th><th><strong> Record </strong></th></tr>$zyxd</tbody></table></p></div>
+</pre><br>
 </body>
 </html>
 EODR
