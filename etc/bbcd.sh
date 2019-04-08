@@ -248,9 +248,21 @@ echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
+cutterxfunc () {
+while IFS= read -r line
+do
+cutterx0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+cutterx1="${cutter00/IN/}";
+cutterx=$( echo "${cutterx1#*.}" | sed -e 's/^[ \t]*//' );
+echo "$cutterx";
+done < <(printf '%s\n' "$1");
+}
+
 zyxgd=$( cutterfunc "$zyxgd0" );
 
-unnamedfunc () {
+zyxgdx=$( cutterxfunc "$zyxgd0" );
+
+tablefunc () {
 
 while IFS= read -r line
 do
@@ -270,7 +282,23 @@ echo "
 done < <(printf '%s\n' "$1");
 }
 
-zyxd=$( unnamedfunc "$zyxgd" );
+
+tablexfunc () {
+
+while IFS= read -r line
+do
+
+ttl=$( echo "$line" | awk  '{print $1}');
+rtype=$( echo "$line" | awk  '{print $2}');
+record=$( echo "$line" | cut -d' ' -f3-);
+
+echo "$rtype $ttl $record"
+
+done < <(printf '%s\n' "$1");
+}
+
+zyxd=$( tablefunc "$zyxgd" );
+zyxdx=$( tablefunc "$zyxgdx" );
 
 if [[ -z $zyxd ]]; 
 
@@ -288,16 +316,15 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard">
-<p><pre>
+<div id="divClipboard" style="display:none"><p><pre>$zyxdx</pre></p></div>
+<pre>
 <table><tbody>
 <tr><th><strong> Type </strong></th>
 <th><strong> TTL </strong></th>
 <th><strong> Record </strong></th></tr>
 $zyxd
 </tbody></table>
-</pre><br></p>
-</div>
+</pre><br>
 </body>
 </html>
 EODR
