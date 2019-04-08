@@ -307,18 +307,15 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<span style="display: none;">
 <div id="divClipboard">
-<textarea><p><pre>$zyxdx</pre></p></textarea>
-</div>
-</span>
+<span style="display: none;"><textarea><p><pre>$zyxdx</pre></p></textarea></span>
 <pre><table><tbody>
 <tr><th><strong> Type </strong></th>
 <th><strong> TTL </strong></th>
 <th><strong> Record </strong></th></tr>
 $zyxd
 </tbody></table>
-</pre><br>
+</pre></div><br>
 </body>
 </html>
 EODR
