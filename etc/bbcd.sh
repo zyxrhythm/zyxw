@@ -285,15 +285,15 @@ else true;
 
 fi;
 
-echo"
+cat <<EODR
 <body><br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id='divClipboard'>
-<p><pre>"$zyxd"</pre><br></p>
+<div id="divClipboard">
+<p><pre>$zyxd</pre><br></p>
 </div>
 </body>
 </html>
-"
+EODR
 ;;
 
 #error for non domain input
