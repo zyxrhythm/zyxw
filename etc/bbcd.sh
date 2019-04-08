@@ -257,7 +257,6 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 tablefunc () {
-echo -e "<tr id='noselect'><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
 while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
@@ -271,7 +270,7 @@ zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody><tr id='noselect'><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
