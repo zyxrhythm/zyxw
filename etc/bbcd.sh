@@ -257,7 +257,9 @@ done < <(printf '%s\n' "$1");
 }
 
 zyxgd=$( cutterfunc "$zyxgd0" );
-echo "<table><tbody>"
+echo "<table><tbody>
+<tr><th><strong>TTL</strong></th><th><strong>Record Type</strong></th><th><strong>Record</strong></th></tr>
+"
 unnamedfunc () {
 while IFS= read -r line
 do
