@@ -225,7 +225,21 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 case $tld in
    $gcctldlist)
 
-#prints the dig results for gtlds
+zyxc=$( dig +short "domain" );
+
+if [[ -z $zyxc ]]; 
+
+then echo "
+<div id="divClipboard">
+<p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
+</div>
+</body>
+</html>" && exit 0;
+
+else true; 
+
+fi;
+
 zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
 cutterfunc () {
@@ -251,19 +265,6 @@ done < <(printf '%s\n' "$1");
 }
 
 zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
-
-if [[ -z $zyxd ]]; 
-
-then echo "
-<div id="divClipboard">
-<p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
-</div>
-</body>
-</html>" && exit 0;
-
-else true; 
-
-fi;
 
 cat <<EODR
 <br>
