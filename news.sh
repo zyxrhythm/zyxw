@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- As per request, simplified and improved Big Nick Digger results.
+
 - Removed non ASCII characters in the copied results on BCC Special.
 
 - Some tweaks on the navigation menu and links.
