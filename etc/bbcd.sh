@@ -251,11 +251,7 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 unnamedfunc () {
-echo "<table><tbody>
-<tr><th><strong>Record Type</strong></th>
-<th><strong>TTL (Time To Live)</strong></th>
-<th><strong>Record</strong></th></tr>
-"
+
 while IFS= read -r line
 do
 
@@ -272,7 +268,6 @@ echo "
 "
 
 done < <(printf '%s\n' "$1");
-echo "</tbody></table>"
 }
 
 zyxd=$( unnamedfunc "$zyxgd" );
@@ -294,7 +289,14 @@ cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <div id="divClipboard">
-<p><pre>$zyxd</pre><br></p>
+<p><pre>
+<table><tbody>
+<tr><th><strong>Record Type</strong></th>
+<th><strong>TTL (Time To Live)</strong></th>
+<th><strong>Record</strong></th></tr>
+$zyxd
+</tbody></table>
+</pre><br></p>
 </div>
 </body>
 </html>
