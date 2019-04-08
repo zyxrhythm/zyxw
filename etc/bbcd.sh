@@ -309,7 +309,7 @@ cat <<EODR
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <span style="display: none;">
 <div id="divClipboard">
-<p><pre>$zyxdx</pre></p>
+<textarea><p><pre>$zyxdx</pre></p></textarea>
 </div>
 </span>
 <pre><table><tbody>
