@@ -270,9 +270,7 @@ rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
 echo "
 <tr>
-<td>$rtype</td>
-<td>$ttl</td>
-<td>$record</td>
+<td>$rtype</td> <td>$ttl</td> <td>$record</td>
 </tr>"
 done < <(printf '%s\n' "$1");
 }
