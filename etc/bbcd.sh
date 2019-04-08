@@ -127,6 +127,16 @@ strong {color: green;}
   visibility: visible;
 }
 #navlinkz { display:inline; white-space: pre-line;}
+
+#noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
@@ -278,16 +288,12 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-
-<pre><table><tbody>
-<tr><th><strong> Type </strong></th>
-<th><strong> TTL </strong></th>
-<th><strong> Record </strong></th></tr>
 <div id="divClipboard"><p>
+<pre><table><tbody>
+<tr id='noselect'><th><strong> Type </strong></th><th><strong> TTL </strong></th><th><strong> Record </strong></th></tr>
 $zyxd
-</p></div>
 </tbody></table>
-</pre><br>
+</pre></p></div><br>
 </body>
 </html>
 EODR
