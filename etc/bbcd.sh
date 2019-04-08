@@ -91,7 +91,7 @@ div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
 strong {color: green;
 }
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word; white-space: pre;
 }
 h1 { font-family: verdana; font-size: 90%;
 }
@@ -103,7 +103,7 @@ table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 th { border: 2px solid green;
 }
-td { vertical-align: top; text-align: left; border: 1px solid green; word-wrap: break-word; white-space: pre;
+td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
 .tooltip {
@@ -270,9 +270,9 @@ record=$( echo "$line" | cut -d' ' -f3-);
 
 echo "
 <tr>
-<td>$ttl</td>
-<td>$rtype</td>
-<td>$record</td>
+<td><p>$ttl</p></td>
+<td><p>$rtype</p></td>
+<td><p>$record</p></td>
 </tr>
 "
 
