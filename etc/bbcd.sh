@@ -103,7 +103,7 @@ table { font-family: verdana; border: 2px solid green; font-size: 90%;
 }
 th { border: 2px solid green;
 }
-td { vertical-align: top; text-align: left; border: 1px solid green; word-wrap: break-word;
+td { vertical-align: top; text-align: left; border: 1px solid green; white-space: pre;
 }
 
 .tooltip {
