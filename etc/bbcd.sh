@@ -252,7 +252,7 @@ do
 cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cutter1="${cutter0/IN/}";
 cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' );
-echo -e "$cutter\n";
+echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
@@ -310,7 +310,7 @@ if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
 <body>
-<div id="divClipboard">
+<div id="divClipboard">\
 <p><strong>Input</strong> : domain / I.P. address ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
