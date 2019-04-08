@@ -288,12 +288,13 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard">
-<p><pre>
+<pre>
 <table><tbody>
 <tr><th><strong>Record Type</strong></th>
 <th><strong>TTL (Time To Live)</strong></th>
 <th><strong>Record</strong></th></tr>
+<div id="divClipboard">
+<p>
 $zyxd
 </tbody></table>
 </pre><br></p>
