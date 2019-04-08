@@ -181,6 +181,7 @@ else { x.style.display = 'none'; } }
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
 <hr> </head>
+<body>
 ENDOFHTMLHEAD
 
 #list of supported TLDs
@@ -193,7 +194,6 @@ if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 #checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
 cat <<EOTS
-<body>
 <div id="divClipboard">
 <p><br><strong>Current Input</strong> : none <br> <br>
 Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br><br></p>
@@ -210,7 +210,6 @@ then
 xip=$(echo $domain | tr -d '\040\011\012\015' );
 zyxrip=$(dig -x $xip +short );
 cat << EORIP
-<body>
 <p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
 <p><strong>IP address :</strong> $xip <br>
@@ -274,7 +273,7 @@ zyxd=$( unnamedfunc "$zyxgd" );
 
 if [[ -z $zyxd ]]; 
 
-then echo "<body>
+then echo "
 <div id="divClipboard">
 <p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
@@ -286,7 +285,7 @@ else true;
 fi;
 
 cat <<EODR
-<body><br>
+<br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <div id="divClipboard">
 <p><pre>$zyxd</pre><br></p>
@@ -301,7 +300,6 @@ EODR
 if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
-<body>
 <div id="divClipboard">
 <p><strong>Input</strong> : domain / I.P. address ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
