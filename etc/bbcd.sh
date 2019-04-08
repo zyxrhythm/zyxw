@@ -289,7 +289,7 @@ done < <(printf '%s\n' "$1");
 }
 
 zyxd=$( tablefunc "$zyxgd" );
-zyxdx=$( tablefunc "$zyxgdx" );
+zyxdx=$( tablexfunc "$zyxgdx" );
 
 if [[ -z $zyxd ]]; 
 
