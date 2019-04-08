@@ -263,7 +263,7 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td style=' white-space: pre-wrap; '>$record</td></tr>"
+echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
