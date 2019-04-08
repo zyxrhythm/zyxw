@@ -267,7 +267,7 @@ while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d' ' -f3-);
+record=$( echo "$line" | | cut -d' ' -f3-);
 echo "
 <tr>
 <td>$rtype</td>
@@ -283,7 +283,7 @@ while IFS= read -r line
 do
 ttlx=$( echo "$line" | awk  '{print $1}');
 rtypex=$( echo "$line" | awk  '{print $2}');
-recordx=$( echo "$line" | cut -d' ' -f3-);
+recordx=$( echo "$line" | awk '{$2=$2};1' |cut -d' ' -f3-);
 echo "$rtypex $ttlx $recordx"
 done < <(printf '%s\n' "$1");
 }
@@ -307,8 +307,8 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard" style="visibility: hidden;">
-<p><pre>$zyxdx</pre></p>
+<div id="divClipboard">
+<p style="display: none;"><pre>$zyxdx</pre></p>
 </div>
 
 <pre><table><tbody>
