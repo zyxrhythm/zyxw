@@ -84,16 +84,18 @@ div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;}
+p  { font-family: verdana; font-size: 85%; word-break:break-all;}
 h1 { font-family: verdana; font-size: 90%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
+
 body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 1px solid green; }
-body td { vertical-align: top; text-align: left; border: 1px solid green; }
+body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
+
 strong {color: green;}
 .tooltip {
   position: relative;
@@ -255,12 +257,13 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 tablefunc () {
+echo -e "<tr><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
 while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
+echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
@@ -268,7 +271,7 @@ zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody><tr id='noselect'><th><strong> Type </strong></th><th><strong> TTL </strong></th><th><strong> Record </strong></th></tr>$zyxd</tbody></table></pre></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
