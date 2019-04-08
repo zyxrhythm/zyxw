@@ -257,7 +257,7 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 tablefunc () {
-echo -e "<tr><td style='text-align: center;'><strong>Type\t</strong></td style='text-align: center;'><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
+echo -e "<tr id='noselect'><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
 while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
