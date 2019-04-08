@@ -252,8 +252,8 @@ zyxgd=$( cutterfunc "$zyxgd0" );
 
 unnamedfunc () {
 echo "<table><tbody>
-<tr><th><strong>TTL</strong></th>
-<th><strong>Record Type</strong></th>
+<tr><th><strong>Record Type</strong></th>
+<th><strong>TTL (Time To Live)</strong></th>
 <th><strong>Record</strong></th></tr>
 "
 while IFS= read -r line
