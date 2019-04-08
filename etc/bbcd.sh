@@ -84,7 +84,7 @@ div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;}
+p  { font-family: verdana; font-size: 85%; word-break:break-all;}
 h1 { font-family: verdana; font-size: 90%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
@@ -94,7 +94,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 1px solid green; }
-body td { vertical-align: top; text-align: left; border: 1px solid green; word-wrap: break-word;}
+body td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 strong {color: green;}
 .tooltip {
