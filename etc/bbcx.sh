@@ -159,9 +159,9 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p>
 
-<p> <script> 
+<p><script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
