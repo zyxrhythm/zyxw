@@ -227,7 +227,7 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 case $tld in
    $gcctldlist)
 
-zyxc=$( dig +short "$domain" @$qns );
+zyxc=$( dig +short "$domain" $qns );
 
 if [[ -z $zyxc ]]; 
 
