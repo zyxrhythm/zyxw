@@ -100,7 +100,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 2px solid white; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; }
-body tr {display: inline;}
+
 strong {color: green;}
 .tooltip {
   position: relative;
@@ -265,9 +265,9 @@ record=$( echo "$line" | cut -d' ' -f3-);
 
 echo "
 <tr>
-<td><p>$ttl</p></td>
-<td><p>$rtype</p></td>
-<td><p>$record</p></td>
+<td>$ttl</td>
+<td>$rtype</td>
+<td>$record</td>
 </tr>
 "
 
