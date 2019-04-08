@@ -27,7 +27,6 @@ qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 cat <<ENDOFHTMLHEAD
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />
-
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
@@ -41,7 +40,6 @@ cat <<ENDOFHTMLHEAD
   gtag('js', new Date());
   gtag('config', 'UA-32625644-1');
 </script>
-
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
@@ -64,21 +62,18 @@ function copyClipboard() {
   }
 }
 </script>
-
 <!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
 <script>
 function removeSpaces(string) {
  return string.split(' ').join('');
 }
 </script>
-
 <!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
 <script>
 function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
 }
 </script>
-
 <style>
 a {text-decoration: none; }
 a:link { color: red;  }
@@ -96,11 +91,9 @@ pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
-
 body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 1px solid green; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; }
-
 strong {color: green;}
 .tooltip {
   position: relative;
@@ -136,7 +129,6 @@ strong {color: green;}
     user-select: none;
 }
 </style>
-
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -144,29 +136,22 @@ if (x.style.display === 'none')
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
-
 <script> 
 function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
 </script>
-
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-
 <a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
 <a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
 <a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a>
 <a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a>
-
 </td> </tbody> </table></div>
-
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
 <a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
 </p>
 <p><div id='xtable' ><table> <tbody> <td>
-
 <!-- ################## BIG NICK DIGGER ################# -->
 <form action="bbcd.sh" method="get">
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
@@ -186,13 +171,10 @@ else { x.style.display = 'none'; } }
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
-
 </td> </tbody> </table> </div></p>
-
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app.<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
-
 <hr> </head>
 <body>
 ENDOFHTMLHEAD
@@ -264,11 +246,11 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
+echo -e "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
-zyxd=$( tablefunc "$zyxgd" | columt -t -s'	' );
+zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 if [[ -z $zyxd ]]; 
 
@@ -286,8 +268,7 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard"><p><pre><table><tbody><tr id='noselect'><th><strong> Type </strong></th><th><strong> TTL </strong></th><th><strong> Record </strong></th></tr>$zyxd</tbody></table></p></div>
-</pre><br>
+<div id="divClipboard"><p><pre><table><tbody><tr id='noselect'><th><strong> Type </strong></th><th><strong> TTL </strong></th><th><strong> Record </strong></th></tr>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
