@@ -267,7 +267,7 @@ while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | | cut -d' ' -f3-);
+record=$( echo "$line" | cut -d' ' -f3-);
 echo "
 <tr>
 <td>$rtype</td>
