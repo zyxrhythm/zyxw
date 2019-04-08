@@ -98,7 +98,7 @@ th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
-body th { border: 2px solid white; }
+body th { border: 1px solid green; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; }
 
 strong {color: green;}
