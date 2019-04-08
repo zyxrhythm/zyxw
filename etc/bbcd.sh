@@ -316,7 +316,7 @@ fi;
 cat <<EODR
 <br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard" style="display:none"><p><pre>$zyxdx</pre></p></div>
+<div id="divClipboard" style="visibility: hidden;"><p><pre>$zyxdx</pre></p></div>
 <pre>
 <table><tbody>
 <tr><th><strong> Type </strong></th>
