@@ -252,7 +252,7 @@ cutterxfunc () {
 while IFS= read -r line
 do
 cutterx0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cutterx1="${cutter00/IN/}";
+cutterx1="${cutter0/IN/}";
 cutterx=$( echo "${cutterx1#*.}" | sed -e 's/^[ \t]*//' );
 echo "$cutterx";
 done < <(printf '%s\n' "$1");
@@ -263,37 +263,28 @@ zyxgd=$( cutterfunc "$zyxgd0" );
 zyxgdx=$( cutterxfunc "$zyxgd0" );
 
 tablefunc () {
-
 while IFS= read -r line
 do
-
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-
 echo "
 <tr>
 <td>$rtype</td>
 <td>$ttl</td>
 <td>$record</td>
-</tr>
-"
-
+</tr>"
 done < <(printf '%s\n' "$1");
 }
 
 
 tablexfunc () {
-
 while IFS= read -r line
 do
-
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-
 echo "$rtype $ttl $record"
-
 done < <(printf '%s\n' "$1");
 }
 
