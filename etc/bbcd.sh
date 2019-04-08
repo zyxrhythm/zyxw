@@ -258,8 +258,6 @@ done < <(printf '%s\n' "$1");
 
 zyxgd=$( cutterfunc "$zyxgd0" );
 
-zyxd=$( unnamedfunc "$zyxgd" );
-
 unnamedfunc () {
 echo '<table><tbody><tr>';
 
@@ -279,6 +277,8 @@ done < <(printf '%s\n' "$1");
 
 echo '</tr></tbody></table>';
 }
+
+zyxd=$( unnamedfunc "$zyxgd" );
 
 if [[ -z $zyxgd ]]; 
 
