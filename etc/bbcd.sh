@@ -252,7 +252,7 @@ cutterxfunc () {
 while IFS= read -r line
 do
 cutterx0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cutterx1="${cutter0/IN/}";
+cutterx1="${cutterx0/IN/}";
 cutterx=$( echo "${cutterx1#*.}" | sed -e 's/^[ \t]*//' );
 echo "$cutterx";
 done < <(printf '%s\n' "$1");
