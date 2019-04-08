@@ -159,7 +159,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p><br>
 
 <p><script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
