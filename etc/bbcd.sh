@@ -270,7 +270,7 @@ echo -e "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
-zyxd=$( tablefunc "$zyxgd");
+zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 if [[ -z $zyxd ]]; 
 
