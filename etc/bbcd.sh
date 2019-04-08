@@ -259,18 +259,25 @@ done < <(printf '%s\n' "$1");
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 zyxd=$( unnamedfunc "$zyxgd" );
+echo "$zyxd"
 
 unnamedfunc () {
-linefeed="$1";
-echo '<table><tbody><tr>'
+echo '<table><tbody><tr>';
 
-ttl=$( echo "$1" | awk  '{print $1}');
+while IFS= read -r line
+do
+
+ttl=$( echo "$line" | awk  '{print $1}');
 echo '<strong>TTL</strong><br>"$ttl"';
 
-rtype=$( echo "$1" | awk  '{print $2}');
+rtype=$( echo "$line" | awk  '{print $2}');
 echo '<strong>Record</strong><br>"$rtype"';
 
-cut -d' ' -f3-
+record=$(echo "$line" | cut -d' ' -f3-);
+echo '<strong>Record</strong><br>"$record"';
+
+
+done < <(printf '%s\n' "$1");
 
 echo '</tr></tbody></table>'
 }
