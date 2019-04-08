@@ -387,9 +387,10 @@ echo "$daysleft";
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
-<body><div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>.<br><br></p>
-</div></body>
+<body>
+<div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>.<br><br></p></div>
+</body>
 </html>
 EOTSE
 exit 0;
@@ -487,9 +488,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
 <body>
-<div id="divClipboard">
-<p>
-__________________________<br><br>
+<div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
