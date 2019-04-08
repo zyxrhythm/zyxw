@@ -262,13 +262,13 @@ unnamedfunc () {
 while IFS= read -r line
 do
 
-ttl=$( echo '$line' | awk  '{print $1}');
+ttl=$( echo "$line" | awk  '{print $1}');
 echo "$ttl";
 
-rtype=$( echo '$line' | awk  '{print $2}');
+rtype=$( echo "$line" | awk  '{print $2}');
 echo "$rtype";
 
-record=$(echo '$line' | cut -d' ' -f3-);
+record=$(echo "$line" | cut -d' ' -f3-);
 echo "$record";
 
 done < <(printf '%s\n' "$1");
