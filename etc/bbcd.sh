@@ -89,29 +89,19 @@ div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
-strong {color: green;
-}
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
-}
-h1 { font-family: verdana; font-size: 90%;
-}
-body { background-color:black; color:white;
-}
-pre{ white-space: pre-wrap; font-size: 100%;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word;}
+h1 { font-family: verdana; font-size: 90%;}
+body { background-color:black; color:white;}
+pre{ white-space: pre-wrap; font-size: 100%;}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+strong {color: green;}
 .tooltip {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
 }
-
 .tooltip .tooltiptext {
   font-size:85%;
   visibility: hidden;
@@ -127,13 +117,11 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   position: absolute;
   z-index: 1;
 }
-
 .tooltip:hover .tooltiptext {
   display: inline;
   visibility: visible;
 }
-#navlinkz { display:inline; white-space: pre-line;
-}
+#navlinkz { display:inline; white-space: pre-line;}
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
@@ -258,7 +246,9 @@ done < <(printf '%s\n' "$1");
 
 zyxgd=$( cutterfunc "$zyxgd0" );
 echo "<table><tbody>
-<tr><th><strong>TTL</strong></th><th><strong>Record Type</strong></th><th><strong>Record</strong></th></tr>
+<tr><th><strong>TTL</strong></th>
+<th><strong>Record Type</strong></th>
+<th><strong>Record</strong></th></tr>
 "
 unnamedfunc () {
 while IFS= read -r line
@@ -282,7 +272,7 @@ echo "</tbody></table>"
 
 zyxd=$( unnamedfunc "$zyxgd" );
 
-if [[ -z $zyxgd ]]; 
+if [[ -z $zyxd ]]; 
 
 then echo "<body>
 <div id="divClipboard">
@@ -295,15 +285,15 @@ else true;
 
 fi;
 
-cat <<EODR
+echo"
 <body><br>
 <h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-<div id="divClipboard">
-<p><pre>$zyxd</pre><br></p>
+<div id='divClipboard'>
+<p><pre>"$zyxd"</pre><br></p>
 </div>
 </body>
 </html>
-EODR
+"
 ;;
 
 #error for non domain input
@@ -312,7 +302,7 @@ if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
 <body>
-<div id="divClipboard">\
+<div id="divClipboard">
 <p><strong>Input</strong> : domain / I.P. address ( $domain ) name server ( $qns )<br>
 <strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
