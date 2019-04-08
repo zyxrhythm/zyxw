@@ -265,8 +265,8 @@ record=$( echo "$line" | cut -d' ' -f3-);
 
 echo "
 <tr>
-<td>$ttl</td>
 <td>$rtype</td>
+<td>$ttl</td>
 <td>$record</td>
 </tr>
 "
