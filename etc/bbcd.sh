@@ -266,11 +266,11 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo "<tr><td>$rtype</td> <td>$ttl</td> <td>$record</td></tr>"
+echo -e "<tr><td>$rtype</td>\t<td>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
-zyxd=$( tablefunc "$zyxgd" | column -t );
+zyxd=$( tablefunc "$zyxgd");
 
 if [[ -z $zyxd ]]; 
 
