@@ -97,9 +97,9 @@ table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
-body table { font-family: verdana; border: 2px solid green; font-size: 90%; display:block; }
-body th { border: 2px solid white; display:block; }
-body td { vertical-align: top; text-align: left; border: 1px solid green; display:block; }
+body table { font-family: verdana; border: 2px solid green; font-size: 90%; display:inline; }
+body th { border: 2px solid white; display:inline; }
+body td { vertical-align: top; text-align: left; border: 1px solid green; display:inline; }
 
 strong {color: green;}
 .tooltip {
