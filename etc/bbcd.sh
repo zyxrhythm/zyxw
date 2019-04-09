@@ -206,6 +206,21 @@ if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?
 then
 xip=$(echo $domain | tr -d '\040\011\012\015' );
 zyxrip=$(dig -x $xip +short );
+if [[ -z "$zyxrip" ]]; 
+then  
+cat << EORIP0
+<p><h1>Reverse DNS</h1></p>
+<div id="divClipboard">
+<p><strong>IP address :</strong> $xip <br>
+<strong>Domain/Hostname :</strong> There is no name assigned for this I.P. address.
+</p></div><hr>
+<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+</body>
+</html>
+EORIP0
+exit 0;
+
+else 
 cat << EORIP
 <p><h1>Reverse DNS</h1></p>
 <div id="divClipboard">
@@ -217,6 +232,8 @@ cat << EORIP
 </html>
 EORIP
 exit 0;
+
+fi;
 
  else
 
