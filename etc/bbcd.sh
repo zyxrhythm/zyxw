@@ -213,7 +213,7 @@ cat << EORIP0
 <div id="divClipboard">
 <p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> There is no name found for this IP address in the queried zone.<br>
--The IP address might be one of the reserved IP addresses which can have any name depends on where you are and what network you are connected to.<br>
+-The IP address might be one of the reserved IP addresses which can have any name, depending on where you are and what network you are connected to.<br>
 </p></div><hr>
 <p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
