@@ -146,7 +146,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 #domaintimes {color: green;
 }
-#navlinkz { display:inline; white-space: pre-line; float:right;
+#navlinkz { display:inline; white-space: pre-line; 
 }
 #noselect {
     -webkit-touch-callout: none;
