@@ -183,7 +183,7 @@ else { x.style.display = 'none'; } }
 
 <br><br>
 
-<p><div id='xtable' ><table> <tbody> <td>
+<div id='xtable' ><table> <tbody> <td>
 <!-- ################## BIG NICK DIGGER ################# -->
 <form action="bbcd.sh" method="get">
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
@@ -204,6 +204,7 @@ else { x.style.display = 'none'; } }
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
 </td> </tbody> </table> </div></p>
+
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app.<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
