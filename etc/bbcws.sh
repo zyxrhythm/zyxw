@@ -223,6 +223,13 @@ th { border: 2px solid green;
 td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 
+head table { font-family: verdana; border: 2px solid green; font-size: 90%;
+}
+head th { border: 2px solid green;
+}
+head td { vertical-align: top; text-align: left; border: 1px solid green;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
