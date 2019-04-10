@@ -146,7 +146,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 #domaintimes {color: green;
 }
-#navlinkz { display:inline; white-space: pre-line; float:right;
+#navlinkzs { display:inline; white-space: pre-line; float:right;
 }
 #noselect {
     -webkit-touch-callout: none;
@@ -183,7 +183,7 @@ else { x.style.display = 'none'; } }
 
 <div id='navtable' style='display:none; float:right;' >
 <table style='color:tomato; float:right;'> <tbody>
-<tr><td><a onclick='jsxtable(); jsx2table(); jsxmenu()' style='cursor: pointer; font-size:126%;'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
+<tr><td><a id='navlinkz' onclick='jsxtable(); jsx2table(); jsxmenu()' style='cursor: pointer; font-size:126%;'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
 </tbody></table><br>
 <table> <tbody>
 <tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></td></tr>
