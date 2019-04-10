@@ -308,7 +308,7 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center; font-size: 75%'>$ttl</td>\t<td>$record</td></tr>"
+echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
@@ -316,7 +316,7 @@ zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><table style='font-size: 75%'><tbody><pre>$zyxd</pre></tbody></table></p></div><br>
 </body>
 </html>
 EODR
