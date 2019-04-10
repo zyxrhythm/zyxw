@@ -72,6 +72,8 @@ pre{
 
 -----------------------
 
+- Reworked the Navigation Menu for better functionality on the BBC app and will work better on smaller screens.
+
 - As per request, simplified and improved Big Nick Digger results.
 
 - Removed non ASCII characters in the copied results on BCC Special.
