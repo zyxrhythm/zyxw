@@ -247,39 +247,61 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
-#navlinkz { display:inline; white-space: pre-line;
-}
+#navlinkz { color:tomato; float:right;}
 </style>
 
-<p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
 <script> 
 function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
-{ x.style.display = 'block'; } 
+{ x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' ><table style="font-size:90%;"> <tbody><td>
+<script> 
+function jsxmenu() { var x = document.getElementById('navmenu'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'inline'; } 
+else { x.style.display = 'none'; } } 
+</script>
 
-<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
-<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
-<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 
-</td> </tbody> </table></div>
+<div id='navtable' style='display:none; float:right;' >
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' > &#9776;</a>
+<br><br>
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
-</p>
-<p><div id='xtable' ><table> <tbody> <td>
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
+</tbody></table><br>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
+</tbody></table><br>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
+</tbody></table><br>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
+</tbody></table><br>
+</div>
+
+<div id='navmenu' >
+<a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
+</div>
+
+<br><br>
+
+<div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
 <form action="bbcws.sh" method="get">
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
