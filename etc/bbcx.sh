@@ -432,7 +432,7 @@ then
 #the error that pops up when a domain is not valid/ does not exist
 cat <<EONVDE
 <body>
-<p><br><div id="divClipboard">
+<div id="divClipboard">
 <p><strong>Input</strong> : $domain <br> <br>
 Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
 For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
