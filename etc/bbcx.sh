@@ -181,15 +181,17 @@ else { x.style.display = 'none'; } }
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'>&#9776;</a>
 </div>
 
-<div id='navtable' style='display:none; float:right;' ><table><tbody>
+<div id='navtable' style='display:none; float:right;' >
+<table><tbody><td>
 <tr><a style='color:tomato; cursor: pointer; font-size:126%;' onclick='jsxtable(); jsx2table(); jsxmenu()'> Menu&#9776;</a></tr>
 <tr><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>BBC Special&#127797;</a></tr>
 <tr><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>WhoYou&#128269;</a></tr>
 <tr><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>SCC&#128195;</a></tr>
 <tr><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>BND&#9935;</a></tr>
-</tbody></table></div>
+</td></tbody></table></div>
 
 </p>
+
 <p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
