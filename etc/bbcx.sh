@@ -188,19 +188,19 @@ else { x.style.display = 'none'; } }
 <br><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625; BBC Special&#127797;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625; Who You&#128269;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625; SCC&#128195;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625; BND&#9935&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
 </tbody></table><br>
 </div>
 
