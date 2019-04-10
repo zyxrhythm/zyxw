@@ -189,7 +189,7 @@ else { x.style.display = 'none'; } }
 </div>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a>
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a><br>
 <a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#127797;BBC Special</a><br>
 <a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#128269;WhoYou</a><br>
 <a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#128195;SCC</a><br>
