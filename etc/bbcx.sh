@@ -174,6 +174,10 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
+
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 
 <a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797; ]</a><br>
@@ -183,9 +187,6 @@ else { x.style.display = 'none'; } }
 
 </td> </tbody> </table></div>
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
 </p>
 <p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
