@@ -92,7 +92,7 @@ table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
-body table { font-family: verdana; border: 2px solid green; font-size: 85%; }
+body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 1px solid green; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
 
@@ -320,7 +320,7 @@ zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody style='font-size =75%'>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
