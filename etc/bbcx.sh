@@ -180,7 +180,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p><br>
 
 <p><div id='navtable' style='display:none; float:right;' >
 
