@@ -159,7 +159,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
@@ -180,6 +179,8 @@ if (x.style.display === 'none')
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
+
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p>
 
 <p><div id='navtable' style='display:none; float:right;' >
 
