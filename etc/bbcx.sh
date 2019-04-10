@@ -180,9 +180,9 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a></p><br>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 
-<p><div id='navtable' style='display:none; float:right;' >
+<div id='navtable' style='display:none; float:right;' >
 
 <a style='font-size: 105%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' style='font-size:126%;'>&#9701Menu &#9776;</a>
 <br><br>
@@ -202,9 +202,9 @@ else { x.style.display = 'none'; } }
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#9686; BND&#9935;&#9687;</a></td></tr>
 </tbody></table><br>
-</div></p>
+</div>
 
-<p><div id='navmenu' >
+<div id='navmenu' >
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
 </div></p>
 
