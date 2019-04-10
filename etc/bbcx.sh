@@ -182,15 +182,15 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navmenu'>
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a>
+<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'>&#9776;</a>
 </div>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody>
-<tr><a  style='color:tomato; cursor: pointer; font-size:126%;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a></tr><br>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>BBC Special&#127797;</a></td></tr><br>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>WhoYou&#128269;</a></td></tr><br>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>SCC&#128195;</a></td></tr><br>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>BND&#9935;</a></td></tr><br>
+<tr><a style='color:tomato; cursor: pointer; font-size:126%;' onclick='jsxtable(); jsx2table(); jsxmenu()'> Menu&#9776;</a></tr><br>
+<tr><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>BBC Special&#127797;</a></tr><br>
+<tr><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>WhoYou&#128269;</a></tr><br>
+<tr><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>SCC&#128195;</a></tr><br>
+<tr><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>BND&#9935;</a></tr><br>
 
 </tbody> </table></div>
 
