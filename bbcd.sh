@@ -90,11 +90,7 @@ body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green;}
-
-body table { font-family: verdana; border: 2px solid green; font-size: 85%; }
-body th { border: 1px solid green; }
-body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
+td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
 
 strong {color: green;}
 .tooltip {
@@ -312,7 +308,7 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
+echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center; font-size: 85%'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
