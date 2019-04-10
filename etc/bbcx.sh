@@ -206,9 +206,11 @@ else { x.style.display = 'none'; } }
 
 <div id='navmenu' >
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
-</div></p>
+</div>
 
-<p><div id='xtable' ><table> <tbody> <td>
+<br>
+
+<div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button type="submit" >Go 2</button>
