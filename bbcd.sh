@@ -308,7 +308,7 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center; font-size: 85%'>$ttl</td>\t<td>$record</td></tr>"
+echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center; font-size: 75%'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
