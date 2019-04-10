@@ -182,11 +182,11 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody>
-<tr><td><a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'>&#9699;Menu&#9776;</a></td></tr>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ BBC Special&#127797;]</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ Who You&#128269;]</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ SCC&#128195;]</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ BND&#9935;]</a></tr></td>
+<tr><td><a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></tr></td>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#9686; Who You&#128269;&#9687;</a></tr></td>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#9686; SCC&#128195;&#9687;</a></tr></td>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>&#9686; BND&#9935;&#9687;</a></tr></td>
 
 </tbody> </table></div>
 
