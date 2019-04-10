@@ -146,7 +146,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 #domaintimes {color: green;
 }
-#navlinkz { display:inline; white-space: pre-line;
+#navlinkz { display:inline; white-space: pre-line; float:right;
 }
 #noselect {
     -webkit-touch-callout: none;
@@ -181,15 +181,14 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
-
-<a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a><br>
+<div id='navtable' style='display:none; float:right;' ><table> <tbody>
+<tr><td><a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a></td></tr><br>
 <a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a><br>
 <a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a><br>
 <a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a><br>
 <a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a><br>
 
-</td> </tbody> </table></div>
+</tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
