@@ -180,10 +180,10 @@ else { x.style.display = 'none'; } }
 
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 
-<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797; ]</a><br>
-<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269; ]</a><br>
-<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195; ]</a><br>
-<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935; ]</a><br>
+<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[&#127797;]</a><br>
+<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[&#128269;]</a><br>
+<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[&#128195;]</a><br>
+<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[&#9935;]</a><br>
 
 </td> </tbody> </table></div>
 
