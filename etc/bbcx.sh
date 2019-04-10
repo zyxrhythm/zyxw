@@ -174,18 +174,29 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
+<script> 
+function jsxmenu() { var x = document.getElementById('navmenu'); 
+if (x.style.display === 'none') 
+{ x.style.display = 'inline'; } 
+else { x.style.display = 'none'; } } 
+</script>
+
 <div id='navtable' style='display:none; float:right;' ><table> <tbody><td>
 
-<a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a>
-<a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a>
-<a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a>
-<a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a>
+<tr><a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'> &#9776; </a></tr>
+<tr><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>[ &#127797;BBCS ]</a></tr>
+<tr><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>[ &#128269;WY ]</a></tr>
+<tr><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>[ &#128195;SCC ]</a></tr>
+<tr><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>[ &#9935;BND ]</a></tr>
 
 </td> </tbody> </table></div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-<a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table()'> &#9776; </a>
+<div id='navmenu' >
+<a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
+</div>
+
 </p>
 <p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
