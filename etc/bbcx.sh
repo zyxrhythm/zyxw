@@ -182,8 +182,8 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' >
-<table> <tbody>
-<tr style='color:tomato; cursor: pointer; font-size:126%; float:right;'><td><a onclick='jsxtable(); jsx2table(); jsxmenu()'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
+<table style='color:tomato; float:right;'> <tbody>
+<tr><td><a onclick='jsxtable(); jsx2table(); jsxmenu()' style='cursor: pointer; font-size:126%;'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
 </tbody></table>
 <table> <tbody>
 <tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></td></tr>
