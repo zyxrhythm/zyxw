@@ -181,14 +181,17 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' ><table> <tbody>
+<div id='navtable' style='display:none; float:right;' >
+<table> <tbody>
 <tr><td><a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#9686; Who You&#128269;&#9687;</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#9686; SCC&#128195;&#9687;</a></tr></td>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>&#9686; BND&#9935;&#9687;</a></tr></td>
-
-</tbody> </table></div>
+</tbody></table>
+<table> <tbody>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#9686; Who You&#128269;&#9687;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#9686; SCC&#128195;&#9687;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>&#9686; BND&#9935;&#9687;</a></td></tr>
+</tbody></table>
+</div>
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
