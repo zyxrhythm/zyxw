@@ -312,8 +312,7 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-tablez=$(echo -e "<tr><td style='text-align: center;'><pre>$rtype</pre></td>\t<td style='text-align: center;'><pre>$ttl</pre></td>\t<td><pre>$record</pre></td></tr>" | tr '\n' );
-echo -e "$tablez"
+echo -e "<tr><td style='text-align: center;'><pre>$rtype\n</pre></td><td style='text-align: center;'><pre>$ttl\n</pre></td><td><pre>$record\n</pre></td></tr>"
 done < <(printf '%s\n' "$1");
 }
 
