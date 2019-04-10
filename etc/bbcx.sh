@@ -160,39 +160,26 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 </style>
 
 <p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
-<script> 
-function jsxtable() { var x = document.getElementById('xtable'); 
-if (x.style.display === 'none') 
-{ x.style.display = 'inline'; } 
-else { x.style.display = 'none'; } } 
-</script>
 
 <script> 
-function jsx2table() { var x = document.getElementById('navtable'); 
+function jsxtable() { var x = document.getElementById('xtable, navtable, navmeu'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
-</script>
 
-<script> 
-function jsxmenu() { var x = document.getElementById('navmenu'); 
-if (x.style.display === 'none') 
-{ x.style.display = 'inline'; } 
-else { x.style.display = 'none'; } } 
 </script>
 
 <div id='navmenu'>
 <a  style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu()'>&#9776;</a>
 </div>
 
-<div id='navtable' style='display:none; float:right;' ><table> <tbody>
-<tr><a style='color:tomato; cursor: pointer; font-size:126%;' onclick='jsxtable(); jsx2table(); jsxmenu()'> Menu&#9776;</a></tr><br>
-<tr><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>BBC Special&#127797;</a></tr><br>
-<tr><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>WhoYou&#128269;</a></tr><br>
-<tr><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>SCC&#128195;</a></tr><br>
-<tr><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>BND&#9935;</a></tr><br>
-
-</tbody> </table></div>
+<div id='navtable' style='display:none; float:right;' ><table><tbody>
+<tr><a style='color:tomato; cursor: pointer; font-size:126%;' onclick='jsxtable(); jsx2table(); jsxmenu()'> Menu&#9776;</a></tr>
+<tr><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>BBC Special&#127797;</a></tr>
+<tr><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>WhoYou&#128269;</a></tr>
+<tr><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>SCC&#128195;</a></tr>
+<tr><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>BND&#9935;</a></tr>
+</tbody></table></div>
 
 </p>
 <p><div id='xtable' ><table> <tbody> <td>
