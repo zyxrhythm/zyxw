@@ -90,7 +90,11 @@ body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+
+body table { font-family: verdana; border: 2px solid green; font-size: 85%; }
+body th { border: 1px solid green; }
+body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
 
 strong {color: green;}
 .tooltip {
@@ -316,7 +320,7 @@ zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><table style='font-size: 85%'><tbody><pre>$zyxd</pre></tbody></table></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
