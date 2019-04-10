@@ -184,7 +184,7 @@ else { x.style.display = 'none'; } }
 
 <div id='navtable' style='display:none; float:right;' >
 
-<a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' >&#9701 Menu &#9776;</a>
+<a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' >&#9701Nav Menu &#9776;</a>
 <br><br>
 
 <table id='navlinkz'> <tbody>
