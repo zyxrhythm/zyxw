@@ -146,7 +146,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 }
 #domaintimes {color: green;
 }
-#navlinkzs { display:inline; white-space: pre-line; float:right;
+#navlinkz { color:tomato; float:right;
 }
 #noselect {
     -webkit-touch-callout: none;
@@ -182,20 +182,25 @@ else { x.style.display = 'none'; } }
 </script>
 
 <div id='navtable' style='display:none; float:right;' >
-<table style='color:tomato; float:right;'> <tbody>
-<tr><td><a id='navlinkz' onclick='jsxtable(); jsx2table(); jsxmenu()' style='cursor: pointer; font-size:126%;'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a onclick='jsxtable(); jsx2table(); jsxmenu()' style='cursor: pointer; font-size:126%;'><span style='font-size: 95%;'>&#9701Menu</span>&#9776;</a></td></tr>
 </tbody></table><br>
-<table> <tbody>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></td></tr>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#9686; BBC Special&#127797;&#9687;</a></td></tr>
 </tbody></table><br>
-<table> <tbody>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#9686; Who You&#128269;&#9687;</a></td></tr>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#9686; Who You&#128269;&#9687;</a></td></tr>
 </tbody></table><br>
-<table> <tbody>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#9686; SCC&#128195;&#9687;</a></td></tr>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#9686; SCC&#128195;&#9687;</a></td></tr>
 </tbody></table><br>
-<table> <tbody>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>&#9686; BND&#9935;&#9687;</a></td></tr>
+
+<table id='navlinkz'> <tbody>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#9686; BND&#9935;&#9687;</a></td></tr>
 </tbody></table>
 </div>
 
