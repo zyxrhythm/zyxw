@@ -187,8 +187,14 @@ else { x.style.display = 'none'; } }
 </tbody></table><br>
 <table> <tbody>
 <tr><td><a href='/cgi-bin/bbcx.sh?domain=' id='navlinkz'>&#9686; BBC Special&#127797;&#9687;</a></td></tr>
+</tbody></table><br>
+<table> <tbody>
 <tr><td><a href='/cgi-bin/bbcws.sh?domain=' id='navlinkz'>&#9686; Who You&#128269;&#9687;</a></td></tr>
+</tbody></table><br>
+<table> <tbody>
 <tr><td><a href='/cgi-bin/bbcdc.sh?domain=' id='navlinkz'>&#9686; SCC&#128195;&#9687;</a></td></tr>
+</tbody></table><br>
+<table> <tbody>
 <tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' id='navlinkz'>&#9686; BND&#9935;&#9687;</a></td></tr>
 </tbody></table>
 </div>
