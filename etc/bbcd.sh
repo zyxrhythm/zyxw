@@ -87,7 +87,7 @@ div a:visited { color: tomato;  font-size: 90%; }
 p  { font-family: verdana; font-size: 85%; word-break:break-all;}
 h1 { font-family: verdana; font-size: 90%;}
 body { background-color:black; color:white;}
-pre{ white-space: pre-wrap; font-size: 100%;}
+pre{ word-break:break-all; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
@@ -312,7 +312,8 @@ do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
 record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'><pre>$rtype</pre></td>\t<td style='text-align: center;'><pre>$ttl</pre></td>\t<td><pre>$record</pre></td></tr>"
+tablez=$(echo -e "<tr><td style='text-align: center;'><pre>$rtype</pre></td>\t<td style='text-align: center;'><pre>$ttl</pre></td>\t<td><pre>$record</pre></td></tr>" | tr '\n' );
+echo -e "$tablez"
 done < <(printf '%s\n' "$1");
 }
 
