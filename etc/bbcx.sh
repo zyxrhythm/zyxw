@@ -159,7 +159,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
 
 </style>
 
-<p> <a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
+<a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
@@ -181,7 +181,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<div id='navtable' style='display:none; float:right;' >
+<p><div id='navtable' style='display:none; float:right;' >
 
 <a style='font-size: 105%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' style='font-size:126%;'>&#9701Menu &#9776;</a>
 <br><br>
@@ -201,15 +201,12 @@ else { x.style.display = 'none'; } }
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#9686; BND&#9935;&#9687;</a></td></tr>
 </tbody></table><br>
-</div>
+</div></p>
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-<div id='navmenu' >
+<p><div id='navmenu' >
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
-</div>
+</div></p>
 
-</p>
 <p><div id='xtable' ><table> <tbody> <td>
 <form action="bbcx.sh" method="get">
 <input placeholder="Enter a Domain(FQDN)"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
