@@ -72,6 +72,10 @@ pre{
 
 -----------------------
 
+- SSC should now be able to handle domains and subdomains that for some reason are pointed to CNAME records.
+
+- Changed the server time zone from EDT to GMT.
+
 - Reworked the Navigation Menu for better functionality on the BBC app and will work better on smaller screens.
 
 - As per request, simplified and improved Big Nick Digger results.
