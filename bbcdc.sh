@@ -291,7 +291,22 @@ exit 0;
 
 else
 
-IP=$(dig +short a $domain | head -n 1);
+IP0=$(dig +short a $domain );
+
+iponlyfunc () {
+while IFS= read -r line
+do
+if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+then ipop="$line";
+else 
+linex=$(dig a +short "$line" ); 
+ipop="$line (CNAME) <br> <br>The CNAME resolves to $linex"; 
+fi;
+echo "$ipop";
+done < <(printf '%s\n' "$1");
+}
+
+IP=$( iponlyfunc "$IP0" | head -n 1);
 
 if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
