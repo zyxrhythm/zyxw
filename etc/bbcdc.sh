@@ -300,13 +300,13 @@ if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0
 then ipop="$line";
 else 
 linex=$(dig a +short "$line" ); 
-ipop="$2 is pointed to a CNAME not an A record.<br><br>CNAME is <strong>$line</strong> which resolves to "$linex" ";
+ipop="$2 is pointed to a CNAME not an A record.<br><br>CNAME is <strong>$line</strong><br>which resolves to "$linex" ";
 fi;
 echo "$ipop";
 done < <(printf '%s\n' "$1");
 }
 
-IP=$( iponlyfunc "$IP0 $domain"  | head -n 1);
+IP=$( iponlyfunc "$IP0" "$domain" | head -n 1);
 
 if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
