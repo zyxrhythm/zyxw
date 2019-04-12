@@ -82,23 +82,29 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 -------------------------------
 
+
+
+
 ===============================
 -This website uses <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a> (Bourne again shell) for server-side scripting.
 -The usual Javascript for client side scripting.
 -The usual HTML and CSS for its simple looks.
 ===============================
-#
-#
-#
-#
-#
-#
-#
-#
+
+
+
+
 #########################
 #For bugs and other concerns please email:
 #director@bigblackcactus.com
 #################
+
+
+
+
+
+
+
 
 
 
