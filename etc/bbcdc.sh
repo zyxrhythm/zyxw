@@ -297,11 +297,12 @@ iponlyfunc () {
 while IFS= read -r line
 do
 if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
-then echo "$line";
+then ipop="$line";
 else 
-linex0=$(dig a +short "$line" ); 
-linex="Domain is pointed to a CNAME not an A record.<>"CNAME" is $line which resolves to "$linex0" ";
+linex=$(dig a +short "$line" ); 
+ipop="Domain is pointed to a CNAME not an A record.<>CNAME is $line which resolves to "$linex" ";
 fi;
+echo "$ipop";
 done < <(printf '%s\n' "$1");
 }
 
