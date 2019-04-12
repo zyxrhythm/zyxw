@@ -300,7 +300,7 @@ if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0
 then ipop="$line";
 else 
 linex=$(dig a +short "$line" ); 
-ipop="$line (CNAME) <br> <br>The CNAME<strong> $line </strong><br>resolves to $linex"; 
+ipop="$line (CNAME) <br> <br>The CNAME <br>resolves to $linex"; 
 fi;
 echo "$ipop";
 done < <(printf '%s\n' "$1");
