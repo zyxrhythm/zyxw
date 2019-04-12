@@ -291,7 +291,21 @@ exit 0;
 
 else
 
-IP=$(dig +short a $domain | head -n 1);
+IP0=$(dig +short a $domain );
+
+iponlyfunc () {
+while IFS= read -r line
+do
+if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+then echo "$line";
+else 
+linex0=$(dig a +short "$line" ); 
+linex="Domain is pointed to a CNAME not an A record.<>"CNAME" is $line which resolves to "$linex0" ";
+fi;
+done < <(printf '%s\n' "$1");
+}
+
+IP=$( iponlyfunc "$IP0"  | head -n 1);
 
 if [[ -z "$IP" ]] || [[ "$IP" = " " ]]; 
 
