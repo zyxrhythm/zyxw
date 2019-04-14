@@ -25,50 +25,29 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-
-<center>
-<p><h1><a href="https://www.bigblackcactus.com/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-</center>
 <style>
-h1 {    font-family: courier new;
-    font-size: 150%;
-}
-
+h1 { font-family: courier new; font-size: 150%; }
 a:link { color: green; }
 a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
-
-body	{background-color:black;color:green
-
-}
-
-p	{	font-family: calibri;
-    font-size: 100%;
-
-footer	{font-family: calibri;
-	font-size: 60%;
-}
-
-article	{font-family: arial;
-	font-size: 43%;
-}
-
-pre{
-    white-space: pre-wrap;font-size: 115%;
-}
-
+body {background-color:black;color:green}
+p { font-family: calibri; font-size: 100%;}
+footer {font-family: calibri; font-size: 60%;}
+article {font-family: arial;font-size: 43%;}
+pre {white-space: pre-wrap;font-size: 115%;}
 </style>
+
+<center>
+<p><h1><a href="https://www.bigblackcactus.com/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+</center>
 </head>
 
 <body>
-
 <left>
-<br>
-<br>
-<p>
-<pre>
-
+<br><br>
+<p><pre>
 Special Thanks to:
 -Director Paul
 -Julian
@@ -90,9 +69,8 @@ Special Thanks to:
 -Michael
 For testing/feedbacks/suggestions/bug reports.
 
-</pre>
-</p>
-
+</pre></p>
+<p> <a href='' style='text-decoration: none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</a> </p>
 </left>
 </body>
 
