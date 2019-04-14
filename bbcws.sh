@@ -348,7 +348,7 @@ cat << EOWIIPR
 <br><hr>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre><br>
-<hr><p><a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOWIIPR
@@ -443,7 +443,7 @@ cat <<EOWIR0
 </div>
 <!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
 </p></div>
-<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOWIR0
