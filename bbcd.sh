@@ -91,11 +91,9 @@ pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
-
 body table { font-family: verdana; border: 2px solid green; font-size: 85%; }
 body th { border: 1px solid green; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
-
 strong {color: green;}
 .tooltip {
   position: relative;
@@ -131,58 +129,45 @@ strong {color: green;}
     user-select: none;
 }
 </style>
-
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
-
 <script> 
 function jsx2table() { var x = document.getElementById('navtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
-
 <script> 
 function jsxmenu() { var x = document.getElementById('navmenu'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
-
 <p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
-
 <div id='navtable' style='display:none; float:right;' >
-
 <a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' > &#9776;</a>
 <br><br>
-
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
 </tbody></table><br>
-
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
 </tbody></table><br>
-
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
 </tbody></table><br>
-
 <table id='navlinkz'> <tbody>
 <tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
 </tbody></table><br>
 </div>
-
 <div id='navmenu' >
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
 </div>
-
 <br><br>
-
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## BIG NICK DIGGER ################# -->
 <form action="bbcd.sh" method="get">
@@ -204,7 +189,6 @@ else { x.style.display = 'none'; } }
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
 </td> </tbody> </table> </div></p>
-
 <button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app.<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
