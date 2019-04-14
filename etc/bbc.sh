@@ -190,9 +190,9 @@ else if(document.getElementById("square").checked == false)
 </form></p>
 <!-- ################## BIG NICK DIGGER ################# -->
 <p><br><br>
-<a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" class='tooltip'>
+<a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" >
 <img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
-</a><span class='tooltiptext'>Click the cactus picture to go the (BETA)BBC android webview app.</span></p>
+</a><br>Click the cactus image for the<br>(BETA)BBC android webview app.</p>
 </body>
 <footer>
 <p><div class="tooltip">
