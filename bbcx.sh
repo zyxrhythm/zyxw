@@ -1398,7 +1398,7 @@ cat << EOHF2
 
 <br>
 <hr>
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track </a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 
 EOHF2
 
