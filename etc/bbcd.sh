@@ -332,10 +332,9 @@ if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
    
 cat << EOIIE
 <div id="divClipboard">
-<p><strong>Input</strong> : domain / I.P. address ( $domain ) name server ( $qns )<br>
-<strong>Parameter:</strong> : dig command parameter ( $paramvar ) record type ( $DNSR )<br><br>
+<p><strong>Input</strong> : <br>domain / I.P. address ( $domain ) <br>name server ( $qns )<br>dig command parameter ( $paramvar ) <br>record type ( $DNSR )<br><br>
 Invalid Parameter/Input! <br><br><br>
-To know more about DIG you can click <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a></p>
+To know more about DIG you can check its wikipedia article <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a></p>.
 </div>
 </body>
 </html>
