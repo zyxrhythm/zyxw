@@ -149,7 +149,7 @@ gitrevcount, POSIX character expansions, shopt (extglob).
 </pre>
 <br>
 </p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </left>
 </body>
 
