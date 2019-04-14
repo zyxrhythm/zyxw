@@ -318,7 +318,7 @@ then cat << ZXCVBNM
 Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
 </div>
 <hr><br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 ZXCVBNM
@@ -350,7 +350,7 @@ No certificate found on port 443. <br>
 -an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 ZXCVBNM
@@ -383,7 +383,7 @@ No certificate found on port 443. <br>
 -S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 ZXCVBNM2
@@ -407,7 +407,7 @@ cat << EOIDNE
 <p><strong>Input</strong> : $domain<br> <br>
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!</p>
 </div><br><hr><br>
-<p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOIDNE
@@ -435,7 +435,7 @@ cat << EOSSLCCR
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>$leftvar</strong> : $Daysleft</p></div>
-<hr><br><p> <a href="/cgi-bin/bbc.sh" > <small><<</small> back | track</a> </p>
+<hr><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOSSLCCR
