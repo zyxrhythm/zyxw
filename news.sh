@@ -65,7 +65,7 @@ pre{
 
 <left>
 <br>
-<br>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <p>
 <pre>
 <center>[ History ]</center>
@@ -246,7 +246,7 @@ For bugs and other concerns please email:
 director@bigblackcactus.com
 
 
-
+<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
 
 <center>
 -----------------------
