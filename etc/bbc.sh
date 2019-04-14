@@ -192,7 +192,7 @@ else if(document.getElementById("square").checked == false)
 <p><br><br>
 <a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" target='_blank'>
 <img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
-</a><br>Click the cactus image for the<br>(BETA)BBC android webview app.</p>
+</a><br>Click the cactus image for the<br>(BETA)BBC Android Webview app.</p>
 </body>
 <footer>
 <p><div class="tooltip">
