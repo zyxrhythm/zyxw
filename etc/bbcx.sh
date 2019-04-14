@@ -704,7 +704,7 @@ __________________________<br>
 </body>
 <footer>
 <hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
 
@@ -750,7 +750,7 @@ __________________________<br>
 </body>
 <footer>
 <hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
 
@@ -851,7 +851,7 @@ __________________________
 </p>
 </div>
 </body><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 CTAULIMIT
 
@@ -1328,7 +1328,7 @@ echo "<hr>
 <br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br>
 <br>
 <hr>
-<p> <a href="/cgi-bin/bbc.sh" ><small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
 
@@ -1355,7 +1355,7 @@ fi;
 
 echo "<br>
 <hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
 
@@ -1398,7 +1398,7 @@ cat << EOHF2
 
 <br>
 <hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 
 EOHF2
 
