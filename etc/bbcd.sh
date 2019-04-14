@@ -243,7 +243,7 @@ cat << EORIP
 <p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
 </body>
 </html>
 EORIP
@@ -329,7 +329,7 @@ exit 0;
 
 esac
 
-echo '<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>' 
+echo '<hr><p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
 
 	fi
 fi
