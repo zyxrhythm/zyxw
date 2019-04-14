@@ -230,7 +230,7 @@ cat << EORIP0
 <strong>Domain/Hostname :</strong> Null.
 <br><br>There is no name found for this IP address in the queried zone.<br><br>Possible causes:<br>-There was never a name assigned for this I.P. v4 address.<br>-It might be one of the reserved I.P. v4 addresses, which can have any name <br>depending on where you are and what network you are connected to.<br>
 </p></div><hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EORIP0
@@ -243,7 +243,7 @@ cat << EORIP
 <p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EORIP
@@ -329,7 +329,7 @@ exit 0;
 
 esac
 
-echo "<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>"
+echo "<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>"
 
 	fi
 fi
