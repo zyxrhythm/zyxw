@@ -45,7 +45,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 </head>
 
 <body>
-<p> <button style='background:none; border:none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</button> </p>
+<p> <INPUT TYPE="button"  style='background:none; border:none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</p>
 <hr>
 <br><br><br><br><br><br>
 <!--tagaddperiod0-->
@@ -497,7 +497,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <hr>
 The tables above are from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANN's Article</a> about EPP Status codes.
 <hr>
-<p> <button style='background:none; border:none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</button> </p>
+<p> <INPUT TYPE="button"  style='background:none; border:none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</p>
 <br><br><br><br><br><br>
 <center>
 ******
