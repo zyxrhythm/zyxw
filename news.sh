@@ -25,47 +25,28 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-<center>
-<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-</center>
 <style>
-h1 {    font-family: courier new;
-    font-size: 150%;
-}
-
+h1 {font-family: courier new; font-size: 150%;}
 a:link { color: green; }
 a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
-
-body	{background-color:black;color:green
-
-}
-
-p	{	font-family: calibri;
-    font-size: 100%;
-}
-
-footer	{font-family: calibri;
-	font-size: 60%;
-}
-
-article	{font-family: arial;
-	font-size: 43%;
-}
-
-pre{
-    white-space: pre-wrap;font-size: 100%;
-}
-
+body {background-color:black;color:green}
+p {font-family: calibri; font-size: 100%;}
+footer	{font-family: calibri; font-size: 60%;}
+article	{font-family: arial; font-size: 43%;}
+pre{white-space: pre-wrap;font-size: 100%;}
 </style>
+
+<center>
+<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a>
+</center>
 </head>
 
 <body>
-
 <left>
 <br>
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 <p>
 <pre>
 <center>[ History ]</center>
@@ -246,7 +227,7 @@ For bugs and other concerns please email:
 director@bigblackcactus.com
 
 
-<p> <a href='/cgi-bin/bbc.sh' ><small><<</small> back | track</a> </p>
+<p> <a href='/cgi-bin/bbc.sh' style='text-decoration: none; color: red;'><small><<</small> back | track</a> </p>
 
 <center>
 -----------------------
