@@ -28,47 +28,25 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-
-<center>
-<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-</center>
 <style>
-h1 {    font-family: courier new;
-    font-size: 150%;
-}
-
+h1 {font-family: courier new;font-size: 150%;}
 a:link { color: green; }
 a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
-
-body	{background-color:black;color:green
-
-}
-
-p	{	font-family: calibri;
-    font-size: 100%;
-}
-
-footer	{font-family: calibri;
-	font-size: 60%;
-}
-
-article	{font-family: arial;
-	font-size: 43%;
-}
-
-pre{
-    white-space: pre-wrap;font-size: 100%; word-wrap: break-word;
-}
-
+body {background-color:black;color:green}
+p {font-family: calibri; font-size: 100%;}
+pre{white-space: pre-wrap;font-size: 100%; word-wrap: break-word;}
 </style>
+
+<center>
+<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+</center>
 </head>
 
 <body>
-<br>
-<br>
-<p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<br><br><p>
 <center>
 <h1>TLD List 2</h1>
 </center>
@@ -79,6 +57,7 @@ $cctldlist
 <br>
 </p>
 </left>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 
 </html>
