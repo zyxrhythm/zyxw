@@ -40,7 +40,7 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 <center>
 <p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
 
