@@ -229,7 +229,7 @@ For bugs and other concerns please email:
 director@bigblackcactus.com
 
 
-<p style='color: red; text-decoration: none; font-family: verdana'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 
 <center>
 -----------------------
