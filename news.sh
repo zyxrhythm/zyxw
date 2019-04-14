@@ -53,7 +53,7 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
-- Remorked all '<a href='' style='text-decoration: none; color: red;' ><small><<</small> back | track</a>' links, they are now technically a 'back button', same as the back button that browsers have, upon click it will take you back to the previous page visited on the current tab.
+- Reworked all '<a href='' style='text-decoration: none; color: red;' ><small><<</small> back | track</a>' links, they are now technically a 'back button', same as the back button that browsers have, upon click it will take you back to the previous page visited on the current tab.
 
 - SCC (SSL Certificate Checker) should now be able to handle domains and subdomains that for some reason are pointed to CNAME records.
 
