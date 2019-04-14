@@ -101,22 +101,14 @@ div a:link { color: tomato;  font-size: 90%; }
 div a:active { color: tomato;  font-size: 90%; }
 div a:hover { color: tomato;  font-size: 90%; }
 div a:visited { color: tomato;  font-size: 90%; }
-strong {color: green;
-}
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;
-}
-h1 { font-family: verdana; font-size: 70%;
-}
-body { background-color:black; color:white;
-}
-pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
+strong {color: green;}
+p  { font-family: verdana; font-size: 85%; word-wrap: break-word;}
+h1 { font-family: verdana; font-size: 70%;}
+body { background-color:black; color:white;}
+pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 .tooltip {
   position: relative;
@@ -144,10 +136,8 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
-#domaintimes {color: green;
-}
-#navlinkz { color:tomato; float:right;
-}
+#domaintimes {color: green;}
+#navlinkz { color:tomato; float:right;}
 #noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
