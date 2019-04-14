@@ -196,33 +196,6 @@ function removeSpecialCharacters(string) {
 
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
 
-a {text-decoration: none; }
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-
-div a:link { color: tomato;  font-size: 90%; }
-div a:active { color: tomato;  font-size: 90%; }
-div a:hover { color: tomato;  font-size: 90%; }
-div a:visited { color: tomato;  font-size: 90%; }
-strong {color: green;
-}
-p  { font-family: verdana; font-size: 85%;
-}
-h1 {font-family: verdana; font-size: 70%;
-}
-body {background-color:black;color:white;
-}
-pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;
-}
-table { font-family: verdana; border: 2px solid green; font-size: 100%;
-}
-th { border: 2px solid green;
-}
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-
 .tooltip {
   position: relative;
   display: inline-block;
@@ -247,6 +220,24 @@ td { vertical-align: top; text-align: left; border: 1px solid green;
   display: inline;
   visibility: visible;
 }
+a {text-decoration: none; }
+a:link { color: red;  }
+a:active { color: red;  }
+a:hover { color: red;  }
+a:visited { color: red;  }
+div a:link { color: tomato;  font-size: 90%; }
+div a:active { color: tomato;  font-size: 90%; }
+div a:hover { color: tomato;  font-size: 90%; }
+div a:visited { color: tomato;  font-size: 90%; }
+strong {color: green;}
+p  { font-family: verdana; font-size: 85%;}
+h1 {font-family: verdana; font-size: 70%;}
+body {background-color:black;color:white;}
+pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;}
+table { font-family: verdana; border: 2px solid green; font-size: 100%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+
 #navlinkz { color:tomato; float:right; font-size: 90%; }
 </style>
 
