@@ -25,51 +25,29 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-
-<center>
-<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-</center>
 <style>
-h1 { font-family: courier new;
-    font-size: 150%;
-}
-
+h1 { font-family: courier new; font-size: 150%;}
 a:link { color: green; }
 a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
-
-body	{ background-color:black; color:white;
-}
-
-p { font-family: calibri; font-size: 100%;
-}
-
-
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-
-th { border: 2px solid green;
-}
-
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-
-footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
-}
+body { background-color:black; color:white;}
+p { font-family: calibri; font-size: 100%;}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 </style>
+
+<center>
+<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+</center>
 </head>
 
 <body>
+<p> <a href='' style='text-decoration: none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</a> </p>
 <hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<br><br><br><br><br><br>
 <!--tagaddperiod0-->
 <div id="addperiod">
 <table>
@@ -89,12 +67,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 <!--tagaddperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagautorenewperiod0-->
 <table id="autorenewperiod">
@@ -113,12 +86,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagautorenewperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--taginactive0-->
 <table id="inactive">
@@ -138,12 +106,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--taginactive1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagok0-->
 <table id="ok">
@@ -163,12 +126,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagok1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingcreate0-->
 <table id="pendingcreate">
@@ -188,12 +146,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingcreate1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingdelete0-->
 <table id="pendingdelete">
@@ -213,12 +166,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingdelete1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingrenew0-->
 <table id="pendingrenew">
@@ -237,12 +185,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingrenew1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingrestore0-->
 <table id="pendingrestore">
@@ -260,12 +203,8 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 <!--tagpendingrestore1-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br><br><br>
 
 <!--tagpendingtransfer0-->
 <table id="pendingtransfer">
@@ -284,12 +223,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingtransfer1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingupdate0-->
 <table id="pendingupdate">
@@ -308,12 +242,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingupdate1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagredemptionperiod0-->
 <table id="redemptionperiod">
@@ -332,12 +261,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagredemptionperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagrenewperiod0-->
 <table id="renewperiod">
@@ -356,12 +280,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagrenewperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverdeleteprohibited0-->
 <table id="serverdeleteprohibited">
@@ -381,12 +300,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverdeleteprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverhold0-->
 <table id="serverhold">
@@ -405,12 +319,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverhold1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverrenewprohibited0-->
 <table id="serverrenewprohibited">
@@ -429,12 +338,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverrenewprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagservertransferprohibited0-->
 <table id="servertransferprohibited">
@@ -454,12 +358,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagservertransferprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverupdateprohibited0-->
 <table id="serverupdateprohibited">
@@ -479,12 +378,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverupdateprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagtransferperiod0-->
 <table id="transferperiod">
@@ -503,14 +397,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagtransferperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientdeleteprohibited0-->
 <table id="clientdeleteprohibited">
@@ -529,12 +416,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientdeleteprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclienthold0-->
 <table id="clienthold">
@@ -553,12 +435,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclienthold1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientrenewprohibited0-->
 <table id="clientrenewprohibited">
@@ -577,12 +454,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientrenewprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclienttransferprohibited0-->
 <table id="clienttransferprohibited">
@@ -601,12 +473,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclienttransferprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientupdateprohibited0-->
 <table id="clientupdateprohibited">
@@ -625,59 +492,25 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientupdateprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <hr>
 The tables above are from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANN's Article</a> about EPP Status codes.
 <hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p> <a href='' style='text-decoration: none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</a> </p>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
