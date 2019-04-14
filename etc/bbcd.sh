@@ -246,7 +246,7 @@ cat << EORIP0
 <strong>Domain/Hostname :</strong> There is no name found for this IP address in the queried zone.<br>
 -The IP address might be one of the reserved IP addresses which can have any name, depending on where you are and what network you are connected to.<br>
 </p></div><hr>
-<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EORIP0
@@ -259,7 +259,7 @@ cat << EORIP
 <p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
-<p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EORIP
@@ -345,7 +345,7 @@ exit 0;
 
 esac
 
-echo '<hr><p> <a href="/cgi-bin/bbc.sh" > <small> << </small>back | track</a> </p>' 
+echo '<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>' 
 
 	fi
 fi
