@@ -48,28 +48,16 @@ a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
-h1 {font-family: courier new; font-size: 135%;
-}
-h4 { font-family: courier new; font-size: 161%; display: inline; 
-}
-body { background-color:black; color:green;
-}
-p { font-family: calibri; font-size: 100%;
-}
-label { font-family: Trebuchet MS; font-size: 110%;
-}	
-button { font-family: Trebuchet MS; font-size: 70%; 
-}
-select, option { width: auto; overflow: hidden;
-}
-footer { font-family: Georgia; font-size: 100%;
-}
-code { font-family: Arial; font-size: 80%;
-}
-article	{ font-family: Verdana; font-size: 70%;
-}
-strong {font-size: 143%; 
-}
+h1 {font-family: courier new; font-size: 135%;}
+h4 { font-family: courier new; font-size: 161%; display: inline; }
+body { background-color:black; color:green;}
+p { font-family: calibri; font-size: 100%;}
+label { font-family: Trebuchet MS; font-size: 110%;}
+button { font-family: Trebuchet MS; font-size: 70%; }
+select, option { width: auto; overflow: hidden;}
+footer { font-family: Georgia; font-size: 100%;}
+article	{ font-family: Verdana; font-size: 70%;}
+strong {font-size: 143%; }
 .tooltip {
   position: relative;
   display: inline-block;
@@ -96,19 +84,14 @@ strong {font-size: 143%;
   display:inline-block;
   transform: rotate(180deg);
 }
-#revisions {color: #186a3b
-}
-#goblack {color: #1c2833
-}
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;
-}
-#navig-link { text-decoration: none; color: #145a32;
-}
-#wave7a { color: white; font-size: 90%;
-}
-#tools-link { text-decoration: none; 
-}
+#revisions {color: #186a3b}
+#goblack {color: #1c2833}
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;}
+#navig-link { text-decoration: none; color: #145a32;}
+#wave7a { color: white; font-size: 90%;}
+#tools-link { text-decoration: none; }
 </style>
+
 </head>
 <body>
 <!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
@@ -207,9 +190,9 @@ else if(document.getElementById("square").checked == false)
 </form></p>
 <!-- ################## BIG NICK DIGGER ################# -->
 <p><br><br>
-<a href="/cgi-bin/bbc.sh">
+<a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" target='_blank'>
 <img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
-</a></p>
+</a><br>Click the cactus image for the<br>(BETA)BBC android webview app.</p>
 </body>
 <footer>
 <p><div class="tooltip">
