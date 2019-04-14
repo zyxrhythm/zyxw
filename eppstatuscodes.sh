@@ -45,7 +45,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 </head>
 
 <body>
-<p style='color: red; text-decoration: none; background:none; border:none;'><small><<</small><INPUT TYPE="button"  value="back | track" onClick="history.go(-1);"></p>
+<p style='color: red; text-decoration: none; '><small><<</small><INPUT TYPE="button"  value="back | track" style="background:none; border:none" onClick="history.go(-1);"></p>
 <hr>
 <br><br><br><br><br><br>
 <!--tagaddperiod0-->
