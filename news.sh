@@ -227,7 +227,7 @@ For bugs and other concerns please email:
 director@bigblackcactus.com
 
 
-<p> <a href='/cgi-bin/bbc.sh' style='text-decoration: none; color: red;'><small><<</small> back | track</a> </p>
+<p> <a href='' style='text-decoration: none; color: red;' onClick="history.go(-1);><small><<</small> back | track</a> </p>
 
 <center>
 -----------------------
