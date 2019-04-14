@@ -48,28 +48,16 @@ a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
 a:visited { color: green; }
-h1 {font-family: courier new; font-size: 135%;
-}
-h4 { font-family: courier new; font-size: 161%; display: inline; 
-}
-body { background-color:black; color:green;
-}
-p { font-family: calibri; font-size: 100%;
-}
-label { font-family: Trebuchet MS; font-size: 110%;
-}	
-button { font-family: Trebuchet MS; font-size: 70%; 
-}
-select, option { width: auto; overflow: hidden;
-}
-footer { font-family: Georgia; font-size: 100%;
-}
-code { font-family: Arial; font-size: 80%;
-}
-article	{ font-family: Verdana; font-size: 70%;
-}
-strong {font-size: 143%; 
-}
+h1 {font-family: courier new; font-size: 135%;}
+h4 { font-family: courier new; font-size: 161%; display: inline; }
+body { background-color:black; color:green;}
+p { font-family: calibri; font-size: 100%;}
+label { font-family: Trebuchet MS; font-size: 110%;}
+button { font-family: Trebuchet MS; font-size: 70%; }
+select, option { width: auto; overflow: hidden;}
+footer { font-family: Georgia; font-size: 100%;}
+article	{ font-family: Verdana; font-size: 70%;}
+strong {font-size: 143%; }
 .tooltip {
   position: relative;
   display: inline-block;
@@ -96,19 +84,14 @@ strong {font-size: 143%;
   display:inline-block;
   transform: rotate(180deg);
 }
-#revisions {color: #186a3b
-}
-#goblack {color: #1c2833
-}
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;
-}
-#navig-link { text-decoration: none; color: #145a32;
-}
-#wave7a { color: white; font-size: 90%;
-}
-#tools-link { text-decoration: none; 
-}
+#revisions {color: #186a3b}
+#goblack {color: #1c2833}
+#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;}
+#navig-link { text-decoration: none; color: #145a32;}
+#wave7a { color: white; font-size: 90%;}
+#tools-link { text-decoration: none; }
 </style>
+
 </head>
 <body>
 <!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
@@ -124,7 +107,7 @@ function removeSpecialCharacters(string) {
 }
 </script>
 <center>
-<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us/etc</h4></a><br>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>B</strong>ig <strong>B</strong>lack <strong>C</strong>ac&#127797;us</h4></a><br>
 <span id="navigation">
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10084;About
