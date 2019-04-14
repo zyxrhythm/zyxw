@@ -70,7 +70,7 @@ Special Thanks to:
 For testing/feedbacks/suggestions/bug reports.
 
 </pre></p>
-<p> <a href='' style='text-decoration: none; color: red;' onClick='history.go(-1);'><small><<</small> back | track</a> </p>
+<p style='color: red; text-decoration: none; font-family: verdana'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
 </left>
 </body>
 
