@@ -41,13 +41,12 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 
 <center>
 <p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
 
 <body>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-<hr>
-<br><br><br><br><br><br>
+<hr><br><br><br><br><br><br>
 <!--tagaddperiod0-->
 <div id="addperiod">
 <table>
