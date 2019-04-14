@@ -72,7 +72,7 @@ pre{
 
 -----------------------
 
-- SCC (SSL Certificate Cheker) should now be able to handle domains and subdomains that for some reason are pointed to CNAME records.
+- SCC (SSL Certificate Checker) should now be able to handle domains and subdomains that for some reason are pointed to CNAME records.
 
 - Changed the server time zone from EDT to GMT.
 
