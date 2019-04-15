@@ -55,6 +55,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 - Added a link to the (BETA) BBC Android Web View App on the Big Cactus picture of the homepage. 
 
+- Added 'Home' and 'back' buttons across the site for in app navigation.
+
 - An option via a checkbox to copy the footer of BBC result has been added - and a few improvements on the copied results.
 
 - Improved the tooltips - the tooltips will now maximize the screen available - behaving better on the app and the on mobile devices. 
