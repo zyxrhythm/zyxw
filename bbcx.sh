@@ -43,6 +43,18 @@ cat <<EODHHEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+<script>
+function copyv2(){
+  var checkBox = document.getElementById("chicbox");
+  if (checkBox.checked == true){
+	copyClipboard0();
+  } else {
+    copyClipboard();
+  }
+}
+</script>
+
+
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -50,6 +62,29 @@ this is a snippet from http://edupala.com/copy-div-content-clipboard/
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+  }
+}
+</script>
+
+<script>
+function copyClipboard0() {
+  var elm = document.getElementById("divClipboard0");
   // for Internet Explorer
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
@@ -139,6 +174,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 #domaintimes {color: green;}
 #navlinkz { color:tomato; float:right;}
+#chicboxtext { color: tomato; font-size:80%; font-family:verdana; }
 #noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -208,7 +244,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
+<button onclick="copyv2()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(tick the checkbox below to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -503,8 +539,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body>
-<div id="divClipboard"><p>__________________________<br><br>
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboard0"><div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
@@ -870,9 +905,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<div id='divClipboard'>
-<p>
-__________________________
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboard0'><div id='divClipboard'><p>__________________________
 <br><br>
 <strong>Domain Name:</strong> $domain
 <br><br>
@@ -1303,7 +1336,8 @@ fi
 
 fi
 
-echo '<footer>'
+echo "<footer>
+"
 
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
 admin=$(echo "$zyx2" | grep -i -e 'admin')
@@ -1387,7 +1421,7 @@ else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"
 fi;
 
 cat << EOHF2
-
+</div>
 <br>
 <hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
