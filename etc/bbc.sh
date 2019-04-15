@@ -59,7 +59,7 @@ footer { font-family: Georgia; font-size: 100%;}
 article	{ font-family: Verdana; font-size: 70%;}
 strong {font-size: 143%; }
 
-<!--from 
+<!--FLY -->
 .tooltip {
         display: inline-block;
         text-indent:0em;
@@ -82,7 +82,7 @@ strong {font-size: 143%; }
     .tooltip:hover + span {
         display: block;
     }
--->
+<!--FLY -->
 
 .copyleft {
   display:inline-block;
