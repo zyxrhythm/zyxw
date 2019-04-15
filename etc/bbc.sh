@@ -77,7 +77,7 @@ strong {font-size: 143%; }
     position: absolute;
     z-index: 1;
 }
-.tooltip:hover + span {
+.tooltip:hover .tooltiptext {
     display: block;
 }
 
