@@ -539,9 +539,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span>
-<div id="divClipboard0"><div id="divClipboard">
-<p>__________________________<br><br>
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboard0"><div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
@@ -907,11 +905,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span>
-<div id='divClipboard0'>
-<div id='divClipboard'>
-<p>
-__________________________
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboard0'><div id='divClipboard'><p>__________________________
 <br><br>
 <strong>Domain Name:</strong> $domain
 <br><br>
