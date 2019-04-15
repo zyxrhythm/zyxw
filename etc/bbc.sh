@@ -59,30 +59,27 @@ footer { font-family: Georgia; font-size: 100%;}
 article	{ font-family: Verdana; font-size: 70%;}
 strong {font-size: 143%; }
 
-<!--FLY -->
 .tooltip {
-        display: inline-block;
-        text-indent:0em;
-    }
+    display: inline-block;
+    text-indent:0em;
+}
     
-    .tooltiptext, .tooltiptext {
+.tooltip .tooltiptext {
     display: none;
-        width: calc(50vw - 35px);
-        background: #000;
-        border-radius: 6px;
-        padding: 5px 5px;
-        left: 10px;
-        border: 2px solid grey;
-        line-height: normal;
-        text-decoration: none;
-        position: absolute;
-        z-index: 1;
-    
-    }
-    .tooltip:hover + span {
-        display: block;
-    }
-<!--FLY -->
+    width: calc(50vw - 35px);
+    background: #000;
+    border-radius: 6px;
+    padding: 5px 5px;
+    left: 10px;
+    border: 2px solid grey;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover + span {
+    display: block;
+}
 
 .copyleft {
   display:inline-block;
