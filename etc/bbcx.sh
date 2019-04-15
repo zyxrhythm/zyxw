@@ -43,6 +43,24 @@ cat <<EODHHEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+<script>
+\$('#chicbox').on("change", function (e){ 
+
+    if(this.checked){
+
+copyClipboard()
+copyClipboard0()
+    }
+
+    else{
+
+copyClipboard()
+
+    }
+
+});
+</script>
+
 <!-- 
 The javascript that copies the contents of div to clipboard.
 this is a snippet from http://edupala.com/copy-div-content-clipboard/
@@ -50,6 +68,29 @@ this is a snippet from http://edupala.com/copy-div-content-clipboard/
 <script>
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+  }
+}
+</script>
+
+<script>
+function copyClipboard0() {
+  var elm = document.getElementById("divClipboard0");
   // for Internet Explorer
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
@@ -1303,7 +1344,10 @@ fi
 
 fi
 
-echo '<footer>'
+echo "<footer>
+<div id="divClipboard0">
+<input type="checkbox" id="chicbox">
+"
 
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
 admin=$(echo "$zyx2" | grep -i -e 'admin')
@@ -1394,7 +1438,8 @@ cat << EOHF2
 
 EOHF2
 
-echo "</footer>
+echo "</div>
+</footer>
 </html>"
 
 fi
