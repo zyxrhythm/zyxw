@@ -52,9 +52,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table>
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>addPeriod</td>
@@ -72,9 +72,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="autorenewperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>autoRenewPeriod</td>
@@ -91,9 +91,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="inactive">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>inactive</td>
@@ -111,9 +111,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="ok">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>ok</td>
@@ -131,9 +131,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingcreate">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingCreate</td>
@@ -151,9 +151,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingdelete">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingDelete</td>
@@ -171,9 +171,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingrenew">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingRenew</td>
@@ -190,9 +190,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingrestore">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingRestore</td>
@@ -209,9 +209,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingtransfer">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingTransfer</td>
@@ -228,9 +228,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="pendingupdate">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingUpdate</td>
@@ -247,9 +247,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="redemptionperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>redemptionPeriod</td>
@@ -266,9 +266,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="renewperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>renewPeriod</td>
@@ -285,9 +285,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="serverdeleteprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverDeleteProhibited</td>
@@ -305,9 +305,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="serverhold">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverHold</td>
@@ -324,9 +324,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="serverrenewprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverRenewProhibited</td>
@@ -343,9 +343,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="servertransferprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverTransferProhibited</td>
@@ -363,9 +363,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="serverupdateprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverUpdateProhibited</td>
@@ -383,9 +383,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="transferperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>transferPeriod</td>
@@ -402,9 +402,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="clientdeleteprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientDeleteProhibited</td>
@@ -421,9 +421,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="clienthold">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientHold</td>
@@ -440,9 +440,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="clientrenewprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientRenewProhibited</td>
@@ -459,9 +459,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="clienttransferprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientTransferProhibited</td>
@@ -478,9 +478,9 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <table id="clientupdateprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientUpdateProhibited</td>
