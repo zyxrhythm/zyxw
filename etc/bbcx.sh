@@ -47,7 +47,7 @@ cat <<EODHHEAD
 function copyv2(){
   var checkBox = document.getElementById("chicbox");
   if (checkBox.checked == true){
-    copyClipboard();
+    copyClipboard()
 	copyClipboard0();
   } else {
     copyClipboard();
@@ -1426,15 +1426,14 @@ else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"
 fi;
 
 cat << EOHF2
-
+</div>
 <br>
 <hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 
 EOHF2
 
-echo "</div>
-</footer>
+echo "</footer>
 </html>"
 
 fi
