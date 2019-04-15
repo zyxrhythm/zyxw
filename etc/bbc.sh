@@ -58,28 +58,32 @@ select, option { width: auto; overflow: hidden;}
 footer { font-family: Georgia; font-size: 100%;}
 article	{ font-family: Verdana; font-size: 70%;}
 strong {font-size: 143%; }
+
+<!--from 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
-.tooltip .tooltiptext {
-  font-size:85%;
-  visibility: hidden;
-  width: 167px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  border: 3px dotted green;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
+        display: inline-block;
+        text-indent:0em;
+    }
+    
+    .tooltiptext, .tooltiptext {
+    display: none;
+        width: calc(50vw - 35px);
+        background: #000;
+        border-radius: 6px;
+        padding: 5px 5px;
+        left: 10px;
+        border: 2px solid grey;
+        line-height: normal;
+        text-decoration: none;
+        position: absolute;
+        z-index: 1;
+    
+    }
+    .tooltip:hover + span {
+        display: block;
+    }
+-->
+
 .copyleft {
   display:inline-block;
   transform: rotate(180deg);
