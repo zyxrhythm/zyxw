@@ -336,7 +336,7 @@ else
 cat << EOWIIPR
 <body>
 <button onclick="copyClipboard1()">Copy Result</button>
-<br><hr>
+<br>
 <div id="divClipboard1">
 <pre> $zyxip0 </pre><br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
