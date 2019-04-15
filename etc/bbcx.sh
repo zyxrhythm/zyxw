@@ -554,7 +554,7 @@ daysleftrar="$daysleftrar0";
 fi;
 
 cat <<EODEDCDGT
-<br> <br>
+
 <strong>Creation Date: </strong>$creationdate1 <br>
 <strong>Registry Expiry Date: </strong> $expdx1 <br>
 <strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
