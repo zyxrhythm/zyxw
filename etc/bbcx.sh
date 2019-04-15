@@ -44,17 +44,17 @@ cat <<EODHHEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <script>
-var checkbox = document.getElementById("chicbox");
 function copyv2(){
-  if(checkbox.checked){
- copyClipboard();
- copyClipboard0();
- 
-else
-copyClipboard();
-  };
-};
+  var checkBox = document.getElementById("chicbox");
+  if (checkBox.checked == true){
+    copyClipboard();
+	copyClipboard0();
+  } else {
+    copyClipboard();
+  }
+}
 </script>
+
 
 <!-- 
 The javascript that copies the contents of div to clipboard.
