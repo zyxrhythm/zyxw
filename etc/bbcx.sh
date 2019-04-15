@@ -249,7 +249,7 @@ ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
-echo '-------------------------- '
+echo '<br>--------------------------'
 
 while IFS= read -r line
 do
@@ -520,8 +520,7 @@ dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
 
 #the illusionist <p>=(
-echo "<p>
---------------------------"
+echo "<p>"
 
 #print the domain creation and expiration dates
 #COUNTER 
