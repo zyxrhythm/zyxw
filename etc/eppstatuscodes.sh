@@ -25,59 +25,36 @@ cat <<EOT
   gtag('config', 'UA-32625644-1');
 </script>
 
-
-<center>
-<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-</center>
 <style>
-h1 { font-family: courier new;
-    font-size: 150%;
-}
-
+h1 { font-family: courier new; font-size: 150%;}
 a:link { color: green; }
 a:visited { color: green; }
 a:hover { color: green; }
 a:active { color: green; }
-
-body	{ background-color:black; color:white;
-}
-
-p { font-family: calibri; font-size: 100%;
-}
-
-
-table { font-family: verdana; border: 2px solid green; font-size: 90%;
-}
-
-th { border: 2px solid green;
-}
-
-td { vertical-align: top; text-align: left; border: 1px solid green;
-}
-
-footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
-}
+body { background-color:black; color:white;}
+p { font-family: calibri; font-size: 100%;}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 </style>
+
+<center>
+<p><h1><a href="/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
+<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+</center>
 </head>
 
 <body>
-<hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<hr><br><br><br><br><br><br>
 <!--tagaddperiod0-->
 <div id="addperiod">
 <table>
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>addPeriod</td>
@@ -89,20 +66,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 
 <!--tagaddperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagautorenewperiod0-->
 <table id="autorenewperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>autoRenewPeriod</td>
@@ -113,20 +85,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagautorenewperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--taginactive0-->
 <table id="inactive">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>inactive</td>
@@ -138,20 +105,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--taginactive1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagok0-->
 <table id="ok">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>ok</td>
@@ -163,20 +125,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagok1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingcreate0-->
 <table id="pendingcreate">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingCreate</td>
@@ -188,20 +145,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingcreate1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingdelete0-->
 <table id="pendingdelete">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingDelete</td>
@@ -213,20 +165,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingdelete1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingrenew0-->
 <table id="pendingrenew">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingRenew</td>
@@ -237,20 +184,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingrenew1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingrestore0-->
 <table id="pendingrestore">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingRestore</td>
@@ -260,20 +202,16 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </tbody>
 </table>
 <!--tagpendingrestore1-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br><br><br>
 
 <!--tagpendingtransfer0-->
 <table id="pendingtransfer">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingTransfer</td>
@@ -284,20 +222,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingtransfer1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagpendingupdate0-->
 <table id="pendingupdate">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>pendingUpdate</td>
@@ -308,20 +241,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagpendingupdate1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagredemptionperiod0-->
 <table id="redemptionperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>redemptionPeriod</td>
@@ -332,20 +260,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagredemptionperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagrenewperiod0-->
 <table id="renewperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>renewPeriod</td>
@@ -356,20 +279,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagrenewperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverdeleteprohibited0-->
 <table id="serverdeleteprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverDeleteProhibited</td>
@@ -381,20 +299,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverdeleteprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverhold0-->
 <table id="serverhold">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverHold</td>
@@ -405,20 +318,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverhold1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverrenewprohibited0-->
 <table id="serverrenewprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverRenewProhibited</td>
@@ -429,20 +337,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverrenewprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagservertransferprohibited0-->
 <table id="servertransferprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverTransferProhibited</td>
@@ -454,20 +357,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagservertransferprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagserverupdateprohibited0-->
 <table id="serverupdateprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>serverUpdateProhibited</td>
@@ -479,20 +377,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagserverupdateprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagtransferperiod0-->
 <table id="transferperiod">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>transferPeriod</td>
@@ -503,22 +396,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagtransferperiod1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientdeleteprohibited0-->
 <table id="clientdeleteprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientDeleteProhibited</td>
@@ -529,20 +415,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientdeleteprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclienthold0-->
 <table id="clienthold">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientHold</td>
@@ -553,20 +434,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclienthold1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientrenewprohibited0-->
 <table id="clientrenewprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientRenewProhibited</td>
@@ -577,20 +453,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientrenewprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclienttransferprohibited0-->
 <table id="clienttransferprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientTransferProhibited</td>
@@ -601,20 +472,15 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclienttransferprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <!--tagclientupdateprohibited0-->
 <table id="clientupdateprohibited">
 <tbody>
 <tr>
-<th>Status Code</th>
-<th>What does it mean?</th>
-<th>Should you do something?</th>
+<th id='noselect'>Status Code</th>
+<th id='noselect'>What does it mean?</th>
+<th id='noselect'>Should you do something?</th>
 </tr>
 <tr>
 <td>clientUpdateProhibited</td>
@@ -625,59 +491,25 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;
 </table>
 <!--tagclientupdateprohibited1-->
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <hr>
 The tables above are from <a href="https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en">ICANN's Article</a> about EPP Status codes.
 <hr>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 <center>
 ******
 </center>
