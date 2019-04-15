@@ -174,6 +174,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 #domaintimes {color: green;}
 #navlinkz { color:tomato; float:right;}
+#chicboxtext { color: tomato; font-size:80%; font-family:verdana; }
 #noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -538,7 +539,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body><input type='checkbox' id='chicbox'>Include the footer info.<br>
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span>
 <div id="divClipboard0"><div id="divClipboard">
 <p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
@@ -906,7 +907,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<input type='checkbox' id='chicbox'>Include the footer info.<br>
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span>
 <div id='divClipboard0'>
 <div id='divClipboard'>
 <p>
