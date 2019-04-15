@@ -249,6 +249,8 @@ ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
+echo '<br>--------------------------'
+
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
@@ -256,7 +258,7 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
-$dsfparsedtable
+$dsfparsedtable--------------------------
 </div>"
 done < <(printf '%s\n' "$1");
 
@@ -518,8 +520,7 @@ dsfrgt=$( dsfunction "$dstat" );
 echo "$dsfrgt"
 
 #the illusionist <p>=(
-echo "<p>
---------------------------"
+echo "<p>"
 
 #print the domain creation and expiration dates
 #COUNTER 
@@ -553,7 +554,7 @@ daysleftrar="$daysleftrar0";
 fi;
 
 cat <<EODEDCDGT
-<br> <br>
+
 <strong>Creation Date: </strong>$creationdate1 <br>
 <strong>Registry Expiry Date: </strong> $expdx1 <br>
 <strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
