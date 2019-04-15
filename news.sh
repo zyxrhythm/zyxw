@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- An option via a checkbox to copy the footer of BBC result has been added - and a few improvements on the copied results.
+
 - Improved the tooltips - the tooltips will now maximize the screen available - behaving better on the app and the on mobile devices. 
 
 - Reworked all '<a href='' style='text-decoration: none; color: red;' ><small><<</small> back | track</a>' links, they are now technically a 'back button', same as the back button that browsers have, upon click it will take you back to the previous page visited on the current tab.
