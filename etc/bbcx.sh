@@ -258,7 +258,7 @@ eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');
 dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
-$dsfparsedtable<br>--------------------------
+$dsfparsedtable--------------------------
 </div>"
 done < <(printf '%s\n' "$1");
 
