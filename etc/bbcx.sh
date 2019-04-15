@@ -102,7 +102,7 @@ div a:active { color: tomato;  font-size: 100%; }
 div a:hover { color: tomato;  font-size: 100%; }
 div a:visited { color: tomato;  font-size: 100%; }
 strong {color: green;}
-p  { font-family: verdana; font-size: 85%; word-wrap: break-word;}
+p  { font-family: verdana; font-size: 90%; word-wrap: break-word;}
 h1 { font-family: verdana; font-size: 70%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;}
@@ -118,7 +118,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 .tooltip .tooltiptext {
 	color: white;
 	word-break:break-word;
-	font-size: 80%; 
+	font-size: 90%; 
 	font-family: calibri; 
 	text-align: center;
     display: none;
