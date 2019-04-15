@@ -259,7 +259,7 @@ dsfparsedtable=$( cat ./eppstatuscodes.sh | awk '/<!--tag'"$eppstat"'0-->/{flag=
 
 echo "<div id='jsf$eppstat' style='display:none'>
 $dsfparsedtable<br>--------------------------
-</div><br>"
+</div>"
 done < <(printf '%s\n' "$1");
 
 }
