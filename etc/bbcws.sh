@@ -196,41 +196,47 @@ function removeSpecialCharacters(string) {
 
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
 
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+    display: inline-block;
+    text-indent:0em;
 }
+    
 .tooltip .tooltiptext {
-  font-size:85%;
-  visibility: hidden;
-  display: none;
-  width: 167px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  border: 3px dotted green;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+	color: white;
+	word-break:break-word;
+	font-size: 90%; 
+	font-family: calibri; 
+	text-align: center;
+    display: none;
+    width: calc(50% - 50px);
+    background: #000;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
 }
 .tooltip:hover .tooltiptext {
-  display: inline;
-  visibility: visible;
+    display: block;
 }
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
 a:hover { color: red;  }
 a:visited { color: red;  }
-div a:link { color: tomato;  font-size: 90%; }
-div a:active { color: tomato;  font-size: 90%; }
-div a:hover { color: tomato;  font-size: 90%; }
-div a:visited { color: tomato;  font-size: 90%; }
+div a:link { color: tomato;  font-size: 100%; }
+div a:active { color: tomato;  font-size: 100%; }
+div a:hover { color: tomato;  font-size: 100%; }
+div a:visited { color: tomato;  font-size: 100%; }
 strong {color: green;}
-p  { font-family: verdana; font-size: 85%;}
+p  { font-family: verdana; font-size: 90%;}
 h1 {font-family: verdana; font-size: 70%;}
 body {background-color:black;color:white;}
 pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;}
