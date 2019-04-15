@@ -47,7 +47,6 @@ cat <<EODHHEAD
 function copyv2(){
   var checkBox = document.getElementById("chicbox");
   if (checkBox.checked == true){
-    copyClipboard()
 	copyClipboard0();
   } else {
     copyClipboard();
@@ -244,7 +243,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> 
+<button onclick="copyv2()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app. <br><br>(expanded tables will be included on the copied result) <br><br></span></label> <input type='checkbox' id='chicbox'>
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -539,7 +538,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body>
+<body><div id="divClipboard0">
 <div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
@@ -906,6 +905,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
+<div id='divClipboard0'>
 <div id='divClipboard'>
 <p>
 __________________________
@@ -1340,8 +1340,6 @@ fi
 fi
 
 echo "<footer>
-<div id="divClipboard0">
-<input type="checkbox" id="chicbox">
 "
 
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
