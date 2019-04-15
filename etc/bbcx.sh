@@ -249,6 +249,8 @@ ${line#*#}";
 
 done < <(printf '%s\n' "$1");
 
+echo '-------------------------- '
+
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | awk '{print tolower($0)}');  
