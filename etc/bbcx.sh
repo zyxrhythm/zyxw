@@ -111,31 +111,32 @@ th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+    display: inline-block;
+    text-indent:0em;
 }
-
+    
 .tooltip .tooltiptext {
-  font-size:85%;
-  visibility: hidden;
-  display: none;
-  width: 167px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  border: 3px dotted green;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+	color: white;
+	word-break:break-word;
+	font-size: 80%; 
+	font-family: calibri; 
+	text-align: center;
+    display: none;
+    width: calc(50% - 50px);
+    background: #000;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    display: block;
 }
 
-.tooltip:hover .tooltiptext {
-  display: inline;
-  visibility: visible;
-}
 #domaintimes {color: green;}
 #navlinkz { color:tomato; float:right;}
 #noselect {
