@@ -52,8 +52,8 @@ h1 {font-family: courier new; font-size: 135%;}
 h4 { font-family: courier new; font-size: 161%; display: inline; }
 body { background-color:black; color:green;}
 p { font-family: calibri; font-size: 100%;}
-label { font-family: Trebuchet MS; font-size: 110%;}
-button { font-family: Trebuchet MS; font-size: 70%; }
+label { font-family: Trebuchet MS; font-size: 100%;}
+button { font-family: Trebuchet MS; font-size: 100%; }
 select, option { width: auto; overflow: hidden;}
 footer { font-family: Georgia; font-size: 100%;}
 article	{ font-family: Verdana; font-size: 70%;}
@@ -65,13 +65,18 @@ strong {font-size: 143%; }
 }
     
 .tooltip .tooltiptext {
+	color: white;
+	word-break:break-word;
+	font-size: 80%; 
+	font-family: calibri; 
+	text-align: center;
     display: none;
-    width: calc(50vw - 35px);
+    width: calc(50% - 50px);
     background: #000;
-    border-radius: 6px;
-    padding: 5px 5px;
-    left: 10px;
-    border: 2px solid grey;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
     line-height: normal;
     text-decoration: none;
     position: absolute;
@@ -87,7 +92,7 @@ strong {font-size: 143%; }
 }
 #revisions {color: #186a3b}
 #goblack {color: #1c2833}
-#navigation { font-family: Arial; font-size: 85%; font-weight: bold; color: #145a32;}
+#navigation { font-family: Arial; font-size: 100%; font-weight: bold; color: #145a32;}
 #navig-link { text-decoration: none; color: #145a32;}
 #wave7a { color: white; font-size: 90%;}
 #tools-link { text-decoration: none; }
@@ -118,11 +123,11 @@ function removeSpecialCharacters(string) {
 &#10070;Logs
 </a>
 &nbsp; 
+</span>
 <div class="tooltip">
 <span id="navig-link"><label>&#9993;Contact</label></span>
-<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green; "><br>For suggestions / comments / reactions<br>email director@bigblackcactus.com<br><br></span>
+<span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">director@bigblackcactus.com<br><br></div></span>
 </div>
-</span>
 </p> <br>
 <!-- ################## BBC Special ################# -->
 <p><script>
@@ -135,7 +140,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/bbcx.sh?domain=' target='_blank' ><label style='cursor: pointer;' >BBC Special&#127797;</label></a>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -155,7 +160,7 @@ else if(document.getElementById("square").checked == false)
 <label>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/bbcws.sh?domain=' target='_blank' ><label style='cursor: pointer;' >&#128269;Who You </label></a>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 </div> 
 </label> <br>
@@ -169,7 +174,7 @@ else if(document.getElementById("square").checked == false)
 <label>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' target='_blank' ><label style='cursor: pointer;' >Big Nick &#9935;Digger</label></a>
-<span class="tooltiptext" style="font-size: 70%; font-family: calibri; font: green; "><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
+<span class="tooltiptext" ><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
 </label><br> 
@@ -192,13 +197,13 @@ else if(document.getElementById("square").checked == false)
 <!-- ################## BIG NICK DIGGER ################# -->
 <p><br><br>
 <a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" target='_blank'>
-<img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
-</a><br>Click the cactus image for the<br>(BETA)BBC Android Webview app.</p>
+<img border="0" alt="Cactus" src="cactus2.png" width="26%" height="26%">
+</a></p>
 </body>
 <footer>
 <p><div class="tooltip">
 <span id="wave7a" >&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</span>
-<span class="tooltiptext" style="font-size: 80%; font-family: calibri; font: green;" >
+<span class="tooltiptext"  >
 Encoded in ROT 13.
 </span>
 </div></p>
