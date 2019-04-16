@@ -274,7 +274,7 @@ cat <<EOTSE
 <body>
 <div id="divClipboard">
 <p><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by quering the web server of the domain /sub domain on port 443.</p>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying the web server of the domain /sub domain on port 443.</p>
 </div>
 </body>
 </html>
