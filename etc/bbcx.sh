@@ -459,9 +459,9 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
 then
 #the error that pops up when a domain is not valid/ does not exist
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+tld0=$( echo $domain | rev | cut -d "." -f1 | rev );
 
-case $tld in
+case $tld0 in
    $tldlist0)
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; 
 then domvarx="(A <a href='https://en.wikipedia.org/wiki/Generic_top-level_domain'  target='_blank' >gTLD</a> sub domain)"; hubad0="y";
