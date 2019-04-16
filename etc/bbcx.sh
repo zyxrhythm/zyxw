@@ -466,21 +466,21 @@ case $tld0 in
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; 
 then domvarx="(A <a href='https://en.wikipedia.org/wiki/Generic_top-level_domain'  target='_blank' >gTLD</a> sub domain)"; hubad0="y";
 else domvarx=" " ; hubad0="y"; 
-fi
+fi;
 ;;
 
 	$tldlist1)
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; 
 then domvarx="(A <a href='https://en.wikipedia.org/wiki/Country_code_top-level_domain' target='_blank' >ccTLD</a> sub domain)"; hubad0="y";
 else domvarx=" " ; hubad0="y"; 
-fi
+fi;
 ;;
 
 	*)
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -lt "1" ]] && [[ -z "$domhv" ]]; 
 then domvarx="(Not a domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>/ sub domain)"; hubad0="x";
 else domvarx=" " ; hubad0="x"; 
-fi
+fi;
 ;;
 
 if [[ "$hubad0" = "y" ]]; then hubad1=" naked"; else hubad1=""; fi;
@@ -488,7 +488,7 @@ cat <<EONVDE
 <body>
 <div id="divClipboard">
 <p><strong>Input</strong> : $domain $domvarx <br> <br>
-Not a valid/registered$hubad1 domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
+Not a valid/registered $hubad1 domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
 For additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
 </body>
