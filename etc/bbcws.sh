@@ -324,7 +324,7 @@ cat <<EOTS
 <body>
 <div id="divClipboard">
 <p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br><br></p>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br><br><br>For domain names <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will query both the Registry's whois server/s and <br>the Registrar's whois server/s (if the Registrar whois server is found on the whois info provided by the Registry). <br> <br> And for IP addresses the tool will query A.R.I.N.'s whois server/s.</p>
 </div>
 </body>
 </html>
