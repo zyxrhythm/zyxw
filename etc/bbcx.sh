@@ -458,12 +458,38 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
   
 then
 #the error that pops up when a domain is not valid/ does not exist
+tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
+
+case $tld in
+   $tldlist0)
+if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; 
+then domvarx="(A <a href='https://en.wikipedia.org/wiki/Generic_top-level_domain'  target='_blank' >gTLD</a> sub domain)"; 
+hubad0="y";
+else true; fi;
+;;
+
+	$tldlist1)
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; 
+then domvarx="(A <a href='https://en.wikipedia.org/wiki/Country_code_top-level_domain' target='_blank' >ccTLD</a> sub domain)"; 
+hubad0="y";
+else true; fi;
+;;
+
+	*)
+if [[ $( echo "$domain" | grep -o "\." | wc -l) -lt "1" ]] && [[ -z "$domhv" ]]; 
+then domvarx="(Not a domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>/ sub domain)"; 
+hubad0="x";
+else true; fi;
+;;
+
+if [[ "$hubad0" = "y" ]]; then hubad1=" naked"; else hubad1=""; fi;
 cat <<EONVDE
 <body>
 <div id="divClipboard">
-<p><strong>Input</strong> : $domain <br> <br>
-Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
-For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
+<p><strong>Input</strong> : $domain $domvarx <br> <br>
+Not a valid/registered$hubad1 domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
+For additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
 </body>
 </html>
@@ -478,10 +504,6 @@ trywsresult=$(whois $domain);
 whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
-
-#REGISTRAR WHOIS SERVER CHECK 
-wsscheck0=$( nslookup "$whoisserver" );
-wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
