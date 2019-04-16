@@ -441,7 +441,13 @@ if [[ -z "$domain" ]]; then
 cat <<EOTSE
 <body>
 <div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>.<br><br><br>For the domain <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>, <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will query the Registry's whois server/s and the whois server/s of the Registrar (if found from the whois information provided by the Registrar's whois server), and will query A.R.I.N.'s whois server for I.P. v4  addresses found by DIG. <br><br><a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public DNS server (8.8.8.8) for A records asssosciated with the naked domain and the I.P. address (A records) associated to the hostnames found on the MX records. <br><br><a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers. <br><br>Then a report with the vital DNS (about the web and mail service under the domain) and whois information is generated.</p></div>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>.<br><br><br>For the domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>, <a 
+href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will do a 'whois' lookup query at the Registry's whois server/s and at the 
+whois server/s of the Registrar (if found from the whois information provided by the Registrar's whois server). Also does a query at A.R.I.N.'s whois server for I.P. v4  
+addresses found by DIG. <br><br><a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public 
+DNS server (8.8.8.8) for A records asssosciated with the naked domain and the I.P. address (A records) associated to the hostnames found on the MX records. 
+<br><br><a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers. <br><br>Then a report 
+with the vital DNS (about the web and mail service under the domain) and whois information is generated</p></div>
 </body>
 </html>
 EOTSE
