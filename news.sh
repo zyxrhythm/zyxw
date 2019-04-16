@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+-Added more info about what BBC special, Who You, SCC, and BND does on their landing pages.
+
 - Added a link to the (BETA) BBC Android Web View App on the Big Cactus picture of the homepage. 
 
 - Added 'Home' and 'back' buttons across the site for in app navigation.
