@@ -474,9 +474,8 @@ cat <<EONVDE0
 </div>
 </body>
 </html>
-
 EONVDE0
-;
+exit 0;
 
 else 
 cat <<EONVDE1
