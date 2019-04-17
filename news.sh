@@ -53,7 +53,9 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
-- SCC should now be able to match where the cert is found with the initial input and gives the IP address where the cert was found, added 'Wildcard line' on the results that tell wether the cert is a wild card  or not and if the it is issued to the naked domain or to a specific sub domain.
+- SCC should now be able to find out where the cert is issued and match the IP address of the initial input and and where the cert is found. 
+
+- Added 'Wildcard line' on SCC's results, that tells wether the cert is a wild card  or not, and if the it is issued to the naked domain or to a specific sub domain.
 
 - BBC special should now be able to handle subdomains and inform users about mistakenly placing a sub domain / something else as input.
 
