@@ -452,11 +452,10 @@ else
 
 # query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
-
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-  if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
-then
+
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  then 
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
 echo "<body><div id='divClipboard0'>
@@ -465,16 +464,11 @@ Please input a valid/registered <strong>naked</strong> domain name <a href='http
 Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a></p></div></body>
 </html>"
 
-elif [[ "${zyx:2:16}" = "IANA WHOIS serve" ]];
-then 
-echo "<body><div id='divClipboard0'>
-<p><strong>Input</strong> : $domain - is a TLD<br> <br>
+elif [[ "$dvc" = "%ianawh" ]]; then echo "<body><div id='divClipboard0'>
+<p><strong>Input</strong> : $domain - is a TLD<br><br>
 <pre>$zyx<pre></p></div></body>
-</html>"
-
-else true;
-
-fi;
+</html>"; 
+else true; fi;
 
 exit 0;
 
