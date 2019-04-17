@@ -465,7 +465,7 @@ if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv
 if [[ "$dvc" = "%ianawh" ]]; 
 
 then 
-cat << EONVDE0
+cat <<EONVDE0
 <body>
 <div id="divClipboard0">
 <p><strong>Input</strong> : $domain is a TLD <br> <br>
@@ -476,6 +476,7 @@ cat << EONVDE0
 </html>
 
 EONVDE0
+;
 
 else 
 cat <<EONVDE1
