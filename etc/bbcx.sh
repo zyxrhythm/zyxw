@@ -456,36 +456,32 @@ zyx=$(whois $domain);
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
   if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
-  
+
 then
-#not a domain error generator
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
-
-if [[ "${zyx:2:16}" = "IANA WHOIS serve" ]]; then 
-cat <<TLDRWIR
-<body>
-<div id="divClipboard">
-<p><strong>Input</strong> : $domain is a TLD <br> <br>
-<pre>$zyx</pre>
-</p>
-</div>
-</body>
-</html>
-TLDRWIR
-exit 0;
-
-else 
-cat <<EONVDE1
-<body>
-<div id="divClipboard">
+cat <<EONVDE0
+<body><div id='divClipboard0'>
 <p><strong>Input</strong> : $domain - $domvarx <br> <br>
 Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>
-Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
-</div>
-</body>
+Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p></div></body>
 </html>
-EONVDE1
+EONVDE0
+exit 0;
+
+elif [[ "${zyx:2:16}" = "IANA WHOIS serve" ]];
+
+then 
+cat <<EONVDE0
+<body><div id='divClipboard0'>
+<p><strong>Input</strong> : $domain - is a TLD<br> <br>
+<pre>$zyx<pre></p></div></body>
+</html>
+EONVDE0
+
+exit 0;
+
+else true;
 
 fi;
 
