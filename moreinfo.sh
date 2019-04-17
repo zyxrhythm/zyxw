@@ -70,18 +70,6 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 
 
-==============
-= DEV CORNER =
-==============
-
-===============================
--This website uses <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a> (Bourne again shell) for server-side scripting.
--The usual Javascript for client side scripting.
--The usual HTML and CSS for its simple looks.
-===============================
-
-
-
 ###########
 # CONTACT #
 ###########
@@ -93,49 +81,15 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 
 
+==============
+= DEV CORNER =
+==============
 
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>>>>>>>>>>
-> PLEASE NOTE <
-<<<<<<<<<<<<<<<
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-This site will always be Free.
-But this site is not eternal.
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-The 'whois and dig' info generated here are not cached.
-Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-There is a limit on how much an IP address can query a particular whois server.
-Sometimes abusing the limit will have its dire consecquences.
-This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-
-
-
-
-
-
-
-
-
+===============================
+-This website uses <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a> (Bourne again shell) for server-side scripting.
+-The usual Javascript for client side scripting.
+-The usual HTML and CSS for its simple looks.
+===============================
 
 
 
@@ -187,6 +141,29 @@ String manipulation and other opearations (server-side):
 echo, cat, grep, sed, awk, cut, tr, rev, bc, column, host, git,
 gitrevcount, POSIX character expansions, shopt (extglob).
 *******************************
+
+
+
+>>>>>>>>>>>>>>>
+> PLEASE NOTE <
+<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+This site will always be Free.
+But this site is not eternal.
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+The 'whois and dig' info generated here are not cached.
+Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+There is a limit on how much an IP address can query a particular whois server.
+Sometimes abusing the limit will have its dire consecquences.
+This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 </pre>
 <br>
 </p>
