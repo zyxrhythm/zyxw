@@ -462,7 +462,23 @@ then
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
 
-cat <<EONVDE
+if [[ "${zyx:0:19}" = "% IANA WHOIS server" ]]; 
+
+then 
+cat << EONVDE0
+<body>
+<div id="divClipboard0">
+<p><strong>Input</strong> : $domain is a TLD <br> <br>
+<pre>$zyx</pre>
+</p>
+</div>
+</body>
+</html>
+
+EONVDE0
+
+else 
+cat <<EONVDE1
 <body>
 <div id="divClipboard">
 <p><strong>Input</strong> : $domain - $domvarx <br> <br>
@@ -471,7 +487,9 @@ Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="
 </div>
 </body>
 </html>
-EONVDE
+EONVDE1
+
+fi;
 
 exit 0;
 
