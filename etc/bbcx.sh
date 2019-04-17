@@ -467,7 +467,7 @@ if [[ "${zyx:2:16}" = "IANA WHOIS serve" ]];
 then 
 cat <<EONVDE0
 <body>
-<div id="divClipboard0">
+<div id="divClipboard">
 <p><strong>Input</strong> : $domain is a TLD <br> <br>
 <pre>$zyx</pre>
 </p>
