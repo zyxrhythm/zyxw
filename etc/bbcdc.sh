@@ -417,7 +417,7 @@ leftvar="Daysleft";
 Daysleft="$Daysleft0";
 fi;
 
-if [[ "${Target:0:1}" = "*" ]]; then certtype="Wildcard: yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - issued to a sub domain"; else certtype="No - issued to the naked domain"; fi;
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - issued to a sub domain"; else certtype="No - issued to the naked domain"; fi;
 
 cat << EOSSLCCR
 <body>
