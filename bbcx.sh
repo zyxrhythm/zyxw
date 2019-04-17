@@ -457,13 +457,16 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
   if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
   
 then
-#the error that pops up when a domain is not valid/ does not exist
+#not a domain error generator
+domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="<br>( Not a domain / sub domain but rather something else. )"; fi;
+
 cat <<EONVDE
 <body>
 <div id="divClipboard">
-<p><strong>Input</strong> : $domain <br> <br>
-Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
-For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
+<p><strong>Input</strong> : $domain - $domvarx <br> <br>
+Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>
+Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
 </body>
 </html>
@@ -478,10 +481,6 @@ trywsresult=$(whois $domain);
 whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
-
-#REGISTRAR WHOIS SERVER CHECK 
-wsscheck0=$( nslookup "$whoisserver" );
-wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
