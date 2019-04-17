@@ -86,10 +86,10 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 # CONTACT #
 ###########
 
-#########################
-#For bugs and other concerns please email:
-#director@bigblackcactus.com
-#################
+############################
+# For bugs and other concerns please email:
+# director@bigblackcactus.com
+############################
 
 
 
@@ -107,7 +107,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 
 >>>>>>>>>>>>>>>
->>PLEASE NOTE<<
+> PLEASE NOTE <
 <<<<<<<<<<<<<<<
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -187,7 +187,6 @@ String manipulation and other opearations (server-side):
 echo, cat, grep, sed, awk, cut, tr, rev, bc, column, host, git,
 gitrevcount, POSIX character expansions, shopt (extglob).
 *******************************
-
 </pre>
 <br>
 </p>
