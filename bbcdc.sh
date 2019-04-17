@@ -417,13 +417,16 @@ leftvar="Daysleft";
 Daysleft="$Daysleft0";
 fi;
 
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued for a sub domain"; else certtype="No - Cert issued for the naked domain"; fi;
+
+if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
+
 cat << EOSSLCCR
-<body>
-<div class="code-bg" id="divClipboard">
-<p><strong>$domvar</strong> : $domain <br>
-<strong>Resolves to</strong> : $IP <br><br>
+<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
+$certloc <br>
 <strong>Cert Issuer</strong> : $Issuer <br>
-<strong>Issued For</strong> : $Target <br>
+<strong>Wildcard</strong> : $certtype <br>
+<strong>Issued For</strong> : $Target<br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>$leftvar</strong> : $Daysleft</p></div>
