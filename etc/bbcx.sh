@@ -457,29 +457,15 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
   if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
   
 then
-#the error that pops up when a domain is not valid/ does not exist
+#not a domain error generator
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-tld0=$( echo $domain | rev | cut -d "." -f1 | rev );
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; then domvarx="<br>( A psosible sub domain )"; else domvarx="<br>( Not a domain / sub domain but rather something else. )"; fi;
 
-case $tld0 in
-   $tldlist0)
-if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; then domvarx="(A <a href='https://en.wikipedia.org/wiki/Generic_top-level_domain'  target='_blank' >gTLD</a> sub domain)"; hubad0="y"; else domvarx=" " ; hubad0="y"; fi;
-;;
-
-	$tldlist1)
-if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]] && [[ -z "$domhv" ]]; then domvarx="(A <a href='https://en.wikipedia.org/wiki/Country_code_top-level_domain' target='_blank' >ccTLD</a> sub domain)"; hubad0="y"; else domvarx=" " ; hubad0="y"; fi;
-;;
-
-	*)
-if [[ $( echo "$domain" | grep -o "\." | wc -l) -lt "1" ]] && [[ -z "$domhv" ]]; then domvarx="(Not a domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>/ sub domain)"; hubad0="x"; else domvarx=" " ; hubad0="x"; fi;
-;;
-
-if [[ "$hubad0" = "y" ]]; then hubad1=" naked"; else hubad1=""; fi;
 cat <<EONVDE
 <body>
 <div id="divClipboard">
 <p><strong>Input</strong> : $domain $domvarx <br> <br>
-Not a valid/registered $hubad1 domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
+Please input a valid/registered <strong>naked</strong> domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
 For additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
 </body>
