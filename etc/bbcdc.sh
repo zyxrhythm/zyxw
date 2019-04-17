@@ -419,7 +419,7 @@ fi;
 
 if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued for a sub domain"; else certtype="No - Cert issued for the naked domain"; fi;
 
-if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="Cert Found at: "$Target" <br>Which Resolves to: "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
+if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
 <body>
