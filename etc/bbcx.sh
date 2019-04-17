@@ -459,12 +459,12 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
 then
 #not a domain error generator
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="<br>( A psosible sub domain )"; else domvarx="<br>( Not a domain / sub domain but rather something else. )"; fi;
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="<br>( Not a domain / sub domain but rather something else. )"; fi;
 
 cat <<EONVDE
 <body>
 <div id="divClipboard">
-<p><strong>Input</strong> : $domain $domvarx <br> <br>
+<p><strong>Input</strong> : $domain - $domvarx <br> <br>
 Please input a valid/registered <strong>naked</strong> domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>
 Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
 </div>
