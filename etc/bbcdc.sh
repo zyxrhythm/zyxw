@@ -422,10 +422,7 @@ if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*
 if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body>
-<div class="code-bg" id="divClipboard">
-<p><strong>Input ($domvar)</strong> : $domain <br>
-<strong>Resolves to</strong> : $IP <br>
+<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
 $certloc <br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Wildcard</strong> : $certtype <br>
