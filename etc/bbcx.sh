@@ -460,7 +460,7 @@ dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015')
 then
 #not a domain error generator
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="<br>( Not a domain / sub domain but rather something else. )"; fi;
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
 
 cat <<EONVDE
 <body>
