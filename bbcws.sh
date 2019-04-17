@@ -397,7 +397,7 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
 then 
 rws="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><br>Possible causes: <br>-Input is not a valid/registered domain name. <br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar."
+zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><br>Possible causes: <br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar."
 
 else 
 rws="$rws1"; 
