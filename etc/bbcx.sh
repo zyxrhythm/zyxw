@@ -462,7 +462,7 @@ then
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
 
-if [[  "${zyx:0:19}" = "% IANA WHOIS server" ]]; 
+if [[ "${zyx:0:19}" = "% IANA WHOIS server" ]]; 
 
 then 
 cat <<EONVDE0
@@ -475,7 +475,6 @@ cat <<EONVDE0
 </body>
 </html>
 EONVDE0
-exit 0;
 
 else 
 cat <<EONVDE1
