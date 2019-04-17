@@ -426,7 +426,7 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
 <strong>Issued For</strong> : $Target<br>
-<strong>Wildcard<Strong> : $certtype
+<strong>Wildcard</strong> : $certtype <br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>$leftvar</strong> : $Daysleft</p></div>
