@@ -417,13 +417,15 @@ leftvar="Daysleft";
 Daysleft="$Daysleft0";
 fi;
 
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Wildcard: yes"; elif [[ "$domvar" = "Domain" ]] && [[ "${Target#*.}" = "$domain" ]]; then certtype="Wild card: no - issued to a sub domain"; else certtype="Wildcard: no - issued to the naked domain"; fi;
+
 cat << EOSSLCCR
 <body>
 <div class="code-bg" id="divClipboard">
 <p><strong>$domvar</strong> : $domain <br>
 <strong>Resolves to</strong> : $IP <br><br>
 <strong>Cert Issuer</strong> : $Issuer <br>
-<strong>Issued For</strong> : $Target <br>
+<strong>Issued For</strong> : $Target ($certtype)<br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>$leftvar</strong> : $Daysleft</p></div>
