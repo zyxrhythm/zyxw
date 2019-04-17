@@ -452,6 +452,7 @@ else
 
 # query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
+
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
