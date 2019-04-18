@@ -420,7 +420,7 @@ else true;
 fi;
 
 #if 3
-if [[ "$dvcheck0" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
+if [[ "$dvcheck0" = "%ianawh"  ]];then
 echo "
 <body>
 <button onclick='copyClipboard1()'>Copy Result</button>
