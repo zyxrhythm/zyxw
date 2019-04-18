@@ -467,7 +467,7 @@ zyx=$(whois $domain);
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
 #the 2nd if
-if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]]; 
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
 
 then 
 
@@ -505,7 +505,7 @@ elif [[ "$dvc" = "patterns" ]];
 then
 echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So If you want to validate a TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So If you want to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
