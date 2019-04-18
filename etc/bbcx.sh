@@ -469,18 +469,25 @@ domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 	else domvarx="( Not a domain / sub domain but rather something else. )"; 
 	fi;
 
-echo "<body><div id='divClipboard0'><p><strong>Input</strong> : $domain - $domvarx <br> <br>Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a></p></div></body></html>"; 
+echo "
+<body><div id='divClipboard0'><p><strong>Input</strong> : $domain - $domvarx <br> <br>
+Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
+</p></div>
+</body>
+</html>
+"; 
+
 exit 0;
 
 #2nd if elif
 elif [[ "$dvc" = "%ianawh" ]]; 
 then 
-cat <<EOTLDWR
+echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
 <br><br><pre>$zyx<pre></p></div>
-</body></html>
-
-EOTLDWR 
+</body>
+</html>
+";
 
 exit 0;
 
