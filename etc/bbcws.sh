@@ -400,12 +400,7 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
 then 
 rws="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><br>Possible causes: <br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
-
-elif [[ ! -z "$( echo "$rws0" | grep -e 'iana' )" ]] || [[ "$( echo "$rws0" | grep -e 'iana' )" = " " ]]; 
-then 
-rws="Not Found!"; 
-zyxregistrar="Registars are not directly involved in maintaining <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLDs</a>";
+zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><strong>Input</strong>: $doi<br><br><br>Possible cause: <br>-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a>, Registrars are not directly involved with TLDs.<br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
 
 else 
 rws="$rws1"; 
