@@ -372,8 +372,10 @@ EOWIIPR
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 zyx=$(whois --verbose $doi );
+zyx0=$(echo "$zyx" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 
 dvcheck=$(echo "${zyx:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+dvcheck0=$(echo "${zyx0:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
 
 if [[ "$dvcheck" = "nowhois" ]]; then
 echo "
@@ -395,7 +397,7 @@ else true;
 fi;
 
 
-if [[ "$dvcheck" = "patterns"  ]]; then
+if [[ "$dvcheck0" = "patterns"  ]]; then
 echo "
 <body>
 <p><button onclick='copyClipboard1()'>Copy Result</button><br>
@@ -418,14 +420,13 @@ else true;
 fi;
 
 #if 3
-if [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
-zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d');
+if [[ "$dvcheck0" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
 echo "
 <body>
 <button onclick='copyClipboard1()'>Copy Result</button>
 <br>
 <div id='divClipboard1'>
-<pre> $zyxtld </pre><br>
+<pre> $zyx0 </pre><br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
