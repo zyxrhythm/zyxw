@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- BBC Special can now be used to validated TLDs.
+
 - SCC should now be able to find out where the cert is issued and match the IP address of the initial input and and where the cert is found. 
 
 - Added 'Wildcard line' on SCC's results, that tells wether the cert is a wild card  or not, and if the it is issued to the naked domain or to a specific sub domain.
