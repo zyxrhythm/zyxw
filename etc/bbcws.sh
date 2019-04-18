@@ -390,8 +390,11 @@ And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv
 </body>
 </html>
 ";
+else true; fi;
 
-elif [[ "$dvcheck" = "patterns"  ]]; then
+exit 0;
+
+if [[ "$dvcheck" = "patterns"  ]]; then
 echo "
 <body>
 <p><button onclick='copyClipboard1()'>Copy Result</button><br>
@@ -409,8 +412,11 @@ do not start the input with a dot '.'
 </body>
 </html>
 ";
+else true; fi;
 
-elif [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
+exit 0;
+
+if [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
 zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d');
 echo "
 <body>
