@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- Fixed bug: Who You is returning a blank result on the registrar tab when TLDs are input.
+
 - BBC Special can now be used to validated TLDs and give info about it from IANA's whois server/s like Who You does.
 
 - SCC should now be able to find out where the cert is issued and match the IP address of the initial input and and where the cert is found. 
