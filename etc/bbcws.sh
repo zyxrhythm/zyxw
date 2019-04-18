@@ -361,9 +361,9 @@ cat <<EODC
 <p><button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
 <p><strong>Input</strong> : $doi <br> <br>
-Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br>
---When executing 'whois $doi', the shell returned:<br>
+Not a valid/registered domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
+And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br><br>
+--When executing 'whois $doi', the shell returned:<br><br>
 'No whois server is known for this kind of object.'<br>
 </div></p>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
