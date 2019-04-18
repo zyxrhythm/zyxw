@@ -379,7 +379,7 @@ case $tld in
    $gcctldlist)
 
 rws0=$(echo "$zyx" | grep -i -e "Using server" | sort -u );
-grws=$(echo "$zyx" | grep -i -e "WHOIS Server" | sort -u);
+grws=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server" | sort -u);
 rws1=$(echo "$grws" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
 #registry
