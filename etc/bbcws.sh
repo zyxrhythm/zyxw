@@ -331,7 +331,8 @@ done < <(printf '%s\n' "$1");
 #FUNCTIONHALL#
 #============#
 
-#checks if the domain enter is null  or they click the BBC button without placing anything - then throws a Taylor Swift error
+#checks if the domain enter is null  
+#if 1
 if [[ -z "$doi" ]]; then
 
 cat <<EOTS
@@ -340,14 +341,17 @@ cat <<EOTS
 <p><br><strong>Current Input</strong> : none <br> <br>
 Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br><br><br>For domain names <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will query both the Registry's whois server/s and <br>the Registrar's whois server/s (if the Registrar whois server is found on the whois info provided by the Registry). <br> <br> And for IP addresses, will query A.R.I.N.'s whois server/s.</p>
 </div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOTS
 exit 0;
 
+#else 1
 else
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
+#if 2
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi | tr -d '\040\011\012\015' );
 	zyxip=$(whois $ipwhois );
@@ -363,36 +367,38 @@ cat << EOWIIPR
 </body>
 </html>
 EOWIIPR
+#else 2
 	else
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 zyx=$(whois --verbose $doi );
 
 dvcheck=$(echo "${zyx:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
-		if [[ "$dvcheck" = "nowhois" ]]; then
-cat <<EODC0
+#if 3
+if [[ "$dvcheck" = "nowhois" ]]; then
+echo "
 <body>
-<p><button onclick="copyClipboard1()">Copy Result</button><br>
-<div id="divClipboard1">
+<p><button onclick='copyClipboard1()'>Copy Result</button><br>
+<div id='divClipboard1'>
 <p><strong>Input</strong> : $doi <br> <br>
 Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br><br>
+And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv4 Address</a>!<br><br><br>
 --When executing 'whois $doi', the shell returned:<br><br>
 'No whois server is known for this kind of object.'<br>
 </div></p>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EODC0
+";
 
-		elif [[ "$dvcheck" = "patterns"  ]];then
-cat <<EODC1
+elif [[ "$dvcheck" = "patterns"  ]]; then
+echo "
 <body>
-<p><button onclick="copyClipboard1()">Copy Result</button><br>
-<div id="divClipboard1">
+<p><button onclick='copyClipboard1()'>Copy Result</button><br>
+<div id='divClipboard1'>
 <p><strong>Input</strong> : $doi - is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a><br><br>
 Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br><br>
+And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv4 Address</a>!<br><br><br>
 --When executing 'whois $doi', the shell returned:<br><br>
 'Pattern starts with improper character.'<br><br>
 So If you want to validate a TLD <br>
@@ -402,21 +408,22 @@ do not start the input with a dot '.'
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EODC1
+";
 
-		elif [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
-		zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d')
-cat <<EODC3
+elif [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
+zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d');
+echo "
 <body>
-<button onclick="copyClipboard1()">Copy Result</button>
+<button onclick='copyClipboard1()'>Copy Result</button>
 <br>
-<div id="divClipboard1">
+<div id='divClipboard1'>
 <pre> $zyxtld </pre><br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EODC3
+"
 
+#else 3
 	else
 
 #once the domain is verified - if will extract the TLD - to check if it is a FQDN
@@ -495,6 +502,7 @@ ph)
 echo '<body>'
 cat <<EOQPH
 <p><br><a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.</p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOQPH
@@ -510,6 +518,8 @@ cat <<EOQSG
 <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$doi' target="_blank"> Click Here </a>To get the whois info of this .sg domain.
 </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOQSG
@@ -524,6 +534,7 @@ cat <<EOQVN
 <br>
 <a href='https://vnnic.vn/en/whois-information?lang=en' target="_blank"> Click Here </a>To get the whois info of this .vn domain.
 </p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOQVN
@@ -539,6 +550,7 @@ cat <<EOQMIL
 This TLD has no whois server.<br><br>
 .mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
 The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOQMIL
@@ -553,7 +565,7 @@ cat << EONAVDE
 <button onclick="copyClipboard1()">BBC Copy</button>
 <div id="divClipboard1">
 <p>
-Not a valid domain!.
+Not a valid Input!.
 </p>
 </div>
 
@@ -561,6 +573,8 @@ EONAVDE
 ;;
 
 esac
+
+#fi3 fi2 fi1
 		fi
 	fi
 fi
