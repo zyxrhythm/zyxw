@@ -53,7 +53,7 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
-- BBC Special can now be used to validated TLDs.
+- BBC Special can now be used to validated TLDs and give info about it from IANA's whois server/s.
 
 - SCC should now be able to find out where the cert is issued and match the IP address of the initial input and and where the cert is found. 
 
