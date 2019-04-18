@@ -473,6 +473,7 @@ echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
 Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
 </p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 "; 
@@ -485,6 +486,7 @@ then
 echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
 <br><br><pre>$zyx<pre></p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 ";
@@ -496,10 +498,11 @@ then
 echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
 <br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br>$zyx<br><br>So If you want to validate a TLD <br>do not start the input witha dot '.'<pre></p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 ";
-
+exit 0;
 
 #2nd if else
 else
@@ -1210,6 +1213,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQPH
 exit 0;
@@ -1251,6 +1255,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQSG
 exit 0;
@@ -1292,6 +1297,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQVN
 exit 0;
