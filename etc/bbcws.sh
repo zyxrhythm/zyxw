@@ -354,14 +354,14 @@ EOWIIPR
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 zyx=$(whois --verbose $doi );
 
-dvcheck=$(echo "${zyx:0:2}" | awk '{print tolower($0)}' );
-		if [[ "$dvcheck" = "no" ]]; then
+dvcheck=$(echo "${zyx:0:}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+		if [[ "$dvcheck" = "nowhois" ]]; then
 cat <<EODC
 <body>
 <p><button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
 <p><strong>Input</strong> : $doi <br> <br>
-Not a valid/registered domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
+Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
 And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br><br>
 --When executing 'whois $doi', the shell returned:<br><br>
 'No whois server is known for this kind of object.'<br>
@@ -372,6 +372,28 @@ And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv
 EODC
 
 exit 0;
+
+		elif [[ "$dvcheck" = "patterns"  ]];then
+cat <<EODC
+<body>
+<p><button onclick="copyClipboard1()">Copy Result</button><br>
+<div id="divClipboard1">
+<p><strong>Input</strong> : $doi - is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a><br><br>
+Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
+And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br><br>
+--When executing 'whois $doi', the shell returned:<br><br>
+'Pattern starts with improper character.'<br><br>
+So If you want to validate a TLD <br>
+or want to get some info about it,<br>
+do not start the input with a dot '.'
+</div></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+EODC
+
+exit 0;		
+
 	else
 
 #once the domain is verified - if will extract the TLD - to check if it is a FQDN
