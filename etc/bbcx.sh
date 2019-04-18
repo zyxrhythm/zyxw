@@ -435,7 +435,8 @@ echo "$daysleft";
 # END OF FUNCTION HALL
 #=====================
 
-#checks - if the domain variable  entered is null  / the button is clicked without placing anything
+#checks - if the domain variable  entered is null  / the button is clicked without placing anything 
+#1st if
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
@@ -448,6 +449,7 @@ Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</
 EOTSE
 exit 0;
 
+#1st if else
 else
 
 # query whois about the domain and store the raw output to a variable
@@ -456,21 +458,34 @@ zyx=$(whois $domain);
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
+#the 2nd if
 if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]]; 
 
 then 
 
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
+	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
+	then domvarx="( A sub domain )"; 
+	else domvarx="( Not a domain / sub domain but rather something else. )"; 
+	fi;
 
 echo "<body><div id='divClipboard0'><p><strong>Input</strong> : $domain - $domvarx <br> <br>Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a></p></div></body></html>"; 
 exit 0;
 
-elif [[ "$dvc" = "%ianawh" ]]; then 
-echo "<body><div id='divClipboard0'><p><strong>Input</strong> : $domain - is a TLD<br><br><pre>$zyx<pre></p></div></body></html>"; 
+#2nd if elif
+elif [[ "$dvc" = "%ianawh" ]]; 
+then 
+cat <<EOTLDWR
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>$zyx<pre></p></div>
+</body></html>
+
+EOTLDWR 
+
 exit 0;
-	
-  else
+
+#2nd if else
+else
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 trywsresult=$(whois $domain);
@@ -1327,8 +1342,9 @@ echo "</p>
 </div>
 </body>"
 
+#2nd if fi
 fi
-
+#1st if fi
 fi
 
 echo "<footer>
