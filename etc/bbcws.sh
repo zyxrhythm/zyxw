@@ -407,7 +407,7 @@ Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/
 And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv4 Address</a>!<br><br><br>
 --When executing 'whois $doi', the shell returned:<br><br>
 'Pattern starts with improper character.'<br><br>
-So If you want to validate a TLD <br>
+So if you are here to validate this TLD<br>
 or want to get some info about it,<br>
 do not start the input with a dot '.'
 </div></p>
@@ -455,7 +455,7 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
 then 
 rws="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><strong>Input</strong>: $doi<br><br><br>Possible cause: <br>-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a>, Registrars are not directly involved with TLDs.<br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
+zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><strong>Input</strong>: $doi<br><br><br>Possible cause: <br>-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD; Registrars are not directly involved with TLDs.<br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
 
 else 
 rws="$rws1"; 
