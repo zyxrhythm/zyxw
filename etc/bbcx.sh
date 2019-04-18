@@ -244,7 +244,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a tick on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
+<button onclick="copyv2(); copyClipboard();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a tick on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -459,18 +459,18 @@ zyx=$(whois $domain);
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
 #the 2nd if
-if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "patterns" ]]; 
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]]; 
 
 then 
 
 domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
-	then domvarx="( A sub domain )"; 
-	else domvarx="( Not a domain / sub domain but rather something else. )"; 
+	then domvarx="- ( A sub domain )"; 
+	else domvarx="<br>( Not a domain / sub domain but rather something else. )"; 
 	fi;
 
 echo "
-<body><div id='divClipboard0'><p><strong>Input</strong> : $domain - $domvarx <br> <br>
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
 Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
 </p></div>
 </body>
@@ -490,6 +490,16 @@ echo "
 ";
 
 exit 0;
+
+elif [[ "$dvc" = "patterns" ]]; 
+then
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br>$zyx<br><br>So If you want to validate a TLD <br>do not start the input witha dot '.'<pre></p></div>
+</body>
+</html>
+";
+
 
 #2nd if else
 else
