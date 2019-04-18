@@ -385,8 +385,6 @@ And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv
 </html>
 EODC0
 
-exit 0;
-
 		elif [[ "$dvcheck" = "patterns"  ]];then
 cat <<EODC1
 <body>
@@ -406,8 +404,6 @@ do not start the input with a dot '.'
 </html>
 EODC1
 
-exit 0;		
-
 		elif [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
 		zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d')
 cat <<EODC3
@@ -420,8 +416,6 @@ cat <<EODC3
 </body>
 </html>
 EODC3
-
-exit 0;	
 
 	else
 
