@@ -497,7 +497,7 @@ elif [[ "$dvc" = "patterns" ]];
 then
 echo "
 <body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br>$zyx<br><br>So If you want to validate a TLD <br>do not start the input witha dot '.'<pre></p></div>
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So If you want to validate a TLD <br>do not start the input witha dot '.'<pre></p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
