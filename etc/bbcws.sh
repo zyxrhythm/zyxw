@@ -368,7 +368,7 @@ EOWIIPR
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 zyx=$(whois --verbose $doi );
 
-dvcheck=$(echo "${zyx:0:}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+dvcheck=$(echo "${zyx:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
 		if [[ "$dvcheck" = "nowhois" ]]; then
 cat <<EODC0
 <body>
