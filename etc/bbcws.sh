@@ -374,7 +374,7 @@ EOWIIPR
 zyx=$(whois --verbose $doi );
 
 dvcheck=$(echo "${zyx:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
-#if 3
+
 if [[ "$dvcheck" = "nowhois" ]]; then
 echo "
 <body>
@@ -390,9 +390,10 @@ And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv
 </body>
 </html>
 ";
-else true; fi;
-
 exit 0;
+else true; 
+fi;
+
 
 if [[ "$dvcheck" = "patterns"  ]]; then
 echo "
@@ -412,10 +413,11 @@ do not start the input with a dot '.'
 </body>
 </html>
 ";
-else true; fi;
-
 exit 0;
+else true; 
+fi;
 
+#if 3
 if [[ "$dvcheck" = "usingser"  ]] && [[ $( echo "$zyx" | grep -i -e "Using server" | sort -u |  cut -f2 -d":" | tr -d '\040\011\012\015' ) = "whois.iana.org." ]] ;then
 zyxtld=$(echo "$zyx" | sed -e '1,/Query string:/d');
 echo "
