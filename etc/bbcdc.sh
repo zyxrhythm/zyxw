@@ -83,6 +83,7 @@ function removeSpaces(string) {
 <script>
 function removeSpecialCharacters(string) {
  return string.replace(/[^A-Za-z0-9.-]/g, '');
+ }
 </script>
 
 <style>
@@ -274,7 +275,7 @@ cat <<EOTSE
 <body>
 <div id="divClipboard">
 <p><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying port 443 of the domain / sub domain's web server.</p>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying port 443 of the domain / sub domain's web server.</p>
 </div>
 </body>
 </html>
