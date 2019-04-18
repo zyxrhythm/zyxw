@@ -45,12 +45,20 @@ cat <<EODHHEAD
 
 <script>
 function copyv2(){
+
+var element =  document.getElementById('chicbox');
+if (typeof(element) != 'undefined' && element != null)
+{
   var checkBox = document.getElementById("chicbox");
-  if (checkBox.checked == true){
-	copyClipboard0();
-  } else {
-    copyClipboard();
-  }
+  if (checkBox.checked == true)
+  { copyClipboard0(); } 
+  else 
+  { copyClipboard(); }
+}
+
+	else 
+	{ copyClipboard(); }
+
 }
 </script>
 
@@ -84,7 +92,7 @@ function copyClipboard() {
 
 <script>
 function copyClipboard0() {
-  var elm = document.getElementById("divClipboard0");
+  var elm = document.getElementById("divClipboardx");
   // for Internet Explorer
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
@@ -244,7 +252,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a tick on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
+<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a tick on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -435,7 +443,8 @@ echo "$daysleft";
 # END OF FUNCTION HALL
 #=====================
 
-#checks - if the domain variable  entered is null  / the button is clicked without placing anything
+#checks - if the domain variable  entered is null  / the button is clicked without placing anything 
+#1st if
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
@@ -448,6 +457,7 @@ Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</
 EOTSE
 exit 0;
 
+#1st if else
 else
 
 # query whois about the domain and store the raw output to a variable
@@ -455,27 +465,55 @@ zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-  if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
-  
-then
-#not a domain error generator
-domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; then domvarx="( A sub domain )"; else domvarx="( Not a domain / sub domain but rather something else. )"; fi;
 
-cat <<EONVDE
-<body>
-<div id="divClipboard">
-<p><strong>Input</strong> : $domain - $domvarx <br> <br>
-Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>
-Additional info from Who You <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
-</div>
+#the 2nd if
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]]; 
+
+then 
+
+domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
+	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
+	then domvarx="- ( A sub domain )"; 
+	else domvarx="<br>( Not a domain / sub domain but rather something else. )"; 
+	fi;
+
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
+Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
+</p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EONVDE
+"; 
 
 exit 0;
 
-  else
+#2nd if elif
+elif [[ "$dvc" = "%ianawh" ]]; 
+then 
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>$zyx<pre></p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+
+exit 0;
+
+elif [[ "$dvc" = "patterns" ]]; 
+then
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So If you want to validate a TLD <br>do not start the input witha dot '.'<pre></p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
+
+#2nd if else
+else
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 trywsresult=$(whois $domain);
@@ -539,7 +577,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboard0"><div id="divClipboard"><p>__________________________<br><br>
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx"><div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
@@ -905,7 +943,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboard0'><div id='divClipboard'><p>__________________________
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'><p>__________________________
 <br><br>
 <strong>Domain Name:</strong> $domain
 <br><br>
@@ -1183,6 +1221,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQPH
 exit 0;
@@ -1224,6 +1263,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQSG
 exit 0;
@@ -1265,6 +1305,7 @@ __________________________
 </p>
 </div>
 </body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQVN
 exit 0;
@@ -1332,8 +1373,9 @@ echo "</p>
 </div>
 </body>"
 
+#2nd if fi
 fi
-
+#1st if fi
 fi
 
 echo "<footer>
