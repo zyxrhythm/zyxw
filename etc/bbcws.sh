@@ -362,8 +362,11 @@ cat <<EODC
 <div id="divClipboard1">
 <p><strong>Input</strong> : $doi <br> <br>
 Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!
+And not a valid <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>!<br><br>
+--When executing 'whois $doi', the shell returned:<br>
+'No whois server is known for this kind of object.'<br>
 </div></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EODC
@@ -397,9 +400,9 @@ zyxregistry=$( cutterfunc "$zyxregistry0" );
 if [[ -z "$rws1" ]] || [[ "$rws1" = " " ]]; 
 then 
 rws="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><br>Possible causes: <br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar."
+zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><br>Possible causes: <br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
 
-elif [[ ! -z $( echo "$rws0" | grep -e 'iana' ) ]]; 
+elif [[ ! -z "$( echo "$rws0" | grep -e 'iana' )" ]] || [[ "$( echo "$rws0" | grep -e 'iana' )" = " " ]]; 
 then 
 rws="Not Found!"; 
 zyxregistrar="Registars are not directly involved in maintaining <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLDs</a>";
