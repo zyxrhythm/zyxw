@@ -292,10 +292,16 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 cutterfunc () {
 while IFS= read -r line
 do
-cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cutter1="${cutter0/IN/}";
-cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
-echo "$cutter";
+z0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+z1="${cutter0/IN/}";
+
+y0=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+
+x0=$( echo $cutterx | cut -d' ' -f1 )
+x1=$( echo $cutterx | cut -d' ' -f2 )
+x2=$( echo $cutterx | cut -d' ' -f3-);
+
+echo -e "$1\t$2\t$3";
 done < <(printf '%s\n' "$1");
 }
 
@@ -307,7 +313,7 @@ while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d' ' -f3-);
+record=$( echo "$line" | cut -d'	' -f3-);
 echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
