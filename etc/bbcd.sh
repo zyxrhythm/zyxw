@@ -292,28 +292,22 @@ zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 cutterfunc () {
 while IFS= read -r line
 do
-z0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-z1="${z0/IN/}";
-
-y0=$( echo "${z1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
-
-x0=$( echo $y0 | cut -d' ' -f1  | tr -d '\040\011\012\015' )
-x1=$( echo $y0 | cut -d' ' -f2  | tr -d '\040\011\012\015' )
-x2=$( echo $y0 | cut -d' ' -f3-);
-
-echo -e "$x0\t$x1\t$x2";
+cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+cutter1="${cutter0/IN/}";
+cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+echo "$cutter";
 done < <(printf '%s\n' "$1");
 }
 
 zyxgd=$( cutterfunc "$zyxgd0" );
 
 tablefunc () {
-echo "<tr><th><strong>Type</strong></th><th><strong>TTL</strong></th><th><strong>Record</strong></th></tr>"
+echo -e "<tr><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
 while IFS= read -r line
 do
 ttl=$( echo "$line" | awk  '{print $1}');
 rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d'	' -f3-);
+record=$( echo "$line" | cut -d' ' -f3-);
 echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 }
