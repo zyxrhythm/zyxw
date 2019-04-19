@@ -84,7 +84,8 @@ div a:link { color: tomato;  font-size: 100%; }
 div a:active { color: tomato;  font-size: 100%; }
 div a:hover { color: tomato;  font-size: 100%; }
 div a:visited { color: tomato;  font-size: 100%; }
-p  { font-family: verdana; font-size: 90%; word-break:break-all;}
+p  { font-family: verdana; font-size: 90%; word-break:break-word;}
+p  body { font-family: verdana; font-size: 90%; word-break:break-all;}
 h1 { font-family: verdana; font-size: 85%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
@@ -95,6 +96,7 @@ body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body th { border: 1px solid green; }
 body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
 strong {color: green;}
+
 .tooltip {
   position: relative;
   display: inline-block;
