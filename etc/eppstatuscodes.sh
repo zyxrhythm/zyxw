@@ -48,7 +48,7 @@ footer{color: green; text-align: center; font-family: verdana; font-size: 65%;}
 <body>
 <hr><br><br><br><br><br><br>
 <!--tagaddperiod0-->
-<div id="addperiod">
+<table id="addperiod">
 <table>
 <tbody>
 <tr>
