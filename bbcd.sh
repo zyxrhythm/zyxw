@@ -101,6 +101,7 @@ strong {color: green;}
   border-bottom: 1px dotted black;
 }
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+
 .tooltip {
     display: inline-block;
     text-indent:0em;
@@ -127,6 +128,7 @@ strong {color: green;}
 .tooltip:hover .tooltiptext {
     display: block;
 }
+
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 
 #navlinkz { color:tomato; float:right;}
@@ -199,7 +201,7 @@ else { x.style.display = 'none'; } }
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
 </td> </tbody> </table> </div></p>
-<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app.<br><br></span></label> 
+<button onclick="copyClipboard()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 <hr> </head>
