@@ -293,15 +293,15 @@ cutterfunc () {
 while IFS= read -r line
 do
 z0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-z1="${cutter0/IN/}";
+z1="${z0/IN/}";
 
-y0=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+y0=$( echo "${z1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 
-x0=$( echo $cutterx | cut -d' ' -f1 )
-x1=$( echo $cutterx | cut -d' ' -f2 )
-x2=$( echo $cutterx | cut -d' ' -f3-);
+x0=$( echo $y0 | cut -d' ' -f1 )
+x1=$( echo $y0 | cut -d' ' -f2 )
+x2=$( echo $y0 | cut -d' ' -f3-);
 
-echo -e "$1\t$2\t$3";
+echo -e "$x0\t$x1\t$2";
 done < <(printf '%s\n' "$1");
 }
 
