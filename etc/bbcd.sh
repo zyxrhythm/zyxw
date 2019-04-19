@@ -297,8 +297,8 @@ z1="${z0/IN/}";
 
 y0=$( echo "${z1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 
-x0=$( echo $y0 | cut -d' ' -f1 )
-x1=$( echo $y0 | cut -d' ' -f2 )
+x0=$( echo $y0 | cut -d' ' -f1  | tr -d '\040\011\012\015' )
+x1=$( echo $y0 | cut -d' ' -f2  | tr -d '\040\011\012\015' )
 x2=$( echo $y0 | cut -d' ' -f3-);
 
 echo -e "$x0\t$x1\t$x2";
