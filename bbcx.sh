@@ -597,7 +597,7 @@ echo "<p>"
 
 #print the domain creation and expiration dates
 #COUNTER 
-timez="--------------------------<br>The number of days below are <br>calculated based on <br>the server's time on (<strong>$(date +%Z)</strong>) time zone.";
+timez="--------------------------<br>The number of days below <br>are calculated based on <br>the server's time on (<strong>$(date +%Z)</strong>) time zone.";
 
 if [[ "$dayssince0" = "0" ]]; 
 then 
