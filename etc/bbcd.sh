@@ -301,7 +301,7 @@ x0=$( echo $y0 | cut -d' ' -f1 )
 x1=$( echo $y0 | cut -d' ' -f2 )
 x2=$( echo $y0 | cut -d' ' -f3-);
 
-echo -e "$x0\t$x1\t$2";
+echo -e "$x0\t$x1\t$x2";
 done < <(printf '%s\n' "$1");
 }
 
