@@ -290,31 +290,30 @@ fi;
 
 zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
-cutterfunc () {
+cutandtabfunc () {
+
 while IFS= read -r line
 do
-cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cutter1="${cutter0/IN/}";
-cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
-echo "$cutter";
+cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+cut1="${cutter0/IN/}";
+cut=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+
+rtype=$( echo "$cut" | awk  '{print $2}');
+ttl=$( echo "$cut" | awk  '{print $1}');
+record=$( echo "$cut" | cut -d' ' -f3-);
+
 done < <(printf '%s\n' "$1");
+
+echo - e"<table>
+<tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>
+<tr><td>$rtype\t\t</td><td>$ttl\t\t</td><td>$record</td></tr>
+<table>"
+
 }
 
-zyxgd=$( cutterfunc "$zyxgd0" );
+zyxgd=$( cutandtabfunc "$zyxgd0" );
 
-tablefunc () {
-echo  -e "\t"
-echo -e "<tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>"
-while IFS= read -r line
-do
-ttl=$( echo "$line" | awk  '{print $1}');
-rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
-done < <(printf '%s\n' "$1");
-}
-
-zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
+zyxd=$( tablefunc "$zyxgd" | column -t -s '	' );
 
 cat <<EODR
 <br>
