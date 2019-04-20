@@ -299,7 +299,7 @@ cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
 record=$( echo "$cutx" | cut -d' ' -f3-);
-echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"
+echo -e "<tr><td>$rtype\t\t</td><td>$ttl\t\t</td><td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 echo "<table>"
 }
