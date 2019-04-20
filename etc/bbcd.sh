@@ -257,8 +257,7 @@ cat << EORIP
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
+</body></html>
 EORIP
 exit 0;
 
@@ -296,7 +295,7 @@ while IFS= read -r line
 do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cut1="${cutter0/IN/}";
-cutx=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
 record=$( echo "$cutx" | cut -d'	' -f3-);
