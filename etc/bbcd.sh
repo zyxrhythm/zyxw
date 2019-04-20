@@ -304,10 +304,10 @@ record=$( echo "$cut" | cut -d' ' -f3-);
 
 done < <(printf '%s\n' "$1");
 
-echo - e"<table>
+echo -e "<table><tbody>
 <tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>
 <tr><td>$rtype\t\t</td><td>$ttl\t\t</td><td>$record</td></tr>
-<table>"
+</tbody><table>"
 
 }
 
