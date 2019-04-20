@@ -299,12 +299,12 @@ cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
 record=$( echo "$cutx" | cut -d' ' -f3-);
-echo -e "<tr><td>\t$rtype\t</td><td>\t$ttl\t</td><td>\t$record\t</td></tr>"
+echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 echo "<table>"
 }
 
-zyxd=$( cutandtabfunc "$zyxgd" | column -t -s '	'  );
+zyxd=$( cutandtabfunc "$zyxgd" );
 
 cat <<EODR
 <br>
