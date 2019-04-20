@@ -291,24 +291,18 @@ fi;
 zyxgd=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
 cutandtabfunc () {
-
 echo "<table><tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>"
-
 while IFS= read -r line
 do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cut1="${cutter0/IN/}";
 cutx=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
-
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
 record=$( echo "$cutx" | cut -d'	' -f3-);
-
+echo -e "<tr><td>$rtype\t\t</td><td>$ttl\t\t</td><td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
-
-echo -e "<tr><td>$rtype\t\t</td><td>$ttl\t\t</td><td>$record</td></tr>
-<table>"
-
+echo "<table>"
 }
 
 zyxd=$( cutandtabfunc "$zyxgd" | column -t -s '	'  );
