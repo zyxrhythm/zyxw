@@ -294,7 +294,7 @@ echo "<table><tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td>
 while IFS= read -r line
 do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cut1="${cutter0/IN/}";
+cut1="${cut0/IN/}";
 cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
