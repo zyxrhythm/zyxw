@@ -313,8 +313,7 @@ zyxd=$( cutandtabfunc "$zyxgd" );
 cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
-
-<pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
