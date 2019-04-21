@@ -84,16 +84,13 @@ div a:link { color: tomato;  font-size: 100%; }
 div a:active { color: tomato;  font-size: 100%; }
 div a:hover { color: tomato;  font-size: 100%; }
 div a:visited { color: tomato;  font-size: 100%; }
-p { font-family: verdana; font-size: 90%; word-break:break-all;}
+p { font-family: verdana; font-size: 90%; word-break:break-word;}
 h1 { font-family: verdana; font-size: 85%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 100%; }
 th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green; padding:4px; font-size: 85% }
-body > table { font-family: verdana; border: 2px solid green; font-size: 90%; }
-body > th { border: 1px solid green; }
-body > td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-word;}
+td { vertical-align: top; text-align: left; border: 1px solid green; padding:4px; font-size: 80% }
 strong {color: green;}
 
 .tooltip {
