@@ -440,11 +440,108 @@ daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
 
-#########################
-#GENERAL FUNCTION
-#########################
-genfunc () {
-zyx="$1"
+#=====================
+# END OF FUNCTION HALL
+#=====================
+
+#checks - if the domain variable  entered is null  / the button is clicked without placing anything 
+#1st if
+if [[ -z "$domain" ]]; then
+
+cat <<EOTSE
+<body>
+<div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
+Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the whois information of the domain name, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> to do a 'whois lookup' query at the known Registry's whois server and at the whois server of the Registrar (if a server is found from the whois information provided by the Registrar's whois server).<br><br>
+Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public DNS server (8.8.8.8). First, A records asssosciated with the naked domain, then A records (IP Addresses) associated to the hostnames found on the MX records. <br><br>---IP addreses found by DIG will be queried by WHOIS at A.R.I.N.'s whois servers/s, the Organization responsible for the IP address will be extracted from the whois result. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>Finally a report with vital DNS info (about the web and mail service under the domain) and whois information is generated and displayed.</p></div>
+</body>
+</html>
+EOTSE
+exit 0;
+
+#1st if else
+else
+
+# query whois about the domain and store the raw output to a variable
+zyx=$(whois $domain);
+
+#domain validity check -if  by checking the first 9 characters on the raw whois result
+dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
+
+#the 2nd if
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
+
+then 
+
+domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
+	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
+	then domvarx="- ( A sub domain )"; 
+	else domvarx="<br>( Not a domain / sub domain but rather something else. )"; 
+	fi;
+
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
+Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
+</p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+"; 
+
+exit 0;
+
+#2nd if elif
+elif [[ "$dvc" = "%ianawh" ]]; 
+then 
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>$zyx<pre></p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+
+exit 0;
+
+elif [[ "$dvc" = "patterns" ]]; 
+then
+echo "
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So if you are here to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
+
+#2nd if else
+else
+
+#once the domainis validated the TLD is extracted for verification
+tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+
+if [[ $tld = "shop" ]]; then zyx=$(whois -h whois.nic.shop $domain ); else true; fi;
+
+#extracts then queries the whois server of the registar then prints the result with string manipulations
+whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
+whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+zyx2=$( whois "$domain" -h "$whoisserver" );
+
+#REESE
+rese=$(echo "$zyx2" | grep -i -e "reseller");
+reseller="${rese#*:}";
+if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
+then reese="None";
+else reese="$reseller"; fi;
+#REESE
+
+#checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
+case $tld in
+   $tldlist0)
+
+############
+### CORE ###
+###########
+
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 
@@ -585,109 +682,9 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt
 __________________________"
-}
-
-#=====================
-# END OF FUNCTION HALL
-#=====================
-
-#checks - if the domain variable  entered is null  / the button is clicked without placing anything 
-#1st if
-if [[ -z "$domain" ]]; then
-
-cat <<EOTSE
-<body>
-<div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the whois information of the domain name, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> to do a 'whois lookup' query at the known Registry's whois server and at the whois server of the Registrar (if a server is found from the whois information provided by the Registrar's whois server).<br><br>
-Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public DNS server (8.8.8.8). First, A records asssosciated with the naked domain, then A records (IP Addresses) associated to the hostnames found on the MX records. <br><br>---IP addreses found by DIG will be queried by WHOIS at A.R.I.N.'s whois servers/s, the Organization responsible for the IP address will be extracted from the whois result. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>Finally a report with vital DNS info (about the web and mail service under the domain) and whois information is generated and displayed.</p></div>
-</body>
-</html>
-EOTSE
-exit 0;
-
-#1st if else
-else
-
-# query whois about the domain and store the raw output to a variable
-zyx=$(whois $domain);
-
-#domain validity check -if  by checking the first 9 characters on the raw whois result
-dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-
-#the 2nd if
-if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
-
-then 
-
-domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
-	then domvarx="- ( A sub domain )"; 
-	else domvarx="<br>( Not a domain / sub domain but rather something else. )"; 
-	fi;
-
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
-Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
-</p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-"; 
-
-exit 0;
-
-#2nd if elif
-elif [[ "$dvc" = "%ianawh" ]]; 
-then 
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>$zyx<pre></p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-
-exit 0;
-
-elif [[ "$dvc" = "patterns" ]]; 
-then
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So if you are here to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-exit 0;
-
-#2nd if else
-else
-
-#once the domainis validated the TLD is extracted for verification
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
-if [[ $tld = "shop" ]]; then zyx=$(whois -h whois.nic.shop $domain ); else true; fi;
-
-#extracts then queries the whois server of the registar then prints the result with string manipulations
-whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
-whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-zyx2=$( whois "$domain" -h "$whoisserver" );
-
-#REESE
-rese=$(echo "$zyx2" | grep -i -e "reseller");
-reseller="${rese#*:}";
-if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
-then reese="None";
-else reese="$reseller"; fi;
-#REESE
-
-#checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
-case $tld in
-   $tldlist0)
-
-gt1res=$( genfunc "$zyx" );
-echo "$gt1res";
-
+############
+### CORE ###
+###########
 ;;
 
 edu)
