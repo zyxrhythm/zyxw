@@ -296,11 +296,11 @@ do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cut1="${cut0/IN/}";
 cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
-rtype=$( echo "$cutx" | awk  '{print $2}');
-ttl=$( echo "$cutx" | awk  '{print $1}');
-record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3-);
+rtype=$( echo "$cutx" | awk  '{print $2}' );
+ttl=$( echo "$cutx" | awk  '{print $1}' );
+record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3- );
 
-rtypex=$( echo "$cutx" | awk  '{print $2}' | tr -d '\040\011\012\015' | awk '{print tolower($0)}');
+rtypex=$( echo "$cutx" | awk  '{print $2}' | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
 if [[ "$rtypex" = "txt" ]] || [[ "$rtypex" = "soa" ]] || [[ "$rtypex" = "srv" ]] || [[ "$rtypex" = "spf" ]] || [[ "$rtypex" = "caa" ]]; 
 then 
 echo -e "<tr style='word-break:break-all;' ><td>$rtype</td><td>$ttl</td><td>$record</td></tr>" ; 
