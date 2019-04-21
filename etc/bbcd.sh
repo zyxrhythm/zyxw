@@ -290,7 +290,7 @@ fi;
 zyxgd=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
 cutandtabfunc () {
-echo "<table><tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>"
+echo "<tr><td><strong>Type</strong></td><td><strong>TTL</strong></td><td><strong>Record</strong></td></tr>";
 while IFS= read -r line
 do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
@@ -306,7 +306,6 @@ then echo -e "<tr><td>$rtype</td><td>$ttl</td><td style='word-break:break-all; '
 else echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"; 
 fi;
 done < <(printf '%s\n' "$1");
-echo "<table>"
 }
 
 zyxd=$( cutandtabfunc "$zyxgd" );
