@@ -536,6 +536,8 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 case $tld in
    $tldlist0)
 
+genfunc () {
+zyx="$1"
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 
@@ -676,6 +678,10 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt
 __________________________"
+}
+
+gt1res=$( genfunc "$zyx" );
+echo "$gt1res";
 
 ;;
 
