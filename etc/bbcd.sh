@@ -300,12 +300,10 @@ rtype=$( echo "$cutx" | awk  '{print $2}' );
 ttl=$( echo "$cutx" | awk  '{print $1}' );
 record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3- );
 
-rtypex=$( echo "$cutx" | awk  '{print $2}' | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
-if [[ "$rtypex" = "txt" ]] || [[ "$rtypex" = "soa" ]] || [[ "$rtypex" = "srv" ]] || [[ "$rtypex" = "spf" ]] || [[ "$rtypex" = "caa" ]]; 
-then 
-echo -e "<tr style='word-break:break-all;' ><td>$rtype</td><td>$ttl</td><td>$record</td></tr>" ; 
-else 
-echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"; 
+rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
+if [[ "$rtx" = "txt" ]] || [[ "$rtx" = "soa" ]] || [[ "$rtx" = "srv" ]] || [[ "$rtx" = "spf" ]] || [[ "$rtx" = "caa" ]]; 
+then echo -e "<tr><td>$rtype</td><td>$ttl</td><td style='word-break:break-all; ' >$record</td></tr>" ; 
+else echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"; 
 fi;
 done < <(printf '%s\n' "$1");
 echo "<table>"
