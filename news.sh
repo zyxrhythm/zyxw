@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- Fixed alignment issues when the copied result from  Big Nick Digger is pasted, also the tooltip in BND. 
+
 - Fixed bug: Who You is returning a blank result on the registrar tab when TLDs are input.
 
 - BBC Special can now be used to validated TLDs and give info about it from IANA's whois server/s like Who You does.
