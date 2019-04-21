@@ -304,7 +304,7 @@ done < <(printf '%s\n' "$1");
 echo "<table>"
 }
 
-zyxd=$( cutandtabfunc "$zyxgd" | column -t );
+zyxd=$( cutandtabfunc "$zyxgd" | column -t -s '\n' );
 
 cat <<EODR
 <br>
