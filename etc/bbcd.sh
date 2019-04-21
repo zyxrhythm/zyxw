@@ -295,16 +295,16 @@ while IFS= read -r line
 do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cut1="${cut0/IN/}";
-cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
+cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
-record=$( echo "$cutx" | cut -d' ' -f3-);
-echo -e "<tr><td>$rtype#L</td><td>$ttl#</td><td>$record</td></tr>"
+record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3-);
+echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 echo "<table>"
 }
 
-zyxd=$( cutandtabfunc "$zyxgd" | column -tx -s'#' );
+zyxd=$( cutandtabfunc "$zyxgd" );
 
 cat <<EODR
 <br>
