@@ -200,7 +200,7 @@ else { x.style.display = 'none'; } }
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
 </td> </tbody> </table> </div></p>
-<button onclick="copyClipboard();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></label>
+<button onclick="copyClipboard();" >Copy Results</button><div class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></div>
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;'  onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 <hr> </head>
