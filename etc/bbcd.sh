@@ -93,7 +93,7 @@ th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 body > table { font-family: verdana; border: 2px solid green; font-size: 90%; }
 body > th { border: 1px solid green; }
-body > td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
+body > td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-word;}
 strong {color: green;}
 
 .tooltip {
@@ -299,12 +299,12 @@ cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
 rtype=$( echo "$cutx" | awk  '{print $2}');
 ttl=$( echo "$cutx" | awk  '{print $1}');
 record=$( echo "$cutx" | cut -d' ' -f3-);
-echo -e "<tr><td>$rtype</td><td>$ttl</td><td>$record</td></tr>"
+echo -e "<tr><td>$rtype#L</td><td>$ttl#</td><td>$record</td></tr>"
 done < <(printf '%s\n' "$1");
 echo "<table>"
 }
 
-zyxd=$( cutandtabfunc "$zyxgd" | column -t );
+zyxd=$( cutandtabfunc "$zyxgd" | column -tx -s'#' );
 
 cat <<EODR
 <br>
