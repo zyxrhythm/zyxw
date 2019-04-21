@@ -90,7 +90,7 @@ body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
 table { font-family: verdana; border: 2px solid green; font-size: 100%; }
 th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green; padding:4px; font-size: 80% }
+td { vertical-align: top; text-align: left; border: 1px solid green; padding:5px; font-size: 80% }
 strong {color: green;}
 
 .tooltip {
@@ -138,7 +138,7 @@ strong {color: green;}
     -ms-user-select: none;
     user-select: none;
 }
-#tdctr { text-align: center; }
+#tdcenter { text-align: center; }
 </style>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -300,8 +300,8 @@ record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3- );
 
 rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
 if [[ "$rtx" = "txt" ]] || [[ "$rtx" = "soa" ]] || [[ "$rtx" = "srv" ]] || [[ "$rtx" = "spf" ]] || [[ "$rtx" = "caa" ]]; 
-then echo -e "<tr><td id='tdctr' >$( printf "%-10s" "$rtype" )</td><td id='tdctr' >$( printf "%-10s" "$ttl" )</td><td style='word-break:break-all; ' >$( printf "%-10s" "$record" )</td></tr>" ; 
-else echo -e "<tr><td id='tdctr' >$( printf "%-10s" "$rtype" )</td><td id='tdctr' >$( printf "%-10s" "$ttl" )</td><td>$( printf "%-10s" "$record<" )/td></tr>"; 
+then echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td style='word-break:break-all; ' >$( printf "%-10s" "$record" )</td></tr>" ; 
+else echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td>$( printf "%-10s" "$record<" )/td></tr>"; 
 fi;
 done < <(printf '%s\n' "$1");
 }
