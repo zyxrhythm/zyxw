@@ -84,22 +84,15 @@ div a:link { color: tomato;  font-size: 100%; }
 div a:active { color: tomato;  font-size: 100%; }
 div a:hover { color: tomato;  font-size: 100%; }
 div a:visited { color: tomato;  font-size: 100%; }
-p  { font-family: verdana; font-size: 90%; word-break:break-all;}
+p { font-family: verdana; font-size: 90%; word-break:break-word;}
 h1 { font-family: verdana; font-size: 85%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
-table { font-family: verdana; border: 2px solid green; font-size: 100%;}
+table { font-family: verdana; border: 2px solid green; font-size: 100%; }
 th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green;}
-body table { font-family: verdana; border: 2px solid green; font-size: 90%; }
-body th { border: 1px solid green; }
-body td { vertical-align: top; text-align: left; border: 1px solid green; word-break:break-all;}
+td { vertical-align: top; text-align: left; border: 1px solid green; padding:5px; font-size: 80% }
 strong {color: green;}
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-}
+
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 
 .tooltip {
@@ -140,6 +133,7 @@ strong {color: green;}
     -ms-user-select: none;
     user-select: none;
 }
+#tdcenter { text-align: center; }
 </style>
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -201,7 +195,7 @@ else { x.style.display = 'none'; } }
 </form>
 <!-- ################## BIG NICK DIGGER ################# -->
 </td> </tbody> </table> </div></p>
-<button onclick="copyClipboard()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></label> 
+<button onclick="copyClipboard();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></label>
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;'  onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 <hr> </head>
@@ -256,8 +250,7 @@ cat << EORIP
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
+</body></html>
 EORIP
 exit 0;
 
@@ -287,36 +280,33 @@ else true;
 
 fi;
 
-zyxgd0=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
+zyxgd=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
 
-cutterfunc () {
+cutandtabfunc () {
+echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
 while IFS= read -r line
 do
-cutter0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
-cutter1="${cutter0/IN/}";
-cutter=$( echo "${cutter1#*.}" | sed -e 's/^[ \t]*//' | awk '{$2=$2};1' );
-echo "$cutter";
+cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
+cut1="${cut0/IN/}";
+cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
+rtype=$( echo "$cutx" | awk  '{print $2}' );
+ttl=$( echo "$cutx" | awk  '{print $1}' );
+record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3- );
+
+rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
+if [[ "$rtx" = "txt" ]] || [[ "$rtx" = "soa" ]] || [[ "$rtx" = "srv" ]] || [[ "$rtx" = "spf" ]] || [[ "$rtx" = "caa" ]]; 
+then echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td style='word-break:break-all; ' >$( printf "%-10s" "$record" )</td></tr>" ; 
+else echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td>$( printf "%-10s" "$record<" )/td></tr>"; 
+fi;
 done < <(printf '%s\n' "$1");
 }
 
-zyxgd=$( cutterfunc "$zyxgd0" );
-
-tablefunc () {
-echo -e "<tr><td><strong>Type\t</strong></td><td><strong>TTL\t</strong></td><td><strong>Record\t</strong></td></tr>"
-while IFS= read -r line
-do
-ttl=$( echo "$line" | awk  '{print $1}');
-rtype=$( echo "$line" | awk  '{print $2}');
-record=$( echo "$line" | cut -d' ' -f3-);
-echo -e "<tr><td style='text-align: center;'>$rtype</td>\t<td style='text-align: center;'>$ttl</td>\t<td>$record</td></tr>"
-done < <(printf '%s\n' "$1");
-}
-
-zyxd=$( tablefunc "$zyxgd" | column -t -s'	' );
+zyxd=$( cutandtabfunc "$zyxgd" );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
+<br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 </body>
 </html>
 EODR
