@@ -439,6 +439,7 @@ extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' 
 daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
+
 #=====================
 # END OF FUNCTION HALL
 #=====================
@@ -467,7 +468,7 @@ zyx=$(whois $domain);
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
 #the 2nd if
-if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
+if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
 
 then 
 
@@ -515,9 +516,13 @@ exit 0;
 #2nd if else
 else
 
+#once the domainis validated the TLD is extracted for verification
+tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+
+if [[ $tld = "shop" ]]; then zyx=$(whois -h whois.nic.shop $domain ); else true; fi;
+
 #extracts then queries the whois server of the registar then prints the result with string manipulations
-trywsresult=$(whois $domain);
-whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
+whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
 
@@ -529,12 +534,13 @@ then reese="None";
 else reese="$reseller"; fi;
 #REESE
 
-#once the domainis validated the TLD is extracted for verification
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
 #checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
    $tldlist0)
+
+############
+### CORE ###
+###########
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
@@ -676,7 +682,9 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt
 __________________________"
-
+############
+### CORE ###
+###########
 ;;
 
 edu)
