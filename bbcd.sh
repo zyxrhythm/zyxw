@@ -216,6 +216,7 @@ cat <<EOTS
 <p><br><strong>Current Input</strong> : none <br> <br>
 Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br>( Don't forget to select PTR from the dropdown for I.P. addresses )<br><br>Also if the Name Server field is left blank, <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will query Google's Public DNS server (8.8.8.8) automatically.<br><br></p>
 </div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOTS
@@ -273,6 +274,7 @@ then echo "
 <div id="divClipboard">
 <p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>" && exit 0;
 
@@ -307,6 +309,7 @@ cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
 <br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EODR
@@ -322,6 +325,7 @@ cat << EOIIE
 Invalid input/parameter! <br><br><br>
 To know more about DIG you can check its wikipedia article <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>.</p>
 </div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOIIE
