@@ -2,7 +2,7 @@
 echo "Content-type: text/html"
 echo ""
 
-whoisconf=$( cat ./etc/whois.conf );
+whoisconf=$( cat /etc/whois.conf );
 
 cat <<EOT
 
