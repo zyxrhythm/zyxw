@@ -55,10 +55,8 @@ if (typeof(element) != 'undefined' && element != null)
   else 
   { copyClipboard(); }
 }
-
 	else 
 	{ copyClipboard(); }
-
 }
 </script>
 
@@ -134,6 +132,17 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
+<script>
+
+    document.getElementById('domstatbtn').onclick = changeColor;   
+
+    function changeColor() {
+        document.body.style.color = "green";
+        return false;
+    }   
+
+</script>
+
 <style>
 a {text-decoration: none; }
 a:link { color: red;  }
@@ -191,7 +200,15 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
     -ms-user-select: none;
     user-select: none;
 }
-
+#domstatbtn 
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+color : red;
+}
 </style>
 
 <script> 
@@ -285,7 +302,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> <span id='noselect'>&#10067;</span>
+<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> <span id='domstatbtn'>?</span>
 <span class='tooltiptext'>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
