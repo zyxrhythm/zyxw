@@ -114,7 +114,7 @@ $lsbrelease
 :~# bash --version
 ${bashv[0]}
 *******************************
-~# whois --version
+~# whois --version | tr -d '\<\>'
 $whoisv
 *******************************
 :~# dig -v
