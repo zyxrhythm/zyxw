@@ -8,10 +8,11 @@ bashv1=(${bashv0[@]});
 bashv="${bashv[0]}";
 whoisv=$(whois --version);
 digv=$(dig -v 2>&1);
-nslookupv=$(nslookup -version 2>&1));
+nslookupv=$(nslookup -version 2>&1);
 opensslv=$(openssl version);
 nmapv=$(nmap -version);
 resolvc=$(cat /etc/resolv.conf);
+
 ################################
 cat <<EOT
 <!DOCTYPE html>
