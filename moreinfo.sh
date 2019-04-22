@@ -3,6 +3,16 @@ echo "Content-type: text/html"
 echo ""
 cat <<EOT
 
+lsbrelease=$(lsb_release -a);
+bashv=$(bash --version);
+whoisv=$(whois --version);
+digv=$(dig -v);
+nslookupv=$(nslookup -version);
+opensslv=$(openssl version);
+nmapv=$(nmap -version);
+resolvc=$(cat /etc/resolv.conf);
+
+
 <!DOCTYPE html>
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
@@ -99,38 +109,28 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 *******************************
 :~# lsb_release -a
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 16.04.6 LTS
-Release:        16.04
-Codename:       xenial
+$lsbrelease
 *******************************
 :~# bash --version
-GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
+$bashv
 *******************************
 ~# whois --version
-Version 5.2.11.
+$whoisv
 *******************************
 :~# dig -v
-DiG 9.10.3-P4-Ubuntu
+$digv
 *******************************
 :~# nslookup -version
-nslookup 9.10.3-P4-Ubuntu
+$nslookupv
 *******************************
 :~# openssl version
-OpenSSL 1.0.2g  1 Mar 2016
+$opensslv
 *******************************
 :~# nmap -version
-Nmap version 7.01 ( https://nmap.org )
-Platform: x86_64-pc-linux-gnu
-Compiled with: liblua-5.2.4 openssl-1.0.2g libpcre-8.38 
-libpcap-1.7.4 nmap-libdnet-1.12 ipv6
-Compiled without:
-Available nsock engines: epoll poll select
+$nmapv
 *******************************
 :~# cat /etc/resolv.conf
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+$resolvc
 *******************************
 :~# cat /etc/whois.conf
 <a href="/cgi-bin/whois.conf.sh" target="_blank" >whois server list</a> 
