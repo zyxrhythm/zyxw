@@ -4,14 +4,15 @@ echo ""
 
 lsbrelease=$(lsb_release -a);
 bashv0=$(bash --version );
-bashv=(${bashv0[@]});
+bashv1=(${bashv0[@]});
+bashv="${bashv[0]}";
 whoisv=$(whois --version);
 digv=$(dig -v 2>&1);
 nslookupv=$(nslookup -version 2>&1));
 opensslv=$(openssl version);
 nmapv=$(nmap -version);
 resolvc=$(cat /etc/resolv.conf);
-
+################################
 cat <<EOT
 <!DOCTYPE html>
 <html>
@@ -112,16 +113,16 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 $lsbrelease
 *******************************
 :~# bash --version
-${bashv[0]}
+$bashv
 *******************************
 ~# whois --version
 $whoisv
 *******************************
 :~# dig -v
-DiG 9.10.3-P4-Ubuntu
+$digv
 *******************************
 :~# nslookup -version
-Version 5.2.11.
+$nslookupv
 *******************************
 :~# openssl version
 $opensslv
