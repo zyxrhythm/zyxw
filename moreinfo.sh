@@ -5,7 +5,7 @@ echo ""
 lsbrelease=$(lsb_release -a);
 bashv=$(bash --version);
 whoisv=$(whois --version);
-digv=$(dig -v);
+digv=$(<dig -v);
 nslookupv=$(nslookup -version);
 opensslv=$(openssl version);
 nmapv=$(nmap -version);
@@ -111,16 +111,16 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 $lsbrelease
 *******************************
 :~# bash --version
-$bashv
+GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
 *******************************
 ~# whois --version
 $whoisv
 *******************************
 :~# dig -v
-$digv
+DiG 9.10.3-P4-Ubuntu
 *******************************
 :~# nslookup -version
-$nslookupv
+Version 5.2.11.
 *******************************
 :~# openssl version
 $opensslv
