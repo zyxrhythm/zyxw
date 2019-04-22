@@ -4,7 +4,7 @@ echo ""
 
 lsbrelease=$(lsb_release -a);
 bashv=$(bash --version );
-whoisv="$(whois --version 2>&1 | tr -d \< )";
+whoisv="$(whois --version 2>&1 | tr -d '\< \>' )";
 digv=$(dig -v 2>&1);
 nslookupv=$(nslookup -version 2>&1);
 opensslv=$(openssl version);
