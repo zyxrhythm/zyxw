@@ -302,7 +302,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick="js$eppstat(); this.style.color='green';"> <span id='noselect'>?</span>
+<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat();'> <span id='noselect'>?</span>
 <span class='tooltiptext'>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
