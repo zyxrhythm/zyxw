@@ -3,10 +3,11 @@ echo "Content-type: text/html"
 echo ""
 
 lsbrelease=$(lsb_release -a);
-bashv=$(bash --version);
+bashv0=$(bash --version );
+bashv=(${bashv0[@]});
 whoisv=$(whois --version);
-digv=$(<dig -v);
-nslookupv=$(nslookup -version);
+digv=$(<dig -v 2>&1);
+nslookupv=$(nslookup -version 2>&1));
 opensslv=$(openssl version);
 nmapv=$(nmap -version);
 resolvc=$(cat /etc/resolv.conf);
@@ -111,7 +112,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 $lsbrelease
 *******************************
 :~# bash --version
-GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
+${bashv[0]}
 *******************************
 ~# whois --version
 $whoisv
