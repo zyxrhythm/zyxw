@@ -4,9 +4,8 @@ echo ""
 
 lsbrelease=$(lsb_release -a);
 bashv0=$(bash --version );
-bashv1=(${bashv0[@]});
-bashv="${bashv[0]}";
-whoisv=$(whois --version);
+bashv=(${bashv0[@]});
+whoisv="$(whois --version 2>&1 )";
 digv=$(dig -v 2>&1);
 nslookupv=$(nslookup -version 2>&1);
 opensslv=$(openssl version);
@@ -70,13 +69,13 @@ pre{white-space: pre-wrap;font-size: 100%;}
 -------------------------------
 BigBlackCactus.com (BBC) is a website you can use for the following: 
 
-> Do a 'whois lookup' for a domain name or I.P. Address directly from the whois server/s  of registries and registrars (for domain names) and whois server/s of A.R.I.N.(for I.P. addresses).
+>> Do a 'whois lookup' for a domain name or I.P. Address. Lookup info are directly from the whois server/s  of registries and registrars (for domain names) and whois server/s of A.R.I.N.(for I.P. addresses).
 
-> Do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from one of Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. 
+>> Do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from one of Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. 
 
-> Reverse an I.P. address to its domain/host name (PTR).
+>> Reverse an I.P. address to its domain/host name (PTR).
 
-> And can also provide info about the S.S.L. certificate issued for a domain name/sub domain.
+>> And can also provide info about the S.S.L. certificate issued for a domain name/sub domain.
 
 -------------------------------
 
@@ -114,7 +113,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 $lsbrelease
 *******************************
 :~# bash --version
-$bashv
+${bashv[0]}
 *******************************
 ~# whois --version
 $whoisv
