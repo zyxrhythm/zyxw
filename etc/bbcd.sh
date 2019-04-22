@@ -313,6 +313,7 @@ cat <<EODR
 </body>
 </html>
 EODR
+exit 0;
 ;;
 
 #error for non domain input
