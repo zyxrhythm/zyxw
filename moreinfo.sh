@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "Content-type: text/html"
 echo ""
-cat <<EOT
 
 lsbrelease=$(lsb_release -a);
 bashv=$(bash --version);
@@ -12,7 +11,7 @@ opensslv=$(openssl version);
 nmapv=$(nmap -version);
 resolvc=$(cat /etc/resolv.conf);
 
-
+cat <<EOT
 <!DOCTYPE html>
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
