@@ -53,7 +53,7 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
-- Fixed the issue about BBC special was not able to generate report for .shop domains.
+- Fixed the issue about 'BBC special not able to generate a report' for .shop domains.
 
 - Fixed alignment issues when the copied result from  Big Nick Digger is pasted, also fixed the tooltip placed on the pointing hand in BND. 
 
