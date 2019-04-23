@@ -53,6 +53,8 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- Reworked the expansion table button for domain status, name servers and relevant dates on BBC special result, they should now appear as when the tables <span style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;' >+</span> are hidden and will show <span style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;' >-</span> when they are expandanded. 
+
 - Fixed the issue about 'BBC special not able to generate a report' for .shop domains.
 
 - Fixed alignment issues when the copied result from  Big Nick Digger is pasted, also fixed the tooltip placed on the pointing hand in BND. 
