@@ -287,7 +287,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 90%; font-family: calibri; text-align: center;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 90%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
