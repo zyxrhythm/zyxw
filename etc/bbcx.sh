@@ -285,7 +285,7 @@ else { x.style.display = 'none'; } }
 <script>
 function changeText$eppstat() {
 var element = document.getElementById('dst$eppstat');
-if (element.innerHTML === '+') element.innerHTML = '-';
+if (element.innerHTML === '+') {element.innerHTML = '-'; }
 else { element.innerHTML = '+';} }
 </script>
 
