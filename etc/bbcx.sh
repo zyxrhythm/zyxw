@@ -322,12 +322,14 @@ echo "<script>
 function jsnsverbose() { var x = document.getElementById('nsverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
+
+function changeTextnsvt() {
+var element = document.getElementById('nsvtable');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' > <span id='noselect'>&#9660;</span> 
-<span class='tooltiptext' >
-<br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
-</span></a>
+<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt(); ' >+<span class='tooltiptext' ><br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br></span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
 <p>--------------------------<br>"
