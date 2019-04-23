@@ -249,7 +249,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
+<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
