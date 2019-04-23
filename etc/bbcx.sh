@@ -287,7 +287,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<br> <a id='dst$eppstat' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<br> <a id='dst$eppstat' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%;'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
