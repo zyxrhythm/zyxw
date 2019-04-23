@@ -43,8 +43,6 @@ cat <<EODHHEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
-
 <script>
 function copyv2(){
 
@@ -135,10 +133,12 @@ function removeSpecialCharacters(string) {
 </script>
 
 <script>
-function changeText(idElement) {
-    var element = document.getElementById('element' + idElement);
-       if (element.innerHTML === '+') element.innerHTML = '-';
-        else { element.innerHTML = '+'; }
+function changeText() {
+    var element = document.getElementById('dstables');
+        if (element.innerHTML === '+') element.innerHTML = '-';
+        else {
+            element.innerHTML = '+';
+        }
 }
 </script>
 
@@ -292,7 +292,7 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<br> <a id='dsbtn' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText(1);'> <span id='noselect'>+</span>
+<br> <a id='dstables' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText();'> <span id='noselect'>+</span>
 <span class='tooltiptext'>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
