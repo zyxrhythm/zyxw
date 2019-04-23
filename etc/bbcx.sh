@@ -132,16 +132,6 @@ function removeSpecialCharacters(string) {
 }
 </script>
 
-<script>
-function changeText() {
-    var element = document.getElementById('dstables');
-        if (element.innerHTML === '+') element.innerHTML = '-';
-        else {
-            element.innerHTML = '+';
-        }
-}
-</script>
-
 <style>
 a {text-decoration: none; }
 a:link { color: red;  }
@@ -292,7 +282,14 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 </script>
 
-<br> <a id='dstables' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText();'> <span id='noselect'>+</span>
+<script>
+function changeText() {
+var element = document.getElementById('dst$eppstat');
+if (element.innerHTML === '+') element.innerHTML = '-';
+else { element.innerHTML = '+';} }
+</script>
+
+<br> <a id='dst$eppstat' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText();'> <span id='noselect'>+</span>
 <span class='tooltiptext'>
 <br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
