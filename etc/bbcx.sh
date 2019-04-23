@@ -285,8 +285,8 @@ else { x.style.display = 'none'; } }
 <script>
 function changeText$eppstat() {
 var element = document.getElementById('dst$eppstat');
-if (element.innerHTML === '+') {element.innerHTML = '-'; }
-else { element.innerHTML = '+';} }
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
 </script>
 
 <br> <a id='dst$eppstat' style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'> <span id='noselect'>+</span>
