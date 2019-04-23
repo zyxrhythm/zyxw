@@ -43,6 +43,8 @@ cat <<EODHHEAD
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools.js"></script>
+
 <script>
 function copyv2(){
 
