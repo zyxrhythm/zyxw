@@ -329,7 +329,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 90%; font-family: calibri; text-align: center;'><br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br></span></a>
+<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br></span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
 <p>--------------------------<br>"
@@ -653,7 +653,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<a id='datestab' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jstimeverbose(); changeTextdatestab(); '>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 90%; font-family: calibri; text-align: center;'><br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created<br><br></span></a>
+<a id='datestab' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jstimeverbose(); changeTextdatestab(); '>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created<br><br></span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
 $dayssincevar<strong>$dayssince</strong> <br>
