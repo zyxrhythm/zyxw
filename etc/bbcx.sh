@@ -287,11 +287,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<style>
-#dss$eppstat {color:tomato; cursor: pointer; font-weight: bold; font-size: 130%;}
-<style>
-
-<br> <a id='dss$eppstat' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
