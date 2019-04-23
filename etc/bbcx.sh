@@ -282,12 +282,16 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 
 function changeText$eppstat() {
-var element = document.getElementById('dst$eppstat');
+var element = document.getElementById('dss$eppstat');
 if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<br> <a id='dst$eppstat' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 130%;' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<style>
+#dss$eppstat {color:tomato; cursor: pointer; font-weight: bold; font-size: 130%;}
+<style>
+
+<br> <a id='dss$eppstat' class='button tooltip' onclick='js$eppstat(); changeText$eppstat();'><span id='noselect'>+</span><span class='tooltiptext'><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
