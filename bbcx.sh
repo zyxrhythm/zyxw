@@ -55,10 +55,8 @@ if (typeof(element) != 'undefined' && element != null)
   else 
   { copyClipboard(); }
 }
-
 	else 
 	{ copyClipboard(); }
-
 }
 </script>
 
@@ -191,7 +189,6 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
     -ms-user-select: none;
     user-select: none;
 }
-
 </style>
 
 <script> 
@@ -252,7 +249,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
+<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -283,11 +280,14 @@ echo "<script>
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
+
+function changeText$eppstat() {
+var element = document.getElementById('dss$eppstat');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
 </script>
 
-<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> <span id='noselect'>&#10067;</span>
-<span class='tooltiptext'>
-<br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
@@ -322,12 +322,14 @@ echo "<script>
 function jsnsverbose() { var x = document.getElementById('nsverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
+
+function changeTextnsvt() {
+var element = document.getElementById('nsvtable');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
 </script>
 
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' > <span id='noselect'>&#9660;</span> 
-<span class='tooltiptext' >
-<br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
-</span></a>
+<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br></span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
 <p>--------------------------<br>"
@@ -602,7 +604,6 @@ echo "$dsfrgt"
 echo "<p>"
 
 #print the domain creation and expiration dates
-#COUNTER 
 timez="--------------------------<br>The number of days below <br>are calculated based on <br>the server's time and (<strong>$(date +%Z)</strong>) time zone.";
 
 if [[ "$dayssince0" = "0" ]]; 
@@ -644,11 +645,14 @@ cat <<EODEDCDGT
 function jstimeverbose() { var x = document.getElementById('timeverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
+
+function changeTextdatestab() {
+var element = document.getElementById('datestab');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
 </script>
-<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jstimeverbose()'> <span id='noselect'>&#9660;</span> 
-<span class='tooltiptext' >
-<br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created.<br><br>
-</span></a>
+
+<a id='datestab' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jstimeverbose(); changeTextdatestab(); '>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created<br><br></span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
 $dayssincevar<strong>$dayssince</strong> <br>
