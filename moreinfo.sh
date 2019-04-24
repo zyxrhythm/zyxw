@@ -61,9 +61,9 @@ pre{white-space: pre-wrap;font-size: 100%;}
 <br>
 <p>
 <pre>
-------------------
-- WHAT CAN IT DO -
-------------------
+-------------------------
+- WHAT CAN THIS SITE DO -
+-------------------------
 
 -------------------------------
 BigBlackCactus.com (BBC) is a website you can use for the following: 
@@ -111,7 +111,6 @@ There is a limit on how much an IP address can query a particular whois server.
 Sometimes abusing the limit will have its dire consecquences.
 This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 
 
 ###########
