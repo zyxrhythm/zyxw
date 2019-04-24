@@ -78,9 +78,12 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 
 -------------------------------
 
-...............................
-If you are having issues with the copy buttons and its results on Microsoft's Edge and Internet Explorer, try Using the following browsers:
 
+F.A.Q.s
+...............................
+Q: What to do if I'm having issues with the copy buttons and its results on Microsoft's Edge and Internet Explorer? 
+
+A: try Using the following browsers:
 Mozilla's  <a href='https://www.mozilla.org/en-US/firefox' target='_blank' >Firefox</a>
 Google's <a href='https://www.google.com/chrome/' target='_blank'>Chrome</a>
 Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
@@ -91,24 +94,24 @@ Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
 
 
 >>>>>>>>>>>>>>>
-> PLEASE NOTE <
-<<<<<<<<<<<<<<<
+> PLEASE NOTE >
+>>>>>>>>>>>>>>>
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 This site will always be Free.
 But this site is not eternal.
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 The 'whois and dig' info generated here are not cached.
 Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 There is a limit on how much an IP address can query a particular whois server.
 Sometimes abusing the limit will have its dire consecquences.
 This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 ###########
