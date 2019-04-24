@@ -79,9 +79,7 @@ BigBlackCactus.com (BBC) is a website you can use for the following:
 -------------------------------
 
 ...............................
-If you are having issues with the copy buttons and its result 
-on Microsoft's Edge and Internet Explorer, 
-try Using the following browsers:
+If you are having issues with the copy buttons and its results on Microsoft's Edge and Internet Explorer, try Using the following browsers:
 
 Mozilla's  <a href='https://www.mozilla.org/en-US/firefox' target='_blank' >Firefox</a>
 Google's <a href='https://www.google.com/chrome/' target='_blank'>Chrome</a>
