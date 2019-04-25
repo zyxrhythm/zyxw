@@ -16,6 +16,7 @@ echo "<!DOCTYPE html>
 <html>
 <head>
 
+<script>
 testtheuse () {var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -40,6 +41,8 @@ testtheuse () {var isMobile = {
 if( isMobile.any() ) alert('Mobile'); else {alert('not mobile')};
 
 }
+</script>
+
 </head>
 <body>"
 
