@@ -12,106 +12,45 @@
 echo "Content-type: text/html"
 echo ""
 
-echo '<!DOCTYPE html>'
+echo "<!DOCTYPE html>
+<html>
+<head>
 
-echo '<html>'
+testtheuse () {var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
 
-#Tab title
-echo '<title>TSH</title>'
+if( isMobile.any() ) alert('Mobile'); else {alert('not mobile')};
 
-#start of head
-echo '<head>'
-echo '<link rel="icon" type="image/png" href="/icon.png" />'
-
-echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
-
-#CSS
-cat <<EOS
-<style>
-
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-
-p  {
-    font-family: verdana;
-    font-size: 85%;
 }
+</head>
+<body>"
 
-h1 {font-family: verdana;
-	font-size: 70%;
-}
+cat << BODYHTML
 
+<a id='nsvtable' class='button' onclick='testtheuse();'>KING PUSH</a>
 
-body {background-color:black;color:white;
-}
+BODYHTML
 
-pre{
-    white-space: pre-wrap;font-size: 110%;
-}
-
-</style>
-
-EOS
-
-#end of head
-echo '</head>'
-
-echo '<body>'
-
-echo "+++++++++++++++TEST PAGE++++++++++++++++"
-
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}' );
-
-domain=$(echo $qs | cut -f2 -d"=" );
-
-echo "<br/>Domain:<br/>$domain <br/>"
-
-#zyx=$(whois $domain);
-
-deeg=$(dig +short $domain @8.8.8.8 );
-
-echo "<br/><pre>A:<br/>$deeg</pre> <br/>"
-
-#function my1stwfunc()
-#{
-#while IFS= read -r line
-#do
-#   ar0=$(whois $line );
-#   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
-#   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
-#   arx=$( echo "$ar2" | sort -u );
-#   echo "<br/>   $line --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line target=_blank style=color:tomato >[?]</a> " "${arx#*:}";
-#done < <(printf '%s\n' "$deeg");
-#}
-
-#result="$(my1stwfunc)"
-#echo "$result"
-
-#SHARKS 2
-function my2ndwfunc()
-{
-while IFS= read -r line2
-do
-   ar02=$(whois $line2 );
-   ar12=$( echo "$ar02" | grep -i -e 'orgname' );
-   if [[ -z "$ar12" ]]; then ar22=$( echo "$ar02" | grep -i -e 'netname' ); else ar22="$ar12"; fi;
-   arx2=$( echo "$ar22" | sort -u );
-   echo "<br/>   $line2 --- <a href=/cgi-bin/etc/bbcws.sh?doi=$line2 target=_blank style=color:tomato >[?]</a> " "${arx2#*:}";
-done < <(printf '%s\n' "$1");
-}
-
-#FEEDING THE SHARK
-result2=$( my2ndwfunc "$deeg" )
-echo "$result2"
-
-cat << EOHF
-
-</body>
-</html>
-
-EOHF
+echo "</body>
+</html>"
 
 exit 0;
 
