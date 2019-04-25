@@ -48,7 +48,7 @@ if( isMobile.any() ) alert('Mobile'); else {alert('not mobile')};
 
 cat << BODYHTML
 
-<a id='nsvtable' class='button' onclick='testtheuse();'>KING PUSH</a>
+<a class='button' onclick='testtheuse();'>KING PUSH</a>
 
 BODYHTML
 
