@@ -15,7 +15,9 @@ echo "<!DOCTYPE html>
 <html>
 <title>BBC Special</title>
 <head>
-<link rel="icon" type="image/png" href="/icon.png" />"
+<link rel="icon" type="image/png" href="/icon.png" />
+</head>
+<body>"
 
 cat <<EOHTML
 
@@ -29,5 +31,7 @@ window.mobilecheck = function() {
 <a id='nsvtable' class='button' onclick='function(a);'>KING PUSH</a>
 
 EOHTML
+
+echo "</body></html>"
 
 exit 0;
