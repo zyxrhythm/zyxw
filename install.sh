@@ -12,6 +12,8 @@ SITETITLE=$(cat ./install.config | awk '/#SITE_TITLE/{flag=1;next}/SITE_TITLE#/{
 
 TOOLSNAME=$(cat ./install.config | awk '/#TOOLS_NAME/{flag=1;next}/TOOLS_NAME#/{flag=0}flag');
 
-SITEFOOTER=$(cat ./install.config | awk '/#FOOTER_MESSAGE/{flag=1;next}/FOOTER_MESSAGE#/{flag=0}flag');
+FOOTERMSG=$(cat ./install.config | awk '/#FOOTER_MESSAGE/{flag=1;next}/FOOTER_MESSAGE#/{flag=0}flag');
+
+
 
 exit 0;
