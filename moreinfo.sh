@@ -112,7 +112,6 @@ Thus the 'whois and dig' info generated here are fetched from their respective s
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 There is a limit on how much an IP address can query a particular whois server.
-Sometimes abusing the limit will have its dire consecquences.
 This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
