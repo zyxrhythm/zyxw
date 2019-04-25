@@ -45,18 +45,12 @@ cat <<EODHHEAD
 
 <script>
 function copyv2(){
-
-var element =  document.getElementById('chicbox');
-if (typeof(element) != 'undefined' && element != null)
-{
   var checkBox = document.getElementById("chicbox");
-  if (checkBox.checked == true)
-  { copyClipboard0(); } 
-  else 
-  { copyClipboard(); }
-}
-	else 
-	{ copyClipboard(); }
+  if (checkBox.checked == true){
+	copyClipboard0();
+  } else {
+    copyClipboard();
+  }
 }
 </script>
 
@@ -90,7 +84,7 @@ function copyClipboard() {
 
 <script>
 function copyClipboard0() {
-  var elm = document.getElementById("divClipboardx");
+  var elm = document.getElementById("divClipboard0");
   // for Internet Explorer
   if(document.body.createTextRange) {
     var range = document.body.createTextRange();
@@ -189,6 +183,7 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
     -ms-user-select: none;
     user-select: none;
 }
+
 </style>
 
 <script> 
@@ -249,7 +244,7 @@ else { x.style.display = 'none'; } }
 </form>
 </td> </tbody> </table> </div></p>
 
-<button onclick="copyv2();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
+<button onclick="copyv2()" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br>(tick the checkbox below to include <br>the footer info on the copied result)<br><br>(expanded tables will be included <br>on the copied result) <br><br></span></label> 
 &nbsp;
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 
@@ -280,14 +275,11 @@ echo "<script>
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-
-function changeText$eppstat() {
-var element = document.getElementById('dss$eppstat');
-if (element.innerHTML === '-') {element.innerHTML = '+'; }
-else { element.innerHTML = '-';} }
 </script>
 
-<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
+<br> <a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='js$eppstat()'> <span id='noselect'>&#10067;</span>
+<span class='tooltiptext'>
+<br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
 
@@ -322,14 +314,12 @@ echo "<script>
 function jsnsverbose() { var x = document.getElementById('nsverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-
-function changeTextnsvt() {
-var element = document.getElementById('nsvtable');
-if (element.innerHTML === '-') {element.innerHTML = '+'; }
-else { element.innerHTML = '-';} }
 </script>
 
-<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br></span></a>
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jsnsverbose()' > <span id='noselect'>&#9660;</span> 
+<span class='tooltiptext' >
+<br>Click this to check the IP address/es associated with the current authoritative name servers and what organization is responsible for the IP address/es by querying ARIN's whois servers.<br><br>
+</span></a>
 
 <div id='nsverbose' style='display:none'> <table> <tbody> <td>
 <p>--------------------------<br>"
@@ -441,26 +431,22 @@ extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' 
 daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
-
 #=====================
 # END OF FUNCTION HALL
 #=====================
 
-#checks - if the domain variable  entered is null  / the button is clicked without placing anything 
-#1st if
+#checks - if the domain variable  entered is null  / the button is clicked without placing anything
 if [[ -z "$domain" ]]; then
 
 cat <<EOTSE
 <body>
 <div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the whois information, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> to do a 'whois lookup' query at the known Registry whois server for that TLD ( see the list of known servers <a href='/cgi-bin/whois.conf.sh' target='_blank'>here</a> ),and does the same query at the whois server of the Registrar ( if a server is found from the whois information provided by the Registry's whois server ).<br><br>Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public DNS server (8.8.8.8). First, A records asssosciated with the naked domain, then A records (IP Addresses) associated to the hostnames found on the MX records. <br><br>---IP addreses found by DIG will be queried by WHOIS at A.R.I.N.'s whois servers/s, the Organization responsible for the IP address will be extracted from the whois result. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>Finally a report with vital whois and DNS ( records about the web and mail service under the domain ) info  is generated and displayed.</p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>.<br><br><br>For the domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>, <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will do a 'whois' lookup query at the Registry's whois server/s and at the whois server/s of the Registrar (if found from the whois information provided by the Registrar's whois server). Also does a query at A.R.I.N.'s whois server for I.P. v4 addresses found by DIG. <br><br><a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will do a series of query to Google's Public DNS server (8.8.8.8) for A records asssosciated with the naked domain and the I.P. address (A records) associated to the hostnames found on the MX records. <br><br><a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers. <br><br>Then a report with vital DNS info (about the web and mail service under the domain) and whois information is generated.</p></div>
 </body>
 </html>
 EOTSE
 exit 0;
 
-#1st if else
 else
 
 # query whois about the domain and store the raw output to a variable
@@ -468,65 +454,34 @@ zyx=$(whois $domain);
 
 #domain validity check -if  by checking the first 9 characters on the raw whois result
 dvc=$(echo "${zyx:0:9}" |  awk '{print tolower($0)}' | tr -d '\040\011\012\015');
-
-#the 2nd if
-if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]] || [[ "$dvc" = "connect" ]]; 
-
-then 
-
-domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
-	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
-	then domvarx="- ( A sub domain )"; 
-	else domvarx="<br>( Not a domain / sub domain but rather something else. )"; 
-	fi;
-
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br> <br>
-Please input a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
-</p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-"; 
-
-exit 0;
-
-#2nd if elif
-elif [[ "$dvc" = "%ianawh" ]]; 
-then 
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>$zyx<pre></p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-
-exit 0;
-
-elif [[ "$dvc" = "patterns" ]]; 
+  if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "thequeri" ]] || [[ "$dvc" = "notfound" ]] || [[ "$dvc" = "nodataf" ]] || [[ "$dvc" = "nowhois" ]] || [[ "$dvc" = "thisdoma" ]] || [[ "$dvc" = "nom" ]] || [[ "$dvc" = "invalidq" ]] || [[ "$dvc" = "whoisloo" ]] || [[ "$dvc" = "theregis" ]];  
+  
 then
-echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
-<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So if you are here to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+#the error that pops up when a domain is not valid/ does not exist
+cat <<EONVDE
+<body>
+<div id="divClipboard">
+<p><strong>Input</strong> : $domain <br> <br>
+Not a valid/registered domain name<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br> <br>
+For additional info from Who You, click <a href="/cgi-bin/bbcws.sh?domain=$domain" target="_blank" >here.</a></p>
+</div>
 </body>
 </html>
-";
+EONVDE
+
 exit 0;
 
-#2nd if else
-else
-
-#once the domainis validated the TLD is extracted for verification
-tld=$( echo $domain | rev | cut -d "." -f1 | rev );
-
-if [[ $tld = "shop" ]]; then zyx=$(whois -h whois.nic.shop $domain ); else true; fi;
+  else
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
-whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
+trywsresult=$(whois $domain);
+whoisservergrep=$(echo "$trywsresult" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyx2=$( whois "$domain" -h "$whoisserver" );
+
+#REGISTRAR WHOIS SERVER CHECK 
+wsscheck0=$( nslookup "$whoisserver" );
+wsscheck=$( echo "$wsscheck0" | grep -e 'NXDOMAIN'  );
 
 #REESE
 rese=$(echo "$zyx2" | grep -i -e "reseller");
@@ -536,13 +491,12 @@ then reese="None";
 else reese="$reseller"; fi;
 #REESE
 
+#once the domainis validated the TLD is extracted for verification
+tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+
 #checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
    $tldlist0)
-
-############
-### CORE ###
-###########
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
@@ -585,7 +539,7 @@ mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
 
 #prints the domain name and the registrarand reseller if a reseller is involved.
 cat << EODNARGT
-<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx"><div id="divClipboard"><p>__________________________<br><br>
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboard0"><div id="divClipboard"><p>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
@@ -604,7 +558,8 @@ echo "$dsfrgt"
 echo "<p>"
 
 #print the domain creation and expiration dates
-timez="--------------------------<br>The number of days below <br>are calculated based on <br>the server's time and (<strong>$(date +%Z)</strong>) time zone.";
+#COUNTER 
+timez="--------------------------<br>The number of days below are <br>calculated based on (<strong>$(date +%Z)</strong>) time zone.";
 
 if [[ "$dayssince0" = "0" ]]; 
 then 
@@ -645,14 +600,11 @@ cat <<EODEDCDGT
 function jstimeverbose() { var x = document.getElementById('timeverbose'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-
-function changeTextdatestab() {
-var element = document.getElementById('datestab');
-if (element.innerHTML === '-') {element.innerHTML = '+'; }
-else { element.innerHTML = '-';} }
 </script>
-
-<a id='datestab' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jstimeverbose(); changeTextdatestab(); '>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created<br><br></span></a>
+<a style='color:tomato; cursor: pointer;' class='button tooltip' onclick='jstimeverbose()'> <span id='noselect'>&#9660;</span> 
+<span class='tooltiptext' >
+<br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created.<br><br>
+</span></a>
 <div id='timeverbose' style='display:none'> <table> <tbody> <td>
 <p>$timez<br><br>
 $dayssincevar<strong>$dayssince</strong> <br>
@@ -686,9 +638,7 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 mrfrgt=$( mrfunction "$mxr");
 echo "$mrfrgt
 __________________________"
-############
-### CORE ###
-###########
+
 ;;
 
 edu)
@@ -955,7 +905,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'><p>__________________________
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboard0'><div id='divClipboard'><p>__________________________
 <br><br>
 <strong>Domain Name:</strong> $domain
 <br><br>
@@ -1233,7 +1183,6 @@ __________________________
 </p>
 </div>
 </body>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQPH
 exit 0;
@@ -1275,7 +1224,6 @@ __________________________
 </p>
 </div>
 </body>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQSG
 exit 0;
@@ -1317,7 +1265,6 @@ __________________________
 </p>
 </div>
 </body>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQVN
 exit 0;
@@ -1385,9 +1332,8 @@ echo "</p>
 </div>
 </body>"
 
-#2nd if fi
 fi
-#1st if fi
+
 fi
 
 echo "<footer>
