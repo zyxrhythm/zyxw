@@ -28,7 +28,7 @@ window.mobilecheck = function() {
   return check;
 };cript>
 
-<a id='nsvtable' class='button' onclick='function(a);'>KING PUSH</a>
+<a id='nsvtable' class='button' onclick='function(a);' style='color: white;'>KING PUSH</a>
 
 EOHTML
 
