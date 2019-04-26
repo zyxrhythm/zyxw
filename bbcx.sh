@@ -264,9 +264,8 @@ tldlist0='+(aarp|abarth|abb|abbott|abbvie|abc|able|abogado|abudhabi|academy|acce
 #list of supported ccTLDs
 tldlist1='+(ad|ae|af|ag|ai|al|am|ao|aq|ar|as|at|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bw|by|bz|cd|cf|cg|ch|ci|ck|cl|cm|cn|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|fi|fj|fk|fm|fo|fr|ga|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|om|pa|pe|pf|pg|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sh|si|sk|sl|sm|sn|so|sr|ss|st|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tr|tt|tw|tz|ua|ug|uy|uz|va|vc|ve|vg|vi|vu|wf|ws|ye|yt|za|zm|zw)'
 
-
-#=================
-# FUNCTION HALL
+#==========================
+# THE GREAT FUNCTION HALL
 #=================
 
 #Domain Status Functions functions that cycles through the status codes and create a link the status to what it means on eppstatus.sh
@@ -312,6 +311,8 @@ done < <(printf '%s\n' "$1");
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 
 nsfunction () {
+
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br>"
 
 while IFS= read -r line
 do
@@ -370,6 +371,9 @@ echo "--------------------------</p>
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
 
+if (( $(grep -c . <<<"$1") > 1)); then artvar="A Records:" ; else artvar="A Record:" ; fi;
+echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>$artvar </strong><br>"
+
 if [[ -z "$1" ]]; then echo ' <br> No A record/s found! <br>'; 
 
 else
@@ -392,6 +396,10 @@ fi
 #MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
+
+if (( $(grep -c . <<<"$1") > 1)); then mxtvar="MX Records:" ; else mxtvar="MX Record:" ; fi;
+
+echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> $mxtvar </strong> <br> <br>"
 
 if [[ -z "$1" ]]; then echo 'No MX record/s found! <br>'; 
 
@@ -511,8 +519,7 @@ echo "
 <br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So if you are here to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
-</html>
-";
+</html>";
 exit 0;
 
 #2nd if else
@@ -543,12 +550,15 @@ case $tld in
 ############
 ### CORE ###
 ###########
+#dig A and MX with minimal essential output from the dig command
+arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8);" );
+mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )");
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 
 #stores the domain status on a variable
-dstat=$(echo "$zyx" | grep -i -e "status:" );
+dsfrgt=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
 
 #stores the domain's creation date
 creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
@@ -576,36 +586,11 @@ expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/sp
 daysleftrar0=$( countdfunc "$expd0" );fi;
 fi;
 
-#stores the name servers under the domain on a variable
-nameservers=$(echo "$zyx" | grep -i -e "name server:");
+#SERV TIMEZONE
+timez="--------------------------<br>
+The number of days below <br>are calculated based on <br>the server's time and (<strong>$(date +%Z)</strong>) time zone.";
 
-#dig A and MX with minimal essential output from the dig command
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-#prints the domain name and the registrarand reseller if a reseller is involved.
-cat << EODNARGT
-<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx"><div id="divClipboard"><p>__________________________<br><br>
-<strong>Domain Name: </strong>$domain<br>
-<strong>Registrar: </strong>${registrar#*:}<br>
-<strong>Reseller: </strong>$reese<br>
-__________________________
-<br><br>
-EODNARGT
-
-#link to the EPP status codes 
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a>
-<br>"
-
-dsfrgt=$( dsfunction "$dstat" );
-echo "$dsfrgt"
-
-#the illusionist <p>=(
-echo "<p>"
-
-#print the domain creation and expiration dates
-timez="--------------------------<br>The number of days below <br>are calculated based on <br>the server's time and (<strong>$(date +%Z)</strong>) time zone.";
-
+#DAYS COUNTER CONDITIONALS
 if [[ "$dayssince0" = "0" ]]; 
 then 
 dayssincevar="Domain was registered "; 
@@ -633,13 +618,22 @@ dlrarvar="Days Left (Registrar) ";
 daysleftrar="$daysleftrar0";
 fi;
 
-cat <<EODEDCDGT
+#stores the name servers under the domain on a variable
+nsfrgt=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" );
 
+#prints the domain name and the registrarand reseller if a reseller is involved.
+cat << EODNARGT
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx"><div id="divClipboard"><p>__________________________<br><br>
+<strong>Domain Name: </strong>$domain<br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+<strong>Reseller: </strong>$reese<br>
+__________________________<br><br>
+<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a><br>
+$dsfrgt
+<p>
 <strong>Creation Date: </strong>$creationdate1 <br>
 <strong>Registry Expiry Date: </strong> $expdx1 <br>
 <strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
-
-<!-- COUNTER-->
 
 <script> 
 function jstimeverbose() { var x = document.getElementById('timeverbose'); 
@@ -660,32 +654,14 @@ $dltryvar: <strong>$dayslefttry</strong><br>
 $dlrarvar: <strong>$daysleftrar</strong><br>
 --------------------------
 </p></td> </tbody> </table> </div><p>
-
-<!--COUNTER-->
+__________________________<br>
+$nsfrgt
+__________________________<br><br>
+$arfrgt<br>
+__________________________<br><br>
+$mrfrgt
 __________________________
-<br> 
-EODEDCDGT
-
-#name servrers history
-echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br>"
-
-nsfrgt=$( nsfunction "$nameservers");
-echo "$nsfrgt
-__________________________<br> <br>"
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong><br>"
-
-arfrgt=$( arfunction "$ar" );
-echo "$arfrgt
-<br>__________________________<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong><br> <br>"
-
-mrfrgt=$( mrfunction "$mxr");
-echo "$mrfrgt
-__________________________"
+EODNARGT
 ############
 ### CORE ###
 ###########
@@ -694,48 +670,25 @@ __________________________"
 edu)
 
 zyx=$(whois $domain);
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
+arfredu=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
 cat << EDUSECTION
 <body>
-<p>
-<div id="divClipboard">
+<p><div id="divClipboard">
 <pre>${zyx#*-------------------------------------------------------------}</pre>
 __________________________
-<p>
-EDUSECTION
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-echo '<br>'
-
-arfrgt=$( arfunction "$ar" );
-echo "$arfrgt 
-<br>__________________________
-<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
-
-echo '<br> <br>'
-
-mrfrgt=$( mrfunction "$mxr");
-
-echo "$mrfrgt
-__________________________<br>
-</p>
-</div>
+<p>$arfredu <br>
+__________________________<br> <br>
+$mrfredu
+__________________________<br></p></div>
 <pre>${zyx%-------------------------------------------------------------*}</pre>
 </body>
 <footer>
-<hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
-</html>"
-
+</html>
+EDUSECTION
 exit 0;
 ;;
 
@@ -744,92 +697,43 @@ gov)
 zyx=$(whois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
+arfrgov=$( arfunction "$ar" );
+mrfrgov=$( mrfunction "$mxr");
 zyx0=$(echo "$zyx" | awk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
 
 cat << GOVSECTION
-<body>
-<p>
-<div id="divClipboard">
-<pre>$zyx0</pre>
+<body><p><div id="divClipboard"><pre>$zyx0</pre>
 __________________________
-<p>
-GOVSECTION
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-echo '<br>'
-
-arfrgt=$( arfunction "$ar" );
-echo "$arfrgt 
-<br>__________________________
-<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
-
-echo '<br> <br>'
-
-mrfrgt=$( mrfunction "$mxr");
-
-echo "$mrfrgt
-__________________________<br>
-</p>
-</div>
+<p>$arfrgov<br>
+__________________________<br> <br>
+$mrfrgov
+__________________________<br></p></div>
 </body>
 <footer>
-<hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
-</html>"
-
+</html>
+GOVSECTION
 exit 0;
 ;;
 
 mil)
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
+arfrmil=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrmil=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 cat << MILSECTION
 <body>
 <div id="divClipboard"><p>
 <strong>Input</strong>: $domain <br><br>
 This TLD has no whois server.<br><br>
-.mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
-The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>
-__________________________<p>
-MILSECTION
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-#cycles through multiple A record/s and will get the company/individual that is liable for the IP address
-echo '<br>'
-
-arfrgt=$( arfunction "$ar" );
-echo "$arfrgt 
-<br>__________________________
-<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>"
-
-echo '<br> <br>'
-
-mrfrgt=$( mrfunction "$mxr");
-
-echo "$mrfrgt
-__________________________<br>
-</p>
-</div>
+.mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>__________________________<p>
+$arfrmil <br>__________________________<br> <br>
+$mrfrmil__________________________<br></p></div>
 </body>
 <footer>
-<hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
-</html>"
+</html>
+MILSECTION
 
 exit 0;
 ;;
@@ -841,42 +745,19 @@ zyx=$(whois $domain);
 #dig A and MX with minimal essential output from Google DNS servers
 ar=$(dig +short $domain @8.8.8.8);
 mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
+arfrct=$( arfunction "$ar" );
+mrfrct=$( mrfunction "$mxr");
 #start of html body
 echo "<body>
-<br>
-<h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>
-<br>
-<div id='divClipboard'>"
-
-#displays the raw whois result of ccTLDs
-echo "<pre>$zyx</pre>
-<p>
-__________________________<br> <br>"
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>"
-
-echo '<br>'
-
-#A RECORD/S CT
-arfrct=$( arfunction "$ar" );
-echo "$arfrct
-<br>
-__________________________
-<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
-<br> <br>"
-
-#A RECORD/S FOT CT
-mrfrct=$( mrfunction "$mxr");
-echo "$mrfrct
-__________________________
-</p>
+<br><h1>ccTLD does not have any configured string manipulation, falling back to raw whois result </h1>
+<br><div id='divClipboard'>
+<pre>$zyx</pre>
+<p>__________________________<br> <br>
+$arfrct<br>
+__________________________<br> <br>
+$mrfrct
+__________________________</p>
 </div>"
-
 ;;
 
 #special trimming for AU ccTLDs
@@ -886,51 +767,28 @@ au)
 zyx=$(whois $domain );
 
 #dig A and MX with minimal essential output
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
+arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
 limitcheck=$(echo "${zyx:0:20}");
 
 if [[ "$limitcheck" = "WHOIS LIMIT EXCEEDED" ]]; 
 
-then echo "<body>
+then cat << AUWIQLIMIT
+<body>
 <div id='divClipboard'>
-<p>
-<br>
-<a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a>'s (AU Domain Administration )whois server/s answers solely for whois queries regarding .au domains. There is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame. And since this website's server has only an I.P. address, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of this .au domain.
+<p><br><a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a>'s (AU Domain Administration )whois server/s answers solely for whois queries regarding .au domains. There is a limit on how many times an I.P address is allowed to query the server for whois lookups on a given time frame. And since this website's server has only an I.P. address, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to  <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of this .au domain.
 <br> <br>
-__________________________
-<br> <br>";
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
-
-#A RECORD/S CT AU
-
-arfrctau=$( arfunction "$ar" );
-echo "$arfrctau
-<br>
-__________________________
-<br> <br>"
-
-#link to the MX record/s history on from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
-<br> <br>"
-
-#MX RECORD/S - AND IP/S CT AU
-
-mrfrctau=$( mrfunction "$mxr" );
-echo "$mrfrctau"
-
-cat << CTAULIMIT 
-<br>
-__________________________
-</p>
+__________________________<br> <br>
+$arfrctau<br>
+__________________________<br> <br>
+$mrfrctau<br>
+__________________________</p>
 </div>
-</body><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+<br><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
-CTAULIMIT
+AUWIQLIMIT
 
 exit 0;
 
@@ -940,11 +798,11 @@ fi;
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 
-#stores the domain status on a variable
-dstat=$(echo "$zyx" | grep -i -e "status:" );
+#feeds the ds to the func
+dsfrctau=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
 
-#stores the name servers on a variable
-nameservers=$(echo "$zyx" | grep -i -e "name server:");
+#feeds the ns to the func
+nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" )
 
 #stores the registrant contact
 regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
@@ -955,78 +813,36 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 #print the domain and the registrar
 cat << EODNARCTAU
 <body>
-<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'><p>__________________________
-<br><br>
-<strong>Domain Name:</strong> $domain
-<br><br>
-<strong>Registrar: </strong>${registrar#*:}
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'><p>__________________________<br><br>
+<strong>Domain Name:</strong> $domain<br><br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+__________________________<br> <br>
+<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a><br>
+$dsfrctau
+<p>
+__________________________<br>
+$nsfrctau
+__________________________<br><br>
+$regcontact<br>
+$techcontact<br>
+__________________________<br> <br>
+$arfrctau
 <br>
+__________________________<br> <br>
+$mrfrctau<br>
 __________________________
-<br> <br>
+</p>
 EODNARCTAU
-
-#link to the EPP status codes 
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a>
-<br>"
-
-dsfrctau=$( dsfunction "$dstat" );
-echo "$dsfrctau"
-
-#the illusionist
-echo "<p>
-__________________________<br>"
-
-#link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong> Name Servers:</strong>"
-echo '<br>'
-
-#NAME SERVERS CT AU
-
-nsfrctau=$( nsfunction "$nameservers");
-echo "$nsfrctau
-__________________________
-<br> <br>
-$regcontact
-<br>
-$techcontact
-<br>
-__________________________
-<br> <br>"
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a'target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
-
-#A RECORD/S CT AU
-
-arfrctau=$( arfunction "$ar" );
-echo "$arfrctau
-<br>
-__________________________
-<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>
-<br> <br>"
-
-#MX RECORD/S - AND IP/S CT AU
-
-mrfrctau=$( mrfunction "$mxr" );
-echo "$mrfrctau
-<br>
-__________________________
-</p>"
-
 ;;
 
 #special trimming for NZ ccTLDs
 nz)
-
-# query whois about the domain and store the raw output to a variable
+#query whois about the domain and store the raw output to a variable
 zyx=$(whois $domain);
 
 #dig A and MX with minimal essential output
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
+arfrctnz=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrctnz=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
@@ -1035,352 +851,195 @@ registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
 regcoun=$( echo "$zyx" | grep -i -e "registrar_country:")
 
 #stores the domain status on a variable
-dstat=$(echo "$zyx" | grep -i -e "query_status:" );
+nzdsfunc () {
+dst="$1"
+while IFS= read -r line
+do
+   echo  "</br> ${line#*#} ";
+done < <(printf '%s\n' "${dst#*:}");
+}
+dstatnz=$( nzdsfunc "$(echo "$zyx" | grep -i -e "query_status:" )" );
 
 #stores the domain expiration date on a variable
 lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
 
 #stores the name servers on a variable
-nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
+nsfrctnz=$( nsfunction "$(echo "$zyx" | grep -i -e "ns_name_.*")" );
 
 #print the domain and the registrar
 cat << EODNARCTNZ
 <body>
 <div id="divClipboard">
-<p>
-__________________________<br><br>
+<p>__________________________<br><br>
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 Registrar Country: ${regcoun#*:}<br>
-__________________________
-<br> <br>
+__________________________<br><br>
+<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a><br>
+$dstatnz <br><br>
+--------------------------<br>
+Last Modified: ${lastmod#*:}<br>
+__________________________<br>
+$nsfrctnz
+__________________________<br> <br>
+$arfrctnz<br>
+__________________________<br> <br>
+$mrfrctnz </p>
+</div>
 EODNARCTNZ
-
-#link to the EPP status codes on [Domain Status:]
-echo "<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a>
-<br>"
-
-#DOMAIN STATUS CT NZ
-while IFS= read -r line
-do
-   echo  "</br> ${line#*#} ";
-done < <(printf '%s\n' "${dstat#*:}");
-
-echo "<br><br>
---------------------------
-<br>
-Last Modified: ${lastmod#*:}
-<br>
-__________________________
-<br> <br>"
-
-#link to the name servers history on [Name Server:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip' > <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers: </strong>"
-echo '<br>'
-
-#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
-nsfrctnz=$( nsfunction "$nameservers");
-echo "$nsfrctnz
-__________________________
-<br> <br>"
-
-#link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>"
-
-#A RECORD/S CT NZ
-echo '<br>'
-arfrctnz=$( arfunction "$ar");
-echo "$arfrctnz
-<br>
-__________________________
-<br> <br>"
-
-#link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong>"
-echo '<br> <br>'
-
-#MX RECORD/S - AND IP/S CT NZ
-
-mrfrctnz=$( mrfunction "$mxr");
-echo "$mrfrctnz
-</p>
-</div>"
-
 ;;
 
 #special whois result trim for UK TLDs
 uk)
-
 zyx=$(whois $domain);
-
 zyxuk0=$(echo "$zyx" | awk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
-
 #dig A and MX with minimal essential output
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-echo "<body>
+arfrctuk=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+cat << EOQFUK
+<body>
 <div id='divClipboard'>
-<p>"
-
-#prints the whois result with the the trimming
-echo "<pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
+<p><pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
 __________________________
-<p>";
-
-#link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>
-<br>"
-
-#A RECORD/S CT UK
-
-arfrctuk=$( arfunction "$ar");
-echo "$arfrctuk
-<br>
-__________________________
-<br> <br>"
-#link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> <span id='noselect'>&#9960;</span> &nbsp; <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong><br> <br>"
-
-#MX RECORD/S -AND IP/S CT UK
-
-mrfrctuk=$( mrfunction "$mxr");
-echo "$mrfrctuk
+<p>$arfrctuk<br>
+__________________________<br> <br>
+$mrfrctuk
 __________________________
 <br></p></div><hr>
 <p>Raw whois result below:</p><hr>
-<br><pre>$zyx</pre><br>"
-
+<br><pre>$zyx</pre><br>
+EOQFUK
 ;;
 
 #special whois result trim for EU TLDs
 eu)
-
 zyx=$(whois $domain);
-
 zyxeu0=$(echo "$zyx" | awk '/Domain:/{flag=1;next}/Keys:/{flag=0}flag' );
-
 #dig A and MX with minimal essential output
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-echo "<body>
-<div id='divClipboard'>
-<p>"
-
-#prints the whois result with the the trimming
-echo "<pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
+arfrcteu=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrcteu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+cat EOQFEUD
+<body>
+<div id='divClipboard'><p><pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
 __________________________
-<p>";
-
-#link to the A record/s history on [A records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong> A records:</strong>
-<br>"
-
-#A RECORD/S CT EU
-
-arfrcteu=$( arfunction "$ar");
-echo "$arfrcteu
-<br>
-__________________________
-<br> <br>"
-#link to the MX record/s history on [MX records:] - from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' class='tooltip'> <span id='noselect'>&#9960;</span> &nbsp; <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong><br> <br>"
-
-#MX RECORD/S -AND IP/S CT EU
-
-mrfrcteu=$( mrfunction "$mxr");
-echo "$mrfrcteu
+<p>$arfrcteu<br>
+__________________________<br><br>
+$mrfrcteu
 __________________________
 <br></p></div><hr>
 <p>Raw whois result below:</p><hr>
-<br><pre>$zyx</pre><br>"
-
+<br><pre>$zyx</pre><br>
+EOQFEUD
 ;;
 
 #special result for .ph ccTLD 
 ph)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
+arfrph=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrph=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 cat <<EOQPH
 <body>
 <div id="divClipboard">
-<p>
-<br>For the  Whois info of this .ph domain, <br>
+<p><br>For the  Whois info of this .ph domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank'>https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
-</p>
-<p>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank' >https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a>
+</p><p>
 __________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX records history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
-</div>
+__________________________ <br><br>
+$arfrph<br>
+__________________________<br><br>
+$mrfrph
+__________________________</p></div>
 </body>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQPH
 exit 0;
-
 ;;
 
 #special result for .sg ccTLD 
 sg)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
+arfrsg=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrsg=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 cat <<EOQSG
 <body>
 <div id="divClipboard">
-<p>
-<br>For the  Whois info of this .sg domain, <br>
+<p><br>For the  Whois info of this .sg domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a>
 </p>
-<p>
-__________________________ <br> <br>
+<p>__________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
+__________________________ <br><br>
+$arfrsg <br>
+__________________________<br><br>
+$mrfrsg
+__________________________</p>
 </div>
 </body>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQSG
 exit 0;
-
 ;;
 
 #special result for .vn ccTLD 
 vn)
-
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-
-arfrgt=$( arfunction "$ar" );
-
-mrfrgt=$( mrfunction "$mxr");
-
+arfrvn=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrvn=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 cat <<EOQVN
 <body>
 <div id="divClipboard">
-<p>
-<br>For the  Whois info of this .vn domain, <br>
+<p><br>For the  Whois info of this .vn domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
-<a href='https://vnnic.vn/en/whois-information?lang=en' target='_blank'>https://vnnic.vn/en/whois-information?lang=en</a>
-</p>
-<p>
-__________________________ <br> <br>
+<a href='https://vnnic.vn/en/whois-information?lang=en' target='_blank'>https://vnnic.vn/en/whois-information?lang=en</a></p>
+<p>__________________________ <br> <br>
 <strong>Domain:</strong> $domain <br>
-__________________________ <br>
-<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong>
-<br>
-$arfrgt
-<br>
-__________________________
-<br> <br>
-<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX record/s: </strong>
-<br> <br>
-$mrfrgt
-__________________________
-</p>
+__________________________ <br><br>
+$arfrvn <br>
+__________________________<br><br>
+$mrfrvn
+__________________________</p>
 </div>
 </body>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </html>
 EOQVN
 exit 0;
-
 ;;
 
 jp)
-
 zyx=$(whois $domain);
-
 #dig A and MX with minimal essential output from Google DNS servers
-ar=$(dig +short $domain @8.8.8.8);
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-#PASS the a record/s to arfunc
-arfrjp=$( arfunction "$ar" );
-#PASS the mx record/s to mxrfunc
-mrfrjp=$( mrfunction "$mxr");
-
-#start of html body
-echo "<body>
-<br>
-<div id='divClipboard'>
+arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+cat << EOJPDWIQ
+<body>
+<br><div id='divClipboard'>
 <pre>${zyx#*Domain Information:}</pre>
-<p>
-__________________________<br> <br>"
-
-#link to the A record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>A record/s: </strong> <br>
-$arfrjp
-<br>
-__________________________<br> <br>"
-
-#link to the MX record/s history from securitytrails.com
-echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> MX records:</strong> <br>
-$mrfrjp 
+<p>__________________________<br> <br>
+$arfrjp <br>
+__________________________<br> <br>
+$mrfrjp
 __________________________
 </p></div><hr>
 <p>Raw whois result below:</p><hr>
 <br><pre>$zyx</pre><br>
-"
+EOJPDWIQ
 ;;
 
 #throw an error for anything else
-
 *)
 cat << ERRORFORALLELSE
-
 <body>
-
 <div id='divClipboard'>
-
-<p>
-<strong>Input</strong> : $domain <br> <br>
+<p><strong>Input</strong> : $domain <br> <br>
 Not a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!
 </p>
-
 ERRORFORALLELSE
-
 exit 0;
-
 ;;
 esac
-
 echo "</p>
 </div>
 </body>"
@@ -1389,10 +1048,7 @@ echo "</p>
 fi
 #1st if fi
 fi
-
-echo "<footer>
-"
-
+echo "<footer>"
 registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
 admin=$(echo "$zyx2" | grep -i -e 'admin')
 tech=$(echo "$zyx2" | grep -i -e 'tech')
@@ -1446,19 +1102,13 @@ esac
 else
 
 cat << EOHF
-<hr>
-<br>
+<hr><br>
 <strong>[ REGISTRANT: ]</strong>
-<br>
-<pre>$registrant</pre>
-<br>
-<strong>[ ADMIN: ]</strong>
-<br>
-<pre>$admin</pre>
-<br>
-<strong>[ TECH: ]</strong>
-<br>
-<pre>$tech</pre>
+<br><pre>$registrant</pre>
+<br><strong>[ ADMIN: ]</strong>
+<br><pre>$admin</pre>
+<br><strong>[ TECH: ]</strong>
+<br><pre>$tech</pre>
 <hr>
 EOHF
 
@@ -1475,11 +1125,8 @@ else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"
 fi;
 
 cat << EOHF2
-</div>
-<br>
-<hr>
+</div><br><hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-
 EOHF2
 
 echo "</footer>
