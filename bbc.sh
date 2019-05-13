@@ -8,7 +8,7 @@
 #############################################
 
 #revisions counter
-gitrevcount=$( git rev-list --all --count );
+gitrevcount=$( cd ./bbclive; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
 SITETITLE=$(cat ./install.config | awk '/#SITE_TITLE/{flag=1;next}/SITE_TITLE#/{flag=0}flag');
