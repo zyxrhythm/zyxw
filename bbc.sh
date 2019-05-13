@@ -11,7 +11,7 @@
 gitrevcount=$( cd ./bbclive; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
-SITETITLE=$(cat ./install.config | awk '/#SITE_TITLE/{flag=1;next}/SITE_TITLE#/{flag=0}flag');
+SITETITLE=$(cat ./install.config | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
 echo "Content-type: text/html"
 echo ""
