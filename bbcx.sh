@@ -252,7 +252,7 @@ then
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
-zyx=$(echo "$zyx0" | sed -e '1,/[Querying/d' | sed -n '1!p' );
+zyx=$(echo "$zyx0" | sed -e '2,/[Querying/d' | sed -n '2!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 fi;
 
