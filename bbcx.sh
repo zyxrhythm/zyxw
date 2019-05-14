@@ -260,6 +260,8 @@ zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 fi;
 
+echo "$zyx";
+
 nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
 
 #==========================
