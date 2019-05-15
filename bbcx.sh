@@ -257,7 +257,8 @@ zyx0=$(whois --verbose $domain 2>&1);
 #trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 #else 
 zyx=$(echo "$zyx0" | sed  '1,2d' );
-trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
+trywis0=$(echo "$zyx0" | grep -i -e "[Querying " | sort -u );
+trywis="${trywis0#*[Querying }"
 #fi;
 
 nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
@@ -497,7 +498,7 @@ domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 	else domvarx="<br>( Not a  valid domain / sub domain but rather something else. )"; 
 	fi;
 echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> ${trywis#*Using server} <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
 </p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
@@ -1154,7 +1155,7 @@ regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
 case "$regwis" in
 "RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
 echo "<hr>
-<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: ${trywis#*Using server}</span><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
 exit 0;
@@ -1172,7 +1173,7 @@ then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not F
 else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi; 
 
 fi;
-echo "<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: ${trywis#*Using server}</span>
+echo "<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </footer>
 </html>"
@@ -1202,7 +1203,7 @@ else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"
 
 fi;
 cat << EOHF2
-<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: ${trywis#*Using server}</span>
+<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span>
 </div>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 EOHF2
