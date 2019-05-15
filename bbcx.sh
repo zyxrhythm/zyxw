@@ -251,14 +251,14 @@ else
 #query whois about the domain and store the raw output to a variable
 zyx0=$(whois --verbose $domain 2>&1);
 
-if [[ "$(test -h /usr/bin/whois && echo 'y' || echo 'n' )" = "y" ]] && [[ "$(test -h /usr/bin/jwhois && echo 'y' || echo 'n' )" = "n" ]];
-then 
-zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
-else 
+#if [[ "$(test -h /usr/bin/whois && echo 'y' || echo 'n' )" = "y" ]] && [[ "$(test -h /usr/bin/jwhois && echo 'y' || echo 'n' )" = "n" ]];
+#then 
+#zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+#trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
+#else 
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
-fi;
+#fi;
 
 echo "$zyx";
 
