@@ -11,7 +11,14 @@
 gitrevcount=$( cd ./bbclive; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
-SITETITLE=$(cat ./install.config | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+CEMAIL=$(cat ./site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
+SITETITLE=$(cat ./site.vars | awk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
+SITEBANNER=$(cat ./site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SPECIAL=$(cat ./site.vars | awk '/<-SPECIAL/{flag=1;next}/SPECIAL->/{flag=0}flag');
+SSLC=$(cat ./site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ./site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ./site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+ROT13=$(cat ./site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag' | tr '[A-Za-z]' '[N-ZA-Mn-za-m]')
 
 echo "Content-type: text/html"
 echo ""
@@ -20,7 +27,7 @@ cat <<EOBBCSH
 <html>
 <link rel="icon" type="image/png" href="/icon.png" />
 <head>
-<title>BBC - Big Black Cactus</title>
+<title>$SITETITLE</title>
 <meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
@@ -114,7 +121,7 @@ function removeSpecialCharacters(string) {
 }
 </script>
 <center>
-<p><a href="/cgi-bin/bbc.sh" ><h4><strong>$SITETITLE</strong></h4></a><br>
+<p><a href="/cgi-bin/bbc.sh" ><h4><strong>$SITEBANNER</strong></h4></a><br>
 <span id="navigation">
 <a href=/cgi-bin/moreinfo.sh rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10084;About
@@ -127,7 +134,7 @@ function removeSpecialCharacters(string) {
 </span>
 <div class="tooltip">
 <span id="navig-link"><label>&#9993;Contact</label></span>
-<span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">director@bigblackcactus.com<br><br></div></span>
+<span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">$CEMAIL<br><br></div></span>
 </div>
 </p> <br>
 <!-- ################## BBC Special ################# -->
@@ -140,7 +147,7 @@ else if(document.getElementById("square").checked == false)
 }
 </script>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcx.sh?domain=' target='_blank' ><label style='cursor: pointer;' >BBC Special&#127797;</label></a>
+<a id="tools-link" href='/cgi-bin/bbcx.sh?domain=' target='_blank' ><label style='cursor: pointer;' >$SPECIAL&#127797;</label></a>
 <span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
@@ -148,7 +155,7 @@ else if(document.getElementById("square").checked == false)
 <button onclick="redirect();" type="submit" >Go</button><br>
 <label style="font-size:90%" >
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcdc.sh?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' > &#128195;S. C. C. </label></a>
+<a id="tools-link" href='/cgi-bin/bbcdc.sh?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' > &#128195;$SSLC</label></a>
 <span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
 </span>
 </div> 
@@ -160,8 +167,8 @@ else if(document.getElementById("square").checked == false)
 <p><form action="bbcws.sh" method="get">
 <label>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcws.sh?domain=' target='_blank' ><label style='cursor: pointer;' >&#128269;Who You </label></a>
-<span class="tooltiptext" ><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "WHOYOU" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
+<a id="tools-link" href='/cgi-bin/bbcws.sh?domain=' target='_blank' ><label style='cursor: pointer;' >&#128269;$WHOIS </label></a>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "$WHOIS" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
 </span>
 </div> 
 </label> <br>
@@ -174,8 +181,8 @@ else if(document.getElementById("square").checked == false)
 <p><form action="bbcd.sh" method="get">
 <label>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' target='_blank' ><label style='cursor: pointer;' >Big Nick &#9935;Digger</label></a>
-<span class="tooltiptext" ><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool (Big Nick Digger) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
+<a id="tools-link" href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' target='_blank' ><label style='cursor: pointer;' > &#9935;$DIGGER</label></a>
+<span class="tooltiptext" ><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool ($DIGGER) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
 </span>
 </div>
 </label><br> 
@@ -203,7 +210,7 @@ else if(document.getElementById("square").checked == false)
 </body>
 <footer>
 <p><div class="tooltip">
-<span id="wave7a" >&nbsp;&nbsp; &nbsp;<label>" [ v-Cntr Jnir 7n (PAK) ] "</label>&nbsp;&nbsp;&nbsp;</span>
+<span id="wave7a" >&nbsp;&nbsp; &nbsp;<label>" $ROT13 "</label>&nbsp;&nbsp;&nbsp;</span>
 <span class="tooltiptext"  >
 Encoded in ROT 13.
 </span>
@@ -217,7 +224,7 @@ This website or any portion thereof may be <br>
 reproduced or used in any manner whatsoever<br>
 without the express written permission of the publisher<br>
 also for the use of brief quotations in a site review.
-<br><br>For suggestions / comments / reactions<br> email director@bigblackcactus.com<br><br><br>
+<br><br>For suggestions / comments / reactions<br> email $CEMAIL <br><br><br>
 </article>
 <span id="revisions">rev. $revcount</span></p>
 <article>
