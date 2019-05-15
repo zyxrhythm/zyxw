@@ -674,7 +674,7 @@ EODNARGT0
 nscheckfunc () {
 while IFS= read -r linec
 do 
-	dqns=$( echo "${linec#*:}" | tr -d ' ' );
+	dqns=$( echo "${linec#*:}" | tr -d '\040\011\012\015' );
 	if [[ -z "$( dig a +short $dqns @8.8.8.8 )" ]]; then nsxcr="y"; else nsxcr="x"; fi;
 	echo "$nsxcr";
 done < <(printf '%s\n' "$1"); }
