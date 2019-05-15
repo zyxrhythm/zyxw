@@ -3,15 +3,19 @@
 SITE_BANNER->
 
 <-SPECIAL
+Hokage Special
 SPECIAL->
 
 <-SSLCHECK
+SSL Ninja
 SSLCHECK->
 
 <-WHOIS
+Whois Ninja
 WHOIS->
 
 <-DIGGER
+Dig Ninja
 DIGGER->
 
 <-FOOTER_MESSAGE
