@@ -688,7 +688,7 @@ xnsxx=$( nsfunction "$1" "x" );
 while IFS= read -r xline
 do
 xcount=$(( $xcount + 1 ));
-nssfa=$( echo ${xline#*:} | tr -d ' ' );
+nssfa=$( echo ${xline#*:} | tr -d '\040\011\012\015' );
 arayko[$xcount]="$nssfa";
 linecheck=$( dig a +short "${arayko[$xcount]}" @8.8.8.8 );
 if [[ -z "$linecheck" ]] && [[ -z "${arayko[$(( $xcount - 1 ))]}" ]]; then xqns="8.8.8.8";
