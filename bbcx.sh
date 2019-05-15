@@ -257,7 +257,7 @@ zyx0=$(whois --verbose $domain 2>&1);
 #trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 #else 
 zyx=$(echo "$zyx0" | sed  '1,2d' );
-trywis0=$(echo "$zyx0" | grep -i -e "[Querying " | sort -u );
+trywis0=$(echo "$zyx" | grep -i -e "[Querying " | sort -u );
 trywis="${trywis0#*[Querying }"
 #fi;
 
