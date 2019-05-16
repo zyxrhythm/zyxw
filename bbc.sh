@@ -18,7 +18,9 @@ SPECIAL=$(cat ./site.vars | awk '/<-SPECIAL/{flag=1;next}/SPECIAL->/{flag=0}flag
 SSLC=$(cat ./site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 WHOIS=$(cat ./site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ./site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
-ROT13=$( echo "$(cat ./site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag')" | tr '[A-Za-z]' '[N-ZA-Mn-za-m]');
+ROT13=$(cat ./site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag');
+
+# | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
 
 echo "Content-type: text/html"
 echo ""
