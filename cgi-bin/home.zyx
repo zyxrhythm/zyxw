@@ -11,14 +11,14 @@
 gitrevcount=$( cd ..; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
-CEMAIL=$(cat ./site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
-SITETITLE=$(cat ./site.vars | awk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
-SITEBANNER=$(cat ./site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ./site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ./site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ./site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
-DIGGER=$(cat ./site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
-ROT13=$(cat ./site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag' | tr '[A-Za-z]' '[N-ZA-Mn-za-m]' );
+CEMAIL=$(cat ../etc/site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
+SITETITLE=$(cat ../etc/site.vars | awk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
+SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+ROT13=$(cat ../etc/site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag' | tr '[A-Za-z]' '[N-ZA-Mn-za-m]' );
 
 echo "Content-type: text/html"
 echo ""
