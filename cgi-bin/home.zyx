@@ -8,7 +8,7 @@
 #############################################
 
 #revisions counter
-gitrevcount=$( cd ${0%/*}; cd ..; git rev-list --all --count );
+gitrevcount=$( cd ..; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
 CEMAIL=$(cat ../etc/site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
