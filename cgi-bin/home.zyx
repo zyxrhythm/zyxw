@@ -19,6 +19,8 @@ SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}
 WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 ROT13=$(cat ../etc/site.vars | awk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag' | tr '[A-Za-z]' '[N-ZA-Mn-za-m]' );
+FOOTER_MESSAGE1=$(cat ../etc/site.vars | awk '/<-FOOTER_MESSAGE1/{flag=1;next}/FOOTER_MESSAGE1->/{flag=0}flag');
+FOOTER_MESSAGE2=$(cat ../etc/site.vars | awk '/<-FOOTER_MESSAGE2/{flag=1;next}/FOOTER_MESSAGE2->/{flag=0}flag');
 
 echo "Content-type: text/html"
 echo ""
@@ -149,16 +151,12 @@ Encoded in ROT 13.
 </footer>
 <p><b>-> <a href=/cgi-bin/thx.zyx rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
 <p><article>
-All rights reversed. <br>
-This website or any portion thereof may be <br>
-reproduced or used in any manner whatsoever<br>
-without the express written permission of the publisher<br>
-also for the use of brief quotations in a site review.
+$FOOTER_MESSAGE1
 <br><br>For suggestions / comments / reactions<br> email $CEMAIL <br><br><br>
 </article>
 <span id="revisions">rev. $revcount</span></p>
 <article>
-<span id="goblack"><b>Once you GO BLACK, you can never go back!</b><span> <br>
+<span id="goblack"><b>$FOOTER_MESSAGE2</b><span> <br>
 <span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
 </article>
 </center>
