@@ -14,7 +14,7 @@ revcount=$(echo "$gitrevcount + 666" | bc);
 CEMAIL=$(cat ./site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 SITETITLE=$(cat ./site.vars | awk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
 SITEBANNER=$(cat ./site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-SPECIAL=$(cat ./site.vars | awk '/<-SPECIAL/{flag=1;next}/SPECIAL->/{flag=0}flag');
+DIP=$(cat ./site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 SSLC=$(cat ./site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 WHOIS=$(cat ./site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ./site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
@@ -67,17 +67,17 @@ function removeSpecialCharacters(string) {
 <span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">$CEMAIL<br><br></div></span>
 </div>
 </p> <br>
-<!-- ################## BBC Special ################# -->
+<!-- ################## DIP ################# -->
 <p><script>
 function redirect()
 { if(document.getElementById("square").checked == true)
         document.formation.action ="sslinfo.zyx";
 else if(document.getElementById("square").checked == false)
-        document.formation.action = "/cgi-bin/special.zyx";       
+        document.formation.action = "/cgi-bin/dip.zyx";       
 }
 </script>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/special.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$SPECIAL&#127797;</label></a>
+<a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP&#127797;</label></a>
 <span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
@@ -92,8 +92,8 @@ else if(document.getElementById("square").checked == false)
 </label>
 <input type="checkbox" id="square">
 </form></p><br><br>
-<!-- ################## BBC Special ################# -->
-<!-- ################## WHO YOU ################# -->
+<!-- ################## DIP################# -->
+<!-- ################## WHOIS################# -->
 <p><form action="whois.zyx" method="get">
 <label>
 <div class="tooltip">
@@ -106,8 +106,8 @@ else if(document.getElementById("square").checked == false)
 <button id="whoyoubtn" type="submit" >Who is</button>
 </form>
 </p>
-<!-- ################## WHO YOU ################# -->
-<!-- ################## BIG NICK DIGGER ################# -->
+<!-- ################## WHOIS ################# -->
+<!-- ################## DIGGER ################# -->
 <p><form action="digger.zyx" method="get">
 <label>
 <div class="tooltip">
@@ -132,7 +132,7 @@ else if(document.getElementById("square").checked == false)
 <button type="submit"> D I G </button><br> <br>
 <input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
 </form></p>
-<!-- ################## BIG NICK DIGGER ################# -->
+<!-- ################## DIGGER ################# -->
 <p><br><br>
 <a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" target='_blank'>
 <img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
