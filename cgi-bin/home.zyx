@@ -8,10 +8,11 @@
 #############################################
 
 #revisions counter
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-gitrevcount=$( cd $DIR; cd .. && git rev-list --all --count )
-revcount=$(echo "$gitrevcount + 666" | bc);
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+#gitrevcount=$( cd $DIR; cd .. && git rev-list --all --count )
+#revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
+revcount=$(cat ../etc/site.vars | awk '/<-VER/{flag=1;next}/VER->/{flag=0}flag');
 CEMAIL=$(cat ../etc/site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 SITETITLE=$(cat ../etc/site.vars | awk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
 SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
@@ -155,7 +156,7 @@ Encoded in ROT 13.
 $FOOTER_MESSAGE1
 <br><br>For suggestions / comments / reactions<br> email $CEMAIL <br><br><br>
 </article>
-<span id="revisions">rev. $revcount</span></p>
+<span id="revisions">ver. $revcount</span></p>
 <article>
 <span id="goblack"><b>$FOOTER_MESSAGE2</b><span> <br>
 <span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
