@@ -8,7 +8,7 @@
 #############################################
 
 #revisions counter
-gitrevcount=$( cd ..; git rev-list --all --count );
+gitrevcount=$( cd ${0%/*}; cd ..; git rev-list --all --count );
 revcount=$(echo "$gitrevcount + 666" | bc);
 #revisions counter
 CEMAIL=$(cat ../etc/site.vars | awk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
@@ -135,7 +135,7 @@ else if(document.getElementById("square").checked == false)
 <!-- ################## DIGGER ################# -->
 <p><br><br>
 <a href="https://drive.google.com/open?id=1M_Ot4DnjunM6iuEAn4KF5k09qPQIp_el" target='_blank'>
-<img border="0" alt="Cactus" src="/cactus2.png" width="26%" height="26%">
+<img border="0" alt="Cactus" src="/image.png" width="26%" height="26%">
 </a></p>
 </body>
 <footer>
