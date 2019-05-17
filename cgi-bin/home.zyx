@@ -79,7 +79,7 @@ else if(document.getElementById("square").checked == false)
 }
 </script>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP&#127797;</label></a>
+<a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP&#9775;</label></a>
 <span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
