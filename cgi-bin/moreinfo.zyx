@@ -86,7 +86,7 @@ The 'whois and dig' info generated here are not cached.
 Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
 
 There is a limit on how much an IP address can query a particular whois server.
-This website is " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
+This website might be " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
 -------------------------
 
 
@@ -99,6 +99,7 @@ This website is " associated to a '1 and only' server which is associated to a '
 # director@bigblackcactus.com
 ############################
 
+<a href='/cgi-bin/devcorner.zyx' target='_blank' >DevCorner</a>
 </pre>
 <br>
 </p>
