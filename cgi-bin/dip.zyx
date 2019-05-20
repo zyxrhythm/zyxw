@@ -141,7 +141,7 @@ dsfunction () {
 
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}'); 
+eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
 echo "<script> 
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
@@ -155,19 +155,20 @@ else { element.innerHTML = '-';} }
 <br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
+
 done < <(printf '%s\n' "$1");
 
-echo '<br>--------------------------';
+echo '<br>--------------------------'
 
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015');  
+eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
-dsfparsedtable=$( cat eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
 $dsfparsedtable--------------------------
-</div>";
+</div>"
 done < <(printf '%s\n' "$1");
 
 }
