@@ -1,0 +1,109 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#You can download, copy and use it as you see fit.
+#If ever you need to post or show the code to people
+#Though you are not required to, crediting the the author will be much appreciated.
+#################################################
+#https://github.com/zyxrhythm
+#############################################
+
+SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+
+lsbrelease=$(lsb_release -a);
+bashv=$(bash --version );
+whoisv="$(whois --version 2>&1 | tr -d '\<\>' )";
+digv=$(dig -v 2>&1);
+nslookupv=$(nslookup -version 2>&1);
+opensslv=$(openssl version);
+nmapv=$(nmap -version);
+resolvc=$(cat /etc/resolv.conf);
+
+echo "Content-type: text/html"
+echo ""
+
+cat <<EOT
+
+<!DOCTYPE html>
+<html>
+<link rel="icon" type="image/png" href="/icon.png" />
+<head>
+<title>$SITEBANNER</title>
+
+<meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="/js/analyticsandads.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/general.css">
+
+<center>
+<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+</center>
+</head>
+
+<body><br><br>
+<p><center>
+<h1>DEV Corner</h1>
+</center>
+<left>
+<pre>
+
+-------------------------------
+-This website uses <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" target="_blank" class="tooltip">Bash</a> (Bourne again shell) for server-side scripting.
+-The usual Javascript for client side scripting.
+-The usual HTML and CSS for its simple looks.
+-------------------------------
+
+
+
+-------------------------------
+* Extra Info for the Geeks *
+-------------------------------
+
+-------------------------------
+:~# lsb_release -a
+$lsbrelease
+-------------------------------
+:~# bash --version
+${bashv[0]}
+-------------------------------
+~# whois --version | tr -d '\<\>'
+$whoisv
+-------------------------------
+:~# dig -v
+$digv
+-------------------------------
+:~# nslookup -version
+$nslookupv
+-------------------------------
+:~# openssl version
+$opensslv
+-------------------------------
+:~# nmap -version
+$nmapv
+-------------------------------
+:~# cat /etc/resolv.conf
+$resolvc
+-------------------------------
+:~# cat /etc/whois.conf
+<a href="/cgi-bin/whois.conf.zyx" target="_blank" >whois server list</a> 
+-------------------------------
+TLD lists: (<a href="/cgi-bin/gtld.zyx" target="_blank" >list1</a> and <a href="/cgi-bin/cctld.zyx" target="_blank" >list2</a>).  
+-------------------------------
+String manipulation and other opearations (server-side): 
+echo, cat, grep, sed, awk, cut, tr, rev, bc, column, host, git,
+gitrevcount, POSIX character expansions, shopt (extglob).
+-------------------------------
+</pre><br></p>
+</left>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+
+</html>
+
+EOT
+
+exit 0;
