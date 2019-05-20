@@ -98,15 +98,15 @@ This website might be " associated to a '1 and only' server which is associated 
 # For bugs and other concerns please email:
 # director@bigblackcactus.com
 ############################
-
-<a href='/cgi-bin/devcorner.zyx' target='_blank' >DevCorner</a>
 </pre>
 <br>
 </p>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </left>
 </body>
-
+<footer>
+<a href='/cgi-bin/devcorner.zyx' target='_blank' > Dev Corner </a>
+</footer>
 </html>
 
 EOT
