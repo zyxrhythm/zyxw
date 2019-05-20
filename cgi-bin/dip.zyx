@@ -161,13 +161,13 @@ echo '<br>--------------------------';
 
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
+eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015');  
 
 dsfparsedtable=$( cat ../cgi-bin/eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
 $dsfparsedtable--------------------------
-</div>"
+</div>";
 done < <(printf '%s\n' "$1");
 
 }
