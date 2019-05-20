@@ -138,9 +138,12 @@ nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
 #=================
 #Domain Status Functions functions that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
+echo '<br>--------------------------';
+
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
+eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}'); 
+
 
 echo "<script> 
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
@@ -155,12 +158,6 @@ else { element.innerHTML = '-';} }
 </span></a>
 ${line#*#}";
 
-done < <(printf '%s\n' "$1");
-
-echo '<br>--------------------------'
-
-while IFS= read -r line
-do
 eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
 dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
