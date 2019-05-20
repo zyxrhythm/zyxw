@@ -7,6 +7,9 @@
 #https://github.com/zyxrhythm
 #############################################
 SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 
 echo "Content-type: text/html"
@@ -60,21 +63,21 @@ if (x.style.display === 'none')
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/home.zyx" style='float:left'>[ &#127968;Home ]</a>
 <div id='navtable' style='display:none; float:right;' >
 <a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' > &#9776;</a>
 <br><br>
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/dip.zyx' >&#8625; $DIP &#8626;</a></td></tr>
 </tbody></table><br>
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/whois.zyx' >&#8625; $WHOIS &#8626;</a></td></tr>
 </tbody></table><br>
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/sslinfo.zyx' >&#8625; $SSLC &#8626;</a></td></tr>
 </tbody></table><br>
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/digger.zyx' >&#8625; $DIGGER &#8626;</a></td></tr>
 </tbody></table><br>
 </div>
 <div id='navmenu' >
