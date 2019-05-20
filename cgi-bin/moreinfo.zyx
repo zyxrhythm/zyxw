@@ -105,7 +105,7 @@ This website might be " associated to a '1 and only' server which is associated 
 </left>
 </body>
 <footer>
-<a href='/cgi-bin/devcorner.zyx' target='_blank' > Dev Corner </a>
+<a href='/cgi-bin/devcorner.zyx' target='_blank' style='font-family: verdana; font-size: 90%; color: gray;'> Dev Corner </a>
 </footer>
 </html>
 
