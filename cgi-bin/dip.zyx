@@ -108,7 +108,7 @@ if [[ -z "$domain" ]]; then
 cat <<EOTSE
 <body>
 <div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the domain's vital whois information, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> and does a 'whois lookup' query at the known whois server of the Registry for the <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a> ( see the list of known servers <a href='/cgi-bin/whois.conf.sh' target='_blank'>here</a> ), and the script does the same query at the whois server of the Registrar ( if a server is found from the whois information provided by the Registry's whois server ).<br><br>Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will query one of the valid  authoritative name servers under the domain for <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#A' target='_blank'>A</a> and <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#MX' target='_blank'>MX</a> records. If all name servers under the domain are invalid and cannot be queried, the script will fall back to Google's Public DNS server (8.8.8.8) for cached records. A records asssosciated with the naked domain are 'looked up', then A records  associated to the hostnames found on the MX records. <br><br>---IP addreses (A records) found by DIG will be queried by WHOIS at <a href='https://en.wikipedia.org/wiki/American_Registry_for_Internet_Numbers' target='_blank' >A.R.I.N.</a>'s whois servers/s to get the Organization responsible for the IP address. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>And after a few GAWK, GREP, SED and SHELL EXPANSIONS a report with vital whois and DNS info ( about the web and mail service under the domain )  is generated and is displayed by ECHO and/or CAT.</p></div>
+Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the domain's vital whois information, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> and does a 'whois lookup' query at the known whois server of the Registry for the <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a> ( see the list of known servers <a href='/cgi-bin/whois.conf.zyx' target='_blank'>here</a> ), and the script does the same query at the whois server of the Registrar ( if a server is found from the whois information provided by the Registry's whois server ).<br><br>Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will query one of the valid  authoritative name servers under the domain for <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#A' target='_blank'>A</a> and <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#MX' target='_blank'>MX</a> records. If all name servers under the domain are invalid and cannot be queried, the script will fall back to Google's Public DNS server (8.8.8.8) for cached records. A records asssosciated with the naked domain are 'looked up', then A records  associated to the hostnames found on the MX records. <br><br>---IP addreses (A records) found by DIG will be queried by WHOIS at <a href='https://en.wikipedia.org/wiki/American_Registry_for_Internet_Numbers' target='_blank' >A.R.I.N.</a>'s whois servers/s to get the Organization responsible for the IP address. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>And after a few GAWK, GREP, SED and SHELL EXPANSIONS a report with vital whois and DNS info ( about the web and mail service under the domain )  is generated and is displayed by ECHO and/or CAT.</p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
@@ -163,7 +163,7 @@ while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
-dsfparsedtable=$( cat ./eppstatuscodes.sh | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
 $dsfparsedtable--------------------------
@@ -210,7 +210,7 @@ do
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
-   if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; else echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:}"; fi;
+   if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; else echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:}"; fi;
 done < <(printf '%s\n' "$nsr2");
 
 else
@@ -219,7 +219,7 @@ else
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
-   if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/bbcws.sh?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
+   if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
 
 fi;
    echo '<br><br>'
@@ -279,7 +279,7 @@ do
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
-echo "<br>   $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
+echo "<br>   $line --- <a href='/cgi-bin/whois.zyx?doi=$line' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
 <span class='tooltiptext' >
 <br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${arx#*:}";
@@ -324,7 +324,7 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/bbcws.sh?doi=$line' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
+   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
    
 done < <(printf '%s\n' "$mxr2");
 
@@ -335,7 +335,7 @@ else
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    if [[ -z "$mxr2" ]]; then true; else 
-   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/bbcws.sh?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; fi;
+   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; fi;
    fi;
 fi;
    echo '<br>'
@@ -368,7 +368,7 @@ domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
 	else domvarx="<br>( Not a  valid domain / sub domain but rather something else. )"; 
 	fi;
 echo "
-<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/bbcws.sh?domain=$domain' target='_blank' >here.</a>
+<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/whois.zyx?domain=$domain' target='_blank' >here.</a>
 </p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
@@ -511,7 +511,7 @@ cat << EODNARGT0
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
 __________________________<br><br>
-<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' > <strong>Domain Status: </strong></a><br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' > <strong>Domain Status: </strong></a><br>
 $dsfrgt
 <!-- ILLUSIONIST -->
 <p>
@@ -793,7 +793,7 @@ cat << EODNARCTAU
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:} <br>
 __________________________<br><br>
-<a href='/cgi-bin/eppstatuscodes.sh' target='_blank' ><strong>Domain Status: </strong></a><br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' ><strong>Domain Status: </strong></a><br>
 $dsfrctau
 <p>
 __________________________<br>
@@ -852,7 +852,7 @@ __________________________<br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 Registrar Country: ${regcoun#*:}<br>
 __________________________<br> <br>
-<a href='/cgi-bin/eppstatuscodes.sh' target='_blank'><strong>Domain Status: </strong></a><br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank'><strong>Domain Status: </strong></a><br>
 $dsnzfuncr <br><br>
 --------------------------<br>
 Last Modified: ${lastmod#*:} <br>
