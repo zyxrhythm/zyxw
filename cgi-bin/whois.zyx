@@ -7,11 +7,11 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
-DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../etc/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 
 #start the html header
 echo "Content-type: text/html"
@@ -22,7 +22,7 @@ echo "<!DOCTYPE html>
 <title>$WHOIS</title>"
 
 #converts all uppercase form the query string to lowercase
-qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
+qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
 
 #butchers the qs string and gets the domain
 doi=$(echo $qs | cut -f2 -d"=" );
@@ -172,8 +172,8 @@ EOWIIPR
 zyx=$(whois --verbose $doi );
 zyx0=$(echo "$zyx" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 
-dvcheck=$(echo "${zyx:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
-dvcheck0=$(echo "${zyx0:0:9}" | awk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+dvcheck=$(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+dvcheck0=$(echo "${zyx0:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
 
 if [[ "$dvcheck" = "nowhois" ]]; then
 echo "
