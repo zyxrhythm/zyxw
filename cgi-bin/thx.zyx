@@ -1,4 +1,14 @@
 #!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#You can download, copy and use it as you see fit.
+#If ever you need to post or show the code to people
+#Though you are not required to, crediting the the author will be much appreciated.
+#################################################
+#https://github.com/zyxrhythm
+#############################################
+
+SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+
 echo "Content-type: text/html"
 echo ""
 cat <<EOT
@@ -9,38 +19,18 @@ cat <<EOT
 <head>
 <title>Salamat</title>
 
-<meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
+<meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-32625644-1');
-</script>
-
-<style>
-h1 { font-family: courier new; font-size: 150%; }
-a:link { color: green; }
-a:visited { color: green; }
-a:hover { color: green; }
-a:active { color: green; }
-body {background-color:black;color:green}
-p { font-family: calibri; font-size: 100%;}
-footer {font-family: calibri; font-size: 60%;}
-article {font-family: arial;font-size: 43%;}
-pre {white-space: pre-wrap;font-size: 115%;}
-</style>
+<script src="/js/analyticsandads.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/general.css">
 
 <center>
-<p><h1><a href="https://www.bigblackcactus.com/cgi-bin/bbc.sh">Big Black Cactus</a></h1></p>
-<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
 
