@@ -7,13 +7,19 @@
 #https://github.com/zyxrhythm
 #############################################
 
+SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+
 #start the html header
 echo "Content-type: text/html"
 echo ""
 
 echo "<!DOCTYPE html>
 <html>
-<title>WhoYou</title>"
+<title>$WHOIS</title>"
 
 #converts all uppercase form the query string to lowercase
 qs=$(echo $QUERY_STRING | awk '{print tolower($0)}');
@@ -25,227 +31,19 @@ cat <<ENDOFHEAD
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />
 
-<meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
+<meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 
-  gtag('config', 'UA-32625644-1');
-</script>
+<script src="/js/analyticsandads.js"></script>
+<script src="/js/allowedchars.js"></script>
+<script src="/js/whois.js"></script>
 
-<script>
-//from http://edupala.com/copy-div-content-clipboard/
-
-function copyClipboard() {
-  var elm = document.getElementById("divClipboard");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-  }
-}
-
-function copyClipboard0() {
-  var elm = document.getElementById("divClipboard0");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-
-function copyClipboard1() {
-  var elm = document.getElementById("divClipboard1");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-    alert("Copied div content to clipboard");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-
-  }
-}
-
-//from http://edupala.com/copy-div-content-clipboard/
-
-// from https://www.w3schools.com/howto/howto_js_tabs.asp
-
-function whoisserver(evt, ws) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(ws).style.display = "block";
-  evt.currentTarget.className += " active";
-} 
-// from https://www.w3schools.com/howto/howto_js_tabs.asp
-</script>
-
-<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpaces(string) {
- return string.split(' ').join('');
-}
-</script>
-<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpecialCharacters(string) {
- return string.replace(/[^A-Za-z0-9.-]/g, '');
-}
-</script>
-
-<style>
-
-/* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
- /* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #000;
-  background-color: #556B2F;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #000;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #006400;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #006400;
-  border-top: none;
-} 
-
-/* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
-
-
-/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
-.tooltip {
-    display: inline-block;
-    text-indent:0em;
-}
-    
-.tooltip .tooltiptext {
-	color: white;
-	word-break:break-word;
-	font-size: 90%; 
-	font-family: calibri; 
-	text-align: center;
-    display: none;
-    width: calc(50% - 50px);
-    background: #000;
-    border-radius: 3px;
-    padding: 3px 3px;
-    left: 50px;
-    border: 2px dotted green;
-    line-height: normal;
-    text-decoration: none;
-    position: absolute;
-    z-index: 1;
-}
-.tooltip:hover .tooltiptext {
-    display: block;
-}
-/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
-
-a {text-decoration: none; }
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-div a:link { color: tomato;  font-size: 100%; }
-div a:active { color: tomato;  font-size: 100%; }
-div a:hover { color: tomato;  font-size: 100%; }
-div a:visited { color: tomato;  font-size: 100%; }
-strong {color: green;}
-p  { font-family: verdana; font-size: 90%;}
-h1 {font-family: verdana; font-size: 70%;}
-body {background-color:black;color:white;}
-pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;}
-table { font-family: verdana; border: 2px solid green; font-size: 100%;}
-th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green;}
-
-#navlinkz { color:tomato; float:right; font-size: 90%; }
-</style>
+<link rel="stylesheet" type="text/css" href="/css/whois.css">
 
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -268,7 +66,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/home.zyx" style='float:left'>[ &#127968;Home ]</a>
 
 <div id='navtable' style='display:none; float:right;' >
 
@@ -276,19 +74,19 @@ else { x.style.display = 'none'; } }
 <br><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/dip.zyx' >&#8625; $DIP &#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/whois.zyx' >&#8625; $WHOIS &#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/sslinfo.zyx' >&#8625; $SSLC &#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/digger.zyx' >&#8625; $DIGGER &#8626;</a></td></tr>
 </tbody></table><br>
 </div>
 
@@ -300,9 +98,9 @@ else { x.style.display = 'none'; } }
 
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
-<form action="bbcws.sh" method="get">
+<form action="whois.zyx" method="get">
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-<button id="whoyoubtn" type="submit" >Who is 2</button>
+<button id="whoyoubtn" type="submit" >Whois</button>
 </form>
 <!-- ################## WHO YOU ################# -->
 </td> </tbody> </table> </div></p>
