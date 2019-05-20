@@ -53,6 +53,12 @@ pre{white-space: pre-wrap;font-size: 100%;}
 
 -----------------------
 
+- The A record/s and MX record/s displayed on BBC special are now directly from one of the authoritative name servers under the domain, case all of them are invalid - 8.8.8.8 will be queried for records instead.
+
+- Some Improvements on BBC Special results.
+
+- Fixed the endless spin of death when authoritative nameserver under the domain does not resolve to an IP address.
+
 - Reworked the table expansion button for domain statuses, name servers and relevant dates on BBC special result, they should now appear as '<span style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;' >+</span>' when the tables are hidden and will show '<span style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;' >-</span>' when they are expandanded. 
 
 - Fixed the issue about 'BBC special not able to generate a report' for .shop domains.
