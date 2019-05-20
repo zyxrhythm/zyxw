@@ -37,23 +37,13 @@ cat <<EOBBCSH
 <meta name="author" content="Zyx Rhythm">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="/js/analyticsandads.js"></script>
+
 <link rel="stylesheet" type="text/css" href="/css/home.css">
+<script src="/js/analyticsandads.js"></script>
+<script src="/js/allowedchars.js"></script>
 
 </head>
 <body>
-<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpaces(string) {
- return string.split(' ').join('');
-}
-</script>
-<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
-<script>
-function removeSpecialCharacters(string) {
- return string.replace(/[^A-Za-z0-9.-]/g, '');
-}
-</script>
 <center>
 <p><a href="/cgi-bin/home.zyx" ><h4><strong>$SITEBANNER</strong></h4></a><br>
 <span id="navigation">
