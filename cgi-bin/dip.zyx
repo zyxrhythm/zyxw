@@ -167,7 +167,7 @@ while IFS= read -r line
 do
 eppstatc=$( echo "${line#*#}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' );  
 
-dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstatc"'0-->/{flag=1;next}/<!--tag'"$eppstac"'1-->/{flag=0}flag' );
+dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstatc"'0-->/{flag=1;next}/<!--tag'"$eppstatc"'1-->/{flag=0}flag' );
 
 echo "
 <div id='jsf$eppstatc' style='display:none'>
