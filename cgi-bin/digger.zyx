@@ -6,11 +6,11 @@
 ################################################
 #https://github.com/zyxrhythm
 #############################################
-SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
-DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../etc/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 
 echo "Content-type: text/html"
 echo ""
@@ -21,7 +21,7 @@ echo "<!DOCTYPE html>
 <title>$DIGGER</title>"
 
 #stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
-qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
+qs=$(echo "$QUERY_STRING" | gawk '{print tolower($0)}');
 
 #butchers the QUERY_STRING for the domain the name server and the record type and stores them in variables 
 domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
@@ -182,7 +182,7 @@ if [[ -z $zyxc ]];
 
 then echo "
 <div id="divClipboard">
-<p>No (<strong>$( echo $DNSR | awk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
+<p>No (<strong>$( echo $DNSR | gawk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
@@ -201,11 +201,11 @@ do
 cut0=$( echo "$line" | sed "s/^[^$domain]*$domain//g" );
 cut1="${cut0/IN/}";
 cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
-rtype=$( echo "$cutx" | awk  '{print $2}' );
-ttl=$( echo "$cutx" | awk  '{print $1}' );
-record=$( echo "$cutx" | awk '{$2=$2};1' | cut -d' ' -f3- );
+rtype=$( echo "$cutx" | gawk  '{print $2}' );
+ttl=$( echo "$cutx" | gawk  '{print $1}' );
+record=$( echo "$cutx" | gawk '{$2=$2};1' | cut -d' ' -f3- );
 
-rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | awk '{print tolower($0)}' );
+rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' );
 if [[ "$rtx" = "txt" ]] || [[ "$rtx" = "soa" ]] || [[ "$rtx" = "srv" ]] || [[ "$rtx" = "spf" ]] || [[ "$rtx" = "caa" ]]; 
 then echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td style='word-break:break-all; ' >$( printf "%-10s" "$record" )</td></tr>" ; 
 else echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td>$( printf "%-10s" "$record<" )/td></tr>"; 
@@ -217,7 +217,7 @@ zyxd=$( cutandtabfunc "$zyxgd" );
 
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | awk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  awk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  awk '{print toupper($0)}' )</strong>.</h1>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
 <br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
