@@ -45,6 +45,8 @@ cat << EOHTMLHEADER
 <script src="/js/allowedchars.js"></script>
 <script src="/js/dip.js"></script>
 
+<link rel="stylesheet" type="text/css" href="/css/dip.css">
+
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
