@@ -138,12 +138,10 @@ nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
 #=================
 #Domain Status Functions functions that cycles through the status codes and create a link the status to what it means on eppstatus.sh
 dsfunction () {
-echo '<br>--------------------------';
 
 while IFS= read -r line
 do
 eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}'); 
-
 
 echo "<script> 
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
@@ -157,10 +155,15 @@ else { element.innerHTML = '-';} }
 <br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status. It will spawn a table from ICANN about what the domain status is about, to close the table click this again. <br><br>
 </span></a>
 ${line#*#}";
+done < <(printf '%s\n' "$1");
 
+echo '<br>--------------------------';
+
+while IFS= read -r line
+do
 eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
-dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+dsfparsedtable=$( cat ../cgi-bin/eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
 
 echo "<div id='jsf$eppstat' style='display:none'>
 $dsfparsedtable--------------------------
