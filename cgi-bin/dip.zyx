@@ -141,7 +141,7 @@ dsfunction () {
 
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
+eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}');  
 
 echo "<script> 
 function js$eppstat() { var x = document.getElementById('jsf$eppstat'); 
@@ -162,13 +162,17 @@ echo '<br>--------------------------'
 
 while IFS= read -r line
 do
-eppstat=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
+eppstatc=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
 
-dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstat"'0-->/{flag=1;next}/<!--tag'"$eppstat"'1-->/{flag=0}flag' );
+dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstatc"'0-->/{flag=1;next}/<!--tag'"$eppstac"'1-->/{flag=0}flag' );
 
-echo "<div id='jsf$eppstat' style='display:none'>
-$dsfparsedtable--------------------------
-</div>"
+echo "
+<div id='jsf$eppstatc' style='display:none'>
+$dsfparsedtable 
+--------------------------
+</div>
+";
+
 done < <(printf '%s\n' "$1");
 
 }
