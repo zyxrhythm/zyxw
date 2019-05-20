@@ -12,10 +12,13 @@
 #############################################
 
 SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../etc/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+
+
+
 
 echo "Content-type: text/html"
 echo ""
@@ -162,7 +165,7 @@ echo '<br>--------------------------'
 
 while IFS= read -r line
 do
-eppstatc=$( echo "${line#*#}" | gawk '{print tolower($0)}');  
+eppstatc=$( echo "${line#*#}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' );  
 
 dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstatc"'0-->/{flag=1;next}/<!--tag'"$eppstac"'1-->/{flag=0}flag' );
 
