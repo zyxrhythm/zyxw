@@ -45,13 +45,13 @@ cat <<EOBBCSH
 </head>
 <body>
 <center>
-<p><a href="/cgi-bin/home.zyx" ><h4><strong>$SITEBANNER</strong></h4></a><br>
+<p><a href='/cgi-bin/home.zyx' ><h4><strong>$SITEBANNER</strong></h4></a><br>
 <span id="navigation">
-<a href=/cgi-bin/moreinfo.zyx rel="noopener noreferrer" target="_blank" id="navig-link">
+<a href='/cgi-bin/moreinfo.zyx' rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10084;About
 </a>
 &nbsp; 
-<a href=/cgi-bin/news.zyx rel="noopener noreferrer" target="_blank" id="navig-link">
+<a href='/cgi-bin/updates.zyx' rel="noopener noreferrer" target="_blank" id="navig-link">
 &#10070;Logs
 </a>
 &nbsp; 
