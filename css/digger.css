@@ -1,1 +1,59 @@
+a {text-decoration: none; }
+a:link { color: red;  }
+a:active { color: red;  }
+a:hover { color: red;  }
+a:visited { color: red;  }
+div a:link { color: tomato;  font-size: 100%; }
+div a:active { color: tomato;  font-size: 100%; }
+div a:hover { color: tomato;  font-size: 100%; }
+div a:visited { color: tomato;  font-size: 100%; }
+p { font-family: verdana; font-size: 90%; word-break:break-word;}
+h1 { font-family: verdana; font-size: 85%;}
+body { background-color:black; color:white;}
+pre{ white-space: pre-wrap; font-size: 100%;}
+table { font-family: verdana; border: 2px solid green; font-size: 100%; }
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green; padding:5px; font-size: 80% }
+strong {color: green;}
 
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+
+.tooltip {
+    display: inline-block;
+    text-indent:0em;
+}
+    
+.tooltip .tooltiptext {
+	color: white;
+	word-break:break-word;
+	font-size: 90%; 
+	font-family: calibri; 
+	text-align: center;
+    display: none;
+    width: calc(50% - 50px);
+    background: #000;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    display: block;
+}
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+
+#navlinkz { color:tomato; float:right;}
+#noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#tdcenter { text-align: center; }
