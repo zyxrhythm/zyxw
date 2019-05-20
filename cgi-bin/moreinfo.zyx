@@ -39,7 +39,7 @@ cat <<EOT
 <link rel="stylesheet" type="text/css" href="/css/general.css">
 
 <center>
-<p><h1><a href="/cgi-bin/bbc.sh">$SITEBANNER</a></h1></p>
+<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
 <p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
