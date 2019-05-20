@@ -7,18 +7,18 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ../etc/site.vars | awk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ../etc/site.vars | awk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ../etc/site.vars | awk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
-DIGGER=$(cat ../etc/site.vars | awk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../etc/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 
 #start the html header
 echo "Content-type: text/html"
 echo ""
 
 #stores the string from bbc.sh to a variable converts all uppercase to lowercase
-qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
+qs=$(echo "$QUERY_STRING" | gawk '{print tolower($0)}');
 
 #get the domain from qs
 domain=$(echo "$qs" | cut -f2 -d"=" );
@@ -159,7 +159,7 @@ Expiryx="$1"
 dlyear0="${Expiryx:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 #month alpha
-dlmonth=$( echo "${Expiryx:0:3}" | awk '{print tolower($0)}' );
+dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
 #month num
 case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
 esac;
