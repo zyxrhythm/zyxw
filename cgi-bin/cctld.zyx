@@ -8,7 +8,7 @@
 #############################################
 
 cctldlist=$( cat ../etc/cctldx.txt );
-SITEBANNER=$(cat ../etc/site.vars | awk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
 echo "Content-type: text/html"
 echo ""
