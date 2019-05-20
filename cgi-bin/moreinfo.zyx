@@ -40,7 +40,7 @@ cat <<EOT
 
 <center>
 <p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
-<p><a href="/cgi-bin/bbc.sh" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
 
@@ -185,9 +185,9 @@ $nmapv
 $resolvc
 *******************************
 :~# cat /etc/whois.conf
-<a href="/cgi-bin/whois.conf.sh" target="_blank" >whois server list</a> 
+<a href="/cgi-bin/whois.conf.zyx" target="_blank" >whois server list</a> 
 *******************************
-TLD lists: (<a href="/cgi-bin/gtld.sh" target="_blank" >list1</a> and <a href="/cgi-bin/cctld.sh" target="_blank" >list2</a>).  
+TLD lists: (<a href="/cgi-bin/gtld.zyx" target="_blank" >list1</a> and <a href="/cgi-bin/cctld.zyx" target="_blank" >list2</a>).  
 *******************************
 String manipulation and other opearations (server-side): 
 echo, cat, grep, sed, awk, cut, tr, rev, bc, column, host, git,
