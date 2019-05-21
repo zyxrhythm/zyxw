@@ -38,4 +38,4 @@ The css used on the pages are on the /css directory - feel free to theme the pag
 
 
 #PLEASE NOTE: 
-If you do not have enough experience on how bash scripts work for web development DO NOT attempt to edit those inside the /zyx directory.
+If you do not have enough experience on how bash scripts work for web development DO NOT attempt to edit those inside the /cgi-bin directory.
