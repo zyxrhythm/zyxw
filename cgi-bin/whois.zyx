@@ -22,10 +22,10 @@ echo "<!DOCTYPE html>
 <title>$WHOIS</title>"
 
 #converts all uppercase form the query string to lowercase
-qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
+qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}' | tr -d '\040\011\012\015');
 
 #butchers the qs string and gets the domain
-doi=$(echo $qs | cut -f2 -d"=" | tr -d '\040\011\012\015');
+doi=$(echo $qs | cut -f2 -d"=" );
 
 cat <<ENDOFHEAD
 <head>
