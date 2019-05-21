@@ -131,21 +131,14 @@ else
 #query whois about the domain and store the raw output to a variable
 zyx0=$(whois --verbose $domain 2>&1);
 
-witst0=$(test -h /usr/bin/whois && echo 'y' || echo 'n' );
-witst1=$(test -h /usr/bin/jwhois && echo 'y' || echo 'n' );
-
-if [[ "witst0" = "y" ]] && [[ "witst1" = "n" ]]; then
-zyx=$(echo "$zyx0" | sed  '1,2d' );
+witst=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+if [[ "$witst" = "y" ]];
+then
+zyxwf=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
-
-elif [[ "witst1" = "n" ]]; then
-zyx=$(echo "$zyx0" | sed  '1,2d' );
-trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
-trywis="${trywis0#*Querying}";
-
 else
-zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+zyxwf=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 fi;
 
