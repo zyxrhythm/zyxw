@@ -7,44 +7,133 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DIP=$(cat ../etc/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
-SSLC=$(cat ../etc/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
-WHOIS=$(cat ../etc/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
-DIGGER=$(cat ../etc/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
-
 #start the html header
 echo "Content-type: text/html"
 echo ""
 
 #stores the string from bbc.sh to a variable converts all uppercase to lowercase
-qs=$(echo "$QUERY_STRING" | gawk '{print tolower($0)}');
+qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
 
 #get the domain from qs
 domain=$(echo "$qs" | cut -f2 -d"=" );
 
 echo "<!DOCTYPE html>
 <html>
-<title>$SSLC</title>"
+<title>SSL Cert Checker</title>"
 
 
 cat <<EOHTMLHEAD
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />
 
-<meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
+<meta name="description" content="BigBlackCactus.com (BBC) is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-32625644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-32625644-1');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script src="/js/analyticsandads.js"></script>
-<script src="/js/allowedchars.js"></script>
-<script src="/js/gencopy.js"></script>
+<!-- from http://edupala.com/copy-div-content-clipboard -->
+<script>
+function copyClipboard() {
+  var elm = document.getElementById("divClipboard");
+  // for Internet Explorer
 
-<link rel="stylesheet" type="text/css" href="/css/sslinfo.css">
+  if(document.body.createTextRange) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(elm);
+    range.select();
+    document.execCommand("Copy");
+    alert("Copied div content to clipboard");
+  }
+  else if(window.getSelection) {
+    // other browsers
+
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+  }
+}
+</script>
+
+<!-- from http://edupala.com/copy-div-content-clipboard -->
+
+<!--from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpaces(string) {
+ return string.split(' ').join('');
+}
+</script>
+
+<!-- from https://www.mediacollege.com/internet/javascript/form/remove-spaces.html - removes nasty white spaces on the text fields that causes alot of issue-->
+
+<script>
+function removeSpecialCharacters(string) {
+ return string.replace(/[^A-Za-z0-9.-]/g, '');
+ }
+</script>
+
+<style>
+a {text-decoration: none; }
+a:link { color: red;  }
+a:active { color: red;  }
+a:hover { color: red;  }
+a:visited { color: red;  }
+div a:link { color: tomato;  font-size: 100%; }
+div a:active { color: tomato;  font-size: 100%; }
+div a:hover { color: tomato;  font-size: 100%; }
+div a:visited { color: tomato;  font-size: 100%; }
+strong {color: green;}
+p  { font-family: verdana; font-size: 90%; word-wrap: break-word;}
+h1 { font-family: verdana; font-size: 80%;}
+body { background-color:black; color:white;}
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+.tooltip {
+    display: inline-block;
+    text-indent:0em;
+}
+    
+.tooltip .tooltiptext {
+	color: white;
+	word-break:break-word;
+	font-size: 90%; 
+	font-family: calibri; 
+	text-align: center;
+    display: none;
+    width: calc(50% - 50px);
+    background: #000;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    display: block;
+}
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+#navlinkz { color:tomato; float:right;}
+</style>
 
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
@@ -67,7 +156,7 @@ if (x.style.display === 'none')
 else { x.style.display = 'none'; } } 
 </script>
 
-<p><a href="/cgi-bin/home.zyx" style='float:left'>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/bbc.sh" style='float:left'>[ &#127968;Home ]</a>
 
 <div id='navtable' style='display:none; float:right;' >
 
@@ -75,19 +164,19 @@ else { x.style.display = 'none'; } }
 <br><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/dip.zyx' >&#8625; $DIP &#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcx.sh?domain=' >&#8625;BBC Special&#127797;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/whois.zyx' >&#8625; $WHOIS &#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcws.sh?domain=' >&#8625;Who You&#128269;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/sslinfo.zyx' >&#8625; $SSLC &#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcdc.sh?domain=' >&#8625;SCC&#128195;&#8626;</a></td></tr>
 </tbody></table><br>
 
 <table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/digger.zyx' >&#8625; $DIGGER &#8626;</a></td></tr>
+<tr><td><a href='/cgi-bin/bbcd.sh?domain=&record=ANY&nameserver=' >&#8625;BND&#9935&#8626;</a></td></tr>
 </tbody></table><br>
 </div>
 
@@ -98,7 +187,7 @@ else { x.style.display = 'none'; } }
 <br><br>
 
 <div id='xtable' ><table> <tbody> <td>
-<form action="/cgi-bin/sslinfo.zyx" method="get">
+<form action="bbcdc.sh" method="get">
 <input placeholder="Domain / sub domain"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
 <button type="submit" >Go 2</button>
 </form>
@@ -159,7 +248,7 @@ Expiryx="$1"
 dlyear0="${Expiryx:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 #month alpha
-dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
+dlmonth=$( echo "${Expiryx:0:3}" | awk '{print tolower($0)}' );
 #month num
 case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
 esac;
@@ -186,7 +275,7 @@ cat <<EOTSE
 <body>
 <div id="divClipboard">
 <p><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying port 443 of the domain / sub domain's web server.</p>
+Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a> / sub domain.<br><br>S.C.C. (SSL Certificate Checker)<br><br><a href='https://www.openssl.org' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying port 443 of the domain / sub domain's web server.</p>
 </div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
@@ -330,7 +419,7 @@ leftvar="Daysleft";
 Daysleft="$Daysleft0";
 fi;
 
-if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued for a sub domain"; else certtype="No - Cert issued for the naked domain"; fi;
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
 
 if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
 
@@ -342,7 +431,7 @@ $certloc <br>
 <strong>Issued For</strong> : $Target<br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
-<strong>$leftvar</strong> : $Daysleft</p></div>
+<strong>$leftvar</strong> : $Daysleft <br><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p></div>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
