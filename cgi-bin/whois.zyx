@@ -151,12 +151,13 @@ EOWIIPR
 
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
 if [[ "$witst" = "y" ]]; then
-zyx0=$(whois -n $domain 2>&1);
+zyx0=$(whois -n $doi 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
+
 elif [[ "$witst" = "n" ]]; then
-zyx0=$(whois --verbose $domain 2>&1);
+zyx0=$(whois --verbose $doi 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
