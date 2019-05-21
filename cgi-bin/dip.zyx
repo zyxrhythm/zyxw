@@ -134,11 +134,11 @@ zyx0=$(whois --verbose $domain 2>&1);
 witst=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 if [[ "$witst" = "y" ]];
 then
-zyxwf=$(echo "$zyx0" | sed  '1,2d' );
+zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 else
-zyxwf=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 fi;
 
