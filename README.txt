@@ -15,7 +15,7 @@ How to deploy:
 
 Simply Download the zip from github (link to the repo is above). 
 Unzip it on your server's website root directory (like cPanel's "public_html"). 
-Make sure website root directory has the capability to execute bash scripts on the cgi-bin folder.
+Make sure webserver is able to to execute bash scripts on the cgi-bin folder.
 
 The scripts supports both whois and jwhois.
 The scripts are tried tested on Ubuntu 16.04.6 LTS (xenial) and CentOs 6.10.
