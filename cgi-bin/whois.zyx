@@ -248,7 +248,14 @@ zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><
 
 else 
 rarwis="$rarwis1"; 
+#######NEW WAVE LOL
+if [[ "$witst" = "y" ]]; then
 zyxregistrar=$( whois $doi --host=$rarwis | sed  '1,2d' );
+elif [[ "$witst" = "n" ]]; then 
+zyxregistrar=$( whois $doi -h $rarwis );
+else 
+echo "oh my -- how did you end up here?"; fi;
+#######
 fi;
 
 cat <<EOWIR0
