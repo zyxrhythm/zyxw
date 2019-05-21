@@ -148,8 +148,9 @@ cat << EOWIIPR
 EOWIIPR
 #else 2
 	else
-
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
+witst=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+
 if [[ "$witst" = "y" ]]; then
 zyx0=$(whois -n $doi 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
