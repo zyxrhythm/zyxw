@@ -248,7 +248,7 @@ zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><
 
 else 
 rarwis="$rarwis1"; 
-zyxregistrar=$(whois $doi -h $rarwis );
+zyxregistrar=$( whois $doi --host=$rarwis | sed  '1,2d' );
 fi;
 
 cat <<EOWIR0
@@ -271,7 +271,7 @@ cat <<EOWIR0
 	</div>
 </div>
 <div id="Registrar" class="tabcontent" >
-	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $rws
+	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $rarwis
 	</td> </tbody> </table><br>
 	<button onclick="copyClipboard0()">Copy Result</button><br>
 	<table> <tbody> <td>
