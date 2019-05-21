@@ -18,7 +18,7 @@ Unzip it on your server's website root directory (like cPanel's "public_html").
 Make sure website root directory has the capability to execute bash scripts on the cgi-bin folder.
 
 The scripts supports both whois and jwhois.
-The scripts are tested on Ubuntu Ubuntu 16.04.6 LTS (xenial) and CentOs 6.10.
+The scripts are tried tested on Ubuntu 16.04.6 LTS (xenial) and CentOs 6.10.
 -May also run well on Debian and Red-Hat based distro.
 
 ---------------------
