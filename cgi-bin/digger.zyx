@@ -192,7 +192,7 @@ else true;
 
 fi;
 
-zyxgd=$(dig +noall +answer $DNSR $domain $qns | sort -k4 );
+zyxgd=$(dig +notcp +noall +answer $DNSR $domain $qns | sort -k4 );
 
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
