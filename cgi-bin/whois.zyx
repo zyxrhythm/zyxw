@@ -166,7 +166,7 @@ echo "wow you ended down here?";
 fi;
 
 dvcheck=$(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
-dvcheck0=$(echo "${zyx0:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
+
 
 if [[ "$dvcheck" = "nowhois" ]]; then
 echo "
@@ -188,7 +188,7 @@ else true;
 fi;
 
 
-if [[ "$dvcheck0" = "patterns"  ]]; then
+if [[ "$dvcheck" = "patterns"  ]]; then
 echo "
 <body>
 <p><button onclick='copyClipboard1()'>Copy Result</button><br>
@@ -211,7 +211,7 @@ else true;
 fi;
 
 #if 3
-if [[ "$dvcheck0" = "%ianawh"  ]];then
+if [[ "$dvcheck" = "%ianawh"  ]];then
 echo "
 <body>
 <button onclick='copyClipboard1()'>Copy Result</button>
