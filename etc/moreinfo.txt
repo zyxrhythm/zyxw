@@ -13,11 +13,13 @@ Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
 -------------------------
 - SOME THINGS TO NOTE -
 -------------------------
-This site will always be Free.
-But this site is not eternal.
+The 'zip' to deploy the same kind of tools and website (can be customized if need ) on your server will always be Free.
+To download a zip  it click <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >here</a>.
 
 The 'whois and dig' info generated here are not cached.
 Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
+
+To review the codes and if you want to fork it you can check out on github<a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >here</a>.
 
 There is a limit on how much an IP address can query a particular whois server.
 This website might be " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
@@ -30,5 +32,5 @@ This website might be " associated to a '1 and only' server which is associated 
 
 ############################
 # For bugs and other concerns please email:
-# director@bigblackcactus.com
+# amaterasu@4353.ninja
 ############################
