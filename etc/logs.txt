@@ -12,7 +12,3 @@ Tested scripts on both Ubuntu (Xenial) and CentOs (6.10).
 The above are just notable updates made on the source codes,
 most of the minor updates are not included.
 ------------------------------------
-
-
-For bugs and other concerns please email:
-$CEMAIL
