@@ -583,9 +583,9 @@ xcount=$(( $xcount + 1 ));
 nssfa=$( echo ${xline#*:} | tr -d '\040\011\012\015' );
 arayko[$xcount]="$nssfa";
 linecheck=$( dig a +short "${arayko[$xcount]}" @8.8.8.8 );
-lcdc=$( dig a example.com @$linecheck | tr -d '\040\011\012\015' );
+lcdc=$( dig +short a example.com @${arayko[$xcount]} | tr -d '\040\011\012\015' );
 if [[ -z "$linecheck" ]] && [[ -z "${arayko[$(( $xcount - 1 ))]}" ]]; then xqns="8.8.8.8";
-elif [[ -z "$linecheck" ]] || [[ "${lcdc:0:6}" = ";;con" ]]; then xqns="${arayko[$(( $xcount - 1 ))]}"; 
+elif [[ -z "$linecheck" ]] || [[ "${lcdc:0:2}" = ";;" ]]; then xqns="${arayko[$(( $xcount - 1 ))]}"; 
 else xqns="${arayko[$xcount]}"; fi;
 done < <(printf '%s\n' "$xnsxx"); 
 
