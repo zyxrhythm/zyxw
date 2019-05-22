@@ -38,4 +38,6 @@ The css used on the pages are on the /css directory - feel free to theme the pag
 
 
 #PLEASE NOTE: 
-If you do not have enough experience on how bash scripts work for web development DO NOT attempt to edit those inside the /cgi-bin directory.
+Scripts inside the 'cgi-bin' folder are  bash scripts.
+Bash, though usable, is not intended for web development.
+Please be careful on editing the contents of the 'cgi-bin' folder.
