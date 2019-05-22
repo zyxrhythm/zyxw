@@ -45,23 +45,34 @@ cat <<EOT
 -------------------------------
 $SITEBANNER is a website you can utilize for the following: 
 
->> Using the whois tool do a 'whois lookup' for a domain name or I.P. Address. 
+>> Do a 'whois lookup' for a domain name or I.P. Address. 
 -For domain names the whois result are directly from whois server/s set on the whois config file of the server in which the website is deployed.  
 -And for IP addresses, the scripts will query the whois server/s of A.R.I.N.(for I.P. addresses).
 
-Link for the whois tool here: <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
+Link for the whois look up tool here: <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
 
->> Using the dig tool do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from one of Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. And Reverse an I.P. address to its domain/host name (PTR).
+>> Do a 'dig' of D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from one of Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. And Reverse an I.P. address to its domain/host name (PTR).
 
 Link for the dig tool here: <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
 
->> And using th SSL certificate checker tool, provide info about the S.S.L. certificate issued for a domain name/sub domain.
+>> Check info about the S.S.L. certificate issued for a domain /sub domain.
 
 Link for the ssl checker tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
->> The developer have been working with domains names for quite some time, and based on what he had experience there are only a few vital things about the raw whois result and the raw result from dig that allow one to troubleshoot most of the common issues about domain names (usually about the website and the email service). And so he made it easier to check on this vital deatails by creating a script that will filter out and show only the vital stuffs from the raw result.
+>>>>> Sometimes knowing infomation like:
 
-Link for this tool here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+- 'whois is the registrar' 
+- 'is a domain from a reseller' 
+- 'what are the relevant dates under the domain name (expiration dates from the registry and the registrar and creation date)'
+- 'what are the authoritative name servers under the domain'
+- 'are the authoritative name server under thd domain up'
+- 'what aMX and A records can be DIG`ged from authoritative name servers of a domain'
+- 'is the regsitrant info available for the public'
+- 'whois responsible for the the IP addresses from obtained from dig`ging around'
+
+will allow one to troubleshoot most of the common issues about domain names (usually about the domain itself and the website and the email service under it). A script to probe and gather this information has been made as a tool on this website. 
+
+Link for this domain information probe tool here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 -------------------------------
 </pre>
 <pre>
