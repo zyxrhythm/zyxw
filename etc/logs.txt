@@ -1,0 +1,18 @@
+-----------------------
+
+5-20-19:
+4353.info branch installed on Red Hat Based Linux Distro (CentOs 6.10) for test run
+
+5-22-19:
+Scripts can work with jwhois.
+Fixed reported issue about .ph domains - added whois server for .ph domains on jwhois conf file.
+Tested scripts on both Ubuntu (Xenial) and CentOs (6.10).
+
+------------------------------------
+The above are just notable updates made on the source codes,
+most of the minor updates are not included.
+------------------------------------
+
+
+For bugs and other concerns please email:
+$CEMAIL
