@@ -1,0 +1,34 @@
+-------------------------
+HELP SECTION
+-------------------------------
+Q: What to do if you are having issues with the copy buttons and its results on Microsoft's Edge and Internet Explorer? 
+
+A: try Using the following browsers:
+Mozilla's  <a href='https://www.mozilla.org/en-US/firefox' target='_blank' >Firefox</a>
+Google's <a href='https://www.google.com/chrome/' target='_blank'>Chrome</a>
+Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
+-------------------------------
+
+
+-------------------------
+- SOME THINGS TO NOTE -
+-------------------------
+This site will always be Free.
+But this site is not eternal.
+
+The 'whois and dig' info generated here are not cached.
+Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
+
+There is a limit on how much an IP address can query a particular whois server.
+This website might be " associated to a '1 and only' server which is associated to a '1 and only IP address' ".
+-------------------------
+
+
+###########
+# CONTACT #
+###########
+
+############################
+# For bugs and other concerns please email:
+# director@bigblackcactus.com
+############################
