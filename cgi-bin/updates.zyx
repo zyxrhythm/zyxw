@@ -8,6 +8,7 @@
 #############################################
 
 SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+LOGS=$(cat ../etc/logs.txt);
 
 echo "Content-type: text/html"
 echo ""
@@ -37,36 +38,19 @@ cat <<EOT
 <body>
 <left>
 <br>
-<p>
+<p><pre><center>[ History ]</center></pre></p>
 <pre>
-<center>[ History ]</center>
-
------------------------
-
-Monday, 20 May 2019 (GMT+8) 11:44 pm 
-- 4353.info branch installed on Red Hat Based Linux Distro (CentOs 6.10) for test run
-
-------------------------------------
-The above are just notable updates made on the source codes,
-most of the minor updates are not included.
-------------------------------------
-
-
-For bugs and other concerns please email:
-director@bigblackcactus.com
-
-
+$LOGS
+</pre>
+<pre>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-
+<br>
 <center>
 -----------------------
 ##### ZYXRhythm ######
 -----------------------
 </center>
 </pre>
-<br>
-</p>
-
 </left>
 </body>
 
