@@ -9,7 +9,7 @@
 
 SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 DDOMAINNAME=$(cat ../etc/site.vars | gawk '/<-DDOMAINNAME/{flag=1;next}/DDOMAINNAME->/{flag=0}flag');
-ABOUT=$(cat ../etc/about.txt );
+MOREINFO=$(cat ../etc/moreinfo.txt );
 
 echo "Content-type: text/html"
 echo ""
@@ -65,7 +65,7 @@ Link for this tool here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='
 -------------------------------
 </pre>
 <pre>
-$ABOUT
+$MOREINFO
 </pre>
 <br>
 </p>
