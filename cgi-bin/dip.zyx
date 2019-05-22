@@ -599,9 +599,9 @@ nscheck=$( nscheckfunc "$nsxx" | gawk '!seen[$0]++' | tr -d '\040\011\012\015' )
 if [[ "$nscheck" = "y" ]]; then 
 ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
 #func processed A and MX records
-arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 2>&1 )" );
+arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 arecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following are from 8.8.8.8:<br>$arfrgt</span>";
-mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n 2>&1 )" );
+mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 mxrecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following are from 8.8.8.8:<br>$mrfrgt</span>";
 echo "
 $ns0frgt <br>
@@ -615,9 +615,9 @@ __________________________
 elif [[ "$nscheck" = "yx" ]]; then 
 ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
 #func processed A and MX records
-arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 2>&1 )" );
+arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 arecho="<span id='fiftyshades' >Critical issue found on 1 or more authoritative name server. <br>Queried 8.8.8.8 instead.<br>$arfrgt</span>";
-mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n 2>&1 )" );
+mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 mxrecho="<span id='fiftyshades' >Critical issue found on 1 or more authoritative name server. <br>Queried 8.8.8.8 instead.<br>$mrfrgt</span>";
 echo "
 $ns0frgt 
