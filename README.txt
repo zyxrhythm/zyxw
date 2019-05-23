@@ -26,11 +26,11 @@ Customizations and Preferences:
 
 - The css used on the pages are on the /css/ directory - feel free to theme the pages as you see fit.
 
-- For google analytics of your own and google ads (if you manage to get your site approved) you can put the snippet from google on /etc/analyticsandads.js 
+- For google analytics of your own and google ads (if you manage to get your site approved) you can put the snippet from google on /zyx/analyticsandads.js 
 
-- Extra info on the About page can be edited on /etc/moreinfo.txt
+- Extra info on the About page can be edited on /zyx/moreinfo.txt
 
-- Logs on the the Logs page can be modified on /etc/logs.txt
+- Logs on the the Logs page can be modified on /zyx/logs.txt
 
 ---------------------
 
