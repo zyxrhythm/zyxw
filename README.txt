@@ -20,18 +20,18 @@ How to deploy:
 
 Customizations:
 
-Edit the /zyx/site.vars to change browser tab titles, messages and other 'texts' on the webpages.
+Edit the /zyx/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
 
 Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
 
-The css used on the pages are on the /css directory - feel free to theme the pages as you see fit.
+The css used on the pages are on the /css/ directory - feel free to theme the pages as you see fit.
 
 ---------------------
 
 #PLEASE NOTE: 
 Scripts inside the 'cgi-bin' folder are  bash scripts.
-Bash, though usable, is not intended for web development.
-Please be careful on editing the contents of the 'cgi-bin' folder.
+Bash, though usable, is not intended for web development, so this site is a bit deviant from the norm.
+So, please be careful on editing the contents of the 'cgi-bin' folder.
 
 -The scripts supports both whois and jwhois.
 -The scripts are tried tested on a Ubuntu 16.04.6 LTS (a Debian based distro).
