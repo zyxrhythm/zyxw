@@ -28,6 +28,10 @@ Customizations and Preferences:
 
 - For google analytics of your own and google ads (if you manage to get your site approved) you can put the snippet from google on /etc/analyticsandads.js 
 
+- Extra info on the About page can be edited on /etc/moreinfo.txt
+
+- Logs on the the Logs page can be modified on /etc/logs.txt
+
 ---------------------
 
 #PLEASE NOTE: 
