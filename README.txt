@@ -25,10 +25,6 @@ Simply Download the zip from github (link to the repo is above).
 Unzip it on your server's website root directory (like cPanel's "public_html"). 
 Make sure webserver is able to to execute bash scripts on the cgi-bin folder.
 
-The scripts supports both whois and jwhois.
-The scripts are tried tested on Ubuntu 16.04.6 LTS (xenial) and CentOs 6.10.
--May also run well on Debian and Red-Hat based distro.
-
 ---------------------
 
 Cusomizations:
@@ -45,3 +41,8 @@ The css used on the pages are on the /css directory - feel free to theme the pag
 Scripts inside the 'cgi-bin' folder are  bash scripts.
 Bash, though usable, is not intended for web development.
 Please be careful on editing the contents of the 'cgi-bin' folder.
+
+-The scripts supports both whois and jwhois.
+-The scripts are tried tested on a Ubuntu 16.04.6 LTS (a Debian based distro).
+-Though the scripts are tested on CentOs 6.10. (a Red Hat based distro), testing is still on a juvinile stage.
+-May also run well on other Debian and Red-Hat based distro.
