@@ -18,13 +18,15 @@ How to deploy:
 
 ---------------------
 
-Customizations:
+Customizations and Preferences:
 
-Edit the /zyx/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
+- Edit the /zyx/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
 
-Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
+- Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
 
-The css used on the pages are on the /css/ directory - feel free to theme the pages as you see fit.
+- The css used on the pages are on the /css/ directory - feel free to theme the pages as you see fit.
+
+- For google analytics of your own and google ads (if you manage to get your site approved) you can put the snippet from google on /etc/analyticsandads.js 
 
 ---------------------
 
