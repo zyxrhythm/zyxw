@@ -40,13 +40,17 @@ So, please be careful on editing the contents of the 'cgi-bin' folder.
 -Though the scripts are tested on CentOs 6.10. (a Red Hat based distro), testing is still on a juvinile stage.
 -May also run well on other Debian and Red-Hat based distro.
 
+---------------------
 
 
 
 
 
 
-Ninja of port 43 and 53.
+
+
+
+Information Ninja of Port 43 and 53.
 
 MIT License
 Copyright (c) 2018 Zyx Rhythm
