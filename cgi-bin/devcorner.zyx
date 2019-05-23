@@ -57,12 +57,6 @@ cat <<EOT
 -The usual HTML and CSS for its simple looks.
 -------------------------------
 
-
-
--------------------------------
-* Extra Info for the Geeks *
--------------------------------
-
 -------------------------------
 :~# lsb_release -a
 $lsbrelease
