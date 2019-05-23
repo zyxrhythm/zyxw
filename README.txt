@@ -16,7 +16,7 @@ Before you deploy this on your server, make sure:
 2. Make sure Bash 4.x is installed on your host and 'cgi-bin' can execute Bash scripts. 
 3. The following commands are available on the host and the scripts are permitted to utilize them:
 whois (the scripts can also work with jwhois), dig, nslookup, openssl, nmap, gawk sed, grep, echo, cat, cut, tr, rev, bc, column, host
-4. The conf file of whois / jwhois is up to date. (The conf file will dictate what TLDs will be supported so make sure it is up to date)
+4. The conf file of whois / jwhois is up to date. (The conf file will dictate what TLDs will be supported so make sure it is up to date -- Updated conf files are available on /etc/conf/ directory)
 
 ---------------------
 
