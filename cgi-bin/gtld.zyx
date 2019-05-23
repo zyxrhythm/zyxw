@@ -7,8 +7,8 @@
 #https://github.com/zyxrhythm
 #############################################
 
-gtldlist=$( cat ./etc/gtldx.txt);
-SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+gtldlist=$( cat ./zyx/gtldx.txt);
+SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
 echo "Content-type: text/html"
 echo ""
