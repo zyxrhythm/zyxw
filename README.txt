@@ -41,7 +41,7 @@ So, please be careful on editing the contents of the 'cgi-bin' folder.
 
 -The scripts supports both whois and jwhois.
 -The scripts are tried tested on a Ubuntu 16.04.6 LTS (a Debian based distro).
--Though the scripts are tested on CentOs 6.10. (a Red Hat based distro), testing is still on a juvinile stage.
+-Though the scripts are tested on CentOs 6.10 (a Red Hat based distro), tests done on this are still on a juvinile phase.
 -May also run well on other Debian and Red-Hat based distro.
 
 ---------------------
