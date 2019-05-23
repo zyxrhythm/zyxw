@@ -7,7 +7,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../etc/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
 lsbrelease=$(lsb_release -a);
 bashv=$(bash --version );
