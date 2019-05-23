@@ -18,7 +18,7 @@ Make sure webserver is able to to execute bash scripts on the cgi-bin folder.
 
 ---------------------
 
-Cusomizations:
+Customizations:
 
 Edit the /zyx/site.vars to change browser tab titles, messages and other 'texts' on the webpages.
 
