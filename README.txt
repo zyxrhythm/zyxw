@@ -1,13 +1,3 @@
-Ninja of port 43 and 53.
-
-MIT License
-Copyright (c) 2018 Zyx Rhythm
-
-
-This is from:
-https://github.com/zyxrhythm/bbclive/tree/4353.info
-
-
 ---------------------
 
 Before you deploy this on your server, make sure: 
@@ -47,3 +37,18 @@ Please be careful on editing the contents of the 'cgi-bin' folder.
 -The scripts are tried tested on a Ubuntu 16.04.6 LTS (a Debian based distro).
 -Though the scripts are tested on CentOs 6.10. (a Red Hat based distro), testing is still on a juvinile stage.
 -May also run well on other Debian and Red-Hat based distro.
+
+
+
+
+
+
+
+Ninja of port 43 and 53.
+
+MIT License
+Copyright (c) 2018 Zyx Rhythm
+
+
+This is from:
+https://github.com/zyxrhythm/bbclive/tree/4353.info
