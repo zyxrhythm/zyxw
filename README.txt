@@ -30,7 +30,7 @@ Before you deploy this on your server, make sure:
 -bc 
 -column 
 -host
-4. The conf file of whois / jwhois is up to date. (The conf file will dictate what TLD will be supported so make sure it is up to date)
+4. The conf file of whois / jwhois is up to date. (The conf file will dictate what TLDs will be supported so make sure it is up to date)
 
 ---------------------
 
