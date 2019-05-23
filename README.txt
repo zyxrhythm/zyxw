@@ -12,8 +12,9 @@ whois (the scripts can also work with jwhois), dig, nslookup, openssl, nmap, gaw
 
 How to deploy:
 
-Simply Download the zip from github (link to the repo is https://github.com/zyxrhythm/bbclive/tree/4353.info )
-Unzip it on your server's website root directory (like cPanel's "public_html"). 
+1. Simply Download the zip from github (link to the repo is https://github.com/zyxrhythm/bbclive/tree/4353.info ).
+2. Unzip it on your server's website root directory (like cPanel's "public_html"). 
+3. Edit the index.html file and change the domain on the url to your domain name. 
 
 ---------------------
 
