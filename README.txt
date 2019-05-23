@@ -12,9 +12,8 @@ whois (the scripts can also work with jwhois), dig, nslookup, openssl, nmap, gaw
 
 How to deploy:
 
-Simply Download the zip from github (link to the repo is above). 
+Simply Download the zip from github (link to the repo is https://github.com/zyxrhythm/bbclive/tree/4353.info )
 Unzip it on your server's website root directory (like cPanel's "public_html"). 
-Make sure webserver is able to to execute bash scripts on the cgi-bin folder.
 
 ---------------------
 
@@ -48,7 +47,3 @@ Ninja of port 43 and 53.
 
 MIT License
 Copyright (c) 2018 Zyx Rhythm
-
-
-This is from:
-https://github.com/zyxrhythm/bbclive/tree/4353.info
