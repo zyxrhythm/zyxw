@@ -447,12 +447,14 @@ then reese="None";
 else reese="$reseller"; fi;
 #REESE
 
+TLDLIST_Z=$(cat ../zyx/svartld-z.txt | tr -d '\040\011\012\015');
 #list of supported TLDs
 shopt -s extglob
-tldlist0='+($(cat ../zyx/svartld-z.txt))'
+tldlist0="+($TLDLIST_Z)"
 
+TLDLIST_Y=$(cat ../zyx/svartld-y.txt | tr -d '\040\011\012\015');
 #list of supported ccTLDs
-tldlist1='+($(cat ../zyx/svartld-y.txt))'
+tldlist1="+($TLDLIST_Y)"
 
 #checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
