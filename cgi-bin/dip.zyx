@@ -13,6 +13,7 @@
 
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+CEMAIL=$(cat ../zyx/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
@@ -461,6 +462,13 @@ tldlistx="+($TLDLISTX)"
 
 #checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
+
+   $tldlistx)
+echo "<body>
+<div id='divClipboard'><pre>This TLD is added to unsupported TLD list.<br><br><br>To know more why it was excluded to the supported you can contact the webmaster at $CEMAIL</pre><p></div>";
+"
+;;
+
    $tldlistg)
 
 ############
@@ -757,7 +765,7 @@ mrfrct=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
 #start of html body
 echo "<body><br>
-<h1>ccTLD does not have any configured custom result, falling back to raw whois result </h1><br>
+<h1>TLD does not have any configured custom result, falling back to raw whois result </h1><br>
 <div id='divClipboard'><pre>$zyx</pre><p>
 __________________________<br><br>
 $arfrct <br>
