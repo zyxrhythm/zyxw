@@ -57,6 +57,11 @@ cat <<EOT
 -The usual HTML and CSS for its simple looks.
 -------------------------------
 
+
+-------------------------
+To review the codes, or want to fork it and improve it, or help with its development you can check it out on github <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >here</a>.
+-------------------------
+
 -------------------------------
 :~# lsb_release -a
 $lsbrelease
