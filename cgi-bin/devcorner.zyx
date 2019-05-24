@@ -64,7 +64,7 @@ To review the codes, or want to fork and improve it, or help with its developmen
 
 
 -------------------------------
-- SERVER INFO
+- SERVER and SOFTWARE INFO -
 -------------------------------
 :~# lsb_release -a
 $lsbrelease
