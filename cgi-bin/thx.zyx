@@ -7,7 +7,8 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SITEBANNER=$( cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SALAMAT=$( cat ../zyx/salamat.txt );
 
 echo "Content-type: text/html"
 echo ""
@@ -38,28 +39,8 @@ cat <<EOT
 <left>
 <br><br>
 <p><pre>
-Special Thanks to:
--Director Paul
--Julian
--Mark Anthony
--Mary Genevive
--Pamela
--Clark Angelo
--Jeanne
--Raymundo
--Aries
--Walter King
--Christina
--Raymond
--Glenda Mae
--Cherry May
--Riza Ann
--Anthony
--Jester
--Jessielito
--Michael
-For testing/feedbacks/suggestions/bug reports.
-
+Special Thanks to: <br>
+$SALAMAT
 </pre></p>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </left>
