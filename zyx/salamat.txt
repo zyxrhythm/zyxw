@@ -1,4 +1,4 @@
--Director Paul
+-Paul
 -Julian
 -Mark Anthony
 -Mary Genevive
@@ -17,4 +17,5 @@
 -Jester
 -Jessielito
 -Michael
+-Cedric
 For testing/feedbacks/suggestions/bug reports.
