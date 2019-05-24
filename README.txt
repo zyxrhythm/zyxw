@@ -36,7 +36,7 @@ Customizations and Preferences:
 
 #PLEASE NOTE: 
 Scripts inside the 'cgi-bin' folder are  bash scripts.
-Bash, though usable, is not intended for web development, so this site is a bit deviant from the norm.
+Bash, though usable, is not intended for web development, so this site is a bit deviant.
 So, please be careful on editing the contents of the 'cgi-bin' folder.
 
 -The scripts supports both whois and jwhois.
