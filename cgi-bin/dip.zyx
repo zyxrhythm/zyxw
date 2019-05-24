@@ -448,25 +448,27 @@ then reese="None";
 else reese="$reseller"; fi;
 #REESE
 
+TLDLISTX=$(cat ../zyx/tldlistx.txt | tr -d '\040\011\012\015');
 TLDLISTG=$(cat ../zyx/tldlistg.txt | tr -d '\040\011\012\015');
+TLDLIST0=$(cat ../zyx/tldlist0.txt | tr -d '\040\011\012\015');
+
+tldlistx="+($TLDLISTX)"
+
 #list of supported TLDs
 shopt -s extglob
 tldlistg="+($TLDLISTG)"
 
-TLDLIST0=$(cat ../zyx/tldlist0.txt | tr -d '\040\011\012\015');
 #list of supported ccTLDs
 tldlist0="+($TLDLIST0)"
 
-TLDLISTX=$(cat ../zyx/tldlistx.txt | tr -d '\040\011\012\015');
-tldlistx="+($TLDLISTX)"
 
 #checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
 case $tld in
 
    $tldlistx)
 echo "<body>
-<div id='divClipboard'><pre>This TLD is added to unsupported TLD list.<br><br><br>To know more why it was excluded to the supported you can contact the webmaster at $CEMAIL</pre><p></div>";
-"
+<div id='divClipboard'><pre>This TLD is added to unsupported TLD list.<br><br><br>To know more why it was excluded to the supported you can contact the webmaster at $CEMAIL</pre><p></div>"
+
 ;;
 
    $tldlistg)
