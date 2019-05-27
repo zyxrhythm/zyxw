@@ -19,10 +19,7 @@ else
 whoisconf="jwhois and whois not found on the server.";
 fi;
 
-
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-
-if [[ "$witst" = "y" ]]; then
 
 echo "Content-type: text/html"
 echo ""
