@@ -20,6 +20,7 @@ whoisconf="jwhois and whois not found on the server.";
 fi;
 
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
@@ -38,8 +39,8 @@ cat <<EOT
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="/js/ganalytics.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/general.css">
+$GANALYTICS
 
 <center>
 <p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
