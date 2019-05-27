@@ -12,6 +12,7 @@ DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
 #start the html header
 echo "Content-type: text/html"
@@ -37,12 +38,13 @@ cat <<EOHTMLHEAD
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" type="text/css" href="/css/sslinfo.css">
+$GANALYTICS
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-<script src="/js/ganalytics.js"></script>
 <script src="/js/allowedchars.js"></script>
 <script src="/js/gencopy.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/css/sslinfo.css">
+
 
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
