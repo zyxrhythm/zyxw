@@ -6,9 +6,23 @@
 #################################################
 #https://github.com/zyxrhythm
 #############################################
+witest0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+witest1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
-whoisconf=$( cat /zyx/whois.conf );
+if [[ "$witest1" = "y" ]]; then
+wivar="jwhois";
+whoisconf=$( cat /etc/$wivar.conf );
+elif [[ "$witest0" = "n" ]] && [[ "$witest1" = "y" ]]; then
+wivar="whois";
+whoisconf=$( cat /etc/$wivar.conf );
+else
+whoisconf="jwhois and whois not found on the server.";
+fi;
+
+
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+
+if [[ "$witst" = "y" ]]; then
 
 echo "Content-type: text/html"
 echo ""
