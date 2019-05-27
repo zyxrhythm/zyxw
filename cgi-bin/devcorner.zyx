@@ -35,7 +35,7 @@ cat <<EOT
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="/js/analyticsandads.js"></script>
+<script src="/js/ganalytics.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/general.css">
 
 <center>
