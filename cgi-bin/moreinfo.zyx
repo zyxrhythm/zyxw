@@ -70,7 +70,7 @@ Link for the ssl checker tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinf
 - 'is the regsitrant info available for the public'
 - 'whois responsible for the the IP addresses from obtained from dig`ging around'
 
-will allow one to troubleshoot most of the common issues about domain names (usually about the domain itself and the website and the email service under it). A script to probe and gather this information has been made as a tool on this website. 
+will allow one to troubleshoot most of the common issues about domain names (usual issues about the domain itself, the website and the email service under it). A probing script been made for this website in which will gather the above information. 
 
 Link for this domain information probe tool here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 -------------------------------
