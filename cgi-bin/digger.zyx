@@ -40,7 +40,7 @@ cat <<ENDOFHTMLHEAD
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 
-<script src="/js/analyticsandads.js"></script>
+<script src="/js/ganalytics.js"></script>
 <script src="/js/allowedchars.js"></script>
 <script src="/js/gencopy.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/digger.css">
