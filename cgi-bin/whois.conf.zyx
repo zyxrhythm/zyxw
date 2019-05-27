@@ -9,7 +9,7 @@
 witest0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 witest1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
-if [[ "$witest1" = "y" ]]; then
+if [[ "$witest0" = "y" ]]; then
 wivar="jwhois";
 whoisconf=$( cat /etc/$wivar.conf );
 elif [[ "$witest0" = "n" ]] && [[ "$witest1" = "y" ]]; then
