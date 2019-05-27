@@ -9,6 +9,7 @@
 
 SITEBANNER=$( cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 SALAMAT=$( cat ../zyx/salamat.txt );
+GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
@@ -26,7 +27,7 @@ cat <<EOT
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="/js/ganalytics.js"></script>
+$GANALYTICS
 <link rel="stylesheet" type="text/css" href="/css/general.css">
 
 <center>
