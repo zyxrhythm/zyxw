@@ -121,22 +121,27 @@ else
 
 
 #query whois about the domain and store the raw output to a variable
-witst=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
-if [[ "$witst" = "y" ]]; then
+if [[ "$witst0" = "y" ]]; then
 zyx0=$(whois -n $domain 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
-elif [[ "$witst" = "n" ]]; then
+elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
 zyx0=$(whois --verbose $domain 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else
 #wow you ended down here?
-zyx0=$(whois --verbose $domain 2>&1);
-zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
+echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
 fi;
 
 nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
