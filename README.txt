@@ -32,6 +32,8 @@ Customizations and Preferences:
 
 - Logs on the the Logs page can be modified on /zyx/logs.txt
 
+- To access the website via https you can modify the "HTML meta tag" method redirection on index.html accordingly.
+
 ---------------------
 
 #PLEASE NOTE: 
