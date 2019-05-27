@@ -59,7 +59,7 @@ Link for the dig tool here: <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' ta
 
 Link for the ssl checker tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
-<strong>4.)</strong> Sometimes knowing infomation like:
+<strong>4.)</strong> Sometimes knowing some infomation like:
 
 - 'whois is the registrar' 
 - 'is a domain from a reseller' 
