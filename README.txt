@@ -56,7 +56,7 @@ So, please be careful on editing the contents of the 'cgi-bin' folder.
 
 
 
-Information Ninja of Port 43 and 53.
+Ninja of port 43 and 53 information .
 
 MIT License
 Copyright (c) 2018 Zyx Rhythm
