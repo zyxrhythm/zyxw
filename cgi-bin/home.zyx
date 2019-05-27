@@ -23,6 +23,7 @@ DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}f
 ROT13=$(cat ../zyx/site.vars | gawk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0}flag' | tr '[A-Za-z]' '[N-ZA-Mn-za-m]' );
 FOOTER_MESSAGE1=$(cat ../zyx/site.vars | gawk '/<-FOOTER_MESSAGE1/{flag=1;next}/FOOTER_MESSAGE1->/{flag=0}flag');
 FOOTER_MESSAGE2=$(cat ../zyx/site.vars | gawk '/<-FOOTER_MESSAGE2/{flag=1;next}/FOOTER_MESSAGE2->/{flag=0}flag');
+GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
@@ -37,11 +38,9 @@ cat <<EOBBCSH
 <meta name="author" content="Zyx Rhythm">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" type="text/css" href="/css/home.css">
-<script src="/js/ganalytics.js"></script>
+$GANALYTICS
 <script src="/js/allowedchars.js"></script>
-
 </head>
 <body>
 <center>
