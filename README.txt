@@ -26,7 +26,7 @@ Customizations and Preferences:
 
 - The css used on the pages are on the /css/ directory - feel free to theme the pages as you see fit.
 
-- For google analytics of your own and google ads (if you manage to get your site approved) you can put the snippet from google on /zyx/analyticsandads.js 
+- For google analytics you can put the snippet from google on /zyx/ganalytics.txt 
 
 - Extra info on the About page can be edited on /zyx/moreinfo.txt
 
