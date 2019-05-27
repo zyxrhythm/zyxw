@@ -46,7 +46,7 @@ cat <<EOT
 $SITEBANNER is a website you can utilize for the following: 
 
 <strong>1.)</strong> Do a 'whois lookup' for a domain name or I.P. Address. 
--For domain names, the whois result (Registry Result) are directly from the whois server/s set on the whois/jwhois conf file of the server in which the the site is deployed; and the Registrar Result is from the whois server obtained from the Registry Result.  
+-For domain names, the whois result (Registry tab result) is directly from the whois server/s set on the whois/jwhois conf file of the server in which the the site is deployed; and the Registrar Result is from the whois server obtained from the Registry Result.  
 -And for IP addresses, the scripts will query the whois server/s of A.R.I.N..
 
 Link for the whois look up tool here: <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
