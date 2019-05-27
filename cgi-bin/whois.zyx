@@ -36,7 +36,7 @@ cat <<ENDOFHEAD
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-<script src="/js/analyticsandads.js"></script>
+<script src="/js/ganalytics.js"></script>
 <script src="/js/allowedchars.js"></script>
 <script src="/js/whois.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/whois.css">
