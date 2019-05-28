@@ -8,11 +8,11 @@
 #############################################
 
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-NAVMENUPART=$(cat ../zyx/srb/navmenu.part);
 DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+NAVMENUPART=$(cat ../zyx/srb/navmenu.part);
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
@@ -45,8 +45,9 @@ $GANALYTICS
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 <script src="/js/allowedchars.js"></script>
 <script src="/js/gencopy.js"></script>
+EOHTMLHEAD
 
-$NAVMENUPART
+echo "$NAVMENUPART
 
 <div id='xtable' ><table> <tbody> <td>
 <form action="/cgi-bin/sslinfo.zyx" method="get">
@@ -61,7 +62,7 @@ $NAVMENUPART
 
 <hr>
 </head>
-EOHTMLHEAD
+";
 
 TLDLISTX=$(cat ../zyx/tldlistx.txt | tr -d '\040\011\012\015');
 TLDLISTG=$(cat ../zyx/tldlistg.txt | tr -d '\040\011\012\015');
