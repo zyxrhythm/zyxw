@@ -1,4 +1,20 @@
-<script> 
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#You can download, copy and use it as you see fit.
+#If ever you need to post or show the code to people
+#Though you are not required to, crediting the the author will be much appreciated.
+################################################
+#https://github.com/zyxrhythm
+#############################################
+
+
+function () {
+DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
+SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
+WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
+DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
+
+echo "<script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
 { x.style.display = 'inline'; } 
@@ -36,4 +52,7 @@ else { x.style.display = 'none'; } }
 <div id='navmenu' >
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
 </div>
-<br><br>
+<br><br>";
+
+
+}
