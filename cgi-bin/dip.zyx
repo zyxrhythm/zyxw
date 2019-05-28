@@ -24,11 +24,11 @@ witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
 if [[ "$witst0" = "y" ]]; then
-zyxwhois="whois -n"
-zyxwhoish="whois --host="
+zyxwhois="whois -n";
+zyxwhoish="whois --host=";
 elif [[ "$witst1" = "y" ]] && [[ "$witst0" = "n" ]]; then 
-zyxwhois="whois --verbose"
-zyxwhoish="whois -h "
+zyxwhois="whois --verbose";
+zyxwhoish="whois -h ";
 else
 echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
@@ -452,7 +452,7 @@ whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u )
 if [[ -z "$whoisservergrep" ]]; then true;
 else
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-zyx2=$( "$zyxwhoish"$whoisserver $domain 2>&1 );
+zyx2=$("$zyxwhoish""$whoisserver" "$domain" 2>&1 );
 fi;
 
 #REESE
