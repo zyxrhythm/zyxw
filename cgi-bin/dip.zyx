@@ -30,7 +30,13 @@ elif [[ "$witst1" = "y" ]] && [[ "$witst0" = "n" ]]; then
 zyxwhois="whois --verbose"
 zyxwhoish="whois -h"
 else
-
+echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
 echo 
 fi;
 
@@ -138,12 +144,12 @@ exit 0;
 else
 #whois or jwhois
 if [[ "$witst0" = "y" ]]; then
-zyx0=$(whois -n $domain 2>&1);
+zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$(whois --verbose $domain 2>&1);
+zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else
@@ -238,7 +244,7 @@ if (( $(grep -c . <<<"$nsr2") > 1)); then
 echo '<br>'
 while IFS= read -r line
 do
-   nsa0=$(whois $line );
+   nsa0=$($zyxwhois $line );
    nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
@@ -247,7 +253,7 @@ done < <(printf '%s\n' "$nsr2");
 
 else
    echo "<br>"
-   nsa20=$(whois "$nsr2" );
+   nsa20=$($zyxwhois "$nsr2" );
    nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
@@ -307,7 +313,7 @@ else
 
 while IFS= read -r line
 do
-   ar0=$(whois $line );
+   ar0=$($zyxwhois $line );
    ar1=$( echo "$ar0" | grep -i -e 'orgname' );
    if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
@@ -352,7 +358,7 @@ echo '<br>'
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 while IFS= read -r line
 do
-   mxa0=$(whois $line );
+   mxa0=$($zyxwhois $line );
    mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
@@ -362,7 +368,7 @@ done < <(printf '%s\n' "$mxr2");
 
 else
 
-   mxa20=$(whois "$mxr2" );
+   mxa20=$($zyxwhois "$mxr2" );
    mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
    if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
@@ -439,14 +445,14 @@ else
 #once the domain is validated the TLD is extracted
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
-if [[ $tld = "shop" ]]; then zyx=$(whois -h whois.nic.shop $domain 2>&1 ); else true; fi;
+if [[ $tld = "shop" ]]; then zyx=$($zyxwhoish whois.nic.shop $domain 2>&1 ); else true; fi;
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 if [[ -z "$whoisservergrep" ]]; then true;
 else
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-zyx2=$( whois "$domain" -h "$whoisserver" 2>&1 );
+zyx2=$( $zyxwhoish "$whoisserver" $domain 2>&1 );
 fi;
 
 #REESE
@@ -681,7 +687,7 @@ fi;
 
 edu)
 
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 arfredu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
@@ -709,7 +715,7 @@ exit 0;
 
 gov)
 
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 arfrgov=$( arfunction "$ar" );
 mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
@@ -768,7 +774,7 @@ exit 0;
 
 $tldlist0)
 
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 
 #dig A and MX with minimal essential output from Google DNS servers
 arfrct=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
@@ -790,7 +796,7 @@ __________________________</p></div>";
 au)
 
 #stores the whois info from auda in a variable.
-zyx=$(whois $domain );
+zyx=$($zyxwhois $domain );
 
 #dig A and MX with minimal essential output
 arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
@@ -861,7 +867,7 @@ EODNARCTAU
 nz)
 
 # query whois about the domain and store the raw output to a variable
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 
 #dig A and MX with minimal essential output
 arfrctnz=$( arfunction "$(dig +short $domain @8.8.8.8 )");
@@ -915,7 +921,7 @@ EODNARCTNZ
 
 #special whois result trim for UK TLDs
 uk)
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 zyxuk0=$(echo "$zyx" | gawk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
 #dig A and MX with minimal essential output
 arfrctuk=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
@@ -935,7 +941,7 @@ __________________________<br></p></div>
 
 #special whois result trim for EU TLDs
 eu)
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 zyxeu0=$(echo "$zyx" | gawk '/Domain:/{flag=1;next}/Keys:/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
@@ -1023,7 +1029,7 @@ exit 0;
 ;;
 
 jp)
-zyx=$(whois $domain);
+zyx=$($zyxwhois $domain);
 
 #PASS the a record/s to arfunc
 arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
