@@ -19,7 +19,7 @@ SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0
 DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
-NAVMENUPART0=$(cat ../zyx/srb/navmenu0.part);
+NAVMENUPART=$(cat ../zyx/srb/navmenu.part);
 
 witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
@@ -74,7 +74,7 @@ $GANALYTICS
 
 <link rel="stylesheet" type="text/css" href="/css/dip.css">
 
-$NAVMENUPART0
+$NAVMENUPART
 
 <div id='xtable' ><table> <tbody> <td>
 <form action='dip.zyx' method='get'>

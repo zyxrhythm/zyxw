@@ -15,7 +15,7 @@ DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}f
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
-NAVMENUPART0=$(cat ../zyx/srb/navmenu0.part);
+NAVMENUPART=$(cat ../zyx/srb/navmenu.part);
 
 witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
@@ -62,7 +62,7 @@ $GANALYTICS
 <script src="/js/allowedchars.js"></script>
 <script src="/js/whois.js"></script>
 
-$NAVMENUPART0
+$NAVMENUPART
 
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->

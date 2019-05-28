@@ -15,7 +15,7 @@ DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}f
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
-NAVMENUPART0=$(cat ../zyx/srb/navmenu0.part);
+NAVMENUPART=$(cat ../zyx/srb/navmenu.part);
 
 #start the html header
 echo "Content-type: text/html"
@@ -47,7 +47,7 @@ $GANALYTICS
 <script src="/js/allowedchars.js"></script>
 <script src="/js/gencopy.js"></script>
 
-$NAVMENUPART0
+$NAVMENUPART
 
 <div id='xtable' ><table> <tbody> <td>
 <form action="/cgi-bin/sslinfo.zyx" method="get">
