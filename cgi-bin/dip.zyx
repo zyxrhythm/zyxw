@@ -452,7 +452,7 @@ whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u )
 if [[ -z "$whoisservergrep" ]]; then true;
 else
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-zyx2=$( $zyxwhoish "$whoisserver" $domain 2>&1 );
+zyx2=$($zyxwhoish $whoisserver $domain 2>&1 );
 fi;
 
 #REESE
