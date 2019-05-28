@@ -14,6 +14,23 @@ WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag
 DIGGER=$(cat ../zyx/site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
+witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
+witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
+
+if [[ witst0 = "y" ]]; then 
+zyxwhois="whois -n";
+elif [[ witst0 = "n" ]] && [[ witst1 = "y" ]]; then 
+zyxwhois="whois --verbose";
+else
+echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
+fi;
+
 #start the html header
 echo "Content-type: text/html"
 echo ""
@@ -141,7 +158,7 @@ else
 #if 2
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 	ipwhois=$(echo $doi );
-	zyxip=$(whois $ipwhois );
+	zyxip=$($zyxwhois $ipwhois );
 	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
 
 cat << EOWIIPR
@@ -157,20 +174,26 @@ EOWIIPR
 #else 2
 	else
 #If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
-witst=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 
-if [[ "$witst" = "y" ]]; then
+
+if [[ "$witst0" = "y" ]]; then
 zyx0=$(whois -n $doi 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 
-elif [[ "$witst" = "n" ]]; then
+elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
 zyx0=$(whois --verbose $doi 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
-echo "wow you ended down here?";
+echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
 fi;
 
 dvcheck=$(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
