@@ -11,10 +11,15 @@ p { font-family: verdana; font-size: 90%; word-break:break-word;}
 h1 { font-family: verdana; font-size: 85%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 100%;}
-table { font-family: verdana; border: 2px solid green; font-size: 100%; }
+
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+
+/*table { font-family: verdana; border: 2px solid green; font-size: 100%; }
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green; padding:5px; font-size: 80% }
-strong {color: green;}
+strong {color: green;}*?
 
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 
