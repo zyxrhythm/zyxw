@@ -303,7 +303,7 @@ rarwis="$rarwis1";
 
 if [[ "$witst0" = "y" ]]; then
 zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-zyxregistrar1=$(echo "$zyxregistrar1" | sed  '1,2d' );
+zyxregistrar1=$(echo "$zyxregistrar0" | sed  '1,2d' );
 zyxregistrar=$( cutterfunc "$zyxregistrar1" );
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
