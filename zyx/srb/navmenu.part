@@ -14,7 +14,7 @@ SSLC=$(cat ../site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}fla
 WHOIS=$(cat ../site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
 DIGGER=$(cat ../site.vars | gawk '/<-DIGGER/{flag=1;next}/DIGGER->/{flag=0}flag');
 
-cat << EOCAT 
+echo "
 <script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
@@ -54,5 +54,5 @@ else { x.style.display = 'none'; } }
 <a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
 </div>
 <br><br>
-EOCAT
+"
 }
