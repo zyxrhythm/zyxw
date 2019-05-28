@@ -303,10 +303,14 @@ rarwis="$rarwis1";
 
 if [[ "$witst0" = "y" ]]; then
 zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-zyxregistrar=$(echo "$zyx0" | sed  '1,2d' );
+zyxregistrar1=$(echo "$zyxregistrar1" | sed  '1,2d' );
+zyxregistrar=$( cutterfunc "$zyxregistrar1" );
+
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
 zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-zyxregistrar=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+zyxregistrar1=$(echo "$zyxregistrar0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+zyxregistrar=$( cutterfunc "$zyxregistrar1" );
+
 else echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body>
