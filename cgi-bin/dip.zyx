@@ -350,7 +350,7 @@ do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr1a=$(echo $line | cut -f1 -d" ");
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-   if [[ -z "$mxr2" ]]; then mxipc="null"; echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;<span id='fiftyshades' >$mxr1 <br>Invalid Domain does not resolve to an IP address!</span>"; else echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; fi;
+   if [[ -z "$mxr2" ]]; then mxipc="null"; echo "<span id='fiftyshades' ><strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>Invalid MX record! - (does not resolve to an IP address)</span>"; else echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; fi;
 echo '<br>'
 if (( $(grep -c . <<<"$mxr2") > 1)); then
 while IFS= read -r line
