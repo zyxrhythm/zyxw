@@ -13,8 +13,8 @@ whois (the scripts can also work with jwhois for Red Hat distros like CentOS), d
 How to deploy:
 
 1. Simply Download the zip from github (link to the repo is https://github.com/zyxrhythm/bbclive/tree/4353.info ).
-2. Unzip it on your server's website root directory (like cPanel's "public_html"). 
-3. Edit the index.html file and change the domain on the url to your domain name. 
+2. Unzip it on your server's website root directory, like cPanel's "public_html" directory. 
+3. Configure the host and make the /cgi-bin folder able to execute bash scripts. 
 
 ---------------------
 
