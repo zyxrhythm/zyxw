@@ -16,10 +16,11 @@ table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
+strong {color: green;}
+
 body table { font-family: verdana; border: 2px solid green; font-size: 100%; }
 body th { border: 2px solid green;}
 body td { vertical-align: top; text-align: left; border: 1px solid green; body padding:5px; font-size: 80% }
-strong {color: green;}
 
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 
