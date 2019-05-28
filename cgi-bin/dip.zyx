@@ -25,10 +25,8 @@ witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
 if [[ "$witst0" = "y" ]]; then
 zyxwhois="whois -n";
-zyxwhoish="whois $domain --host=";
 elif [[ "$witst1" = "y" ]] && [[ "$witst0" = "n" ]]; then 
 zyxwhois="whois --verbose";
-zyxwhoish="whois $domain -h ";
 else
 echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
@@ -445,14 +443,14 @@ else
 #once the domain is validated the TLD is extracted
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
-if [[ $tld = "shop" ]]; then zyx=$("$zyxwhoish"whois.nic.shop 2>&1 ); else true; fi;
+if [[ $tld = "shop" ]]; then zyx=$(whois $domain -h whois.nic.shop 2>&1 ); else true; fi;
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
 whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
 if [[ -z "$whoisservergrep" ]]; then true;
 else
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
-zyx2=$("$zyxwhoish""$whoisserver" 2>&1 );
+zyx2=$(whois $domain -h $whoisserver 2>&1 );
 fi;
 
 #REESE
