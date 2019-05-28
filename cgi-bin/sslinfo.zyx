@@ -47,8 +47,9 @@ $GANALYTICS
 <script src="/js/gencopy.js"></script>
 EOHTMLHEAD
 
-echo "$NAVMENUPART
+echo "$NAVMENUPART";
 
+cat << EOHTMLHEAD0
 <div id='xtable' ><table> <tbody> <td>
 <form action="/cgi-bin/sslinfo.zyx" method="get">
 <input placeholder="Domain / sub domain"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
@@ -62,7 +63,7 @@ echo "$NAVMENUPART
 
 <hr>
 </head>
-";
+EOHTMLHEAD0
 
 TLDLISTX=$(cat ../zyx/tldlistx.txt | tr -d '\040\011\012\015');
 TLDLISTG=$(cat ../zyx/tldlistg.txt | tr -d '\040\011\012\015');
