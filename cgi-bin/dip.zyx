@@ -114,7 +114,7 @@ else { x.style.display = 'none'; } }
 <div id='xtable' ><table> <tbody> <td>
 <form action='dip.zyx' method='get'>
 <input placeholder='Enter a Domain(FQDN)'  type='text' onblur='this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);' onKeyDown='if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);' onKeyUp='if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);'name='domain'>
-<button type='submit' >Go</button>
+<button type='submit' > Go </button>
 </form>
 </td> </tbody> </table> </div></p>
 <button onclick='copyv2();' >Copy Results</button><label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a 'paste' on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
