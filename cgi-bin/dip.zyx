@@ -382,6 +382,7 @@ fi;
 countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
+#some registrar does not have the "T" on the expiration date but has a space divide the date and time - thus the above will not be enough - the following line will utilize the space between the date and the time instead
 if [[ -z $extdate ]]; then extdatex=$(echo "$1" | grep -o -P '(?<=Date:).*(?= )' | tr -d '\040\011\012\015' ); else extdatex="$extdate"; fi;
 daysleft=$( echo $((($(date +%s --date "$extdatex")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
