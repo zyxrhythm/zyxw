@@ -382,7 +382,8 @@ fi;
 countdfunc () {
 
 extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' );
-daysleft=$( echo $((($(date +%s --date "$extdate")-$(date +%s))/(3600*24))) );
+if [[ -z $extdate ]]; then extdatex=$(echo "$1" | grep -o -P '(?<=Date:).*(?= )' | tr -d '\040\011\012\015' ); else extdatex="$extdate"; fi;
+daysleft=$( echo $((($(date +%s --date "$extdatex")-$(date +%s))/(3600*24))) );
 echo "$daysleft";
 }
 #=====================
