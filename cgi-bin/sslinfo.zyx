@@ -111,7 +111,7 @@ shopt -s extglob
 tldlist0="+($GXTLD)"
 
 #list of supported ccTLDs
-tldlist1='+($TLDLIST0)'
+tldlist1="+($TLDLIST0)"
 
 #===================
 #FUNCTION HALL
