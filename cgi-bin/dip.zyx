@@ -147,7 +147,7 @@ if [[ "$witst0" = "y" ]]; then
 zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 
-if [[ ${zyx:0:9} = 'nomatch' ]]; then zyxdvc0=$($zyxwhois $domain  -h whois.iana.org 2>&1); zyxdvc1=$(echo "$zyxdvc0" | sed  '1,2d' ); zyxdvc="${zyxdvc1:0:9}"; else true; fi;
+if [[ ${zyx:0:9} = 'No match' ]]; then zyxdvc0=$($zyxwhois $domain  -h whois.iana.org 2>&1); zyxdvc1=$(echo "$zyxdvc0" | sed  '1,2d' ); zyxdvc="${zyxdvc1:0:9}"; else true; fi;
 
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
