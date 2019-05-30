@@ -140,7 +140,7 @@ exit 0;
 #1st if else
 else
 
-if [[ ${domain:0:1} = '.' ]] || [[ ${domain:0:1} = '-' ]]; then echo "<body><div id='divClipboard'><p><strong>Input</strong> : .comx <br><br><br>Input should not start with a dot (.) or hypehn (-)!</p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; else true; fi;
+if [[ ${domain:0:1} = '.' ]] || [[ ${domain:0:1} = '-' ]]; then echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain <br><br>Input should not start with a dot (.) or hypehn (-)!</p></div><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; else true; fi;
 
 #whois or jwhois
 if [[ "$witst0" = "y" ]]; then
