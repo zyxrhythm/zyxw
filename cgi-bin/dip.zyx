@@ -146,7 +146,6 @@ if [[ ${domain:0:1} = '.' ]] || [[ ${domain:0:1} = '-' ]]; then echo "<body><div
 if [[ "$witst0" = "y" ]]; then
 zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
-'
 
 if [[ $(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' ) = "nomatch" ]]; then zyxdvc0=$($zyxwhois $domain  -h whois.iana.org 2>&1); zyxdvc1=$(echo "$zyxdvc0" | sed  '1,2d' ); zyxdvc="${zyxdvc1:0:9}"; else true; fi;
 
