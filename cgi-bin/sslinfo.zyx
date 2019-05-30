@@ -336,7 +336,8 @@ $certloc <br>
 <strong>Issued For</strong> : $Target<br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
-<strong>$leftvar</strong> : $Daysleft <br><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p></div>
+<strong>$leftvar</strong> : $Daysleft </div>
+<br><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
