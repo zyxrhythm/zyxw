@@ -146,8 +146,12 @@ if [[ ${domain:0:1} = '.' ]] || [[ ${domain:0:1} = '-' ]]; then echo "<body><div
 if [[ "$witst0" = "y" ]]; then
 zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
+
+if [[ ${zyx:0:9} = 'nomatch' ]]; then zyxdvc0=$($zyxwhois $domain  -h whois.iana.org 2>&1); zyxdvc1=$(echo "$zyxdvc0" | sed  '1,2d' ); zyxdvc="${zyxdvc1:0:9}"; else true; fi;
+
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
+
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
 zyx0=$($zyxwhois $domain 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
@@ -412,7 +416,7 @@ echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx 
 </body></html>";
 exit 0;
 
-elif [[ "$dvc" = "%ianawh" ]]; then 
+elif [[ "$dvc" = "%ianawh" ]] || [[ "$zyxdvc" = "%ianawh" ]]; then 
 echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
 <br><br><pre>$zyx<pre></p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body></html>"; 
