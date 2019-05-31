@@ -1,3 +1,5 @@
+/*this is the css used in DIG tool's page*/
+
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
@@ -13,17 +15,24 @@ p { font-family: verdana; font-size: 90%; word-break:break-word;}
 h1 { font-family: verdana; font-size: 85%;}
 body { background-color:black; color:white;}
 pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;}
-/*pre{ white-space: pre-wrap; font-size: 100%;}*/
 
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
 
+#navlinkz { color:tomato; float:right;}
+#tdcenter { text-align: center; }
+#noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
-/* body td { vertical-align: top; text-align: left; border: 1px solid green; body padding:5px; font-size: 80% }*/
 
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
-
 .tooltip {
     display: inline-block;
     text-indent:0em;
@@ -50,16 +59,4 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 .tooltip:hover .tooltiptext {
     display: block;
 }
-
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
-
-#navlinkz { color:tomato; float:right;}
-#noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-#tdcenter { text-align: center; }
