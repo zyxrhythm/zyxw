@@ -1,3 +1,5 @@
+/*this is the css used in the Special tool's page*/
+
 a {text-decoration: none; }
 a:link { color: red;  }
 a:active { color: red;  }
@@ -17,6 +19,21 @@ pre{ white-space: pre-wrap; font-size: 85%; font-family: verdana;}
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
+
+#chicboxtext { color: tomato; font-size:80%; font-family:verdana; }
+#domaintimes {color: green;}
+#navlinkz { color:tomato; float:right;}
+#fiftyshades { color: gray; }
+#noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 .tooltip {
     display: inline-block;
     text-indent:0em;
@@ -43,15 +60,4 @@ td { vertical-align: top; text-align: left; border: 1px solid green;}
 .tooltip:hover .tooltiptext {
     display: block;
 }
-#domaintimes {color: green;}
-#navlinkz { color:tomato; float:right;}
-#chicboxtext { color: tomato; font-size:80%; font-family:verdana; }
-#noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-#fiftyshades { color: gray; }
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
