@@ -1,4 +1,5 @@
 //a customized version of the snippet from http://edupala.com/copy-div-content-clipboard/
+// this js allows only the content from 1 of the 2 tabs to be copied.
 
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
@@ -71,10 +72,9 @@ function copyClipboard1() {
   }
 }
 
-//from http://edupala.com/copy-div-content-clipboard/
+
 
 // from https://www.w3schools.com/howto/howto_js_tabs.asp
-
 function whoisserver(evt, ws) {
   // Declare all variables
   var i, tabcontent, tablinks;
