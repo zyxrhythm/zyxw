@@ -1,3 +1,6 @@
+//a customized version of the snippet from http://edupala.com/copy-div-content-clipboard/
+//this js script will cut the text to be copied into 2 sections - by default the first section of the text can be copied - and in order for the first and second section to be copied, the check box called 'chicbox' needs to be checked
+
 function copyv2(){
 var element =  document.getElementById('chicbox');
 if (typeof(element) != 'undefined' && element != null)
@@ -11,9 +14,6 @@ if (typeof(element) != 'undefined' && element != null)
 	else 
 	{ copyClipboard(); }
 }
-
-//The javascript that copies the contents of div to clipboard.
-//this is a snippet from http://edupala.com/copy-div-content-clipboard/
 
 function copyClipboard() {
   var elm = document.getElementById('divClipboard');
