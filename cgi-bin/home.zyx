@@ -7,15 +7,9 @@
 #https://github.com/zyxrhythm
 #############################################
 
-#revisions counter
-#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-#gitrevcount=$( cd $DIR; cd .. && git rev-list --all --count )
-#revcount=$(echo "$gitrevcount + 666" | bc);
-#revisions counter
-revcount=$(cat ../zyx/site.vars | gawk '/<-VER/{flag=1;next}/VER->/{flag=0}flag');
-CEMAIL=$(cat ../zyx/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 SITETITLE=$(cat ../zyx/site.vars | gawk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
 SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+CEMAIL=$(cat ../zyx/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 DIP=$(cat ../zyx/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 SSLC=$(cat ../zyx/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
 WHOIS=$(cat ../zyx/site.vars | gawk '/<-WHOIS/{flag=1;next}/WHOIS->/{flag=0}flag');
