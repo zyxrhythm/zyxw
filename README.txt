@@ -32,7 +32,7 @@ Customizations and Preferences:
 
 - Logs on the the Logs page can be modified on /zyx/logs.txt
 
-- The site will be directed to https by teh .htaccess file - if you do not have ssl issued for your domain - modify or disable the .htaccess file.
+- The site will be directed to https by the /cgi-bin/.htaccess file - (if you do not have ssl issued for your domain - modify or disable the .htaccess file).
 
 ---------------------
 
