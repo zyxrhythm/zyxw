@@ -1,3 +1,5 @@
+/*css used on the frontpage / home page*/
+
 a:link { color: green; }
 a:active { color: green; }
 a:hover { color: green; }
@@ -13,6 +15,19 @@ footer { font-family: Georgia; font-size: 100%;}
 article	{ font-family: Verdana; font-size: 70%;}
 strong {font-size: 143%; }
 
+#revisions {color: #186a3b}
+#goblack {color: #1c2833}
+#navigation { font-family: Arial; font-size: 100%; font-weight: bold; color: #145a32;}
+#navig-link { text-decoration: none; color: #145a32;}
+#wave7a { color: white; font-size: 90%;}
+#tools-link { text-decoration: none; }
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
 .tooltip {
     display: inline-block;
     text-indent:0em;
@@ -39,14 +54,4 @@ strong {font-size: 143%; }
 .tooltip:hover .tooltiptext {
     display: block;
 }
-
-.copyleft {
-  display:inline-block;
-  transform: rotate(180deg);
-}
-#revisions {color: #186a3b}
-#goblack {color: #1c2833}
-#navigation { font-family: Arial; font-size: 100%; font-weight: bold; color: #145a32;}
-#navig-link { text-decoration: none; color: #145a32;}
-#wave7a { color: white; font-size: 90%;}
-#tools-link { text-decoration: none; }
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
