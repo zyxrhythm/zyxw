@@ -1,7 +1,3 @@
-Options ExecCGI Includes FollowSymLinks
-AddHandler cgi-script zyx
-<Limit GET POST>
- Order Deny,Allow
- Deny from none
- Allow from all
-</Limit>
+AllowOverride All
+Options +ExecCGI
+AddHandler cgi-script .zyx
