@@ -1,6 +1,5 @@
-//The javascript that copies the contents of div to clipboard.
+//The javascript that copies the contents of a div to clipboard.
 //this is a snippet from http://edupala.com/copy-div-content-clipboard/
-
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
   // for Internet Explorer
@@ -21,3 +20,4 @@ function copyClipboard() {
     document.execCommand("Copy");
   }
 }
+//this is a snippet from http://edupala.com/copy-div-content-clipboard/
