@@ -1,6 +1,6 @@
 #allow CGI execution on this directory
-Options +ExecCGI
-AddHandler cgi-script .zyx
+#Options +ExecCGI
+#AddHandler cgi-script .zyx
 
 #directs browsers to HTTPS
 RewriteEngine On
