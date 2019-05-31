@@ -1,4 +1,4 @@
-//from http://edupala.com/copy-div-content-clipboard/
+//a customized version of the snippet from http://edupala.com/copy-div-content-clipboard/
 
 function copyClipboard() {
   var elm = document.getElementById("divClipboard");
