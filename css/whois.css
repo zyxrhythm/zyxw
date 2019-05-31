@@ -1,11 +1,32 @@
+/*css used by the Whois tool's page*/
+
+a {text-decoration: none; }
+a:link { color: red;  }
+a:active { color: red;  }
+a:hover { color: red;  }
+a:visited { color: red;  }
+div a:link { color: tomato;  font-size: 100%; }
+div a:active { color: tomato;  font-size: 100%; }
+div a:hover { color: tomato;  font-size: 100%; }
+div a:visited { color: tomato;  font-size: 100%; }
+strong {color: green;}
+p  { font-family: verdana; font-size: 90%;}
+h1 {font-family: verdana; font-size: 70%;}
+body {background-color:black;color:white;}
+pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;}
+table { font-family: verdana; border: 2px solid green; font-size: 100%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+
+#navlinkz { color:tomato; float:right; font-size: 90%; }
+
+
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
- /* Style the tab */
 .tab {
   overflow: hidden;
   border: 1px solid #000;
   background-color: #556B2F;
 }
-
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
@@ -16,17 +37,14 @@
   padding: 14px 16px;
   transition: 0.3s;
 }
-
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #000;
 }
-
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: #006400;
 }
-
 /* Style the tab content */
 .tabcontent {
   display: none;
@@ -34,7 +52,6 @@
   border: 1px solid #006400;
   border-top: none;
 } 
-
 /* from: https://www.w3schools.com/howto/howto_js_tabs.asp */
 
 
@@ -66,23 +83,3 @@
     display: block;
 }
 /* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
-
-a {text-decoration: none; }
-a:link { color: red;  }
-a:active { color: red;  }
-a:hover { color: red;  }
-a:visited { color: red;  }
-div a:link { color: tomato;  font-size: 100%; }
-div a:active { color: tomato;  font-size: 100%; }
-div a:hover { color: tomato;  font-size: 100%; }
-div a:visited { color: tomato;  font-size: 100%; }
-strong {color: green;}
-p  { font-family: verdana; font-size: 90%;}
-h1 {font-family: verdana; font-size: 70%;}
-body {background-color:black;color:white;}
-pre { white-space: pre-wrap;font-family: verdana; font-size: 85%;}
-table { font-family: verdana; border: 2px solid green; font-size: 100%;}
-th { border: 2px solid green;}
-td { vertical-align: top; text-align: left; border: 1px solid green;}
-
-#navlinkz { color:tomato; float:right; font-size: 90%; }
