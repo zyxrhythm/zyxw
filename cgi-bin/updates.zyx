@@ -7,8 +7,8 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-CEMAIL=$(cat ../zyx/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
+SITEBANNER=$(cat ../zyx/lib/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+CEMAIL=$(cat ../zyx/lib/vars/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 LOGS=$(cat ../zyx/logs.txt);
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 

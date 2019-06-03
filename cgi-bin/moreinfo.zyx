@@ -7,8 +7,8 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-DDOMAINNAME=$(cat ../zyx/site.vars | gawk '/<-DDOMAINNAME/{flag=1;next}/DDOMAINNAME->/{flag=0}flag');
+SITEBANNER=$(cat ../zyx/lib/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DDOMAINNAME=$(cat ../zyx/lib/vars/site.vars | gawk '/<-DDOMAINNAME/{flag=1;next}/DDOMAINNAME->/{flag=0}flag');
 MOREINFO=$(cat ../zyx/moreinfo.txt );
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 

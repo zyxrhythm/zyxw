@@ -7,7 +7,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-SITEBANNER=$(cat ../zyx/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+SITEBANNER=$(cat ../zyx/lib/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
 echo "Content-type: text/html"
