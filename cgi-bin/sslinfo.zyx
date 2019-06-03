@@ -23,7 +23,7 @@ domain=$(echo "$qs" | cut -f2 -d"=" );
 
 echo "<!DOCTYPE html>
 <html>
-<title>$SSLCHECK</title>"
+<title>$SSLC</title>"
 
 cat <<INIOHTMLHEAD
 <head>
