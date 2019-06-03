@@ -87,10 +87,12 @@ EONAVMENU
 #checks - if the domain variable  entered is null  / the button is clicked without placing anything 
 #1st if
 if [[ -z "$domain" ]]; then
+DIPTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-DIP_TOOL_PAGE/{flag=1;next}/DIP_TOOL_PAGE->/{flag=0}flag');
 cat <<EOTSE
 <body>
-<div id="divClipboard"><p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid/registered <strong>naked</strong> domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br>To get the domain's vital whois information, the script utilizes <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> and does a 'whois lookup' query at the known whois server of the Registry for the <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a> ( see the list of known servers <a href='/cgi-bin/whois.conf.zyx' target='_blank'>here</a> ), and the script does the same query at the whois server of the Registrar ( if a server is found from the whois information provided by the Registry's whois server ).<br><br>Then <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will query one of the valid  authoritative name servers under the domain for <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#A' target='_blank'>A</a> and <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types#MX' target='_blank'>MX</a> records. If all name servers under the domain are invalid and cannot be queried, the script will fall back to Google's Public DNS server (8.8.8.8) for cached records. A records asssosciated with the naked domain are 'looked up', then A records  associated to the hostnames found on the MX records. <br><br>---IP addreses (A records) found by DIG will be queried by WHOIS at <a href='https://en.wikipedia.org/wiki/American_Registry_for_Internet_Numbers' target='_blank' >A.R.I.N.</a>'s whois servers/s to get the Organization responsible for the IP address. <br><br>(<a href='https://en.wikipedia.org/wiki/Nslookup' target='_blank'>NSLOOKUP</a> is also utilized to verify some hosts/servers.) <br><br>And after a few GAWK, GREP, SED and SHELL EXPANSIONS a report with vital whois and DNS info ( about the web and mail service under the domain )  is generated and is displayed by ECHO and/or CAT.</p></div>
+<div id="divClipboard"><p>
+$DIPTPM
+</p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>

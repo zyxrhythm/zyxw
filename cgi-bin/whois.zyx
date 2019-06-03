@@ -97,13 +97,12 @@ done < <(printf '%s\n' "$1");
 #checks if the domain enter is null  
 #if 1
 if [[ -z "$doi" ]]; then
-
+WHOISTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-WHOIS_TOOL_PAGE/{flag=1;next}/WHOIS_TOOL_PAGE->/{flag=0}flag');
 cat <<EOTS
 <body>
-<div id="divClipboard">
-<p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br><br><br>For domain names <a href='https://en.wikipedia.org/wiki/WHOIS#Software' target='_blank'>WHOIS</a> will query both the Registry's whois server/s and <br>the Registrar's whois server/s (if the Registrar whois server is found on the whois info provided by the Registry). <br> <br> And for IP addresses, will query A.R.I.N.'s whois server/s.</p>
-</div>
+<div id="divClipboard"><p>
+$WHOISTPM
+</p></div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>

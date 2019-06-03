@@ -87,10 +87,12 @@ if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
 
 #checks if the domain enter is null  or they click the BBC button without placing anything
 if [[ -z "$domain" ]]; then
+DIGGERTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-DIGGER_TOOL_PAGE/{flag=1;next}/DIGGER_TOOL_PAGE->/{flag=0}flag');
 cat <<EOTS
 <div id="divClipboard">
-<p><br><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/> / <a href="https://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4 Address</a>.<br>( Don't forget to select PTR from the dropdown for I.P. addresses )<br><br>Also if the Name Server field is left blank, <a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank'>DIG</a> will query Google's Public DNS server (8.8.8.8) automatically.<br><br></p>
+<p>
+$DIGGERTPM
+</p>
 </div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>

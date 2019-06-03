@@ -132,12 +132,12 @@ echo '<br>'
 
 #checks if input is null 
 if [[ -z "$domain" ]]; then
-
+SSLCTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-SSL_TOOL_PAGE/{flag=1;next}/SSL_TOOL_PAGE->/{flag=0}flag');
 cat <<EOTSE
 <body>
-<div id="divClipboard">
-<p><strong>Current Input</strong> : none <br> <br>
-Enter a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a> / sub domain.<br><br>SSL Certificate Check:<br><br><a href='https://www.openssl.org' target='_blank'>OPENSSL</a> and <a href='https://en.wikipedia.org/wiki/Nmap' target='_blank' >NMAP</a> will fetch details about the SSL certificate issued for a domain / sub domain by querying port 443 of the domain / sub domain's web server.</p>
+<div id="divClipboard"><p>
+$SSLCTPM
+</p>
 </div>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
