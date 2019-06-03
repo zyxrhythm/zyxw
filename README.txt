@@ -6,7 +6,9 @@ Before you deploy this on your server, make sure:
 2. Make sure Bash 4.x is installed on your host and "cgi-bin" can execute Bash scripts. 
 3. The following commands/programs are available on the host, and the scripts will be permitted to utilize them:
 whois (the scripts can also work with jwhois for Red Hat distros like CentOS), dig, nslookup, openssl, nmap, lsb_release, gawk, sed, grep, echo, cat, cut, tr, rev, bc, column, host (also script also utilizes 'Shell Parameter Expansion').
-4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported so make sure it is up to date ( Updated conf files are available on /zyx/conf/ directory)
+4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported so make sure it is up to date 
+
+(Recommended and updated conf files are available on /zyx/etc/conf/ directory)
 
 ---------------------
 
@@ -20,7 +22,7 @@ How to deploy:
 
 Customizations and Preferences:
 
-- Edit the /zyx/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
+- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
 
 - Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
 
@@ -39,7 +41,7 @@ Customizations and Preferences:
 #PLEASE NOTE: 
 Scripts inside the 'cgi-bin' folder are  bash scripts.
 Bash, though usable, is not intended for web development, so this site is a bit deviant.
-So, please be careful on editing the contents of the 'cgi-bin' folder.
+Please be careful on editing the contents of the 'cgi-bin' folder.
 
 -The scripts supports both whois and jwhois.
 -The scripts are tried tested on a Ubuntu 16.04.6 LTS (a Debian based distro).
@@ -56,7 +58,7 @@ So, please be careful on editing the contents of the 'cgi-bin' folder.
 
 
 
-Info Ninja of port 43 and 53.
+Info Ninja of port 43 and 53 --- also 443.
 
 MIT License
 Copyright (c) 2018 Zyx Rhythm
