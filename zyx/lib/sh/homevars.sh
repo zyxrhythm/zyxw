@@ -1,3 +1,5 @@
+revcount=$(cat ../zyx/lib/vars/site.vars | gawk '/<-VER/{flag=1;next}/VER->/{flag=0}flag');
+
 SITETITLE=$(cat ../zyx/lib/vars/site.vars | gawk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
 SITEBANNER=$(cat ../zyx/lib/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
