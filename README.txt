@@ -6,7 +6,9 @@ Before you deploy this on your server, make sure:
 2. Make sure Bash 4.x is installed on your host and "cgi-bin" can execute Bash scripts. 
 3. The following commands/programs are available on the host, and the scripts will be permitted to utilize them:
 whois (the scripts can also work with jwhois for Red Hat distros like CentOS), dig, nslookup, openssl, nmap, lsb_release, gawk, sed, grep, echo, cat, cut, tr, rev, bc, column, host (also script also utilizes 'Shell Parameter Expansion').
-4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported so make sure it is up to date ( Updated conf files are available on /zyx/conf/ directory)
+4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported so make sure it is up to date 
+
+(Recommended and updated conf files are available on /zyx/etc/conf/ directory)
 
 ---------------------
 
@@ -20,7 +22,7 @@ How to deploy:
 
 Customizations and Preferences:
 
-- Edit the /zyx/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
+- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the pages.
 
 - Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
 
