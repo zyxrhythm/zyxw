@@ -28,7 +28,7 @@ DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
 qnameserver=$(echo $qs | sed 's/.*nameserver=//');
 
 #start of head
-cat <<ENDOFHTMLHEAD
+cat <<INIOHTMLHEAD
 <head>
 <link rel="icon" type="image/png" href="/icon.png" />
 <meta name="description" content="$SITEBANNER is a website that can fetch the whois information of a domain, dig DNS records of domains and sub domains from name servers, can also do a simple check to identify about the SSL certificate issued for a domain/sub domain name.">
@@ -42,46 +42,11 @@ $GANALYTICS
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 <script src="/js/allowedchars.js"></script>
 <script src="/js/gencopy.js"></script>
+INIOHTMLHEAD
 
-<script> 
-function jsxtable() { var x = document.getElementById('xtable'); 
-if (x.style.display === 'none') 
-{ x.style.display = 'inline'; } 
-else { x.style.display = 'none'; } } 
-</script>
-<script> 
-function jsx2table() { var x = document.getElementById('navtable'); 
-if (x.style.display === 'none') 
-{ x.style.display = 'inline'; } 
-else { x.style.display = 'none'; } } 
-</script>
-<script> 
-function jsxmenu() { var x = document.getElementById('navmenu'); 
-if (x.style.display === 'none') 
-{ x.style.display = 'inline'; } 
-else { x.style.display = 'none'; } } 
-</script>
-<p><a href='/cgi-bin/home.zyx' style='float:left'>[ &#127968;Home ]</a>
-<div id='navtable' style='display:none; float:right;' >
-<a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' > &#9776;</a>
-<br><br>
-<table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/dip.zyx' >&#8625; $DIP &#8626;</a></td></tr>
-</tbody></table><br>
-<table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/whois.zyx' >&#8625; $WHOIS &#8626;</a></td></tr>
-</tbody></table><br>
-<table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/sslinfo.zyx' >&#8625; $SSLC &#8626;</a></td></tr>
-</tbody></table><br>
-<table id='navlinkz'> <tbody>
-<tr><td><a href='/cgi-bin/digger.zyx' >&#8625; $DIGGER &#8626;</a></td></tr>
-</tbody></table><br>
-</div>
-<div id='navmenu' >
-<a style='color:tomato; cursor: pointer; font-size:126%; float:right;' onclick='jsxtable(); jsx2table(); jsxmenu();'> &#9776; </a>
-</div>
-<br><br>
+. ../zyx/lib/sh/navpart.sh
+
+cat << EONAVMENU
 
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## BIG NICK DIGGER ################# -->
@@ -109,7 +74,7 @@ else { x.style.display = 'none'; } }
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;'  onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 <hr> </head>
 <body>
-ENDOFHTMLHEAD
+EONAVMENU
 
 . ../zyx/lib/sh/tldblob.sh
 
