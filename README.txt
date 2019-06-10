@@ -33,7 +33,7 @@ Customizations and Preferences:
 
 - Logs on the the Logs page can be modified on /zyx/logs.txt
 
-- Thanks page message can be edited on /zyx/logs.txt
+- Thanks page message can be edited on /zyx/salamat.txt
 
 - The site will be directed to https by the /cgi-bin/.htaccess file - (if you do not have ssl issued for your domain - modify or disable the .htaccess file).
 
