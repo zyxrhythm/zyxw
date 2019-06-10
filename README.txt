@@ -21,7 +21,9 @@ How to deploy:
 
 Customizations and Preferences:
 
-- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', 'messages' and other 'texts' on the website pages.
+- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', name of the tools ( the special tool, dig tool, whois tool, ssl infor checker tool), page 'messages' and other 'texts' on the website pages.
+
+- The initial message on all the tools page is editable on /zyx/vars/tpage.vars
 
 - Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
 
