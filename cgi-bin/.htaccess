@@ -1,4 +1,4 @@
-#allow CGI execution on this directory
+##The 2 lines below should allow CGI execution on the current directory of this htaccess file - If you have configured the web  host properly to allow execution of scripts on the cgi-bin, 'uncommenting' the lines is not necessary.
 #Options +ExecCGI
 #AddHandler cgi-script .zyx
 
