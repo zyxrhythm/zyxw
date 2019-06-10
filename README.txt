@@ -15,7 +15,7 @@ How to deploy:
 
 1. Simply Download the zip from github, link to the repo is https://github.com/zyxrhythm/bbclive/tree/4353.info
 2. Unzip it on your host's website root directory, like cPanel's "public_html" directory. 
-3. Configure the host and make the /cgi-bin folder able to execute bash scripts and make sure the necessary programs are installed on the host (the list of the necessary tools are above, on #3 ). 
+3. Configure the host and make the /cgi-bin folder able to execute bash scripts and make sure the necessary programs are installed and usable by the scripts on the host (the list of the necessary programs are above, on #3 ). 
 
 ---------------------
 
