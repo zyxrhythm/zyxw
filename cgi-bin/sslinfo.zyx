@@ -110,7 +110,7 @@ Expiryx="$1"
 dlyear0="${Expiryx:13:10}";
 dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 #month alpha
-dlmonth=$( echo "${Expiryx:0:3}" | awk '{print tolower($0)}' );
+dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
 #month num
 case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
 esac;
