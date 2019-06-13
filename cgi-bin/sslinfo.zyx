@@ -116,9 +116,9 @@ case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmo
 esac;
 #day
 dlday0="${Expiryx:0:9}";
-dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
+dlday=$( echo $(grep -oP '(?<= ).*?(?= )' <<< "$dlday0") | tr -d '\040\011\012\015' );
 #full date
-fulldate="$dlyear-$dlmono-0$dlday";
+fulldate="$dlyear-$dlmono-$dlday";
 
 daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
 
