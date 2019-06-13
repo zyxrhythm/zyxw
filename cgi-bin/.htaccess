@@ -3,6 +3,7 @@
 #AddHandler cgi-script .zyx
 
 #directs browsers to HTTPS
+#Thanks to Julian for the following snippet
 RewriteEngine On
 RewriteCond %{SERVER_PORT} !^443$
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
