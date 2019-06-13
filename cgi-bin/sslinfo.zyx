@@ -118,7 +118,7 @@ esac;
 dlday0="${Expiryx:0:9}";
 dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 #full date
-fulldate="$dlyear-$dlmono-$dlday";
+fulldate="$dlyear-$dlmono-0$dlday";
 
 daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
 
