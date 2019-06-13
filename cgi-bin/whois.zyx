@@ -198,7 +198,8 @@ else true;
 fi;
 
 
-if [[ "$dvcheck" = "patterns"  ]]; then
+if [[ "$dvcheck" = "patterns"  ]]; 
+then
 echo "
 <body>
 <p><button onclick='copyClipboard1()'>Copy Result</button><br>
@@ -221,7 +222,8 @@ else true;
 fi;
 
 #if 3
-if [[ "$dvcheck" = "%ianawh"  ]];then
+if [[ "$dvcheck" = "%ianawh"  ]]; 
+then
 echo "
 <body>
 <button onclick='copyClipboard1()'>Copy Result</button>
@@ -249,7 +251,10 @@ rarwis1=$(echo "$rarwis0" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 #registry
 zyxregistry0="$zyx";
 
-zyxregistry=$( cutterfunc "$zyxregistry0" );
+if [[ -z $zyxregistry0 ]] || [[ $zyxregistry0 = " " ]]; then 
+zyxregistry="Unable to fetch the whois infomartion from the Registrar!"; 
+else
+zyxregistry=$( cutterfunc "$zyxregistry0" ); fi;
 
 #registrarservervalidation
 if [[ -z "$rarwis1" ]] || [[ "$rarwis1" = " " ]]; 
@@ -262,13 +267,21 @@ rarwis="$rarwis1";
 
 if [[ "$witst0" = "y" ]]; then
 zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-zyxregistrar1=$(echo "$zyxregistrar0" | sed  '1,2d' );
-zyxregistrar=$( cutterfunc "$zyxregistrar1" );
+	if [[ -z $zyxregistrar0 ]] || [[ $zyxregistrar0 = " " ]]; then 
+	zyxregistrar="Unable to fetch the whois infomartion from the Registrar!"; 
+	else 
+	zyxregistrar1=$(echo "$zyxregistrar0" | sed  '1,2d' );
+	zyxregistrar=$( cutterfunc "$zyxregistrar1" ); 
+	fi;
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
 zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-zyxregistrar1=$(echo "$zyxregistrar0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-zyxregistrar=$( cutterfunc "$zyxregistrar1" );
+	if [[ -z $zyxregistrar0 ]] || [[ $zyxregistrar0 = " " ]]; then 
+	zyxregistrar="Unable to fetch the whois infomartion from the Registrar!"; 
+	else 
+	zyxregistrar1=$(echo "$zyxregistrar0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+	zyxregistrar=$( cutterfunc "$zyxregistrar1" ); 
+	fi;
 
 else echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
