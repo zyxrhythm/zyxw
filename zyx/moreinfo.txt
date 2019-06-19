@@ -11,10 +11,10 @@ Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
 
 
 -------------------------
-- SOME THINGS TO NOTE -
+- FREE AND OPEN SOURCE -
 -------------------------
-If you have a website host, and want to deploy the same tools in this website,
-an improved version of this site and customizable web installer is available on <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >this</a> github repo branch.
+If you have a website host/server, and want to deploy the same tools in this website on your host/server,
+an improved version of this site, customizable, easy to deploy, free and open source web installer is available on <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >this</a> github repo branch.
 
 -------------------------
 
