@@ -8,6 +8,7 @@
 #############################################
 
 . ../zyx/lib/sh/homevars.sh
+. ../zyx/lib/sh/tooltip.sh
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
@@ -43,7 +44,9 @@ $GANALYTICS
 </span>
 <div class="tooltip">
 <span id="navig-link"><label>&#9993;Contact</label></span>
-<span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">$CEMAIL<br><br></div></span>
+<span class="tooltiptext" >
+$HOMECONTACTT
+</span>
 </div>
 </p> <br>
 <!-- ################## DIP ################# -->
@@ -57,7 +60,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP</label></a>
-<span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
+<span class="tooltiptext" >$HOMEDIPT</span>
 </div>
 <form method="get" name="formation" action="" >
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -65,8 +68,7 @@ else if(document.getElementById("square").checked == false)
 <label style="font-size:90%" >
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/sslinfo.zyx?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' >$SSLC</label></a>
-<span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
-</span>
+<span class="tooltiptext">$HOMESSLT</span>
 </div> 
 </label>
 <input type="checkbox" id="square">
@@ -77,8 +79,7 @@ else if(document.getElementById("square").checked == false)
 <label>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/whois.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$WHOIS</label></a>
-<span class="tooltiptext" ><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "$WHOIS" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
-</span>
+<span class="tooltiptext" >$HOMEWHOIST</span>
 </div> 
 </label> <br>
 <input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain"><br>
@@ -91,8 +92,7 @@ else if(document.getElementById("square").checked == false)
 <label>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/digger.zyx?domain=&record=ANY&nameserver=' target='_blank' ><label style='cursor: pointer;' >$DIGGER</label></a>
-<span class="tooltiptext" ><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool ($DIGGER) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
-</span>
+<span class="tooltiptext" >$HOMEDIGT</span>
 </div>
 </label><br> 
 <input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain"><br><br>
