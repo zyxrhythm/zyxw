@@ -21,19 +21,19 @@ How to deploy:
 
 Customizations and Preferences:
 
-- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', name of the tools ( the special tool, dig tool, whois tool, ssl info check tool), page 'messages' and other 'texts' on the website pages.
+- Edit the /zyx/lib/vars/site.vars to change 'browser tab titles', webmaster email address, name of the tools ( the special tool, dig tool, whois tool, ssl info check tool), page 'messages' and other 'texts' on the website pages.
 
 - The initial message on all the tools page is editable on /zyx/vars/tpage.vars
 
-- Feel free to replace site icon (icon.png) and simple footer banner image (image.png).
+- Feel free to replace site icon (/icon.png) and simple footer banner image (/image.png).
 
 - The css used on the pages are on the /css directory - feel free to theme the pages as you see fit.
 
 - For google analytics you can put the snippet from google on /zyx/ganalytics.txt 
 
-- Extra info on the About page can be edited on /zyx/moreinfo.txt
+- Extra info on the 'About' page can be edited on /zyx/moreinfo.txt
 
-- Logs on the the Logs page can be modified on /zyx/logs.txt
+- Logs on the the 'Logs' page can be modified on /zyx/logs.txt
 
 - Thanks page message can be edited on /zyx/salamat.txt
 
