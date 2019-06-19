@@ -73,11 +73,11 @@ Link for the SSL tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' t
 - 'is the regsitrant and registrant contact info'
 - 'whois responsible for the the IP addresses obtained from dig'
 
-will allow one to troubleshoot most of the issues and questions about domain names, issues about the domain itself or the website and the email service under it. 
+will allow one to provide a resolution to most issues about a domain name, issues about the domain itself or the website and the email service under it. 
 
 The main tool of this site is designed to gather the above information, in one click. 
 
-Link for this tool ('domain information probe' ) here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+Link for this special tool ('domain information probe' ) here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 -------------------------------
 
 $MOREINFO
