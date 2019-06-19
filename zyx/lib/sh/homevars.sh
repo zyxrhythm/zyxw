@@ -3,7 +3,7 @@ revcount=$(cat ../zyx/vars/site.vars | gawk '/<-VER/{flag=1;next}/VER->/{flag=0}
 SITETITLE=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
 SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 
-CEMAIL=$(cat ../zyx/lib/vars/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
+CEMAIL=$(cat ../zyx/vars/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 
 DIP=$(cat ../zyx/vars/site.vars | gawk '/<-DIP/{flag=1;next}/DIP->/{flag=0}flag');
 SSLC=$(cat ../zyx/vars/site.vars | gawk '/<-SSLCHECK/{flag=1;next}/SSLCHECK->/{flag=0}flag');
