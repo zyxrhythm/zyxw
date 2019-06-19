@@ -1,3 +1,5 @@
+The Ninja of Information @ port 43 and 53 --- also 443.
+
 ---------------------
 
 Before you deploy this on your server, make sure: 
@@ -61,9 +63,6 @@ Please be careful on editing the contents of the 'cgi-bin' folder.
 
 
 
-
-
-Info Ninja of port 43 and 53 --- also 443.
 
 MIT License
 Copyright (c) 2018 Zyx Rhythm
