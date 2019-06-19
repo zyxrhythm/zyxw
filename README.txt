@@ -1,4 +1,4 @@
-The Ninja of Information @ port 43 and 53 --- also 443.
+The Information Ninja of port 43 and 53 --- also 443.
 
 ---------------------
 
