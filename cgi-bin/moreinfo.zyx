@@ -42,6 +42,44 @@ $GANALYTICS
 <left><br><br>
 <p>
 <pre>
+-------------------------
+- ABOUT THIS SITE -
+-------------------------------
+$SITEBANNER is a website you can utilize for the following: 
+
+<strong>1.)</strong> Do a 'whois information' lookup for a domain name or I.P. Address. 
+-For domain names, the site will fetch whois information from the whois servers of regsitry and the registrar.
+-And for IP addresses, the scripts will query the whois servers of R.I.R.s.
+
+Link for the whois look up tool should be here: <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
+
+<strong>2.)</strong> 'Dig' D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
+
+Link for the dig tool here: <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
+
+<strong>3.)</strong> Gather info about the S.S.L. certificate issued for a domain /sub domain.
+
+Link for the SSL tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
+
+<strong>4.)</strong> Most of the time, knowing the following information:
+
+- 'whois is the registrar' 
+- 'is a domain from a reseller' 
+- 'what is the status of the domain'
+- 'what are the relevant dates under the domain name, date such as the expiration date from the registry and the registrar and the creation date'
+- 'what are the authoritative name servers under the domain'
+- 'are the authoritative name servers under th domain functioning properly'
+- 'what MX and A records can be obtained from the authoritative name servers under a domain'
+- 'is the regsitrant and registrant contact info'
+- 'whois responsible for the the IP addresses obtained from dig'
+
+will allow one to troubleshoot most of the issues and questions about domain names, issues about the domain itself or the website and the email service under it. 
+
+The main tool of this site is designed to gather the above information, in one click. 
+
+Link for this tool ('domain information probe' ) here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+-------------------------------
+
 $MOREINFO
 </pre>
 <br>
