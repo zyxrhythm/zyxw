@@ -13,9 +13,9 @@ Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
 -------------------------
 - SOME THINGS TO NOTE -
 -------------------------
-To deploy the same kind of tools and website on your server ( can also be customized if needed ). Download the zip on github <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >here</a>.
+If you have a website host, and want to deploy the same tools in this website,
+an improved version of this site and customizable web installer is on <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >this</a> github repo branch .
 
-Thus the 'whois and dig' info generated here are fetched from their respective servers in real time.
 -------------------------
 
 
