@@ -40,7 +40,7 @@ Customizations and Preferences:
 
 - Thanks page message can be edited on /zyx/salamat.txt
 
-- The site will be directed to https by the /cgi-bin/.htaccess file - (if you do not have ssl issued for your domain - modify or delete the .htaccess file).
+- The site will be directed to https by the .htaccess file on the /cgi-bin directory - (if you do not have ssl issued for your domain - modify or delete the .htaccess file).
 
 ---------------------
 
