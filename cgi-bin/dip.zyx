@@ -1014,9 +1014,9 @@ fi
 fi
 
 echo "<footer>"
-registrant=$(echo "$zyx2" | grep -i -e 'registrant\s')
-admin=$(echo "$zyx2" | grep -i -e 'admin')
-tech=$(echo "$zyx2" | grep -i -e 'tech')
+registrant=$(echo "$zyx2" | grep -i -e 'registrant ')
+admin=$(echo "$zyx2" | grep -i -e 'admin ')
+tech=$(echo "$zyx2" | grep -i -e 'tech ')
 
 if [[ -z "$registrant" ]]; then
 regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
