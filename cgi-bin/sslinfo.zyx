@@ -61,6 +61,9 @@ cat << EONAVMENU
 </head>
 EONAVMENU
 
+
+
+
 . ../zyx/lib/sh/tldblob.sh
 
 #list of supported gtlds
@@ -288,7 +291,7 @@ if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<
 cat << EOSSLCCR
 <body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
 $certloc <br>
-<strong>Cert Issuer</strong> : $Issuer <br>
+<strong>Cert Issuer</strong> : $Issuer <br> Let&apos;s Encrypt
 <strong>Wildcard</strong> : $certtype <br>
 <strong>Issued For</strong> : $Target<br>
 <strong>Validity Start:</strong> : $Validstart <br>
