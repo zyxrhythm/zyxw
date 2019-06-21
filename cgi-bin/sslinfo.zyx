@@ -343,4 +343,6 @@ Common Name: $IssuerCN <br>
 </html>
 EOSSLCCR
 
+fi;
+
 exit 0;
