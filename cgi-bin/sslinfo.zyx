@@ -133,7 +133,7 @@ exit 0;
 
 else
 
-IP0=$(dig +short a $domain );
+IP0=$( dig +short a $domain );
 
 #iponlyfunc () {
 #while IFS= read -r line
@@ -212,23 +212,32 @@ else
 ##############################################
 ptag=$( echo "$nmapsslinfo" | grep "<ports>" );
 atag=$( echo "$nmapsslinfo" | grep "address addr" );
+
 IPA=$(grep -oP '(?<=addr=").*?(?=")' <<< "$atag" );
+
 Issuer=$(grep -oP '(?<=Issuer: ).*?(?=Public Key type:)' <<< "$ptag" );
 IssuerCN=$(grep -oP '(?<=commonName=).*?(?=/organizationName)' <<< "$Issuer" );
 IssuerON=$(grep -oP '(?<=/organizationName=).*?(?=/)' <<< "$Issuer" );
 IssuedForx0=$(grep -oP '(?<=Subject: commonName=).*?(?=&)' <<< "$ptag" );
 IssuedForx1=$(grep -oP '(?<=Subject: commonName=).*?(?=/)' <<< "$ptag" );
 if [[ $(echo $IssuedForx0 | wc -m) -gt $(echo $IssuedForx1 | wc -m) ]]; 
-then IssuedFor="$IssuedForx1"; 
-else IssuedFor="$IssuedForx0"; fi;
+then 
+IssuedFor="$IssuedForx1"; 
+else 
+IssuedFor="$IssuedForx0"; fi;
+
 ValidStart0=$(grep -oP '(?<=Not valid before).*?(?=Not valid after:)' <<< "$ptag" );
 ValidStart=$(grep -oP '(?<=: ).*?(?=&#xa;)' <<< "$ValidStart0" );
 ValidEnd0=$(grep -oP '(?<=Not valid after).*?(?=MD5:)' <<< "$ptag" );
 ValidEnd=$(grep -oP '(?<=:  ).*?(?=&#xa;)' <<< "$ValidEnd0" );
+
 daysx=$( echo $((($(date +%s --date "${ValidEnd:0:10}")-$(date +%s))/(3600*24))) );
+
 if [[ ${daysx:0:1} = "-" ]]; 
-then daysvar="Days Expired:"; days="${daysx#*-}"; 
-else daysvar="Days Left:"; days="$daysx"; fi;
+then 
+daysvar="Days Expired:"; days="${daysx#*-}"; 
+else 
+daysvar="Days Left:"; days="$daysx"; fi;
 ##############################################
 
 #rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
@@ -238,7 +247,7 @@ else daysvar="Days Left:"; days="$daysx"; fi;
 #Expiry=$( expiryfunc "$rawdata0" );
 #Validstart=$( validstartfunc "$rawdata0" );
 #Daysleft0=$( daysleftfunc "$Expiry" ); fi;
-
+fi;
 ;;
 
  $tldlist1)
@@ -269,25 +278,32 @@ else
 ##############################################
 ptag=$( echo "$nmapsslinfo" | grep "<ports>" );
 atag=$( echo "$nmapsslinfo" | grep "address addr" );
+
 IPA=$(grep -oP '(?<=addr=").*?(?=")' <<< "$atag" );
+
 Issuer=$(grep -oP '(?<=Issuer: ).*?(?=Public Key type:)' <<< "$ptag" );
 IssuerCN=$(grep -oP '(?<=commonName=).*?(?=/organizationName)' <<< "$Issuer" );
 IssuerON=$(grep -oP '(?<=/organizationName=).*?(?=/)' <<< "$Issuer" );
 IssuedForx0=$(grep -oP '(?<=Subject: commonName=).*?(?=&)' <<< "$ptag" );
 IssuedForx1=$(grep -oP '(?<=Subject: commonName=).*?(?=/)' <<< "$ptag" );
 if [[ $(echo $IssuedForx0 | wc -m) -gt $(echo $IssuedForx1 | wc -m) ]]; 
-then IssuedFor="$IssuedForx1"; 
-else IssuedFor="$IssuedForx0"; fi;
+then 
+IssuedFor="$IssuedForx1"; 
+else 
+IssuedFor="$IssuedForx0"; fi;
+
 ValidStart0=$(grep -oP '(?<=Not valid before).*?(?=Not valid after:)' <<< "$ptag" );
 ValidStart=$(grep -oP '(?<=: ).*?(?=&#xa;)' <<< "$ValidStart0" );
 ValidEnd0=$(grep -oP '(?<=Not valid after).*?(?=MD5:)' <<< "$ptag" );
 ValidEnd=$(grep -oP '(?<=:  ).*?(?=&#xa;)' <<< "$ValidEnd0" );
 daysx=$( echo $((($(date +%s --date "${ValidEnd:0:10}")-$(date +%s))/(3600*24))) );
+
 if [[ ${daysx:0:1} = "-" ]]; 
 then daysvar="Days Expired:"; days="${daysx#*-}"; 
 else daysvar="Days Left:"; days="$daysx"; fi;
 ##############################################
 
+fi;
 ;;
 
 #throws in errors for non domain input
@@ -326,7 +342,5 @@ Common Name: $IssuerCN <br>
 </body>
 </html>
 EOSSLCCR
-
-fi;
 
 exit 0;
