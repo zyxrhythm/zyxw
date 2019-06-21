@@ -61,9 +61,6 @@ cat << EONAVMENU
 </head>
 EONAVMENU
 
-
-
-
 . ../zyx/lib/sh/tldblob.sh
 
 #list of supported gtlds
@@ -78,55 +75,50 @@ tldlist1="+($CCTLDLIST)"
 #===================
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-errcfunc () {
-err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
-echo "$err";
-}
+#errcfunc () {
+#err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
+#echo "$err"; }
 
-issuerfunc () {
-issuer0=$(echo "$1" | grep -i 'issuer=' );
-issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$issuer0");
-echo "$issuer";
-}
+#issuerfunc () {
+#issuer0=$(echo "$1" | grep -i 'issuer=' );
+#issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$issuer0");
+#echo "$issuer"; }
 
-targetfunc () {
-target0=$( echo "$1" | grep -i 'subject=' );
-target=${target0#*CN=};
-echo "$target";
-}
+#targetfunc () {
+#target0=$( echo "$1" | grep -i 'subject=' );
+#target=${target0#*CN=};
+#echo "$target"; }
 
-expiryfunc () {
-expiry0=$(echo "$1" | grep -i 'notafter=');
-expiry=${expiry0#*After=};
-echo "$expiry";
-}
+#expiryfunc () {
+#expiry0=$(echo "$1" | grep -i 'notafter=');
+#expiry=${expiry0#*After=};
+#echo "$expiry"; }
 
-validstartfunc () {
-validstart0=$(echo "$1" | grep -i 'notbefore=');
-validstart=${validstart0#*Before=};
-echo "$validstart";
-}
+#validstartfunc () {
+#validstart0=$(echo "$1" | grep -i 'notbefore=');
+#validstart=${validstart0#*Before=};
+#echo "$validstart"; }
 
-daysleftfunc () {
-Expiryx="$1"
+#daysleftfunc () {
+#Expiryx="$1"
 #year
-dlyear0="${Expiryx:13:10}";
-dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
+#dlyear0="${Expiryx:13:10}";
+#dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
 #month alpha
-dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
+#dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
 #month num
-case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
-esac;
+#case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
+#esac;
 #day
-dlday0="${Expiryx:0:9}";
-dlday=$( echo $(grep -oP '(?<= ).*?(?= )' <<< "$dlday0") | tr -d '\040\011\012\015' );
+#dlday0="${Expiryx:0:9}";
+#dlday=$( echo $(grep -oP '(?<= ).*?(?= )' <<< "$dlday0") | tr -d '\040\011\012\015' );
 #full date
-fulldate="$dlyear-$dlmono-$dlday";
+#fulldate="$dlyear-$dlmono-$dlday";
 
-daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
+#daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
+#echo "$daysleft"; }
 
-echo "$daysleft";
-}
+
 #===================
 #END OF FUNCTION HALL
 #===================
@@ -152,18 +144,17 @@ else
 
 IP0=$(dig +short a $domain );
 
-iponlyfunc () {
-while IFS= read -r line
-do
-if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
-then ipop="$line";
-else 
-linex=$(dig a +short "$line" ); 
-ipop="$line (CNAME) <br> <br>The CNAME resolves to $linex"; 
-fi;
-echo "$ipop";
-done < <(printf '%s\n' "$1");
-}
+#iponlyfunc () {
+#while IFS= read -r line
+#do
+#if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+#then ipop="$line";
+#else 
+#linex=$(dig a +short "$line" ); 
+#ipop="$line (CNAME) <br> <br>The CNAME resolves to $linex"; 
+#fi;
+#echo "$ipop";
+#done < <(printf '%s\n' "$1"); }
 
 IP=$( iponlyfunc "$IP0" | head -n 1);
 
@@ -196,9 +187,10 @@ case $tld in
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-errc=$( errcfunc "$domain" );
+nmapsslinfo=$( nmap "$domain" -oX - -p 443 --script=ssl-cert );
+nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
 
-if [[ -z "$errc" ]];
+if [[ -z "$nsix" ]];
 then cat << ZXCVBNM
 <body>
 <div id='divClipboard'>
@@ -229,9 +221,7 @@ Daysleft0=$( daysleftfunc "$Expiry" ); fi;
 #check if the input is domain or sub domain.
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-errc=$( errcfunc "$domain" );
-
-if [[ -z "$errc" ]];
+if [[ -z "$nsix" ]];
 then cat << ZXCVBNM2
 <body>
 <div id='divClipboard'>
@@ -249,13 +239,41 @@ ZXCVBNM2
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
 
-Issuer=$( issuerfunc "$rawdata0" );
-Target=$( targetfunc "$rawdata0" );
-Expiry=$( expiryfunc "$rawdata0" );
-Validstart=$( validstartfunc "$rawdata0" );
-Daysleft0=$( daysleftfunc "$Expiry" ); fi;
+ptag=$( echo "$nmapsslinfo" | grep "<ports>" );
+
+atag=$( echo "$nmapsslinfo" | grep "address addr" );
+
+IPA=$(grep -oP '(?<=addr=").*?(?=")' <<< "$atag" );
+
+Issuer=$(grep -oP '(?<=Issuer: ).*?(?=Public Key type:)' <<< "$ptag" );
+IssuerCN=$(grep -oP '(?<=commonName=).*?(?=/organizationName)' <<< "$Issuer" );
+IssuerON=$(grep -oP '(?<=/organizationName=).*?(?=/)' <<< "$Issuer" );
+
+IssuedForx0=$(grep -oP '(?<=Subject: commonName=).*?(?=&)' <<< "$ptag" );
+IssuedForx1=$(grep -oP '(?<=Subject: commonName=).*?(?=/)' <<< "$ptag" );
+
+if [[ $(echo $IssuedForx0 | wc -m) -gt $(echo $IssuedForx1 | wc -m) ]]; 
+then IssuedFor="$IssuedForx1"; 
+else IssuedFor="$IssuedForx0"; fi;
+
+ValidStart0=$(grep -oP '(?<=Not valid before).*?(?=Not valid after:)' <<< "$ptag" );
+ValidStart=$(grep -oP '(?<=: ).*?(?=&#xa;)' <<< "$ValidStart0" );
+
+ValidEnd0=$(grep -oP '(?<=Not valid after).*?(?=MD5:)' <<< "$ptag" );
+ValidEnd=$(grep -oP '(?<=:  ).*?(?=&#xa;)' <<< "$ValidEnd0" );
+
+daysx=$( echo $((($(date +%s --date "${ValidEnd:0:10}")-$(date +%s))/(3600*24))) );
+
+if [[ ${daysx:0:1} = "-" ]]; 
+then 
+daysvar="Days Expired:";
+days="${daysx#*-}";
+else 
+daysvar="Days Left:"; 
+days="$daysx"
+fi;
 ;;
 
 #throws in errors for non domain input
@@ -275,28 +293,20 @@ exit 0;
 
 esac
 
-if [[ ${Daysleft0:0:1} = "-" ]]; 
-then 
-leftvar="Cert Expired";
-Daysleft="${Daysleft0#*-} days ago."; 
-else 
-leftvar="Daysleft";
-Daysleft="$Daysleft0";
-fi;
+if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
 
-if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
-
-if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
+#if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
-$certloc <br>
-<strong>Cert Issuer</strong> : $Issuer <br>
+<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IPA <br>
+<strong>Cert Issuer</strong> : <br>
+Org Name: $IssuerON <br>
+Common Name: $IssuerCN <br>
 <strong>Wildcard</strong> : $certtype <br>
-<strong>Issued For</strong> : $Target<br>
-<strong>Validity Start:</strong> : $Validstart <br>
-<strong>Expiration</strong> : $Expiry <br>
-<strong>$leftvar</strong> : $Daysleft </p></div>
+<strong>Issued To</strong> : $IssuedFor<br>
+<strong>Validity Start:</strong> : $ValidStart <br>
+<strong>Expiration</strong> : $ValidEnd <br>
+<strong>$daysvar</strong> : $days </p></div>
 <p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
