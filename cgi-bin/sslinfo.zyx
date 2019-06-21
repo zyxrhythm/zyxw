@@ -328,16 +328,20 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 #if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IPA <br>
+<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br>
+<strong>Resolves to</strong> : $IPA <br><br>
+
 <strong>Cert Issuer</strong> : <br>
-Org Name: $IssuerON <br>
-Common Name: $IssuerCN <br>
-<strong>Wildcard</strong> : $certtype <br>
-<strong>Issued To</strong> : $IssuedFor<br>
+$IssuerON (Organization Name)<br>
+$IssuerCN (Common Name)<br><br>
+
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
-<strong>$daysvar</strong> : $days </p></div>
-<p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
+<strong>$daysvar</strong> : $days <br> <br>
+
+<strong>Wildcard</strong> : $certtype <br>
+<strong>Issued To</strong> : $IssuedFor<br></p></div>
+<p><span style='color:grey; font-size:70%;'>( '$daysvar' is calculated based on the server's time and time zone: $(date))</span></p>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
