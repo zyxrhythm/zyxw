@@ -464,7 +464,7 @@ then
 expd1="<span id='fiftyshades' >Expiry Date Not Found. Consult the Registrar.</span>" 
 daysleftrar0="<span id='fiftyshades' >Counter Error: Date Not Found!</span>";
 else
-expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/ation/\y/g' ); 
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/tration/\y/g' ); 
 daysleftrar0=$( countdfunc "$expd0" ); fi;
 fi;
 
