@@ -332,10 +332,10 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IPA <br><br>
 
 <strong>Certificate Issuer</strong> : <br>
-$IssuerON   (Organization Name)<br>
-$IssuerCN   (Common Name)<br><br>
+$IssuerCN &nbsp;&nbsp;( Common Name )<br>
+$IssuerON &nbsp;&nbsp;( Organization Name )<br>
 <strong>Issued To</strong> : $IssuedFor<br>
-<strong>Wildcard</strong> : $certtype <br>
+<strong>Wildcard</strong> : $certtype <br><br>
 
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
