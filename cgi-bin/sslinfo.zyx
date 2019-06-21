@@ -331,12 +331,11 @@ cat << EOSSLCCR
 <body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br>
 <strong>Resolves to</strong> : $IPA <br><br>
 
-<strong>Wildcard</strong> : $certtype <br>
+<strong>Certificate Issuer</strong> : <br>
+$IssuerON   (Organization Name)<br>
+$IssuerCN   (Common Name)<br><br>
 <strong>Issued To</strong> : $IssuedFor<br>
-
-<strong>Cert Issuer</strong> : <br>
-$IssuerON (Organization Name)<br>
-$IssuerCN (Common Name)<br><br>
+<strong>Wildcard</strong> : $certtype <br>
 
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
