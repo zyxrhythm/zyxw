@@ -207,8 +207,8 @@ echo '<br>'
 while IFS= read -r line
 do
    nsa0=$($zyxwhois $line );
-   nsa1=$( echo "$nsa0" | grep -i -e 'orgname' );
-   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e 'netname' ); else nsa2="$nsa1"; fi;
+   nsa1=$( echo "$nsa0" | grep -i -e "OrgName:" );
+   if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e "NetName:" ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:} <br>- Does not respond to dig queries!</span>"; else echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:}"; fi;
 done < <(printf '%s\n' "$nsr2");
@@ -216,8 +216,8 @@ done < <(printf '%s\n' "$nsr2");
 else
    echo "<br>"
    nsa20=$($zyxwhois "$nsr2" );
-   nsa21=$( echo "$nsa20" | grep -i -e 'orgname' );
-   if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e 'netname' ); else nsa22="$nsa21"; fi;
+   nsa21=$( echo "$nsa20" | grep -i -e "OrgName:" );
+   if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e "NetName:" ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:} <br>- Does not respond to dig queries!</span>"; else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
 
@@ -276,8 +276,8 @@ else
 while IFS= read -r line
 do
    ar0=$($zyxwhois $line );
-   ar1=$( echo "$ar0" | grep -i -e 'orgname' );
-   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e 'netname' ); else ar2="$ar1"; fi;
+   ar1=$( echo "$ar0" | grep -i -e "OrgName:" );
+   if [[ -z "$ar1" ]]; then ar2=$( echo "$ar0" | grep -i -e "NetName:" ); else ar2="$ar1"; fi;
    arx=$( echo "$ar2" | sort -u | head -1 );
 echo "<br>   $line --- <a href='/cgi-bin/whois.zyx?doi=$line' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
 <span class='tooltiptext' >
@@ -321,8 +321,8 @@ if (( $(grep -c . <<<"$mxr2") > 1)); then
 while IFS= read -r line
 do
    mxa0=$($zyxwhois $line );
-   mxa1=$( echo "$mxa0" | grep -i -e 'orgname' );
-   if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e 'netname' ); else mxa2="$mxa1"; fi;
+   mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
+   if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
    if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
    
@@ -331,8 +331,8 @@ done < <(printf '%s\n' "$mxr2");
 else
 
    mxa20=$($zyxwhois "$mxr2" );
-   mxa21=$( echo "$mxa20" | grep -i -e 'orgname' );
-   if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e 'netname' ); else mxa22="$mxa21"; fi;
+   mxa21=$( echo "$mxa20" | grep -i -e "OrgName:" );
+   if [[ -z "$mxa21" ]]; then mxa22=$( echo "$mxa20" | grep -i -e "NetName:" ); else mxa22="$mxa21"; fi;
    mxax2=$( echo "$mxa22" | sort -u | head -1 );
    if [[ -z "$mxr2" ]]; then true; else 
    if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid MX Redord - Does not Resolve to an IP address!</span>"; else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; fi;
@@ -364,7 +364,7 @@ if [[ "$dvc" = "domainno" ]] || [[ "$dvc" = "nomatch" ]] || [[ "$dvc" = "notfoun
 
 then
 
-domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDOMAIN'  );
+domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDomain'  );
 	if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [[ -z "$domhv" ]]; 
 	then domvarx="- ( A sub domain )"; 
 	else domvarx="<br>( Not a  valid domain / sub domain but rather something else. )"; 
@@ -396,7 +396,7 @@ tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 if [[ $tld = "shop" ]]; then zyx=$(whois $domain -h whois.nic.shop 2>&1 ); else true; fi;
 
 #extracts then queries the whois server of the registar then prints the result with string manipulations
-whoisservergrep=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server:" | sort -u );
+whoisservergrep=$(echo "$zyx" | grep -i -e "REGISTRAR WHOIS SERVER:" | sort -u );
 if [[ -z "$whoisservergrep" ]]; then true;
 else
 whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
@@ -404,7 +404,7 @@ zyx2=$(whois $domain -h $whoisserver 2>&1 );
 fi;
 
 #REESE
-rese=$(echo "$zyx2" | grep -i -e "reseller");
+rese=$(echo "$zyx2" | grep -i -e "reseller:");
 reseller="${rese#*:}";
 if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]]; 
 then reese="None";
@@ -443,12 +443,12 @@ registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 dsfrgt=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
 
 #stores the domain's creation date
-creationdate0=$(echo "$zyx" | grep -i -e "creation date:");
+creationdate0=$(echo "$zyx" | grep -i -e "Creation date:");
 creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
 dayssince0=$( countdfunc "$creationdate0" );
  
 #stores the domain's expiration date from the registry
-expdx0=$(echo "$zyx" | grep -i -e "registry expiry date:");
+expdx0=$(echo "$zyx" | grep -i -e "Registry expiry date:");
 expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
 dayslefttry0=$( countdfunc "$expdx0" );
 
@@ -458,7 +458,7 @@ then
 expd1="<span id='fiftyshades' >Expiry Date Not Found. Consult the Registrar.</span>" 
 daysleftrar0="<span id='fiftyshades' >Counter Error: Whois server Not Found!</span>";
 else 
-expd0=$(echo "$zyx2" | grep -i -e "registrar registration expiration date:");
+expd0=$(echo "$zyx2" | grep -i -e "Registrar registration expiration date:");
 if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]]; 
 then
 expd1="<span id='fiftyshades' >Expiry Date Not Found. Consult the Registrar.</span>" 
