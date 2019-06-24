@@ -328,9 +328,10 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 #if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body><div class="code-bg" id="divClipboard"><p>SSL Certificate Found.<br>
-<strong>Input ($domvar)</strong> : $domain <br>
-<strong>Input resolves to</strong> : $IPA <br>
+<body>
+SSL Certificate Found.<br>
+<div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
+<strong>Cert foudn and $domvar resolves to</strong> : $IPA <br>
 <strong>Certificate issued to</strong> : $IssuedFor<br>
 <strong>Wildcard Cert :</strong> : $certtype <br><br>
 
