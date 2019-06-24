@@ -328,8 +328,11 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 #if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body><div class="code-bg" id="divClipboard"><p><strong>Input ($domvar)</strong> : $domain <br>
-<strong>Resolves to</strong> : $IPA <br><br>
+<body><div class="code-bg" id="divClipboard"><p>SSL Certificate Found.<br>
+<strong>Input ($domvar)</strong> : $domain <br>
+<strong>Input resolves to</strong> : $IPA <br>
+<strong>Certificate issued to</strong> : $IssuedFor<br>
+<strong>Wildcard Cert :</strong> : $certtype <br><br>
 
 <strong>Certificate Issuer</strong> : $IssuerON 
 
@@ -349,9 +352,6 @@ else { element.innerHTML = '-';} }
 $IssuerCN &nbsp;&nbsp;( Common Name )<br>
 $IssuerON &nbsp;&nbsp;( Organization Name )<br>
 </p></td></tbody></table></div><p>
-
-<strong>Issued To</strong> : $IssuedFor<br>
-<strong>Wildcard Cert:</strong> : $certtype <br><br>
 
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
