@@ -195,7 +195,7 @@ then cat << ZXCVBNM
 <body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
-<strong>Resolves to</strong> : $IP <br><br>
+<strong>Resolves to</strong> : $IP0 <br><br>
 No certificate found on port 443. <br>
 -https might be configured to use another port. <br>
 -an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
@@ -262,7 +262,7 @@ then cat << ZXCVBNM2
 <body>
 <div id='divClipboard'>
 <p><strong>Input:</strong> $domain <br> 
-<strong>Resolves to</strong> : $IPA <br><br>
+<strong>Resolves to</strong> : $IP0 <br><br>
 No certificate found on port 443. <br>
 -https might be configured to use another port. <br>
 -S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
@@ -351,7 +351,7 @@ $IssuerON &nbsp;&nbsp;( Organization Name )<br>
 </p></td></tbody></table></div><p>
 
 <strong>Issued To</strong> : $IssuedFor<br>
-<strong>Wildcard</strong> : $certtype <br><br>
+<strong>Wildcard Cert:</strong> : $certtype <br><br>
 
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
