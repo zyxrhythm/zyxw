@@ -114,8 +114,6 @@ EONAVMENU
 #END OF FUNCTION HALL
 #===================
 
-echo '<br>'
-
 #checks if input is null 
 if [[ -z "$domain" ]]; then
 SSLCTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-SSL_TOOL_PAGE/{flag=1;next}/SSL_TOOL_PAGE->/{flag=0}flag');
@@ -328,7 +326,7 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 #if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
 
 cat << EOSSLCCR
-<body><p>SSL Certificate Found.</p>
+<body><p>SSL Certificate Found!</p>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
 <strong>$domvar resolves to</strong> : $IPA <br>
 <strong>Certificate issued to</strong> : $IssuedFor<br>
