@@ -348,7 +348,7 @@ else { element.innerHTML = '-';} }
 <div id='jscatab' style='display:none'> <table> <tbody> <td><p>
 $IssuerCN &nbsp;&nbsp;( Common Name )<br>
 $IssuerON &nbsp;&nbsp;( Organization Name )<br>
-</p></td></tbody></table></div>
+</p></td></tbody></table></div><p>
 
 <strong>Issued To</strong> : $IssuedFor<br>
 <strong>Wildcard</strong> : $certtype <br><br>
