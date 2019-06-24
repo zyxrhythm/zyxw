@@ -329,9 +329,9 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 
 cat << EOSSLCCR
 <body>
-SSL Certificate Found.<br>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
-<strong>Cert foudn and $domvar resolves to</strong> : $IPA <br>
+<strong>$domvar resolves to</strong> : $IPA <br>
+SSL Certificate Found.<br>
 <strong>Certificate issued to</strong> : $IssuedFor<br>
 <strong>Wildcard Cert :</strong> : $certtype <br><br>
 
