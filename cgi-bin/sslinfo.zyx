@@ -332,23 +332,23 @@ cat << EOSSLCCR
 <strong>Resolves to</strong> : $IPA <br><br>
 
 <strong>Certificate Issuer</strong> : $IssuerON 
+
 <script> 
 function jscatab() { var x = document.getElementById('jscatab'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-
 function changeTextcatab() {
 var element = document.getElementById('catabid');
 if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
-<a id='catabid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='jscatab(); changeTextcatab();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br>
-</span></a>
 
-<div id='jscatab' style='display:none'>
+<a id='catabid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='jscatab(); changeTextcatab();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a>
+
+<div id='jscatab' style='display:none'> <table> <tbody> <td><p>
 $IssuerCN &nbsp;&nbsp;( Common Name )<br>
 $IssuerON &nbsp;&nbsp;( Organization Name )<br>
-</div>
+</p></td></tbody></table></div>
 
 <strong>Issued To</strong> : $IssuedFor<br>
 <strong>Wildcard</strong> : $certtype <br><br>
