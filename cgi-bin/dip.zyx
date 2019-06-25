@@ -252,6 +252,9 @@ fi;
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
+cnamec=$( echo "$(dig A +noall +answer $domain)" | grep -i -e 'CNAME' );
+if [[ -z $cnamec ]]; then cnc="n"; else cnc="p"; fi;
+
 if [[ -z $2 ]]; then 
 arff="$1";
 
@@ -280,7 +283,7 @@ do
 	alinex="$line";
    	ar0=$($zyxwhois $alinex );
 	rchk="A";
-   	elif [[ ! -z "$(dig +short CNAME $line )" ]];
+   	elif [[ $cnc = "p" ]] && [[ ! -z "$(dig +short A $line )" ]];
 	then
 	ealinex=$(dig a +short $line );
 	alinex="$ealinex";
@@ -314,6 +317,9 @@ fi;
 #MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
+cnamec=$( echo "$(dig A +noall +answer $domain)" | grep -i -e 'CNAME' );
+if [[ -z $cnamec ]]; then cnc="n"; else cnc="p"; fi;
+
 if [[ -z $2 ]]; then
 mxrff="$1";
 
