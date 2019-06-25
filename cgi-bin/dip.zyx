@@ -307,7 +307,7 @@ echo "<br>   $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex' class='tooltip
 </span></a> ${arx#*:}";
 
 elif [[ $rchk = "CNAME" ]]; then  
-echo "<br> <span id='fiftyshades' >Warning! Domain $senvar resolves to CNAME: $line <br>which resolves to $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
+echo "<br> <span id='fiftyshades' >Warning! naked domain $senvar resolves to CNAME: $line <br>which resolves to $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
 <span class='tooltiptext' >
 <br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${arx#*:}</span><br>";
