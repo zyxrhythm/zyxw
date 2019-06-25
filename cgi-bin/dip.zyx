@@ -126,11 +126,13 @@ echo "
 exit 0;
 fi;
 
+#########
 nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
 
-cnamec=$( echo "$(dig A +noall +answer $domain)" | grep -i -e 'CNAME' );
-if [[ -z $cnamec ]]; then cnc="n"; else cnc="p"; fi;
+cnamec=$(dig A +noall +answer $domain);
+if [[ -z $( echo "$cnamec" | grep -i -e 'CNAME' ) ]]; then cnc="n"; else cnc="p"; fi;
 if (( $(grep -c . <<<"$cnamec") > 1)); then senvar=" also"; else senvar=""; fi;
+#########
 
 #==========================
 # THE GREAT FUNCTION HALL
@@ -257,7 +259,6 @@ fi;
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
-
 if [[ -z $2 ]]; then 
 arff="$1";
 
@@ -309,7 +310,7 @@ elif [[ $rchk = "CNAME" ]]; then
 echo "<br> <span id='fiftyshades' >Domain $senvar resolves to CNAME: $line which resolves to $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> 
 <span class='tooltiptext' >
 <br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
-</span></a> ${arx#*:}"</span>;
+</span></a> ${arx#*:}</span>";
 
 else echo "Domain resolves to oblivion!"; fi;
 done < <(printf '%s\n' "$arff");
@@ -320,7 +321,6 @@ fi;
 #MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
 mrfunction () {
-
 if [[ -z $2 ]]; then
 mxrff="$1";
 
