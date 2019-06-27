@@ -215,7 +215,7 @@ while IFS= read -r line; do
    nsa0=$($zyxwhois $line );
    
    nscx2=$( echo "$( dig a +short $domain @$line )" | tr -d '\040\011\012\015' );
-   elif [[ "${nscx2:0:2}" = ";;" ]]; then nsipc2="xd"; else true; fi;
+   if [[ "${nscx2:0:2}" = ";;" ]]; then nsipc2="xd"; else true; fi;
 
    nsa1=$( echo "$nsa0" | grep -i -e "OrgName:" );
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e "NetName:" ); else nsa2="$nsa1"; fi;
