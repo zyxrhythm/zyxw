@@ -213,7 +213,7 @@ while IFS= read -r line; do
    else echo "${line#*:} <br> "; fi;
    
 if (( $(grep -c . <<<"$nsr2") > 1)); then
-echo '<br>'
+#echo '<br>'
 while IFS= read -r line; do
    nsa0=$($zyxwhois $line );
    
