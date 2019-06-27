@@ -206,8 +206,11 @@ else { element.innerHTML = '-';} }
 while IFS= read -r line; do
    nsr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' );
    nsr2=$(dig a +short "$nsr1" @8.8.8.8 2>/dev/null );
-   nscx=$( echo "$( dig a +short $domain @$nsr1 )" | tr -d '\040\011\012\015' );
-   if [[ -z "$nsr2" ]]; then nsipc="null"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; elif [[ "${nscx:0:2}" = ";;" ]]; then nsipc="xd"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; else echo "${line#*:} <br> "; fi;
+   nscx=$( echo "$( dig a +short $domain @$nsr2 )" | tr -d '\040\011\012\015' );
+
+   if [[ -z "$nsr2" ]]; then nsipc="null"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; 
+   elif [[ "${nscx:0:2}" = ";;" ]]; then nsipc="xd"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; 
+   else echo "${line#*:} <br> "; fi;
    
 if (( $(grep -c . <<<"$nsr2") > 1)); then
 echo '<br>'
@@ -227,10 +230,14 @@ done < <(printf '%s\n' "$nsr2");
 
 else
    echo "<br>"
-   nsa20=$($zyxwhois "$nsr2" );
+   nsa20=$($zyxwhois "$nsr2" );  
    nsa21=$( echo "$nsa20" | grep -i -e "OrgName:" );
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e "NetName:" ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
+   
+   #nscx3=$( echo "$( dig a +short $domain @$line )" | tr -d '\040\011\012\015' );
+   #if [[ "${nscx3:0:2}" = ";;" ]]; then nsipc3="xd"; else true; fi;
+   
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; 
    elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:} <br>- Does not respond to dig queries!!</span>"; 
    else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
