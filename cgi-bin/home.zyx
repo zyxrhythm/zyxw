@@ -112,7 +112,7 @@ else if(document.getElementById("square").checked == false)
 </form></p>
 <!-- ################## DIGGER ################# -->
 <p><br><br>
-<a href="https://github.com/zyxrhythm/4353.info" target='_blank'>
+<a href="https://github.com/zyxrhythm/zyxw" target='_blank'>
 <img border="0" alt="Cactus" src="/image.png" width="26%" height="26%">
 </a></p>
 </body>
