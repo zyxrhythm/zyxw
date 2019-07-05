@@ -41,6 +41,8 @@ qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
 
 #butchers the qs string and gets the domain
 doi=$(echo $qs | cut -f2 -d"=" | tr -d '\040\011\012\015');
+swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
+sptq=$(echo $qs | sed 's/.*sptq=//');
 
 cat <<INIOHTMLHEAD
 <head>
@@ -64,7 +66,11 @@ cat << EONAVMENU
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
 <form action="whois.zyx" method="get">
-<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
+
+<input placeholder="Whois server (Optional)" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq">
+
+<input placeholder="Port (Optional)" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="sptq">
 <button id="whoyoubtn" type="submit" > Who is </button>
 </form>
 <!-- ################## WHO YOU ################# -->
@@ -119,13 +125,13 @@ else
 	ipwhois="$doi";
 
 	if [[ "$witst0" = "y" ]]; then
-	zyxip0=$($zyxwhois $ipwhois );
+	zyxip0=$($zyxwhois $ipwhois $swstq $sptq 2>&1 );
 	zyxip=$(echo "$zyxip0" | sed  '1,2d' );
 	ipwis0=$(echo "$zyxip0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 	ipwis="${ipwis0#*Querying}";
 
 	elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-	zyxip0=$($zyxwhois $ipwhois );
+	zyxip0=$($zyxwhois $ipwhois $swstq $sptq);
 	zyxip=$(echo "$zyxip0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 	ipwis0=$(echo "$zyxip0" | grep -i -e "Using server" | sort -u );
 	ipwis=${ipwis0#*Using Server };
@@ -157,13 +163,13 @@ EOWIIPR
 
 
 if [[ "$witst0" = "y" ]]; then
-zyx0=$(whois -n $doi 2>&1);
+zyx0=$(whois -n $doi $swstq $sptq 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$(whois --verbose $doi 2>&1);
+zyx0=$(whois --verbose $doi $swstq $sptq 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
