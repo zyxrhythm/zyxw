@@ -43,25 +43,25 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstqx=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptqx=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ !-z $swstqx ]] && [[ !-z $sptqx ]]; then 
+if [[ ! -z $swstqx ]] && [[ ! -z $sptqx ]]; then 
 $swstq="-h $swstqx";
 $sptq="-p $sptqx";
-specter="y"
+specter="y";
 
 elif [[ -z $swstqx ]] && [[ -z $sptqx ]]; then
 $swstq="";
 $sptq="";
-specter="n"
+specter="n";
 
-elif [[ -z $swstqx ]] && [[ !-z $sptqx ]]; then
+elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
 $swstq="";
 $sptq="-p $sptqx";
-specter="y"
+specter="y";
 
-elif [[ !-z $swstqx ]] && [[ -z $sptqx ]]; then
+elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
 $swstq="-h $swstqx";
 $sptq="";
-specter="y"
+specter="y";
 
 else echo "
 <body><div id='divClipboard'><p>Something went wrong.</p></div><br><br><br>
