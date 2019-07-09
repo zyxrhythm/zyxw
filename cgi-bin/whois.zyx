@@ -145,6 +145,36 @@ exit 0;
 #else 1
 else
 
+########MAN##############
+if [[ "$witst0" = "y" ]]; then
+zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx=$(echo "$zyx0" | sed  '1,2d' );
+
+elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
+zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+
+else 
+echo "<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; 
+fi;
+
+wsman="$zyx"
+if [[ $specter = "y" ]]; then
+cat << WHOISMAN
+<body>
+<button onclick="copyClipboard1()">Copy Result</button>
+<br>
+<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td> </tbody> </table><br>
+<div id="divClipboard1">
+<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody> </table><br>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+WHOISMAN
+exit 0;
+else true; fi;
+########MAN##############
+
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
 #if 2
 	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
@@ -277,23 +307,7 @@ tld=$( echo $doi | rev | cut -d "." -f1 | rev );
 #checks if the domain's TLD is on the list of TLDs
 case $tld in
    $gcctldlist)
-########MAN##############
-wsman="$zyx"
-if [[ $specter = "y" ]]; then
-cat << WHOISMAN
-<body>
-<button onclick="copyClipboard1()">Copy Result</button>
-<br>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td> </tbody> </table><br>
-<div id="divClipboard1">
-<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody> </table><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-WHOISMAN
-exit 0;
-else true; fi;
-########MAN##############
+
 rarwis0=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server" | sort -u);
 rarwis1=$(echo "$rarwis0" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 
