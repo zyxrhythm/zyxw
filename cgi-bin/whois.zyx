@@ -43,7 +43,7 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstqx=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptqx=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ ! -z $swstqx ]] && [[ ! -z $sptqx ]]; then 
+if [[ !-z $swstqx ]] && [[ !-z $sptqx ]]; then 
 $swstq="-h $swstqx";
 $sptq="-p $sptqx";
 specter="y"
@@ -53,12 +53,12 @@ $swstq="";
 $sptq="";
 specter="n"
 
-elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
+elif [[ -z $swstqx ]] && [[ !-z $sptqx ]]; then
 $swstq="";
 $sptq="-p $sptqx";
 specter="y"
 
-elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
+elif [[ !-z $swstqx ]] && [[ -z $sptqx ]]; then
 $swstq="-h $swstqx";
 $sptq="";
 specter="y"
@@ -190,13 +190,13 @@ EOWIIPR
 
 
 if [[ "$witst0" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $swstq $sptq 2>&1);
+zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $swstq $sptq 2>&1);
+zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
