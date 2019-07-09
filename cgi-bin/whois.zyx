@@ -43,14 +43,27 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstqx=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptqx=$(echo $qs | sed 's/.*sptq=//');
 
-#if [[ ! -z $swstqx ]] && [[ ! -z $sptqx ]]; then 
-#$swstq="$swstqx";
-#$sptq="$sptqx";
-#elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
-#$swstq="";
+if [[ ! -z $swstqx ]] && [[ ! -z $sptqx ]]; then 
+$swstq="-h $swstqx";
+$sptq="-p $sptqx";
 
-#else;
-#fi;
+elif [[ -z $swstqx ]] && [[ -z $sptqx ]]; then
+$swstq="";
+$sptq="";
+
+elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
+$swstq="";
+$sptq="-p $sptqx";
+
+elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
+$swstq="-h $swstqx";
+$sptq="";
+
+else echo "
+<body><div id='divClipboard'><p>Something went wrong.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>"; fi;
 
 cat <<INIOHTMLHEAD
 <head>
