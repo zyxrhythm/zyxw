@@ -160,8 +160,8 @@ cat << EOWIIPR
 <body>
 <button onclick="copyClipboard1()">Copy Result</button>
 <br>
-<div id="divClipboard1">
 <table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $ipwis</td> </tbody> </table><br>
+<div id="divClipboard1">
 <table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $zyxip0 </pre></td> </tbody> </table><br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
