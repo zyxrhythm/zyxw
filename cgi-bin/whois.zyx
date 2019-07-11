@@ -40,28 +40,23 @@ qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
 
 #butchers the qs string and gets the domain
 doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
-swstqx=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
-sptqx=$(echo $qs | sed 's/.*sptq=//');
+swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
+sptq=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ ! -z $swstqx ]] && [[ ! -z $sptqx ]]; then 
-$swstq="-h $swstqx";
-$sptq="-p $sptqx";
+if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
 specter="y";
+zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
 
-elif [[ -z $swstqx ]] && [[ -z $sptqx ]]; then
-$swstq="";
-$sptq="";
+elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
+specter="y";
+zyxman=$( $zyxwhois $doi -p $sptq );
+
+elif [[ ! -z $swstq ]] && [[ -z $sptq ]]; then
+specter="y";
+zyxman=$( $zyxwhois $doi -h $swstq );
+
+elif [[ -z $swstq ]] && [[ -z $sptq ]]; then
 specter="n";
-
-elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
-$swstq="";
-$sptq="-p $sptqx";
-specter="y";
-
-elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
-$swstq="-h $swstqx";
-$sptq="";
-specter="y";
 
 else echo "
 <body><div id='divClipboard'><p>Something went wrong.</p></div><br><br><br>
@@ -147,12 +142,10 @@ else
 
 ########MAN##############
 if [[ "$witst0" = "y" ]]; then
-zyx0=$( whois -n $doi $sptq $swstq 2>&1);
-zyx=$(echo "$zyx0" | sed  '1,2d' );
+zyx=$(echo "$zyxman" | sed  '1,2d' );
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$( whois --verbose $doi $sptq $swstq 2>&1);
-zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
+zyx=$(echo "$zyxman" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 
 else 
 echo "<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; 
