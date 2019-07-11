@@ -48,17 +48,17 @@ $swstq="-h $swstqx";
 $sptq="-p $sptqx";
 specter="y";
 
-elif [[ -z $swstqx ]] && [[ -z $sptqx ]]; then
+elif [[ -z $swstqx ]] || [[ $swstqx = "" ]] && [[ -z $sptqx ]] || [[ $sptqx = "" ]]; then
 $swstq="";
 $sptq="";
 specter="n";
 
-elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
+elif [[ -z $swstqx ]] || [[ $swstqx = "" ]] && [[ ! -z $sptqx ]]; then
 $swstq="";
 $sptq="-p $sptqx";
 specter="y";
 
-elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
+elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]] || [[ $sptqx = "" ]]; then
 $swstq="-h $swstqx";
 $sptq="";
 specter="y";
