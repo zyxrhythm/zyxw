@@ -48,17 +48,17 @@ $swstq="-h $swstqx";
 $sptq="-p $sptqx";
 specter="y";
 
-elif [[ -z $swstqx ]] || [[ $swstqx = "" ]] && [[ -z $sptqx ]] || [[ $sptqx = "" ]]; then
+elif [[ -z $swstqx ]] && [[ -z $sptqx ]]; then
 $swstq="";
 $sptq="";
 specter="n";
 
-elif [[ -z $swstqx ]] || [[ $swstqx = "" ]] && [[ ! -z $sptqx ]]; then
+elif [[ -z $swstqx ]] && [[ ! -z $sptqx ]]; then
 $swstq="";
 $sptq="-p $sptqx";
 specter="y";
 
-elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]] || [[ $sptqx = "" ]]; then
+elif [[ ! -z $swstqx ]] && [[ -z $sptqx ]]; then
 $swstq="-h $swstqx";
 $sptq="";
 specter="y";
@@ -147,11 +147,11 @@ else
 
 ########MAN##############
 if [[ "$witst0" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx0=$( "$zyxwhois $doi $sptq $swstq" 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx0=$( "$zyxwhois $doi $sptq $swstq" 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 
 else 
