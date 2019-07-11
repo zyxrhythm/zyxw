@@ -89,9 +89,9 @@ cat << EONAVMENU
 <input placeholder="Domain / I.P. address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
 
 <button id="whoyoubtn" type="submit" > Who is </button>
-<br><br>
+<br>
 
-"<script> 
+<script> 
 function jsfmanwi() { var x = document.getElementById('manwid'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
@@ -102,7 +102,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup.<br><br></span></a>
+<a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 150%;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup, by specifying a whois server and port to query.<br><br></span></a>
 
 <div id='manwid' style='display:none'> <table> <tbody> <td>
 <input placeholder="Whois server (Optional)" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq"  size='20'>
