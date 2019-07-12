@@ -79,7 +79,7 @@ EONAVMENU
 
 #list of supported TLDs
 shopt -s extglob
-gcctldlist="+($ALLTLD)"
+gcctldlist="+($ALLTLDX)"
 
 #checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
 if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
