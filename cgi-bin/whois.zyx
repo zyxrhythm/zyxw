@@ -49,7 +49,7 @@ zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
 specter="y";
-zyxman=$( $zyxwhois $doi -p $sptq );
+zyxman="Please include a whois server. Port to query: $sptq";
 
 elif [[ ! -z $swstq ]] && [[ -z $sptq ]]; then
 specter="y";
