@@ -6,9 +6,9 @@
 #https://github.com/zyxrhythm
 #############################################
 
-. ../zyx/lib/sh/genvars.sh
+. ../zyx/sh/genvars.sh
 
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 #start the html header
 echo "Content-type: text/html"
@@ -41,7 +41,7 @@ $GANALYTICS
 <script src="/js/gencopy.js"></script>
 INIOHTMLHEAD
 
-. ../zyx/lib/sh/navpart.sh
+. ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
 
@@ -59,59 +59,6 @@ cat << EONAVMENU
 <hr>
 </head>
 EONAVMENU
-
-#===================
-#FUNCTION HALL
-#===================
-
-#uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-#errcfunc () {
-#err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
-#echo "$err"; }
-
-#issuerfunc () {
-#issuer0=$(echo "$1" | grep -i 'issuer=' );
-#issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$issuer0");
-#echo "$issuer"; }
-
-#targetfunc () {
-#target0=$( echo "$1" | grep -i 'subject=' );
-#target=${target0#*CN=};
-#echo "$target"; }
-
-#expiryfunc () {
-#expiry0=$(echo "$1" | grep -i 'notafter=');
-#expiry=${expiry0#*After=};
-#echo "$expiry"; }
-
-#validstartfunc () {
-#validstart0=$(echo "$1" | grep -i 'notbefore=');
-#validstart=${validstart0#*Before=};
-#echo "$validstart"; }
-
-#daysleftfunc () {
-#Expiryx="$1"
-#year
-#dlyear0="${Expiryx:13:10}";
-#dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
-#month alpha
-#dlmonth=$( echo "${Expiryx:0:3}" | gawk '{print tolower($0)}' );
-#month num
-#case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
-#esac;
-#day
-#dlday0="${Expiryx:0:9}";
-#dlday=$( echo $(grep -oP '(?<= ).*?(?= )' <<< "$dlday0") | tr -d '\040\011\012\015' );
-#full date
-#fulldate="$dlyear-$dlmono-$dlday";
-
-#daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
-#echo "$daysleft"; }
-
-
-#===================
-#END OF FUNCTION HALL
-#===================
 
 #checks if input is null 
 if [[ -z "$domain" ]]; then
@@ -131,20 +78,6 @@ exit 0;
 else
 
 IP0=$( dig +short a $domain );
-
-#iponlyfunc () {
-#while IFS= read -r line
-#do
-#if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
-#then ipop="$line";
-#else 
-#linex=$(dig a +short "$line" ); 
-#ipop="$line (CNAME) <br> <br>The CNAME resolves to $linex"; 
-#fi;
-#echo "$ipop";
-#done < <(printf '%s\n' "$1"); }
-
-#IP=$( iponlyfunc "$IP0" | head -n 1);
 
 if [[ -z "$IP0" ]] || [[ "$IP0" = " " ]]; 
 
@@ -168,7 +101,7 @@ else true; fi;
 #cuts and extracts the TLD
 tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
 
-. ../zyx/lib/sh/tldblob.sh
+. ../zyx/sh/tldblob.sh
 
 #list of supported gtlds
 shopt -s extglob
@@ -235,15 +168,7 @@ then
 daysvar="Days Expired:"; days="${daysx#*-}"; 
 else 
 daysvar="Days Left:"; days="$daysx"; fi;
-##############################################
 
-#rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
-
-#Issuer=$( issuerfunc "$rawdata0" );
-#Target=$( targetfunc "$rawdata0" );
-#Expiry=$( expiryfunc "$rawdata0" );
-#Validstart=$( validstartfunc "$rawdata0" );
-#Daysleft0=$( daysleftfunc "$Expiry" ); fi;
 fi;
 ;;
 
@@ -322,8 +247,6 @@ esac
 
 if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
 
-#if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
-
 cat << EOSSLCCR
 <body><p>SSL Certificate Found!</p>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
@@ -343,7 +266,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<a id='catabid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='jscatab(); changeTextcatab();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a>
+<a id='catabid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='jscatab(); changeTextcatab();'>+<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a>
 
 <div id='jscatab' style='display:none'> <table> <tbody> <td><p>
 $IssuerCN &nbsp;&nbsp;( Common Name )<br>
