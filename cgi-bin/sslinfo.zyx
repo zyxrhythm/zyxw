@@ -48,7 +48,7 @@ cat << EONAVMENU
 <div id='xtable' ><table> <tbody> <td>
 <form action="/cgi-bin/sslinfo.zyx" method="get">
 <input placeholder="Domain / sub domain"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
-<button type="submit" > Check </button>
+<button type="submit" style='font-weight: bold;' > Check </button>
 </form>
 </td> </tbody> </table> </div></p>
 
