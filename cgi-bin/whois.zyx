@@ -101,7 +101,7 @@ if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
 
-<a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'> + <span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server and port to query.<br><br></span></a>
+<a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>&nbsp;+&nbsp;<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server and port to query.<br><br></span></a>
 
 <div id='manwid' style='display:none'> <table> <tbody> <td>
 <input placeholder="Whois server (Optional)" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq"  size='20'>
