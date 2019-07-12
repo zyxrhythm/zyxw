@@ -623,9 +623,9 @@ if [[ "$nscheck" = "y" ]]; then
 ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
 #func processed A and MX records
 arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-arecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following are from 8.8.8.8:<br>$arfrgt</span>";
+arecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following is/are from 8.8.8.8:<br>$arfrgt</span>";
 mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
-mxrecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following are from 8.8.8.8:<br>$mrfrgt</span>";
+mxrecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following is/are from 8.8.8.8:<br>$mrfrgt</span>";
 echo "
 $ns0frgt <br>
 __________________________<br> <br>
