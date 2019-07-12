@@ -165,8 +165,7 @@ zyx=$(echo "$zyxman" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 else 
 echo "<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; 
 fi;
-
-wsman="$zyx"
+wsman=$( cutterfunc "$zyx" )
 if [[ $specter = "y" ]]; then
 cat << WHOISMAN
 <body>
