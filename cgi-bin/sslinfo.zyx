@@ -6,7 +6,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-. ../zyx/lib/sh/genvars.sh
+. ../zyx/sh/genvars.sh
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
@@ -39,7 +39,7 @@ $GANALYTICS
 <script src="/js/gencopy.js"></script>
 INIOHTMLHEAD
 
-. ../zyx/lib/sh/navpart.sh
+. ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
 <div id='xtable' ><table> <tbody> <td>
@@ -97,7 +97,7 @@ else true; fi;
 #cuts and extracts the TLD
 tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
 
-. ../zyx/lib/sh/tldblob.sh
+. ../zyx/sh/tldblob.sh
 
 #list of supported gtlds
 shopt -s extglob
