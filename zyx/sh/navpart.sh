@@ -1,3 +1,5 @@
+#sometimes I hate scrolling down a lot - so this was bit off the scripts - it basiclaly a portion of the nav menu
+#DO NOT DELETE
 echo "<script> 
 function jsxtable() { var x = document.getElementById('xtable'); 
 if (x.style.display === 'none') 
