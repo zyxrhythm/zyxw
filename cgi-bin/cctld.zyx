@@ -6,7 +6,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-cctldlist=$( cat ../zyx/lib/blob/cctldx.blob );
+cctldlist=$( cat ../zyx/blob/cctldx.blob );
 SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
