@@ -7,7 +7,7 @@
 #############################################
 
 SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 lsbrelease=$(lsb_release -a);
 bashv=$(bash --version );
@@ -59,7 +59,7 @@ Info under this page might be used to find vulnerabilities: make this page visib
 
 
 -------------------------
-To review the codes, or want to fork and improve it, helping its development you can check it out on github <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >here</a>.
+To review the codes, or want to help for, its development you can check it out on <a href='https://github.com/zyxrhythm/bbclive/tree/4353.info'  target='_blank' >this</a> github page.
 -------------------------
 
 
