@@ -6,7 +6,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-. ../zyx/lib/sh/genvars.sh
+. ../zyx/sh/genvars.sh
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
@@ -62,7 +62,7 @@ $GANALYTICS
 <link rel="stylesheet" type="text/css" href="/css/dip.css">
 INIOHTMLHEAD
 
-. ../zyx/lib/sh/navpart.sh
+. ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
 
@@ -457,7 +457,7 @@ then reese="None";
 else reese="$reseller"; fi;
 #REESE
 
-. ../zyx/lib/sh/tldblob.sh
+. ../zyx/sh/tldblob.sh
 
 #list of supported TLDs
 shopt -s extglob
