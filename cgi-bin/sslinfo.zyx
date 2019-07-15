@@ -8,7 +8,7 @@
 
 . ../zyx/sh/genvars.sh
 
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
 witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
