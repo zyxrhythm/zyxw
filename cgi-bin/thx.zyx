@@ -7,8 +7,8 @@
 #############################################
 
 SITEBANNER=$( cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-SALAMAT=$( cat ../zyx/salamat.txt );
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+SALAMAT=$( cat ../zyx/txt/salamat.txt );
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
