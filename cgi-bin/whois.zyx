@@ -6,7 +6,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-. ../zyx/lib/sh/genvars.sh
+. ../zyx/sh/genvars.sh
 
 GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
@@ -79,7 +79,7 @@ $GANALYTICS
 <script src="/js/whois.js"></script>
 INIOHTMLHEAD
 
-. ../zyx/lib/sh/navpart.sh
+. ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
 
@@ -117,7 +117,7 @@ else { element.innerHTML = '-';} }
 </head>
 EONAVMENU
 
-. ../zyx/lib/sh/tldblob.sh
+. ../zyx/sh/tldblob.sh
 
 #list of supported gtlds
 shopt -s extglob
