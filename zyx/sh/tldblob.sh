@@ -1,22 +1,20 @@
-############################
+#This dictates what TLDs are supported by the scripts
+
 #exclulded TLDS for dip.zyx
-TLDLISTX=$(cat ../zyx/lib/blob/tldlistx.blob | tr -d '\040\011\012\015');
+TLDLISTX=$(cat ../zyx/blob/tldlistx.blob | tr -d '\040\011\012\015');
 #general list of TLD that dip.zyx can chew on
-TLDLISTG=$(cat ../zyx/lib/blob/tldlistg.blob | tr -d '\040\011\012\015');
+TLDLISTG=$(cat ../zyx/blob/tldlistg.blob | tr -d '\040\011\012\015');
 #TLD list that dip.zyx can chew on bu will spit out a raw whois result
-TLDLIST0=$(cat ../zyx/lib/blob/tldlist0.blob | tr -d '\040\011\012\015');
-############################
+TLDLIST0=$(cat ../zyx/blob/tldlist0.blob | tr -d '\040\011\012\015');
 
-############################
+
 #complete list of gTLDs
-GTLDLIST=$(cat ../zyx/lib/blob/gtldx.blob | tr -d '\040\011\012\015');
+GTLDLIST=$(cat ../zyx/blob/gtldx.blob | tr -d '\040\011\012\015');
 #complete list of ccTLDs
-CCTLDLIST=$(cat ../zyx/lib/blob/cctldx.blob | tr -d '\040\011\012\015');
-############################
+CCTLDLIST=$(cat ../zyx/blob/cctldx.blob | tr -d '\040\011\012\015');
 
-############################
-#ALL supported TLDs.
+
+#ALL supported TLDs by dip.zyx - that is not coded directly on the script.
 ALLTLD="$TLDLISTG|$TLDLIST0";
 #ALL TLDs.
 ALLTLDX="$GTLDLIST|$CCTLDLIST"
-############################
