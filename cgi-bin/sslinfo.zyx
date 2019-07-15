@@ -10,59 +10,19 @@
 
 GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
-witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
-witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
-
-if [[ $witst0 = "y" ]]; then 
-zyxwhois="whois -n";
-elif [[ $witst0 = "n" ]] && [[ witst1 = "y" ]]; then 
-zyxwhois="whois --verbose";
-else
-echo "
-<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-exit 0;
-fi;
-
 #start the html header
 echo "Content-type: text/html"
 echo ""
 
+#stores the string from bbc.sh to a variable converts all uppercase to lowercase
+qs=$(echo "$QUERY_STRING" | awk '{print tolower($0)}');
+
+#get the domain from qs
+domain=$(echo "$qs" | cut -f2 -d"=" );
+
 echo "<!DOCTYPE html>
 <html>
-<title>$WHOIS</title>"
-
-#converts all uppercase form the query string to lowercase
-qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
-
-#butchers the qs string and gets the domain
-doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
-swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
-sptq=$(echo $qs | sed 's/.*sptq=//');
-
-if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
-specter="y";
-zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
-
-elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
-specter="x";
-zyxman="Please include a whois server. Port to query: $sptq";
-
-elif [[ ! -z $swstq ]] && [[ -z $sptq ]]; then
-specter="y";
-zyxman=$( $zyxwhois $doi -h $swstq );
-
-elif [[ -z $swstq ]] && [[ -z $sptq ]]; then
-specter="n";
-
-else echo "
-<body><div id='divClipboard'><p>Something went wrong.</p></div><br><br><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>"; fi;
+<title>$SSLC</title>"
 
 cat <<INIOHTMLHEAD
 <head>
@@ -70,427 +30,251 @@ cat <<INIOHTMLHEAD
 <meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
-
+ 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="/css/whois.css">
+<link rel="stylesheet" type="text/css" href="/css/sslinfo.css">
 $GANALYTICS
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 <script src="/js/allowedchars.js"></script>
-<script src="/js/whois.js"></script>
+<script src="/js/gencopy.js"></script>
 INIOHTMLHEAD
 
 . ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
-
 <div id='xtable' ><table> <tbody> <td>
-<!-- ################## WHO YOU ################# -->
-<form action="whois.zyx" method="get">
-<input placeholder="Domain / I.P. address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
-
-<script> 
-function jsfmanwi() { var x = document.getElementById('manwid'); 
-if (x.style.display === 'none') { x.style.display = 'block'; } 
-else { x.style.display = 'none'; } } 
-
-function changeTextnsvt() {
-var element = document.getElementById('manwit');
-if (element.innerHTML === '-') {element.innerHTML = '+'; }
-else { element.innerHTML = '-';} }
-</script>
-&nbsp; <a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>&nbsp;+&nbsp;<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server and port to query.<br><br></span></a> &nbsp;
-
-<button id="whoyoubtn" type="submit" style='font-weight: bold;'> Who is </button>
-
-<div id='manwid' style='display:none'> <table> <tbody> <td>
-<input placeholder="Whois server (Optional)" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq"  size='20'>
-
-<input placeholder="Port" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="sptq" maxlength="5" size='3'>
-
-</td> </tbody> </table>
-
+<form action="/cgi-bin/sslinfo.zyx" method="get">
+<input placeholder="Domain / sub domain"  type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="domain">
+<button type="submit" style='font-weight: bold;' > Check </button>
 </form>
-<!-- ################## WHO YOU ################# -->
 </td> </tbody> </table> </div></p>
-<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
+<button onclick="copyClipboard()" >Copy Results</button> <label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' style='font-size: 95%; font-family: calibri; font: green; '> <br> Click the button to copy the results - then simply do a "paste" on your text editor or note taking app.<br><br></span></label> 
+&nbsp;
+<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
 <hr>
 </head>
 EONAVMENU
+
+
+#checks if input is null 
+if [[ -z "$domain" ]]; then
+SSLCTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-SSL_TOOL_PAGE/{flag=1;next}/SSL_TOOL_PAGE->/{flag=0}flag');
+cat <<EOTSE
+<body>
+<div id="divClipboard"><p>
+$SSLCTPM
+</p>
+</div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+EOTSE
+exit 0;
+
+else
+
+IP0=$( dig +short a $domain );
+
+if [[ -z "$IP0" ]] || [[ "$IP0" = " " ]]; 
+
+then cat << ZXCVBNM
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> <br>
+<span style="font-size: 120%; font-family: verdana; color: red; ">Error!!</span><br><br>
+Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+ZXCVBNM
+
+exit 0; 
+
+else true; fi;
+
+#cuts and extracts the TLD
+tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
 
 . ../zyx/sh/tldblob.sh
 
 #list of supported gtlds
 shopt -s extglob
-gcctldlist="+($ALLTLDX)"
+tldlist0="+($GTLDLIST)"
 
-#============#
-#FUNCTIONHALL#
-#============#
-cutterfunc () {
-while IFS= read -r line
-do
-cutter=$( echo "$line" | sed -e 's/^[ \t]*//');
-echo "$cutter";
-done < <(printf '%s\n' "$1");
-}
-#============#
-#FUNCTIONHALL#
-#============#
+#list of supported ccTLDs
+tldlist1="+($CCTLDLIST)"
 
-#checks if the domain enter is null  
-#if 1
-if [[ -z "$doi" ]]; then
-WHOISTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-WHOIS_TOOL_PAGE/{flag=1;next}/WHOIS_TOOL_PAGE->/{flag=0}flag');
-cat <<EOTS
-<body>
-<div id="divClipboard"><p>
-$WHOISTPM
-</p></div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOTS
-exit 0;
-
-#else 1
-else
-
-########MANUAL##############
-if [[ "$witst0" = "y" ]]; then
-zyx=$(echo "$zyxman" | sed  '1,2d' );
-
-elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx=$(echo "$zyxman" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-
-else 
-echo "<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; 
-fi;
-wsman=$( cutterfunc "$zyx" )
-if [[ $specter = "y" ]]; then
-cat << WHOISMAN
-<body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td></tbody></table><br>
-<button onclick="copyClipboard1()">Copy Result</button><br>
-<div id="divClipboard1">
-<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody></table></div><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-WHOISMAN
-exit 0;
-
-elif [[ $specter = "x" ]]; then 
-wsman="$zyxman"
-cat << WHOISMANX
-<body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td> </tbody></table><br>
-<button onclick="copyClipboard1()">Copy Result</button><br>
-<div id="divClipboard1">
-<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody></table></div><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-WHOISMANX
-exit 0;
-
-else true; fi;
-########MANUAL##############
-
-#ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
-#if 2
-	if [[ "$doi" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
-	then
-	ipwhois="$doi";
-
-	if [[ "$witst0" = "y" ]]; then
-	zyxip0=$($zyxwhois $ipwhois $swstq $sptq 2>&1 );
-	zyxip=$(echo "$zyxip0" | sed  '1,2d' );
-	ipwis0=$(echo "$zyxip0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
-	ipwis="${ipwis0#*Querying}";
-
-	elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-	zyxip0=$($zyxwhois $ipwhois $swstq $sptq);
-	zyxip=$(echo "$zyxip0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-	ipwis0=$(echo "$zyxip0" | grep -i -e "Using server" | sort -u );
-	ipwis=${ipwis0#*Using Server };
-	else
-	echo "
-<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>";
-	exit 0;
-	fi;
-
-	zyxip0=$(grep -o '^[^#]*' <<< "$zyxip");
-
-cat << EOWIIPR
-<body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $ipwis</td> </tbody> </table><br>
-<button onclick="copyClipboard1()">Copy Result</button><br>
-<div id="divClipboard1">
-<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $zyxip0 </pre></td> </tbody> </table></div><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOWIIPR
-#else 2
-	else
-#If qs is not an IP checks if it is a domain - oteherwise it will throw an error saying it is not an IP or a domain
-
-
-if [[ "$witst0" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
-zyx=$(echo "$zyx0" | sed  '1,2d' );
-trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
-trywis="${trywis0#*Querying}";
-
-elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
-zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
-else 
-echo "
-<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-exit 0;
-fi;
-
-dvcheck=$(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' );
-
-if [[ "$dvcheck" = "nowhois" ]]; then
-echo "
-<body>
-<p><button onclick='copyClipboard1()'>Copy Result</button><br>
-<div id='divClipboard1'>
-<p><strong>Input</strong> : $doi <br> <br>
-Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv4 Address</a>!<br><br><br>
---When executing 'whois $doi', the shell returned:<br><br>
-'No whois server is known for this kind of object.'<br>
-</div></p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-exit 0;
-else true; 
-fi;
-
-
-if [[ "$dvcheck" = "patterns"  ]]; 
-then
-echo "
-<body>
-<p><button onclick='copyClipboard1()'>Copy Result</button><br>
-<div id='divClipboard1'>
-<p><strong>Input</strong> : $doi - is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank' >TLD</a><br><br>
-Not a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br>
-And not a valid <a href='https://en.wikipedia.org/wiki/IPv4' target='_blank'>IPv4 Address</a>!<br><br><br>
---When executing 'whois $doi', the shell returned:<br><br>
-'Pattern starts with improper character.'<br><br>
-So if you are here to validate this TLD<br>
-or want to get some info about it,<br>
-do not start the input with a dot '.'
-</div></p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-";
-exit 0;
-else true; 
-fi;
-
-#if 3
-if [[ "$dvcheck" = "%ianawh"  ]]; 
-then
-echo "
-<body>
-<button onclick='copyClipboard1()'>Copy Result</button>
-<br>
-<div id='divClipboard1'>
-<pre> $zyx0 </pre><br>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-"
-
-#else 3
-	else
-
-#once the domain is verified - if will extract the TLD - to check if it is a FQDN
-tld=$( echo $doi | rev | cut -d "." -f1 | rev );
-
-#checks if the domain's TLD is on the list of TLDs
+#checks if the domain is a gtld
 case $tld in
-   $gcctldlist)
+ $tldlist0)
+   
+#check if the input is domain or sub domain.
+if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
-rarwis0=$(echo "$zyx" | grep -i -e "Registrar WHOIS Server" | sort -u);
-rarwis1=$(echo "$rarwis0" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
+nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
 
-zyxregistry0="$zyx";
-
-if [[ -z $zyxregistry0 ]] || [[ $zyxregistry0 = " " ]]; then 
-zyxregistry="Unable to fetch the whois infomartion from the Registrar!"; 
-else
-zyxregistry=$( cutterfunc "$zyxregistry0" ); fi;
-
-#registrarservervalidation
-if [[ -z "$rarwis1" ]] || [[ "$rarwis1" = " " ]]; 
-then 
-rarwis="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><strong>Input</strong>: $doi<br><br><br>Possible cause: <br>-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD; Registrars are not directly involved with TLDs.<br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
+if [[ -z "$nsix" ]];
+then cat << ZXCVBNM
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> 
+<strong>Resolves to</strong> : $IP0 <br><br>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+ZXCVBNM
+exit 0; 
 
 else 
-rarwis="$rarwis1"; 
 
-if [[ "$witst0" = "y" ]]; then
-zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-	if [[ -z $zyxregistrar0 ]] || [[ $zyxregistrar0 = " " ]]; then 
-	zyxregistrar="Unable to fetch the whois infomartion from the Registrar!"; 
-	else 
-	zyxregistrar1=$(echo "$zyxregistrar0" | sed  '1,2d' );
-	zyxregistrar=$( cutterfunc "$zyxregistrar1" ); 
-	fi;
+##############################################
+ptag=$( echo "$nmapsslinfo" | grep "<ports>" );
+atag=$( echo "$nmapsslinfo" | grep "address addr" );
 
-elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyxregistrar0=$($zyxwhois $doi -h $rarwis 2>&1);
-	if [[ -z $zyxregistrar0 ]] || [[ $zyxregistrar0 = " " ]]; then 
-	zyxregistrar="Unable to fetch the whois infomartion from the Registrar!"; 
-	else 
-	zyxregistrar1=$(echo "$zyxregistrar0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-	zyxregistrar=$( cutterfunc "$zyxregistrar1" ); 
-	fi;
+IPA=$(grep -oP '(?<=addr=").*?(?=")' <<< "$atag" );
 
-else echo "
-<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body>
-</html>";
-exit 0; fi;
+Issuer=$(grep -oP '(?<=Issuer: ).*?(?=Public Key type:)' <<< "$ptag" );
+IssuerCN=$(grep -oP '(?<=commonName=).*?(?=/organizationName)' <<< "$Issuer" );
+IssuerON=$(grep -oP '(?<=/organizationName=).*?(?=/)' <<< "$Issuer" );
+IssuedForx0=$(grep -oP '(?<=Subject: commonName=).*?(?=&)' <<< "$ptag" );
+IssuedForx1=$(grep -oP '(?<=Subject: commonName=).*?(?=/)' <<< "$ptag" );
+if [[ $(echo $IssuedForx0 | wc -m) -gt $(echo $IssuedForx1 | wc -m) ]]; 
+then 
+IssuedFor="$IssuedForx1"; 
+else 
+IssuedFor="$IssuedForx0"; fi;
 
+ValidStart0=$(grep -oP '(?<=Not valid before).*?(?=Not valid after:)' <<< "$ptag" );
+ValidStart=$(grep -oP '(?<=: ).*?(?=&#xa;)' <<< "$ValidStart0" );
+ValidEnd0=$(grep -oP '(?<=Not valid after).*?(?=MD5:)' <<< "$ptag" );
+ValidEnd=$(grep -oP '(?<=:  ).*?(?=&#xa;)' <<< "$ValidEnd0" );
+
+daysx=$( echo $((($(date +%s --date "${ValidEnd:0:10}")-$(date +%s))/(3600*24))) );
+
+if [[ ${daysx:0:1} = "-" ]]; 
+then 
+daysvar="Days Expired:"; days="${daysx#*-}"; 
+else 
+daysvar="Days Left:"; days="$daysx"; fi;
 
 fi;
+;;
 
-cat <<EOWIR0
-<body >
-<div ><p>
-<!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
-<div class="tab">
-  <button class="tablinks" onclick="whoisserver(event, 'Registry')" class=active >Registry</button>
-  <button class="tablinks" onclick="whoisserver(event, 'Registrar')">Registrar</button>
+ $tldlist1)
+#check if the input is domain or sub domain.
+if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
+
+nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
+nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
+
+if [[ -z "$nsix" ]];
+then cat << ZXCVBNM2
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> 
+<strong>Resolves to</strong> : $IP0 <br><br>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
-<!-- Tab content -->
-<div id="Registry" class="tabcontent" style=display:block >
-	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> ${trywis#*server}
-	</td> </tbody> </table><br>
-	<button onclick="copyClipboard()">Copy Result</button><br>
-	<table> <tbody> <td>
-	<div id="divClipboard">
-	<p><pre>$zyxregistry</pre></p>
-	</td> </tbody> </table>
-	</div>
-</div>
-<div id="Registrar" class="tabcontent" >
-	<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $rarwis
-	</td> </tbody> </table><br>
-	<button onclick="copyClipboard0()">Copy Result</button><br>
-	<table> <tbody> <td>
-	<div id="divClipboard0">
-	<p><pre>$zyxregistrar</pre></p>
-	</td> </tbody> </table>
-	</div>
-</div>
-<!-- from https://www.w3schools.com/howto/howto_js_tabs.asp -->
-</p></div>
+<hr><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EOWIR0
+ZXCVBNM2
+exit 0; 
 
+else 
+##############################################
+ptag=$( echo "$nmapsslinfo" | grep "<ports>" );
+atag=$( echo "$nmapsslinfo" | grep "address addr" );
+
+IPA=$(grep -oP '(?<=addr=").*?(?=")' <<< "$atag" );
+
+Issuer=$(grep -oP '(?<=Issuer: ).*?(?=Public Key type:)' <<< "$ptag" );
+IssuerCN=$(grep -oP '(?<=commonName=).*?(?=/organizationName)' <<< "$Issuer" );
+IssuerON=$(grep -oP '(?<=/organizationName=).*?(?=/)' <<< "$Issuer" );
+IssuedForx0=$(grep -oP '(?<=Subject: commonName=).*?(?=&)' <<< "$ptag" );
+IssuedForx1=$(grep -oP '(?<=Subject: commonName=).*?(?=/)' <<< "$ptag" );
+if [[ $(echo $IssuedForx0 | wc -m) -gt $(echo $IssuedForx1 | wc -m) ]]; 
+then 
+IssuedFor="$IssuedForx1"; 
+else 
+IssuedFor="$IssuedForx0"; fi;
+
+ValidStart0=$(grep -oP '(?<=Not valid before).*?(?=Not valid after:)' <<< "$ptag" );
+ValidStart=$(grep -oP '(?<=: ).*?(?=&#xa;)' <<< "$ValidStart0" );
+ValidEnd0=$(grep -oP '(?<=Not valid after).*?(?=MD5:)' <<< "$ptag" );
+ValidEnd=$(grep -oP '(?<=:  ).*?(?=&#xa;)' <<< "$ValidEnd0" );
+daysx=$( echo $((($(date +%s --date "${ValidEnd:0:10}")-$(date +%s))/(3600*24))) );
+
+if [[ ${daysx:0:1} = "-" ]]; 
+then daysvar="Days Expired:"; days="${daysx#*-}"; 
+else daysvar="Days Left:"; days="$daysx"; fi;
+##############################################
+
+fi;
 ;;
 
-#special result for .ph ccTLD - by providing a link to whois.dot.ph with the domain submitted for query
-ph)
-#start of html body
-echo '<body>'
-cat <<EOQPH
-<p><br><a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$doi' target="_blank"> Click Here </a>To get the whois info of this .ph domain.</p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOQPH
-exit 0;
-;;
-
-#special result for .sg ccTLD - by providing a link to www.sgnic.sg with the domain submitted for query
-sg)
-#start of html body
-echo '<body>'
-cat <<EOQSG
-<p>
-<br>
-<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$doi' target="_blank"> Click Here </a>To get the whois info of this .sg domain.
-</p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOQSG
-exit 0;
-;;
-
-vn)
-#start of html body
-echo '<body>'
-cat <<EOQVN
-<p>
-<br>
-<a href='https://vnnic.vn/en/whois-information?lang=en' target="_blank"> Click Here </a>To get the whois info of this .vn domain.
-</p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOQVN
-exit 0;
-;;
-
-mil)
-#start of html body
-echo '<body>'
-cat <<EOQMIL
-<p>
-<strong>Input</strong>: $doi <br><br>
-This TLD has no whois server.<br><br>
-.mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
-The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
-</body>
-</html>
-EOQMIL
-exit 0;
-;;
-
-#throw an error for everything else
+#throws in errors for non domain input
    *)
-
-cat << EONAVDE
-<button onclick="copyClipboard1()">BBC Copy</button>
-<div id="divClipboard1">
-<p>
-Not a valid input.
-</p>
-</div>
-EONAVDE
+cat << EOIDNE
+<body>
+<div class="code-bg" id="divClipboard">
+<p><strong>Input</strong> : $domain<br> <br>
+Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!</p>
+</div><br><hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+EOIDNE
+exit 0;
 ;;
 
 esac
 
-#fi3 fi2 fi1
-		fi
-	fi
-fi
+if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
+
+#if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
+
+cat << EOSSLCCR
+<body><p>SSL Certificate Found!</p>
+<div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
+<strong>$domvar resolves to</strong> : $IPA <br>
+<strong>Certificate issued to</strong> : $IssuedFor<br>
+<strong>Wildcard Cert :</strong> : $certtype <br><br>
+<strong>Certificate Issuer</strong> : $IssuerON 
+<script> 
+function jscatab() { var x = document.getElementById('jscatab'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+function changeTextcatab() {
+var element = document.getElementById('catabid');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
+</script>
+<a id='catabid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='jscatab(); changeTextcatab();'>+<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a>
+<div id='jscatab' style='display:none'> <table> <tbody> <td><p>
+$IssuerCN &nbsp;&nbsp;( Common Name )<br>
+$IssuerON &nbsp;&nbsp;( Organization Name )<br>
+</p></td></tbody></table></div><p>
+<strong>Validity Start:</strong> : $ValidStart <br>
+<strong>Expiration</strong> : $ValidEnd <br>
+<strong>$daysvar</strong> : $days <br></p></div>
+<p><span style='color:grey; font-size:70%;'>( '$daysvar' is calculated based on the server's time and time zone: $(date))</span></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+EOSSLCCR
+
+fi;
 
 exit 0;
