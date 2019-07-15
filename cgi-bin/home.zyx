@@ -8,7 +8,7 @@
 
 . ../zyx/sh/homevars.sh
 
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
