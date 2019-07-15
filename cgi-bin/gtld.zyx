@@ -8,7 +8,7 @@
 
 gtldlist=$( cat ../zyx/blob/gtldx.blob);
 SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
-GANALYTICS=$(cat ../zyx/ganalytics.txt);
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
 echo "Content-type: text/html"
 echo ""
