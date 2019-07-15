@@ -6,7 +6,7 @@
 #https://github.com/zyxrhythm
 #############################################
 
-. ../zyx/lib/sh/homevars.sh
+. ../zyx/sh/homevars.sh
 
 GANALYTICS=$(cat ../zyx/ganalytics.txt);
 
