@@ -18,7 +18,7 @@ if (x.style.display === 'none')
 { x.style.display = 'inline'; } 
 else { x.style.display = 'none'; } } 
 </script>
-<p><a href='/cgi-bin/home.zyx' style='float:left'>[ &#127968;Home ]</a>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; font-family: arial black;'>[ &#128506;Home ]</a>
 <div id='navtable' style='display:none; float:right;' >
 <a style='font-size: 126%; cursor: pointer; float:right; ' onclick='jsxtable(); jsx2table(); jsxmenu()' > &#9776;</a>
 <br><br>
