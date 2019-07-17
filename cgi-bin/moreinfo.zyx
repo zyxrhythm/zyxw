@@ -28,7 +28,7 @@ cat <<EOT
  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" type="text/css" href="/css/dip.css">
+<link rel="stylesheet" type="text/css" href="/css/general.css">
 $GANALYTICS
 
 <center>
@@ -48,11 +48,13 @@ $SITEBANNER is a website you can utilize for the following:
 
 <strong>1.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address by executing the '<a href='/cgi-bin/whois.zyx' >whois.zyx</a>' script. 
 -For domain names, the site can fetch the whois information from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a> and found whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>s.(The list of known registry whois server depends on the whois.conf or jwhois.conf on the server - and for the whois server of the registrar, this depends on what and how the whois info is presented by the registry whois server)
--And for IP addresses, the scripts will query the whois servers of the appropriate<a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
+-And for IP addresses, the scripts will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
 
-If 'tpage.vars' was configured correctly, link for the whois look up tool should be here: <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
+If 'tpage.vars' was configured correctly link to the tools below should be correct. 
+Link for the whois lookup tool: 
+<a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
 
-<strong>2.)</strong> 'Dig' D.N.S. records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular name server specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
+<strong>2.)</strong> 'Dig' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS record<span class='tooltiptext'>Click for the List of DNS record types.</span></a> (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
 
 Link for the dig tool here: <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
 
