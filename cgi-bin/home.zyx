@@ -75,7 +75,7 @@ else if(document.getElementById("square").checked == false)
 <label>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/whois.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$WHOIS</label></a>
-<span class="tooltiptext" ><br>Put a domain name (FQDN) / I.P. address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "$WHOIS" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query ARIN's whois server/s.<br><br>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) / IP address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool "$WHOIS" will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query the appropriate RIR's whois server.<br><br>
 </span>
 </div> 
 </label> <br>
