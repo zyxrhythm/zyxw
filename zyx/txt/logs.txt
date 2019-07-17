@@ -1,5 +1,8 @@
 -----------------------
 
+7-18-19
+Bug fixes and Improvements on most of the site installer components.
+
 6-10-19
 The Web Installer is completed and is up for download and deployment.
 
