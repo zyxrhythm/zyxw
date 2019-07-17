@@ -44,13 +44,14 @@ $GANALYTICS
 -------------------------
 - ABOUT THIS SITE -
 -------------------------------
-
-( If 'tpage.vars' is configured correctly link to the tools below should be correct )
-
 $SITEBANNER is a website you can utilize for the following: 
 
+
 <strong>1.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address. 
--For domain names, the site can fetch the whois information from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a> and found whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>s.(The list of known registry whois server depends on the whois.conf or jwhois.conf on the server - and for the whois server of the registrar, this depends on what and how the whois info is presented by the registry whois server)
+
+-For domain names, the site can fetch the whois information from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a> and found whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>s. 
+(The list of known registry whois server depends on the whois.conf or jwhois.conf on the server --and for the whois server of the registrar, this depends on what and how the whois info is presented by the registry whois server)
+
 -And for IP addresses, the scripts will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
 
 Link for the whois lookup tool ( '<a href='/cgi-bin/whois.zyx' >whois.zyx</a>'): 
@@ -84,6 +85,8 @@ The main tool of this site is designed to gather the above information, in one g
 
 Link for this special tool ('domain information probe' [ '<a href='/cgi-bin/dip.zyx' >dip.zyx</a>']  ) here: 
 <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+
+( If 'tpage.vars' is configured correctly link to the tools above should be correct )
 -------------------------------
 
 $MOREINFO
