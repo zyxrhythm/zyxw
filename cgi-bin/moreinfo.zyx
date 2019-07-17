@@ -44,41 +44,46 @@ $GANALYTICS
 -------------------------
 - ABOUT THIS SITE -
 -------------------------------
+
+( If 'tpage.vars' is configured correctly link to the tools below should be correct )
+
 $SITEBANNER is a website you can utilize for the following: 
 
-<strong>1.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address by executing the '<a href='/cgi-bin/whois.zyx' >whois.zyx</a>' script. 
+<strong>1.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address. 
 -For domain names, the site can fetch the whois information from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a> and found whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>s.(The list of known registry whois server depends on the whois.conf or jwhois.conf on the server - and for the whois server of the registrar, this depends on what and how the whois info is presented by the registry whois server)
 -And for IP addresses, the scripts will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
 
-If 'tpage.vars' was configured correctly link to the tools below should be correct. 
-Link for the whois lookup tool: 
+Link for the whois lookup tool ( '<a href='/cgi-bin/whois.zyx' >whois.zyx</a>'): 
 <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
 
 <strong>2.)</strong> 'Dig' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS record<span class='tooltiptext'>Click for the List of DNS record types.</span></a> (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
 
-Link for the dig tool here: <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
+Link for the dig tool ( '<a href='/cgi-bin/digger.zyx' >digger.zyx</a>' ): 
+<a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
 
-<strong>3.)</strong> Gather info about the S.S.L. certificate issued for a domain /sub domain.
+<strong>3.)</strong> Gather info about the <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank' class='tooltip'>SSL<span class='tooltiptext'>Secure Sockets Layer.</span></a> certificate issued for a domain /sub domain.
 
-Link for the SSL tool here: <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
+Link for the SSL tool ( '<a href='/cgi-bin/sslinfo.zyx' >sslinfo.zyx</a>' ): 
+<a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
-<strong>4.)</strong> Most of the time, knowing the following information:
+<strong>4.)</strong> Most of the time, knowing the following:
 
 - 'whois is the registrar' 
-- 'is a domain from a reseller' 
-- 'what is the status of the domain'
+- 'is a domain from a reseller --if yes, who?' 
+- 'what is the status of the domain --what does the status mean'
 - 'what are the relevant dates under the domain name, date such as the expiration date from the registry and the registrar and the creation date'
-- 'what are the authoritative name servers under the domain'
+- 'what are the authoritative name servers underthe domain'
 - 'are the authoritative name servers under th domain functioning properly'
-- 'what MX and A records can be obtained from the authoritative name servers under a domain'
-- 'is the regsitrant and registrant contact info'
-- 'whois responsible for the the IP addresses obtained from dig'
+- 'what MX and A records can be obtained from the authoritative name servers'
+- 'who is the regsitrant and what are registrant, admin, tech contact info'
+- 'whois responsible for the the IP addresses correlated with the with the A and MX records, also the IP addresses correlated witht the authoritative name servers'
 
-will allow one to provide a resolution to most issues about a domain name, issues about the domain itself or the website and the email service under it. 
+will allow one to provide a resolution to most issues about a domain name. Issues about the domain itself and/or the website and the email service under it. 
 
-The main tool of this site is designed to gather the above information, in one click. 
+The main tool of this site is designed to gather the above information, in one go. 
 
-Link for this special tool ('domain information probe' ) here: <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+Link for this special tool ('domain information probe' [ '<a href='/cgi-bin/dip.zyx' >dip.zyx</a>']  ) here: 
+<a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 -------------------------------
 
 $MOREINFO
