@@ -33,7 +33,7 @@ $GANALYTICS
 
 <center>
 <p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
-<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; font-family: impact;'>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; font-family: arial black;'>[ &#127968;Home ]</a></p>
 </center>
 </head>
 
