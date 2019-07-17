@@ -88,7 +88,7 @@ Link for this special tool ('domain information probe' [dip.zyx]  ) here:
 <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 
 ( If 'tpage.vars' is configured correctly link to the tools above should be correct )
--------------------------------
+<strong style='font-size:126%'>-------------------------</strong>
 
 
 
