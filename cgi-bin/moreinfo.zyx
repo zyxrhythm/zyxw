@@ -54,17 +54,17 @@ $SITEBANNER is a website you can utilize for the following: </strong>
 
 -And for IP addresses, the scripts will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
 
-Link for the whois lookup tool ( '<a href='/cgi-bin/whois.zyx' >whois.zyx</a>'): 
+Link for the whois lookup tool (whois.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
 
 <strong style='font-size:141%;'>2.)</strong> 'Dig' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS record<span class='tooltiptext'>Click for the List of DNS record types.</span></a> (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
 
-Link for the dig tool ( '<a href='/cgi-bin/digger.zyx' >digger.zyx</a>' ): 
+Link for the dig tool (digger.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
 
 <strong style='font-size:141%;'>3.)</strong> Gather info about the <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank' class='tooltip'>SSL<span class='tooltiptext'>Secure Sockets Layer.</span></a> certificate issued for a domain /sub domain.
 
-Link for the SSL tool ( '<a href='/cgi-bin/sslinfo.zyx' >sslinfo.zyx</a>' ): 
+Link for the SSL tool (sslinfo.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
 <strong style='font-size:141%;'>4.)</strong> Most of the time, knowing the following:
@@ -83,7 +83,7 @@ will allow one to provide a resolution to most issues about a domain name. Issue
 
 The main tool of this site is designed to gather the above information, in one go. 
 
-Link for this special tool ('domain information probe' [ '<a href='/cgi-bin/dip.zyx' >dip.zyx</a>']  ) here: 
+Link for this special tool ('domain information probe' [dip.zyx]  ) here: 
 <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
 
 ( If 'tpage.vars' is configured correctly link to the tools above should be correct )
