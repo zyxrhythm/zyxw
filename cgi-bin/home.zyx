@@ -55,7 +55,7 @@ else if(document.getElementById("square").checked == false)
 </script>
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP</label></a>
-<span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this will generate a report with vital DNS and whois information about the domain.<br><br></span>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this tool ( $DIP ) will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
 <input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
@@ -63,7 +63,7 @@ else if(document.getElementById("square").checked == false)
 <label style="font-size:90%" >
 <div class="tooltip">
 <a id="tools-link" href='/cgi-bin/sslinfo.zyx?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' >$SSLC</label></a>
-<span class="tooltiptext"><br>SSL Certificate Checker <br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
+<span class="tooltiptext"><br>SSL Certificate Checker tool ( $SSLC )<br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
 </span>
 </div> 
 </label>
