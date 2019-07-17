@@ -32,7 +32,7 @@ cat <<EOT
 $GANALYTICS
 
 <center>
-<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
+<p><h1 style='font-family:arial;'><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
 <p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
 </center>
 </head>
