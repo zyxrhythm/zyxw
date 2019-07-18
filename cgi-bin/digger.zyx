@@ -191,9 +191,10 @@ cat <<EODR
 </body>
 EODR
 echo "
-<footer>"
-echo "$zyxgd"
-echo "
+<footer>
+<pre>
+$zyxgd
+</pre>
 </footer>
 </html>
 ";
