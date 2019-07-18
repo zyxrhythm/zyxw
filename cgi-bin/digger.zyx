@@ -160,7 +160,7 @@ else true;
 
 fi;
 
-zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
+zyxgd=$(dig +tcp +noall +answer "$DNSR" "$domain" "$qns" 2>&1 | sort -k4  );
 
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
