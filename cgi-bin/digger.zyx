@@ -186,11 +186,17 @@ zyxd=$( cutandtabfunc "$zyxgd" );
 cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
-<br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>$zyxgd
+<br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
-</html>
 EODR
+echo "
+<footer>
+$zyxgd
+</footer>
+</html>
+";
+
 exit 0;
 ;;
 
