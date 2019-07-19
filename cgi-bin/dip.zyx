@@ -223,7 +223,7 @@ while IFS= read -r line; do
    if [[ -z "$nsa1" ]]; then nsa2=$( echo "$nsa0" | grep -i -e "NetName:" ); else nsa2="$nsa1"; fi;
    nsax=$( echo "$nsa2" | sort -u );
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; 
-   elif [[ "$nsipc1" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:} <br>- Does not respond to dig queries!!</span>"; 
+   elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:} <br>- Does not respond to dig queries!!</span>"; 
    else echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information from ARIN.<br><br></span></a> ${nsax##*:}"; fi;
 done < <(printf '%s\n' "$nsr2");
 
