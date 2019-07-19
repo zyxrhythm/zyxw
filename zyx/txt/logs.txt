@@ -1,7 +1,7 @@
 -----------------------
 
 07-19-19
-Fixed Bug: The Dig tool gives a blank table result for domains with hyphen/dash (-). 
+Fixed Bug: The Dig tool gives a blank result for domains with hyphen/dash (-). 
 
 7-18-19
 Bug fixes and Improvements on most of the site installer components.
