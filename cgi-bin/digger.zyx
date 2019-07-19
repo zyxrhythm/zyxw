@@ -166,7 +166,8 @@ cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
 while IFS= read -r line
 do
-cut0=$( echo "$line" | sed "s/^[^"$domain"]*"$domain"//g" );
+#cut0=$( echo "$line" | sed "s/^[^"$domain"]*"$domain"//g" );
+cut0=$( echo "$line" | gawk '{$2=$2};1' | cut -d' ' -f1- );
 cut1="${cut0/IN/}";
 cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
 rtype=$( echo "$cutx" | gawk  '{print $2}' );
@@ -189,15 +190,8 @@ cat <<EODR
 <br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
-EODR
-echo "
-<footer>
-<pre>
-$zyxgd
-</pre>
-</footer>
 </html>
-";
+EODR
 
 exit 0;
 ;;
