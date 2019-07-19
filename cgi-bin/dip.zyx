@@ -208,7 +208,7 @@ while IFS= read -r line; do
    nscx=$( echo "$( dig a +short $domain @$nsr2 )" | tr -d '\040\011\012\015' );
 
    if [[ -z "$nsr2" ]]; then nsipc="null"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; 
-   elif [[ "${nscx:0:2}" = ";;" ]]; then nsipc="xd"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; 
+   elif [[ "${nscx:0:2}" = ";;" ]]; then nsipc="xd"; nsipc1="xd"; echo "<span id='fiftyshades' >${line#*:} <br></span>"; 
    else echo "${line#*:} <br> "; fi;
    
 if (( $(grep -c . <<<"$nsr2") > 1)); then
@@ -238,7 +238,7 @@ else
    #if [[ "${nscx3:0:2}" = ";;" ]]; then nsipc3="xd"; else true; fi;
    
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; 
-   elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:} <br>- Does not respond to dig queries!</span>"; 
+   elif [[ "$nsipc1" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:} <br>- Does not respond to dig queries!</span>"; 
    else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
 
 fi;
