@@ -167,7 +167,6 @@ echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( pri
 while IFS= read -r line
 do
 #cut0=$( echo "$line" | sed "s/^[^"$domain"]*"$domain"//g" );
-#cut0=$( echo "$line" | gawk '{$2=$2};1' | cut -d' ' -f1- );
 cut0=$( echo "$line" | sed "s/$domain//" );
 cut1="${cut0/IN/}";
 cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
