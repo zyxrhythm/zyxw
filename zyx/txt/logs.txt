@@ -1,5 +1,8 @@
 -----------------------
 
+07-24-19
+Added and option for the special tool (dip.zyx)  to skip the 'authoritative name server check' ( that checks if the authoritative name servers under a domain resolves to an IP address and if they can reply to dig queries ) - by default the tool should check them which causes a lot of delay if one or all name servers does not resolve to an IP address of cannot respond to dig queries, the toll will still do the check unless the "Skip NS Check" radio button is ticked.
+
 07-20-19
 Fixed Bug: If 1 of the authoritative name servers under the domain name gets the "Warning: This NS does not respond to dig queries!" warning, the same warning shows on the other name servers even though they do respond to dig queries. 
 
