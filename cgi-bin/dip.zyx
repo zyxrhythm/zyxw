@@ -75,7 +75,7 @@ cat << EONAVMENU
 <button type='submit' style='font-weight: bold;' onclick="nscheckboxjs();"> Go </button> <br>
 
 
-<input type="radio" name="nscr" value="Y" checked="checked" ><label class='tooltip'>NS Check<span class='tooltiptext'>By default the script will conduct a validating check on the authoritative name servers which causes a great delay in generating a full result, you can skip it by ticking the 'Skip NS Check' radio button.</span></label>    <input type="radio" name="nscr" value="N" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>By default the script will conduct a validating check on the authoritative name servers which causes a great delay in generating a full result, you can skip it by ticking the 'Skip NS Check' radio button.</span></label> 
+<input type="radio" name="nscr" value="Y" checked="checked" ><label class='tooltip'>NS Check<span class='tooltiptext'>By default the script will conduct a validating check on the authoritative name servers which might cause a great delay in generating a full result if at least 1 of them does not resolve to an IP or does not respont to dig queries, you can skip it by ticking the 'Skip NS Check' radio button.</span></label>    <input type="radio" name="nscr" value="N" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>By default the script will conduct a validating check on the authoritative name servers which might cause a great delay in generating a full result if at least 1 of them does not resolve to an IP or does not respont to dig queries, you can skip it by ticking the 'Skip NS Check' radio button.</span></label> 
 
 </form>
 </td> </tbody> </table> </div></p>
