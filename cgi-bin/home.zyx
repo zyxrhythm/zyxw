@@ -54,7 +54,7 @@ else if(document.getElementById("square").checked == false)
 }
 </script>
 <div class="tooltip">
-<a id="tools-link" href='/cgi-bin/dip.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$DIP</label></a>
+<a id="tools-link" href='/cgi-bin/dip.zyx' target='_blank' ><label style='cursor: pointer;' >$DIP</label></a>
 <span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this tool ( $DIP ) will generate a report with vital DNS and whois information about the domain.<br><br></span>
 </div>
 <form method="get" name="formation" action="" >
@@ -67,6 +67,7 @@ else if(document.getElementById("square").checked == false)
 </span>
 </div> 
 </label>
+<input type="hidden" name="nscr" value="Y" >
 <input type="checkbox" id="square">
 </form></p><br><br>
 <!-- ################## DIP################# -->
