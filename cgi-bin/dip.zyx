@@ -42,7 +42,9 @@ echo "<!DOCTYPE html>
 qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}' );
 
 #removes "domain=" from the QUERY_STRING and store it in domain variable
-domain=$(echo "$qs" | cut -f2 -d"=" );
+#domain=$(echo "$qs" | cut -f2 -d"=" );
+domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
+checknsrb=$(echo $qs | sed 's/.*nscr=//');
 
 #echo header
 cat << INIOHTMLHEAD
@@ -67,9 +69,14 @@ INIOHTMLHEAD
 cat << EONAVMENU
 
 <div id='xtable' ><table> <tbody> <td>
-<form action='dip.zyx' method='get'>
+
+<form name='formationx' action='' method='get'>
 <input placeholder='Enter a Domain(FQDN)'  type='text' onblur='this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);' onKeyDown='if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);' onKeyUp='if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);'name='domain'>
-<button type='submit' style='font-weight: bold;' > Go </button>
+<button type='submit' style='font-weight: bold;' onclick="nscheckboxjs();"> Go </button> <br>
+
+
+<input type="radio" name="nscr" value="Y" checked="checked" >NS Check  <input type="radio" name="nscr" value="N" >Skip NS Check
+
 </form>
 </td> </tbody> </table> </div></p>
 <button onclick='copyv2();' >Copy Results</button><label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a 'paste' on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
@@ -180,7 +187,7 @@ done < <(printf '%s\n' "$1");
 #Name Servers Function
 #cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
 nsfunction () {
-if [[ -z $2 ]]; 
+if [[ -z $2 ]] && [[ $checknsrb = "y" ]]; 
 then
 echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br>"
 
@@ -248,7 +255,7 @@ echo "--------------------------</p>
 </td> </tbody> </table> </div>
 <p>";
 
-elif [[ $2 = "z" ]]; 
+elif [[ $2 = "z" ]] || [[ $checknsrb = "n" ]]; 
 then
 echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br><br>"
 while IFS= read -r linez
@@ -615,9 +622,15 @@ echo "$xqns";
 }
 #######################################
 
-nstoquery=$( nstqfunc "$nsxx");
-
+if [[ $checknsrb = "n" ]]; then 
+nstoquery="8.8.8.8";
+nscheck="x";
+elif  [[ $checknsrb = "y" ]]; then 
+nstoquery=$( nstqfunc "$nsxx"); 
 nscheck=$( nscheckfunc "$nsxx" | gawk '!seen[$0]++' | tr -d '\040\011\012\015' );
+else
+echo "wow";
+fi;
 
 if [[ "$nscheck" = "y" ]]; then 
 ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
