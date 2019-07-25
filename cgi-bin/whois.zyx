@@ -15,7 +15,7 @@ witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
 if [[ $witst0 = "y" ]]; then 
 zyxwhois="whois -n";
-elif [[ $witst0 = "n" ]] && [[ witst1 = "y" ]]; then 
+elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
 zyxwhois="whois --verbose";
 else
 echo "
