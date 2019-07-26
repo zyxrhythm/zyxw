@@ -249,7 +249,7 @@ issuerx=$( echo "$Issuer" | grep $domain );
 
 if [[ ! -z $issuerx ]]; then 
 
-cat << EOSSLCCR
+echo "
 <body><p>SSL Certificate Found!</p>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
 <strong>$domvar resolves to</strong> : $IPA <br>
@@ -277,13 +277,13 @@ $IssuerON &nbsp;&nbsp;( Organization Name )<br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EOSSLCCR
+";
 
 
 
 else
 
-cat << EOSSLCCR
+echo "
 <body><p>SSL Certificate Found! (Self Signed)</p>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
 <strong>$domvar resolves to</strong> : $IPA <br>
@@ -296,7 +296,7 @@ cat << EOSSLCCR
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
-EOSSLCCR
+";
 
 fi;
 
