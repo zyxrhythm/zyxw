@@ -247,7 +247,7 @@ if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Issue
 
 issuerx=$( echo "$Issuer" | grep $domain );
 
-if [[ ! -z $issuerx ]] && [[ ! -z $IssuedFor ]]; then 
+if [[ ! -z $issuerx ]]; then 
 
 cat << EOSSLCCR
 <body><p>SSL Certificate Found!</p>
