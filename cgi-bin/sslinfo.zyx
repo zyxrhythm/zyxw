@@ -244,6 +244,8 @@ esac
 if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
 
 #if [[ "$domain" != "$IssuedFor" ]] && [[ "${IssuedFor:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$IssuedFor" <br><strong>Which Resolves to</strong> : "$( dig a +short "$IssuedFor" | sort -u )" <br>"; else true; fi;
+#<strong>Certificate Issuer</strong> : $IssuedFor <br> 
+#<strong>Certificate issued to</strong> : $IssuedFor <br><br>
 
 issuerx=$( echo "$Issuer" | grep $domain );
 
@@ -252,9 +254,7 @@ if [[ ! -z $issuerx ]]; then
 cat << EOTFRX
 <body><p><span style='color:red;'>Self Signed SSL Certificate Found!</span></p>
 <div class='code-bg' id='divClipboard'><p><strong>Input</strong> : $domain <br>
-<strong>$domvar resolves to</strong> : $IPA <br>
-<strong>Certificate Issuer</strong> : $IssuedFor <br> 
-<strong>Certificate issued to</strong> : $IssuedFor <br><br>
+<strong>$domvar resolves to</strong> : $IPA <br><br>
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
 <strong>$daysvar</strong> : $days <br></p></div>
