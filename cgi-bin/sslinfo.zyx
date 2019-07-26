@@ -250,7 +250,7 @@ issuerx=$( echo "$Issuer" | grep $domain );
 if [[ ! -z $issuerx ]]; then 
 
 echo "
-<body><ps style="color:red">Self Signed SSL Certificate Found!</p>
+<body><p><span>Self Signed SSL Certificate Found!</span></p>
 <div class="code-bg" id="divClipboard"><p><strong>Input</strong> : $domain <br>
 <strong>$domvar resolves to</strong> : $IPA <br>
 <strong>Certificate Issuer</strong> : $IssuedFor <br> 
