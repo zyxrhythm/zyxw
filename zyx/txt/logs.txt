@@ -1,5 +1,8 @@
 -----------------------
 
+07-26-19
+SSL check tool (sslinfo.zyx) should be able to identify if the SSL certificate found is Self-Signed.
+
 07-24-19
 Added and option for the special tool (dip.zyx)  to skip the 'authoritative name server check' ( that checks if the authoritative name servers under a domain resolves to an IP address and if they can reply to dig queries ) - by default the tool should check them which causes a lot of delay if one or all name servers does not resolve to an IP address of cannot respond to dig queries, the toll will still do the check unless the "Skip NS Check" radio button is ticked.
 
