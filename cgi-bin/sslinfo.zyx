@@ -343,6 +343,12 @@ exit 0;
 ####GRAND ELIF
 elif [[ $sslcs = "openssl" ]]; then
 
+shopt -s extglob
+
+tldlist0='+($GTLDLIST)';
+
+tldlist1='+($CCTLDLIST)';
+
 #===================
 #FUNCTION HALL
 #===================
@@ -607,6 +613,20 @@ exit 0;
 
 ####GRAND ELSE
 else;
+
+echo "
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> <br>
+<span style="font-size: 120%; font-family: verdana; color: red; ">Error!!</span><br><br>
+No NMAP / OPENSSL detected. Please install the programs on your server.<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
 
 ####GRAND FI
 fi;
