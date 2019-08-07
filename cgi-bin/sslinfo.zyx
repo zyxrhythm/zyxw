@@ -126,9 +126,8 @@ exit 0;
 
 else true; fi;
 
-
 #===================
-#FUNCTION HALL
+#FUNCTION HALL FOR OPENSSL
 #===================
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
@@ -168,6 +167,19 @@ dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
 fulldate="$dlyear-$dlmono-$dlday";
 daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
 echo "$daysleft"; }
+
+iponlyfunc () {
+while IFS= read -r line
+do
+if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+then ipop="$line";
+else 
+linex=$(dig a +short "$line" ); 
+ipop="$line (CNAME) <br> <br>The CNAME resolves to $linex"; 
+fi;
+echo "$ipop";
+done < <(printf '%s\n' "$1");
+}
 #===================
 #END OF FUNCTION HALL
 #===================
