@@ -89,7 +89,7 @@ else true;
 fi;
 
 ####GRAND IF
-if [[ $sslcs = "nmap" ]]; then
+#if [[ $sslcs = "nmap" ]]; then
 
 #checks if input is null 
 if [[ -z "$domain" ]]; then
