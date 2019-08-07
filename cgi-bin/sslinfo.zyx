@@ -41,9 +41,6 @@ exit 0;
 else true;
 fi;
 
-####GRAND IF
-#if [[ $sslcs = "nmap" ]]; then
-
 #start the html header
 echo "Content-type: text/html"
 echo ""
@@ -128,6 +125,52 @@ ZXCVBNM
 exit 0; 
 
 else true; fi;
+
+
+#===================
+#FUNCTION HALL
+#===================
+
+#uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
+errcfunc () {
+err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
+echo "$err"; }
+
+issuerfunc () {
+issuer0=$(echo "$1" | grep -i 'issuer=' );
+issuer=$( grep -oP '(?<=/O=).*?(?=/)' <<< "$issuer0");
+echo "$issuer"; }
+
+targetfunc () {
+target0=$( echo "$1" | grep -i 'subject=' );
+target=${target0#*CN=};
+echo "$target"; }
+
+expiryfunc () {
+expiry0=$(echo "$1" | grep -i 'notafter=');
+expiry=${expiry0#*After=};
+echo "$expiry"; }
+
+validstartfunc () {
+validstart0=$(echo "$1" | grep -i 'notbefore=');
+validstart=${validstart0#*Before=};
+echo "$validstart"; }
+
+daysleftfunc () {
+Expiryx="$1"
+dlyear0="${Expiryx:13:10}";
+dlyear=$(grep -oP '(?<= ).*?(?= )' <<< "$dlyear0")
+dlmonth=$( echo "${Expiryx:0:3}" | awk '{print tolower($0)}' );
+case $dlmonth in jan) dlmono='1';; feb) dlmono='2';; mar) dlmono='3';; apr) dlmono='4';; may) dlmono='5';; jun) dlmono='6';; jul) dlmono='7';; aug) dlmono='8';; sep) dlmono='9';; oct) dlmono='10';; nov) dlmono='11';; dec) dlmono='12';; *) dlmono='0';;
+esac;
+dlday0="${Expiryx:0:9}";
+dlday=$(grep -oP '(?<= ).*?(?= )' <<< "$dlday0");
+fulldate="$dlyear-$dlmono-$dlday";
+daysleft=$( echo $((($(date +%s --date "$fulldate")-$(date +%s))/(3600*24))) );
+echo "$daysleft"; }
+#===================
+#END OF FUNCTION HALL
+#===================
 
 #cuts and extracts the TLD
 tld=$( echo "$domain" | rev | cut -d "." -f1 | rev );
