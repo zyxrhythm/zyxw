@@ -10,6 +10,39 @@
 
 GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
+#Checks the sever if NMAP or OPENSSL is available.
+
+naoc0=$(test -e /usr/bin/nmap && echo 'y' || echo 'n' );
+naoc1=$(test -e /usr/bin/openssl && echo 'y' || echo 'n' );
+
+#give a value to the decider var for which software to use
+if [[ $naoc0 = "y" ]] && [[ $naoc1 = "n" ]]; then
+sslcs="nmap";
+elif [[ $naoc0 = "n" ]]  && [[ $naoc1 = "y" ]]; then
+sslcs="openssl";
+elif [[ $naoc0 = "y" ]]  && [[ $naoc1 = "y" ]]; then
+sslcs="nmap";
+elif [[ $naoc0 = "n" ]]  && [[ $naoc1 = "n" ]]; then
+
+echo "
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> <br>
+<span style="font-size: 120%; font-family: verdana; color: red; ">Error!!</span><br><br>
+No NMAP / OPENSSL detected. Please install the programs on your server.<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+exit 0;
+else 
+true;
+fi;
+
+if [[ $sslcs = "nmap" ]]; then
+
 #start the html header
 echo "Content-type: text/html"
 echo ""
@@ -304,3 +337,13 @@ fi;
 fi;
 
 exit 0;
+
+elif [[ $sslcs = "openssl" ]]; then
+
+
+else;
+
+fi;
+
+exit 0;
+
