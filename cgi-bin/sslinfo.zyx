@@ -331,15 +331,12 @@ fi;
 
 fi;
 
-exit 0;
-
-
 ####GRAND ELIF
 elif [[ $sslcs = "openssl" ]]; then
 
 . ../zyx/sh/tldblob.sh
 
-shopt -s extglob
+shopt -s extglob;
 
 tldlist0='+($GTLDLIST)';
 
@@ -604,8 +601,6 @@ $certloc <br>
 fi;
 
 fi;
-
-exit 0;
 
 ####GRAND ELSE
 else;
