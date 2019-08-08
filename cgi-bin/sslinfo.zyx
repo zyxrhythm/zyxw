@@ -203,6 +203,8 @@ case $tld in
 #check if the input is domain or sub domain.
 if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
 
+if [[ $sslcs = "nmap" ]]; then 
+
 nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
 nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
 
@@ -256,11 +258,46 @@ else
 daysvar="Days Left:"; days="$daysx"; fi;
 
 fi;
+
+elif [[ $sslcs = "openssl" ]]; then 
+
+errc=$( errcfunc "$domain" );
+
+if [[ -z "$errc" ]];
+then cat << ZXCVBNM
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> 
+<strong>Resolves to</strong> : $IP <br><br>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+ZXCVBNM
+exit 0; 
+
+else 
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+Issuer=$( issuerfunc "$rawdata0" );
+Target=$( targetfunc "$rawdata0" );
+Expiry=$( expiryfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
+Daysleft0=$( daysleftfunc "$Expiry" ); fi;
+
+else true;
+fi;
 ;;
 
  $tldlist1)
 #check if the input is domain or sub domain.
 if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Domain"; else domvar="Domain"; fi;
+
+if [[ $sslcs = "nmap" ]]; then
 
 nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
 nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
@@ -312,6 +349,40 @@ else daysvar="Days Left:"; days="$daysx"; fi;
 ##############################################
 
 fi;
+
+elif [[ $sslcs = "openssl" ]]; then
+errc=$( errcfunc "$domain" );
+
+if [[ -z "$errc" ]];
+then cat << ZXCVBNM2
+<body>
+<div id='divClipboard'>
+<p><strong>Input:</strong> $domain <br> 
+<strong>Resolves to</strong> : $IP <br><br>
+No certificate found on port 443. <br>
+-https might be configured to use another port. <br>
+-S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
+</div>
+<hr><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+ZXCVBNM2
+exit 0; 
+
+else 
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+Issuer=$( issuerfunc "$rawdata0" );
+Target=$( targetfunc "$rawdata0" );
+Expiry=$( expiryfunc "$rawdata0" );
+Validstart=$( validstartfunc "$rawdata0" );
+Daysleft0=$( daysleftfunc "$Expiry" ); 
+fi;
+
+else true;
+fi;
+
 ;;
 
 #throws in errors for non domain input
@@ -330,6 +401,8 @@ exit 0;
 ;;
 
 esac
+
+if [[ $sslcs = "nmap" ]]; then
 
 if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
 
@@ -382,6 +455,65 @@ $IssuerON &nbsp;&nbsp;( Organization Name )<br>
 </html>
 EOTFR
 
+fi;
+
+elif [[]]; then 
+
+if [[ ${Daysleft0:0:1} = "-" ]]; 
+then 
+leftvar="Cert Expired";
+Daysleft="${Daysleft0#*-} days ago."; 
+else 
+leftvar="Daysleft";
+Daysleft="$Daysleft0";
+fi;
+
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
+
+if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
+
+#####################
+
+issuerxx=$( echo "$rawdata0" | grep -i -e 'issuer=' );
+issuerx=$( echo "$issuerxx" | grep $domain );
+
+if [[ ! -z $issuerx ]]; then
+
+echo "
+<body><div class='code-bg' id='divClipboar d'><p>
+<span style='color:red;' >Self Signed SSL Certificate Found!!</span> <br> <br> 
+<strong>Input ($domvar)</strong> : $domain <br>
+<strong>Resolves to</strong> : $IP <br> 
+$certloc <br>
+<strong>Validity Start:</strong> : $Validstart <br>
+<strong>Expiration</strong> : $Expiry <br>
+<strong>$leftvar</strong> : $Daysleft <br></p></div>
+<p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+
+else
+
+echo "
+<body><div class='code-bg' id='divClipboard'><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
+$certloc <br>
+<strong>Cert Issuer</strong> : $Issuer <br>
+<strong>Wildcard</strong> : $certtype <br>
+<strong>Issued To</strong> : $Target<br>
+<strong>Validity Start:</strong> : $Validstart <br>
+<strong>Expiration</strong> : $Expiry <br>
+<strong>$leftvar</strong> : $Daysleft <br></p></div>
+<p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+";
+
+fi;
+
+else true;
 fi;
 
 fi;
