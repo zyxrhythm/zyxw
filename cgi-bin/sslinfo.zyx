@@ -131,9 +131,9 @@ else true; fi;
 #===================
 
 #uses openssl to determine the issuer of SSL the target domain and the expiration for gtlds
-errcfunc () {
-err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
-echo "$err"; }
+#errcfunc () {
+#err=$(nmap "$1" -oX - -p 443 --script=ssl-cert | grep -i -e 'commonname' );
+#echo "$err"; }
 
 issuerfunc () {
 issuer0=$(echo "$1" | grep -i 'issuer=' );
@@ -205,7 +205,7 @@ if [[ $( echo "$domain" | grep -o "\." | wc -l) -gt "1" ]]; then domvar="Sub Dom
 
 if [[ $sslcs = "nmap" ]]; then 
 
-nmapsslinfo=$(nmap "$domain" -oX - -p 443 --script=ssl-cert );
+nmapsslinfo=$( nmap "$domain" -oX - -p 443 --script=ssl-cert );
 nsix=$( echo "$nmapsslinfo" | grep -i -e 'commonname' );
 
 if [[ -z "$nsix" ]];
@@ -261,7 +261,9 @@ fi;
 
 elif [[ $sslcs = "openssl" ]]; then 
 
-errc=$( errcfunc "$domain" );
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+errc=$( echo "$rawdata0" | grep 'commonname' );
 
 if [[ -z "$errc" ]];
 then cat << ZXCVBNM
@@ -281,7 +283,6 @@ ZXCVBNM
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
@@ -353,6 +354,10 @@ fi;
 elif [[ $sslcs = "openssl" ]]; then
 errc=$( errcfunc "$domain" );
 
+rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
+
+errc=$( echo "$rawdata0" | grep 'commonname' );
+
 if [[ -z "$errc" ]];
 then cat << ZXCVBNM2
 <body>
@@ -371,7 +376,6 @@ ZXCVBNM2
 exit 0; 
 
 else 
-rawdata0=$(echo | openssl s_client -servername "$domain" -connect "$domain":443 2>/dev/null | openssl x509 -noout -issuer -subject -dates);
 
 Issuer=$( issuerfunc "$rawdata0" );
 Target=$( targetfunc "$rawdata0" );
