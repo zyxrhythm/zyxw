@@ -45,7 +45,14 @@ sptq=$(echo $qs | sed 's/.*sptq=//');
 
 if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
 specter="y";
+
+timeout 2  $zyxwhois $doi -p $sptq -h $swstq sleep 1;
+if [[ $? != 0 ]];
+then
+zyxman="The port maybe invalid - the process timed out!";
+else 
 zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
+fi;
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
 specter="x";
