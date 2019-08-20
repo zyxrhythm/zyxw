@@ -177,7 +177,7 @@ wsman=$( cutterfunc "$zyx" )
 if [[ $specter = "y" ]]; then
 cat << WHOISMAN
 <body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq - Port: sptq</td></tbody></table><br>
+<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq - Port: $sptq</td></tbody></table><br>
 <button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
 <table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody></table></div><br>
