@@ -47,22 +47,24 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 
 	if [[ $witst0 = "y" ]]; then 
 	
-	jwpq="whois -n --port="$sptq" --host="$swstq" "$doi""
+	jwfqs="whois -n --port="$sptq" --host="$swstq" "$doi"";
 
-	timeout 2 $jwpq sleep 3;
+	timeout 2 $jwfqs sleep 3;
 		if [[ $? != 0 ]];
 		then zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
-		zyxman=$($jwpq);
+		zyxman=$($jwfqs);
 		fi;
 
 	elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
+	
+	wwfqs="whois --verbose --port "$sptq" --host "$swstq" "$doi"";
 
-	timeout 2 whois --verbose $doi -p $sptq -h $swstq sleep 3;
+	timeout 2 $wwfqs sleep 3;
 		if [[ $? != 0 ]]; then 
 		zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
-		zyxman=$(whois --verbose --port "$sptq" --host "$swstq" "$doi"); 
+		zyxman=$($wwfqs); 
 		fi;
 	
 	else true; 
