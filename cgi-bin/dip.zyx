@@ -337,9 +337,9 @@ echo "<br> <span id='fiftyshades' >Warning! naked domain $senvar resolves to CNA
 
 elif [[ ! -z $cnchk ]] && [[ -z $( echo "$rchk" | grep "A") ]]; then
 
-echo "<br> Domain resolves to Oblivion <br>
-( Waning: domain resolves to only a CNAME and nothing more, <br>
-also the CNAME does not resolve to an IP address. )";
+echo "<span id='fiftyshades'><br> Domain resolves to Oblivion... <br>
+Warning: domain resolves to only a CNAME and nothing more, <br>
+also the CNAME does not resolve to an IP address. </span>";
 
 else echo "<br>Domain resolves to oblivion!"; fi;
 done < <(printf '%s\n' "$arff");
