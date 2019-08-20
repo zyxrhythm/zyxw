@@ -49,8 +49,9 @@ timeout 2  $zyxwhois $doi -p $sptq -h $swstq sleep 3;
 if [[ $? != 0 ]];
 then
 zyxman="The port maybe invalid - the process timed out!";
-specter="p";
-else true fi;
+specter="p"; 
+else true; fi;
+
 specter="y";
 
 zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
