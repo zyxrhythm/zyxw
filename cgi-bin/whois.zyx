@@ -50,10 +50,10 @@ if [[ $? != 0 ]];
 then
 zyxman="The port maybe invalid - the process timed out!";
 specter="p";
-else 
-zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
+else true fi;
 specter="y";
-fi;
+
+zyxman=$( $zyxwhois $doi -p $sptq -h $swstq );
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
 specter="x";
