@@ -163,6 +163,7 @@ exit 0;
 #else 1
 else
 
+if [[ ! -z $zyxman ]]; then
 ########MANUAL##############
 if [[ "$witst0" = "y" ]]; then
 zyx=$(echo "$zyxman" | sed  '1,2d' );
@@ -217,6 +218,23 @@ exit 0;
 
 else true; fi;
 ########MANUAL##############
+
+else
+cat << WHOISMANX
+<body>
+<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td> </tbody></table><br>
+<button onclick="copyClipboard1()">Copy Result</button><br>
+<div id="divClipboard1">
+<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> No info was retrieved for $doi. </pre></td> </tbody></table></div><br>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+</body>
+</html>
+WHOISMANX
+exit 0;
+
+fi;
+
+
 
 #ARIN WHOIS: verifies if qs is an IP address if it is - does a whois lookup for the IP address
 #if 2
