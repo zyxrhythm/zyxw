@@ -47,7 +47,15 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 
 	if [[ $witst0 = "y" ]]; then 
 	
-	jwfqs="whois -n --port="$sptq" --host="$swstq" "$doi"";
+		if [[ $sptq -eq "43" ]]; then 
+		
+		jwfqs="whois -n -h $swstq $doi "
+	
+		else
+		
+		jwfqs="whois -n --port=$sptq --host=$swstq $doi";
+		
+		fi;
 
 	timeout 2 $jwfqs sleep 3;
 		if [[ $? != 0 ]];
@@ -58,7 +66,15 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 
 	elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
 	
-	wwfqs="whois --verbose --port "$sptq" --host "$swstq" "$doi"";
+		if [[ $sptq -eq "43" ]]; then 
+		
+		wwfqs="whois --verbose  --host $swstq $doi "
+	
+		else
+		
+		wwfqs="whois --verbose --port $sptq --host $swstq $doi";
+		
+		fi;
 
 	timeout 2 $wwfqs sleep 3;
 		if [[ $? != 0 ]]; then 
