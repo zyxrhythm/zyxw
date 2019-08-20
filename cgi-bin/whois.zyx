@@ -174,6 +174,7 @@ else
 echo "<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p></body></html>"; exit 0; 
 fi;
 wsman=$( cutterfunc "$zyx" )
+if [[ -z $wsman ]]; then wsman="No whois info retrieved for $doi"; else true; fi;
 if [[ $specter = "y" ]]; then
 cat << WHOISMAN
 <body>
@@ -189,6 +190,7 @@ exit 0;
 
 elif [[ $specter = "x" ]]; then 
 wsman="$zyxman"
+if [[ -z $wsman ]]; then wsman="No whois info retrieved for $doi"; else true; fi;
 cat << WHOISMANX
 <body>
 <table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq</td> </tbody></table><br>
