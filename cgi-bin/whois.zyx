@@ -46,12 +46,14 @@ sptq=$(echo $qs | sed 's/.*sptq=//');
 if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
 
 	if [[ $witst0 = "y" ]]; then 
+	
+	jwpq="whois -n --port="$sptq" --host="$swstq" "$doi""
 
-	timeout 2 whois -n  $doi -p $sptq -h $swstq sleep 3;
+	timeout 2 $jwpq sleep 3;
 		if [[ $? != 0 ]];
 		then zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
-		zyxman=$(whois -n --port="$sptq" --host="$swstq" "$doi");
+		zyxman=$($jwpq);
 		fi;
 
 	elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
