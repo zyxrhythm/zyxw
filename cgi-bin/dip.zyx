@@ -335,11 +335,11 @@ echo "<br> <span id='fiftyshades' >Warning! naked domain $senvar resolves to CNA
 <br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${arx#*:}</span><br>";
 
-elif [[ -z $cnchk ]] && [[ -z $( echo "$rchk" | grep "CNAME" ]] ; then
+elif [[ -z $cnchk ]] && [[ -z $( echo "$rchk" | grep "CNAME") ]] ; then
 
 echo "<br> Domain resolves to Oblivion <br>
 ( Waning: domain resolves to only a CNAME and nothing more, <br>
-also the CNAME does not resolve to an IP address. )"
+also the CNAME does not resolve to an IP address. )";
 
 else echo "<br>Domain resolves to oblivion!"; fi;
 done < <(printf '%s\n' "$arff");
