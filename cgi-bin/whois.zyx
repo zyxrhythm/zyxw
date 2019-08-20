@@ -42,6 +42,7 @@ qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
 doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptq=$(echo $qs | sed 's/.*sptq=//');
+echo "$sptq";
 
 if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
 
