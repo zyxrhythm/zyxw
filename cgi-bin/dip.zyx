@@ -279,6 +279,9 @@ fi;
 #A Record Function
 #cycles through the A record/s and will get the company/individual that is liable for the IP address
 arfunction () {
+
+cnchk=$( dig CNAME $domain @8.8.8.8 );
+
 if [[ -z $2 ]]; then 
 arff="$1";
 
@@ -331,6 +334,12 @@ echo "<br> <span id='fiftyshades' >Warning! naked domain $senvar resolves to CNA
 <span class='tooltiptext' >
 <br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br>
 </span></a> ${arx#*:}</span><br>";
+
+elif [[ -z $cnchk ]] && [[ -z $( echo "$rchk" | grep "CNAME" ]] ; then
+
+echo "<br> Domain resolves to Oblivion <br>
+( Waning: domain resolves to only a CNAME and nothing more, <br>
+also the CNAME does not resolve to an IP address. )"
 
 else echo "<br>Domain resolves to oblivion!"; fi;
 done < <(printf '%s\n' "$arff");
