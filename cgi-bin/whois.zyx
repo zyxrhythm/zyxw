@@ -53,7 +53,7 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 		jwfqs="whois -n --port=$sptq --host=$swstq $doi 2>&1"
 		fi;
 
-	timeout 2 $jwfqs sleep 3
+	timeout 2 $jwfqs 
 		if [[ $? != 0 ]];
 		then zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
@@ -68,7 +68,7 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 		wwfqs="whois --verbose --port $sptq --host $swstq $doi 2>&1"
 		fi;
 
-	timeout 2 $wwfqs sleep 3
+	timeout 2 $wwfqs 
 		if [[ $? != 0 ]]; then 
 		zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
