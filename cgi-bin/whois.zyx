@@ -48,12 +48,12 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 	if [[ $witst0 = "y" ]]; then 
 	
 		if [[ $sptq -eq 43 ]]; then 
-		jwfqs="whois -n -h $swstq $doi 2>&1"
+		jwfqs="whois -n -h $swstq $doi "
 		else
-		jwfqs="whois -n --port=$sptq --host=$swstq $doi 2>&1"
+		jwfqs="whois -n --port=$sptq --host=$swstq $doi";
 		fi;
 
-	timeout 2 $jwfqs 
+	timeout 2 $jwfqs sleep 3;
 		if [[ $? != 0 ]];
 		then zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
@@ -63,12 +63,12 @@ if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then
 	elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
 	
 		if [[ $sptq -eq 43 ]]; then 
-		wwfqs="whois --verbose --host $swstq $doi 2>&1"
+		wwfqs="whois --verbose --host $swstq $doi"
 		else
-		wwfqs="whois --verbose --port $sptq --host $swstq $doi 2>&1"
+		wwfqs="whois --verbose --port $sptq --host $swstq $doi";
 		fi;
 
-	timeout 2 $wwfqs 
+	timeout 2 $wwfqs sleep 3;
 		if [[ $? != 0 ]]; then 
 		zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
 		else 
@@ -390,7 +390,15 @@ zyxregistry=$( cutterfunc "$zyxregistry0" ); fi;
 if [[ -z "$rarwis1" ]] || [[ "$rarwis1" = " " ]]; 
 then 
 rarwis="Not Found!"; 
-zyxregistrar="Unable to fetch the whois infomartion from the Registrar!<br><br><strong>Input</strong>: $doi<br><br><br>Possible cause: <br>-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD; Registrars are not directly involved with TLDs.<br>-Input is not a valid/registered naked domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a Registrar whois server in the whois information obtained from the Registry.<br>-The whois server of the Registrar does not respond to whois queries via port 43 (a web interface might be available).<br>-There is no such server from the Registrar.";
+zyxregistrar="
+Unable to fetch the whois infomartion from the Registrar!<br><br>
+<strong>Input</strong>: $doi<br><br><br>Possible cause: <br>
+-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD.<br>
+-Input is not a valid/registered domain name.<br>
+-Input is a sub domain, or something else.<br>
+-The scripts are not able to find a 'registrar whois server' in the whois information obtained from the Registry.<br>
+-The whois server of the registrar does not respond to whois queries or whois queries via port 43 (a web interface might be available).<br>
+-There is no such server/service from the Registrar.";
 
 else 
 rarwis="$rarwis1"; 
