@@ -382,7 +382,7 @@ rarwis1=$(echo "$rarwis0" | cut -f2 -d":" | tr -d '\040\011\012\015' );
 zyxregistry0="$zyx";
 
 if [[ -z $zyxregistry0 ]] || [[ $zyxregistry0 = " " ]]; then 
-zyxregistry="Unable to fetch the whois infomartion from the Registrar!"; 
+zyxregistry="Unable to fetch the whois infomartion from the Registry!"; 
 else
 zyxregistry=$( cutterfunc "$zyxregistry0" ); fi;
 
@@ -393,12 +393,7 @@ rarwis="Not Found!";
 zyxregistrar="
 Unable to fetch the whois infomartion from the Registrar!<br><br>
 <strong>Input</strong>: $doi<br><br><br>Possible cause: <br>
--Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD.<br>
--Input is not a valid/registered domain name.<br>
--Input is a sub domain, or something else.<br>
--The scripts are not able to find a 'registrar whois server' in the whois information obtained from the Registry.<br>
--The whois server of the registrar does not respond to whois queries or whois queries via port 43 (a web interface might be available).<br>
--There is no such server/service from the Registrar.";
+-Input is a <a href='https://en.wikipedia.org/wiki/Top-level_domain' target='_blank'>TLD</a> with a dot at the beginning, try removing the dot '.' before the TLD.<br>-Input is not a valid/registered domain name.<br>-Input is a sub domain, or something else.<br>-The scripts are not able to find a 'registrar whois server' in the whois information obtained from the Registry.<br>-The whois server of the registrar does not respond to whois queries or whois queries via port 43 (a web interface might be available).<br>-There is no such server/service from the Registrar.";
 
 else 
 rarwis="$rarwis1"; 
