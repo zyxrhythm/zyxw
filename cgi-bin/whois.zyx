@@ -43,40 +43,15 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptq=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ ! -z $swstq ]] && [[ ! -z $sptq ]]; then 
+if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ $swstq -eq 43 ]]
 
-	if [[ $witst0 = "y" ]]; then 
-	
-		if [[ $sptq -eq 43 ]]; then 
-		jwfqs="whois -n -h $swstq $doi "
-		else
-		jwfqs="whois -n --port=$sptq --host=$swstq $doi";
-		fi;
+specter="y";
+zyxman=$( $zyxwhois $doi -h $swstq );
 
-	timeout 2 $jwfqs sleep 3;
-		if [[ $? != 0 ]];
-		then zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
-		else 
-		zyxman=$($jwfqs);
-		fi;
+elif [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ ! $swstq -eq 43 ]]; then 
 
-	elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
-	
-		if [[ $sptq -eq 43 ]]; then 
-		wwfqs="whois --verbose --host $swstq $doi"
-		else
-		wwfqs="whois --verbose --port $sptq --host $swstq $doi";
-		fi;
-
-	timeout 2 $wwfqs sleep 3;
-		if [[ $? != 0 ]]; then 
-		zyxman="The port maybe invalid - the process timed out!"; specter="p"; 
-		else 
-		zyxman=$($wwfqs); 
-		fi;
-	
-	else true; 
-	fi;
+specter="y";
+zyxman=$( $zyxwhois $doi -h $swstq -p $sptq );
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
 specter="x";
