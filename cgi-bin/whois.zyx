@@ -50,8 +50,15 @@ zyxman=$( $zyxwhois $doi -h $swstq );
 
 elif [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ ! $swstq -eq 43 ]]; then 
 
-specter="y";
-zyxman=$( $zyxwhois $doi -h $swstq -p $sptq );
+wfqs="$zyxwhois $doi -h $swstq -p $sptq";
+
+timeout 2 $wfqs sleep 3;
+	if [[ $? != 0 ]]; then 
+	zyxman="The port maybe invalid - the process";
+	else
+	specter="y";
+	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq );
+	fi;
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
 specter="x";
