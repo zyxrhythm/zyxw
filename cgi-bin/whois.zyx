@@ -46,18 +46,18 @@ sptq=$(echo $qs | sed 's/.*sptq=//' | tr -d '\040\011\012\015');
 if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ "$swstq" -eq "43" ]]; then
 
 specter="y";
-zyxman=$( $zyxwhois $doi -h $swstq );
+zyxman=$( $zyxwhois $doi -h $swstq 2>&1 );
 
 elif [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ ! $swstq -eq 43 ]]; then 
 
-wfqs="$zyxwhois $doi -h $swstq -p $sptq";
+wfqs="$zyxwhois $doi -h $swstq -p $sptq 2>&1";
 
 timeout 2 $wfqs sleep 3;
 	if [[ $? != 0 ]]; then 
 	zyxman="The port maybe invalid - the proces1 timed out!";
 	else
 	specter="y";
-	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq );
+	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq 2>&1);
 	fi;
 
 elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
