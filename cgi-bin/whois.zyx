@@ -43,7 +43,7 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptq=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ $swstq -eq 43 ]]; then
+if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ "$swstq" -eq "43" ]]; then
 
 specter="y";
 zyxman=$( $zyxwhois $doi -h $swstq );
@@ -54,7 +54,7 @@ wfqs="$zyxwhois $doi -h $swstq -p $sptq";
 
 timeout 2 $wfqs sleep 3;
 	if [[ $? != 0 ]]; then 
-	zyxman="The port maybe invalid - the process";
+	zyxman="The port maybe invalid - the proces1 timed out!";
 	else
 	specter="y";
 	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq );
