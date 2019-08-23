@@ -43,7 +43,7 @@ doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
 sptq=$(echo $qs | sed 's/.*sptq=//');
 
-if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ $swstq -eq 43 ]]
+if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ $swstq -eq 43 ]]; then
 
 specter="y";
 zyxman=$( $zyxwhois $doi -h $swstq );
