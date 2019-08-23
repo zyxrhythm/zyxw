@@ -41,7 +41,7 @@ qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
 #butchers the qs string and gets the domain
 doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
 swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
-sptq=$(echo $qs | sed 's/.*sptq=//');
+sptq=$(echo $qs | sed 's/.*sptq=//' | tr -d '\040\011\012\015');
 
 if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ "$swstq" -eq "43" ]]; then
 
