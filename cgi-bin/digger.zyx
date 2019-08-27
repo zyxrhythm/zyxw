@@ -175,11 +175,12 @@ if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
 	fi;
         done < <(printf '%s\n' "$zyxgdx");
 
+	zyxgd=$( printf '%s\n' "${goodline[@]}" );
+
+	zyxgd0=$(printf '%s\n' "${badline[@]}" );
+
 else true; fi;
 
-zyxgd=$( printf '%s\n' "${goodline[@]}" );
-
-zyxgd0=$(printf '%s\n' "${badline[@]}" );
 
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
