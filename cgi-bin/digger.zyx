@@ -161,14 +161,29 @@ else true;
 
 fi;
 
-zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
+zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
  
-#if (( $(grep -c . <<<"$zyxgd") > 1)); then
-#while IFS= read -r line 
-#do 
-#if [[ ! -z $( echo "$line" | grep "$DNSR") ]]; then lineprt="$line"; else true; fi;
-#echo "$lineprt";
-#done < <(printf '%s\n' "$zyxgd");
+if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
+
+        while IFS= read -r line;
+  	do
+        if [[ ! -z $( echo "$line"| tr -d '\040\011\012\015'  | grep "IN$DNSR" ) ]];
+	then
+        goodline+=("$line");
+        else
+        badline+=("$line"); 
+	fi;
+        done < <(printf '%s\n' "$inputblob");
+
+else true; fi;
+
+
+zyxgd=$( printf '%s\n' "${goodline[@]}");
+
+
+echo -e "Bad lines: \n";
+#echo "${badline[*]}";
+printf '%s\n' "${badline[@]}";
 
 
 cutandtabfunc () {
