@@ -165,7 +165,7 @@ zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
 
 #zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
  
-#if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
+#if (( $(grep -c . <<<"$zyxgdx" ) > 1)) && [[ $DNSR != "ANY" ]] ; then
 
 #        while IFS= read -r line;
 #  	do
