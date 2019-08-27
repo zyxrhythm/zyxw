@@ -167,23 +167,23 @@ if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
 
         while IFS= read -r line;
   	do
-        if [[ ! -z $( echo "$line"| tr -d '\040\011\012\015'  | grep "IN$DNSR" ) ]];
-	then
-        goodline+=("$line");
-        else
-        badline+=("$line"); 
-	fi;
+        	if [[ ! -z $( echo "$line"| tr -d '\040\011\012\015'  | grep "IN$DNSR" ) ]];
+		then
+        	goodline+=("$line");
+        	else
+        	badline+=("$line"); 
+		fi;
         done < <(printf '%s\n' "$zyxgdx");
 
+	if [[ ! -z $( echo "${badline[@]}" | tr -d '\040\011\012\015' ) ]]; then 
 	zyxgd=$( printf '%s\n' "${goodline[@]}" );
-
 	zyxgd0=$(printf '%s\n' "${badline[@]}" );
-
-else true; fi;
-
-echo "$zyxgd";
-echo "<br>";
-echo "$zyxgd0";
+	else 
+	zyxgd="$zyxgdx";
+	fi;
+else 
+zyxgd="$zyxgdx";
+fi;
 
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
