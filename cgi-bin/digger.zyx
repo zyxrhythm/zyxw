@@ -207,10 +207,9 @@ fi;
 done < <(printf '%s\n' "$1");
 }
 
-zyxd=$( cutandtabfunc "$zyxgd" );
-
 if [[ ! -z $zyxgd0 ]] && [[ ! -z $( echo "$zyxgd0" | grep -i "CNAME" ) ]]; then 
 zyxd0=$( cutandtabfunc "$zyxgd0" );
+zyxd=$( cutandtabfunc "$zyxgd" );
 cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
@@ -221,7 +220,9 @@ cat <<EODR
 EODR
 exit 0;
 
-else 
+else
+
+zyxd=$( cutandtabfunc "$zyxgd" );
 
 cat <<EODR0
 <br>
