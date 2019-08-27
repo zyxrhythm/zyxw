@@ -182,6 +182,7 @@ if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
 else true; fi;
 
 echo "$zyxgd";
+echo "<br>";
 echo "$zyxgd0";
 
 cutandtabfunc () {
