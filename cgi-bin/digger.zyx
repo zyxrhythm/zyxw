@@ -173,7 +173,7 @@ if (( $(grep -c . <<<"$zyxgdx" ) > 1)); then
         else
         badline+=("$line"); 
 	fi;
-        done < <(printf '%s\n' "$inputblob");
+        done < <(printf '%s\n' "$zyxgdx");
 
 else true; fi;
 
