@@ -161,31 +161,31 @@ else true;
 
 fi;
 
-zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
+#zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
 
-#zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
- 
-#if (( $(grep -c . <<<"$zyxgdx" ) > 1)) && [[ $DNSR != "ANY" ]] ; then
+zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
+DNSRx=$( echo "$DNSR" | gawk '{print toupper($0)}' );
+if (( $(grep -c . <<<"$zyxgdx" ) > 1 )) && [[ $DNSR != "any" ]] ; then
 
-#        while IFS= read -r line;
-#  	do
-#        	if [[ ! -z $( echo "$line"| tr -d '\040\011\012\015'  | grep "IN$DNSR" ) ]];
-#		then
-#        	goodline+=("$line");
-#        	else
-#        	badline+=("$line"); 
-#		fi;
-#        done < <(printf '%s\n' "$zyxgdx");
+       while IFS= read -r line;
+  	do
+        	if [[ ! -z $( echo "$line" | tr -d '\040\011\012\015'  | grep "IN$DNSRx" ) ]];
+		then
+        	goodline+=("$line");
+        	else
+        	badline+=("$line"); 
+		fi;
+        done < <(printf '%s\n' "$zyxgdx");
 
-#	if [[ ! -z $( echo "${badline[@]}" | tr -d '\040\011\012\015' ) ]]; then 
-#	zyxgd=$( printf '%s\n' "${goodline[@]}" );
-#	zyxgd0=$(printf '%s\n' "${badline[@]}" );
-#	else 
-#	zyxgd="$zyxgdx";
-#	fi;
-#else 
-#zyxgd="$zyxgdx";
-#fi;
+	if [[ ! -z $( echo "${badline[@]}" | tr -d '\040\011\012\015' ) ]]; then 
+	zyxgd=$( printf '%s\n' "${goodline[@]}" );
+	zyxgd0=$(printf '%s\n' "${badline[@]}" );
+	else 
+	zyxgd="$zyxgdx";
+	fi;
+else 
+zyxgd="$zyxgdx";
+fi;
 
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
