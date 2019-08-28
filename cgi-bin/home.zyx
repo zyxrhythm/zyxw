@@ -105,7 +105,6 @@ else if(document.getElementById("square").checked == false)
   <option>SPF</option>
   <option>AAAA</option>
   <option>CAA</option>
-  <option>SRV</option>
   <option>PTR</option>
   <option selected>ANY</option>
 </select> 
