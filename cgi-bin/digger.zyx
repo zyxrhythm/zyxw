@@ -184,7 +184,7 @@ if (( $(grep -c . <<<"$zyxgdx" ) > 1 )) && [[ $DNSR != "any" ]] ; then
 	zyxgd="$zyxgdx";
 	fi;
 else 
-true;
+zyxgd="$zyxgdx";
 fi;
 
 cutandtabfunc () {
