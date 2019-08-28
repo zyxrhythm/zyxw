@@ -161,8 +161,7 @@ else true;
 
 fi;
 
-#zyxgd=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
-
+#CHECKS IF EACH RECORD IS CREATED PROPERLY
 zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
 DNSRx=$( echo "$DNSR" | gawk '{print toupper($0)}' );
 if (( $(grep -c . <<<"$zyxgdx" ) > 1 )) && [[ $DNSR != "any" ]] ; then
@@ -187,6 +186,7 @@ else
 zyxgd="$zyxgdx";
 fi;
 
+#THE TABLE CREATOR FUNCTION
 cutandtabfunc () {
 echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
 while IFS= read -r line
@@ -206,6 +206,7 @@ else echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='td
 fi;
 done < <(printf '%s\n' "$1");
 }
+######
 
 cnamechk=$( echo "$zyxgd0" | grep -i "CNAME" );
 
@@ -215,6 +216,7 @@ if (( $(grep -c . <<<"$cnamechk" ) > 1 )); then cnamect="multiple CNAME" ; else 
 
 zyxd0=$( cutandtabfunc "$zyxgd0" );
 zyxd=$( cutandtabfunc "$zyxgd" );
+
 cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1><br>
