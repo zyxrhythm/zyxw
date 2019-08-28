@@ -218,7 +218,7 @@ zyxd=$( cutandtabfunc "$zyxgd" );
 cat <<EODR
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1><br>
-<pre>You have queried the name server for A record/s, somehow $cnamect was found.<br>
+<pre>You have queried for A record/s, somehow $cnamect was found.<br>
 <table><tbody>$zyxd0</tbody></table></pre>
 </p></div><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
