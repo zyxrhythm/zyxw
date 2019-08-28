@@ -211,14 +211,16 @@ cnamechk=$( echo "$zyxgd0" | grep -i "CNAME" );
 
 if [[ ! -z $zyxgd0 ]] && [[ ! -z $cnamechk ]]; then 
 
-if (( $(grep -c . <<<"$cnamechk" ) > 1 )); then cnamect="Multiple CNAMEs" ; else cnamect="A CNAME"; fi;
+if (( $(grep -c . <<<"$cnamechk" ) > 1 )); then cnamect="multiple CNAME" ; else cnamect="a CNAME"; fi;
 
 zyxd0=$( cutandtabfunc "$zyxgd0" );
 zyxd=$( cutandtabfunc "$zyxgd" );
 cat <<EODR
 <br>
-<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
-<br><pre><table><tbody>$zyxd</tbody></table></pre></p><p><pre>$cnamect was found on the name server for $domain.<br><pre><table><tbody>$zyxd0</tbody></table></pre></p></pre></div><br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1><br>
+You have queried the name server for A record/s, somehow $cnamect was found.<br>
+<table><tbody>$zyxd0</tbody></table></pre>
+</p></div><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
