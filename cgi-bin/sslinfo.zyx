@@ -410,7 +410,7 @@ esac
 if [[ $sslcs = "nmap" ]]; then
 
 #standalone if else
-if [[ -z $(echo "$IssuedFor" | grep -i "${domain#*.}" ) ]]; then certinf0="<span style='color: red';>Heads up! The certificate found on the host/server( $IPA ) <br>is issued to another hostname/domain name and not $domain.</span>"; else certinf0="<span style='color: green;'>The certificate target correlates the input $domvar.</span>"; fi;
+if [[ -z $(echo "$IssuedFor" | grep -i "${domain#*.}" ) ]]; then certinf0="<span style='color: red';>Heads up! The certificate found on the host/server( $IPA ) <br>is issued to another hostname/domain name and not $domain.</span>"; else certinf0="<span style='color: green;'>The certificate target correlates with the input $domvar.</span>"; fi;
 
 #standalone if else
 if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Wilcard Certificate."; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="Not a wildcard - Cert issued to a sub domain."; else certtype="Not a wildcard - Cert issued to the naked domain."; fi;
@@ -473,7 +473,7 @@ fi;
 elif [[ $sslcs = "openssl" ]]; then 
 
 #standalone if else
-if [[ -z $(echo "$Target" | grep -i "${domain#*.}" ) ]]; then certinf0="<span style='color: red;'>Heads up! The certificate found on the host/server($IP) <br>is issued to another hostname/domain name and not $domain.</span>"; else certinf0="<span style='color: green;'>The certificate target correlates the input $domvar.</span>"; fi;
+if [[ -z $(echo "$Target" | grep -i "${domain#*.}" ) ]]; then certinf0="<span style='color: red;'>Heads up! The certificate found on the host/server($IP) <br>is issued to another hostname/domain name and not $domain.</span>"; else certinf0="<span style='color: green;'>The certificate target correlates with the input $domvar.</span>"; fi;
 
 #standalone if else
 if [[ ${Daysleft0:0:1} = "-" ]]; then leftvar="Cert Expired"; Daysleft="${Daysleft0#*-} days ago."; else leftvar="Daysleft"; Daysleft="$Daysleft0"; fi;
