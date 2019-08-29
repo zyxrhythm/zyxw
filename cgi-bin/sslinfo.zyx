@@ -406,12 +406,18 @@ exit 0;
 
 esac
 
+#standalone if else
+if [[ -z $(echo "$Target" | grep -i "$domain" ) ]]; then certinf0="The certificate found on the host/server is issued to another hostname/domain name."; else certinf0="The certificate found on the host/server is issued to another hostname/domain name."; fi;
+
+#1 if after case
 if [[ $sslcs = "nmap" ]]; then
 
-if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
+#standalone if else
+if [[ "${IssuedFor:0:1}" = "*" ]]; then certtype="Wilcard Certificate."; elif [[ $( echo "${IssuedFor#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="Not a wildcard - Cert issued to a sub domain"; else certtype="Not a wildcard - Cert issued to the naked domain"; fi;
 
 issuerx=$( echo "$Issuer" | grep $domain );
 
+#2nd if 
 if [[ ! -z $issuerx ]]; then 
 
 cat << EOTFRX
@@ -427,14 +433,14 @@ cat << EOTFRX
 </html>
 EOTFRX
 
+#2nd else
 else
 
 cat << EOTFR
 <body><p>SSL Certificate Found!</p>
 <div class='code-bg' id='divClipboard'><p><strong>Input</strong> : $domain <br>
 <strong>$domvar resolves to</strong> : $IPA <br>
-<strong>Certificate issued to</strong> : $IssuedFor<br>
-<strong>Wildcard Cert :</strong> : $certtype <br><br>
+<strong>Certificate issued to</strong> : $IssuedFor<br><br>
 <strong>Certificate Issuer</strong> : $IssuerON 
 <script> 
 function jscatab() { var x = document.getElementById('jscatab'); 
@@ -452,30 +458,28 @@ $IssuerON &nbsp;&nbsp;( Organization Name )<br>
 </p></td></tbody></table></div><p>
 <strong>Validity Start:</strong> : $ValidStart <br>
 <strong>Expiration</strong> : $ValidEnd <br>
-<strong>$daysvar</strong> : $days <br></p></div>
+<strong>$daysvar</strong> : $days <br>
+<strong>Other Info :</strong> : <br>$certtype <br>$certinf0 <br>
+</p></div>
 <p><span style='color:grey; font-size:70%;'>( '$daysvar' is calculated based on the server's time and time zone: $(date))</span></p>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
 </html>
 EOTFR
 
+#2nd fi
 fi;
 
+#1st elif after case
 elif [[]]; then 
 
-if [[ ${Daysleft0:0:1} = "-" ]]; 
-then 
-leftvar="Cert Expired";
-Daysleft="${Daysleft0#*-} days ago."; 
-else 
-leftvar="Daysleft";
-Daysleft="$Daysleft0";
-fi;
+#standalone if else
+if [[ ${Daysleft0:0:1} = "-" ]]; then leftvar="Cert Expired"; Daysleft="${Daysleft0#*-} days ago."; else leftvar="Daysleft"; Daysleft="$Daysleft0"; fi;
 
+#standalone if else
 if [[ "${Target:0:1}" = "*" ]]; then certtype="Wildcard Cert."; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="Not a wilcard - Cert issued to a sub domain"; else certtype="Not a wildcard - Cert issued to the naked domain"; fi;
 
-if [[ -z $(echo "$Target" | grep -i "$domain" ) ]]; then certinf0="The certificate found on the host/server is issued to another hostname/domain name."; else certinf0="The certificate found on the host/server is issued to another hostname/domain name."; fi;
-
+#standalone if else
 if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
 
 #####################
@@ -483,6 +487,7 @@ if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<
 issuerxx=$( echo "$rawdata0" | grep -i -e 'issuer=' );
 issuerx=$( echo "$issuerxx" | grep $domain );
 
+#3 if after case 
 if [[ ! -z $issuerx ]]; then
 
 echo "
@@ -500,6 +505,7 @@ $certloc <br>
 </html>
 ";
 
+#3 else after case 
 else
 
 echo "
@@ -517,9 +523,13 @@ $certloc <br>
 </html>
 ";
 
+#3 fi after case
 fi;
 
+#2 else after case 
 else true;
+
+#2 fi after case
 fi;
 
 fi;
