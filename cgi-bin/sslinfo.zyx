@@ -472,7 +472,9 @@ leftvar="Daysleft";
 Daysleft="$Daysleft0";
 fi;
 
-if [[ "${Target:0:1}" = "*" ]]; then certtype="Yes"; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="No - Cert issued to a sub domain"; else certtype="No - Cert issued to the naked domain"; fi;
+if [[ "${Target:0:1}" = "*" ]]; then certtype="Wildcard Cert."; elif [[ $( echo "${Target#*.}" | grep -o "\." | wc -l) -gt "0" ]]; then certtype="Not a wilcard - Cert issued to a sub domain"; else certtype="Not a wildcard - Cert issued to the naked domain"; fi;
+
+if [[ -z $(echo "$Target" | grep -i "$domain" ) ]]; then certinf0="The certificate found on the host/server is issued to another hostname/domain name."; else certinf0="The certificate found on the host/server is issued to another hostname/domain name."; fi;
 
 if [[ "$domain" != "$Target" ]] && [[ "${Target:0:1}" != "*" ]]; then certloc="<br><strong>Cert Found at</strong> : "$Target" <br><strong>Which Resolves to</strong> : "$( dig a +short "$Target" | sort -u )" <br>"; else true; fi;
 
@@ -504,11 +506,11 @@ echo "
 <body><div class='code-bg' id='divClipboard'><p><strong>Input ($domvar)</strong> : $domain <br><strong>Resolves to</strong> : $IP <br>
 $certloc <br>
 <strong>Cert Issuer</strong> : $Issuer <br>
-<strong>Wildcard</strong> : $certtype <br>
 <strong>Issued To</strong> : $Target<br>
 <strong>Validity Start:</strong> : $Validstart <br>
 <strong>Expiration</strong> : $Expiry <br>
-<strong>$leftvar</strong> : $Daysleft <br></p></div>
+<strong>$leftvar</strong> : $Daysleft <br>
+<strong>Other Info</strong> : <br>$certtype <br>$certinf0<br></p></div>
 <p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
 </body>
