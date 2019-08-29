@@ -376,7 +376,7 @@ do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr1a=$(echo $line | cut -f1 -d" ");
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
-if [[ -z "$mxr2" ]]; then mxipc="null"; echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname might be pointed to a CNAME <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s!</span>"; else echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; fi;
+if [[ -z "$mxr2" ]]; then mxipc="null"; echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.</span>"; else echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; fi;
 echo '<br>'
 
 if (( $(grep -c . <<<"$mxr2") > 1)); then
@@ -386,7 +386,7 @@ do
    mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; fi;
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname might be pointed to a CNAME <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s!</span>"; else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
+   if [[ "$mxipc" = "null" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.</span>"; else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
    
 done < <(printf '%s\n' "$mxr2");
 
