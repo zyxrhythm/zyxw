@@ -97,7 +97,7 @@ cat <<EOTSE
 $SSLCTPM
 </p>
 </div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EOTSE
@@ -117,7 +117,7 @@ then cat << ZXCVBNM
 Input does not resolve to an IP address (check the input syntax / check the DNS).<br></p>
 </div>
 <hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ZXCVBNM
@@ -219,7 +219,7 @@ No certificate found on port 443. <br>
 -an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ZXCVBNM
@@ -276,7 +276,7 @@ No certificate found on port 443. <br>
 -an S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ZXCVBNM
@@ -314,7 +314,7 @@ No certificate found on port 443. <br>
 -S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ZXCVBNM2
@@ -369,7 +369,7 @@ No certificate found on port 443. <br>
 -S.S.L. certificate is not/not yet issued for the $domvar.<br></p>
 </div>
 <hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ZXCVBNM2
@@ -397,7 +397,7 @@ cat << EOIDNE
 <p><strong>Input</strong> : $domain<br> <br>
 Not a valid domain (<a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'> FQDN<a/>) / <a href='https://en.wikipedia.org/wiki/Subdomain' target='_blank'>sub domain</a>!</p>
 </div><br><hr><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EOIDNE
@@ -428,7 +428,7 @@ cat << EOTFRX
 <strong>Expiration</strong> : $ValidEnd <br>
 <strong>$daysvar</strong> : $days <br></p></div>
 <p><span style='color:grey; font-size:70%;'>( '$daysvar' is calculated based on the server's time and time zone: $(date))</span></p>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EOTFRX
@@ -502,7 +502,7 @@ $certloc <br>
 <strong>Expiration</strong> : $Expiry <br>
 <strong>$leftvar</strong> : $Daysleft <br></p></div>
 <p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ";
@@ -520,7 +520,7 @@ $certloc <br>
 <strong>$leftvar</strong> : $Daysleft <br><br>
 <strong>Other Info</strong> : <br>$certtype <br>$certinf0<br></p></div>
 <p><span style='color:grey; font-size:70%;'>( '$leftvar' is calculated based on the server's time and time zone: $(date))</span></p>
-<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 ";
