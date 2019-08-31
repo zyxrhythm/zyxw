@@ -19,6 +19,7 @@
 -Michael
 -Cedric
 -Mark
+-Kentaurus
 For testing/feedbacks/suggestions/bug reports.
 
 -------------------------------------------
