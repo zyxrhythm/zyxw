@@ -47,7 +47,7 @@ $cctldlist
 <br>
 </p>
 </left>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 
 </html>
