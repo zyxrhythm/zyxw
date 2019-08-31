@@ -94,7 +94,7 @@ cat <<EOTS
 $DIGGERTPM
 </p>
 </div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EOTS
@@ -115,7 +115,7 @@ cat << EORIP0
 <strong>Domain/Hostname :</strong> Null.
 <br><br>There is no name found for this IP address in the queried zone.<br><br>Possible causes:<br>-There was never a name assigned for this I.P. v4 address.<br>-It might be one of the reserved I.P. v4 addresses, which can have any name <br>depending on where you are and what network you are connected to.<br>
 </p></div><hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EORIP0
@@ -128,7 +128,7 @@ cat << EORIP
 <p><strong>IP address :</strong> $xip <br>
 <strong>Domain/Hostname :</strong> $zyxrip
 </p></div><hr>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body></html>
 EORIP
 exit 0;
@@ -152,7 +152,7 @@ then echo "
 <div id="divClipboard">
 <p>No (<strong>$( echo $DNSR | gawk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
 </div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>" && exit 0;
 
@@ -222,7 +222,7 @@ cat <<EODR
 <pre>You have queried for A record/s, somehow $cnamect $cnamect0 found.<br>
 <table><tbody>$zyxd0</tbody></table></pre>
 </p></div><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EODR
@@ -236,7 +236,7 @@ cat <<EODR0
 <br>
 <div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
 <br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EODR0
@@ -256,7 +256,7 @@ cat << EOIIE
 Invalid input/parameter! <br><br><br>
 To know more about DIG you can check its wikipedia article <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>.</p>
 </div>
-<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
 EOIIE
@@ -266,7 +266,7 @@ exit 0;
 
 esac
 
-echo "<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'></p>"
+echo "<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>"
 
 	fi
 fi
