@@ -424,7 +424,7 @@ else
    if [[ -z "$mxr2" ]]; then true; 
    else 
    
-   if [[ "$mxipc" = "null" ]] && [[ -z $mxachk ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
+   if [[ "$mxipc" = "null" ]] && [[ $mxachk = "x" ]] && [[ $mxachk = "x" ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
    else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; 
    fi;
    
