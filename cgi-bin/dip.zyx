@@ -379,8 +379,8 @@ do
    
    mxrc=$( dig ANY "$mxr1" @$mxrtqns 2>/dev/null )
    
-   mxachk=$( if [[ -z $( echo "$mxrc" | grep -w "A" ) ]]; then echo "x"; else echo "y"; fi );
-   mxcnamechk=$( if [[ -z $( echo "$mxrc" | grep -w "CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
+   mxachk=$( if [[ -z $( echo "$mxrc" | grep -w "IN.A" ) ]]; then echo "x"; else echo "y"; fi );
+   mxcnamechk=$( if [[ -z $( echo "$mxrc" | grep -w "IN.CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
 	#if [[ -z $mxr2 ]] && [[ $mxcnamechk = "x" ]]; then 
 	if [[ $mxachk = "x" ]] && [[ $mxcnamechk = "y" ]]; then
 	mxipc="null"; 
