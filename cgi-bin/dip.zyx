@@ -379,15 +379,17 @@ do
    
    mxrc=$( dig ANY "$mxr1" @$mxrtqns 2>/dev/null );
    
+   mxcnamevar=$( echo "$mxrc" | grep -w "IN.CNAME" )
+   
    mxachk=$( if [[ -z $( echo "$mxrc" | grep -w "IN.A" ) ]]; then echo "x"; else echo "y"; fi );
-   mxcnamechk=$( if [[ -z $( echo "$mxrc" | grep -w "IN.CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
+   mxcnamechk=$( if [[ -z "$mxcnamevar" ]]; then echo "x"; else echo "y"; fi ); 
  
 	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]]; then
 	mxipc="null"; 
 	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (1): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br></span>"; 
 	
 	elif [[ $mxcnamechk = "y" ]] && [[ $mxachk = "x" ]]; then
-	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (2): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to a CNAME record/s.<br></span>";
+	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (2): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s.<br></span>";
 	
 	elif [[ $mxcnamechk = "y" ]] && [[ $mxachk = "y" ]]; then
 	mxipc="null"; 
@@ -398,6 +400,10 @@ do
 echo '<br>'
 
 if (( $(grep -c . <<<"$mxr2") > 1)); then
+
+mxr2xa=$( echo "$mxr2" | grep -w "IN.A" );
+mxr2xc=$( echo " $mxr2"  | grep -w "IN.CNAME");
+
 while IFS= read -r line
 do
    mxa0=$($zyxwhois $line );
@@ -410,7 +416,7 @@ do
    else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
    fi;
    
-done < <(printf '%s\n' "$mxr2");
+done < <(printf '%s\n' "$mxr2xa");
 
 else
 
@@ -424,7 +430,7 @@ else
    if [[ -z "$mxr2" ]]; then true; 
    else 
    
-   if [[ "$mxipc" = "null" ]] && [[ $mxachk = "x" ]] && [[ $mxachk = "x" ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
+   if [[ "$mxipc" = "null" ]] && [[ $mxachk = "x" ]] && [[ $mxachk = "x" ]] && [[ -z $mxcnamevar ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
    else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; 
    fi;
    
