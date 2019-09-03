@@ -377,14 +377,14 @@ do
    mxr1a=$(echo $line | cut -f1 -d" ");
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    #mlmxarc=$( if [[ -z $(echo "$( dig A "$mxr1" +noall +answer  @8.8.8.8 2>/dev/null )" | grep -w "A" ) ]]; then echo "x"; else echo "y"; fi );
-   #mxcnamechk=$( if [[ -z $( echo "$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null )" | grep -w "CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
-   mxcnamechk=$( if [[ -z $( dig ANY "$mxr1" @8.8.8.8 2>/dev/null ) ]]; then echo "x"; else echo "y"; fi ); 
+   #mxcnamechk=$( if [[ -z $( echo "$( dig ANY "$mxr1" @mxrtqns 2>/dev/null )" | grep -w "CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
+   mxcnamechk=$( if [[ -z $( dig ANY "$mxr1" @mxrtqns 2>/dev/null ) ]]; then echo "x"; else echo "y"; fi ); 
 	#if [[ -z $mxr2 ]] && [[ $mxcnamechk = "x" ]]; then 
 	if [[ $mxcnamechk = "x" ]]; then
 	mxipc="null"; 
-	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
+	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (1): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
 	elif [[ $mxcnamechk = "y" ]] && [[ -z $mxr2 ]]; then
-	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>";
+	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (2): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>";
 	else 
 	echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; fi;
 echo '<br>'
