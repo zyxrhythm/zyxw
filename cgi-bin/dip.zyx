@@ -416,7 +416,7 @@ do
    else echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
    fi;
    
-done < <(printf '%s\n' "$mxr2xa");
+done < <(printf '%s\n' "$mxr2");
 
 else
 
