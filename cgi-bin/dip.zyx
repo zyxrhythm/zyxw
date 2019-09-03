@@ -375,7 +375,8 @@ while IFS= read -r line
 do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr1a=$(echo $line | cut -f1 -d" ");
-   mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null );
+   
+   mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null );
    
    mxrc=$( dig ANY "$mxr1" @$mxrtqns 2>/dev/null );
    
@@ -406,7 +407,7 @@ mxr2xc=$( echo " $mxr2"  | grep -w "IN.CNAME");
 
 while IFS= read -r linex
 do
-   mxa0=$($zyxwhois $line );
+   mxa0=$($zyxwhois $linex );
    mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; fi;
    
@@ -414,11 +415,11 @@ do
    
    if [[ "$mxipc" = "null" ]] && [[ "$mxachk" = "x" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
    else 
-   	if [[ $line =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+   	if [[ $linex =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then 
-   	echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
+   	echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
 	else 
-	echo "&nbsp; &nbsp; $line --- [ CNAME ] <br>"; fi;
+	echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"; fi;
    fi;
    
 done < <(printf '%s\n' "$mxr2");
