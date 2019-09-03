@@ -418,7 +418,7 @@ do
    	then 
    	echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
 	else 
-	echo "&nbsp; &nbsp; $linex --- [CNAME] <br>"; fi;
+	echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"; fi;
    fi;
    
 done < <(printf '%s\n' "$mxr2");
@@ -441,7 +441,7 @@ else
    	then
    	echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; 
    	else 
-	echo "&nbsp; &nbsp; $mxr2 --- [CNAME] <br>"; fi;
+	echo "&nbsp; &nbsp; $mxr2 --- [ CNAME ] <br>"; fi;
    fi;
    
    fi;
