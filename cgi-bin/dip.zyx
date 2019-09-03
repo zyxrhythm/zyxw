@@ -384,7 +384,7 @@ do
    mxachk=$( if [[ -z $( echo "$mxrc" | grep -w "IN.A" ) ]]; then echo "x"; else echo "y"; fi );
    mxcnamechk=$( if [[ -z "$mxcnamevar" ]]; then echo "x"; else echo "y"; fi ); 
  
-	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]]; then
+	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]] && [[]]; then
 	mxipc="null"; 
 	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (1): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br></span>"; 
 	
@@ -406,7 +406,7 @@ mxr2xc=$( echo " $mxr2"  | grep -w "IN.CNAME");
 
 while IFS= read -r linex
 do
-   mxa0=$($zyxwhois $linex );
+   mxa0=$($zyxwhois $line );
    mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; fi;
    
@@ -414,11 +414,11 @@ do
    
    if [[ "$mxipc" = "null" ]] && [[ "$mxachk" = "x" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
    else 
-   	if [[ "$linex" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
+   	if [[ $line =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then 
-   	echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
+   	echo "&nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
 	else 
-	echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"; fi;
+	echo "&nbsp; &nbsp; $line --- [ CNAME ] <br>"; fi;
    fi;
    
 done < <(printf '%s\n' "$mxr2");
