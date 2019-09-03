@@ -378,7 +378,7 @@ do
    mxr2=$(dig a +short "$mxr1" @8.8.8.8 2>/dev/null);
    #mlmxarc=$( if [[ -z $(echo "$( dig A "$mxr1" +noall +answer  @8.8.8.8 2>/dev/null )" | grep -w "A" ) ]]; then echo "x"; else echo "y"; fi );
    #mxcnamechk=$( if [[ -z $( echo "$( dig ANY "$mxr1" @mxrtqns 2>/dev/null )" | grep -w "CNAME" ) ]]; then echo "x"; else echo "y"; fi ); 
-   mxcnamechk=$( if [[ -z $( dig ANY "$mxr1" @mxrtqns 2>/dev/null ) ]]; then echo "x"; else echo "y"; fi ); 
+   mxcnamechk=$( if [[ -z $( dig ANY "$mxr1" @$mxrtqns 2>/dev/null ) ]]; then echo "x"; else echo "y"; fi ); 
 	#if [[ -z $mxr2 ]] && [[ $mxcnamechk = "x" ]]; then 
 	if [[ $mxcnamechk = "x" ]]; then
 	mxipc="null"; 
