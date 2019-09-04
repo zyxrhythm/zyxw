@@ -386,9 +386,9 @@ do
    mxcnamechk=$( if [[ -z "$mxcnamevarc" ]]; then echo "x"; else echo "y"; fi );
    mxachk=$( if [[ -z "$mxcnamevara" ]]; then echo "x"; else echo "y"; fi );
  
-	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]]; then
+	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]] && [[ $mxachk = "x" ]]; then
 	mxipc="null"; 
-	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (1): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br></span>"; 
+	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (1): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.</span>"; 
 	
 	elif [[ $mxcnamechk = "y" ]] && [[ $mxachk = "x" ]]; then
 	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX record misconfigured - Possible cause (2): <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s.<br></span>";
@@ -402,9 +402,6 @@ do
 echo '<br>'
 
 if (( $(grep -c . <<<"$mxr2") > 1)); then
-
-#mxr2xa=$( echo "$mxr2" | grep -w "IN.A" );
-#mxr2xc=$( echo " $mxr2"  | grep -w "IN.CNAME");
 
 while IFS= read -r linex
 do
@@ -437,7 +434,7 @@ else
    if [[ -z "$mxr2" ]]; then true; 
    else 
    
-   if [[ "$mxipc" = "null" ]] && [[ $mxachk = "x" ]] && [[ $mxcnamechk = "x" ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
+   if [[ "$mxipc" = "null" ]] && [[ $mxachk = "x" ]] && [[ $mxcnamechk = "y" ]]; then echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"; 
    else 
    	if [[ "$mxr2" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then
