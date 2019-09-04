@@ -378,11 +378,10 @@ do
    
    mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null );
    
-   mxrcc=$( dig ANY "$mxr1" @$mxrtqns 2>/dev/null );
-   mxrca=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
+   mxrc=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
    
-   mxcnamevarc=$( echo "$mxrcc" | grep -w "IN.CNAME" );
-   mxcnamevara=$( echo "$mxrca" | grep -w "IN.A" );
+   mxcnamevarc=$( echo "$mxrc" | grep -w "IN.CNAME" );
+   mxcnamevara=$( echo "$mxrc" | grep -w "IN.A" );
    
    mxcnamechk=$( if [[ -z "$mxcnamevarc" ]]; then echo "x"; else echo "y"; fi );
    mxachk=$( if [[ -z "$mxcnamevara" ]]; then echo "x"; else echo "y"; fi );
