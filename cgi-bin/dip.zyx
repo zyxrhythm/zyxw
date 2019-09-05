@@ -378,7 +378,7 @@ do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr1a=$(echo $line | cut -f1 -d" ");
    
-   mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null );
+   mxr2=$(dig A +short "$mxrtqns" @8.8.8.8 2>/dev/null );
    
    mxrc=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
    
