@@ -372,7 +372,7 @@ if [[ -z "$mxrff" ]]; then
 echo "<span id='fiftyshades' >No MX record found!</span> <br>"; 
 
 elif [[ ! -z $tmxrc ]] || [[ $tmxrc = "x" ]] ; then 
-echo "<span id='fiftyshades' >No MX record not found! [misconfigured] )</span> <br>"; 
+echo "<span id='fiftyshades' >No MX record not found! <br>[ Possibly misconfigured. ] </span> <br>"; 
 
 else
 
