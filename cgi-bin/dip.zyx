@@ -88,7 +88,6 @@ cat << EONAVMENU
 </head>
 EONAVMENU
 
-
 #checks - if the domain variable  entered is null  / the button is clicked without placing anything 
 #1st if
 if [[ -z "$domain" ]]; then
@@ -369,7 +368,11 @@ echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_bl
 
 tmxrc=$( if [[ -z $( echo "$( dig MX "$mxr1" @8.8.8.8 2>/dev/null)" | grep -w "IN.MX" ) ]]; then echo "x"; else echo "y"; fi; );
 
-if [[ -z "$mxrff" ]] || [[ $tmxrc = "x" ]]; then echo "<span id='fiftyshades' >No MX record found!</span> <br>"; 
+if [[ -z "$mxrff" ]]; then 
+echo "<span id='fiftyshades' >No MX record found!</span> <br>"; 
+
+elif [[ ! -z $tmxrc ]] || [[ $tmxrc = "x" ]] ; then 
+echo "<span id='fiftyshades' >No MX record not found! [misconfigured] )</span> <br>"; 
 
 else
 
