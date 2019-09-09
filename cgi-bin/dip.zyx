@@ -368,7 +368,7 @@ tmxrc=$( if [[ -z $( echo "$( dig MX "$domain" @8.8.8.8 2>/dev/null)" | grep -w 
 if [[ -z "$mxrff" ]]; then 
 echo "<span id='fiftyshades' >No MX record found!</span> <br>"; 
 
-elif [[ ! -z "$mxrff" ]] && [[ $tmxrc = "x" ]] ; then 
+elif [[ $tmxrc = "x" ]] ; then 
 echo "<span id='fiftyshades' >MX record not found! <br>[ Possibly misconfigured ] </span> <br>"; 
 
 else
