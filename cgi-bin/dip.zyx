@@ -331,7 +331,7 @@ echo "<br>   $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex&swstq=&sptq=' c
 </span></a> ${arx#*:}";
 
 elif [[ $rchk = "CNAME" ]]; then  
-echo "<br> <span id='fiftyshades' >$line --- $alinex [ CNAME ]<br>Resolves to a CNAME!";
+echo "<br> <span id='fiftyshades' >$line --- [ CNAME ]";
 
 elif [[ ! -z $cnchk ]] && [[ -z $( echo "$rchk" | grep "A") ]]; then
 
