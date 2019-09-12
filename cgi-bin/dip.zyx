@@ -75,9 +75,9 @@ cat << EONAVMENU
 <button type='submit' style='font-weight: bold;' onclick="nscheckboxjs();"> Go </button> <br>
 
 
-<input type="radio" name="nscr" value="Y" ><label class='tooltip'>NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will the perform the said check. (The script now skips this step by default).</span></label>    
+<input type="radio" name="nscr" value="Y" ><label class='tooltip'>NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script now skips this step by default).</span></label>    
 
-<input type="radio" name="nscr" value="N" checked="checked" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will the perform the said check. (The script now skips this step by default).</span></label> 
+<input type="radio" name="nscr" value="N" checked="checked" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script now skips this step by default).</span></label> 
 
 </form>
 </td> </tbody> </table> </div></p>
