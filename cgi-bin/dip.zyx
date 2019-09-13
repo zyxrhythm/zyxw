@@ -415,7 +415,7 @@ do
    
    mxax=$( echo "$mxa2" | sort -u | head -1 );
    
-   if [[ "$mxipc" = "null" ]] && [[ "$mxachk" = "x" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to A record/s.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
+   if [[ "$mxipc" = "null" ]] && [[ "$mxachk" = "x" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to an A record.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
    else 
    	if [[ "$linex" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then 	
