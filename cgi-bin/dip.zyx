@@ -446,11 +446,11 @@ else
    else 
    	if [[ "$mxr2" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then
+   	echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; 
 	
 	elif [[ ${linex:0:3} -eq 127 ]] || [[ ${linex:0:7} = "192.168" ]] || [[ ${linex:0:2} = "0." ]]; 
 	then echo "&nbsp; &nbsp; $linex --- [ RESERVED IP ] <br>"; 	
 	
-   	echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; 
    	else 
 	echo "&nbsp; &nbsp; $mxr2 --- [ CNAME ] <br>"; fi;
    fi;
