@@ -878,9 +878,7 @@ zyx=$($zyxwhois $domain );
 arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
-limitcheck=$(echo "${zyx:0:20}");
-
-if [[ "$limitcheck" = "WHOIS LIMIT EXCEEDED" ]]; 
+if [[ "${zyx:0:20}" = "WHOIS LIMIT EXCEEDED" ]]; 
 
 then echo "<body>
 <div id='divClipboard'>
@@ -896,8 +894,7 @@ __________________________</p></div>
 
 exit 0;
 
-else true;
-fi;
+else
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
@@ -923,7 +920,7 @@ echo "
 <strong>Registrar: </strong>${registrar#*:} <br>
 __________________________<br><br>
 <a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' ><strong>Domain Status: </strong></a><br>
-$dsfrctau
+<pre>$dsfrctau</pre>
 <p>
 __________________________<br>
 $nsfrctau
@@ -937,6 +934,9 @@ $mrfrctau <br>
 __________________________
 </p>
 ";
+
+fi;
+
 ;;
 
 #special trimming for NZ ccTLDs
