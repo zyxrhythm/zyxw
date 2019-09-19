@@ -892,7 +892,7 @@ $mrfrctau <br>
 __________________________</p></div>
 </body><br>
 <hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
-</html>"
+</html>";
 
 exit 0;
 
@@ -915,7 +915,7 @@ regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
 techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 
 #print the domain and the registrar
-cat << EODNARCTAU
+echo "
 <body>
 <input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'>
 <p>__________________________<br><br>
@@ -936,7 +936,7 @@ __________________________<br> <br>
 $mrfrctau <br>
 __________________________
 </p>
-EODNARCTAU
+";
 ;;
 
 #special trimming for NZ ccTLDs
