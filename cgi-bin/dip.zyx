@@ -920,10 +920,10 @@ echo "
 <strong>Registrar: </strong>${registrar#*:} <br>
 __________________________<br><br>
 <a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' ><strong>Domain Status: </strong></a><br>
-<pre>$dsfrctau</pre>
+$dsfrctau
 <p>
 __________________________<br>
-$nsfrctau
+<pre>$nsfrctau</pre>
 __________________________<br><br>
 $regcontact <br>
 $techcontact <br>
