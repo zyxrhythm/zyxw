@@ -878,7 +878,7 @@ zyx=$($zyxwhois $domain );
 arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 
-if [[ "${zyx:0:20}" = "WHOIS LIMIT EXCEEDED" ]]; 
+if [[ ! -z $( echo "$zyx" | grep -w "WHOIS LIMIT EXCEEDED" ) ]]; 
 
 then echo "<body>
 <div id='divClipboard'>
