@@ -903,7 +903,7 @@ registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 dsfrctau=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
 
 #stores the name servers on a variable
-nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" );
+nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" "" "<br>");
 
 #stores the registrant contact
 regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
