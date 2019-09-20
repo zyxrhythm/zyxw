@@ -882,7 +882,7 @@ if [[ ! -z $( echo "$zyx" | grep -w "WHOIS LIMIT EXCEEDED" ) ]];
 
 then echo "<body>
 <div id='divClipboard'>
-<p><br>The whois server/s of <a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a> (AU Domain Administration ) solely responds for whois queries regarding '.au' domains. And there is a limit on how many times their server/s will respond to whois queries from an I.P address on a given time. The IP address of this server has reach the said limit, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of $domain drirectly from auDA's web interface.<br><br>
+<p><br>The whois server/s of <a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a> (AU Domain Administration ) solely responds for whois queries regarding '.au' domains. And there is a limit on how many times their server/s will respond to whois queries from an I.P address on a given time. The IP address of this server has reach the said limit, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of $domain directly from auDA's web interface.<br><br>
 __________________________<br><br>
 $arfrctau <br>
 __________________________<br><br>
