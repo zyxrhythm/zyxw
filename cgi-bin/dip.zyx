@@ -261,7 +261,7 @@ then
 echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br><br>"
 while IFS= read -r linez
 do
-   echo -e "${linez#*:} $3";
+   echo -e "${linez#*:} <br>";
 done < <(printf '%s\n' "$1");
 
 
@@ -903,7 +903,7 @@ registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
 dsfrctau=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
 
 #stores the name servers on a variable
-nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" "" "<br>");
+nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" );
 
 #stores the registrant contact
 regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
