@@ -382,7 +382,7 @@ do
    
    mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
    
-   mxrc=$( dig ANY "$mxr1" @"$mxrtqns" 2>/dev/null );
+   mxrc=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
    
    mxcnamevarc=$( echo "$mxrc" | grep -w "IN.CNAME" );
    mxcnamevara=$( echo "$mxrc" | grep -w "IN.A" );
