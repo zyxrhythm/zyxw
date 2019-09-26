@@ -356,14 +356,14 @@ mxrtqns=$( echo "$1" | gawk '{print tolower($0)}' );
 mxrff=$(dig mx +short $domain @$mxrtqns | sort -n );
 
 else 
-mxrtqns="91.239.100.100";
+mxrtqns="8.8.8.8";
 mxrff=$(dig mx +short $domain @$mxrtqns | sort -n ); 
 fi;
 
 if (( $(grep -c . <<<"$mxrff") > 1)); then mxtvar="MX Records:" ; else mxtvar="MX Record:" ; fi;
 echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> $mxtvar </strong> <br> <br>"
 
-tmxrc=$( if [[ -z $( echo "$( dig MX "$domain" @8.8.8.8 2>/dev/null)" | grep -w "IN.MX" ) ]]; then echo "x"; else echo "y"; fi; );
+tmxrc=$( if [[ -z $( echo "$( dig MX "$domain" @mxrtqns 2>/dev/null)" | grep -w "IN.MX" ) ]]; then echo "x"; else echo "y"; fi; );
 
 if [[ -z "$mxrff" ]]; then 
 echo "<span id='fiftyshades' >No MX record found!</span> <br>"; 
@@ -382,7 +382,7 @@ do
    
    mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
    
-   mxrc=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
+   mxrc=$( dig ANY "$mxr1" @"$mxrtqns" 2>/dev/null );
    
    mxcnamevarc=$( echo "$mxrc" | grep -w "IN.CNAME" );
    mxcnamevara=$( echo "$mxrc" | grep -w "IN.A" );
