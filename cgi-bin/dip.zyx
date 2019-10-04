@@ -452,7 +452,6 @@ else
 #C3 nested L 1 nested C 2 nested L 1 end
 done < <(printf '%s\n' "$mxr2");
 
-
 else
 
    mxa20=$($zyxwhois "$mxr2" );
