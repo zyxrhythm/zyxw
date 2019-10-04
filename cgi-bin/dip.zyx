@@ -347,6 +347,7 @@ fi;
 
 #MX Record/s Function
 #cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
+# L - Liner # C - Conditional
 mrfunction () {
 #C1 start
 if [[ -z $2 ]]; then
@@ -419,27 +420,34 @@ while IFS= read -r linex
 do
    mxa0=$($zyxwhois $linex );
    mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
-   #C3 nested L 1 nested C 2 nested L 1 nested C start
-   if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; fi;
+   #C3 nested L 1 nested C 2 nested L 1 nested C 1 start
+   if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; 
+   #C3 nested L 1 nested C 2 nested L 1 nested C 1 end
+   fi;
    
    mxax=$( echo "$mxa2" | sort -u | head -1 );
-   
+   #C3 nested L 1 nested C 2 nested L 1 nested C 2 start
    if [[ "$mxipc" = "null" ]] && [[ "$mxachk" = "x" ]]; then echo "<span id='fiftyshades' >MX record misconfigured - Possible cause: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to an A record.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"; 
 
 else 
+	#C3 nested L 1 - nested C 2 - nested L 1 - nested C 2 - nested C 1 start
    	if [[ "$linex" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; 
    	then 	
-	
+	#C3 nested L 1 - nested C 2 - nested L 1 - nested C 2 - nested C 1 - nested C 1 start
 	if [[ ${linex:0:7} = "192.168" ]] || [[ ${linex:0:4} = "10.0" ]] || [[ ${linex:0:6} = "172.16" ]] || [[ ${linex:0:6} = "172.31" ]]; 
 	then echo "&nbsp; &nbsp; $linex --- [ PRIVATE IP ] <br>"; 
 	elif [[ ${linex:0:4} = "127." ]] || [[ ${linex:0:3} = "0.0" ]]; 
 	then echo "&nbsp; &nbsp; $linex --- [ RESERVED IP ] <br>"; 
 	
-	else echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; fi;
+	else echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax#*:} <br>"; 
+	#C3 nested L 1 - nested C 2 - nested L 1 - nested C 2 - nested C 1 - nested C 1 end
+	fi;
 	
 	else 
-	echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"; fi;
-
+	echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"; 
+	#C3 nested L 1 - nested C 2 - nested L 1 - nested C 2 - nested C 1 end
+	fi;
+#C3 nested L 1 nested C 2 nested L 1 nested C 1 end
    fi;
 #C3 nested L 1 nested C 2 nested L 1 end
 done < <(printf '%s\n' "$mxr2");
