@@ -356,7 +356,7 @@ mxrff="$1";
 #C1 elif
 elif [[ $2 = "x" ]]; then 
 mxrtqns=$( echo "$1" | gawk '{print tolower($0)}' );
-mxrff=$(dig mx +short $domain @$mxrtqns | sort -n );
+mxrff=$(dig mx +short $domain @8.8.8.8 | sort -n );
 #C1 else
 else 
 mxrtqns="8.8.8.8";
