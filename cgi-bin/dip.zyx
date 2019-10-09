@@ -388,7 +388,9 @@ while IFS= read -r line; do
    mxr1=$(echo  $line | cut -f2 -d" ");
    mxr1a=$(echo $line | cut -f1 -d" ");
    
-   mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
+   if [[ $checknsrb = "n" ]]; 
+   then mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
+   else mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null ); fi;
    
    mxrc=$( dig ANY "$mxr1" @8.8.8.8 2>/dev/null );
    
