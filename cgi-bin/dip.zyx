@@ -399,18 +399,18 @@ while IFS= read -r line; do
 	#C3 nested L 1 nested C 1 start
 	if [[ -z "$mxr2" ]] && [[ $mxcnamechk = "x" ]] && [[ $mxachk = "x" ]]; then
 	mxipc="null"; 
-	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Misconfigured - (Case 1): The hostname does not resolve to an A/CNAME record.</span>"; 
+	echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Misconfigured - (Case 1): <br>The hostname does not resolve to an A/CNAME record.</span>"; 
 	
 	elif [[ $mxcnamechk = "y" ]] && [[ $mxachk = "x" ]] && [[ ! -z $mxcnamevarc ]]; then
 	
 	if [[ -z $( dig A +short "$(dig cname $mxr1 +short 2>/dev/null )" 2>/dev/null ) ]]; 
-	then echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Misconfigured - (Case 2a): The hostname resolves to CNAME record/s that does not resolve to an IP address.</span><br>"; 
-	else echo "<label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration - (Case 2b): The hostname resolves to CNAME record/s:<br>"; 
+	then echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Misconfigured - (Case 2a): <br>The hostname resolves to CNAME record/s that does not resolve to an IP address.</span><br>"; 
+	else echo "<label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration - (Case 2b): <br>The hostname resolves to CNAME record/s:<br>"; 
 	fi;
 	
 	elif [[ $mxcnamechk = "y" ]] && [[ $mxachk = "y" ]]; then
 	mxipc="null"; 
-	echo "<label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration (Case 3): The hostname resolves to both CNAME and A record/s:<br>";
+	echo "<label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration (Case 3): <br>The hostname resolves to both CNAME and A record/s:<br>";
 	
 	else 
 	echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; 
