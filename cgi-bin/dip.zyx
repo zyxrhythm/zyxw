@@ -292,7 +292,7 @@ arff=$(dig a +short $domain @$artqns );
 
 else 
 arff=$(dig a +short $domain);
-artqns="91.239.100.100";
+artqns="8.8.8.8";
 arff=$(dig a +short $domain @$artqns ); 
 fi;
 
