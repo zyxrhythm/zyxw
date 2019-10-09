@@ -138,6 +138,7 @@ nsxx=$(echo "$zyx" | grep -i -e 'Name server:' );
 
 cnamec=$(dig A +noall +answer $domain);
 if [[ -z $( echo "$cnamec" | grep -i -e 'CNAME' ) ]]; then cnc="n"; else cnc="p"; fi;
+
 if (( $(grep -c . <<<"$cnamec") > 1)); then senvar=" also"; else senvar=""; fi;
 #########
 
@@ -359,7 +360,7 @@ mxrff=$(dig mx +short $domain @$mxrtqns | sort -n );
 #C1 else
 else 
 mxrtqns="8.8.8.8";
-mxrff=$(dig mx +short $domain @$mxrtqns | sort -n ); 
+mxrff=$(dig mx +short $domain @8.8.8.8 | sort -n ); 
 fi;
 #C1 end
 
