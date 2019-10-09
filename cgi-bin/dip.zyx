@@ -390,7 +390,7 @@ while IFS= read -r line; do
    
    if [[ $checknsrb = "n" ]] || [[ $checknsrb = "N" ]]; then 
    mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
-   elif [[ $checknsrb = "y" ]] || [[ $checknsrb = "Y" ]] then
+   elif [[ $checknsrb = "y" ]] || [[ $checknsrb = "Y" ]]; then
    mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null ); 
    else 
    mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null );
