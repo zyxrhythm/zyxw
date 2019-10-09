@@ -418,8 +418,7 @@ if (( $(grep -c . <<<"$mxr2") > 1)); then
 #C3 nested L 1 nested C 2 nested L 1 start
 while IFS= read -r linex
 do
-   mxa0=$($zyxwhois $linex );
-   mxa1=$( echo "$mxa0" | grep -i -e "OrgName:" );
+   mxa1=$( echo "$($zyxwhois $linex )" | grep -i -e "OrgName:" );
    #C3 nested L 1 nested C 2 nested L 1 nested C 1 start
    if [[ -z "$mxa1" ]]; then mxa2=$( echo "$mxa0" | grep -i -e "NetName:" ); else mxa2="$mxa1"; 
    #C3 nested L 1 nested C 2 nested L 1 nested C 1 end
