@@ -412,11 +412,11 @@ while IFS= read -r line; do
 	mxipc="null"; 
 	
 	if [[ $checknsrb = "y" ]]; then
-	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration ( Case 3 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br></span>";
+	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Possibly Misconfigured ( Case 3 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br></span>";
 	elif [[ $checknsrb = "n" ]]; then
-	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration ( Case 3 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp( If you want to see the records, Don't skip the NS check )</span><br>";
+	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Possibly Misconfigured ( Case 3 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp( If you want to see the records, Don't skip the NS check )</span><br>";
 	else 
-	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Configuration ( Case 3 ). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp( If you want to see the records, Don't skip the NS check )</span><br>"; fi;
+	echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MX Record Possibly Misconfigured ( Case 3 ). <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to both CNAME and A record/s:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp( If you want to see the records, Don't skip the NS check )</span><br>"; fi;
 	
 	else 
 	echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>"; 
@@ -479,9 +479,9 @@ else
    	then
 	
 	if [[ ${linex:0:7} = "192.168" ]] || [[ ${linex:0:4} = "10.0" ]] || [[ ${linex:0:6} = "172.16" ]] || [[ ${linex:0:6} = "172.31" ]]; 
-	then echo "&nbsp; &nbsp; $linex --- [ PRIVATE IP ] <br>"; 
+	then echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ PRIVATE IP ]</span> <br>"; 
 	elif [[ ${linex:0:4} = "127." ]] || [[ ${linex:0:3} = "0.0" ]]; 
-	then echo "&nbsp; &nbsp; $linex --- [ RESERVED IP ] <br>"; 
+	then echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ RESERVED IP ]</span> <br>"; 
 	
 	else echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois information of this I.P. address from ARIN's whois server/s.<br><br></span></a> ${mxax2#*:} <br>"; fi;
 	
