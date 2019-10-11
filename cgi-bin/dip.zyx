@@ -1039,7 +1039,7 @@ zyx=$($zyxwhois $domain);
 zyxuk0=$(echo "$zyx" | gawk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
 #dig A and MX with minimal essential output
 arfrctuk=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" "x" );
 echo "<body><div id='divClipboard'>
 <p><pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
 __________________________
