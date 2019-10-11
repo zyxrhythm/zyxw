@@ -29,6 +29,11 @@ cat <<EOT
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" type="text/css" href="/css/general.css">
+<style>
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+</style>
 $GANALYTICS
 
 <center>
@@ -44,12 +49,11 @@ $GANALYTICS
 <strong style='font-size:126%'>-------------------------
 - ABOUT THIS SITE -
 -------------------------------
-$SITEBANNER is a website you can utilize for the following: </strong>
+$SITEBANNER is a website equipped with tools you can utilize for the following: </strong>
 
 
 <strong style='font-size:141%;'>1.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address. 
-
-<script> 
+<script>
 function jsmore() { var x = document.getElementById('jsmore'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
@@ -58,29 +62,35 @@ var element = document.getElementById('moreid');
 if (element.innerHTML === 'Less') {element.innerHTML = 'More'; }
 else { element.innerHTML = 'Less';} }
 </script>
-
-<a id='moreid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;'  onclick='jsmore(); changemoretxt();'>More<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span>
-</a>
-
+<a id='moreid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;'  onclick='jsmore(); changemoretxt();'>More<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a> info.
 <div id='jsmore' style='display:none'> 
 <table> <tbody> 
-<td><p>
-
--For domain names, the script can fetch the whois info from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a>, and if a server is found, it can also fetch the whois info from the  whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>. 
+<td><p>-For domain names, the tool can fetch the whois info from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a>, and if a server is found, it can also fetch the whois info from the  whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>. 
 
 (The list of known registry whois server depends on the whois.conf or jwhois.conf on the server -- and for the whois server of the registrar, this obtained from the whois info obtained from the registry, so it depends on what and how the whois info is presented by the registry whois server)
 
--And for IP addresses, the script will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.
-
-</p></td>
+-And for IP addresses, the script will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>s.</p></td>
 </tbody></table>
 </div>
-
 Link for the whois lookup tool (whois.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
 
-<strong style='font-size:141%;'>2.)</strong> '<a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank' class='tooltip'>DIG<span class='tooltiptext'>dig (domain information groper) is a flexible tool for interrogating DNS name servers. It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried. Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output. Other lookup tools tend to have less functionality than dig.</span></a>' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS record<span class='tooltiptext'>Click for the List of DNS record types.</span></a> (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.
-
+<strong style='font-size:141%;'>2.)</strong> '<a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank' class='tooltip'>DIG<span class='tooltiptext'>dig (domain information groper) is a flexible tool for interrogating DNS name servers. It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried. Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output. Other lookup tools tend to have less functionality than dig.</span></a>' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS records<span class='tooltiptext'>Click for the List of DNS record types.</span></a>
+<script> 
+function jsmore2() { var x = document.getElementById('jsmore2'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+function changemoretxt2() {
+var element = document.getElementById('moreid2');
+if (element.innerHTML === 'Less') {element.innerHTML = 'More'; }
+else { element.innerHTML = 'Less';} }
+</script>
+<a id='moreid2' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;'  onclick='jsmore2(); changemoretxt2();'>More<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a> info.
+<div id='jsmore2' style='display:none'> 
+<table> <tbody> 
+<td><p>The DIG tool can 'dig' DNS records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.</p></td>
+</tbody></table>
+</div>
 Link for the dig tool (digger.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
 
@@ -89,21 +99,18 @@ Link for the dig tool (digger.zyx):
 Link for the SSL tool (sslinfo.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
-<strong style='font-size:141%;'>4.)</strong> Most of the time, knowing the following:
+<strong style='font-size:141%;'>4.)</strong> Gathering the following info in one go:
 
-- 'whois is the registrar' 
-- 'is a domain from a reseller --if yes, who?' 
-- 'what is the status of the domain --what does the status mean'
-- 'what are the relevant dates under the domain name, date such as the expiration date from the registry and the registrar and the creation date'
-- 'what are the authoritative name servers underthe domain'
-- 'are the authoritative name servers under th domain functioning properly'
-- 'what MX and A records can be obtained from the authoritative name servers'
-- 'who is the regsitrant and what are registrant, admin, tech contact info'
-- 'whois responsible for the the IP addresses correlated with the with the A and MX records, also the IP addresses correlated witht the authoritative name servers'
+- The registrar of the doamain.
+- The reseller of the domain.
+- Status of a domain - and what they mean.
+- Relevant dates under a domain ( creation date, expiration date of a domainfrom the registry and registrar).
+- The Authoritative name servers of a domain - and if they are functioning properly.
+- The A record / records associated with the naked domain name - and information about the Organisation/Company associated with the IP address.
+- The MX record / records associated with the naked domain name - to what IP address/addresses does the hostname/hostnames under the MX record/records resolve to - and information about the Organisation/Company associated with the IP address.
+- Registrant contact, Admin contact and Tech contact for the domain.
 
-will allow one to provide a resolution to most issues about a domain name. Issues about the domain itself and/or the website and the email service under it. 
-
-The main tool of this site is designed to gather the above information, in one go. 
+Utilize this special tool that simplifies the process in obtaining the above info!
 
 Link for this special tool ('domain information probe' [dip.zyx]  ) here: 
 <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
@@ -118,7 +125,7 @@ Link for this special tool ('domain information probe' [dip.zyx]  ) here:
 
 -------------------------------
 
-The '<span style='color:#BC2100; font-family:arial;'><small><<</small> back | track</span>' button on the bottom of some pages work like browsers back buttons.
+The '<span style='color:#BC2100; font-family:arial;'><small><<</small> back | track</span>'  and '<span style='color:#BC2100; font-family:arial;'><small><<</small> track | back</span>' buttons on the bottom pages work like browsers back buttons.
 
 -------------------------------
 
