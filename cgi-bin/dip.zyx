@@ -243,9 +243,6 @@ else
    if [[ -z "$nsa21" ]]; then nsa22=$( echo "$nsa20" | grep -i -e "NetName:" ); else nsa22="$nsa21"; fi;
    nsax2=$( echo "$nsa22" | sort -u | head -1 );
    
-   #nscx3=$( echo "$( dig a +short $domain @$line )" | tr -d '\040\011\012\015' );
-   #if [[ "${nscx3:0:2}" = ";;" ]]; then nsipc3="xd"; else true; fi;
-   
    if [[ "$nsipc" = "null" ]]; then echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"; nsipc="reset"; 
    elif [[ "$nsipc" = "xd" ]]; then echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:} <br>Warning: This NS does not respond to dig queries!</span>"; nsipc="reset";
    else echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click to get the full raw whois information of this I.P. address from ARIN.<br><br></span></a> ${nsax2#*:}"; fi;
@@ -356,6 +353,9 @@ mxrff="$1";
 #C1 elif
 elif [[ $2 = "x" ]]; then 
 mxrtqns=$( echo "$1" | gawk '{print tolower($0)}' );
+mxrff=$(dig mx +short $domain @$mxrtqns | sort -n );
+elif [[ $2 = "y" ]]; then
+mxrtqns="8.8.8.8";
 mxrff=$(dig mx +short $domain @$mxrtqns | sort -n );
 #C1 else
 else 
@@ -702,6 +702,7 @@ __________________________<br>
 EODNARGT0
 
 #####nscheck to suposedly prevent the endless spin of death
+#verifies if an auth resolves to an IP address - good for verifying glue records
 nscheckfunc () {
 while IFS= read -r linec
 do 
@@ -711,7 +712,7 @@ do
 done < <(printf '%s\n' "$1"); }
 
 #######################################
-#auth ns to query for records:
+#auth ns to query for records - checks if th ns is digable
 #######################################
 nstqfunc () {
 xnsxx=$( nsfunction "$1" "x" );
@@ -778,9 +779,6 @@ __________________________
 elif [[ "$nscheck" = "x" ]] || [[ "$nscheck" = "xy" ]]; then 
 
 nsfrgt=$( nsfunction "$nsxx" "" "<br>" );
-#func processed A and MX records
-#arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 2>&1 )" );
-#mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n 2>&1 )" );
 arfrgt=$( arfunction "$nstoquery" "x" );
 mrfrgt=$( mrfunction "$nstoquery" "x" );
 
@@ -803,7 +801,7 @@ edu)
 
 zyx=$($zyxwhois $domain);
 arfredu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 cat << EDUSECTION
 <body>
@@ -832,8 +830,7 @@ gov)
 zyx=$($zyxwhois $domain);
 ar=$(dig +short $domain @8.8.8.8);
 arfrgov=$( arfunction "$ar" );
-mxr=$(dig mx +short $domain @8.8.8.8 | sort -n );
-mrfrgov=$( mrfunction "$mxr");
+mrfrgov=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y');
 
 zyx0=$(echo "$zyx" | gawk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
 
@@ -862,7 +859,7 @@ exit 0;
 
 mil)
 arfrmil=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrmil=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )");
+mrfrmil=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 cat << MILSECTION
 <body>
@@ -892,7 +889,7 @@ zyx=$($zyxwhois $domain);
 
 #dig A and MX with minimal essential output from Google DNS servers
 arfrct=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrct=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrct=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 #start of html body
 echo "<body><br>
@@ -914,7 +911,7 @@ zyx=$($zyxwhois $domain );
 
 #dig A and MX with minimal essential output
 arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 if [[ ! -z $( echo "$zyx" | grep -w "WHOIS LIMIT EXCEEDED" ) ]]; 
 
@@ -985,7 +982,7 @@ zyx=$($zyxwhois $domain);
 
 #dig A and MX with minimal essential output
 arfrctnz=$( arfunction "$(dig +short $domain @8.8.8.8 )");
-mrfrctnz=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrctnz=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
@@ -1039,7 +1036,7 @@ zyx=$($zyxwhois $domain);
 zyxuk0=$(echo "$zyx" | gawk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
 #dig A and MX with minimal essential output
 arfrctuk=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><div id='divClipboard'>
 <p><pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
 __________________________
@@ -1060,7 +1057,7 @@ zyxeu0=$(echo "$zyx" | gawk '/Domain:/{flag=1;next}/Keys:/{flag=0}flag' );
 
 #dig A and MX with minimal essential output
 arfrcteu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrcteu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrcteu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body>
 <div id='divClipboard'>
 <p><pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
@@ -1078,7 +1075,7 @@ __________________________
 #special result for .ph ccTLD 
 ph)
 arfrph=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
-mrfrph=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrph=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><div id='divClipboard'><p>
 <br>For the  Whois info of this .ph domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
@@ -1099,7 +1096,7 @@ exit 0;
 #special result for .sg ccTLD 
 sg)
 arfrsg=$( arfunction "$(dig +short $domain @8.8.8.8)" );
-mrfrsg=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mrfrsg=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><div id="divClipboard">
 <p><br>For the  Whois info of this .sg domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
@@ -1148,7 +1145,7 @@ zyx=$($zyxwhois $domain);
 #PASS the a record/s to arfunc
 arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 #PASS the mx record/s to mxrfunc
-mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )");
+mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><br><div id='divClipboard'>
 <pre>${zyx#*Domain Information:}</pre>
 
