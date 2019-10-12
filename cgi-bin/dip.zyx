@@ -54,31 +54,22 @@ cat << INIOHTMLHEAD
 <meta name='author' content='Zyx Rhythm'>
 <!-- Auto Adjust -->
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
 $GANALYTICS
-
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 <script src="/js/dip.js"></script>
 <script src="/js/allowedchars.js"></script>
-
 <link rel="stylesheet" type="text/css" href="/css/dip.css">
 INIOHTMLHEAD
 
 . ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
-
 <div id='xtable' ><table> <tbody> <td>
-
 <form name='formationx' action='' method='get'>
 <input placeholder='Enter a Domain(FQDN)'  type='text' onblur='this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);' onKeyDown='if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);' onKeyUp='if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);'name='domain'>
 <button type='submit' style='font-weight: bold;' onclick="nscheckboxjs();"> Go </button> <br>
-
-
 <input type="radio" name="nscr" value="Y" ><label class='tooltip'>NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script now skips this step by default).</span></label>    
-
 <input type="radio" name="nscr" value="N" checked="checked" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script now skips this step by default).</span></label> 
-
 </form>
 </td> </tbody> </table> </div></p>
 <button onclick='copyv2();' >Copy Results</button><label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a 'paste' on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label> 
@@ -1150,9 +1141,7 @@ arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><br><div id='divClipboard'>
 <pre>${zyx#*Domain Information:}</pre>
-
 <p>
-
 __________________________<br><br>
 $arfrjp <br>
 __________________________<br><br>
