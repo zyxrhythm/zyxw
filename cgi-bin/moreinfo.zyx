@@ -99,7 +99,7 @@ Link for the dig tool (digger.zyx):
 Link for the SSL tool (sslinfo.zyx): 
 <a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
 
-<strong style='font-size:141%;'>4.)</strong> Gathering the following info in one go:
+<strong style='font-size:141%;'>4.)</strong> Utilize a special tool that simplifies the process of gathering the following info in one go:
 
 - The registrar of the doamain.
 - The reseller of the domain.
@@ -109,8 +109,6 @@ Link for the SSL tool (sslinfo.zyx):
 - The A record / records associated with the naked domain name - and information about the Organisation/Company associated with the IP address.
 - The MX record / records associated with the naked domain name - to what IP address/addresses does the hostname/hostnames under the MX record/records resolve to - and information about the Organisation/Company associated with the IP address.
 - Registrant contact, Admin contact and Tech contact for the domain.
-
-Utilize this special tool that simplifies the process in obtaining the above info!
 
 Link for this special tool ('domain information probe' [dip.zyx]  ) here: 
 <a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
