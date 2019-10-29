@@ -1,4 +1,5 @@
-From the 4353.info branch.
+If you want to install and use 'zyxw' on your server:
 
+DO NOT DOWNLOAD/USE THIS BRANCH! 
 
-https://github.com/zyxrhythm/bbclive/tree/4353.info
+This branch is for testing purposes only.. Use the Alpha branch.
