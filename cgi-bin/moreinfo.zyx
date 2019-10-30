@@ -33,6 +33,10 @@ cat <<EOT
 table { font-family: verdana; border: 2px solid green; font-size: 90%;}
 th { border: 2px solid green;}
 td { vertical-align: top; text-align: left; border: 1px solid green;}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: underline;}
+a:active {text-decoration: underline;}
 </style>
 $GANALYTICS
 
@@ -45,10 +49,12 @@ $GANALYTICS
 <body>
 <left><br><br>
 <p>
+<hr>
 <pre>
 <strong style='font-size:126%'>-------------------------
 - ABOUT THIS SITE -
--------------------------------
+--------------
+<hr>
 $SITEBANNER is a website equipped with tools you can utilize for the following: </strong>
 
 
@@ -101,10 +107,10 @@ Link for the SSL tool (sslinfo.zyx):
 
 <strong style='font-size:141%;'>4.)</strong> Utilize a special tool that simplifies the process of gathering the following info in one go:
 
-- The registrar of the doamain.
-- The reseller of the domain.
-- Status of a domain - and what they mean.
-- Relevant dates under a domain ( creation date, expiration date of a domainfrom the registry and registrar).
+- The registrar of the domain. 
+- The reseller of the domain. 
+- Status of a domain - and what they mean. <tables are from <a href='https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en' target='_blank' class='tooltip'>this</a> ICANN page>
+- Relevant dates under a domain ( creation date, expiration date of a domain name from the registry and registrar). 
 - The Authoritative name servers of a domain - and if they are functioning properly.
 - The A record / records associated with the naked domain name - and information about the Organisation/Company associated with the IP address.
 - The MX record / records associated with the naked domain name - to what IP address/addresses does the hostname/hostnames under the MX record/records resolve to - and information about the Organisation/Company associated with the IP address.
@@ -117,16 +123,19 @@ Link for this special tool ('domain information probe' [dip.zyx]  ) here:
 <strong style='font-size:126%'>-------------------------</strong>
 
 
+<hr>
+***************************
+If you want to: 
+- view the codes and help improve it.
+- or you find the site useful and want implement a copy of this site on your domain.
+You can view and fork the codes, or download the files on <strong><a href='https://github.com/zyxrhythm/zyxw' target='_blank' style='color:red; font-size: 146%;'>this GitHub page</a></strong>.
 
-
-
-
+***************************
+<hr>
 -------------------------------
-
-The '<span style='color:#BC2100; font-family:arial;'><small><<</small> back | track</span>'  and '<span style='color:#BC2100; font-family:arial;'><small><<</small> track | back</span>' buttons on the bottom pages work like browsers back buttons.
-
+The '<span style='color:#BC2100; font-family:arial;'><small><<</small> back | track</span>'  and '<span style='color:#BC2100; font-family:arial;'><small><<</small> track | back</span>' buttons on the bottom of pages work like browsers back and forward buttons.
 -------------------------------
-
+<hr>
 
 
 
