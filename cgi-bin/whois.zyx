@@ -15,8 +15,10 @@ witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
 
 if [[ $witst0 = "y" ]]; then 
 zyxwhois="whois -n";
+whoisprog="jwhois";
 elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
 zyxwhois="whois --verbose";
+whoisprog="whois";
 else
 echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
@@ -81,7 +83,6 @@ cat <<INIOHTMLHEAD
 <meta name="description" content="$SITEBANNER is a website that can look up the whois information of a domain from whois servers, dig DNS records of domains and sub domains from name servers, etc...">
 <meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
 <meta name="author" content="Zyx Rhythm">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="/css/whois.css">
 $GANALYTICS
@@ -93,35 +94,26 @@ INIOHTMLHEAD
 . ../zyx/sh/navpart.sh
 
 cat << EONAVMENU
-
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
 <form action="whois.zyx" method="get">
 <input placeholder="Domain / I.P. address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
-
 <script> 
 function jsfmanwi() { var x = document.getElementById('manwid'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
 else { x.style.display = 'none'; } } 
-
 function changeTextnsvt() {
 var element = document.getElementById('manwit');
 if (element.innerHTML === '-') {element.innerHTML = '+'; }
 else { element.innerHTML = '-';} }
 </script>
-&nbsp; <a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>&nbsp;+&nbsp;<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server and port to query.<br><br></span></a> &nbsp;
-
+&nbsp; <a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>&nbsp;+&nbsp;<span class='tooltiptext' style='color: white; word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server to query.<br><br></span></a> &nbsp;
 <button id="whoyoubtn" type="submit" style='font-weight: bold;'> Who is </button>
-
 <div id='manwid' style='display:none'> <table> <tbody> <td>
 <input placeholder="Whois server (Optional)" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq"  size='20'>
-
 <input type="hidden" name="sptq" value="" >
-
 <!--<input placeholder="Port" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="sptq" maxlength="5" size='3'>-->
-
 </td> </tbody> </table>
-
 </form>
 <!-- ################## WHO YOU ################# -->
 </td> </tbody> </table> </div></p>
@@ -232,17 +224,17 @@ else true; fi;
 	then
 	ipwhois="$doi";
 
-	if [[ "$witst0" = "y" ]]; then
+	if [[ $whoisprog = 'jwhois' ]]; then
 	zyxip0=$($zyxwhois $ipwhois $swstq $sptq 2>&1 );
 	zyxip=$(echo "$zyxip0" | sed  '1,2d' );
 	ipwis0=$(echo "$zyxip0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 	ipwis="${ipwis0#*Querying}";
 
-	elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
+	elif [[ $whoisprog = 'whois' ]]; then
 	zyxip0=$($zyxwhois $ipwhois $swstq $sptq);
 	zyxip=$(echo "$zyxip0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
-	ipwis0=$(echo "$zyxip0" | grep -i -e "Using server" | sort -u );
-	ipwis=${ipwis0#*Using Server };
+	ipwisx0=$(echo "$zyxip0" | grep -i -e "Using server" | sort -u );
+	ipwisx=$(echo  "$ipwisx0" | cut -f3 -d" ");
 	else
 	echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
@@ -256,7 +248,7 @@ else true; fi;
 
 cat << EOWIIPR
 <body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $ipwis</td> </tbody> </table><br>
+<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $ipwisx</td> </tbody> </table><br>
 <button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
 <table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $zyxip0 </pre></td> </tbody> </table></div><br>
