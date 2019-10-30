@@ -32,22 +32,23 @@ $GANALYTICS
 
 <center>
 <p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
-<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#128506;Home ]</a></p>
 </center>
 </head>
-
+<hr>
 <body>
 <left>
-<br>
-<p><pre><center>[ History ]</center></pre></p>
+<p><pre><center>[  H I S T O R Y  ]</center></pre></p>
 <pre>
 $LOGS
 </pre>
 <p><pre>
+<hr>
 For bugs and other concerns please email:
 $CEMAIL
 </pre></p>
 <pre>
+<hr>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 <br>
 <center>
