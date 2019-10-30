@@ -140,11 +140,11 @@ fi;
 #cuts and extracts the TLD
 tld=$( echo $domain | rev | cut -d "." -f1 | rev );
 
-#checks if the domain is a gtld
+#checks if the domain is a gtld / cctld
 case $tld in
    $gcctldlist)
 
-zyxc=$( dig +short "$domain" $qns );
+zyxc=$( dig +short "$DNSR" "$domain" "$qns" );
 
 if [[ -z $zyxc ]]; 
 
@@ -160,7 +160,7 @@ else true;
 
 fi;
 
-#CHECKS IF EACH RECORD IS CREATED PROPERLY
+#CHECKS IF EACH RECORD IS CREATED PROPERLY BY MATCHING THE LINE WITH THE RECORD SUBMITTED FROM THE FORM
 zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
 DNSRx=$( echo "$DNSR" | gawk '{print toupper($0)}' );
 if (( $(grep -c . <<<"$zyxgdx" ) > 1 )) && [[ $DNSR != "any" ]] ; then
