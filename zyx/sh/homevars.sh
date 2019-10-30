@@ -5,8 +5,10 @@
 revcount=$(cat ../zyx/vars/site.vars | gawk '/<-VER/{flag=1;next}/VER->/{flag=0}flag');
 #What displays on browsers tabs
 SITETITLE=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_TITLE/{flag=1;next}/SITE_TITLE->/{flag=0}flag');
-#The big text on the from page
-SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+#The big text on the front page for meta tags
+SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SB_META_TAG/{flag=1;next}/SB_META_TAG->/{flag=0}flag');
+#The big text on the front page
+SITEBANNERX=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
 #contact email for the admin
 CEMAIL=$(cat ../zyx/vars/site.vars | gawk '/<-CEMAIL/{flag=1;next}/CEMAIL->/{flag=0}flag');
 
@@ -26,3 +28,5 @@ ROT13=$(cat ../zyx/vars/site.vars | gawk '/<-ROT13/{flag=1;next}/ROT13->/{flag=0
 FOOTER_MESSAGE1=$(cat ../zyx/vars/site.vars | gawk '/<-FOOTER_MESSAGE1/{flag=1;next}/FOOTER_MESSAGE1->/{flag=0}flag');
 #the message above the copy left notice
 FOOTER_MESSAGE2=$(cat ../zyx/vars/site.vars | gawk '/<-FOOTER_MESSAGE2/{flag=1;next}/FOOTER_MESSAGE2->/{flag=0}flag');
+
+
