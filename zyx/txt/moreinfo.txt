@@ -1,0 +1,44 @@
+-------------------------
+CUSTOM TITLE FOR MY MESSAGE
+-------------------------------
+Custom Message...
+Custom Message...
+Custom Message...
+Custom Message...
+Custom Message...
+
+-------------------------------
+If you are having issues with the copy buttons and its results on Microsoft's Edge and Internet Explorer.
+
+Try Using the following browsers:
+Mozilla's  <a href='https://www.mozilla.org/en-US/firefox' target='_blank' >Firefox</a>
+Google's <a href='https://www.google.com/chrome/' target='_blank'>Chrome</a>
+Opera Software's <a href='https://www.opera.com'>Opera Browser</a>
+-------------------------------
+
+
+***************************
+If you want to: 
+- view the codes and help improve it.
+- or you find the site useful and want implement a copy of this site on your domain.
+You can view and fork the codes, or download the files on <a href='https://github.com/zyxrhythm/zyxw' target='_blank' >this</a> GitHub page.
+
+*************************** 
+
+
+
+
+
+
+
+
+
+
+###########
+# CONTACT #
+###########
+
+############################
+# For bugs and other concerns please email:
+# username@domain.tld
+############################

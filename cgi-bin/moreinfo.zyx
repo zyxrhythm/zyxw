@@ -1,0 +1,159 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#And can be downloaded at https://github.com/zyxrhythm/zyxw/
+#############################################
+
+SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+DDOMAINNAME=$(cat ../zyx/vars/site.vars | gawk '/<-DDOMAINNAME/{flag=1;next}/DDOMAINNAME->/{flag=0}flag');
+MOREINFO=$(cat ../zyx/txt/moreinfo.txt );
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
+
+echo "Content-type: text/html"
+echo ""
+
+################################
+cat <<EOT
+<!DOCTYPE html>
+<html>
+<link rel="icon" type="image/png" href="/icon.png" />
+<head>
+<title>About</title>
+
+<meta name="description" content="$SITEBANNER">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="/css/general.css">
+<style>
+table { font-family: verdana; border: 2px solid green; font-size: 90%;}
+th { border: 2px solid green;}
+td { vertical-align: top; text-align: left; border: 1px solid green;}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: underline;}
+a:active {text-decoration: underline;}
+</style>
+$GANALYTICS
+
+<center>
+<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; font-family: arial black;'>[ &#128506;Home ]</a></p>
+</center>
+</head>
+
+<body>
+<left><br><br>
+<p>
+<hr>
+<pre>
+<strong style='font-size:126%'>-------------------------
+- ABOUT THIS SITE -
+--------------
+<hr>
+$SITEBANNER is a website equipped with tools you can utilize for the following: </strong>
+
+<strong style='font-size:141%;'>1.)</strong> Gather the following info in one go:
+
+- The registrar of the domain. 
+- The reseller of the domain. 
+- Status of a domain with matching tables from are from <a href='https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en' target='_blank' class='tooltip'>ICANN</a>, defining what the domain status means.
+- Relevant dates under a domain ( creation date, expiration dates from both the Registry and Registrar). 
+- The Authoritative name servers of a domain. And optionally check if they are functioning appropriately.
+- The A record / records associated with the domain name, and information about the Organization/Company associated with the IP address.
+- The MX record / records associated with the domain name, to what IP address/addresses does the hostname/hostnames under the MX record/records resolve to, and information about the Organization/Company associated with the IP address.
+- Registrant contact, Admin contact and Tech contact of the domain.
+
+Link for this special tool ('domain information probe' [dip.zyx]  ) here: 
+<a href='https://$DDOMAINNAME/cgi-bin/dip.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/dip.zyx</a>
+
+<strong style='font-size:141%;'>2.)</strong> Do a '<a href='https://en.wikipedia.org/wiki/WHOIS' target='_blank' class='tooltip' >WHOIS lookup<span class='tooltiptext'>WHOIS (pronounced as the phrase "who is") is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system, but is also used for a wider range of other information.</span></a>' for a domain name or I.P. Address. 
+<script>
+function jsmore() { var x = document.getElementById('jsmore'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+function changemoretxt() {
+var element = document.getElementById('moreid');
+if (element.innerHTML === 'Less') {element.innerHTML = 'More'; }
+else { element.innerHTML = 'Less';} }
+</script>
+<a id='moreid' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;'  onclick='jsmore(); changemoretxt();'>More<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a> info.
+<div id='jsmore' style='display:none'> 
+<table> <tbody> 
+<td><p>-For domain names, the tool can fetch the whois info from the whois server of the known <a href='https://en.wikipedia.org/wiki/Domain_name_registry' target='_blank' class='tooltip'>Registry<span class='tooltiptext'>Domain name registry</span></a>, and if a server is found, it can also fetch the whois info from the  whois server of <a href='https://en.wikipedia.org/wiki/Domain_name_registrar' target='_blank' class='tooltip'>Registrar<span class='tooltiptext'>Domain name registrar</span></a>. 
+
+(The list of known registry whois server depends on the whois.conf or jwhois.conf on the server -- and for the whois server of the registrar, this obtained from the whois info obtained from the registry, so it depends on what and how the whois info is presented by the registry whois server)
+
+-And for IP addresses, the script will query the whois servers of the appropriate <a href='https://en.wikipedia.org/wiki/Regional_Internet_registry' target='_blank' class='tooltip'>RIR<span class='tooltiptext'>Regional Internet Registry</span></a>.</p></td>
+</tbody></table>
+</div>
+Link for the whois lookup tool (whois.zyx): 
+<a href='https://$DDOMAINNAME/cgi-bin/whois.zyx'  target='_blank' >https://$DDOMAINNAME/cgi-bin/whois.zyx</a>
+
+<strong style='font-size:141%;'>3.)</strong> '<a href='https://en.wikipedia.org/wiki/Dig_(command)' target='_blank' class='tooltip'>DIG<span class='tooltiptext'>dig (domain information groper) is a flexible tool for interrogating DNS name servers. It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried. Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output. Other lookup tools tend to have less functionality than dig.</span></a>' <a href='https://en.wikipedia.org/wiki/List_of_DNS_record_types' target='_blank' class='tooltip'>DNS records<span class='tooltiptext'>Click for the List of DNS record types.</span></a>
+<script> 
+function jsmore2() { var x = document.getElementById('jsmore2'); 
+if (x.style.display === 'none') { x.style.display = 'block'; } 
+else { x.style.display = 'none'; } } 
+function changemoretxt2() {
+var element = document.getElementById('moreid2');
+if (element.innerHTML === 'Less') {element.innerHTML = 'More'; }
+else { element.innerHTML = 'Less';} }
+</script>
+<a id='moreid2' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%;'  onclick='jsmore2(); changemoretxt2();'>More<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click for more details. <br><br></span></a> info.
+<div id='jsmore2' style='display:none'> 
+<table> <tbody> 
+<td><p>The DIG tool can 'dig' DNS records (A,MX,SOA,NS,TXT,SPF,CAA,AAAA,CNAME) of domain names, sub domains and hostnames directly from Google's Public DNS server (8.8.8.8), or from a particular <a href='https://en.wikipedia.org/wiki/Name_server' target='_blank' class='tooltip'>name server<span class='tooltiptext'>A name server is a computer that serves names!</span></a> specified by the user. The dig tool can also Reverse an I.P. address to its domain/host name, when the PTR record is selected.</p></td>
+</tbody></table>
+</div>
+Link for the dig tool (digger.zyx): 
+<a href='https://$DDOMAINNAME/cgi-bin/digger.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/digger.zyx</a>
+
+<strong style='font-size:141%;'>4.)</strong> Gather info about the <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank' class='tooltip'>SSL<span class='tooltiptext'>Secure Sockets Layer.</span></a> certificate issued for a domain / sub domain.
+
+Link for the SSL tool (sslinfo.zyx): 
+<a href='https://$DDOMAINNAME/cgi-bin/sslinfo.zyx' target='_blank' >https://$DDOMAINNAME/cgi-bin/sslinfo.zyx</a>
+
+( If 'tpage.vars' is configured correctly link to the tools above should be correct )
+<strong style='font-size:126%'>-------------------------</strong>
+
+
+<hr>
+***************************
+If you want to: 
+- view the codes and help improve it.
+- or you find the site useful and want implement a copy of this site on your domain.
+You can view and fork the codes, or download the files on <strong><a href='https://github.com/zyxrhythm/zyxw' target='_blank' style='color:red; font-size: 146%;'>this GitHub page</a></strong>.
+
+***************************
+<hr>
+-------------------------------
+The '<span style='color:#BC2100; font-family:arial;'><small><<</small> back | track</span>'  and '<span style='color:#BC2100; font-family:arial;'><small><<</small> track | back</span>' buttons on the bottom of pages work like browsers back and forward buttons.
+-------------------------------
+<hr>
+
+
+
+
+
+
+
+
+
+
+$MOREINFO
+</pre>
+<br>
+</p>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</left>
+</body>
+<footer>
+
+</footer>
+</html>
+
+EOT
+
+exit 0;

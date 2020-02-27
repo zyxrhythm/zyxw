@@ -1,0 +1,1339 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#And can be downloaded at https://github.com/zyxrhythm/zyxw/
+#############################################
+
+. ../zyx/sh/genvars.sh
+
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
+whoisprogtest=$(if [ -e /usr/bin/whois ] && [ ! -d /usr/bin/whois ] && [ ! -e /usr/bin/jwhois ]; then echo 'whois'; else echo 'jwhois'; fi )
+
+if [ $whoisprogtest = 'jwhois' ]; then
+zyxwhois="whois -n"
+whoisprog="jwhois"
+
+elif [ $whoisprogtest = 'whois' ]; then
+zyxwhois="whois --verbose"
+whoisprog="whois"
+
+else
+echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+"
+exit 0
+
+fi
+
+echo "Content-type: text/html"
+echo ""
+
+echo "<!DOCTYPE html>
+<html>
+<title>$DIP</title>
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />"
+
+#stores the QUERY_STRING
+qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}')
+
+#removes "domain=" from the QUERY_STRING and store it in domain variable
+domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs")
+checknsrb=$(echo $qs | sed 's/.*nscr=//')
+
+#echo header
+cat << INIOHTMLHEAD
+
+<!-- Site Description -->
+<meta name='description' content="$SITEBANNER">
+<meta name='keywords' content='DIG, DNS, WHOIS, SSL CHECK'>
+<meta name='author' content='Zyx Rhythm'>
+<!-- Auto Adjust -->
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+$GANALYTICS
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script src="/js/dip.js"></script>
+<script src="/js/allowedchars.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/dip.css">
+
+INIOHTMLHEAD
+
+. ../zyx/sh/navpart.sh
+
+cat << EONAVMENU
+
+<div id='xtable' ><table> <tbody> <td>
+<form name='formationx' action='' method='get'>
+<input placeholder='Enter a Domain(FQDN)'  type='text' onblur='this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);' onKeyDown='if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);' onKeyUp='if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);'name='domain'>
+<button type='submit' style='font-weight: bold;' onclick="nscheckboxjs();"> Go </button> <br>
+<input type="radio" name="nscr" value="Y" ><label class='tooltip'>NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script skips this step by default).</span></label>
+<input type="radio" name="nscr" value="N" checked="checked" ><label class='tooltip'>Skip NS Check<span class='tooltiptext'>The script can conduct a validating check on the authoritative name servers which checks if they resolve to an IP address or they respond to 'dig' queries, but this might cause a great delay in generating a full result, or in some case the script completely fails to generate one. By ticking the 'NS Check' radio button the script will perform the said check. (The script skips this step by default).</span></label>
+</form>
+</td> </tbody> </table> </div></p>
+<button onclick='copyv2();' >Copy Results</button><label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a 'paste' on your text editor <br>or note taking app.<br><br>(expanded tables will be included <br>on the copied result)<br><br>(a checkbox will be on some pages<br> put a check on it to include <br>the footer info on the copied result)<br><br></span></label>
+&nbsp;
+<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;'  onClick='window.location.href=window.location.href'>&#8635;<span style='font-size: 77%;'>Refresh Results</span></a>
+<hr>
+</head>
+
+EONAVMENU
+
+#checks - if the domain variable  entered is null  / the button is clicked without placing anything
+if [[ -z "$domain" ]]; then
+DIPTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-DIP_TOOL_PAGE/{flag=1;next}/DIP_TOOL_PAGE->/{flag=0}flag')
+cat <<EOTSE
+<body>
+<div id="divClipboard"><p>
+$DIPTPM
+</p></div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EOTSE
+exit 0
+
+else
+
+	if [ ${domain:0:1} = '.' ] || [ ${domain:0:1} = '-' ]; then
+	echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain <br><br>Input should not start with a dot (.) or hypehn (-)!</p></div><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p></body></html>"
+	exit 0
+	fi
+
+	#whois or jwhois
+	if [ $whoisprog = 'jwhois' ]; then
+
+	zyx0=$($zyxwhois $domain 2>&1)
+	zyx=$(echo "$zyx0" | sed  '1,2d' )
+
+		if [[ $(echo "${zyx:0:9}" | gawk '{print tolower($0)}' | tr -d '\040\011\012\015' ) = 'nomatch' ]]; then
+			zyxdvc0=$($zyxwhois $domain  -h whois.iana.org 2>&1); zyxdvc1=$(echo "$zyxdvc0" | sed  '1,2d')
+			zyxdvc="${zyxdvc1:0:9}"
+		fi
+
+	trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ')
+	trywis="${trywis0#*Querying}"
+
+	elif [ $whoisprog = 'whois' ]; then
+	zyx0=$($zyxwhois $domain 2>&1)
+	zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p')
+	trywis0=$(echo "$zyx0" | grep -i -e "Using server" | sort -u )
+	trywis=${trywis0#*Using server }
+
+	else
+
+	echo "
+<body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+"
+	exit 0
+	fi
+
+	#########
+	nsxx=$(echo "$zyx" | grep -i -e 'Name server:' )
+	cnamec=$(dig A +noall +answer $domain)
+	cnamec0=$(dig CNAME +noall +answer $domain)
+
+	if [[ -z $( echo "$cnamec $cnamec0" | grep "IN.CNAME" ) ]]; then
+	cnc='n'
+else cnc='p'
+	fi
+
+	if (( $(grep -c . <<<"$cnamec") > 1)); then
+		senvar=" also"; else senvar=""
+	fi
+	#########
+
+	#==========================
+	# THE GREAT FUNCTION HALL
+	#=================
+	#Domain Status Functions functions that cycles through the status codes and shows a table of wha it means from ICANN
+	dsfunction () {
+
+		while IFS= read -r line; do
+		eppstat=$( echo "${line#*#}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}')
+
+		echo "<script>
+function js$eppstat() { var x = document.getElementById('jsf$eppstat')
+if (x.style.display === 'none') { x.style.display = 'block'; }
+else { x.style.display = 'none'; } }
+function changeText$eppstat() {
+var element = document.getElementById('dss$eppstat');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
+</script>
+<br> <a id='dss$eppstat' class='button tooltip' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' onclick='js$eppstat(); changeText$eppstat();'>+<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;' ><br> Click this to know more about this domain status, a table from ICANN will be diplayed, to close the table click this again. <br><br>
+</span></a>
+${line#*#}"
+
+		done < <(printf '%s\n' "$1")
+
+		echo '<br>--------------------------'
+
+		while IFS= read -r line; do
+		eppstatc=$( echo "${line#*#}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' )
+		dsfparsedtable=$( cat ./eppstatuscodes.zyx | gawk '/<!--tag'"$eppstatc"'0-->/{flag=1;next}/<!--tag'"$eppstatc"'1-->/{flag=0}flag' )
+
+		echo "
+<div id='jsf$eppstatc' style='display:none'>
+$dsfparsedtable
+--------------------------
+</div>
+"
+
+		done < <(printf '%s\n' "$1")
+
+	}
+
+	#Name Servers Function
+	#cycles thorough the name server lines on the raw whois result and removes "name server" before the ":" and prints just the actual servers
+	nsfunction () {
+		if [ -z $2 ] && [ $checknsrb = "y" ]; then
+echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br>"
+
+		while IFS= read -r line; do
+   	echo  "<br/>   ${line#*:}"
+		done < <(printf '%s\n' "$1")
+
+		echo "<script>
+function jsnsverbose() { var x = document.getElementById('nsverbose')
+if (x.style.display === 'none') { x.style.display = 'block'; }
+else { x.style.display = 'none'; } }
+function changeTextnsvt() {
+var element = document.getElementById('nsvtable');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
+</script>
+<a id='nsvtable' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jsnsverbose(); changeTextnsvt();'>+<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to check the IP address / IP addresses associated with the  authoritative name servers, and what organization is responsible for the IP address / IP addressses.<br><br></span></a>
+<div id='nsverbose' style='display:none'> <table> <tbody> <td>
+<p>--------------------------<br>"
+
+		while IFS= read -r line; do
+   	nsr1=$( echo "${line#*:}" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' )
+   	nsr2=$(dig a +short "$nsr1" @8.8.8.8 2>/dev/null )
+   	nscx=$( echo "$( dig a +short $domain @$nsr2 )" | tr -d '\040\011\012\015' )
+
+   	if [[ -z $nsr2 ]]; then
+	 	nsipc='null'
+
+		echo "<span id='fiftyshades' >${line#*:} <br></span>"
+
+		elif [[ ${nscx:0:2} = ";;" ]]; then
+	 	nsipc='xd'
+	 	echo "<span id='fiftyshades' >${line#*:} <br></span>"
+
+	 	else
+		echo "${line#*:} <br>"
+	 	fi
+
+		if (( $(grep -c . <<<"$nsr2") > 1)); then
+
+			while IFS= read -r line; do
+   		nsa0=$($zyxwhois $line )
+
+   		nscx2=$( echo "$( dig a +short $domain @$line )" | tr -d '\040\011\012\015' )
+
+   			if [ ${nscx2:0:2} = ";;" ]; then
+	 			nsipc1='xd'
+	 			fi
+
+   			nsa1=$( echo "$nsa0" | grep -i -e "OrgName:" )
+   			if [[ -z "$nsa1" ]]; then
+	 			nsa2=$( echo "$nsa0" | grep -i -e "NetName:" )
+ 	 			else
+	 			nsa2="$nsa1"
+ 				fi
+
+			nsax=$( echo "$nsa2" | sort -u )
+
+				if [ $nsipc1 = 'null' ]; then
+				echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"
+				nsipc1='reset'
+
+				elif [ $nsipc1 = 'xd' ]; then
+				echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank'>style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:} <br>Warning: This NS does not respond to dig queries!!</span>"; nsipc1="reset"
+
+	 			else
+	 			echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:}"
+ 	 			fi
+			done < <(printf '%s\n' "$nsr2")
+
+		else
+   	echo "<br>"
+   	nsa20=$($zyxwhois "$nsr2" )
+   	nsa21=$( echo "$nsa20" | grep -i -e "OrgName:" )
+
+			if [ -z $nsa21 ]; then
+			nsa22=$( echo "$nsa20" | grep -i -e "NetName:" )
+			else
+			nsa22="$nsa21"
+			fi
+
+			nsax2=$( echo "$nsa22" | sort -u | head -1 )
+
+   		if [ $nsipc = 'null' ]; then
+			echo "<span id='fiftyshades' >Invalid Nameserver - Does not resolve to an IP address!</span>"
+			nsipc="reset"
+
+			elif [[ "$nsipc" = "xd" ]]; then
+			echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:} <br>Warning: This NS does not respond to dig queries!</span>"
+			nsipc="reset"
+
+   		else
+			echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:}"
+			fi
+
+		fi
+  echo '<br><br>'
+	done < <(printf '%s\n' "$1");
+	echo "--------------------------</p>
+</td> </tbody> </table> </div>
+<p>"
+
+		elif [ $2 = "z" ] || [ $checknsrb = "n" ]; then
+		echo "<br><a href='https://securitytrails.com/domain/$domain/history/ns' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the name server history from https://securitytrails.com<br><br></span></a> <strong>Name Servers:</strong><br><br>"
+		while IFS= read -r linez; do
+   	echo -e "${linez#*:} <br>"
+		done < <(printf '%s\n' "$1")
+
+
+		elif [ $2 = 'x' ]; then
+		echo '<br>'
+		while IFS= read -r linez; do
+    echo -e "${linez#*:} $3"
+		done < <(printf '%s\n' "$1")
+
+	else echo "Nothing here."
+	fi
+	}
+
+	#A Record Function
+	#cycles through the A record/s and will get the company/individual that is liable for the IP address
+	arfunction () {
+	cnchk=$( dig CNAME $domain @8.8.8.8 )
+
+		if [ -z $2 ]; then
+		arff="$1"
+
+		elif [[ $2 = "x" ]]; then
+		artqns=$( echo "$1" | gawk '{print tolower($0)}' )
+		arff=$(dig a +short $domain @$artqns )
+
+		else
+		#arff=$(dig a +short $domain);
+		artqns="8.8.8.8"
+		arff=$(dig A +short $domain @$artqns )
+		fi
+
+		if (( $(grep -c . <<<"$arff") > 1)); then
+		artvar="A Records:"
+		else
+		artvar="A Record:"
+		fi
+
+		echo "<a href='https://securitytrails.com/domain/$domain/history/a' target='_blank' style='font-size: 110%' class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the A record history from https://securitytrails.com<br><br></span></a> <strong>$artvar </strong><br>"
+
+		if [ -z $arff ]; then
+		echo "<br><span id='fiftyshades' >No A record found!</span> <br>"
+
+		else
+
+			while IFS= read -r line; do
+				if [[ "$line" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+				rchk="A";
+
+					if [ ${line:0:7} = "192.168" ] || [ ${line:0:4} = "10.0" ] || [ ${line:0:6} = "172.16" ] || [ ${line:0:6} = "172.31" ]; then
+					rchkx="r1"
+					alinex="$line"
+
+					elif [ ${line:0:4} = "127." ] || [ ${line:0:3} = "0.0" ]; then
+					rchkx="r0"
+					alinex="$line"
+
+					else
+					rchkx="rr"
+					alinex="$line"
+   				ar0=$($zyxwhois $alinex )
+					fi
+
+   			elif [ $cnc = 'p' ] && [[ ! -z "$(dig +short A $line )" ]]; then
+				ealinex=$(dig a +short $line )
+				alinex="$ealinex"
+				ar0=$($zyxwhois $alinex )
+				rchk="CNAME"
+
+				else
+				rchk="WTF"
+				fi
+
+	 		ar1=$( echo "$ar0" | grep -i -e "OrgName:" )
+
+			if [ -z $ar1 ]; then
+			ar2=$( echo "$ar0" | grep -i -e "NetName:" )
+			else ar2="$ar1"
+			fi
+
+			arx=$( echo "$ar2" | sort -u | head -1 )
+
+			if [ $rchk = 'A' ] && [ $rchkx = 'r0' ]; then
+			echo "<br>   <span id='naruto' >$alinex --- [ PRIVATE IP ]</span> <br>"
+
+			elif [ $rchk = 'A' ] && [ $rchkx = 'r1' ]; then
+			echo "<br>   <span id='naruto' >$alinex --- [ RESERVED IP ]</span> <br>"
+
+			elif [ $rchk = 'A' ] && [ $rchkx = 'rr' ]; then
+			echo "<br>   $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex&swstq=&sptq=' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span>
+<span class='tooltiptext' >
+<br>Click this to get the full raw whois data.<br><br>
+</span></a> ${arx#*:}"
+
+			elif [ $rchk = 'CNAME' ]; then
+			echo "<br> <span id='fiftyshades' >$line --- [ CNAME ]"
+
+			elif [ ! -z $cnchk ] && [[ -z $( echo "$rchk" | grep "A") ]]; then
+			echo "<span id='fiftyshades'><br> Domain resolves to Oblivion... <br>
+Warning: domain resolves to only a CNAME and nothing more, <br>
+also the CNAME is invalid / does not resolve to an IP address. </span>"
+
+			else
+			echo "<br>Domain resolves to oblivion!"
+			fi
+		done < <(printf '%s\n' "$arff")
+
+	fi
+	}
+
+	#MX Record/s Function
+	#cycles through the A record/s under the MX record/s and will get the company/individual that is liable for the IP address
+	mrfunction () {
+
+		if [ -z $2 ]; then
+		mxrff="$1"
+
+		elif [ $2 = 'x' ]; then
+		mxrtqns=$( echo "$1" | gawk '{print tolower($0)}' )
+		mxrff=$(dig mx +short $domain @$mxrtqns | sort -n )
+
+		elif [ $2 = 'y' ]; then
+		mxrtqns="8.8.8.8"
+		mxrff=$(dig mx +short $domain @$mxrtqns | sort -n )
+
+		else
+		mxrtqns="8.8.8.8"
+		mxrff=$(dig mx +short $domain @$mxrtqns | sort -n )
+		fi
+
+		if (( $(grep -c . <<<"$mxrff") > 1)); then
+		mxtvar="MX Records:"
+		else
+		mxtvar="MX Record:"
+		fi
+
+		echo "<a href='https://securitytrails.com/domain/$domain/history/mx' target='_blank' style='font-size: 110%'class='tooltip'> <span id='noselect'>&#9960;</span> <span class='tooltiptext' ><br>Click to get the MX record history from https://securitytrails.com<br><br></span></a> <strong> $mxtvar </strong> <br> <br>"
+
+		tmxrc=$( if [[ -z $( echo "$( dig MX $domain @8.8.8.8 2>/dev/null)" | grep -w "IN.MX" ) ]]; then echo 'x'; else echo 'y'; fi )
+
+		if [ -z $mxrff ]; then
+		echo "<span id='fiftyshades' >No MX record found!</span> <br>"
+
+		elif [ $tmxrc = 'x' ]; then
+		echo "<span id='fiftyshades' >MX record not found! <br>[ Possibly misconfigured ] </span> <br>"
+
+		elif [ $cnc = 'p' ]; then
+		echo "<span id='fiftyshades' >W arning: The Naked Domain resolves to a CNAME! <br>T his might result in unexpected pregnancy (I mean error), like this one!<br>F or all we know, it could even start World War 6!</span> <br>"
+
+		else
+
+		if [ $cnc = 'p' ]; then
+		mxrffcf=$( echo  "$mxrff"  | sed '/ /!d' )
+		else
+		mxrffcf="$mxrff"
+		fi
+
+		while IFS= read -r line; do
+   	mxr1=$(echo  $line | cut -f2 -d" ")
+   	mxr1a=$(echo $line | cut -f1 -d" ")
+
+   	if [ $checknsrb = "n" ] || [ $checknsrb = "N" ]; then
+   	mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null )
+   	mxrc=$( dig +noall +answer ANY "$mxr1" @8.8.8.8 2>/dev/null )
+
+		elif [ $checknsrb = "y" ] || [ $checknsrb = "Y" ]; then
+   	mxr2=$(dig A +short "$mxr1" @8.8.8.8 2>/dev/null )
+   	mxrc=$( dig ANY +noall +answer "$mxr1" @8.8.8.8 2>/dev/null )
+
+		else
+   	mxr2=$(dig A +short "$mxr1" @"$mxrtqns" 2>/dev/null )
+   	fi
+
+   	mxcnamevarc=$( echo "$mxrc" | grep -w "IN.CNAME" )
+   	mxcnamevara=$( echo "$mxrc" | grep -w "IN.A" )
+
+   	mxcnamechk=$( if [ -z $mxcnamevarc ]; then echo 'x'; else echo 'y'; fi )
+   	mxachk=$( if [ -z $mxcnamevara ]; then echo 'x'; else echo 'y'; fi )
+
+		if [ -z "$mxr2" ] && [[ $mxcnamechk = "x" ]] && [[ $mxachk = "x" ]]; then
+		mxipc='null'
+		echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-size:80%;'>MX Record Misconfigured ( Case 1 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname does not resolve to an A/CNAME record.</span></span>"
+
+		elif [ $mxcnamechk = 'y' ] && [ $mxachk = 'x' ]; then
+		mxabc=$( dig A +short "$(dig cname $mxr1 +short 2>/dev/null )" 2>/dev/null )
+
+			if [ -z "$mxabc" ]; then
+			echo "<span id='fiftyshades' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-size:80%;'>MX Record Misconfigured ( Case 2a ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to CNAME record/s that does not resolve to an IP address.</span></span><br>"
+
+			elif [ ! -z "$mxabc" ]; then
+			echo "<label class='tooltip' style='color: green'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-size:80%;'>MX Record Configuration ( Case 2b ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to CNAME record/s:</span><br>"
+
+			else
+			echo "<label class='tooltip' style='color: green'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should not ever see this! <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since you did, please contact the webmaster.<br>"
+			fi
+
+		elif [ $mxcnamechk = 'y' ] && [ $mxachk = 'y' ]; then
+		mxipc='null'
+
+		echo "<span id='naruto' ><label class='tooltip'>$mxr1a <span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></label> &nbsp;$mxr1 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-size:80%;'>MX Record Possibly Misconfigured ( Case 3 ), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The hostname resolves to a combination of CNAME/s and A record/s:</span></span><br><br>&nbsp;&nbsp;&nbsp;&nbspClick <a href='/cgi-bin/digger.zyx?domain=${mxr1%?}&record=ANY&nameserver=' target='_blank'>here</a> to see all records associated with this hostname.<br>"
+
+		else
+		echo "<strong class='tooltip'><label>$mxr1a </label><span class='tooltiptext' ><br>MX priority: $mxr1a <br><br></span></strong> &nbsp;$mxr1 <br>";
+
+		fi
+	echo '<br>'
+
+		if (( $(grep -c . <<<"$mxr2") > 1)); then
+
+			while IFS= read -r linex; do
+   		mxa1=$( echo "$($zyxwhois $linex )" | grep -i -e "OrgName:" )
+
+   			if [[ -z "$mxa1" ]]; then
+				mxa2=$( echo "$mxa0" | grep -i -e "NetName:" )
+				else
+				mxa2="$mxa1"
+				fi
+
+   		mxax=$( echo "$mxa2" | sort -u | head -1 );
+
+   			if [[ "$mxipc" = "null" ]] && [[ -z "$mxachk" ]]; then
+				echo "<span id='fiftyshades' >MX record possibly misconfigured: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname does not resolve to an A record.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to CNAME record/s. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The hostname resolves to both CNAME and A record/s.<br></span>"
+
+				else
+
+   					if [[ "$linex" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+
+							if [ ${linex:0:7} = "192.168" ] || [ ${linex:0:4} = "10.0" ] || [ ${linex:0:6} = "172.16" ] || [ ${linex:0:6} = "172.31" ]; then
+							echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ PRIVATE IP ]</span> <br>"
+
+							elif [ ${linex:0:4} = "127." ] || [ ${linex:0:3} = "0.0" ]; then
+							echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ RESERVED IP ]</span> <br>"
+
+							else
+							echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax#*:} <br>"
+							fi
+
+						else
+							echo "&nbsp; &nbsp; $linex --- [ CNAME ] <br>"
+						fi
+   			fi
+			done < <(printf '%s\n' "$mxr2");
+
+		else
+
+   	mxa20=$($zyxwhois "$mxr2" )
+   	mxa21=$( echo "$mxa20" | grep -i -e "OrgName:" )
+
+   		if [ -z $mxa21 ]; then
+			mxa22=$( echo "$mxa20" | grep -i -e "NetName:" )
+
+			else
+			mxa22="$mxa21"
+			fi
+
+   	mxax2=$( echo "$mxa22" | sort -u | head -1 )
+
+   		if [ ! -z $mxr2 ]; then
+
+				if [ $mxipc = 'null' ] && [[ $mxachk = "x" ]] && [[ $mxcnamechk = "x" ]]; then
+				echo "<span id='fiftyshades' >Invalid MX Record - Does not Resolve to an IP address!</span>"
+
+				else
+   				if [[ "$mxr2" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
+
+						if [ ${linex:0:7} = "192.168" ] || [ ${linex:0:4} = "10.0" ] || [ ${linex:0:6} = "172.16" ] || [ ${linex:0:6} = "172.31" ]; then
+						echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ PRIVATE IP ]</span> <br>"
+
+						elif [[ ${linex:0:4} = "127." ]] || [[ ${linex:0:3} = "0.0" ]]; then
+						echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ RESERVED IP ]</span> <br>"
+
+						else
+						echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax2#*:} <br>"
+						fi
+
+   			else
+				echo "&nbsp; &nbsp; $mxr2 --- [ CNAME ] <br>"
+				fi
+   		fi
+   	fi
+	fi
+  echo '<br>'
+	done < <(printf '%s\n' "$mxrffcf");
+
+	fi
+	}
+
+	##DaysCalcFunction
+	countdfunc () {
+
+		extdate=$(echo "$1" | grep -o -P '(?<=Date:).*(?=T)' | tr -d '\040\011\012\015' )
+		#some registrar does not have the "T" on the expiration date but rather a space to divide the date and time - thus the above will not be enough - the following line will utilize the space between the date and the time instead
+		if [[ -z $extdate ]]; then
+		extdatex=$(echo "$1" | grep -o -P '(?<=Date:).*(?= )' | tr -d '\040\011\012\015' )
+
+		else
+			extdatex="$extdate"
+		fi
+		daysleft=$( echo $((($(date +%s --date "$extdatex")-$(date +%s))/(3600*24))) )
+		echo "$daysleft";
+	}
+	#=====================
+	# END OF FUNCTION HALL
+	#=====================
+
+	#domain validity check -if  by checking the first 9 characters on the raw whois result
+	dvc=$(echo "${zyx:0:9}" |  gawk '{print tolower($0)}' | tr -d '\040\011\012\015')
+
+
+	if [[ $dvc = "domainno" || $dvc = "nomatch" || $dvc = "notfound" || $dvc = "nodataf" || $dvc = "nowhois" || $dvc = "thisdoma" || $dvc = "nom" || $dvc = "invalidq" || $dvc = "whoisloo" || $dvc = "theregis" || $dvc = "connect" || $dvc = "available" || $dvc = ">>>domai" || $dvc = "connect:" || $dvc = "errorth" || $dvc = "noinform" || $dvc = "thequeri" ]]; then
+
+	domhv=$( echo "$(nslookup "$domain")" | grep -e 'NXDomain'  )
+		if [[ $( echo "${domain#*.}" | grep -o "\." | wc -l) -gt "0" ]] && [ -z $domhv ]; then
+		domvarx="- ( A sub domain )"
+
+		else
+		domvarx="<br>( Not a  valid domain / sub domain but rather something else. )"
+		fi
+		echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or has been deleted and is no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>3.The domain's TLD has beed added to the not supported TLD <a href='/zyx/lib/blob/tldlistx.blob' target='_blank'>list</a><br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/whois.zyx?domain=$domain' target='_blank' >here.</a></p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p></body></html>"
+		exit 0
+
+		elif [ $dvc = "%ianawh" ] || [ $zyxdvc = "%ianawh" ]; then
+		echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>$zyx<pre></p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body></html>"
+		exit 0
+
+		elif [ $dvc = "patterns" ]]; then
+		echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain - is a TLD
+<br><br><pre>But if you do a 'whois $domain' <br>on a Linux terminal you will get:<br><br>'$zyx'<br><br>So if you are here to validate this TLD <br>or want to get some info about it,<br>do not start the input with a dot '.'
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body></html>"
+		exit 0
+
+else
+
+#once the domain is validated the TLD is extracted
+tld=$( echo $domain | rev | cut -d "." -f1 | rev )
+
+if [[ $tld = "shop" ]]; then zyx=$(whois $domain -h whois.nic.shop 2>&1 ); else true; fi;
+
+#extracts then queries the whois server of the registar then prints the result with string manipulations
+whoisservergrep=$(echo "$zyx" | grep -i -e "REGISTRAR WHOIS SERVER:" | sort -u );
+
+if [[ -z "$whoisservergrep" ]]; then true;
+else
+	if [[ $whoisprog = 'jwhois' ]]; then
+
+	whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+
+	elif [[ $whoisprog = 'whois' ]]; then
+
+	whoisserver0=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+	whoisserver=${whoisserver0#*Using Server };
+
+	else
+	whoisserver=$(echo "$whoisservergrep" | cut -f2 -d":" | tr -d '\040\011\012\015' );
+	fi;
+
+zyx2=$(whois $domain -h $whoisserver 2>&1 );
+fi;
+
+#REESE
+rese=$(echo "$zyx2" | grep -i -e "reseller:");
+reseller="${rese#*:}";
+if [[ -z "$reseller" ]] || [[ "$reseller" = " " ]];
+then reese="None";
+else reese="$reseller"; fi;
+#REESE
+
+. ../zyx/sh/tldblob.sh
+
+#list of supported TLDs
+shopt -s extglob
+tldlistg="+($TLDLISTG)";
+
+#list of supported ccTLDs
+tldlist0="+($TLDLIST0)";
+
+tldlistx="+($TLDLISTX)";
+
+#checks if the TLD is a gtld if it is the script will start to butcher the raw result and get the juicy details
+case $tld in
+
+   $tldlistx)
+echo "<body>
+<div id='divClipboard'><pre>This TLD was added to the unsupported TLD list.<br><br><br>To know why it unsupported contact the webmaster at $CEMAIL</pre><p></div>"
+
+;;
+
+   $tldlistg)
+
+############
+### CORE ###
+###########
+#stores the registrar name on a variable
+registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
+
+#stores the func processed domain status on a variable
+dsfrgt=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
+
+#stores the domain's creation date
+creationdate0=$(echo "$zyx" | grep -i -e "Creation date:");
+creationdate1=$( echo "${creationdate0#*:}"| sed 's/T/\<span id="domaintimes" > Time: <\/span>/g' );
+dayssince0=$( countdfunc "$creationdate0" );
+
+#stores the domain's expiration date from the registry
+expdx0=$(echo "$zyx" | grep -i -e "Registry expiry date:");
+expdx1=$( echo "${expdx0#*:}" | sed 's/T/\<span id="domaintimes"> Time: <\/span>/g' );
+dayslefttry0=$( countdfunc "$expdx0" );
+
+#stores the domain's expiration date from the registrar
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]];
+then
+expd1="<span id='fiftyshades' >Unable to retrieve expiry date. <span style='-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' >( <span class='tooltip' ><span style='color:red'>[?]</span><span class='tooltiptext'><br>Possible Causes: <br>1.) Whois servers have lookup limits for each IP or IP range,<br>these limits are sometimes imposed as per second rate-limits and daily rate-limits. <br>( You can try again later )<br><br>2.) The whois server configured on the host of this site might be invalid. <br>( You can try the whois tool to specify what whois server to query )<br><br></span> Try again later or try </span><a href='/cgi-bin/whois.zyx' target='_blank' > this</a> )</span></span>"
+daysleftrar0="<span id='fiftyshades' >Counter Error: Whois server Not Found!</span>";
+else
+expd0=$(echo "$zyx2" | grep -i -e "Registrar registration expiration date:");
+if [[ -z "$expd0" ]] || [[ "$expd0" = " " ]];
+then
+expd1="<span id='fiftyshades' >Unable to retrieve expiry date.<span style='-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' > ( <span class='tooltip' ><span style='color:red' >[?]</span><span class='tooltiptext'><br>Possible Causes: <br>1.) Whois servers have lookup limits for each IP or IP range,<be>these limits are sometimes imposed as per second rate-limits and daily rate-limits. <br>( You can try again later )<br><br>2.) The whois server configured on the host of this site might be invalid. <br>( You can try the whois tool to specify what whois server to query )<br><br></span> Try again later or try </span><a href='/cgi-bin/whois.zyx' target='_blank' > this</a> )</span>"
+daysleftrar0="<span id='fiftyshades' >Counter Error: Date Not Found!</span></span>";
+else
+expd1=$( echo "${expd0#*:}" |sed 's/T/\<span style="color:#145a32;"> Time: <\/span>/g' | sed 's/tration/\y/g' );
+daysleftrar0=$( countdfunc "$expd0" ); fi;
+fi;
+
+#COUNTER VAR CONDITIONALS
+if [[ "$dayssince0" = "0" ]];
+then
+dayssincevar="Domain was registered";
+dayssince="today!";
+else
+dayssincevar="Days counted since creation";
+dayssince="${dayssince0#*-}";
+fi;
+
+if [[ "${dayslefttry0:0:1}" = "-" ]];
+then
+dltryvar="<span id='fiftyshades' >Days Expired (Registry)</span>";
+dayslefttry=${dayslefttry0#*-};
+else
+dltryvar="Days Left (Registry)";
+dayslefttry="$dayslefttry0";
+fi;
+
+if [[ "${daysleftrar0:0:1}" = "-" ]];
+then
+dlrarvar="<span id='fiftyshades' >Days Expired (Registrar)</span>";
+daysleftrar=${daysleftrar0#*-};
+else
+dlrarvar="Days Left (Registrar)";
+daysleftrar="$daysleftrar0";
+fi;
+#COUNTER VAR CONDITIONALS
+
+#COUNTER NOTE ABOUT SERV TIME AND ZONE
+timez="--------------------------<br><span style='font-size:75%;color: grey;'>The number of days below are calculated <br>based on the server's time and time zone<br>($(date)).</span>";
+#COUNTER NOTE ABOUT SERV TIME AND ZONE
+
+cat << EODNARGT0
+<body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx">
+<div id="divClipboard"><p>__________________________<br><br>
+<strong>Domain Name: </strong>$domain<br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+<strong>Reseller: </strong>$reese<br>
+__________________________<br><br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' > <strong>Domain Status: </strong></a><br>
+$dsfrgt
+<!-- ILLUSIONIST -->
+<p>
+<!-- ILLUSIONIST -->
+<strong>Creation Date: </strong>$creationdate1 <br>
+<strong>Registry Expiry Date: </strong> $expdx1 <br>
+<strong><span style="color:#145a32;">Registrar Expiry Date:</span> </strong> $expd1
+<!-- COUNTER DISPLAY-->
+<script>
+function jstimeverbose() { var x = document.getElementById('timeverbose');
+if (x.style.display === 'none') { x.style.display = 'block'; }
+else { x.style.display = 'none'; } }
+function changeTextdatestab() {
+var element = document.getElementById('datestab');
+if (element.innerHTML === '-') {element.innerHTML = '+'; }
+else { element.innerHTML = '-';} }
+</script>
+<a id='datestab' style='color:tomato; cursor: pointer; font-weight: bold; font-size: 120%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;' class='button tooltip' onclick='jstimeverbose(); changeTextdatestab(); '>+<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click this to spawn a table with 'days left' before the domain expires and 'days counted' since it was created<br><br></span></a>
+<div id='timeverbose' style='display:none'> <table> <tbody> <td>
+<p>$timez<br><br>
+<strong>$dayssincevar</strong> : $dayssince <br>
+<strong>$dltryvar</strong> : $dayslefttry <br>
+<strong>$dlrarvar</strong>: $daysleftrar <br>
+--------------------------
+</p></td> </tbody> </table> </div><p>
+<!--COUNTER DISPLAY-->
+__________________________<br>
+EODNARGT0
+
+#####nscheck to suposedly prevent the endless spin of death
+#verifies if an auth resolves to an IP address - good for verifying glue records
+nscheckfunc () {
+while IFS= read -r linec
+do
+	dqns=$( echo "${linec#*:}" | tr -d '\040\011\012\015' );
+	if [[ -z "$( dig a +short $dqns @8.8.8.8 )" ]]; then nsxcr="y"; else nsxcr="x"; fi;
+	echo "$nsxcr";
+done < <(printf '%s\n' "$1"); }
+
+#######################################
+#auth ns to query for records - checks if th ns is digable
+#######################################
+nstqfunc () {
+xnsxx=$( nsfunction "$1" "x" );
+
+while IFS= read -r xline
+do
+xcount=$(( $xcount + 1 ));
+nssfa=$( echo ${xline#*:} | tr -d '\040\011\012\015' );
+arayko[$xcount]="$nssfa";
+linecheck=$( dig a +short "${arayko[$xcount]}" @8.8.8.8 );
+lcdc=$( dig +short a example.com @${arayko[$xcount]} | tr -d '\040\011\012\015' );
+if [[ -z "$linecheck" ]] && [[ -z "${arayko[$(( $xcount - 1 ))]}" ]]; then xqns="8.8.8.8";
+elif [[ -z "$linecheck" ]] || [[ "${lcdc:0:2}" = ";;" ]]; then xqns="${arayko[$(( $xcount - 1 ))]}";
+else xqns="${arayko[$xcount]}"; fi;
+done < <(printf '%s\n' "$xnsxx");
+
+echo "$xqns";
+}
+#######################################
+
+if [[ $checknsrb = "n" ]]; then
+nstoquery="8.8.8.8";
+nscheck="x";
+elif  [[ $checknsrb = "y" ]]; then
+nstoquery=$( nstqfunc "$nsxx");
+nscheck=$( nscheckfunc "$nsxx" | gawk '!seen[$0]++' | tr -d '\040\011\012\015' );
+else
+echo "wow";
+fi;
+
+if [[ "$nscheck" = "y" ]]; then
+ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
+#func processed A and MX records
+arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+arecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following is/are from 8.8.8.8:<br>$arfrgt</span>";
+mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mxrecho="<span id='fiftyshades' >Authoritative Name servers invalid. <br>The following is/are from 8.8.8.8:<br>$mrfrgt</span>";
+echo "
+$ns0frgt <br>
+__________________________<br> <br>
+$arecho <br>
+__________________________<br> <br>
+$mxrecho
+__________________________
+";
+
+elif [[ "$nscheck" = "yx" ]]; then
+ns0frgt=$( nsfunction "$nsxx" "z" "<br>");
+#func processed A and MX records
+arfrgt=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+arecho="<span id='fiftyshades' >Critical issue found on 1 or more authoritative name server. <br>Queried 8.8.8.8 instead.<br>$arfrgt</span>";
+mrfrgt=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+mxrecho="<span id='fiftyshades' >Critical issue found on 1 or more authoritative name server. <br>Queried 8.8.8.8 instead.<br>$mrfrgt</span>";
+echo "
+$ns0frgt
+__________________________<br> <br>
+$arecho<br>
+__________________________<br> <br>
+$mxrecho
+__________________________
+";
+
+
+elif [[ "$nscheck" = "x" ]] || [[ "$nscheck" = "xy" ]]; then
+
+nsfrgt=$( nsfunction "$nsxx" "" "<br>" );
+arfrgt=$( arfunction "$nstoquery" "x" );
+mrfrgt=$( mrfunction "$nstoquery" "x" );
+
+echo "
+$nsfrgt
+__________________________<br> <br>
+$arfrgt<br>
+__________________________<br> <br>
+$mrfrgt
+__________________________
+";
+else echo "<br><br><br>Seriously?!? you ended up here?... wow!<br><br><br>";
+fi;
+;;
+############
+### CORE ###
+###########
+
+edu)
+
+zyx=$($zyxwhois $domain);
+arfredu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+
+cat << EDUSECTION
+<body>
+<p><div id="divClipboard">
+<pre>${zyx#*-------------------------------------------------------------}</pre>
+__________________________
+<p>
+$arfredu <br>
+__________________________<br> <br>
+$mrfredu
+__________________________<br>
+</p></div>
+<pre>${zyx%-------------------------------------------------------------*}</pre>
+</body>
+<footer>
+<hr>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</footer>
+</html>
+EDUSECTION
+exit 0;
+;;
+
+gov)
+
+zyx=$($zyxwhois $domain);
+ar=$(dig +short $domain @8.8.8.8);
+arfrgov=$( arfunction "$ar" );
+mrfrgov=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y');
+
+zyx0=$(echo "$zyx" | gawk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}flag' );
+
+cat << GOVSECTION
+<body>
+<p>
+<div id="divClipboard">
+<pre>$zyx0</pre>
+__________________________
+<p>
+$arfrgov<br>
+__________________________<br><br>
+$mrfrgov
+__________________________<br>
+</p>
+</div>
+</body>
+<footer>
+<hr>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</footer>
+</html>
+GOVSECTION
+exit 0;
+;;
+
+mil)
+arfrmil=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrmil=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+
+cat << MILSECTION
+<body>
+<div id="divClipboard"><p>
+<strong>Input</strong>: $domain <br><br>
+This TLD has no whois server.<br><br>
+.mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
+The domain name mil is the sponsored top-level domain (sTLD) in the Domain Name System of the Internet for the United States Department of Defense and its subsidiary or affiliated organizations. More info <a href='https://en.wikipedia.org/wiki/.mil' target='_blank'>here.</a></p>
+__________________________<p>
+$arfrmil <br>
+__________________________<br><br>
+$mrfrmil
+__________________________<br></p>
+</div>
+</body>
+<footer>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</footer>
+</html>
+MILSECTION
+exit 0;
+;;
+
+$tldlist0)
+
+zyx=$($zyxwhois $domain);
+
+#dig A and MX with minimal essential output from Google DNS servers
+arfrct=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrct=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+
+#start of html body
+echo "<body><br>
+<h1>TLD does not have any configured custom result, falling back to raw whois result </h1><br>
+<div id='divClipboard'><pre>$zyx</pre><p>
+__________________________<br><br>
+$arfrct <br>
+__________________________<br><br>
+$mrfrct
+__________________________</p></div>";
+
+;;
+
+#special trimming for AU ccTLDs
+au)
+
+#stores the whois info from auda in a variable.
+zyx=$($zyxwhois $domain );
+
+#dig A and MX with minimal essential output
+arfrctau=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrctau=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+
+if [[ ! -z $( echo "$zyx" | grep -w "WHOIS LIMIT EXCEEDED" ) ]];
+
+then echo "<body>
+<div id='divClipboard'>
+<p><br>The whois server/s of <a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a> (AU Domain Administration ) solely responds for whois queries regarding '.au' domains. And there is a limit on how many times their server/s will respond to whois queries from an I.P address on a given time. The IP address of this server has reach the said limit, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of $domain directly from auDA's web interface.<br><br>
+__________________________<br><br>
+<pre>$arfrctau</pre> <br>
+__________________________<br><br>
+$mrfrctau <br>
+__________________________</p></div>
+</body><br>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</html>";
+
+exit 0;
+
+else
+
+#stores the registrar name on a variable
+registrar=$(echo "$zyx" | grep -i -e "registrar name:" -e "registrar:");
+
+#stores the func processed domain status
+dsfrctau=$( dsfunction "$(echo "$zyx" | grep -i -e "status:" )" );
+
+#stores the name servers on a variable
+nsfrctau=$( nsfunction "$(echo "$zyx" | grep -i -e "name server:" )" );
+
+#stores the registrant contact
+regcontact=$(echo "$zyx" | grep -i -e "Registrant Contact Name:");
+
+#stores the tech contact
+techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
+
+#print the domain and the registrar
+echo "
+<body>
+<input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'>
+<p>__________________________<br><br>
+<strong>Domain Name:</strong> $domain <br><br>
+<strong>Registrar: </strong>${registrar#*:} <br>
+__________________________<br><br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank' ><strong>Domain Status: </strong></a><br>
+$dsfrctau
+<p>
+__________________________<br>
+$nsfrctau
+__________________________<br><br>
+$regcontact <br>
+$techcontact <br>
+__________________________<br><br>
+$arfrctau <br>
+__________________________<br> <br>
+$mrfrctau
+__________________________
+</p>
+";
+
+fi;
+
+;;
+
+#special trimming for NZ ccTLDs
+nz)
+
+# query whois about the domain and store the raw output to a variable
+zyx=$($zyxwhois $domain);
+
+#dig A and MX with minimal essential output
+arfrctnz=$( arfunction "$(dig +short $domain @8.8.8.8 )");
+mrfrctnz=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+
+#stores the registrar name on a variable
+registrar=$(echo "$zyx" | grep -i -e "registrar_name:");
+
+#stores other registrar info on a variable
+regcoun=$( echo "$zyx" | grep -i -e "registrar_country:")
+
+#stores the domain status
+dsnzfunc () {
+dstat="$1"
+while IFS= read -r line
+do
+   echo  "</br> ${line#*#} ";
+done < <(printf '%s\n' "${dstat#*:}");
+}
+dsnzfuncr=$( dsnzfunc "$(echo "$zyx" | grep -i -e "query_status:" )" );
+
+#stores the domain expiration date on a variable
+lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
+
+#stores the name servers on a variable
+nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
+nsfrctnz=$( nsfunction "$nameservers");
+
+#print the domain and the registrar
+cat << EODNARCTNZ
+<body><div id="divClipboard">
+<p>
+__________________________<br><br>
+<strong>Domain Name:</strong> $domain <br><br>
+<strong>Registrar: </strong>${registrar#*:}<br>
+Registrar Country: ${regcoun#*:}<br>
+__________________________<br> <br>
+<a href='/cgi-bin/eppstatuscodes.zyx' target='_blank'><strong>Domain Status: </strong></a><br>
+$dsnzfuncr <br><br>
+--------------------------<br>
+Last Modified: ${lastmod#*:} <br>
+__________________________<br><br>
+$nsfrctnz
+__________________________<br><br>
+$arfrctnz <br>
+__________________________<br><br>
+$mrfrctnz
+__________________________</p></div>
+EODNARCTNZ
+;;
+
+#special whois result trim for UK TLDs
+uk)
+zyx=$($zyxwhois $domain);
+zyxuk0=$(echo "$zyx" | gawk '/Registrar:/{flag=1;next}/WHOIS lookup made at/{flag=0}flag' );
+#dig A and MX with minimal essential output
+arfrctuk=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrctuk=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+echo "<body><div id='divClipboard'>
+<p><pre><strong>Domain name: </strong>$domain<br><br> &nbsp; <strong>Registrar:</strong><br>$zyxuk0</pre>
+__________________________
+<p>
+$arfrctuk <br>
+__________________________<br><br>
+$mrfrctuk
+__________________________<br></p></div>
+<hr><p>Raw whois result below:</p><hr>
+<br><pre>$zyx</pre><br>";
+
+;;
+
+#special whois result trim for EU TLDs
+eu)
+zyx=$($zyxwhois $domain);
+zyxeu0=$(echo "$zyx" | gawk '/Domain:/{flag=1;next}/Keys:/{flag=0}flag' );
+
+#dig A and MX with minimal essential output
+arfrcteu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrcteu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+echo "<body>
+<div id='divClipboard'>
+<p><pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
+__________________________
+<p>
+$arfrcteu <br>
+__________________________ <br> <br>
+$mrfrcteu
+__________________________
+<br></p></div><hr>
+<p>Raw whois result below:</p><hr>
+<br><pre>$zyx</pre><br>";
+;;
+
+#special result for .ph ccTLD
+ph)
+arfrph=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrph=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+echo "<body><div id='divClipboard'><p>
+<br>For the  Whois info of this .ph domain, <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank' >https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a></p>
+<p>__________________________ <br><br>
+<strong>Domain:</strong> $domain <br>
+__________________________<br><br>
+$arfrph <br>
+__________________________<br><br>
+$mrfrph
+__________________________</p></div>
+</body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</html>";
+exit 0;
+;;
+
+#special result for .sg ccTLD
+sg)
+arfrsg=$( arfunction "$(dig +short $domain @8.8.8.8)" );
+mrfrsg=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+echo "<body><div id="divClipboard">
+<p><br>For the  Whois info of this .sg domain, <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a></p>
+<p>
+__________________________ <br> <br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br><br>
+$arfrsg <br>
+__________________________<br><br>
+$mrfrsg
+__________________________</p></div>
+</body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</html>";
+exit 0;
+;;
+
+#special result for .vn ccTLD
+vn)
+arfrvn=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+mrfrvn=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
+echo "
+<body>
+<div id="divClipboard">
+<p><br>For the  Whois info of this .vn domain, <br>
+Click the link below or copy and paste it on a browser's address bar:  <br> <br>
+<a href='https://vnnic.vn/en/whois-information?lang=en' target='_blank'>https://vnnic.vn/en/whois-information?lang=en</a></p>
+<p>
+__________________________ <br><br>
+<strong>Domain:</strong> $domain <br>
+__________________________ <br><br>
+$arfrvn <br>
+__________________________ <br><br>
+$mrfrvn
+__________________________</p></div>
+</body>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</html>";
+exit 0;
+;;
+
+jp)
+zyx=$($zyxwhois $domain);
+
+#PASS the a record/s to arfunc
+arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
+#PASS the mx record/s to mxrfunc
+mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
+echo "<body><br><div id='divClipboard'>
+<pre>${zyx#*Domain Information:}</pre>
+<p>
+__________________________<br><br>
+$arfrjp <br>
+__________________________<br><br>
+$mrfrjp
+__________________________</p></div>
+<hr><p>Raw whois result below:</p><hr>
+<br><pre>$zyx</pre><br>";
+;;
+
+#throw an error for anything else
+*)
+cat << ERRORFORALLELSE
+<body>
+<div id='divClipboard'>
+<p><strong>Input</strong> : $domain <br> <br>
+Not a valid domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)<a/>!</p>
+ERRORFORALLELSE
+exit 0;
+
+;;
+esac;
+
+echo "</p></div></body>"
+#2nd if fi
+fi
+#1st if fi
+fi
+
+echo "<footer>"
+registrant=$(echo "$zyx2" | grep -i -e "registrant .*:");
+admin=$(echo "$zyx2" | grep -i -e "admin .*:");
+tech=$(echo "$zyx2" | grep -i -e "tech .*:");
+
+if [[ -z "$registrant" ]]; then
+regwis="$(echo $whoisservergrep | tr -d '\040\011\012\015')"
+case "$regwis" in
+"RegistrarWHOISServer:http://api.fastdomain.com/cgi/whois")
+echo "<hr>
+<br> click <a href='http://api.fastdomain.com/cgi/whois?domain=$domain' target='_blank'>here</a> for the raw whois info from the  FastDomain's whois server web interface.<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span><hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</footer>
+</html>"
+exit 0;
+;;
+
+ *)
+echo '<hr>'
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]];
+then
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>";
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]];
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi;
+
+fi;
+echo "<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</footer>
+</html>"
+;;
+esac;
+
+else
+
+echo "<hr><br>"
+if [[ ! -z $( echo "$registrant" | tr -d '\040\011\012\015' ) ]]; then
+echo "<strong>[ REGISTRANT: ]</strong><br>
+<pre>$registrant</pre><br>"; fi
+if [[ ! -z $( echo "$admin" | tr -d '\040\011\012\015' ) ]]; then
+echo "<strong>[ ADMIN: ]</strong><br>
+<pre>$admin</pre><br>"; fi
+if [[ ! -z $( echo "$tech" | tr -d '\040\011\012\015' ) ]]; then
+echo "<strong>[ TECH: ]</strong><br>
+<pre>$tech</pre>"; fi
+echo "<hr>"
+
+if [[ -z "$whoisservergrep" ]] || [[ "$whoisservergrep" = " " ]];
+then
+whoisservergrep="<strong>Registrar WHOIS Server: </strong>";
+echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else
+if [[ -z "$whoisserver" ]] || [[ "$whoisserver" = " " ]];
+then echo "<strong style='color: green; font-size: 90%;' >$whoisservergrep Not Found!</strong>";
+else echo "<span style='color: green; font-size: 90%;' >$whoisservergrep</span>"; fi
+
+fi
+cat << EOHF2
+<br><span style='color: green; font-size: 90%;' >Registry WHOIS Server: $trywis</span>
+</div>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+EOHF2
+
+echo "</footer></html>"
+fi
+exit 0

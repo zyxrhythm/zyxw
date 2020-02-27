@@ -1,0 +1,142 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#And can be downloaded at https://github.com/zyxrhythm/zyxw/
+#############################################
+
+. ../zyx/sh/homevars.sh
+
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
+
+echo "Content-type: text/html"
+echo ""
+cat <<EOBBCSH
+<!DOCTYPE html>
+<html>
+<link rel="icon" type="image/png" href="/icon.png" />
+<head>
+<title>$SITETITLE</title>
+<meta name="description" content="$SITEBANNER">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+$GANALYTICS
+<script src="/js/allowedchars.js"></script>
+</head>
+<body>
+<center>
+<p><a href='/cgi-bin/home.zyx' ><h4><strong>$SITEBANNERX</strong></h4></a><br>
+<span id="navigation">
+<a href='/cgi-bin/moreinfo.zyx' rel="noopener noreferrer" target="_blank" id="navig-link">
+&#10084;About
+</a>
+&nbsp; 
+<a href='/cgi-bin/updates.zyx' rel="noopener noreferrer" target="_blank" id="navig-link">
+&#10070;Logs
+</a>
+&nbsp; 
+</span>
+<div class="tooltip">
+<span id="navig-link"><label>&#9993;Contact</label></span>
+<span class="tooltiptext" ><br>For suggestions / comments / reactions<br>email <div style="word-break:break-all;">$CEMAIL<br><br></div></span>
+</div>
+</p> <br>
+<!-- ################## DIP ################# -->
+<p><script>
+function redirect()
+{ if(document.getElementById("square").checked == true)
+        document.formation.action ="sslinfo.zyx";
+else if(document.getElementById("square").checked == false)
+        document.formation.action = "/cgi-bin/dip.zyx";       
+}
+</script>
+<div class="tooltip">
+<a id="tools-link" href='/cgi-bin/dip.zyx' target='_blank' ><label style='cursor: pointer;' >$DIP</label></a>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) in the box below and click the "Go" button - this tool ( $DIP ) will generate a report with vital DNS and whois information about the domain.<br><br></span>
+</div>
+<form method="get" name="formation" action="" >
+<input type="text" type="submit" name="domain" placeholder="Domain / sub domain" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value); chgAction( action_name )" onKeyUp="if(event.keyCode==13 ) this.value=removeSpecialCharacters(this.value);">
+<button onclick="redirect();" type="submit" >Go</button><br>
+<label style="font-size:90%" >
+<div class="tooltip">
+<a id="tools-link" href='/cgi-bin/sslinfo.zyx?domain=' target='_blank' ><label style='cursor: pointer; font-size: 100%; font-family: calibri; ' >$SSLC</label></a>
+<span class="tooltiptext"><br>SSL Certificate Checker tool ( $SSLC )<br><br>( tick the checkbox before you click "Go" to get details about the SSL certificate issued for a domain / sub domain)<br><br>
+</span>
+</div> 
+</label>
+<input type="hidden" name="nscr" value="Y" >
+<input type="checkbox" id="square">
+</form></p><br><br>
+<!-- ################## DIP################# -->
+<!-- ################## WHOIS################# -->
+<p><form action="whois.zyx" method="get">
+<label>
+<div class="tooltip">
+<a id="tools-link" href='/cgi-bin/whois.zyx?domain=' target='_blank' ><label style='cursor: pointer;' >$WHOIS</label></a>
+<span class="tooltiptext" ><br>Put a domain name (FQDN) / IP address on the box below then click the "Who is" button. <br> <br> For domain names the whois tool ( $WHOIS ) will query both the registry and the registrar's whois server/s <br>(if the registrar whois server is found). <br> <br> And for IP addresses the tool will query the appropriate RIR's whois server.<br><br>
+</span>
+</div> 
+</label> <br>
+<input placeholder="Domain / I.P. address" id="whoyouinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi"><br>
+<input type="hidden" name="swstq" value="" >
+<input type="hidden" name="sptq" value="" >
+<button id="whoyoubtn" type="submit" >Who is</button>
+</form>
+</p>
+<!-- ################## WHOIS ################# -->
+<!-- ################## DIGGER ################# -->
+<p><form action="digger.zyx" method="get">
+<label>
+<div class="tooltip">
+<a id="tools-link" href='/cgi-bin/digger.zyx?domain=&record=ANY&nameserver=' target='_blank' ><label style='cursor: pointer;' >$DIGGER</label></a>
+<span class="tooltiptext" ><br>First put a domain name (FQDN) on the box below, then select what type of record would you like to dig from the dropdown, optionally you can specify the name server in which the tool ( $DIGGER ) will dig the records from. Finally click the "DIG" Button. <br> <br>If the name server box is left blank, by default, "Big Nick Digger" will dig records from Google's DNS sever (8.8.8.8). <br> <br> To reverse an IP address, first select PTR from the dropdown then click the "DIG" button.<br><br>
+</span>
+</div>
+</label><br> 
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain"><br><br>
+<select name='record'> 
+  <option>A</option>
+  <option>CNAME</option>
+  <option>MX</option>
+  <option>NS</option>
+  <option>TXT</option>
+  <option>SOA</option>
+  <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
+  <option>PTR</option>
+  <option selected>ANY</option>
+</select> 
+<button type="submit"> D I G </button><br> <br>
+<input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
+</form></p>
+<!-- ################## DIGGER ################# -->
+<p><br><br>
+<a href="https://github.com/zyxrhythm/zyxw" target='_blank'>
+<img border="0" alt="Cactus" src="/image.png" width="26%" height="26%">
+</a></p>
+</body>
+<footer>
+<p><div class="tooltip">
+<span id="wave7a" >&nbsp;&nbsp; &nbsp;<label>" $ROT13 "</label>&nbsp;&nbsp;&nbsp;</span>
+<span class="tooltiptext"  >
+Encoded in ROT 13.
+</span>
+</div></p>
+<br><br><br><br>
+</footer>
+<p><b>-> <a href=/cgi-bin/thx.zyx rel="noopener noreferrer" target="_blank" style="color: red;">Thanks to</a> <-</b></p>
+<p><article>
+$FOOTER_MESSAGE1
+<br><br>For suggestions / comments / reactions<br> email $CEMAIL <br><br><br>
+</article>
+<span id="revisions">ver. $revcount</span></p>
+<article>
+<span id="goblack"><b>$FOOTER_MESSAGE2</b><span> <br>
+<span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
+</article>
+</center>
+</html>
+EOBBCSH
+
+exit 0;

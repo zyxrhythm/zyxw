@@ -1,0 +1,57 @@
+/*css used on the frontpage / home page*/
+
+a:link { color: green; }
+a:active { color: green; }
+a:hover { color: green; }
+a:visited { color: green; }
+h1 {font-family: courier new; font-size: 135%;}
+h4 { font-family: courier new; font-size: 161%; display: inline; }
+body { background-color:black; color:green;}
+p { font-family: calibri; font-size: 100%;}
+label { font-family: Trebuchet MS; font-size: 100%;}
+button { font-family: Trebuchet MS; font-size: 100%; }
+select, option { width: auto; overflow: hidden;}
+footer { font-family: Georgia; font-size: 100%;}
+article	{ font-family: Verdana; font-size: 70%;}
+strong {font-size: 143%; }
+
+#revisions {color: #186a3b}
+#goblack {color: #1c2833}
+#navigation { font-family: Arial; font-size: 100%; font-weight: bold; color: #145a32;}
+#navig-link { text-decoration: none; color: #145a32;}
+#wave7a { color: white; font-size: 90%;}
+#tools-link { text-decoration: none; }
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/
+.tooltip {
+    display: inline-block;
+    text-indent:0em;
+}
+    
+.tooltip .tooltiptext {
+	color: white;
+	word-break:break-word;
+	font-size: 80%; 
+	font-family: calibri; 
+	text-align: center;
+    display: none;
+    width: calc(50% - 50px);
+    background: #000;
+    border-radius: 3px;
+    padding: 3px 3px;
+    left: 50px;
+    border: 2px dotted green;
+    line-height: normal;
+    text-decoration: none;
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    display: block;
+}
+/* from https://stackoverflow.com/questions/50970336/prevent-css-tooltip-from-going-out-of-page-window*/

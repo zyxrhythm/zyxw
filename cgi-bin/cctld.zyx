@@ -1,0 +1,54 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#And can be downloaded at https://github.com/zyxrhythm/zyxw/
+#############################################
+
+cctldlist=$( cat ../zyx/blob/cctldx.blob );
+SITEBANNER=$(cat ../zyx/vars/site.vars | gawk '/<-SITE_BANNER/{flag=1;next}/SITE_BANNER->/{flag=0}flag');
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
+
+echo "Content-type: text/html"
+echo ""
+
+cat <<EOT
+
+<!DOCTYPE html>
+<html>
+<link rel="icon" type="image/png" href="/icon.png" />
+<head>
+<title>$SITEBANNER</title>
+
+<meta name="description" content="$SITEBANNER">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="/css/general.css">
+$GANALYTICS
+<center>
+<p><h1><a href="/cgi-bin/home.zyx">$SITEBANNER</a></h1></p>
+<p><a href="/cgi-bin/home.zyx" style='text-decoration: none; color: red; '>[ &#127968;Home ]</a></p>
+</center>
+</head>
+
+<body>
+<br><br><p>
+<center>
+<h1>TLD List 2</h1>
+</center>
+<left>
+<pre>
+$cctldlist
+</pre>
+<br>
+</p>
+</left>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+
+</html>
+
+EOT
+
+exit 0;

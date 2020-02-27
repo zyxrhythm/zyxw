@@ -1,0 +1,271 @@
+#!/bin/bash
+#This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
+#And can be downloaded at https://github.com/zyxrhythm/zyxw/
+#############################################
+
+. ../zyx/sh/genvars.sh
+
+GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
+
+echo "Content-type: text/html"
+echo ""
+
+#start the html header
+echo "<!DOCTYPE html>
+<html>
+<title>$DIGGER</title>"
+
+#stores the string from bbc.sh to a variable and converts uppercase from the query string to lowecase
+qs=$(echo "$QUERY_STRING" | gawk '{print tolower($0)}');
+
+#butchers the QUERY_STRING for the domain the name server and the record type and stores them in variables 
+domain=$(grep -oP '(?<=domain=).*?(?=&)' <<< "$qs");
+DNSR=$(grep -oP '(?<=record=).*?(?=&)' <<< "$qs");
+qnameserver=$(echo $qs | sed 's/.*nameserver=//');
+
+#start of head
+cat <<INIOHTMLHEAD
+<head>
+<link rel="icon" type="image/png" href="/icon.png" />
+<meta name="description" content="$SITEBANNER">
+<meta name="keywords" content="DIG, DNS, WHOIS, SSL CHECK">
+<meta name="author" content="Zyx Rhythm">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/digger.css">
+
+$GANALYTICS
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script src="/js/allowedchars.js"></script>
+<script src="/js/gencopy.js"></script>
+INIOHTMLHEAD
+
+. ../zyx/sh/navpart.sh
+
+cat << EONAVMENU
+
+<div id='xtable' ><table> <tbody> <td>
+<!-- ################## BIG NICK DIGGER ################# -->
+<form action="/cgi-bin/digger.zyx" method="get">
+<input placeholder="Domain / I.P. address" id="BBCinput" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="domain">
+<select name='record'> 
+  <option>A</option>
+  <option>CNAME</option>
+  <option>MX</option>
+  <option>NS</option>
+  <option>TXT</option>
+  <option>SOA</option>
+  <option>SPF</option>
+  <option>AAAA</option>
+  <option>CAA</option>
+  <option>PTR</option>
+  <option selected>ANY</option>
+</select> 
+<button type="submit" style='font-weight: bold;' > D I G </button><br> <br>
+<input id="BBCinput" type="text" placeholder="Name Server (Optional)" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" name="nameserver"><br>
+</form>
+<!-- ################## BIG NICK DIGGER ################# -->
+</td> </tbody> </table> </div></p>
+<button onclick="copyClipboard();" >Copy Results</button><label class="tooltip"> &#128072; &nbsp; &nbsp;<span class='tooltiptext' > <br>Click the Copy button to copy the results, <br>then simply do a "paste" on your text editor <br>or note taking app.<br><br></span></label>
+&nbsp;
+<a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;'  onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a>
+<hr> </head>
+<body>
+EONAVMENU
+
+. ../zyx/sh/tldblob.sh
+
+#list of supported TLDs
+shopt -s extglob
+gcctldlist="+($ALLTLDX)"
+
+#checks if the name server field was left blank if it is 8.8.8.8 will be queried for dig
+if [[ -z "$qnameserver" ]]; then qns="@8.8.8.8"; else qns="@$qnameserver"; fi;
+
+#checks if the domain enter is null  or they click the BBC button without placing anything
+if [[ -z "$domain" ]]; then
+DIGGERTPM=$(cat ../zyx/vars/tpage.vars | gawk '/<-DIGGER_TOOL_PAGE/{flag=1;next}/DIGGER_TOOL_PAGE->/{flag=0}flag');
+cat <<EOTS
+<div id="divClipboard">
+<p>
+$DIGGERTPM
+</p>
+</div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EOTS
+exit 0;
+
+else
+
+if [[ "$domain" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]] && [[ "$DNSR" = "ptr" ]] ; 
+then
+xip=$(echo $domain | tr -d '\040\011\012\015' );
+zyxrip=$(dig -x $xip +short );
+if [[ -z "$zyxrip" ]]; 
+then  
+cat << EORIP0
+<p><h1>Reverse DNS</h1></p>
+<div id="divClipboard">
+<p><strong>IP address :</strong> $xip <br>
+<strong>Domain/Hostname :</strong> Null.
+<br><br>There is no name found for this IP address in the queried zone.<br><br>Possible causes:<br>-There was never a name assigned for this I.P. v4 address.<br>-It might be one of the reserved I.P. v4 addresses, which can have any name <br>depending on where you are and what network you are connected to.<br>
+</p></div><hr>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EORIP0
+exit 0;
+
+else 
+cat << EORIP
+<p><h1>Reverse DNS</h1></p>
+<div id="divClipboard">
+<p><strong>IP address :</strong> $xip <br>
+<strong>Domain/Hostname :</strong> $zyxrip
+</p></div><hr>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body></html>
+EORIP
+exit 0;
+
+fi;
+
+ else
+
+#cuts and extracts the TLD
+tld=$( echo $domain | rev | cut -d "." -f1 | rev );
+
+#checks if the domain is a gtld / cctld
+case $tld in
+   $gcctldlist)
+
+zyxc=$( dig +short "$DNSR" "$domain" "$qns" );
+
+if [[ -z $zyxc ]]; 
+
+then echo "
+<div id="divClipboard">
+<p>No (<strong>$( echo $DNSR | gawk '{print toupper($0)}' )</strong>) record found for <strong>$domain</strong> at <strong>${qns#*@}</strong></p>
+</div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>" && exit 0;
+
+else true; 
+
+fi;
+
+#CHECKS IF EACH RECORD IS CREATED PROPERLY BY MATCHING THE LINE WITH THE RECORD SUBMITTED FROM THE FORM
+zyxgdx=$(dig +tcp +noall +answer $DNSR $domain $qns 2>&1 | sort -k4  );
+DNSRx=$( echo "$DNSR" | gawk '{print toupper($0)}' );
+if (( $(grep -c . <<<"$zyxgdx" ) > 1 )) && [[ $DNSR != "any" ]] ; then
+
+       while IFS= read -r line;
+  	do
+        	if [[ ! -z $( echo "$line" | tr -d '\040\011\012\015'  | grep "IN$DNSRx" ) ]];
+		then
+        	goodline+=("$line");
+        	else
+        	badline+=("$line"); 
+		fi;
+        done < <(printf '%s\n' "$zyxgdx");
+
+	if [[ ! -z $( echo "${badline[@]}" | tr -d '\040\011\012\015' ) ]]; then 
+	zyxgd=$( printf '%s\n' "${goodline[@]}" );
+	zyxgd0=$(printf '%s\n' "${badline[@]}" );
+	else 
+	zyxgd="$zyxgdx";
+	fi;
+else 
+zyxgd="$zyxgdx";
+fi;
+
+#THE TABLE CREATOR FUNCTION
+cutandtabfunc () {
+echo "<tr><td><strong>$( printf "%-10s" "Type" )</strong></td><td><strong>$( printf "%-10s" "TTL" )</strong></td><td><strong>$( printf "%-10s" "Record" )</strong></td></tr>";
+while IFS= read -r line
+do
+#cut0=$( echo "$line" | sed "s/^[^"$domain"]*"$domain"//g" );
+cut0=$( echo "$line" | sed "s/$domain//" );
+cut1="${cut0/IN/}";
+cutx=$( echo "${cut1#*.}" | sed -e 's/^[ \t]*//' );
+rtype=$( echo "$cutx" | gawk  '{print $2}' );
+ttl=$( echo "$cutx" | gawk  '{print $1}' );
+record=$( echo "$cutx" | gawk '{$2=$2};1' | cut -d' ' -f3- );
+
+rtx=$( echo "$rtype" | tr -d '\040\011\012\015' | gawk '{print tolower($0)}' );
+if [[ "$rtx" = "txt" ]] || [[ "$rtx" = "soa" ]] || [[ "$rtx" = "srv" ]] || [[ "$rtx" = "spf" ]] || [[ "$rtx" = "caa" ]]; 
+then echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td style='word-break:break-all; ' >$( printf "%-10s" "$record" )</td></tr>" ; 
+else echo -e "<tr><td id='tdcenter' >$( printf "%-10s" "$rtype" )</td><td id='tdcenter' >$( printf "%-10s" "$ttl" )</td><td>$( printf "%-10s" "$record" )</td></tr>"; 
+fi;
+done < <(printf '%s\n' "$1");
+}
+######
+
+cnamechk=$( echo "$zyxgd0" | grep -i "CNAME" );
+
+if [[ ! -z $zyxgd0 ]] && [[ ! -z $cnamechk ]]; then 
+
+if (( $(grep -c . <<<"$cnamechk" ) > 1 )); then cnamect="multiple CNAME"; cnamect0="were"; else cnamect="a CNAME"; cnamect0="was"; fi;
+
+zyxd0=$( cutandtabfunc "$zyxgd0" );
+zyxd=$( cutandtabfunc "$zyxgd" );
+
+cat <<EODR
+<br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1><br>
+<pre>You have queried for A record/s, somehow $cnamect $cnamect0 found.<br>
+<table><tbody>$zyxd0</tbody></table></pre>
+</p></div><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EODR
+exit 0;
+
+else
+
+zyxd=$( cutandtabfunc "$zyxgd" );
+
+cat <<EODR0
+<br>
+<div id="divClipboard"><p><h1>DIG <strong>$(echo $DNSR | gawk '{print toupper($0)}' )</strong> record/s  of <strong>$(echo $domain |  gawk '{print toupper($0)}' )</strong> from <strong>$(echo ${qns#*@} |  gawk '{print toupper($0)}' )</strong>.</h1>
+<br><pre><table><tbody>$zyxd</tbody></table></pre></p></div><br>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EODR0
+exit 0;
+
+fi;
+
+;;
+
+#error for non domain input
+*)
+if [[ $DNSR = "ptr" ]]; then paramvar="-x"; else paramvar="null"; fi;
+   
+cat << EOIIE
+<div id="divClipboard">
+<p><strong>Input</strong> : <br>> Domain / I.P. address ( $domain )<br>> Dig command parameter ( $paramvar )<br>> Name server ( ${qns#*@} ) <br>> Record type ( $DNSR )<br><br><br>
+Invalid input/parameter! <br><br><br>
+To know more about DIG you can check its wikipedia article <a href="https://en.wikipedia.org/wiki/Dig_(command)" target="_blank">here</a>.</p>
+</div>
+<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+EOIIE
+
+exit 0;
+;;
+
+esac
+
+echo "<p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>"
+
+	fi
+fi
+
+exit 0;
