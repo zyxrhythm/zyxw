@@ -64,7 +64,7 @@ else if(document.getElementById("square").checked == false)
 </span>
 </div> 
 </label>
-<input type="hidden" name="nscr" value="Y" >
+<input type="hidden" name="nscr" value="N" >
 <input type="checkbox" id="square">
 </form></p><br><br>
 <!-- ################## DIP################# -->
