@@ -27,10 +27,11 @@ exit 0
 
 fi
 
-echo "Content-type: text/html"
-echo ""
+#echo "Content-type: text/html"
+#echo ""
 
-echo "<!DOCTYPE html>
+echo "
+<!DOCTYPE html>
 <html>
 <title>$DIP</title>
 <head>
@@ -45,7 +46,8 @@ checknsrb=$(echo $qs | sed 's/.*nscr=//')
 
 #echo header
 cat << INIOHTMLHEAD
-
+<!-- charset support -->
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 <!-- Site Description -->
 <meta name='description' content="$SITEBANNER">
 <meta name='keywords' content='DIG, DNS, WHOIS, SSL CHECK'>
