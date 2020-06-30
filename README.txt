@@ -144,10 +144,17 @@ Customizations and Tweaking:
 -Based on the tests done - the scripts worked better on environment 2 & 3.
 
 
+
+
 >>>Again... "Updated and highly recommended conf files for whois and jwhois are available on /zyx/conf/ directory" =)
 
+If you have sudo or root access on your host and want to replace the conf file on your host with the jwhois conf file in this repo, you can execute the following one liner:
 
+sudo mv /etc/jwhois.conf /etc/jwhois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/jwhois.conf -O /etc/jwhois.conf;
 
+If you have sudo or root access on your host and want to replace the conf file on your host with whois conf file in this repo, you can execute the following one liner:
+
+sudo mv /etc/whois.conf /etc/whois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/whois.conf -O /etc/whois.conf;
 
 ---------------------
 
