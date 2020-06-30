@@ -12,7 +12,7 @@ Though not necessary, but highly recommended, you should be able to install prog
 2. Bash 4.x is installed on your host and "cgi-bin" can execute Bash scripts. 
 
 3. The following commands/programs are available on the host, and the scripts will be permitted to utilize them:
-whois(the scripts can also work with jwhois for Red Hat distros like CentOS), dig, nslookup, openssl, nmap, gawk, sed, grep, echo, cat, cut, tr, rev, bc, column, host, and the scripts should be able to utilize 'Shell Parameter Expansion'.
+whois(the scripts can also work with jwhois for Red Hat distros like CentOS), dig, nslookup, openssl/nmap (for ssl checks), gawk, sed, grep, echo, cat, cut, tr, rev, bc, column, host.
 
 (Note: If you prefer to deploy this the CLI way, its is a good thing to have git installed on the host).
 
