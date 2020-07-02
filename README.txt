@@ -74,7 +74,7 @@ How to deploy:
 
 How to deploy:
 
-[ The CLI (Command Line Interface) Way using the BETA installer/updater ): ]
+[ The CLI (Command Line Interface) Way using the ALPHA installer/updater ): ]
 
 1. wget https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zuni.sh
 
@@ -152,8 +152,8 @@ Customizations and Tweaking:
  Whois software: jwhois
 
 
--Based on the tests done - the scripts worked better on environment 2 & 3.
-
+-Based on the tests done - the scripts worked better on environment 2 & 3
+-This alpha version has been tested running without fail for more than a year on VPS servers from https://www.ipage.com and https://www.spry.com
 
 
 
