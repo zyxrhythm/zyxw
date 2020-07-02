@@ -1,7 +1,18 @@
-The Project Name: "The Information Ninja of port 43 and 53 --- also 443." 
+The "Once upon a time" Name: "The Information Ninja of port 43 and 53 --- also 443." 
 
 Now simply ZYXW
+---------------------
 
+If you just need the power of dip.zyx on a terminal, does not wish to download the pure bash script version and making it an executable. 
+You can use the following one liner:
+
+curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com
+
+or if you want the full pawa:
+
+curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com -f
+
+And of course do not forget to replace github.com with the domain you want to check.
 ---------------------
 
 Before you deploy this on your server, make sure: 
