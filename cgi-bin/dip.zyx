@@ -760,7 +760,8 @@ timez="--------------------------<br><span style='font-size:75%;color: grey;'>Th
 
 cat << EODNARGT0
 <body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx">
-<div id="divClipboard"><p>__________________________<br><br>
+<div id="divClipboard"><p><span style='font-size:66%'><span style='color:tomato'>[Time Of Query:] </span><span style='color:green'>User:</span> <span id="clienttime"> </span>
+<script>document.getElementById("clienttime").innerHTML = formatAMPM(); function formatAMPM() { var d = new Date(), minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(), hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(), ampm = d.getHours() >= 12 ? 'pm' : 'am', months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; if (hours > 12) { hoursx=hours-12; } return days[d.getDay()] + '  ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ' ' + hoursx + ':' + minutes + ampm;}</script> <span style='color:tomato'>||</span> <span style='color:green;'>Server:</span> $(date +"%a %b%e %Y %l:%M%P (%Z)")</span><br>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
