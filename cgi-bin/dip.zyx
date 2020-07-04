@@ -693,6 +693,10 @@ echo "<body>
 ############
 ### CORE ###
 ###########
+
+TimeStamp="<span style='font-size:66%'><span style='color:tomato'>[Time Of Query:] </span><span style='color:green'>User:</span> <span id='clienttime'> </span><script>document.getElementById('clienttime').innerHTML = formatAMPM(); function formatAMPM() { var d = new Date(), minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(), hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(), ampm = d.getHours() >= 12 ? 'pm' : 'am', months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; if (hours > 12) { hoursx=hours-12; } else { hoursx=hours;} return days[d.getDay()] + '  ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ' ' + hoursx + ':' + minutes + ampm;}</script> <span style='color:tomato'> </span> <span style='color:green;'>Server:</span> $(date +"%a %b%e %Y %l:%M%P (%Z)")</span>"
+
+
 #stores the registrar name on a variable
 registrar=$(echo "$zyx" | grep -i -e "registrar:" | sort -u );
 
@@ -760,8 +764,7 @@ timez="--------------------------<br><span style='font-size:75%;color: grey;'>Th
 
 cat << EODNARGT0
 <body><input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id="divClipboardx">
-<div id="divClipboard"><p><span style='font-size:66%'><span style='color:tomato'>[Time Of Query:] </span><span style='color:green'>User:</span> <span id="clienttime"> </span>
-<script>document.getElementById("clienttime").innerHTML = formatAMPM(); function formatAMPM() { var d = new Date(), minutes = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes(), hours = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours(), ampm = d.getHours() >= 12 ? 'pm' : 'am', months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; if (hours > 12) { hoursx=hours-12; } return days[d.getDay()] + '  ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear() + ' ' + hoursx + ':' + minutes + ampm;}</script> <span style='color:tomato'>||</span> <span style='color:green;'>Server:</span> $(date +"%a %b%e %Y %l:%M%P (%Z)")</span><br>__________________________<br><br>
+<div id="divClipboard"><p>$TimeStamp<br>__________________________<br><br>
 <strong>Domain Name: </strong>$domain<br>
 <strong>Registrar: </strong>${registrar#*:}<br>
 <strong>Reseller: </strong>$reese<br>
@@ -900,7 +903,7 @@ mrfredu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 cat << EDUSECTION
 <body>
-<p><div id="divClipboard">
+<p><div id="divClipboard">$TimeStamp<br>
 <pre>${zyx#*-------------------------------------------------------------}</pre>
 __________________________
 <p>
@@ -932,7 +935,7 @@ zyx0=$(echo "$zyx" | gawk '/DOTGOV WHOIS Server ready/{flag=1;next}/>>>/{flag=0}
 cat << GOVSECTION
 <body>
 <p>
-<div id="divClipboard">
+<div id="divClipboard">$TimeStamp<br>
 <pre>$zyx0</pre>
 __________________________
 <p>
@@ -958,7 +961,7 @@ mrfrmil=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 
 cat << MILSECTION
 <body>
-<div id="divClipboard"><p>
+<div id="divClipboard"><p>$TimeStamp<br>
 <strong>Input</strong>: $domain <br><br>
 This TLD has no whois server.<br><br>
 .mil domains are exclusively for the use of the <a href='https://en.wikipedia.org/wiki/United_States_Department_of_Defense' target='_blank' >United States Department of Defense</a>.<br><br>
@@ -1012,7 +1015,7 @@ if [[ ! -z $( echo "$zyx" | grep -w "WHOIS LIMIT EXCEEDED" ) ]];
 
 then echo "<body>
 <div id='divClipboard'>
-<p><br>The whois server/s of <a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a> (AU Domain Administration ) solely responds for whois queries regarding '.au' domains. And there is a limit on how many times their server/s will respond to whois queries from an I.P address on a given time. The IP address of this server has reach the said limit, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of $domain directly from auDA's web interface.<br><br>
+<p>$TimeStamp<br>The whois server/s of <a href='https://www.auda.org.au/industry-information/' target='_blank'>auDA</a> (AU Domain Administration ) solely responds for whois queries regarding '.au' domains. And there is a limit on how many times their server/s will respond to whois queries from an I.P address on a given time. The IP address of this server has reach the said limit, you can either wait for this server to be able to query auDA's whois server/s again, or you can go to <a href='https://whois.auda.org.au/' target='_blank' >https://whois.auda.org.au/</a> to get the raw whois information of $domain directly from auDA's web interface.<br><br>
 __________________________<br><br>
 <pre>$arfrctau</pre> <br>
 __________________________<br><br>
@@ -1045,7 +1048,7 @@ techcontact=$(echo "$zyx" | grep -i -e "Tech Contact Name:");
 echo "
 <body>
 <input type='checkbox' id='chicbox'><span id='chicboxtext'>Include the footer info.</span><div id='divClipboardx'><div id='divClipboard'>
-<p>__________________________<br><br>
+<p>$TimeStamp<br>__________________________<br><br>
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:} <br>
 __________________________<br><br>
@@ -1105,7 +1108,7 @@ nsfrctnz=$( nsfunction "$nameservers");
 #print the domain and the registrar
 cat << EODNARCTNZ
 <body><div id="divClipboard">
-<p>
+<p>$TimeStamp<br>
 __________________________<br><br>
 <strong>Domain Name:</strong> $domain <br><br>
 <strong>Registrar: </strong>${registrar#*:}<br>
@@ -1155,7 +1158,7 @@ arfrcteu=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfrcteu=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body>
 <div id='divClipboard'>
-<p><pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
+<p>$TimeStamp<br><pre><strong>Domain:</strong> $domain<br>$zyxeu0</pre>
 __________________________
 <p>
 $arfrcteu <br>
@@ -1171,7 +1174,7 @@ __________________________
 ph)
 arfrph=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 mrfrph=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
-echo "<body><div id='divClipboard'><p>
+echo "<body><div id='divClipboard'><p>$TimeStamp
 <br>For the  Whois info of this .ph domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain' target='_blank' >https://whois.dot.ph/?utf8=%E2%9C%93&search=$domain</a></p>
@@ -1193,7 +1196,7 @@ sg)
 arfrsg=$( arfunction "$(dig +short $domain @8.8.8.8)" );
 mrfrsg=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
 echo "<body><div id="divClipboard">
-<p><br>For the  Whois info of this .sg domain, <br>
+<p>$TimeStamp<br>For the  Whois info of this .sg domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://www.sgnic.sg/domain-search.html?SearchKey=$domain' target='_blank'>https://www.sgnic.sg/domain-search.html?SearchKey=$domain</a></p>
 <p>
@@ -1217,7 +1220,7 @@ mrfrvn=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" );
 echo "
 <body>
 <div id="divClipboard">
-<p><br>For the  Whois info of this .vn domain, <br>
+<p>$TimeStamp<br>For the  Whois info of this .vn domain, <br>
 Click the link below or copy and paste it on a browser's address bar:  <br> <br>
 <a href='https://vnnic.vn/en/whois-information?lang=en' target='_blank'>https://vnnic.vn/en/whois-information?lang=en</a></p>
 <p>
@@ -1241,7 +1244,7 @@ zyx=$($zyxwhois $domain);
 arfrjp=$( arfunction "$(dig +short $domain @8.8.8.8 )" );
 #PASS the mx record/s to mxrfunc
 mrfrjp=$( mrfunction "$(dig mx +short $domain @8.8.8.8 | sort -n )" 'y' );
-echo "<body><br><div id='divClipboard'>
+echo "<body><br><div id='divClipboard'>$TimeStamp<br>
 <pre>${zyx#*Domain Information:}</pre>
 <p>
 __________________________<br><br>
