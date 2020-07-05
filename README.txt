@@ -3,16 +3,24 @@ The "Once upon a time" Name: "The Information Ninja of port 43 and 53 --- also 4
 Now simply ZYXW
 ---------------------
 
-If you just need the power of dip.zyx on a terminal, does not wish to download the pure bash script version and making it an executable. 
-You can use the following one liner:
+### If you just need the power of dip.zyx on a terminal, does not wish to download the pure bash script version and making it an executable. 
 
-curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com
+   #You can use the following one liner on a Linux computer:
 
-or if you want the full pawa:
+      curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com
 
-curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com -f
+   or if you want the full pawa:
 
-And of course do not forget to replace github.com with the domain you want to check.
+     curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com -f
+
+   And of course do not forget to replace github.com with the domain you want to check.
+
+
+   #Or If you are on a Windows computer and you have enabled "WSL", you can use the following one liner on the command prompt:
+
+      bash -c "curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com"
+
+   Dont forget the quotes (") they are necessary, and again do not forget to replace github.com with the domain you want to check.
 ---------------------
 
 Before you deploy this on your server, make sure: 
