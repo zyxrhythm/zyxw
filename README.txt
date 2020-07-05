@@ -42,13 +42,13 @@ ssh yourusername@yourservernameorip
 
 2. Change the working directory to your server's website Document Root directory using the cd command.
 
-cd /afolder/anotherfolder/DocumentRoot
+cd /afolder/anotherfolder/maybeanotherfolder/DocumentRoot
 
 3. Clone this repo with the git command.
 
 git clone -b Alpha https://github.com/zyxrhythm/zyxw
  
-4. After step 3 a folder named 'zyxw' should be on the document root folder, copy its content to the document root by excuting the following command:
+4. After step 3 a folder named 'zyxw' should be on the current working directory, copy its content to the document root by excuting the following command:
 
 cp -R ./zyxw/* ..
 
@@ -62,11 +62,11 @@ How to deploy:
 
 1. Download the zip from this page (https://github.com/zyxrhythm/zyxw) by clicking the green 'Clone or download' button and clicking 'Download ZIP'. 
 
-2. Upload it and unzip/extract/decompress it on your host's website 'document root' directory, like cPanel's "public_html" directory. It is recommended that your webhost provides 'cPanel' to manage the server/host. The cgi-bin on the public_html diretory of cPanel is in most cases given the priviledge to execute a variety of scripts, and usually bash script is included, at least on 3 of the hosting service porvider I have tested. It is best if you consult you web host first.
+2. Upload the zip file and unzip/extract/decompress it on the 'document root' directory for you webspage; like cPanel's "public_html" directory. It is recommended that your webhost provides 'cPanel' to manage the server/host. The cgi-bin on the public_html diretory of cPanel is in most cases given the priviledge to execute a variety of scripts, and usually bash script is included, but it always depends on your hosting provider, it is best to contact them for that.
 
-(Note: upon extraction, inside the extracted 'zyxw-Alpha' folder is another 'zyxw-Alpha' folder -- inside this folder are the files and folders that should be on 'public_html' directory )
+(Note: upon extraction, inside the 'zyxw-Alpha' folder -- are the files and folders that should be on 'public_html' directory )
 
-3. If necessary, configure the host and make the /cgi-bin folder able to execute bash scripts, and make sure the necessary programs are installed and usable by the scripts on the host (the list of the necessary programs are above, on #3 of 'Before you deploy this on your server, make sure' ). 
+3. If necessary, configure the host and make the /cgi-bin folder able to execute bash scripts. And make sure the necessary programs are installed on the host and are usable by the scripts. (The list of the necessary programs are above, on #3 of 'Before you deploy this on your server, make sure:' )
 
 4. Customize the site. (Details on how to! are at 'Customizations and Tweaking')
 
@@ -88,7 +88,7 @@ How to deploy:
 
 Customizations and Tweaking:
 
-- Edit the /zyx/vars/site.vars to change 'browser tab titles', webmaster email address, name of the tools ( the special tool, dig tool, whois tool, ssl info check tool), and other 'texts' on the website pages.
+- Edit the /zyx/vars/site.vars to change 'browser tab titles', webmaster email address, name of the tools( the special tool (dip.zyx), dig tool (digger.zyx), whois tool (whois.zyx), ssl info check tool (zyxinfo.zyx) ), and other 'texts' on the website pages.
 
 - The initial message on all the tools page is editable on /zyx/vars/tpage.vars
 
