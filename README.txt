@@ -20,6 +20,10 @@ Now simply ZYXW
 
       bash -c "curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com"
 
+   or the FULL PAWAAA!:
+   
+      bash -c "curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com -f"
+
    Dont forget the quotes (") they are necessary, and again do not forget to replace github.com with the domain you want to check.
 ---------------------
 
