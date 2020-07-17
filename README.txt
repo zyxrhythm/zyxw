@@ -29,6 +29,9 @@ Now simply ZYXW
 
 Before you deploy this on your server, make sure: 
 
+0. To read the license: https://github.com/zyxrhythm/zyxw/blob/Alpha/LICENSE
+0.5 To note this is an "Alpha" release. This version is far from being "refined". BUT AFAIK it is stable and works pretty well!     :0)
+
 1. Your server/host is running a Unix-like Operating System, like Ubuntu and CentOS! 
 Though not necessary, but highly recommended, you should be able to install programs on the server: which can be done if you are able to login as the root user, or you have an account that has 'sudo priviledges'.
 
