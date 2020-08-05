@@ -2,7 +2,8 @@
 #This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
 #And can be downloaded at https://github.com/zyxrhythm/zyxw/
 #############################################
-
+echo "Content-type: text/html"
+echo ""
 . ../zyx/sh/genvars.sh
 
 GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
@@ -25,10 +26,6 @@ echo "
 ";
 exit 0;
 fi;
-
-#start the html header
-#echo "Content-type: text/html"
-#echo ""
 
 echo "
 <!DOCTYPE html>
