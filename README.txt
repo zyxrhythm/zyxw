@@ -44,7 +44,7 @@ whois(the scripts can also work with jwhois for Red Hat distros like CentOS), di
 
 (Note: If you prefer to deploy this the CLI way, its is a good thing to have git installed on the host).
 
-4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported by the whois tool and the dip.zyx script, so make sure it is up to date! 
+4. The conf file of whois / jwhois is up to date. The conf file will dictate what TLDs will be supported by the whois tool and the dip.zyx script, so make sure it is up to date! And if the you are experiencing issues regarding whois result on dip.zyx and whois.zyx, try updating the whois.conf / jwhois.conf.
 (Updated and highly recommended conf files for whois and jwhois are available here on this repo, and are located at the /zyx/conf/ directory)
 
 ---------------------
