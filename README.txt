@@ -178,12 +178,16 @@ Customizations and Tweaking:
 
 If you have sudo or root access on your host and want to replace the conf file on your host with the jwhois conf file in this repo, you can execute the following one liner:
 
-sudo mv /etc/jwhois.conf /etc/jwhois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/jwhois.conf -O /etc/jwhois.conf;
+sudo mv /etc/jwhois.conf /etc/jwhois.conf.bak; curl https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/jwhois.conf -o /etc/jwhois.conf;
 
 If you have sudo or root access on your host and want to replace the conf file on your host with whois conf file in this repo, you can execute the following one liner:
 
-sudo mv /etc/whois.conf /etc/whois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/whois.conf -O /etc/whois.conf;
+sudo mv /etc/whois.conf /etc/whois.conf.bak; curl https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/whois.conf -o /etc/whois.conf;
 
+
+You can also use wget:
+sudo mv /etc/jwhois.conf /etc/jwhois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/jwhois.conf -O /etc/jwhois.conf;
+sudo mv /etc/whois.conf /etc/whois.conf.bak; wget https://raw.githubusercontent.com/zyxrhythm/zyxw/Alpha/zyx/conf/whois.conf -O /etc/whois.conf;
 ---------------------
 
 
