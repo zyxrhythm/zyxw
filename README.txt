@@ -31,7 +31,7 @@ Before you deploy this on your server, make sure:
 --
 0.    To read the license: https://github.com/zyxrhythm/zyxw/blob/Alpha/LICENSE
 
-0.5   To note: This was created out of my 'not that much of a "free time"' while working as a tech support representative for a web host company. And though every now and then, but NOT that often, I try to test and "optimize" it, this version is far from being "refined". Keep in mind that this is an "Alpha" release. I'm far fom being an expert when it comes to programming with the best practices, and currently, I just do programming for fun and on my 'not that much of a "free time"'. BUT AFAIK this is stable, gets the job done, and works pretty well for the particular use case I have "conceptualized" while creating it.     :0) 
+0.5   To note: This was created out of my 'not that much of a "free time"' while working as a tech support representative for a web host company. And though every now and then, but NOT that often, I try to test and "optimize" it, this version is far from being "refined". Keep in mind that this is an "Alpha" release. I'm far from being an master when it comes to 'programming with the best practices', and currently, I just do programming for fun, and on my 'not that much of a "free time"'. BUT AFAIK this is stable, gets the job done, and works pretty well for the particular use case I have "conceptualized" while creating it.     :0) 
 --
 
 1. Your server/host is running a Unix-like Operating System, like Ubuntu and CentOS! 
