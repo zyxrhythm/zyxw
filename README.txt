@@ -148,32 +148,6 @@ Customizations and Tweaking:
 
 -The scripts supports both whois and jwhois.
 
--The scripts are tried tested on: 
-
-@Environtment 1
- Server OS: Ubuntu 16.04.6 LTS 
- cPanel : Not Installed
- Web Server software: Apache 2.4
- Whois software: whois
- 
-@Environtment 2 
- Server OS: CentOs 6.10  
- cPanel: Installed
- Web Server software: Apache 2.4
- Whois software: jwhois
-
-@Environtment 3
- Server OS: CentOs 6.10  
- cPanel: Not Installed (Webmin is installed instead, for GUI File Management)
- Web Server software: LiteSpeed 1.5.7 Open
- Whois software: jwhois
-
-
--Based on the tests done - the scripts worked better on environment 2 & 3
--This alpha version has been tested running without fail for more than a year on VPS servers from https://www.ipage.com and https://www.spry.com
-
-
-
 >>>Again... "Updated and highly recommended conf files for whois and jwhois are available on /zyx/conf/ directory" =)
 
 If you have sudo or root access on your host and want to replace the conf file on your host with the jwhois conf file in this repo, you can execute the following one liner:
