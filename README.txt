@@ -5,7 +5,7 @@ Now simply ZYXW
 
 ### If you just need the power of dip.zyx on a terminal, does not wish to download the pure bash script version and making it an executable. 
 
-   #You can use the following one liner on a Linux computer:
+   #You can use the following one liner on a Linux/Mac computer:
 
       curl https://raw.githubusercontent.com/zyxrhythm/zyx-tools/master/nix/zyxw-dip.sh | bash -s github.com
 
