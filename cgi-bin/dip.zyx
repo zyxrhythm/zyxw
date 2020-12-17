@@ -1097,8 +1097,20 @@ done < <(printf '%s\n' "${dstat#*:}");
 }
 dsnzfuncr=$( dsnzfunc "$(echo "$zyx" | grep -i -e "query_status:" )" );
 
-#stores the domain expiration date on a variable
+#stores the domain registration date
+regdate=$(echo "$zyx" | grep -i -e "domain_dateregistered:");
+
+#stores the domain creation date
+credate=$(echo "$zyx" | grep -i -e "domain_datecreated:");
+
+#stores the dlast modification date on a variable
 lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
+
+#stores deleagaterequested value on variable
+delreq=$(echo "$zyx" | grep -i -e "domain_delegaterequested:");
+
+#stores signed value
+domsig=$(echo "$zyx" | grep -i -e "domain_signed:");
 
 #stores the name servers on a variable
 nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
@@ -1116,7 +1128,11 @@ __________________________<br> <br>
 <a href='/cgi-bin/eppstatuscodes.zyx' target='_blank'><strong>Domain Status: </strong></a><br>
 $dsnzfuncr <br><br>
 --------------------------<br>
-Last Modified: ${lastmod#*:} <br>
+<strong>Registration Date:</strong> ${regdate#*:} <br>
+<strong>Creation Date:</strong> ${credate#*:} <br>
+<strong>Last Modified:</strong> ${lastmod#*:} <br>
+<strong>Delegate Requested:</strong> ${delreq#*:} <br>
+<strong>Domain Signed:</strong> ${domsig#*:} <br>
 __________________________<br><br>
 $nsfrctnz
 __________________________<br><br>
