@@ -1095,29 +1095,30 @@ do
    echo  "</br> ${line#*#} ";
 done < <(printf '%s\n' "${dstat#*:}");
 }
-dsnzfuncr=$( dsnzfunc "$(echo "$zyx" | grep -i -e "query_status:" )" );
+dsnzfuncr=$( dsnzfunc "$(echo "$zyx" | grep -i -e "query_status:" )" )
 
 #stores the domain registration date
-regdate=$(echo "$zyx" | grep -i -e "domain_dateregistered:");
+regdate=$(echo "$zyx" | grep -i -e "domain_dateregistered:")
 
 #stores the domain creation date
-credate=$(echo "$zyx" | grep -i -e "domain_datecreated:");
+credate=$(echo "$zyx" | grep -i -e "domain_datecreated:")
 
 #stores the dlast modification date on a variable
-lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:");
+lastmod=$(echo "$zyx" | grep -i -e "domain_datelastmodified:")
 
 #stores deleagaterequested value on variable
-delreq=$(echo "$zyx" | grep -i -e "domain_delegaterequested:");
+delreq=$(echo "$zyx" | grep -i -e "domain_delegaterequested:")
 
 #stores signed value
-domsig=$(echo "$zyx" | grep -i -e "domain_signed:");
+domsig=$(echo "$zyx" | grep -i -e "domain_signed:")
 
 #stores the name servers on a variable
-nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
-nsfrctnz=$( nsfunction "$nameservers");
+nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*")
+nsfrctnz=$( nsfunction "$nameservers")
 
 #link to dnc.org.nz
-ldncnz=$(echo "$zyx" | grep -i "Additional information may be available at");
+ldncnz0=$(echo "$zyx" | grep -i "Additional information may be available at")
+ldncnz=$(echo "${ldncnz#*at }"  | tr -d '\040\011\012\015' )
 
 #print the domain and the registrar
 cat << EODNARCTNZ
@@ -1143,7 +1144,7 @@ $arfrctnz <br>
 __________________________<br><br>
 $mrfrctnz
 __________________________<br>
-$ldncnz
+More information might be available at <a href='$ldncnz'>$ldncnz</a>
 </p></div>
 EODNARCTNZ
 ;;
