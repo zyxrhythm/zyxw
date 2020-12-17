@@ -1116,6 +1116,9 @@ domsig=$(echo "$zyx" | grep -i -e "domain_signed:");
 nameservers=$(echo "$zyx" | grep -i -e "ns_name_.*");
 nsfrctnz=$( nsfunction "$nameservers");
 
+#link to dnc.org.nz
+ldncnz=$(echo "$zyx" | grep -i "Additional information may be available at");
+
 #print the domain and the registrar
 cat << EODNARCTNZ
 <body><div id="divClipboard">
@@ -1139,7 +1142,9 @@ __________________________<br><br>
 $arfrctnz <br>
 __________________________<br><br>
 $mrfrctnz
-__________________________</p></div>
+__________________________<br>
+$ldncnz
+</p></div>
 EODNARCTNZ
 ;;
 
