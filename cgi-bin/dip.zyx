@@ -1118,7 +1118,7 @@ nsfrctnz=$( nsfunction "$nameservers")
 
 #link to dnc.org.nz
 ldncnz0=$(echo "$zyx" | grep -i "Additional information may be available at")
-ldncnz=$(echo "${ldncnz#*at }"  | tr -d '\040\011\012\015' )
+ldncnz=$(echo "${ldncnz0#*at }"  | tr -d '\040\011\012\015' )
 
 #print the domain and the registrar
 cat << EODNARCTNZ
