@@ -133,7 +133,7 @@ $FOOTER_MESSAGE1
 <span id="revisions">ver. $revcount</span></p>
 <article>
 <span id="goblack"><b>$FOOTER_MESSAGE2</b><span> <br>
-<span style="color: white">Copyleft 2018 <span class="copyleft">&copy;</span></span>
+<span>Copyleft 2018 <span class="copyleft">&copy;</span></span>
 </article>
 </center>
 </html>
