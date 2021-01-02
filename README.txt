@@ -77,7 +77,7 @@ How to deploy:
 
 [ The General GUI (Graphical User Interface) Way: ]
 
-1. Download the zip from this page (https://github.com/zyxrhythm/zyxw) by clicking the green 'Clone or download' button and clicking 'Download ZIP'. 
+1. Download the zip from this page (https://github.com/zyxrhythm/zyxw) by clicking the green 'Code' button and clicking 'Download ZIP'. 
 
 2. Upload the zip file and unzip/extract/decompress it on the 'document root', like cPanel's "public_html" directory. It is recommended that your webhost provides 'cPanel' to manage the server/host. The cgi-bin on the public_html diretory of cPanel is in most cases given the priviledge to execute a variety of scripts, and usually bash script is included, but it always depends on your hosting provider, it is best to contact them for that.
 
