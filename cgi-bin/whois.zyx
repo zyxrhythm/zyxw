@@ -95,7 +95,7 @@ cat << EONAVMENU
 <div id='xtable' ><table> <tbody> <td>
 <!-- ################## WHO YOU ################# -->
 <form action="whois.zyx" method="get">
-<input placeholder="Domain / I.P. address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
+<input placeholder="Domain / IPv4 address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="doi">
 <script> 
 function jsfmanwi() { var x = document.getElementById('manwid'); 
 if (x.style.display === 'none') { x.style.display = 'block'; } 
