@@ -2,30 +2,33 @@
 #This script was created by Zyx Rhythm (email:zyxrhythm@gmail.com)
 #And can be downloaded at https://github.com/zyxrhythm/zyxw/
 #############################################
-echo "Content-type: text/html"
-echo ""
+
 . ../zyx/sh/genvars.sh
 
 GANALYTICS=$(cat ../zyx/txt/ganalytics.txt);
 
-witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' );
-witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' );
+witst0=$(test -e /usr/bin/jwhois && echo 'y' || echo 'n' )
+witst1=$(test -e /usr/bin/whois && echo 'y' || echo 'n' )
 
 if [[ $witst0 = "y" ]]; then 
-zyxwhois="whois -n";
-whoisprog="jwhois";
+zyxwhois="whois -n"
+whoisprog="jwhois"
 elif [[ $witst0 = "n" ]] && [[ $witst1 = "y" ]]; then 
-zyxwhois="whois --verbose";
-whoisprog="whois";
+zyxwhois="whois --verbose"
+whoisprog="whois"
 else
 echo "
 <body><div id='divClipboard'><p>whois / jwhois not found on the server.</p></div><br><br><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
 </html>
-";
-exit 0;
-fi;
+"
+exit 0
+fi
+
+#start the html header
+#echo "Content-type: text/html"
+#echo ""
 
 echo "
 <!DOCTYPE html>
@@ -33,35 +36,40 @@ echo "
 <title>$WHOIS</title>"
 
 #converts all uppercase form the query string to lowercase
-qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}');
+qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}')
 
 #butchers the qs string and gets the domain
-doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs");
-swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs");
-sptq=$(echo $qs | sed 's/.*sptq=//' | tr -d '\040\011\012\015');
+doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs")
+#swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs")
+swstq=$(echo $qs | sed 's/.*swstq=//' | tr -d '\040\011\012\015')
 
-if [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ "$swstq" -eq "43" ]]; then
+if [ ! -z $( grep 'rdoi' <<< $qs) ]; then
+rdoi=$(echo $qs | sed 's/.*rdoi=//' | tr -d '\040\011\012\015')
+fi
 
-specter="y";
-zyxman=$( $zyxwhois $doi -h $swstq 2>&1 );
+if [[ ! -z $swstq ]]; then
 
-elif [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ ! $swstq -eq 43 ]]; then 
+specter="y"
+zyxman=$( $zyxwhois $doi -h $swstq )
+#zyxman=$( $zyxwhois $doi -h $swstq 2>&1 );
 
-timeout 2 $zyxwhois $doi -h $swstq -p $sptq sleep 3
-	if [[ $? != 0 ]]; then 
-	zyxman="The port maybe invalid - the proces1 timed out!";
-	else
-	specter="y";
-	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq 2>&1 );
-	fi;
+#elif [[ ! -z $swstq ]] && [[ ! -z $sptq ]] && [[ ! $swstq -eq 43 ]]; then 
 
-elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
-specter="x";
-zyxman="Please include a whois server. Port to query: $sptq";
+#timeout 2 $zyxwhois $doi -h $swstq -p $sptq sleep 3
+#	if [[ $? != 0 ]]; then 
+#	zyxman="The port maybe invalid - the proces1 timed out!"
+#	else
+#	specter="y"
+#	zyxman=$( $zyxwhois $doi -h $swstq -p $sptq 2>&1 )
+#	fi;
 
-elif [[ ! -z $swstq ]] && [[ -z $sptq ]]; then
-specter="y";
-zyxman=$( $zyxwhois $doi -h $swstq );
+#elif [[ -z $swstq ]] && [[ ! -z $sptq ]]; then
+#specter="x";
+#zyxman="Please include a whois server. Port to query: $sptq"
+
+#elif [[ ! -z $swstq ]] && [[ -z $sptq ]]; then
+#specter="y";
+#zyxman=$( $zyxwhois $doi -h $swstq )
 
 elif [[ -z $swstq ]] && [[ -z $sptq ]]; then
 specter="n";
@@ -70,7 +78,8 @@ else echo "
 <body><div id='divClipboard'><p>Something went wrong.</p></div><br><br><br>
 <p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
 </body>
-</html>"; fi;
+</html>"
+fi
 
 cat <<INIOHTMLHEAD
 <head>
@@ -102,23 +111,41 @@ if (x.style.display === 'none') { x.style.display = 'block'; }
 else { x.style.display = 'none'; } } 
 function changeTextnsvt() {
 var element = document.getElementById('manwit');
-if (element.innerHTML === '-') {element.innerHTML = '+'; }
-else { element.innerHTML = '-';} }
+if (element.innerHTML === 'Hide Options') {element.innerHTML = 'More Options'; }
+else { element.innerHTML = 'Hide Options';} }
 </script>
-&nbsp; <a id='manwit' style='color:tomato; cursor: pointer; font-weight: bold;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>&nbsp;+&nbsp;<span class='tooltiptext' style='word-break:break-word; font-size: 70%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click for Manual Whois Lookup: Specify a whois server to query.<br><br></span></a> &nbsp;
-<button id="whoyoubtn" type="submit" style='font-weight: bold;'> Who is </button>
-<div id='manwid' style='display:none'> <table> <tbody> <td>
+<button id="whoyoubtn" type="submit" style='font-weight: bold;'> WHOIS </button>&nbsp;|
+<a id='manwit' style='color:tomato; cursor: pointer; font-size:70%;' class='button tooltip' onclick='jsfmanwi(); changeTextnsvt();'>More Options<span class='tooltiptext' style='word-break:break-word; font-size: 100%; font-family: calibri; text-align: center; font-weight:normal;'><br>Click to specify a whois server to query. Or try RDAP (the replacement for WHOIS)<br><br></span></a>&nbsp;|
+
+<div id='manwid' style='display:none'> 
 <input placeholder="Whois server (Optional)" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="swstq"  size='20'>
-<input type="hidden" name="sptq" value="" >
-<!--<input placeholder="Port" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="sptq" maxlength="5" size='3'>-->
-</td> </tbody> </table>
+
+
 </form>
 <!-- ################## WHO YOU ################# -->
-</td> </tbody> </table> </div></p>
+EONAVMENU
+
+#check if rdap is available on the system - will store html button to a var and this button will be visible on the website
+if [ $( which rdap > /dev/null; echo $? ) -eq 0 ]; then 
+cat << EONAVMENU2
+<br><br>
+<!-- ################## RDAP ################# -->
+<form action="whois.zyx" method="get">
+<input placeholder="Domain / IPv6 address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="rdoi">
+<button id="rdapbtn" type="submit" value="rdap" style='font-weight: bold;'> RDAP </button>&nbsp;&nbsp;&nbsp;<label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' ><br>WHOIS is dead (R.I.P. 2018), RDAP is the future.<br><br></span></label>
+
+</form>
+<!-- ################## RDAP ################# -->
+EONAVMENU2
+fi
+
+cat << EONAVMENU3
+</td> </tbody> </table>
+</div></p>
 <a style='color:tomato; cursor: pointer; font-size: 116%; font-family:verdana;' value="Refresh Page" onClick="window.location.href=window.location.href">&#8635;<span style="font-size: 77%;">Refresh Results</span></a></p>
 <hr>
 </head>
-EONAVMENU
+EONAVMENU3
 
 . ../zyx/sh/tldblob.sh
 
@@ -139,6 +166,25 @@ done < <(printf '%s\n' "$1");
 #============#
 #FUNCTIONHALL#
 #============#
+
+
+if [ -z $doi ] && [ ! -z $rdoi ]; then
+
+rdapres=$(rdap $rdoi)
+
+cat << RDAPRES0
+<body>
+<br>
+<button onclick="copyClipboard1()">Copy Result</button><br>
+<div id="divClipboard1">
+<table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $rdapres </pre></td> </tbody> </table></div><br>
+<hr><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p>
+</body>
+</html>
+RDAPRES0
+
+exit 0
+fi
 
 #checks if the domain enter is null  
 #if 1
@@ -173,7 +219,7 @@ if [[ -z $wsman ]]; then wsman="No whois info retrieved for $doi"; else true; fi
 if [[ $specter = "y" ]]; then
 cat << WHOISMAN
 <body>
-<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq - Port: 43</td></tbody></table><br>
+<table> <tbody> <td style="font-size: 87%; border: #9DC209;"><strong>Whois server:</strong> $swstq </td></tbody></table><br>
 <button onclick="copyClipboard1()">Copy Result</button><br>
 <div id="divClipboard1">
 <table> <tbody> <td style="font-size: 105%; border: #9DC209;"><pre> $wsman </pre></td> </tbody></table></div><br>
@@ -223,13 +269,13 @@ else true; fi;
 	ipwhois="$doi";
 
 	if [[ $whoisprog = 'jwhois' ]]; then
-	zyxip0=$($zyxwhois $ipwhois $swstq $sptq 2>&1 );
+	zyxip0=$($zyxwhois $ipwhois $swstq 2>&1 );
 	zyxip=$(echo "$zyxip0" | sed  '1,2d' );
 	ipwis0=$(echo "$zyxip0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 	ipwis="${ipwis0#*Querying}";
 
 	elif [[ $whoisprog = 'whois' ]]; then
-	zyxip0=$($zyxwhois $ipwhois $swstq $sptq);
+	zyxip0=$($zyxwhois $ipwhois $swstq );
 	zyxip=$(echo "$zyxip0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 	ipwisx0=$(echo "$zyxip0" | grep -i -e "Using server" | sort -u );
 	ipwisx=$(echo  "$ipwisx0" | cut -f3 -d" ");
@@ -260,13 +306,13 @@ EOWIIPR
 
 
 if [[ "$witst0" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx0=$( $zyxwhois $doi $swstq 2>&1);
 zyx=$(echo "$zyx0" | sed  '1,2d' );
 trywis0=$(echo "$zyx0" | grep -F -i -e "[Querying" | sort -u | tr -d '\[\] ' );
 trywis="${trywis0#*Querying}";
 
 elif [[ "$witst0" = "n" ]] && [[ "$witst1" = "y" ]]; then
-zyx0=$( $zyxwhois $doi $sptq $swstq 2>&1);
+zyx0=$( $zyxwhois $doi $swstq 2>&1);
 zyx=$(echo "$zyx0" | sed -e '1,/Query string:/d' | sed -n '1!p' );
 trywis=$(echo "$zyx0" | grep -i -e "Using server" | sort -u );
 else 
