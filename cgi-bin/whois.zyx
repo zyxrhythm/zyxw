@@ -38,13 +38,14 @@ echo "
 #converts all uppercase form the query string to lowercase
 qs=$(echo $QUERY_STRING | gawk '{print tolower($0)}')
 
+
+if [ ! -z $( grep 'rdoi' <<< $qs) ]; then
+rdoi=$(echo $qs | sed 's/.*rdoi=//' | tr -d '\040\011\012\015')
+else
 #butchers the qs string and gets the domain
 doi=$(grep -oP '(?<=doi=).*?(?=&)' <<< "$qs")
 #swstq=$(grep -oP '(?<=swstq=).*?(?=&)' <<< "$qs")
 swstq=$(echo $qs | sed 's/.*swstq=//' | tr -d '\040\011\012\015')
-
-if [ ! -z $( grep 'rdoi' <<< $qs) ]; then
-rdoi=$(echo $qs | sed 's/.*rdoi=//' | tr -d '\040\011\012\015')
 fi
 
 if [[ ! -z $swstq ]]; then
@@ -132,7 +133,7 @@ cat << EONAVMENU2
 <!-- ################## RDAP ################# -->
 <form action="whois.zyx" method="get">
 <input placeholder="Domain / IPv6 address" type="text" onblur="this.value=removeSpaces(this.value); this.value=removeSpecialCharacters(this.value);" onKeyDown="if(event.keyCode==13) this.value=removeSpaces(this.value); if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);" onKeyUp="if(event.keyCode==13) this.value=removeSpecialCharacters(this.value);"name="rdoi">
-<button id="rdapbtn" type="submit" value="rdap" style='font-weight: bold;'> RDAP </button>&nbsp;&nbsp;&nbsp;<label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' ><br>WHOIS is dead (R.I.P. 2018), RDAP is the future.<br><br></span></label>
+<button id="rdapbtn" type="submit" value="rdap" style='font-weight: bold;'> RDAP </button>&nbsp;&nbsp;&nbsp;<label class='tooltip'> &#128072; &nbsp; &nbsp;<span class='tooltiptext' ><br>WHOIS is dead (R.I.P. 2019), RDAP is the future.<br><br></span></label>
 
 </form>
 <!-- ################## RDAP ################# -->
