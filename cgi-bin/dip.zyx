@@ -255,10 +255,10 @@ else { element.innerHTML = '-';} }
 				nsipc1='reset'
 
 				elif [ $nsipc1 = 'xd' ]; then
-				echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank'>style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:} <br>Warning: This NS does not respond to dig queries!!</span>"; nsipc1="reset"
+				echo "<span id='fiftyshades' >&nbsp; &nbsp; $nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=' target='_blank'>style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:} <br>Warning: This NS does not respond to dig queries!!</span>"; nsipc1="reset"
 
 	 			else
-	 			echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:}"
+	 			echo "<br> &nbsp; &nbsp; $line --- <a href='/cgi-bin/whois.zyx?doi=$line&swstq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax##*:}"
  	 			fi
 			done < <(printf '%s\n' "$nsr2")
 
@@ -280,11 +280,11 @@ else { element.innerHTML = '-';} }
 			nsipc="reset"
 
 			elif [[ "$nsipc" = "xd" ]]; then
-			echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:} <br>Warning: This NS does not respond to dig queries!</span>"
+			echo "<span id='fiftyshades' >&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:} <br>Warning: This NS does not respond to dig queries!</span>"
 			nsipc="reset"
 
    		else
-			echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:}"
+			echo "&nbsp; &nbsp;$nsr2 --- <a href='/cgi-bin/whois.zyx?doi=$nsr2&swstq=' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${nsax2#*:}"
 			fi
 
 		fi
@@ -386,7 +386,7 @@ else { element.innerHTML = '-';} }
 			echo "<br>   <span id='naruto' >$alinex --- [ RESERVED IP ]</span> <br>"
 
 			elif [ $rchk = 'A' ] && [ $rchkx = 'rr' ]; then
-			echo "<br>   $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex&swstq=&sptq=' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span>
+			echo "<br>   $alinex --- <a href='/cgi-bin/whois.zyx?doi=$alinex&swstq=' class='tooltip' target='_blank' style='color:tomato' class='tooltip'> <span id='noselect'>&#9654;</span>
 <span class='tooltiptext' >
 <br>Click this to get the full raw whois data.<br><br>
 </span></a> ${arx#*:}"
@@ -531,7 +531,7 @@ also the CNAME is invalid / does not resolve to an IP address. </span>"
 							echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ RESERVED IP ]</span> <br>"
 
 							else
-							echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax#*:} <br>"
+							echo "&nbsp; &nbsp; $linex --- <a href='/cgi-bin/whois.zyx?doi=$linex&swstq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax#*:} <br>"
 							fi
 
 						else
@@ -569,7 +569,7 @@ also the CNAME is invalid / does not resolve to an IP address. </span>"
 						echo "&nbsp; &nbsp; <span id='naruto' >$linex --- [ RESERVED IP ]</span> <br>"
 
 						else
-						echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=&sptq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax2#*:} <br>"
+						echo "&nbsp; &nbsp;$mxr2 --- <a href='/cgi-bin/whois.zyx?doi=$mxr2&swstq=' target='_blank' style='color:tomato' class='tooltip' > <span id='noselect'>&#9654;</span> <span class='tooltiptext' ><br>Click this to get the full raw whois data.<br><br></span></a> ${mxax2#*:} <br>"
 						fi
 
    			else
@@ -615,7 +615,7 @@ also the CNAME is invalid / does not resolve to an IP address. </span>"
 		else
 		domvarx="<br>( Not a  valid domain / sub domain but rather something else. )"
 		fi
-		echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or has been deleted and is no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>3.The domain's TLD has beed added to the not supported TLD <a href='/zyx/lib/blob/tldlistx.blob' target='_blank'>list</a><br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/whois.zyx?domain=$domain' target='_blank' >here.</a></p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p></body></html>"
+		echo "<body><div id='divClipboard'><p><strong>Input</strong> : $domain $domvarx <br><strong>Whois server queried:</strong> $trywis <br><br>No whois information found!<br><br>Possible causes: <br>-Input is not valid:<br> 1.The domain is not registered or has been deleted and is no longer registered.<br> 2.Not a valid naked domain name (FQDN).<br>3.The domain's TLD has beed added to the not supported TLD <a href='/zyx/lib/blob/tldlistx.blob' target='_blank'>list</a><br>-The whois server for this domain name does not respond to whois queries via port 43 (a web/other interface might be available). <br>-There is no such service provided by the Registry.<br><br><br>Please input a valid/registered naked domain name <a href='https://en.wikipedia.org/wiki/Fully_qualified_domain_name' target='_blank'>(FQDN)</a>.<br><br><br><br>Additional info from Who You <a href='/cgi-bin/whois.zyx?doi=$domain&swstq=' target='_blank' >here.</a></p></div><p style='color: red; text-decoration: none; font-family: calibri'><small><<</small><input type='button' style='background:none; border:none; font-size:95%; color: red;' value='back | track' onClick='history.go(-1);'>&nbsp;&nbsp;&nbsp;<input type='button' style='background:none; border:none; font-size:95%; color: red;' value='track | back' onClick='history.go(+1);'><small>>></small></p></body></html>"
 		exit 0
 
 		elif [ $dvc = "%ianawh" ] || [ $zyxdvc = "%ianawh" ]; then
